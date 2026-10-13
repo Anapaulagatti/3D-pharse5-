@@ -2,7 +2,7 @@
 
 Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verification. Milestones follow the persistent-progress prompt (nine milestones).
 
-Current user gate: public GitHub Pages deployment of existing v0.2 is now explicitly authorized. Complete/verify that deployment, then STOP for visual feedback. Do not continue WORLD-001/WORLD-002 or request public-deployment approval again.
+Current user gate: public GitHub Pages deployment of existing v0.2 is COMPLETE and verified. STOP for the user's visual feedback. Do not continue WORLD-001/WORLD-002.
 
 | Milestone | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|---|
@@ -39,10 +39,11 @@ Current user gate: public GitHub Pages deployment of existing v0.2 is now explic
 |---|---|---|---|
 | PREVIEW-ACCESS-001 | Existing v0.2 browser HTTP rendering and clear downloadable viewing package | DONE | downloads/ ZIPs/manifest, build PASS, 9 smoke + 21 rendered HTTP checks; 806f960 pushed/remote verified; STOP for user feedback |
 | PREVIEW-DEPLOY-001 | Static site package and manual-only Pages configuration prepared without publication | DONE | showcase-v0.2-static.zip, DEPLOYMENT.md and parsed workflow_dispatch-only workflow |
-| PREVIEW-ONLINE-001 | Publish publicly and inspect returned live URL | BLOCKED | Explicit authorization; run 38402363567 failed at configure-pages: site Not Found, deploy skipped; Pages GET/POST now origin 403 integration permission denied; owner must enable Source GitHub Actions; public URL returns site-not-found 404 |
-| VISUAL-REVIEW-001 | User reviews the rendered showcase before new districts | BLOCKED | Waiting for user's visual feedback; local HTTP package available |
+| PREVIEW-ONLINE-001 | Publish publicly and inspect returned live URL | DONE | Owner enabled Source GitHub Actions; run 38402363567 attempt 2 package/deploy success; https://anapaulagatti.github.io/3D-pharse5-/ 200 text/html, approved SHA and 7 public browser checks PASS |
+| VISUAL-REVIEW-001 | User reviews the rendered showcase before new districts | BLOCKED | Waiting for user's visual feedback; verified public site https://anapaulagatti.github.io/3D-pharse5-/ and local HTTP package available |
 
 | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|
 | PAGES-PREP-001 | Production artifact/subpath/privacy/provenance audit without model rebuild | DONE | prepare-pages-site.py, artifact-audit.json, seven approved-artifact HTTP render checks including mobile fallback; HTML SHA unchanged |
-| PAGES-NET-001 | Allow API/public hostname in cloud network | DONE | Saved api.github.com + anapaulagatti.github.io preserving presets; current API/site origin responses reachable. Draft still reports Publish needed for persistent environment snapshot; Pages API permission is a separate blocker |
+| PAGES-NET-001 | Allow API/public hostname in cloud network | DONE | Saved api.github.com + anapaulagatti.github.io preserving presets; origins reachable. Direct integration Pages administration is restricted; owner enabled Source and Actions successfully published the site |
+| PAGES-LIVE-001 | Public mascot/camera/lighting/animations/mobile-fallback render verification | DONE | quality-reports/pages-live/ deployment.json, public http-verification.json and actual inspected screenshots; zero critical console/resource errors |

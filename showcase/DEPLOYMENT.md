@@ -1,12 +1,18 @@
 # Xuất bản showcase hiện có
 
+## Site đã triển khai và xác minh
+
+**URL công khai:** https://anapaulagatti.github.io/3D-pharse5-/
+
+Owner đã bật Source GitHub Actions. Run 38402363567 lần 2 package/deploy success, deployment 7039586635 báo URL này. HTTP 200 text/html và SHA đúng artifact đã duyệt; 7 kiểm tra browser trên URL thật đạt, ảnh desktop/night/mascot/mobile fallback đã được xem. Xem quality-reports/pages-live/. Không còn cần bước enable Source để xem site; các lỗi/chỉ dẫn bên dưới là lịch sử xử lý và hướng dẫn cho lần triển khai sau.
+
 Người dùng đã **chấp thuận công khai showcase v0.2 lên GitHub Pages**. Không hỏi lại quyền này. Site chỉ gồm HTML đã hoàn tất và `.nojekyll`; không tái tạo model/app hay công khai nguồn Blender. Workflow hỗ trợ chạy thủ công và tự chạy khi file deployment thay đổi trên `main`; checkpoint chỉ sửa tài liệu không redeploy. Việc có workflow/checkpoint không chứng minh site đã xuất bản: cần URL thực trả `200 text/html` và kiểm tra render.
 
 ## Mạng cloud để điều khiển/kiểm tra deployment
 
-Hiện proxy mạng chặn `api.github.com` và `anapaulagatti.github.io` vì hai hostname chưa có trong allowlist. Lỗi CONNECT `403 Forbidden` không phải bằng chứng về quyền tài khoản GitHub; HTTP status của site chưa nhận được. Không gọi đó là site 404 hoặc deployment thành công.
+**Lỗi ban đầu, đã xử lý:** proxy từng chặn `api.github.com` và `anapaulagatti.github.io` vì hostname chưa có trong allowlist. CONNECT `403 Forbidden` lúc đó không phải bằng chứng về quyền tài khoản GitHub. Sau khi lưu các host cần thiết, origin truy cập được.
 
-**Kết quả mới sau push:** API/site đã truy cập được. Pages GET/POST hiện trả lỗi origin `403 Resource not accessible by integration`; workflow run `38402363567` thất bại ở `configure-pages` với `Not Found`, deploy skipped. Site đích thực sự trả `404 Site not found`. Cần owner bật Source GitHub Actions theo bước dưới; public deployment chưa thành công.
+**Lần chạy 1:** origin Pages GET/POST trả `403 Resource not accessible by integration`; run `38402363567` thất bại `configure-pages`/`Not Found`, deploy skipped, site 404. **Đã xử lý:** owner bật Source GitHub Actions; rerun lần 2 thành công, site 200 và kiểm tra render public đạt như phần đầu tài liệu.
 
 Đã lưu bổ sung chính xác hai hostname này vào bản nháp môi trường, giữ nguyên preset `package_managers`. Trong **Environment settings**, review/save bản nháp và chọn **Publish environment** để áp dụng. Việc này cho cloud truy cập API/site; không tự bật GitHub Pages hoặc công khai website. Chưa yêu cầu API key/token mới; Git HTTPS auth và biến GH_TOKEN hiện có được giữ nguyên.
 

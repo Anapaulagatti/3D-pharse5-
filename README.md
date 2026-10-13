@@ -65,7 +65,9 @@ Hướng dẫn Windows, phiên bản package và xử lý GLB: [Studio/README.md
 
 ## Golden slice v0.2.0
 
-**Xem bản tương tác qua HTTP:** tải [showcase-v0.2-http.zip](downloads/showcase-v0.2-http.zip), giải nén; Windows mở `START_WINDOWS.cmd`, macOS/Linux chạy `python3 start.py` trong thư mục đã giải nén. Trình duyệt tự mở app. Cần Python 3; không cần Node/Blender. Mở HTML trong ChatGPT/Codex/GitHub chỉ hiện source. Xem [hướng dẫn từng bước](showcase/README.md); [gói static](downloads/showcase-v0.2-static.zip) và [cấu hình Pages](showcase/DEPLOYMENT.md) đã chuẩn bị, chưa xuất bản công khai.
+**Xem showcase 3D online:** [https://anapaulagatti.github.io/3D-pharse5-/](https://anapaulagatti.github.io/3D-pharse5-/). GitHub Pages đã deploy và kiểm tra bản render thật, camera/ngày-đêm/sáu animation/reduced motion/mobile fallback; không cần tải HTML hoặc cài package. [Bằng chứng kiểm tra website công khai](quality-reports/pages-live/VISUAL_REVIEW.md).
+
+**Xem bản tương tác qua HTTP trên máy cá nhân:** tải [showcase-v0.2-http.zip](downloads/showcase-v0.2-http.zip), giải nén; Windows mở `START_WINDOWS.cmd`, macOS/Linux chạy `python3 start.py` trong thư mục đã giải nén. Trình duyệt tự mở app. Cần Python 3; không cần Node/Blender. Mở HTML trong ChatGPT/Codex/GitHub chỉ hiện source. Xem [hướng dẫn từng bước](showcase/README.md); [gói static](downloads/showcase-v0.2-static.zip) và [cấu hình Pages](showcase/DEPLOYMENT.md) vẫn được giữ để khôi phục/triển khai.
 
 Preview hiện tải **GLB thật từ Blender**: mái hanok cong, khung gỗ/hanji, sân gốm, vườn mận, cầu, đèn giấy có animation và skyline thu nhỏ. Linh vật Ceramic Seed Spirit có sáu clip: Idle, Happy, Thinking, Celebration, Disappointed, Greeting. Có điểm khám phá, camera reset, day/evening/night, Low/Med/High, giảm chuyển động, khung điện thoại, thông tin/tải asset và fallback bằng ảnh render thật (SVG dự phòng nếu ảnh lỗi).
 

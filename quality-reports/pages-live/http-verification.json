@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "verified_at": "2026-10-13T13:31:40.306Z",
+  "browser": "154.0.8037.57",
+  "renderer": "Cloud SwiftShader software GPU; physical-device FPS not verified",
+  "target_scope": "public",
+  "public_deployment": "Public URL response and rendered behavior verified at the listed endpoint",
+  "results": [
+    {
+      "label": "public",
+      "url": "https://anapaulagatti.github.io/3D-pharse5-/",
+      "status": "PASS",
+      "readyMilliseconds": 7058,
+      "checks": [
+        "HTTP 200 text/html; Hanok Arena and actual mascot rendered with uploaded textures",
+        "Canvas drag visibly changes camera; reset and roof POI work",
+        "Day/night control changes the actual rendered scene",
+        "Both real GLBs and embedded textures available; download bytes match approved exports",
+        "Six distinct real poses; animation advances; reduced motion stops playback at frozen pose",
+        "390×844 layout renders without horizontal overflow",
+        "Missing WebGL shows actual arena/mascot PNG fallback; controls work at desktop and 390x844 without overflow"
+      ],
+      "httpResources": [
+        {
+          "path": "/3D-pharse5-/",
+          "status": 200
+        }
+      ],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "failedRequests": [],
+      "missingResources": []
+    }
+  ]
+}
