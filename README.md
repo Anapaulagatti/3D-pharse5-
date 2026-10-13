@@ -63,4 +63,27 @@ npm run dev
 
 Hướng dẫn Windows, phiên bản package và xử lý GLB: [Studio/README.md](Studio/README.md). Kết quả kiểm tra và ảnh demo thực tế: [quality-reports/SETUP_REPORT.md](quality-reports/SETUP_REPORT.md).
 
-Demo hiện có sân hanok và linh vật gốm dạng hình học thủ tục, điều khiển góc nhìn/chất lượng/ánh sáng, giảm chuyển động, khung điện thoại và fallback SVG. Đây là nền tảng để phát triển theo master prompt; chưa hoàn thành các giai đoạn sản xuất art, animation và `exports/v1/`. Manifest giữ trống vì chưa có asset thành phẩm.
+## Golden slice v0.2.0
+
+Preview hiện tải **GLB thật từ Blender**: mái hanok cong, khung gỗ/hanji, sân gốm, vườn mận, cầu, đèn giấy có animation và skyline thu nhỏ. Linh vật Ceramic Seed Spirit có sáu clip: Idle, Happy, Thinking, Celebration, Disappointed, Greeting. Có điểm khám phá, camera reset, day/evening/night, Low/Med/High, giảm chuyển động, khung điện thoại, thông tin/tải asset và fallback bằng ảnh render thật (SVG dự phòng nếu ảnh lỗi).
+
+Nguồn `.blend` ở `assets/source-blend/`, script tái tạo ở `Studio/modeling/`, bản xuất/manifest ở `exports/v1/`. Không cần tái tạo model để chạy app:
+
+```sh
+cd preview
+npm run dev
+```
+
+Kiểm tra hoặc phục hồi dependencies **chỉ khi thiếu**, không dựng lại art:
+
+```sh
+bash Studio/scripts/recover-check.sh
+```
+
+Build/TypeScript và 9 kiểm thử trình duyệt đã đạt. Hai GLB có 0 lỗi/0 cảnh báo Validator; topology, bounds và toàn bộ sampler animation được giữ sau tối ưu. Sáu pose khác nhau và raw/optimized Celebration render giống từng pixel trong kiểm tra deterministic. Xem [QA_CHECKLIST.md](QA_CHECKLIST.md) và [PERFORMANCE_REPORT.md](PERFORMANCE_REPORT.md) cho phạm vi và giới hạn đo đạc.
+
+## Tiếp tục sau gián đoạn
+
+Đọc [STUDIO_PROGRESS.md](STUDIO_PROGRESS.md), [STUDIO_TASKS.md](STUDIO_TASKS.md), [STUDIO_DECISIONS.md](STUDIO_DECISIONS.md), [STUDIO_ASSETS.md](STUDIO_ASSETS.md) và `AGENTS.md` trước khi làm. Yêu cầu mới nhất được lưu trong `STUDIO_MASTER_PROMPT.md`. Kiểm tra Git status/log và tiếp tục task chưa xong; không khởi động lại setup hoặc tạo lại concept/model đã có.
+
+Đây là bản đầu của arena + mascot, chưa phải toàn bộ thế giới. Sáu khu học tập và benchmark GPU/FPS trên thiết bị thật còn nằm trong checklist. Không có tích hợp vào Korean Arena production.

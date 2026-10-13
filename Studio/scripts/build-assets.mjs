@@ -1,6 +1,6 @@
 import { spawnSync } from 'node:child_process'
 import { readFile, writeFile, mkdir, copyFile, stat } from 'node:fs/promises'
-import { dirname, resolve } from 'node:path'
+import { dirname, resolve, relative, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createHash } from 'node:crypto'
 import { NodeIO } from '@gltf-transform/core'
@@ -152,7 +152,7 @@ const quote = (v) => '"'+String(v??'').replaceAll('"','""')+'"'
 const header=['id','file','asset_type','version','origin','source_url','license','author','created_at','source_file','file_bytes','sha256','validated','notes']
 await writeFile(resolve(root,'ASSET_MANIFEST.csv'),header.join(',')+'\n'+assets.map(a=>[
   a.id,`exports/v1/${a.file}`,a.type,a.version,a.origin,'',a.license,'Original Studio procedural artwork',a.created_at,
-  a.source_file,a.file_bytes,a.checksum_sha256,a.verified,a.optimization||a.color_space||'Actual original render',
+  relative(root,resolve(exportDir,a.source_file)).split(sep).join('/'),a.file_bytes,a.checksum_sha256,a.verified,a.optimization||a.color_space||'Actual original render',
 ].map(quote).join(',')).join('\n')+'\n')
 await writeFile(resolve(reports,'asset-pipeline-summary.json'),JSON.stringify({assets:assets.filter(a=>a.type==='glb'),passed:true},null,2)+'\n')
 console.log('Asset export pipeline PASS:',assets.map(a=>`${a.id}: ${a.file_bytes} bytes`).join(', '))

@@ -15,4 +15,4 @@ export interface StudioAsset {
 export const assets = exported.assets as StudioAsset[]
 export const modelAssets = assets.filter(asset => asset.type === 'glb')
 export const assetURL = (id: string) => '/' + assets.find(a => a.id === id)!.file
-export const formatBytes = (n: number) => n < 1024 * 1024 ? `${(n / 1024).toFixed(0)} KB` : `${(n / 1024 / 1024).toFixed(2)} MB`
+export const formatBytes = (n: number) => n < 1024 * 1024 ? `${(n / 1024).toFixed(0)} KiB` : `${(n / 1024 / 1024).toFixed(2)} MiB`

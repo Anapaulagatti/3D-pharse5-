@@ -5,6 +5,9 @@ import { resolve } from 'node:path'
 
 const reports = resolve(process.env.STUDIO_REPORT_DIR || resolve(process.cwd(), '../quality-reports'))
 mkdirSync(reports, { recursive: true })
+const posters = resolve(process.env.STUDIO_POSTER_DIR || (process.env.STUDIO_REPORT_DIR ? resolve(reports, 'posters') : resolve(process.cwd(), '../assets/posters')))
+mkdirSync(posters, { recursive: true })
+const captureStyle = '.stage-note, .model-loading-overlay { visibility: hidden !important; }'
 
 test('3D renders and scene, quality, light and motion controls work', async ({ page }) => {
   const errors: string[] = []
@@ -21,8 +24,7 @@ test('3D renders and scene, quality, light and motion controls work', async ({ p
   await page.getByLabel('Giảm chuyển động').check()
   await expect(page.getByLabel('Giảm chuyển động')).toBeChecked()
   await page.screenshot({ path: resolve(reports, 'preview-desktop.png'), fullPage: true })
-  mkdirSync(resolve(process.cwd(), '../assets/posters'), { recursive: true })
-  await page.locator('canvas').screenshot({ path: resolve(process.cwd(), '../assets/posters/arena-desktop.png') })
+  await page.locator('canvas').screenshot({ path: resolve(posters, 'arena-desktop.png'), style: captureStyle })
   writeFileSync(resolve(reports, 'renderer-desktop.json'), JSON.stringify(await page.evaluate(() => window.__STUDIO_METRICS__), null, 2) + '\n')
   await page.getByRole('button', { name: 'Mái hanok', exact: true }).click()
   await expect.poll(() => page.evaluate(() => window.__STUDIO_METRICS__?.focus)).toBe('roof')
@@ -60,7 +62,7 @@ test('phone viewport renders 3D without horizontal overflow', async ({ page }) =
   await expect(page.locator('canvas')).toBeVisible()
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
   await page.screenshot({ path: resolve(reports, 'preview-mobile.png'), fullPage: true })
-  await page.locator('canvas').screenshot({ path: resolve(process.cwd(), '../assets/posters/arena-mobile.png') })
+  await page.locator('canvas').screenshot({ path: resolve(posters, 'arena-mobile.png'), style: captureStyle })
 })
 
 test('WebGL unavailable shows accessible static illustration and keeps controls usable', async ({ page }) => {
@@ -108,7 +110,7 @@ test('six exported clips produce distinct static poses and live animation advanc
     await page.getByLabel('Trạng thái linh vật').selectOption(clip)
     await expect.poll(() => page.evaluate(() => window.__STUDIO_METRICS__?.activeClip)).toBe(clip)
     await expect.poll(() => page.evaluate(() => window.__STUDIO_METRICS__?.clipTime)).toBeCloseTo(.8, 3)
-    const image = await page.locator('canvas').screenshot({ path: resolve(reports, `mascot-${clip.toLowerCase()}.png`) })
+    const image = await page.locator('canvas').screenshot({ path: resolve(reports, `mascot-${clip.toLowerCase()}.png`), style: captureStyle })
     signatures.add(createHash('sha256').update(image).digest('hex'))
   }
   expect(signatures.size).toBe(6)
@@ -128,7 +130,7 @@ test('night lighting renders the arena and low quality lowers render cost', asyn
   await expect(page.locator('.stage')).toHaveAttribute('data-engine', 'ready')
   const medium = await page.evaluate(() => window.__STUDIO_METRICS__!.drawCalls)
   await page.getByLabel('Ánh sáng').selectOption('night')
-  await page.locator('canvas').screenshot({ path: resolve(reports, 'arena-night.png') })
+  await page.locator('canvas').screenshot({ path: resolve(reports, 'arena-night.png'), style: captureStyle })
   await page.getByLabel('Chất lượng').selectOption('low')
   await expect.poll(() => page.evaluate(() => window.__STUDIO_METRICS__!.quality)).toBe('low')
   const low = await page.evaluate(() => window.__STUDIO_METRICS__!)
@@ -159,7 +161,7 @@ test('original and optimized mascot render identically in a deterministic static
     await page.getByLabel('Chất lượng').selectOption('low')
     await page.getByLabel('Trạng thái linh vật').selectOption('Celebration')
     await expect.poll(() => page.evaluate(() => window.__STUDIO_METRICS__?.activeClip)).toBe('Celebration')
-    captures.push(await page.locator('canvas').screenshot({ path: resolve(reports, original ? 'mascot-original.png' : 'mascot-optimized.png') }))
+    captures.push(await page.locator('canvas').screenshot({ path: resolve(reports, original ? 'mascot-original.png' : 'mascot-optimized.png'), style: captureStyle }))
     await context.close()
   }
   expect(createHash('sha256').update(captures[0]).digest('hex')).toBe(createHash('sha256').update(captures[1]).digest('hex'))

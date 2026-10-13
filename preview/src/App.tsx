@@ -29,7 +29,7 @@ export default function App() {
   const update = <K extends keyof SceneSettings>(key: K, value: SceneSettings[K]) => setSettings(s => ({ ...s, [key]: value }))
   const resetCamera = () => { update('focus', 'overview'); setReset(r => r + 1); if (engine !== 'fallback') setEngine('loading') }
   const switchScene = (scene: SceneSettings['scene']) => { if (settings.scene === scene) return; update('scene', scene); if (engine !== 'fallback') setEngine('loading') }
-  const poster = <div className="poster"><Poster /><p>Ảnh tĩnh · 3D tạm thời không khả dụng</p></div>
+  const poster = <div className="poster"><Poster mascot={settings.scene === 'mascot'} /><p>Ảnh tĩnh · 3D tạm thời không khả dụng</p></div>
   return <div className="studio-shell">
     <header className="topbar">
       <a className="wordmark" href="#main"><span className="logo-mark" aria-hidden="true">◈</span> DISTRICT <span className="wordmark-light">/ 3D STUDIO</span></a>

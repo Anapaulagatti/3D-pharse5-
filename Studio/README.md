@@ -71,3 +71,39 @@ npm run test:smoke
 Cloud dùng `/usr/bin/chromium`. Nếu máy khác chưa có browser cho Playwright, chạy `npm exec -- playwright install chromium`; hoặc đặt `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` tới Chromium của bạn. Test tự khởi động và dừng Vite, chụp ảnh vào `quality-reports/`, và kiểm tra 3D/controls/mobile/fallback/reduced motion/context loss. Chromium SwiftShader chỉ xác minh chức năng; không đại diện FPS trên thiết bị thật.
 
 Không cần backend, biến bí mật hoặc API key. Chỉ tải dependencies qua registry npm. Thực hiện công việc trong checkout này; mỗi cloud task đã được cô lập, không cần tạo Git worktree.
+
+## Pipeline asset v0.2 và phục hồi
+
+Các model đã có trong Git; `predev` và `prebuild` chỉ đồng bộ exports vào `preview/public/` bị ignore. Không cần chạy Blender để mở preview.
+
+Từ gốc repo:
+
+```sh
+bash Studio/scripts/recover-check.sh
+npm --prefix Studio run assets:verify
+npm --prefix preview run dev
+```
+
+`recover-check.sh` dùng lại dependencies nếu `npm ls --depth=0` hợp lệ, chỉ cài bằng lockfile khi thiếu. Kiểm tra read-only SHA-256/source/clip/Validator, build và 9 browser tests. Report/screenshot tạm vào `Studio/.cache/recovery-browser-reports`, không ghi đè art/report đã commit. Blender, Node, Chromium vẫn là điều kiện trên máy; CLI executable overrides ở phía trên.
+
+Chỉ khi chỉnh model có lý do và đã lưu checkpoint, chạy script tương ứng, từ gốc repo:
+
+```sh
+blender --background --factory-startup --threads 4 --python Studio/modeling/arena.py
+# hoặc chỉ dựng lại linh vật nếu thay đổi linh vật:
+blender --background --factory-startup --threads 4 --python Studio/modeling/mascot.py
+npm --prefix Studio run assets:pack
+npm --prefix preview run build
+npm --prefix preview run test:smoke
+```
+
+`assets:pack` giữ topology từng node, bounds và **sampler/keyframe animation chính xác** (`--weld false --resample false --compress false`, không join/flatten/simplify). Validator có thể báo ít tam giác serialized hơn khi dedup chia sẻ mesh; scene-instance counts được so sánh riêng. `assets:build` chỉ dựng GLB/source bị thiếu; không dùng `--regenerate` với art đã duyệt nếu không có lý do.
+
+Để chụp poster linh vật nền trong suốt:
+
+```sh
+blender --background --threads 4 --python Studio/modeling/render-mascot.py
+npm --prefix Studio run assets:pack
+```
+
+Cloud Cycles không có OpenImageDenoise nên render dùng 96 samples và tắt chức năng khử nhiễu không khả dụng. Đây là thiết lập render; không bỏ kiểm tra GLB hay checksum.
