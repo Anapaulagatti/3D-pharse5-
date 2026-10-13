@@ -7,9 +7,11 @@
 | Toolchain fixture | Studio/scripts/create-smoke-fixture.py | Ignored Studio/.cache/smoke/*.blend, *.glb | Tooling test, not production art | Pipeline / M2 | Saved Validator reports; 0 errors/0 warnings; original procedural |
 | Baseline screenshots | preview/tests/studio.spec.ts | quality-reports/preview-*.png | Historical evidence | Foundation / M2 | Actual Chromium captures; not current golden-slice output |
 
-No production arena, selected mascot, final animation or versioned exports exist yet. Do not list planned files as delivered. Preserve successful concept-generation outputs before any retry.
+Production assets are listed below as they are saved and verified; inspect current manifest for exact sizes/checksums. Do not list planned files as delivered. Preserve successful concept-generation outputs before any retry.
 
 | Three mascot/world directions | Original text specification, native image_gen | concepts/mascot-directions-v1.png / PNG, metadata JSON | Saved concept; A selected by technical rubric | Art direction / M3 | Actual generated image inspected; original AI generation, no external source images; not a mesh |
 
-| Hanok arena source | Studio/modeling/arena.py and common.py | Pending assets/source-blend/arena-hero.blend and assets/models/arena-hero.glb | IN_PROGRESS, reproducible source saved | Arena / M4 | Python compilation passed; Blender export not run yet; original procedural |
-| Ceramic Seed Spirit source | Studio/modeling/mascot.py and common.py | Pending .blend / GLB | IN_PROGRESS, six transform clips authored | Mascot / M5 | Python compilation passed; export and animation not verified; original procedural |
+| Hanok arena source | Studio/modeling/arena.py and common.py | assets/source-blend/arena-hero.blend; assets/models/arena-hero.glb; exports/v1/models/arena-hero.glb | Saved geometry/export; visual review pending | Arena / M4 | Blender exported, Validator 0 errors/0 warnings, LanternSway clip, instance topology/bounds parity; original procedural |
+| Ceramic Seed Spirit source | Studio/modeling/mascot.py and common.py | assets/source-blend/mascot-base.blend; assets/models/mascot-base.glb; exports/v1/models/mascot-base.glb | Six exported clips; browser playback review pending | Mascot / M5 | Validator 0 errors/0 warnings; six clip names/durations and node topology/bounds preserved; original procedural |
+
+| Original grain textures | Studio/modeling/common.py | assets/textures/{hanji-grain,courtyard-stone}.png; embedded in GLB; exports/v1/textures/ | Saved 256×256 original textures | Materials / M4–M5 | Actual PNG headers checked; original procedural, no downloaded textures |
