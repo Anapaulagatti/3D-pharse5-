@@ -8,3 +8,5 @@
 | Baseline screenshots | preview/tests/studio.spec.ts | quality-reports/preview-*.png | Historical evidence | Foundation / M2 | Actual Chromium captures; not current golden-slice output |
 
 No production arena, selected mascot, final animation or versioned exports exist yet. Do not list planned files as delivered. Preserve successful concept-generation outputs before any retry.
+
+| Three mascot/world directions | Original text specification, native image_gen | concepts/mascot-directions-v1.png / PNG, metadata JSON | Saved concept; A selected by technical rubric | Art direction / M3 | Actual generated image inspected; original AI generation, no external source images; not a mesh |

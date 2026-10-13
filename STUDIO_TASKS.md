@@ -8,9 +8,9 @@ Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verificati
 | 1 Environment | ENV-002 | Preserve recovery records and supplied master prompt | DONE | Four root STUDIO files, AGENTS.md, STUDIO_MASTER_PROMPT.md |
 | 2 Pipeline | PIPE-001 | Blender export, Validator, glTF Transform, gltfjsx tooling | DONE | quality-reports/toolchain-validation*.json; existing smoke fixtures |
 | 2 Pipeline | PIPE-002 | Load exported production GLB in the existing React preview | TODO | Requires actual arena and mascot GLBs |
-| 3 Art direction | ART-001 | Three distinct mascot/world explorations and selection rubric | IN_PROGRESS | |
-| 3 Art direction | ART-002 | Color, materials, silhouettes and camera standards | TODO | Existing ART_DIRECTION.md is the starting point |
-| 4 Hanok Arena | ARENA-001 | Editable curved roof, timber, courtyard, garden and skyline | TODO | |
+| 3 Art direction | ART-001 | Three distinct mascot/world explorations and selection rubric | DONE | concepts/mascot-directions-v1.png and DESIGN_REVIEW.md |
+| 3 Art direction | ART-002 | Color, materials, silhouettes and camera standards | DONE | Existing ART_DIRECTION.md is the starting point |
+| 4 Hanok Arena | ARENA-001 | Editable curved roof, timber, courtyard, garden and skyline | IN_PROGRESS | |
 | 4 Hanok Arena | ARENA-002 | Export GLB, inspect, optimize and validate | TODO | |
 | 5 Mascot | MASCOT-001 | Selected original character model and editable Blender source | TODO | |
 | 5 Mascot | MASCOT-002 | Six distinct exported animation clips | TODO | Idle, Happy, Thinking, Celebration, Disappointed, Greeting |
