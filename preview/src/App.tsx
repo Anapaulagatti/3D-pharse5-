@@ -80,7 +80,7 @@ export default function App() {
         </section>
       </div>
       <section className="asset-panel" aria-label="Thông tin asset"><div className="section-label">BỘ SƯU TẬP · ASSET 3D NGUYÊN BẢN</div><div className="asset-cards">
-        {modelAssets.map(asset => <article key={asset.id}><div><h3>{asset.id === 'arena-hero' ? 'Hanok Rooftop Arena' : 'Ceramic Seed Spirit'}</h3><span>v{asset.version} · {formatBytes(asset.file_bytes)}</span></div><p>{asset.geometry?.totalTriangleCount.toLocaleString('vi-VN')} tam giác · {asset.animations?.length} clip · Nguyên bản</p><a href={assetURL(asset.id)} download>Tải model GLB <span aria-hidden="true">↓</span></a></article>)}
+        {modelAssets.map(asset => <article key={asset.id}><div><h3>{asset.id === 'arena-hero' ? 'Hanok Rooftop Arena' : 'Ceramic Seed Spirit'}</h3><span>v{asset.version} · {formatBytes(asset.file_bytes)}</span></div><p>{asset.geometry?.totalTriangleCount.toLocaleString('vi-VN')} tam giác · {asset.animations?.length} clip · Nguyên bản</p><a href={assetURL(asset.id)} download={asset.file.split('/').pop()}>Tải model GLB <span aria-hidden="true">↓</span></a></article>)}
       </div></section>
       <section className="notes" aria-label="Thông tin bản demo"><div><span className="section-label">CHẤT LIỆU</span><p>Giấy hanji. Gốm men ngọc.<br />Ánh sáng nhẹ, hình khối rõ ràng.</p></div><div><span className="section-label">CERAMIC SEED SPIRIT</span><p>Sáu chuyển động, một người bạn nhỏ.<br />Model và animation từ Blender.</p></div><div><span className="section-label">KHÔNG GIAN ĐỘC LẬP</span><p>Dữ liệu demo, không cần tài khoản.<br />Chưa tích hợp vào ứng dụng Korean Arena.</p></div></section>
     </main>

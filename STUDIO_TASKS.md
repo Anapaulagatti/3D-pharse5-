@@ -25,3 +25,10 @@ Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verificati
 | 9 Handoff | SAVE-001 | Verify remote checkpoint and session-end recovery instructions | DONE | 80bfc2a matched remote main; install/start draft confirmed saved; final handoff commit follows |
 
 | 7 Device profiling | QA-004 | Physical desktop/phone GPU FPS and possible geometric LOD | BLOCKED | No target hardware; actual cloud software sample ~3.3 FPS, PERFORMANCE_REPORT.md |
+
+## Requested showcase viewing
+
+| Stable ID | Deliverable | Status | Evidence |
+|---|---|---|---|
+| SHOWCASE-001 | One downloadable index.html containing the actual interactive app and verified assets | DONE | showcase/index.html, build-info.json, README; six offline functional checks in quality-reports/showcase-offline.json |
+| SHOWCASE-002 | Verify direct file:// opening on a personal desktop browser | BLOCKED | Cloud managed Chromium blocks file navigation; offline content rendering passed, direct-file opening is not claimed verified |

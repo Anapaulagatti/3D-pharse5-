@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import { assets } from './assets'
+import { assets, assetURL } from './assets'
 
 export default function Poster({ mascot = false }: { mascot?: boolean }) {
   const [failed, setFailed] = useState(false)
   const image = assets.find(a => a.id === (mascot ? 'mascot-transparent' : 'arena-desktop'))
-  if (image && !failed) return <img src={'/' + image.file} alt={mascot ? 'Chân dung linh vật gốm — chế độ 2D' : 'Minh họa tĩnh sân hanok và linh vật men ngọc'} onError={() => setFailed(true)} />
+  if (image && !failed) return <img src={assetURL(image.id)} alt={mascot ? 'Chân dung linh vật gốm — chế độ 2D' : 'Minh họa tĩnh sân hanok và linh vật men ngọc'} onError={() => setFailed(true)} />
   return (
     <svg viewBox="0 0 700 500" role="img" aria-label="Minh họa tĩnh sân hanok và linh vật men ngọc">
       <defs>
