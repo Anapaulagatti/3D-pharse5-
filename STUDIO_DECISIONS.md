@@ -44,3 +44,5 @@
 - Create an additive original Blender detail layer in assets/v0.3 and exports/v0.3; reuse original base GLBs. Enhance original six clips at runtime through timing, secondary movement and facial expression without replacing their source data. No package upgrades or new dependencies.
 - v0.3 is a separate review candidate. Earlier public authorization explicitly covered existing v0.2; latest request requires review and authorization before publishing updated art. Keep showcase/index.html, build-info and deployment workflow untouched; candidate packaging goes to showcase-v0.3/downloads/v0.3.
 - Optional audio deferred: visual/motion/camera quality is the user's priority. Preserve operating-system reduced motion, static fallback, low/medium/high quality and visibility-aware rendering.
+
+- POLISH-ASSETS-003: Read-only Blender audit confirms original editable sources/NLA tracks. New detail layer adds 13,312 triangles and 21 material primitives in 0.50 MiB; a separate GardenBreeze clip drives three leaf clusters. No original textures are regenerated. Validator 0/0 and 37 preserved-file hashes match. Preview visual review still required before milestone acceptance.

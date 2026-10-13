@@ -37,4 +37,4 @@ No learning-alley, celebration scene or six district assets are claimed in v0.2.
 |---|---|---|---|
 | Approved v0.2 baseline | quality-reports/v0.3/preserved-v02.json; baseline b5ed079 | Hashes recorded before polish | All original assets/source/exports/deployed HTML retained |
 | v0.3 review request | docs/reviews/VISUAL_POLISH_V03_USER_REQUEST.md | Saved | User's authored visual review and explicit release gate |
-| Hanok polish layer | Planned Studio/modeling/polish-v03.py + assets/v0.3 + exports/v0.3 | IN_PROGRESS | Original additive artwork, no third-party assets; not yet generated/validated |
+| Hanok polish layer | Studio/modeling/polish-v03.py; assets/v0.3/source-blend/hanok-polish.blend; exports/v0.3/models/hanok-polish.glb and manifest | Generated and Validator verified; render pending | Original additive artwork; 527,852 bytes, 13,312 triangles, 21 primitives; GardenBreeze clip; 0 errors/0 warnings |
