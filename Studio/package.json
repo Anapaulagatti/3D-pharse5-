@@ -1,0 +1,18 @@
+{
+  "name": "korean-arena-3d-studio-tools",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.12.0" },
+  "scripts": {
+    "validate": "node scripts/validate-glb.mjs",
+    "inspect": "gltf-transform inspect",
+    "gltfjsx": "gltfjsx",
+    "check:tools": "node scripts/check-toolchain.mjs"
+  },
+  "devDependencies": {
+    "@gltf-transform/cli": "4.5.1",
+    "gltfjsx": "6.5.3",
+    "gltf-validator": "2.0.0-dev.3.10"
+  }
+}
