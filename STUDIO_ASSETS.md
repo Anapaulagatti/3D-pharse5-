@@ -10,3 +10,6 @@
 No production arena, selected mascot, final animation or versioned exports exist yet. Do not list planned files as delivered. Preserve successful concept-generation outputs before any retry.
 
 | Three mascot/world directions | Original text specification, native image_gen | concepts/mascot-directions-v1.png / PNG, metadata JSON | Saved concept; A selected by technical rubric | Art direction / M3 | Actual generated image inspected; original AI generation, no external source images; not a mesh |
+
+| Hanok arena source | Studio/modeling/arena.py and common.py | Pending assets/source-blend/arena-hero.blend and assets/models/arena-hero.glb | IN_PROGRESS, reproducible source saved | Arena / M4 | Python compilation passed; Blender export not run yet; original procedural |
+| Ceramic Seed Spirit source | Studio/modeling/mascot.py and common.py | Pending .blend / GLB | IN_PROGRESS, six transform clips authored | Mascot / M5 | Python compilation passed; export and animation not verified; original procedural |
