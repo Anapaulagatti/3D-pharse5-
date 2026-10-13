@@ -1,162 +1,211 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
-import { Group } from 'three'
-import type { SceneSettings } from './types'
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState, type ComponentRef } from 'react'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { OrbitControls, useAnimations, useGLTF } from '@react-three/drei'
+import { Color, Mesh, MeshStandardMaterial, OrthographicCamera, PCFShadowMap, Vector3 } from 'three'
+import type { Object3D } from 'three'
+import type { Focus, SceneSettings } from './types'
+import { assetURL } from './assets'
 
-const colors = { jade: '#72beac', cream: '#f5efe1', ink: '#293c55', brass: '#cfac67', coral: '#e57b69', wood: '#91745b' }
-
-function Block({ position, size, color, rotation = [0, 0, 0] }: {
-  position: [number, number, number]
-  size: [number, number, number]
-  color: string
-  rotation?: [number, number, number]
-}) {
-  return <mesh position={position} rotation={rotation} castShadow receiveShadow>
-    <boxGeometry args={size} /><meshStandardMaterial color={color} roughness={0.78} />
-  </mesh>
+const targets: Record<Focus, [number, number, number]> = {
+  overview: [0, 1.15, 0], dais: [-.4, .9, 1], roof: [-1.5, 1.6, -1.6], garden: [-3, 1.1, 1.15],
 }
 
-function Pavilion({ position, scale = 1 }: { position: [number, number, number]; scale?: number }) {
-  return <group position={position} scale={scale}>
-    <Block position={[0, 0.14, 0]} size={[2.6, 0.25, 1.8]} color={colors.cream} />
-    {[-0.9, 0.9].flatMap(x => [-0.55, 0.55].map(z =>
-      <Block key={`${x}:${z}`} position={[x, 0.83, z]} size={[0.12, 1.25, 0.12]} color={colors.wood} />))}
-    <Block position={[0, 0.65, -0.63]} size={[1.8, 0.86, 0.1]} color="#ded2b7" />
-    {[-0.65, -0.3, 0.05, 0.4, 0.75].map(x =>
-      <Block key={x} position={[x, 0.66, -0.55]} size={[0.035, 0.8, 0.02]} color={colors.wood} />)}
-    <Block position={[0, 1.45, 0]} size={[2.8, 0.12, 2]} color={colors.wood} />
-    {[-1, 1].map(side => <group key={side}>
-      <Block position={[0, 1.67, side * 0.46]} size={[2.7, 0.1, 1.25]} color={colors.ink} rotation={[side * 0.38, 0, 0]} />
-      {Array.from({ length: 12 }, (_, i) =>
-        <Block key={i} position={[-1.26 + i * 0.23, 1.75, side * 0.46]} size={[0.09, 0.065, 1.25]} color="#40556b" rotation={[side * 0.38, 0, 0]} />)}
-      <Block position={[0, 1.49, side * 1.05]} size={[2.98, 0.095, 0.17]} color={colors.jade} />
-    </group>)}
-    <Block position={[0, 1.95, 0]} size={[2.9, 0.1, 0.14]} color={colors.ink} />
-  </group>
+function useModel(id: string) {
+  const gltf = useGLTF(assetURL(id))
+  const scene = useMemo(() => {
+    const clone = gltf.scene.clone(true)
+    const materials = new Map<MeshStandardMaterial, MeshStandardMaterial>()
+    clone.traverse(object => {
+      if (!(object instanceof Mesh)) return
+      object.castShadow = true
+      object.receiveShadow = true
+      const copy = (m: MeshStandardMaterial) => {
+        if (!materials.has(m)) materials.set(m, m.clone())
+        return materials.get(m)!
+      }
+      object.material = Array.isArray(object.material) ? object.material.map(copy) : copy(object.material as MeshStandardMaterial)
+    })
+    return clone
+  }, [gltf.scene])
+  useEffect(() => () => {
+    const materials = new Set<MeshStandardMaterial>()
+    scene.traverse(object => {
+      if (object instanceof Mesh) {
+        const list = Array.isArray(object.material) ? object.material : [object.material]
+        for (const m of list) materials.add(m as MeshStandardMaterial)
+      }
+    })
+    for (const material of materials) material.dispose()
+  }, [scene])
+  return { ...gltf, scene }
 }
 
-function Mascot({ mood, animate, position = [0, 0.4, 0] }: {
-  mood: SceneSettings['mood']; animate: boolean; position?: [number, number, number]
-}) {
-  const group = useRef<Group>(null)
-  useFrame(({ clock }) => {
-    if (group.current && animate) {
-      group.current.position.y = position[1] + Math.sin(clock.elapsedTime * (mood === 'celebrate' ? 3 : 1.5)) * 0.06
-      group.current.rotation.z = Math.sin(clock.elapsedTime * 1.2) * (mood === 'celebrate' ? 0.1 : 0.025)
+function Mascot({ settings, animate, onReady }: { settings: SceneSettings; animate: boolean; onReady: () => void }) {
+  const { scene, animations } = useModel('mascot-base')
+  const { actions, mixer } = useAnimations(animations, scene)
+  const root = useMemo(() => scene.getObjectByName('MascotRoot')!, [scene])
+  const frames = useRef(0)
+  const reported = useRef(false)
+  useEffect(() => {
+    const action = actions[settings.mood]
+    if (!action) throw new Error(`Missing mascot clip ${settings.mood}`)
+    action.reset().fadeIn(settings.reducedMotion ? 0 : .18).play()
+    return () => { action.fadeOut(.15) }
+  }, [actions, settings.mood, settings.reducedMotion])
+  useEffect(() => {
+    const action = actions[settings.mood]
+    if (!action) return
+    action.paused = !animate
+    if (settings.reducedMotion) { action.time = .8; mixer.update(0) }
+  }, [actions, animate, settings.mood, settings.reducedMotion, mixer])
+  useFrame(({ gl, invalidate }) => {
+    frames.current++
+    if (frames.current < 2) invalidate()
+    if (!reported.current && frames.current >= 2) { reported.current = true; onReady() }
+    window.__STUDIO_METRICS__ = {
+      frames: frames.current, activeClip: settings.mood, clipTime: actions[settings.mood]?.time || 0,
+      mascotY: root.position.y, drawCalls: gl.info.render.calls, triangles: gl.info.render.triangles,
+      textures: gl.info.memory.textures, geometries: gl.info.memory.geometries, assetsLoaded: true,
+      reducedMotion: settings.reducedMotion, paused: settings.paused, focus: settings.focus, quality: settings.quality,
+      canvasWidth: gl.domElement.width, canvasHeight: gl.domElement.height,
     }
   })
+  return <group position={settings.scene === 'courtyard' ? [-.4, .48, 1] : [0, .1, 0]} scale={settings.scene === 'courtyard' ? .82 : 1.35} rotation={[0, .25, 0]}>
+    <primitive object={scene} />
+  </group>
+}
+
+function Arena({ settings, animate }: { settings: SceneSettings; animate: boolean }) {
+  const { scene, animations } = useModel('arena-hero')
+  const { actions, mixer } = useAnimations(animations, scene)
   useEffect(() => {
-    if (group.current) { group.current.position.y = position[1]; group.current.rotation.z = 0 }
-  }, [animate, position])
-  return <group ref={group} position={position} rotation={[0, 0.4, 0]}>
-    <mesh position={[0, 0.52, 0]} scale={[0.48, 0.58, 0.42]} castShadow>
-      <sphereGeometry args={[1, 32, 24]} /><meshStandardMaterial color={colors.jade} roughness={0.3} metalness={0.08} />
-    </mesh>
-    <mesh position={[0, 0.35, 0.33]} scale={[0.25, 0.28, 0.1]}>
-      <sphereGeometry args={[1, 24, 16]} /><meshStandardMaterial color={colors.cream} roughness={0.65} />
-    </mesh>
-    {[-1, 1].map(side => <group key={side}>
-      <mesh position={[side * 0.27, side === 1 ? 1.08 : 1.02, 0]} rotation={[0, 0, side * -0.3]} scale={[0.14, side === 1 ? 0.3 : 0.23, 0.13]} castShadow>
-        <dodecahedronGeometry args={[1, 0]} /><meshStandardMaterial color={side === 1 ? colors.cream : colors.jade} roughness={0.48} />
-      </mesh>
-      <mesh position={[side * 0.15, 0.65, 0.385]} scale={[1, mood === 'celebrate' ? 0.3 : 1, 1]}>
-        <sphereGeometry args={[0.036, 12, 8]} /><meshStandardMaterial color="#15243a" />
-      </mesh>
-      <mesh position={[side * 0.24, 0.55, 0.36]} scale={[1, 0.45, 0.4]}>
-        <sphereGeometry args={[0.064, 12, 8]} /><meshStandardMaterial color={colors.coral} />
-      </mesh>
-      <mesh position={[side * 0.39, 0.4 + (mood === 'ready' ? 0.11 : 0), 0]} scale={[0.14, 0.2, 0.15]} rotation={[0, 0, side * (mood === 'celebrate' ? -0.8 : 0.3)]} castShadow>
-        <sphereGeometry args={[1, 16, 12]} /><meshStandardMaterial color={colors.jade} roughness={0.3} />
-      </mesh>
-    </group>)}
-    <mesh position={[0, 0.55, 0.417]} rotation={[0, 0, Math.PI]}>
-      <torusGeometry args={[0.055, 0.012, 6, 16, Math.PI]} /><meshStandardMaterial color="#15243a" />
+    const action = actions.LanternSway
+    action?.reset().play()
+    return () => { mixer.stopAllAction() }
+  }, [actions, mixer])
+  useEffect(() => {
+    if (actions.LanternSway) actions.LanternSway.paused = !animate
+    if (!animate) { actions.LanternSway?.reset(); mixer.update(0) }
+  }, [actions, animate, mixer])
+  useEffect(() => {
+    scene.traverse(o => {
+      if (!(o instanceof Mesh)) return
+      const list = Array.isArray(o.material) ? o.material : [o.material]
+      for (const m of list) {
+        if (m instanceof MeshStandardMaterial && m.name === 'PaperLight') {
+          m.emissiveIntensity = settings.lighting === 'night' ? 2.2 : settings.lighting === 'evening' ? 1.4 : .5
+        }
+      }
+    })
+  }, [scene, settings.lighting])
+  return <primitive object={scene} />
+}
+
+function FocusMarker({ point, label, selected, onPick }: { point: Focus; label: string; selected: boolean; onPick: (point: Focus) => void }) {
+  const [hovered, setHovered] = useState(false)
+  const pos = targets[point]
+  return <group position={[pos[0], point === 'roof' ? 2.9 : pos[1] + .6, pos[2]]}>
+    <mesh name={`Poi-${label}`} scale={hovered || selected ? 1.35 : 1} onClick={e => { e.stopPropagation(); onPick(point) }}
+      onPointerOver={e => { e.stopPropagation(); setHovered(true) }} onPointerOut={() => setHovered(false)}>
+      <sphereGeometry args={[.065, 12, 8]} /><meshStandardMaterial color="#cfac67" emissive="#cfac67" emissiveIntensity={selected ? .8 : .2} />
     </mesh>
   </group>
 }
 
-function Lantern({ position, evening }: { position: [number, number, number]; evening: boolean }) {
-  return <group position={position}>
-    <Block position={[0, 0.62, 0]} size={[0.055, 1.25, 0.055]} color={colors.wood} />
-    <Block position={[0.12, 1.23, 0]} size={[0.34, 0.05, 0.07]} color={colors.wood} />
-    <mesh position={[0.22, 0.98, 0]}>
-      <capsuleGeometry args={[0.12, 0.16, 4, 12]} />
-      <meshStandardMaterial color="#ffe3a2" emissive="#ffc975" emissiveIntensity={evening ? 1.2 : 0.2} roughness={0.65} />
-    </mesh>
-    <Block position={[0.22, 1.18, 0]} size={[0.22, 0.045, 0.22]} color={colors.brass} />
+function PaperMotes({ animate, low }: { animate: boolean; low: boolean }) {
+  const group = useRef<Object3D>(null)
+  const positions = useMemo(() => Array.from({ length: 18 }, (_, i) => [Math.sin(i * 11.1) * 3, .7 + (i % 5) * .5, Math.cos(i * 8.3) * 2.8] as [number, number, number]), [])
+  useFrame(({ clock }) => { if (group.current && animate) group.current.rotation.y = Math.sin(clock.elapsedTime * .13) * .1 })
+  return low ? null : <group ref={group}>
+    {positions.map((p, i) => <mesh key={i} position={p} rotation={[0, i, .6]}>
+      <planeGeometry args={[.025, .035]} /><meshBasicMaterial color="#fff1cc" transparent opacity={.65} depthWrite={false} />
+    </mesh>)}
   </group>
 }
 
-function Courtyard({ settings, animate }: { settings: SceneSettings; animate: boolean }) {
-  return <group>
-    <Block position={[0, -0.18, 0]} size={[5.8, 0.36, 4.7]} color="#91afa1" />
-    <Block position={[0, 0.025, 0]} size={[5.65, 0.065, 4.55]} color="#d2d4c0" />
-    {[-1.8, -1.2, -0.6, 0, 0.6, 1.2, 1.8].map(z =>
-      <Block key={z} position={[0.65, 0.075, z]} size={[0.9, 0.065, 0.44]} color={colors.cream} />)}
-    <Pavilion position={[-1.4, 0.07, -1.1]} scale={0.85} />
-    <Pavilion position={[1.85, 0.07, -1.15]} scale={0.5} />
-    <mesh position={[0.1, 0.17, 0.7]} receiveShadow castShadow>
-      <cylinderGeometry args={[1.05, 1.1, 0.2, 48]} /><meshStandardMaterial color={colors.brass} roughness={0.55} />
-    </mesh>
-    <mesh position={[0.1, 0.28, 0.7]} receiveShadow>
-      <cylinderGeometry args={[0.98, 0.98, 0.035, 48]} /><meshStandardMaterial color={colors.cream} />
-    </mesh>
-    <Mascot position={[0.1, 0.31, 0.7]} mood={settings.mood} animate={animate} />
-    {[[-2.3, 0.07, 1.5], [2.2, 0.07, 1.45], [0.2, 0.07, -1.7]].map((p, i) =>
-      <Lantern key={i} position={p as [number, number, number]} evening={settings.lighting === 'evening'} />)}
-    <group position={[-2.05, 0.06, 0.55]}>
-      <Block position={[0, 0.45, 0]} size={[0.1, 0.9, 0.1]} color={colors.wood} rotation={[0, 0, 0.15]} />
-      {[[0, 1, 0], [-0.25, 0.85, 0.1], [0.22, 1.1, 0.05], [0.1, 0.9, -0.25]].map((p, i) =>
-        <mesh key={i} position={p as [number, number, number]} castShadow>
-          <icosahedronGeometry args={[0.3, 0]} /><meshStandardMaterial color={i % 2 ? '#ecc6b8' : colors.coral} roughness={1} />
-        </mesh>)}
-    </group>
-  </group>
+function CameraRig({ settings, animate }: { settings: SceneSettings; animate: boolean }) {
+  const controls = useRef<ComponentRef<typeof OrbitControls>>(null)
+  const { camera, size, invalidate } = useThree()
+  const desired = useMemo(() => new Vector3(...(settings.scene === 'mascot' ? [0, 1.15, 0] as [number, number, number] : targets[settings.focus])), [settings.scene, settings.focus])
+  const current = useRef(new Vector3(0, 1.15, 0))
+  useEffect(() => {
+    const orthographic = camera as OrthographicCamera
+    const fit = settings.scene === 'mascot' ? Math.min(size.width / 3.5, size.height / 3.9) : Math.min(size.width / 12.2, size.height / 9.3)
+    orthographic.zoom = fit * (settings.scene === 'courtyard' && settings.focus !== 'overview' ? 1.12 : 1)
+    orthographic.updateProjectionMatrix()
+    if (!animate) { current.current.copy(desired); controls.current?.target.copy(desired); controls.current?.update() }
+    invalidate()
+  }, [camera, size.width, size.height, settings.scene, settings.focus, desired, animate, invalidate])
+  useFrame((_, delta) => {
+    if (animate && controls.current && current.current.distanceTo(desired) > .001) {
+      current.current.lerp(desired, 1 - Math.exp(-delta * 4))
+      controls.current.target.copy(current.current)
+      controls.current.update()
+    }
+  })
+  return <OrbitControls ref={controls} makeDefault target={[0, 1.15, 0]} enablePan={false} minZoom={12} maxZoom={180}
+    minPolarAngle={.35} maxPolarAngle={Math.PI / 2.3} enableDamping={animate} dampingFactor={.08} />
 }
 
-export default function SceneView({ settings, onReady, onFailure }: {
-  settings: SceneSettings; onReady: () => void; onFailure: () => void
+export default function SceneView({ settings, onReady, onFailure, onFocus }: {
+  settings: SceneSettings; onReady: () => void; onFailure: () => void; onFocus: (focus: Focus) => void
 }) {
   const container = useRef<HTMLDivElement>(null)
   const canvas = useRef<HTMLCanvasElement | null>(null)
   const [visible, setVisible] = useState(true)
+  const [tabVisible, setTabVisible] = useState(!document.hidden)
   useEffect(() => {
     const observer = new IntersectionObserver(entries => setVisible(entries[0].isIntersecting))
     if (container.current) observer.observe(container.current)
-    return () => observer.disconnect()
+    const changed = () => setTabVisible(!document.hidden)
+    document.addEventListener('visibilitychange', changed)
+    return () => { observer.disconnect(); document.removeEventListener('visibilitychange', changed) }
   }, [])
   const lost = useCallback((event: Event) => { event.preventDefault(); onFailure() }, [onFailure])
   useEffect(() => () => canvas.current?.removeEventListener('webglcontextlost', lost), [lost])
-  const animate = visible && !settings.reducedMotion && !settings.paused
+  const animate = visible && tabVisible && !settings.reducedMotion && !settings.paused
+  const night = settings.lighting === 'night'
   const evening = settings.lighting === 'evening'
+  const bg = night ? '#182e43' : evening ? '#d2c5b3' : '#e7e9df'
   return <div className="canvas-container" ref={container}>
-    <Canvas
-      orthographic
-      shadows={settings.quality !== 'low'}
-      camera={{ position: [7, 6, 8], zoom: settings.mobile ? 37 : 62, near: 0.1, far: 60 }}
+    <Canvas orthographic shadows={settings.quality !== 'low' ? { type: PCFShadowMap } : false}
+      camera={{ position: [10, 8.7, 12], zoom: 42, near: .1, far: 100 }}
       dpr={settings.quality === 'low' ? 1 : [1, settings.quality === 'high' ? 2 : 1.5]}
-      frameloop={animate ? 'always' : 'demand'}
-      gl={{ antialias: settings.quality !== 'low', alpha: false }}
+      frameloop={animate ? 'always' : 'demand'} gl={{ antialias: settings.quality !== 'low', alpha: false }}
       onCreated={({ gl }) => {
         canvas.current = gl.domElement
         gl.domElement.addEventListener('webglcontextlost', lost)
-        onReady()
+        gl.setClearColor(new Color(bg))
       }}
-      fallback={<p>WebGL không khả dụng. Chuyển sang minh họa tĩnh.</p>}
+      fallback={<p>WebGL không khả dụng. Chuyển sang ảnh tĩnh.</p>}
     >
-      <color attach="background" args={[evening ? '#b6c4ce' : '#e7ece3']} />
-      <ambientLight intensity={evening ? 0.8 : 1.4} color={evening ? '#afc7e0' : '#fff6e0'} />
-      <directionalLight position={[3, 7, 4]} intensity={evening ? 2 : 2.8} color={evening ? '#ffdab0' : '#fff1d0'} castShadow shadow-mapSize={[1024, 1024]} shadow-camera-left={-7} shadow-camera-right={7} shadow-camera-top={7} shadow-camera-bottom={-7} shadow-normalBias={0.05} />
-      <directionalLight position={[-4, 3, -2]} intensity={1.1} color="#afc7e0" />
-      {settings.scene === 'courtyard' ? <Courtyard settings={settings} animate={animate} /> : <group scale={1.7}>
-        <mesh position={[0, -0.03, 0]} receiveShadow><cylinderGeometry args={[1, 1.05, 0.14, 48]} /><meshStandardMaterial color={colors.cream} /></mesh>
-        <Mascot mood={settings.mood} animate={animate} position={[0, 0.05, 0]} />
-      </group>}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.39, 0]} receiveShadow>
-        <planeGeometry args={[200, 200]} /><meshStandardMaterial color={evening ? '#b6c4ce' : '#e7ece3'} roughness={1} />
+      <color attach="background" args={[bg]} />
+      <ambientLight intensity={night ? .65 : 1.15} color={night ? '#afc7e0' : '#fff2d9'} />
+      <hemisphereLight args={[night ? '#94b9d9' : '#e3efff', night ? '#293c55' : '#b8af92', night ? .75 : 1.4]} />
+      <directionalLight position={[3, 8, 5]} intensity={night ? .8 : evening ? 2.3 : 2.5} color={night ? '#afc7e0' : '#ffdeb0'} castShadow
+        shadow-mapSize={[settings.quality === 'high' ? 2048 : 1024, settings.quality === 'high' ? 2048 : 1024]}
+        shadow-camera-left={-8} shadow-camera-right={8} shadow-camera-top={8} shadow-camera-bottom={-8} shadow-normalBias={.045} />
+      <directionalLight position={[-4, 3, -3]} intensity={night ? .4 : .7} color="#a8c7eb" />
+      {night && settings.quality !== 'low' && settings.scene === 'courtyard' && <>
+        <pointLight position={[-2.1, .95, 2.5]} color="#ffd59b" intensity={4} distance={3.5} decay={2} />
+        <pointLight position={[.9, 1.1, -.75]} color="#ffd59b" intensity={5} distance={4} decay={2} />
+      </>}
+      <Suspense fallback={null}>
+        {settings.scene === 'courtyard' ? <Arena settings={settings} animate={animate} /> : <mesh position={[0, .035, 0]} receiveShadow>
+          <cylinderGeometry args={[1.15, 1.2, .09, 64]} /><meshStandardMaterial color="#f5efe1" roughness={.6} />
+        </mesh>}
+        <Mascot settings={settings} animate={animate} onReady={onReady} />
+      </Suspense>
+      {settings.scene === 'courtyard' && <>
+        <FocusMarker point="dais" label="Đài gốm" selected={settings.focus === 'dais'} onPick={onFocus} />
+        <FocusMarker point="roof" label="Mái hanok" selected={settings.focus === 'roof'} onPick={onFocus} />
+        <FocusMarker point="garden" label="Vườn mận" selected={settings.focus === 'garden'} onPick={onFocus} />
+        <PaperMotes animate={animate} low={settings.quality === 'low'} />
+      </>}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -.72, 0]} receiveShadow>
+        <planeGeometry args={[200, 200]} /><meshStandardMaterial color={bg} roughness={1} />
       </mesh>
-      <OrbitControls makeDefault target={[0, 0.7, 0]} enablePan={false} minZoom={25} maxZoom={100} minPolarAngle={0.35} maxPolarAngle={Math.PI / 2.2} enableDamping={animate} />
+      <CameraRig settings={settings} animate={animate} />
     </Canvas>
   </div>
 }

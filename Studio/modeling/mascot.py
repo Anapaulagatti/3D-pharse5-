@@ -30,13 +30,23 @@ shell.rotation_euler.y=-.3
 inner=sphere('CeladonLeafInner',(-.01,-.048,.17),(.1,.02,.185),M['jade'],20,10,ear)
 inner.rotation_euler.y=-.3
 path('LeafBrassVein',[(-.03,-.065,.02),(-.05,-.072,.18),(-.1,-.06,.34)],.007,M['brass'],ear)
-paper=empty('HanjiLeafPivot',(-.16,0,.36),head)
+paper=empty('HanjiLeafPivot',(-.19,-.08,.4),head)
 verts=[(0,0,0),(-.21,0,.3),(-.2,0,.45),(-.055,0,.35),(.055,0,.14),(-.08,-.052,.22),(-.08,.014,.22)]
 faces=[(0,1,5),(1,2,5),(2,3,5),(3,4,5),(4,0,5),(1,0,6),(2,1,6),(3,2,6),(4,3,6),(0,4,6)]
+faces=[tuple(reversed(face)) for face in faces]
 mesh('FoldedHanjiLeaf',verts,faces,M['paper'],paper)
 path('PaperLeafFold',[(0,-.006,0),(-.08,-.056,.22),(-.2,-.006,.45)],.004,M['brass'],paper)
 # Brass growth seams and tiny inlaid blossom ornaments.
-path('BodyGrowthSeam',[(-.2,-.25,.2),(-.17,-.36,.38),(.05,-.42,.52),(.13,-.38,.68),(.24,-.27,.84)],.009,M['brass'],body)
+profile=[(.14,.16),(.2,.28),(.35,.4),(.55,.43),(.76,.4),(.92,.32),(1.0,.3)]
+seam=[]
+for i in range(25):
+    z=.23+i/24*.61
+    x=-.21+i/24*.45+.035*sin(i/24*pi*2)
+    low,high=next((a,b) for a,b in zip(profile,profile[1:]) if a[0]<=z<=b[0])
+    radius=low[1]+(high[1]-low[1])*(z-low[0])/(high[0]-low[0])
+    y=-max(.0001,radius*radius-x*x)**.5-.007
+    seam.append((x,y,z))
+path('BodyGrowthSeam',seam,.008,M['brass'],body)
 for cx,cz in [(-.22,.57),(.21,.35)]:
     for i in range(5):
         a=i/5*2*pi

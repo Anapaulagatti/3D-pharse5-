@@ -8,3 +8,7 @@
 - Export: retain existing exports/v1 contract; no required Draco/meshopt decoders for the first delivery. Verify original/optimized clip names, durations, topology and rendering.
 - Use available native image generation for concept exploration only. Do not configure a paid external provider or optional sprite forge in this first slice.
 - Progress: GitHub checkpoints plus four persistent records, before expensive operations and after meaningful verified subtasks. Never depend only on chat history.
+
+- Browser review: use ordinary DOM for loading and POI controls, avoid Html inside Canvas Suspense because scene-switch cleanup threw removeChild on this React/Drei combination. No dependency upgrade required.
+- Cloud Cycles lacks OpenImageDenoise; render transparently with 96 samples and native denoising off. This changes rendering only, not model validation or trust settings.
+- Optimization parity compares every named scene node, vertex/triangle counts, world bounds and clip names/durations/channels; Validator resource totals alone can decrease when identical meshes are shared.

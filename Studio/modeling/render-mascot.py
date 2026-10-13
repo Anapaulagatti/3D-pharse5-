@@ -13,7 +13,8 @@ bpy.context.scene.frame_set(1)
 bpy.context.scene.render.film_transparent=True
 bpy.context.scene.render.image_settings.file_format='PNG'
 bpy.context.scene.render.image_settings.color_mode='RGBA'
-bpy.context.scene.cycles.samples=32
+bpy.context.scene.cycles.samples=96
+bpy.context.scene.cycles.use_denoising=False
 output=root/'assets/posters/mascot-transparent.png'
 output.parent.mkdir(parents=True,exist_ok=True)
 bpy.context.scene.render.filepath=str(output)

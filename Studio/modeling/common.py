@@ -243,7 +243,8 @@ def lighting_camera(loc=(9, -12, 10), target=(0, 0, 1), orthoscale=13):
     scene = bpy.context.scene
     scene.render.engine = 'CYCLES'
     scene.cycles.samples = 32
-    scene.cycles.use_denoising = True
+    # The cloud Blender build has Cycles but no OpenImageDenoise support.
+    scene.cycles.use_denoising = False
     scene.render.resolution_x = 1200
     scene.render.resolution_y = 1000
     scene.render.resolution_percentage = 100
