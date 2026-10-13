@@ -30,3 +30,11 @@ No learning-alley, celebration scene or six district assets are claimed in v0.2.
 | Initial deployment QA | verify-preview-http.mjs; artifact/source/provenance audit | Saved local/attempt-1 history | quality-reports/pages-deployment/ with artifact-audit.json and 7 local HTTP checks, desktop/6 poses/night/camera/mobile/fallback screenshots; later public verification below |
 | Public GitHub Pages site | Approved scoped push/manual workflow in existing repo | LIVE, public render verified | https://anapaulagatti.github.io/3D-pharse5-/; run 38402363567 attempt 2 success, deployment 7039586635; public 200 HTML/approved SHA, 7 browser checks and actual screenshot inspection |
 | Public-site verification evidence | Deployed website + verify-preview-http.mjs | Saved and visually inspected | quality-reports/pages-live/ deployment.json, http-verification.json, VISUAL_REVIEW.md and actual scene/day/night/camera/six poses/mobile/fallback screenshots; zero critical console/missing-resource errors |
+
+## v0.3 candidate work
+
+| Asset | Source/output | Status | Provenance/preservation |
+|---|---|---|---|
+| Approved v0.2 baseline | quality-reports/v0.3/preserved-v02.json; baseline b5ed079 | Hashes recorded before polish | All original assets/source/exports/deployed HTML retained |
+| v0.3 review request | docs/reviews/VISUAL_POLISH_V03_USER_REQUEST.md | Saved | User's authored visual review and explicit release gate |
+| Hanok polish layer | Planned Studio/modeling/polish-v03.py + assets/v0.3 + exports/v0.3 | IN_PROGRESS | Original additive artwork, no third-party assets; not yet generated/validated |

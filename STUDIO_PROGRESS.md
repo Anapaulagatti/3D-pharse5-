@@ -1,43 +1,35 @@
 # Studio progress
 
-- Current milestone: public GitHub Pages deployment of completed v0.2 DONE and actual public render verified. STOP for the user's visual feedback; no district expansion.
-- Current task ID: PREVIEW-ONLINE-001 and PAGES-LIVE-001 DONE. VISUAL-REVIEW-001 waits for the user.
-- Last completed task: public deployment, actual HTTPS browser inspection and seven rendered interaction/resource checks.
-- Last verified remote success/evidence checkpoint: bb483f0334c2b3f763457133680df0f6409cbe3f; independently matched origin/main after push. Deployed source checkpoint: 8b562d4d73113ec58625a03b856f2550023141ac. Final handoff documentation follows in Git history; documentation-only changes do not redeploy.
-- Last public verification: 2026-10-13T13:31:40.306Z; success/evidence records updated 2026-10-13 13:45:49 UTC.
-- Authorization: PUBLIC GitHub Pages deployment of the existing v0.2 showcase explicitly approved by user. Do not ask that approval again. Preserve all source/.blend/GLB/textures/animations/checkpoints. No app/model regeneration/new district. After verified public deployment, STOP for visual feedback.
-- Artifact: unchanged showcase/index.html, 7,493,366 bytes, SHA-256 9105a93b022e6751831ba66ae4d353317c43179aa3f045824a329ffdcfc76c17; deploy only this file plus empty .nojekyll. JS/CSS inline; seven approved model/PNG assets embedded under Blob URLs. No build or art rerun.
-- Base path: actual /3D-pharse5-/ artifact render passed with only one HTTP document request; no root-relative bundle/model/texture requests. The original Vite development app/root asset configuration is preserved and is not the published artifact.
-- Workflow: scoped main push trigger on deployment/HTML files + manual dispatch. Official configure-pages v5, upload-pages-artifact v3, deploy-pages v4; documented minimum contents/pages/id-token permissions. Docs-only checkpoints do not redeploy.
-- Public-content audit: strict two-file output allowlist, exact approved hash/size, dependency license notices, zero known credential-pattern hits and no current runtime GitHub credential value in HTML. Unexpected isolated .env fixture blocked staging without deleting it. No .env/.git/.blend/source/progress/cache files or source maps copied to site; approved assets have project-owned-original provenance. No new secret added or credential value printed.
-- Public URL: https://anapaulagatti.github.io/3D-pharse5-/ — LIVE, origin HTTP 200 text/html; decoded bytes/SHA exactly match the unchanged approved artifact. Open this URL in a browser to view the actual application.
-- Successful deployment: https://github.com/Anapaulagatti/3D-pharse5-/actions/runs/38402363567, attempt 2, source SHA 8b562d4, package and deploy COMPLETED SUCCESS. Deployment 7039586635 reports success and the authoritative public URL above.
-- Public rendered verification: seven checks PASS on the actual HTTPS site, including real Hanok/mascot/textures, pointer camera drag/reset/roof POI, day/night lighting, six distinct poses/live animation/reduced motion, exact GLB download SHA, 390x844 responsive layout and desktop/mobile WebGL PNG fallback. Zero JS/console errors, failed requests or missing resources. Actual desktop/night/mascot/mobile-fallback/camera-drag screenshots inspected.
-- Evidence: quality-reports/pages-live/deployment.json, http-verification.json, VISUAL_REVIEW.md and actual public screenshots. Earlier pages-deployment/ audits, local-prefix screenshots and attempt-1 failure record remain preserved as history. Existing 9 smoke/21 HTTP baseline retained. Read-only approved export validation passed (seven files, both GLBs 0 errors/0 warnings); no asset/source modifications.
-- Owner configuration: user confirmed "Đã bật Source: GitHub Actions". Reran the existing run after that confirmation; no further settings action or publication permission is needed to view the live site.
-- Historical blockers resolved for publication: initial egress proxy denied API/site hosts; saved these exact hosts preserving package_managers and other fields. Origin access then worked; attempt 1 failed configure-pages/Not Found and public site was 404. Direct integration Pages administration returned 403 Resource not accessible, so owner enabled Source. Attempt 2 used the authorized Actions permissions and succeeded. These earlier failures do not describe the current site.
-- Environment draft remains distinct from site publication: saved network draft receipt requires_publish=true; current runtime API/site reachability is observed, but how/when the environment snapshot was published is not claimed. No new credentials or secret bindings requested.
-- Secure browser verification: Chromium initially could not open/lock its existing NSS trust database under the read-only sandbox. The already-trusted platform proxy CA matched OS trust. Temporary write permission to that existing DB resolved HTTPS verification; default TLS validation remained enabled, with no CA/key added or certificate bypass.
-- Limits: physical desktop/phone GPU/FPS remains unmeasured; mobile checks used a 390x844 Chromium viewport. No target-device performance claim. Public rendering and interactive/fallback behavior are verified. No further rebuild or tests are needed before user feedback.
+- Current milestone: VISUAL-POLISH-003 — Golden Vertical Slice v0.3, IN_PROGRESS.
+- Current task: POLISH-ASSETS-003. Last completed: POLISH-AUDIT-003 / user's visual review recorded and approved v0.2 preservation hashes saved.
+- Last verified remote checkpoint: b5ed079353c5d5846058d3563c5a8495e1b14832 independently matched origin/main at this session start. New checkpoints follow in Git history.
+- Authorization: upgrade existing arena/mascot with visual polish; no Hangul Garden or other district. STOP for review after candidate completion. v0.3 public release requires updated-showcase publication approval; existing v0.2 approval remains specific to v0.2.
+- Existing public site: https://anapaulagatti.github.io/3D-pharse5-/ remains the verified v0.2 (deployment source 8b562d4; successful run 38402363567 attempt 2). Do not describe it as v0.3.
+- Preservation: quality-reports/v0.3/preserved-v02.json records original assets/source-blend, models, textures, posters, animations, exports/v1, showcase and both lockfiles. Keep these bytes unchanged. Candidate assets/build/evidence use separate v0.3 paths.
+- Current environment: Node 24.19, Blender, Chromium, ffmpeg, pinned preview/Studio dependencies present; native Git read authenticated and remote SHA matched. No dependencies installed or configuration changed. Applying cloud-environment-onboarding:setup for capability checks; reusable startup already exists.
+- Inspection: actual arena GLB has LanternSway; mascot GLB has all six clips. Existing R3F actions pause correctly but motions are small, paper motes tiny, lighting changes abrupt, camera lacks expressive focus, and OS preference listener is absent. Improve without replacing original base assets.
+- Files saved: archived user request, four progress records, preservation hashes. New geometry/animation work not yet validated.
+- Next action: generate only a new original additive detail layer and validate it; then implement preview polish and inspect actual render.
+- Known limits: cloud uses software GPU; physical desktop/phone FPS cannot be inferred. Existing browser tools can capture real render/video.
 
 ## NEXT SESSION HANDOFF
 
-**Current milestone:** Approved v0.2 Pages deployment and actual public visual verification COMPLETE. STOP for user feedback.
+**Current milestone:** VISUAL-POLISH-003 — Golden Vertical Slice v0.3.
 
-**Current task ID:** PREVIEW-ONLINE-001/PAGES-LIVE-001 DONE. VISUAL-REVIEW-001 waits for the user's visual feedback. World expansion remains behind that gate.
+**Current task ID:** POLISH-ASSETS-003 IN_PROGRESS; audit DONE.
 
-**Last verified checkpoint:** bb483f0334c2b3f763457133680df0f6409cbe3f, complete public deployment success reports/screenshots, pushed and independently matched origin/main. Deployed source 8b562d4d73113ec58625a03b856f2550023141ac. Final handoff documentation follows in Git history.
+**Last verified checkpoint:** b5ed079353c5d5846058d3563c5a8495e1b14832 baseline; progress checkpoint follows.
 
-**Completed work:** Exact artifact audited/published with all source/models/assets preserved. Owner confirmed Source=GitHub Actions; run 38402363567 attempt 2 and deployment 7039586635 succeeded. Public URL https://anapaulagatti.github.io/3D-pharse5-/ returns exact approved HTML; seven actual public browser checks and screenshot inspection passed, zero critical errors/missing resources.
+**Completed work:** User review archived, instructions/source/GLB nodes/clips inspected, tools present, original file hashes recorded. Existing v0.2 public deployment retained.
 
-**Unfinished work:** User's visual review only. Physical device FPS is not measured. Do not start new environment/district work without further user direction.
+**Unfinished work:** Additive Blender details, expressive motion/interaction/lighting/camera, production/GLB/browser QA and short motion capture, candidate ZIP and user review.
 
-**Files to inspect:** quality-reports/pages-live/deployment.json, http-verification.json, VISUAL_REVIEW.md and public screenshots; showcase/DEPLOYMENT.md, .github/workflows/showcase-pages.yml, Studio/scripts/prepare-pages-site.py. Retain pages-deployment/ history.
+**Files to inspect:** docs/reviews/VISUAL_POLISH_V03_USER_REQUEST.md; preview/src/SceneView.tsx, App.tsx, types.ts; Studio/modeling/arena.py, mascot.py, common.py; preservation hashes.
 
-**Known blockers:** None for viewing/publishing the current site. Direct integration Pages administration remains restricted but is unnecessary now; owner configuration and authorized Actions deployment succeeded. Physical device profiling still lacks target hardware.
+**Known blockers:** None for implementation. Physical device FPS unavailable; updated public publication not yet authorized.
 
-**Exact next command or action:** Open https://anapaulagatti.github.io/3D-pharse5-/ and wait for the user's visual feedback. Do not rerun deployment or create Hangul Garden merely because a new session starts.
+**Exact next command or action:** Continue POLISH-ASSETS-003 using new v0.3 output paths, then preview polish. Never run existing build-showcase into public showcase/ for candidate work.
 
-**Verification required:** Completed for the unchanged deployed artifact: 7 public checks PASS and actual images inspected, quality-reports/pages-live/. Repeat only if a user-authorized application/deployment change introduces a new concern; do not broaden tests without cause.
+**Verification required:** Preserved original SHA checks, new GLB Validator, production build, actual day/evening/night/hero/mascot/mobile images, movement/video, distinct clips, smooth cameras, reduced motion/pause/visibility and fallback.
 
-**Remote GitHub save status:** DONE: public success/evidence checkpoint bb483f0334c2b3f763457133680df0f6409cbe3f pushed and independently matched origin/main; clean working tree confirmed, and approved assets/source/HTML remain unchanged relative to deployed 8b562d4. Final documentation-only handoff does not trigger redeployment. User public approval remains valid. Network draft persistence is separate from the verified website deployment.
+**Remote GitHub save status:** Baseline matched origin/main; checkpoint this audit before geometry work and verify remote after push. Candidate changes must not touch Pages workflow watched files.
