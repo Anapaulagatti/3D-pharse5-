@@ -12,3 +12,5 @@
 - Browser review: use ordinary DOM for loading and POI controls, avoid Html inside Canvas Suspense because scene-switch cleanup threw removeChild on this React/Drei combination. No dependency upgrade required.
 - Cloud Cycles lacks OpenImageDenoise; render transparently with 96 samples and native denoising off. This changes rendering only, not model validation or trust settings.
 - Optimization parity compares every named scene node, vertex/triangle counts, world bounds and clip names/durations/channels; Validator resource totals alone can decrease when identical meshes are shared.
+
+- Preserve animation key samples exactly in first slice (--resample false). Byte-different original/optimized static head renders exposed tiny edge differences under resampling; verify full sampler arrays in addition to names/durations. No topology/pose checks are disabled.

@@ -15,3 +15,7 @@ Production assets are listed below as they are saved and verified; inspect curre
 | Ceramic Seed Spirit source | Studio/modeling/mascot.py and common.py | assets/source-blend/mascot-base.blend; assets/models/mascot-base.glb; exports/v1/models/mascot-base.glb | Six exported clips; browser playback review pending | Mascot / M5 | Validator 0 errors/0 warnings; six clip names/durations and node topology/bounds preserved; original procedural |
 
 | Original grain textures | Studio/modeling/common.py | assets/textures/{hanji-grain,courtyard-stone}.png; embedded in GLB; exports/v1/textures/ | Saved 256×256 original textures | Materials / M4–M5 | Actual PNG headers checked; original procedural, no downloaded textures |
+
+| Golden-slice posters | Current preview browser tests | assets/posters/arena-desktop.png, arena-mobile.png | Saved actual GLB canvas captures | QA / M7 | Real browser images; not concept art |
+| Transparent mascot portrait | Studio/modeling/render-mascot.py and mascot-base.blend | assets/posters/mascot-transparent.png / RGBA PNG, 800×1000 | Rendered successfully and inspected | QA / M7 | Alpha range 0–255 confirmed; original 3D render |
+| Six mascot pose captures | preview/tests/studio.spec.ts | quality-reports/mascot-{idle,happy,thinking,celebration,disappointed,greeting}.png | Six distinct rendered poses verified | Animation / M6 | Actual exported clips, not animated screenshots |

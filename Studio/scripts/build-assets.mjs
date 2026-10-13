@@ -70,6 +70,13 @@ function sceneGeometry(doc) {
     vertices:nodes.reduce((s,n)=>s+n.primitives.reduce((v,p)=>v+p.vertices,0),0),
     draw_calls:nodes.reduce((s,n)=>s+n.primitives.length,0) }
 }
+function animationData(doc) {
+  return doc.getRoot().listAnimations().map(a=>({name:a.getName(),channels:a.listChannels().map(c=>{
+    const s=c.getSampler()
+    return {node:c.getTargetNode().getName(),path:c.getTargetPath(),interpolation:s.getInterpolation(),
+      times:Array.from(s.getInput().getArray()),values:Array.from(s.getOutput().getArray())}
+  }).sort((a,b)=>(a.node+a.path).localeCompare(b.node+b.path))})).sort((a,b)=>a.name.localeCompare(b.name))
+}
 await mkdir(resolve(exportDir,'models'), { recursive:true })
 await mkdir(resolve(exportDir,'textures'), { recursive:true })
 await mkdir(resolve(exportDir,'posters'), { recursive:true })
@@ -90,12 +97,13 @@ for (const [id, script, purpose, expected] of [
   const target = resolve(exportDir,`models/${id}.glb`)
   run(resolve(studio,'node_modules/.bin',process.platform === 'win32' ? 'gltf-transform.cmd' : 'gltf-transform'),[
     'optimize',sourceGLB,target,'--compress','false','--texture-compress','false','--simplify','false',
-    '--flatten','false','--join','false','--instance','false','--palette','false','--prune-attributes','false','--weld','false',
+    '--flatten','false','--join','false','--instance','false','--palette','false','--prune-attributes','false','--weld','false','--resample','false',
   ])
   const after = await io.read(target)
   const optimized = await validate(target,resolve(reports,`${id}-validation.json`))
   const clipInfo = clips(after)
   if (JSON.stringify(clips(before)) !== JSON.stringify(clipInfo)) throw new Error(`Animation parity failure: ${id}`)
+  if (JSON.stringify(animationData(before)) !== JSON.stringify(animationData(after))) throw new Error(`Animation sample data changed: ${id}`)
   for (const name of expected) if (!clipInfo.some(c=>c.name === name)) throw new Error(`Missing clip ${name} in ${id}`)
   const beforeGeometry=sceneGeometry(before), afterGeometry=sceneGeometry(after)
   if (JSON.stringify(beforeGeometry) !== JSON.stringify(afterGeometry)) throw new Error(`Scene node topology changed: ${id}`)

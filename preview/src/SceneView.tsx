@@ -41,34 +41,37 @@ function useModel(id: string) {
 }
 
 function Mascot({ settings, animate, onReady }: { settings: SceneSettings; animate: boolean; onReady: () => void }) {
+  const invalidate = useThree(state => state.invalidate)
   const { scene, animations } = useModel('mascot-base')
   const { actions, mixer } = useAnimations(animations, scene)
   const root = useMemo(() => scene.getObjectByName('MascotRoot')!, [scene])
   const frames = useRef(0)
   const reported = useRef(false)
   useEffect(() => {
+    mixer.stopAllAction()
     const action = actions[settings.mood]
     if (!action) throw new Error(`Missing mascot clip ${settings.mood}`)
-    action.reset().fadeIn(settings.reducedMotion ? 0 : .18).play()
-    return () => { action.fadeOut(.15) }
-  }, [actions, settings.mood, settings.reducedMotion])
+    action.reset().setEffectiveWeight(1).play()
+    return () => { mixer.stopAllAction() }
+  }, [actions, settings.mood, mixer])
   useEffect(() => {
     const action = actions[settings.mood]
     if (!action) return
     action.paused = !animate
-    if (settings.reducedMotion) { action.time = .8; mixer.update(0) }
-  }, [actions, animate, settings.mood, settings.reducedMotion, mixer])
+    if (settings.reducedMotion || (settings.paused && action.time === 0)) { action.time = .8; mixer.update(0) }
+    invalidate()
+  }, [actions, animate, settings.mood, settings.reducedMotion, settings.paused, mixer, invalidate])
   useFrame(({ gl, invalidate }) => {
     frames.current++
     if (frames.current < 2) invalidate()
     if (!reported.current && frames.current >= 2) { reported.current = true; onReady() }
-    window.__STUDIO_METRICS__ = {
+    queueMicrotask(() => { window.__STUDIO_METRICS__ = {
       frames: frames.current, activeClip: settings.mood, clipTime: actions[settings.mood]?.time || 0,
       mascotY: root.position.y, drawCalls: gl.info.render.calls, triangles: gl.info.render.triangles,
       textures: gl.info.memory.textures, geometries: gl.info.memory.geometries, assetsLoaded: true,
       reducedMotion: settings.reducedMotion, paused: settings.paused, focus: settings.focus, quality: settings.quality,
       canvasWidth: gl.domElement.width, canvasHeight: gl.domElement.height,
-    }
+    } })
   })
   return <group position={settings.scene === 'courtyard' ? [-.4, .48, 1] : [0, .1, 0]} scale={settings.scene === 'courtyard' ? .82 : 1.35} rotation={[0, .25, 0]}>
     <primitive object={scene} />
@@ -76,6 +79,7 @@ function Mascot({ settings, animate, onReady }: { settings: SceneSettings; anima
 }
 
 function Arena({ settings, animate }: { settings: SceneSettings; animate: boolean }) {
+  const invalidate = useThree(state => state.invalidate)
   const { scene, animations } = useModel('arena-hero')
   const { actions, mixer } = useAnimations(animations, scene)
   useEffect(() => {
@@ -86,7 +90,8 @@ function Arena({ settings, animate }: { settings: SceneSettings; animate: boolea
   useEffect(() => {
     if (actions.LanternSway) actions.LanternSway.paused = !animate
     if (!animate) { actions.LanternSway?.reset(); mixer.update(0) }
-  }, [actions, animate, mixer])
+    invalidate()
+  }, [actions, animate, mixer, invalidate])
   useEffect(() => {
     scene.traverse(o => {
       if (!(o instanceof Mesh)) return
@@ -97,7 +102,8 @@ function Arena({ settings, animate }: { settings: SceneSettings; animate: boolea
         }
       }
     })
-  }, [scene, settings.lighting])
+    invalidate()
+  }, [scene, settings.lighting, invalidate])
   return <primitive object={scene} />
 }
 
@@ -127,7 +133,7 @@ function CameraRig({ settings, animate }: { settings: SceneSettings; animate: bo
   const controls = useRef<ComponentRef<typeof OrbitControls>>(null)
   const { camera, size, invalidate } = useThree()
   const desired = useMemo(() => new Vector3(...(settings.scene === 'mascot' ? [0, 1.15, 0] as [number, number, number] : targets[settings.focus])), [settings.scene, settings.focus])
-  const current = useRef(new Vector3(0, 1.15, 0))
+  const current = useRef(new Vector3(0, .85, .45))
   useEffect(() => {
     const orthographic = camera as OrthographicCamera
     const fit = settings.scene === 'mascot' ? Math.min(size.width / 3.5, size.height / 3.9) : Math.min(size.width / 12.2, size.height / 9.3)
