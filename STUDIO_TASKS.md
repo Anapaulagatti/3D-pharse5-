@@ -2,7 +2,7 @@
 
 Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verification. Milestones follow the persistent-progress prompt (nine milestones).
 
-Current user gate: STOP after making v0.2 viewable and wait for visual feedback. Do not automatically continue WORLD-001/WORLD-002. Public deployment requires explicit approval.
+Current user gate: public GitHub Pages deployment of existing v0.2 is now explicitly authorized. Complete/verify that deployment, then STOP for visual feedback. Do not continue WORLD-001/WORLD-002 or request public-deployment approval again.
 
 | Milestone | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|---|
@@ -39,5 +39,10 @@ Current user gate: STOP after making v0.2 viewable and wait for visual feedback.
 |---|---|---|---|
 | PREVIEW-ACCESS-001 | Existing v0.2 browser HTTP rendering and clear downloadable viewing package | DONE | downloads/ ZIPs/manifest, build PASS, 9 smoke + 21 rendered HTTP checks; 806f960 pushed/remote verified; STOP for user feedback |
 | PREVIEW-DEPLOY-001 | Static site package and manual-only Pages configuration prepared without publication | DONE | showcase-v0.2-static.zip, DEPLOYMENT.md and parsed workflow_dispatch-only workflow |
-| PREVIEW-ONLINE-001 | Publish publicly and inspect returned live URL | BLOCKED | Await explicit user approval; GitHub Pages API Forbidden; account UI instructions prepared |
+| PREVIEW-ONLINE-001 | Publish publicly and inspect returned live URL | IN_PROGRESS | Explicit user authorization received; scoped push/manual workflow and exact approved artifact prepared; API/public host proxy-blocked pending network runtime activation; Pages settings may require account UI |
 | VISUAL-REVIEW-001 | User reviews the rendered showcase before new districts | BLOCKED | Waiting for user's visual feedback; local HTTP package available |
+
+| Stable ID | Deliverable | Status | Evidence |
+|---|---|---|---|
+| PAGES-PREP-001 | Production artifact/subpath/privacy/provenance audit without model rebuild | DONE | prepare-pages-site.py, artifact-audit.json, seven approved-artifact HTTP render checks including mobile fallback; HTML SHA unchanged |
+| PAGES-NET-001 | Allow API/public hostname in cloud network | BLOCKED | Draft saved with api.github.com + anapaulagatti.github.io, preserving presets; requires environment Review/Save/Publish to apply |

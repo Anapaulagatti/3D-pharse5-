@@ -1,8 +1,16 @@
 name: Publish approved v0.2 showcase
 
-# Manual only. Never publish just because a checkpoint is pushed.
+# Public v0.2 publication was explicitly authorized by the repository owner.
+# Documentation-only checkpoints do not redeploy the site.
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/showcase-pages.yml
+      - Studio/scripts/prepare-pages-site.py
+      - showcase/index.html
+      - showcase/build-info.json
 
 permissions:
   contents: read
@@ -14,23 +22,15 @@ concurrency:
 jobs:
   package:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
     steps:
       - uses: actions/checkout@v4
-      - name: Verify and stage existing static showcase
-        shell: bash
-        run: |
-          python3 - <<'PY'
-          import hashlib, json, pathlib
-          root = pathlib.Path('.')
-          info = json.loads((root / 'showcase/build-info.json').read_text())
-          html = (root / 'showcase/index.html').read_bytes()
-          assert len(html) == info['file_bytes']
-          assert hashlib.sha256(html).hexdigest() == info['checksum_sha256']
-          site = root / '_site'
-          site.mkdir()
-          (site / 'index.html').write_bytes(html)
-          (site / '.nojekyll').touch()
-          PY
+      - name: Read configured GitHub Pages metadata
+        uses: actions/configure-pages@v5
+      - name: Verify and stage approved static showcase
+        run: python3 Studio/scripts/prepare-pages-site.py
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

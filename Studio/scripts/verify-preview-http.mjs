@@ -18,7 +18,8 @@ const targets = process.argv.slice(2).map(arg => {
   return { label, url }
 })
 assert.ok(targets.length, 'Provide at least one real HTTP endpoint')
-const reports = resolve(root, 'quality-reports/preview-access')
+const reports = resolve(process.env.STUDIO_HTTP_REPORT_DIR || resolve(root, 'quality-reports/preview-access'))
+const targetScope = process.env.STUDIO_HTTP_TARGET_SCOPE === 'public' ? 'public' : 'internal'
 await mkdir(reports, { recursive: true })
 const hash = buffer => createHash('sha256').update(buffer).digest('hex')
 const timeout = 30_000
@@ -133,15 +134,20 @@ try {
     await fallback.getByRole('button', { name: /Linh vật gốm/ }).click()
     const portrait = fallback.getByRole('img', { name: 'Chân dung linh vật gốm — chế độ 2D' })
     await expect.poll(() => portrait.evaluate(image => image.naturalWidth), { timeout }).toBe(800)
+    await fallback.setViewportSize({ width: 390, height: 844 })
+    await expect(fallback.locator('.stage')).toHaveAttribute('data-engine', 'fallback')
+    assert.equal(await fallback.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true)
+    await fallback.screenshot({ path: resolve(reports, `${label}-mobile-fallback.png`), fullPage: true })
     await fallbackContext.close()
-    checks.push('Missing WebGL shows actual arena/mascot PNG fallback; controls still work')
+    checks.push('Missing WebGL shows actual arena/mascot PNG fallback; controls work at desktop and 390x844 without overflow')
     results.push({ label, url, status: 'PASS', readyMilliseconds, checks, httpResources, pageErrors, consoleErrors, failedRequests, missingResources })
     console.log(`${label}: ${checks.length} rendered HTTP checks PASS`)
   }
   await writeFile(resolve(reports, 'http-verification.json'), JSON.stringify({
     status: 'PASS', verified_at: new Date().toISOString(), browser: browser.version(),
     renderer: 'Cloud SwiftShader software GPU; physical-device FPS not verified',
-    public_deployment: 'Not published; these are internal validation endpoints, not user-accessible cloud preview URLs',
+    target_scope: targetScope,
+    public_deployment: targetScope === 'public' ? 'Public URL response and rendered behavior verified at the listed endpoint' : 'No public deployment claim; these are internal validation endpoints',
     results,
   }, null, 2) + '\n')
 } finally {

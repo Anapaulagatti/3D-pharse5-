@@ -23,3 +23,9 @@ All outputs below exist. Source and export SHA-256, dimensions, node-instance ge
 Current HTML is 7,493,366 bytes, SHA-256 9105a93b022e6751831ba66ae4d353317c43179aa3f045824a329ffdcfc76c17. The old offline report above belongs to the earlier HTML before the favicon-only patch; current verification is the HTTP report. All approved GLB, PNG, .blend and animation sources/exports are unchanged.
 
 No learning-alley, celebration scene or six district assets are claimed in v0.2.0. Keep approved/successful outputs; regenerate only after a documented source change and checkpoint.
+
+| Deployment output | Source | Status | Evidence / limits |
+|---|---|---|---|
+| Approved Pages artifact | Existing unchanged showcase/index.html, prepare-pages-site.py | Locally staged and verified | Exactly index.html + .nojekyll; HTML SHA 9105a93b022e6751831ba66ae4d353317c43179aa3f045824a329ffdcfc76c17; no private source/Blender/cache files in site |
+| Current deployment QA | verify-preview-http.mjs; artifact/source/provenance audit | Saved and inspected locally | quality-reports/pages-deployment/ with artifact-audit.json and 7 HTTP checks, desktop/6 poses/night/camera/mobile/fallback screenshots; public site not yet verified |
+| Public GitHub Pages site | Approved scoped push/manual workflow in existing repo | Authorized, deployment/status verification pending | Expected https://anapaulagatti.github.io/3D-pharse5-/; proxy currently blocks API and site hostname until saved network draft activated; not a success claim |
