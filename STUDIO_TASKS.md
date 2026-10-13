@@ -30,5 +30,5 @@ Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verificati
 
 | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|
-| SHOWCASE-001 | One downloadable index.html containing the actual interactive app and verified assets | DONE | showcase/index.html, build-info.json, README; six offline functional checks in quality-reports/showcase-offline.json |
+| SHOWCASE-001 | One downloadable index.html containing the actual interactive app and verified assets | DONE | showcase/index.html, build-info.json, README; six offline checks, two served-preview regressions; checkpoint 0f3d648 pushed and independently verified |
 | SHOWCASE-002 | Verify direct file:// opening on a personal desktop browser | BLOCKED | Cloud managed Chromium blocks file navigation; offline content rendering passed, direct-file opening is not claimed verified |

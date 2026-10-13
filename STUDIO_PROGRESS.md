@@ -3,10 +3,10 @@
 - Current milestone: first golden-slice task complete; next development milestone 8 (not started).
 - Current task ID: SHOWCASE-001 (DONE; latest user request to see index.html). WORLD-001 remains the next unblocked development task, not started by this viewing request.
 - Last completed task: SHOWCASE-001 / actual interactive app packaged into one downloadable HTML and offline content verified.
-- Last verified remote checkpoint: 68ea4880d3db5662aa772a1976718d0661c1dbe4, independently confirmed before the showcase checkpoint. The new showcase checkpoint follows in git log and will be checked after push.
-- Last checkpoint date/time: 2026-10-13 11:48 UTC.
+- Last verified remote artifact checkpoint: 0f3d64807773536c1db8481601c04d8ce60342fc; local HEAD independently matched origin/main after push. The final handoff documentation checkpoint follows in git log.
+- Last checkpoint date/time: 2026-10-13 11:49:39 UTC.
 - Latest session: reused all existing packages/models/art; added showcase/index.html (7,493,330 bytes), seven checksum-verified embedded exports, inline app/styles/license notices, build metadata, opening instructions and actual screenshots. Changed Poster to resolve via assetURL and set GLB download filenames. No asset regeneration, framework changes or optional tool installation.
-- In progress: remote checkpoint saving for this HTML delivery. SHOWCASE-002 (personal-desktop direct-file verification) blocked by cloud managed-browser policy; offline content checks passed. install/start draft from previous session remains separate from GitHub and Publish.
+- In progress: none for this HTML delivery; artifact checkpoint pushed and verified. SHOWCASE-002 (personal-desktop direct-file verification) blocked by cloud managed-browser policy; offline content checks passed. install/start draft from previous session remains separate from GitHub and Publish.
 - Files created/modified: four STUDIO records and AGENTS.md; Studio/modeling/; asset build/sync/verify/recovery scripts; preview/src/, tests/package scripts; .blend/GLB/texture/poster sources and exports/v1/; ASSET_MANIFEST.csv; art/camera/material/license/performance/QA/handoff docs and quality-reports/. See Git commits for exact diffs.
 - Assets generated: original three-direction concept, 2 editable models, 2 embedded/source textures, 3 actual rendered posters, 6 distinct mascot pose captures. Inventory is STUDIO_ASSETS.md.
 - Exported GLBs: arena-hero (3,379,732 bytes, LanternSway), mascot-base (289,652 bytes, six 2s clips). Both Validator 0 errors / 0 warnings.
@@ -25,11 +25,11 @@
 
 **Current task ID:** SHOWCASE-001 DONE; SHOWCASE-002 blocked by cloud browser file policy. WORLD-001 TODO and QA-004 blocked on target hardware remain unchanged.
 
-**Last verified checkpoint:** 68ea488, previous handoff independently matched remote main before this session's showcase checkpoint. Inspect newest git log/remote main for the following delivery checkpoint.
+**Last verified checkpoint:** 0f3d64807773536c1db8481601c04d8ce60342fc, full HTML/code/QA checkpoint independently matched remote main. Final handoff documentation follows; inspect newest git log/remote main on recovery.
 
 **Completed work:** Prior v0.2 slice retained. Added actual single-file showcase, verified embedded assets/downloads, six offline content checks and two targeted served-preview regression tests; preserved four new screenshots and opening/build instructions.
 
-**Unfinished work:** Direct file opening on personal desktop (cloud policy prevents testing it), physical-GPU performance/LOD, six learning districts and full world library. This viewing request does not authorize starting new districts now.
+**Unfinished work:** Direct file opening on personal desktop (cloud policy prevents testing it), physical-GPU performance/LOD, six learning districts and full world library. New district development is outside this viewing task.
 
 **Files to inspect for viewing:** showcase/index.html, showcase/README.md, showcase/build-info.json, quality-reports/showcase-offline.json, Studio/scripts/build-showcase.mjs and verify-showcase.mjs. Prior modeling/source references remain unchanged.
 
@@ -39,4 +39,4 @@
 
 **Verification required:** SHOWCASE-002 direct-file test on a personal desktop browser; QA-004 physical hardware FPS. Offline content is already verified. Future districts still require existing model/export/render gates.
 
-**Remote GitHub save status:** Previous 68ea488 was verified; new showcase delivery checkpoint will be pushed and independently compared with origin/main. On recovery compare newest local HEAD/remote rather than resetting. Previous install/start draft is separate; no environment draft/network changes were needed for HTML delivery.
+**Remote GitHub save status:** 0f3d648 full HTML/code/QA checkpoint was pushed successfully and independently verified against origin/main. Final handoff documentation follows. On recovery compare newest local HEAD/remote rather than resetting. Previous install/start draft is separate; no environment draft/network changes were needed for HTML delivery.
