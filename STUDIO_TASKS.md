@@ -7,7 +7,7 @@ Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verificati
 | 1 Environment | ENV-001 | Audit existing checkout, tools and version compatibility | DONE | d355dca baseline; Node 24.19, React 19.3/R3F 9.8/Drei 10.7, Blender 4.3.2 |
 | 1 Environment | ENV-002 | Preserve recovery records and supplied master prompt | DONE | Four root STUDIO files, AGENTS.md, STUDIO_MASTER_PROMPT.md |
 | 2 Pipeline | PIPE-001 | Blender export, Validator, glTF Transform, gltfjsx tooling | DONE | quality-reports/toolchain-validation*.json; existing smoke fixtures |
-| 2 Pipeline | PIPE-002 | Load exported production GLB in the existing React preview | DONE | Requires actual arena and mascot GLBs |
+| 2 Pipeline | PIPE-002 | Load exported production GLB in the existing React preview | DONE | Actual served GLB hash and nine browser tests |
 | 3 Art direction | ART-001 | Three distinct mascot/world explorations and selection rubric | DONE | concepts/mascot-directions-v1.png and DESIGN_REVIEW.md |
 | 3 Art direction | ART-002 | Color, materials, silhouettes and camera standards | DONE | Existing ART_DIRECTION.md is the starting point |
 | 4 Hanok Arena | ARENA-001 | Editable curved roof, timber, courtyard, garden and skyline | DONE | QA_CHECKLIST.md, current exports/manifest and 9 passing browser tests |
@@ -22,6 +22,6 @@ Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verificati
 | 8 Districts | WORLD-001 | Hangul Garden, Vocabulary Café, Grammar Library | TODO | Start only after golden slice is reviewed |
 | 8 Districts | WORLD-002 | Listening Subway, TOPIK Academy, EPS Workshop | TODO | Start only after golden slice is reviewed |
 | 9 Handoff | EXPORT-001 | Versioned portable exports, licenses and integration notes | DONE | No production integration |
-| 9 Handoff | SAVE-001 | Verify remote checkpoint and session-end recovery instructions | IN_PROGRESS | Final draft save and push pending |
+| 9 Handoff | SAVE-001 | Verify remote checkpoint and session-end recovery instructions | DONE | 80bfc2a matched remote main; install/start draft confirmed saved; final handoff commit follows |
 
 | 7 Device profiling | QA-004 | Physical desktop/phone GPU FPS and possible geometric LOD | BLOCKED | No target hardware; actual cloud software sample ~3.3 FPS, PERFORMANCE_REPORT.md |

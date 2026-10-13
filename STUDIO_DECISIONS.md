@@ -14,3 +14,6 @@
 - Optimization parity compares every named scene node, vertex/triangle counts, world bounds and clip names/durations/channels; Validator resource totals alone can decrease when identical meshes are shared.
 
 - Preserve animation key samples exactly in first slice (--resample false). Byte-different original/optimized static head renders exposed tiny edge differences under resampling; verify full sampler arrays in addition to names/durations. No topology/pose checks are disabled.
+
+- First-task delivery boundary: v0.2 arena/mascot slice, not all nine milestones. Nine browser checks and read-only recovery/build checks passed. World expansion remains TODO; physical GPU/phone FPS remains blocked. No /dev/dri or NVIDIA device nodes were present in this cloud container; measured software FPS ~3.3 is not desktop/phone acceptance.
+- Optimizer now preserves full animation sampler arrays. Raw/optimized Celebration PNG captures are exactly equal after --resample false; no image-comparison tolerance was introduced.
