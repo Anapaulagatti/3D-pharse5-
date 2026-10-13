@@ -9,6 +9,9 @@ export default defineConfig({
   fullyParallel: false,
   workers: 1,
   timeout: 45_000,
+  // Cold shader compilation on the cloud software GPU can exceed five seconds.
+  // Keep the same readiness assertions; allow time for actual rendered frames.
+  expect: { timeout: 15_000 },
   reporter: 'list',
   use: {
     baseURL: 'http://127.0.0.1:5173',

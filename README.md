@@ -65,7 +65,7 @@ Hướng dẫn Windows, phiên bản package và xử lý GLB: [Studio/README.md
 
 ## Golden slice v0.2.0
 
-**Xem ngay bằng file HTML:** tải [showcase/index.html](showcase/index.html) về máy rồi mở bằng Chrome/Edge. File chứa sẵn giao diện, model/animation và ảnh dự phòng; không cần cài Node hoặc Blender. Xem [hướng dẫn mở](showcase/README.md) và [ảnh thực tế từ bản HTML](quality-reports/showcase-desktop.png). Kiểm tra nội dung offline đã đạt; điều hướng file cục bộ trong Chromium cloud bị chính sách quản trị chặn, nên mở trực tiếp trên máy cá nhân chưa được xác minh tại đây.
+**Xem bản tương tác qua HTTP:** tải [showcase-v0.2-http.zip](downloads/showcase-v0.2-http.zip), giải nén; Windows mở `START_WINDOWS.cmd`, macOS/Linux chạy `python3 start.py` trong thư mục đã giải nén. Trình duyệt tự mở app. Cần Python 3; không cần Node/Blender. Mở HTML trong ChatGPT/Codex/GitHub chỉ hiện source. Xem [hướng dẫn từng bước](showcase/README.md); [gói static](downloads/showcase-v0.2-static.zip) và [cấu hình Pages](showcase/DEPLOYMENT.md) đã chuẩn bị, chưa xuất bản công khai.
 
 Preview hiện tải **GLB thật từ Blender**: mái hanok cong, khung gỗ/hanji, sân gốm, vườn mận, cầu, đèn giấy có animation và skyline thu nhỏ. Linh vật Ceramic Seed Spirit có sáu clip: Idle, Happy, Thinking, Celebration, Disappointed, Greeting. Có điểm khám phá, camera reset, day/evening/night, Low/Med/High, giảm chuyển động, khung điện thoại, thông tin/tải asset và fallback bằng ảnh render thật (SVG dự phòng nếu ảnh lỗi).
 

@@ -2,6 +2,8 @@
 
 Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verification. Milestones follow the persistent-progress prompt (nine milestones).
 
+Current user gate: STOP after making v0.2 viewable and wait for visual feedback. Do not automatically continue WORLD-001/WORLD-002. Public deployment requires explicit approval.
+
 | Milestone | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|---|
 | 1 Environment | ENV-001 | Audit existing checkout, tools and version compatibility | DONE | d355dca baseline; Node 24.19, React 19.3/R3F 9.8/Drei 10.7, Blender 4.3.2 |
@@ -32,3 +34,10 @@ Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verificati
 |---|---|---|---|
 | SHOWCASE-001 | One downloadable index.html containing the actual interactive app and verified assets | DONE | showcase/index.html, build-info.json, README; six offline checks, two served-preview regressions; checkpoint 0f3d648 pushed and independently verified |
 | SHOWCASE-002 | Verify direct file:// opening on a personal desktop browser | BLOCKED | Cloud managed Chromium blocks file navigation; offline content rendering passed, direct-file opening is not claimed verified |
+
+| Stable ID | Deliverable | Status | Evidence |
+|---|---|---|---|
+| PREVIEW-ACCESS-001 | Existing v0.2 browser HTTP rendering and clear downloadable viewing package | DONE | downloads/ ZIPs/manifest, launchers, build PASS, 9 smoke tests and 21 rendered HTTP checks; quality-reports/preview-access/ |
+| PREVIEW-DEPLOY-001 | Static site package and manual-only Pages configuration prepared without publication | DONE | showcase-v0.2-static.zip, DEPLOYMENT.md and parsed workflow_dispatch-only workflow |
+| PREVIEW-ONLINE-001 | Publish publicly and inspect returned live URL | BLOCKED | Await explicit user approval; GitHub Pages API Forbidden; account UI instructions prepared |
+| VISUAL-REVIEW-001 | User reviews the rendered showcase before new districts | BLOCKED | Waiting for user's visual feedback; local HTTP package available |

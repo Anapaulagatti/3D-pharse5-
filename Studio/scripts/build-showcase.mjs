@@ -84,6 +84,7 @@ const html = `<!doctype html>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#15243a" />
+  <link rel="icon" href="data:," />
   <meta name="description" content="Showcase 3D Hanok và Ceramic Seed Spirit — bản offline tự chứa, model và animation thật từ Blender." />
   <title>Living Hangeul District · 3D Studio</title>
   <style>${css.replace(/<\/style/gi, '<\\/style')}</style>

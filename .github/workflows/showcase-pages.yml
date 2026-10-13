@@ -1,0 +1,49 @@
+name: Publish approved v0.2 showcase
+
+# Manual only. Never publish just because a checkpoint is pushed.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: showcase-pages
+  cancel-in-progress: false
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify and stage existing static showcase
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, pathlib
+          root = pathlib.Path('.')
+          info = json.loads((root / 'showcase/build-info.json').read_text())
+          html = (root / 'showcase/index.html').read_bytes()
+          assert len(html) == info['file_bytes']
+          assert hashlib.sha256(html).hexdigest() == info['checksum_sha256']
+          site = root / '_site'
+          site.mkdir()
+          (site / 'index.html').write_bytes(html)
+          (site / '.nojekyll').touch()
+          PY
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: package
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment
