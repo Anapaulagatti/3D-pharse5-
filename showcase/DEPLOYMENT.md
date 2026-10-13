@@ -6,6 +6,8 @@ Người dùng đã **chấp thuận công khai showcase v0.2 lên GitHub Pages*
 
 Hiện proxy mạng chặn `api.github.com` và `anapaulagatti.github.io` vì hai hostname chưa có trong allowlist. Lỗi CONNECT `403 Forbidden` không phải bằng chứng về quyền tài khoản GitHub; HTTP status của site chưa nhận được. Không gọi đó là site 404 hoặc deployment thành công.
 
+**Kết quả mới sau push:** API/site đã truy cập được. Pages GET/POST hiện trả lỗi origin `403 Resource not accessible by integration`; workflow run `38402363567` thất bại ở `configure-pages` với `Not Found`, deploy skipped. Site đích thực sự trả `404 Site not found`. Cần owner bật Source GitHub Actions theo bước dưới; public deployment chưa thành công.
+
 Đã lưu bổ sung chính xác hai hostname này vào bản nháp môi trường, giữ nguyên preset `package_managers`. Trong **Environment settings**, review/save bản nháp và chọn **Publish environment** để áp dụng. Việc này cho cloud truy cập API/site; không tự bật GitHub Pages hoặc công khai website. Chưa yêu cầu API key/token mới; Git HTTPS auth và biến GH_TOKEN hiện có được giữ nguyên.
 
 ## GitHub Pages

@@ -39,10 +39,10 @@ Current user gate: public GitHub Pages deployment of existing v0.2 is now explic
 |---|---|---|---|
 | PREVIEW-ACCESS-001 | Existing v0.2 browser HTTP rendering and clear downloadable viewing package | DONE | downloads/ ZIPs/manifest, build PASS, 9 smoke + 21 rendered HTTP checks; 806f960 pushed/remote verified; STOP for user feedback |
 | PREVIEW-DEPLOY-001 | Static site package and manual-only Pages configuration prepared without publication | DONE | showcase-v0.2-static.zip, DEPLOYMENT.md and parsed workflow_dispatch-only workflow |
-| PREVIEW-ONLINE-001 | Publish publicly and inspect returned live URL | IN_PROGRESS | Explicit user authorization received; scoped push/manual workflow and exact approved artifact prepared; API/public host proxy-blocked pending network runtime activation; Pages settings may require account UI |
+| PREVIEW-ONLINE-001 | Publish publicly and inspect returned live URL | BLOCKED | Explicit authorization; run 38402363567 failed at configure-pages: site Not Found, deploy skipped; Pages GET/POST now origin 403 integration permission denied; owner must enable Source GitHub Actions; public URL returns site-not-found 404 |
 | VISUAL-REVIEW-001 | User reviews the rendered showcase before new districts | BLOCKED | Waiting for user's visual feedback; local HTTP package available |
 
 | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|
 | PAGES-PREP-001 | Production artifact/subpath/privacy/provenance audit without model rebuild | DONE | prepare-pages-site.py, artifact-audit.json, seven approved-artifact HTTP render checks including mobile fallback; HTML SHA unchanged |
-| PAGES-NET-001 | Allow API/public hostname in cloud network | BLOCKED | Draft saved with api.github.com + anapaulagatti.github.io, preserving presets; requires environment Review/Save/Publish to apply |
+| PAGES-NET-001 | Allow API/public hostname in cloud network | DONE | Saved api.github.com + anapaulagatti.github.io preserving presets; current API/site origin responses reachable. Draft still reports Publish needed for persistent environment snapshot; Pages API permission is a separate blocker |

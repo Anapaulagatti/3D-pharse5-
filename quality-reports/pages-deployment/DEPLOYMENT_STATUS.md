@@ -9,3 +9,9 @@ GET/POST https://api.github.com/repos/Anapaulagatti/3D-pharse5-/pages failed at 
 Read config showed restricted package_managers preset and no custom hosts. Saved custom api.github.com + anapaulagatti.github.io, preserving presets. Tool result: saved, requires_publish=true. User Review/Save/Publish environment is required to activate; does not publish the website. No secret/token values logged or new binding requested.
 
 Workflow now has a scoped authorized main push trigger and manual dispatch. It reads configured Pages metadata, stages the approved artifact and deploys via official GitHub actions. configure-pages v5 enablement documentation requires a non-GITHUB_TOKEN token to create a site; default-token auto-enable was not misconfigured. If source is not enabled or API cannot manage it after network activation, owner sets Settings/Pages Source=GitHub Actions and runs Publish approved v0.2 showcase. Expected default URL is not a verified live URL; actual Actions page_url must be checked.
+
+## Actual result after push
+
+Origin access became available: Actions API reads work, Pages GET/POST return origin 403 Resource not accessible by integration, and expected public target returns actual HTTP 404 Site not found (not a proxy failure). Run 38402363567 at 8b562d4 completed with failure: checkout passed, configure-pages metadata step failed Not Found, staging/upload skipped and deploy skipped. No site was published. github-attempt.json records the real run and status.
+
+The owner has been asked to select Settings → Pages → Build and deployment → Source GitHub Actions, Save if shown. Public approval is already granted; this is missing configuration, not a renewed approval request. Rerun only after source is enabled, then inspect the real public URL. Current local render verification does not count as public success.
