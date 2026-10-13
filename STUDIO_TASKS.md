@@ -24,7 +24,7 @@ Current user gate: public GitHub Pages deployment of existing v0.2 is COMPLETE a
 | 8 Districts | WORLD-001 | Hangul Garden, Vocabulary Café, Grammar Library | TODO | Start only after golden slice is reviewed |
 | 8 Districts | WORLD-002 | Listening Subway, TOPIK Academy, EPS Workshop | TODO | Start only after golden slice is reviewed |
 | 9 Handoff | EXPORT-001 | Versioned portable exports, licenses and integration notes | DONE | No production integration |
-| 9 Handoff | SAVE-001 | Verify remote checkpoint and session-end recovery instructions | DONE | 80bfc2a matched remote main; install/start draft confirmed saved; final handoff commit follows |
+| 9 Handoff | SAVE-001 | Verify remote checkpoint and session-end recovery instructions | DONE | bb483f0 public-success reports/screenshots pushed and independently matched remote main; deployed source 8b562d4; NEXT SESSION HANDOFF says STOP for visual feedback |
 
 | 7 Device profiling | QA-004 | Physical desktop/phone GPU FPS and possible geometric LOD | BLOCKED | No target hardware; actual cloud software sample ~3.3 FPS, PERFORMANCE_REPORT.md |
 

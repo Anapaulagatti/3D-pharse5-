@@ -3,7 +3,7 @@
 - Current milestone: public GitHub Pages deployment of completed v0.2 DONE and actual public render verified. STOP for the user's visual feedback; no district expansion.
 - Current task ID: PREVIEW-ONLINE-001 and PAGES-LIVE-001 DONE. VISUAL-REVIEW-001 waits for the user.
 - Last completed task: public deployment, actual HTTPS browser inspection and seven rendered interaction/resource checks.
-- Last verified remote checkpoint before this success report: cbb0832283828a3828f9b05aae946016f0512de6; independently matched origin/main. Deployed source checkpoint: 8b562d4d73113ec58625a03b856f2550023141ac. This success/evidence checkpoint follows in Git history; documentation-only changes do not redeploy.
+- Last verified remote success/evidence checkpoint: bb483f0334c2b3f763457133680df0f6409cbe3f; independently matched origin/main after push. Deployed source checkpoint: 8b562d4d73113ec58625a03b856f2550023141ac. Final handoff documentation follows in Git history; documentation-only changes do not redeploy.
 - Last public verification: 2026-10-13T13:31:40.306Z; success/evidence records updated 2026-10-13 13:45:49 UTC.
 - Authorization: PUBLIC GitHub Pages deployment of the existing v0.2 showcase explicitly approved by user. Do not ask that approval again. Preserve all source/.blend/GLB/textures/animations/checkpoints. No app/model regeneration/new district. After verified public deployment, STOP for visual feedback.
 - Artifact: unchanged showcase/index.html, 7,493,366 bytes, SHA-256 9105a93b022e6751831ba66ae4d353317c43179aa3f045824a329ffdcfc76c17; deploy only this file plus empty .nojekyll. JS/CSS inline; seven approved model/PNG assets embedded under Blob URLs. No build or art rerun.
@@ -26,7 +26,7 @@
 
 **Current task ID:** PREVIEW-ONLINE-001/PAGES-LIVE-001 DONE. VISUAL-REVIEW-001 waits for the user's visual feedback. World expansion remains behind that gate.
 
-**Last verified checkpoint:** cbb0832283828a3828f9b05aae946016f0512de6 matched remote before this success report; deployed source 8b562d4d73113ec58625a03b856f2550023141ac. The final success/evidence checkpoint follows in Git history.
+**Last verified checkpoint:** bb483f0334c2b3f763457133680df0f6409cbe3f, complete public deployment success reports/screenshots, pushed and independently matched origin/main. Deployed source 8b562d4d73113ec58625a03b856f2550023141ac. Final handoff documentation follows in Git history.
 
 **Completed work:** Exact artifact audited/published with all source/models/assets preserved. Owner confirmed Source=GitHub Actions; run 38402363567 attempt 2 and deployment 7039586635 succeeded. Public URL https://anapaulagatti.github.io/3D-pharse5-/ returns exact approved HTML; seven actual public browser checks and screenshot inspection passed, zero critical errors/missing resources.
 
@@ -40,4 +40,4 @@
 
 **Verification required:** Completed for the unchanged deployed artifact: 7 public checks PASS and actual images inspected, quality-reports/pages-live/. Repeat only if a user-authorized application/deployment change introduces a new concern; do not broaden tests without cause.
 
-**Remote GitHub save status:** Existing checkpoints through cbb0832 were pushed/independently verified; authorized source 8b562d4 is publicly deployed and verified. This final success/evidence checkpoint is committed/pushed separately and does not trigger redeployment; consult Git history for its SHA and verify origin/main after push. User public approval remains valid. Network draft persistence is separate from the verified website deployment.
+**Remote GitHub save status:** DONE: public success/evidence checkpoint bb483f0334c2b3f763457133680df0f6409cbe3f pushed and independently matched origin/main; clean working tree confirmed, and approved assets/source/HTML remain unchanged relative to deployed 8b562d4. Final documentation-only handoff does not trigger redeployment. User public approval remains valid. Network draft persistence is separate from the verified website deployment.
