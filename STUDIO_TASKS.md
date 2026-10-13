@@ -37,7 +37,7 @@ Current user gate: STOP after making v0.2 viewable and wait for visual feedback.
 
 | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|
-| PREVIEW-ACCESS-001 | Existing v0.2 browser HTTP rendering and clear downloadable viewing package | DONE | downloads/ ZIPs/manifest, launchers, build PASS, 9 smoke tests and 21 rendered HTTP checks; quality-reports/preview-access/ |
+| PREVIEW-ACCESS-001 | Existing v0.2 browser HTTP rendering and clear downloadable viewing package | DONE | downloads/ ZIPs/manifest, build PASS, 9 smoke + 21 rendered HTTP checks; 806f960 pushed/remote verified; STOP for user feedback |
 | PREVIEW-DEPLOY-001 | Static site package and manual-only Pages configuration prepared without publication | DONE | showcase-v0.2-static.zip, DEPLOYMENT.md and parsed workflow_dispatch-only workflow |
 | PREVIEW-ONLINE-001 | Publish publicly and inspect returned live URL | BLOCKED | Await explicit user approval; GitHub Pages API Forbidden; account UI instructions prepared |
 | VISUAL-REVIEW-001 | User reviews the rendered showcase before new districts | BLOCKED | Waiting for user's visual feedback; local HTTP package available |

@@ -3,8 +3,8 @@
 - Current milestone: existing v0.2 preview accessibility task completed; STOP for the user's visual review. No district expansion.
 - Current task ID: PREVIEW-ACCESS-001 (DONE). WORLD-001/WORLD-002 remain TODO behind the explicit visual-feedback gate.
 - Last completed task: PREVIEW-ACCESS-001 / real browser HTTP rendering, portable viewing package, static deployment preparation.
-- Last verified remote checkpoint before this delivery: 92f408a16fa5b65b5e360e367428440e3c8c829d; the new preview checkpoint follows in git log and will be verified after push.
-- Last checkpoint date/time: 2026-10-13 12:30:49 UTC.
+- Last verified remote artifact checkpoint: 806f9607597aa650730c0afa0ede10da0f74209e; local HEAD independently matched origin/main after push. Final handoff documentation follows in git log.
+- Last checkpoint date/time: 2026-10-13 12:36:14 UTC.
 - Latest request: make existing v0.2 viewable, visually inspect it, run production build and save a checkpoint; stop afterward. Do not build Hangul Garden, regenerate models, change art direction, install unrelated dependencies or publish publicly without approval.
 - Diagnosis: ChatGPT/Codex file viewer displays source rather than hosting HTML. The actual Vite endpoint returns 200 text/html and renders correctly. This onboarding UI exposes no user-facing browser preview/port-forwarding capability. GitHub API Pages read returns Forbidden; native Git works. Raw GitHub fetch returned 404, not a working website.
 - Implementation: added Python standard-library HTTP launcher and Windows command launcher, ZIP packaging script, static ZIP, deployment guide and manual-only Pages workflow. Added inline empty favicon to both HTML entries to eliminate a confirmed favicon.ico 404. No changes to preview/src, modeling, approved assets, exports or lockfiles.
@@ -26,7 +26,7 @@
 
 **Current task ID:** PREVIEW-ACCESS-001 DONE. Optional public deployment PREVIEW-ONLINE-001 awaiting explicit approval; no automatic deployment.
 
-**Last verified checkpoint:** Previous remote 92f408a; the following preview checkpoint is to be pushed/compared with origin/main and recorded in final handoff.
+**Last verified checkpoint:** 806f9607597aa650730c0afa0ede10da0f74209e, full HTTP package/code/QA checkpoint independently matched origin/main. Final handoff documentation follows.
 
 **Completed work:** Valid served production and self-contained HTML; metadata/favicon fix; local HTTP launchers; two downloadable ZIPs; manual-only Pages config and Cloudflare upload guide; production build, 9 smoke tests, 21 rendered HTTP checks, real screenshot inspection; approved assets unchanged.
 
@@ -40,4 +40,4 @@
 
 **Verification required:** Already passed local HTTP rendering/controls/resources/fallback. A public site must be verified only after it is really deployed; native Windows/macOS launching and physical-device performance are not claimed tested.
 
-**Remote GitHub save status:** Previous 92f408a independently verified. New delivery will be pushed and compared with remote; manual workflow has no push trigger. GitHub checkpoint, public deployment and cloud environment publication are separate. No environment/network/dependency configuration changes were needed.
+**Remote GitHub save status:** 806f960 full HTTP package/code/QA checkpoint was pushed and independently verified against origin/main. Final handoff documentation follows; compare newest local/remote on recovery. Manual workflow has no push trigger and no public deployment was executed. No environment/network/dependency configuration changes were needed.
