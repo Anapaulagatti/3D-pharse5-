@@ -46,3 +46,7 @@
 - Optional audio deferred: visual/motion/camera quality is the user's priority. Preserve operating-system reduced motion, static fallback, low/medium/high quality and visibility-aware rendering.
 
 - POLISH-ASSETS-003: Read-only Blender audit confirms original editable sources/NLA tracks. New detail layer adds 13,312 triangles and 21 material primitives in 0.50 MiB; a separate GardenBreeze clip drives three leaf clusters. No original textures are regenerated. Validator 0/0 and 37 preserved-file hashes match. Preview visual review still required before milestone acceptance.
+
+- Actual v0.3 screenshot inspection found excessive RoomEnvironment reflection lighting; balanced global reflection separately for day/evening/night and retained the celadon/ink palette. No HDRI, remote service or bloom.
+- GLB quaternion inspection confirmed original greeting/cheer mittens rotated into the torso; cloned runtime tracks now reverse those arm rotation signs and accent anticipation/scale samples. Original exported clips remain byte-identical.
+- Cinematic camera is opt-in, gentle and immediately yields to user orbit. User zoom is retained between focus changes. OS reduced-motion changes update presentation live; animations pause for explicit pause/offscreen/hidden tabs. Detailed interaction/motion verification remains in progress.

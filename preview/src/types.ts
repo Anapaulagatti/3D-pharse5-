@@ -3,6 +3,7 @@ export type Quality = 'low' | 'medium' | 'high'
 export type Mood = 'Idle' | 'Happy' | 'Thinking' | 'Celebration' | 'Disappointed' | 'Greeting'
 export type Lighting = 'day' | 'evening' | 'night'
 export type Focus = 'overview' | 'dais' | 'roof' | 'garden'
+export type Interaction = 'mascot' | 'lantern' | 'tree'
 export interface SceneSettings {
   scene: SceneKind
   quality: Quality
@@ -12,6 +13,8 @@ export interface SceneSettings {
   paused: boolean
   mobile: boolean
   focus: Focus
+  cinematic: boolean
+  interaction: { type: Interaction | null; id: number }
 }
 
 export interface StudioMetrics {
@@ -30,5 +33,14 @@ export interface StudioMetrics {
   quality: Quality
   canvasWidth: number
   canvasHeight: number
+  environmentTime?: number
+  lanternIntensity?: number
+  cameraZoom?: number
+  cameraTarget?: number[]
+  cameraPosition?: number[]
+  interactivePoints?: Record<Interaction, [number, number]>
+  facialBlink?: number
+  motionActive?: boolean
+  cinematic?: boolean
 }
 declare global { interface Window { __STUDIO_METRICS__?: StudioMetrics } }

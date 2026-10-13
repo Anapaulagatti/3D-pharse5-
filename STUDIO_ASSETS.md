@@ -38,3 +38,6 @@ No learning-alley, celebration scene or six district assets are claimed in v0.2.
 | Approved v0.2 baseline | quality-reports/v0.3/preserved-v02.json; baseline b5ed079 | Hashes recorded before polish | All original assets/source/exports/deployed HTML retained |
 | v0.3 review request | docs/reviews/VISUAL_POLISH_V03_USER_REQUEST.md | Saved | User's authored visual review and explicit release gate |
 | Hanok polish layer | Studio/modeling/polish-v03.py; assets/v0.3/source-blend/hanok-polish.blend; exports/v0.3/models/hanok-polish.glb and manifest | Generated and Validator verified; render pending | Original additive artwork; 527,852 bytes, 13,312 triangles, 21 primitives; GardenBreeze clip; 0 errors/0 warnings |
+
+| Initial v0.3 rendered evidence | quality-reports/v0.3/initial-render/ | Seven baseline browser checks PASS | Final light balance and new interaction/motion verification pending; do not use initial overbright shots as final art approval |
+| v0.3 preview implementation | Existing preview/src plus LivingMascot/LivingWorld/PolishedCamera/useStudioModel | Production build and typecheck PASS, detailed QA in progress | Original six GLB clips copied/accented at runtime; no approved GLB/source bytes changed |

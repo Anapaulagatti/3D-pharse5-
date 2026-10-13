@@ -14,4 +14,12 @@ for (const asset of manifest.assets) {
 }
 await mkdir(resolve(publicDir,'assets'),{recursive:true})
 await copyFile(resolve(exportDir,'asset-manifest.json'),resolve(publicDir,'assets/asset-manifest.json'))
-console.log('Synced',manifest.assets.length,'verified export assets to preview/public/')
+const polishDir=resolve(root,'exports/v0.3')
+const polish=JSON.parse(await readFile(resolve(polishDir,'asset-manifest.json'),'utf8'))
+for(const asset of polish.assets) {
+  const destination=resolve(publicDir,'v0.3',asset.file)
+  if(!destination.startsWith(publicDir+'/v0.3/'))throw new Error('Invalid polish asset path')
+  await mkdir(dirname(destination),{recursive:true})
+  await copyFile(resolve(polishDir,asset.file),destination)
+}
+console.log('Synced',manifest.assets.length,'preserved base assets and',polish.assets.length,'v0.3 detail asset to preview/public/')
