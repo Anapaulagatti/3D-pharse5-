@@ -11,7 +11,7 @@ def linear(v):return v/12.92 if v<=.04045 else ((v+.055)/1.055)**2.4
 def original_maps(name,kind,hexcolor='FFFFFF',seed=505,size=256):
  TEXTURES.mkdir(parents=True,exist_ok=True)
  result={};paths={role:TEXTURES/f'{name}-{role}.png' for role in ['color','roughness','normal']}
- metadata=TEXTURES/f'{name}-source.json';inputs={'generator':'original-pbr-v05-1','kind':kind,'hexcolor':hexcolor,'seed':seed,'size':size}
+ metadata=TEXTURES/f'{name}-source.json';inputs={'generator':'original-pbr-v05-2','kind':kind,'hexcolor':hexcolor,'seed':seed,'size':size}
  if all(p.exists() for p in paths.values()):
   if not metadata.exists():raise RuntimeError('Unrecorded texture cache; preserve files and use a new versioned name: '+name)
   saved=json.loads(metadata.read_text())
@@ -29,7 +29,9 @@ def original_maps(name,kind,hexcolor='FFFFFF',seed=505,size=256):
   if kind=='paper':return .5+.08*math.sin(x*.36+y*.055)+.12*n
   if kind=='tile':return .5+.07*math.sin(x*.08)+.10*n
   return .5+.13*math.sin(x*.053)*math.cos(y*.071)+.13*n
- rgb=[linear(int(hexcolor[i:i+2],16)/255) for i in (0,2,4)]
+ # Generated PNG pixel writes are raw display-channel values. Pre-linearizing
+ # here double-darkened colored maps when glTF subsequently decoded sRGB.
+ rgb=[int(hexcolor[i:i+2],16)/255 for i in (0,2,4)]
  pixels={k:[] for k in paths}
  for y in range(size):
   for x in range(size):

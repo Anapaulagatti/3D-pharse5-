@@ -173,6 +173,12 @@ art={'keep':[],'hide_meshes':[]}
 if not GRAY:
  from hanok_art_v05 import build_art
  art=build_art(globals())
+ # MikkTSpace cannot calculate tangents on mixed/ngon curve caps. Triangulate
+ # the editable art meshes explicitly; glTF already requires triangles.
+ for o in list(bpy.context.scene.objects):
+  if o.type=='MESH':
+   bpy.ops.object.select_all(action='DESELECT');o.select_set(True);bpy.context.view_layer.objects.active=o
+   mod=o.modifiers.new('PortableTangentTriangulation','TRIANGULATE');mod.keep_custom_normals=True;bpy.ops.object.modifier_apply(modifier=mod.name)
 # Keep source modules editable and manifest derived from their actual world bounds.
 src=ROOT/f'assets/v0.5/source-blend/hanok-{TAG}.blend';dst=ROOT/f'exports/v0.5/models/hanok-{TAG}.glb'
 src.parent.mkdir(parents=True,exist_ok=True);dst.parent.mkdir(parents=True,exist_ok=True)

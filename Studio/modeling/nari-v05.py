@@ -13,6 +13,8 @@ ART='--art' in sys.argv
 reset()
 COL={'skin':'E4AD89','ivory':'F2E8D4','jade':'72B9A3','navy':'25384A','hair':'362820','coral':'D67F6C','brass':'C5A66D','white':'FFF6E7','eye':'442D21','pupil':'152335','cheek':'DA8E78'}
 M={k:material('Nari_'+k,'FFFFFF',r,m) for k,r,m in [('skin',.50,0),('cloth',.85,0),('dark',.48,0),('accent',.34,.35)]}
+if ART:
+ p=M['skin'].node_tree.nodes.get('Principled BSDF');p.inputs['Roughness'].default_value=.78;p.inputs['Specular IOR Level'].default_value=.22
 for m in M.values():
  n=m.node_tree.nodes.new('ShaderNodeVertexColor');n.layer_name='Color';m.node_tree.links.new(n.outputs['Color'],m.node_tree.nodes.get('Principled BSDF').inputs['Base Color'])
 def paint(o,c,mat='cloth'):
@@ -40,6 +42,11 @@ body=join('NariContinuousBody',parts);apply_world(body)
 mod=body.modifiers.new('ContinuousAnatomyUnion','REMESH');mod.mode='VOXEL';mod.voxel_size=.009;mod.use_smooth_shade=True;bpy.ops.object.modifier_apply(modifier=mod.name)
 mod=body.modifiers.new('JointSurfaceRelax','SMOOTH');mod.factor=.65;mod.iterations=4;bpy.ops.object.modifier_apply(modifier=mod.name)
 mod=body.modifiers.new('RealtimeTopology','DECIMATE');mod.ratio=.33 if ART else .34;bpy.ops.object.modifier_apply(modifier=mod.name)
+if ART:
+ group=body.vertex_groups.new(name='FaceSurfaceRelax')
+ for v in body.data.vertices:
+  if v.co.z>1.035:group.add([v.index],min(1,(v.co.z-1.035)/.055),'REPLACE')
+ mod=body.modifiers.new('SoftHeadSurface','SMOOTH');mod.factor=.65;mod.iterations=10;mod.vertex_group=group.name;bpy.ops.object.modifier_apply(modifier=mod.name);body.vertex_groups.remove(group)
 for v in body.data.vertices:
  p=v.co
  if p.z<.003:p.z=.003
@@ -254,7 +261,7 @@ if ART:
  bpy.ops.object.mode_set(mode='EDIT');bpy.ops.mesh.separate(type='SELECTED');bpy.ops.object.mode_set(mode='OBJECT')
  skin_surface=next(o for o in bpy.context.scene.objects if o not in before);skin_surface.name='NariSkinSurface'
  from reforge_materials import textured,surface_uv
- textured(M['cloth'],'nari-wovencloth','cloth','FFFFFF',56,vertex_color=True)
+ textured(M['cloth'],'nari-wovencloth-v2','cloth','FFFFFF',56,vertex_color=True)
  for o in bpy.context.scene.objects:
   if o.type=='MESH':surface_uv(o,4)
 

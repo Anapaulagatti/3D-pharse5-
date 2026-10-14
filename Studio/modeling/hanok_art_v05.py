@@ -11,7 +11,7 @@ def build_art(ctx):
  rng=random.Random(505);keep=[]
  for key,name,kind,h,seed in [
   ('wood','hanok-honeywood','wood','8A6249',51),('lightwood','hanok-lightwood','wood','BE9870',52),
-  ('stone','hanok-warmstone','stone','C9C3AF',53),('paper','hanok-hanji','paper','EEE4CD',54),('ink','hanok-rooftile','tile','293C55',55)]:textured(M[key],name,kind,h,seed)
+  ('stone','hanok-warmstone','stone','C9C3AF',53),('paper','hanok-hanji','paper','EEE4CD',54),('ink','hanok-rooftile','tile','293C55',55)]:textured(M[key],name+'-v2',kind,h,seed)
  M['leaf']=material('V05_GardenSage','719A80',.9)
  M['glow']=material('V05_LanternHanjiGlow','FFE3AB',.86,emission=.8)
  M['haze']=material('V05_DistantTownHaze','8EA8AD',.95)
