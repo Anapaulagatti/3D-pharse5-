@@ -54,6 +54,8 @@ export default function Nari({settings:s,input,player,colliders,doorOpen,onReact
  useEffect(()=>{input.wake=invalidate;return()=>{input.wake=undefined}},[input,invalidate])
  useEffect(()=>{invalidate()},[s.expression,invalidate])
  useFrame(({gl,camera},delta)=>{
+  // R3F may render before passive setup or once during cleanup; never animate unbound actions.
+  if(actions.size!==gltf.animations.length)return
   const active=s.active&&!s.paused,ambient=active&&!s.reduced
   let simulated=0,movingInput=false,run=false
   if(play&&active){
@@ -76,7 +78,7 @@ export default function Nari({settings:s,input,player,colliders,doorOpen,onReact
    else if(once.current&&!finished.current&&['WalkStop','RunStop'].includes(clip.current)){desired=clip.current;single=true}
    switchClip(desired,single,s.reduced?0:.14)
    previousSpeed.current=player.speed;lastRun.current=run
-   if(action.current&&['Walk','Run'].includes(clip.current))action.current.timeScale=player.speed/(clip.current==='Run'?2.375:.888889)
+   if(action.current&&['Walk','Run'].includes(clip.current)){const stridePerStance=clip.current==='Run'?.38/.32:.32/.60;const authoredSpeed=stridePerStance/action.current.getClip().duration;action.current.timeScale=player.speed/authoredSpeed}
   }else if(world&&ambient){
    if(!introduced.current){introduced.current=true;player.yaw=Math.atan2(camera.position.x-player.position[0],camera.position.z-player.position[2]);manual.current='Greeting';finished.current=true;switchClip('Greeting',true)}
    else if(!manual.current&&(!once.current||finished.current)){

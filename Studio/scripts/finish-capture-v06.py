@@ -10,7 +10,7 @@ for i,f in enumerate(frames):
 lines.append("file '"+str((d/frames[-1]['file']).resolve())+"'");concat=d/'frames.ffconcat';concat.write_text('\n'.join(lines)+'\n');dst=root/'quality-reports/v0.6/playful-hangeul-town-v06-prototype.mp4'
 subprocess.run(['ffmpeg','-y','-loglevel','error','-f','concat','-safe','0','-i',str(concat),'-an','-fps_mode','vfr','-c:v','libx264','-preset','fast','-crf','21','-pix_fmt','yuv420p','-movflags','+faststart',str(dst)],check=True)
 probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_format','-show_streams','-of','json',str(dst)]));review=[]
-for e in ['walk','run','jump','greeting','celebration','face-happy','face-surprised','face-celebrating']:
+for e in ['walk','run','jump','greeting','celebration','happy-emotion','face-happy','face-surprised','face-celebrating']:
  s=next(x for x in j['samples'] if x['event']==e);next_sample=next((x for x in j['samples'] if x['firstFrame']>s['firstFrame']),{'firstFrame':len(frames)});idx=min(len(frames)-1,s['firstFrame']+max(0,(next_sample['firstFrame']-s['firstFrame'])//2));p=d/('review-'+e+'.png')
  # Prefer a known genuine gesture frame; a long interval until the next event
  # may include later native locomotion after a one-shot gesture completes.
