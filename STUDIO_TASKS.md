@@ -141,3 +141,5 @@ PUBLIC-RELEASE-005 COMPLETE: Actions38573493700/deployment7066939380 success; ca
 - Door/steps/floor geometry now PASS7checks after clearing center posts and aligning continuous floor/planks/stairs at0.30m. Actual refined world and character viewed; further polish splits body topology at cloth boundaries (not geometry replacement), widens portrait for celebration jump and removes old architecture scale-proxy capsule. Final export/QA pending.
 
 - Final pose review caught upper baji skin weights lifting a cream wedge into jacket during Run; stabilize waistband to Hips with smooth lower-leg blend. New hero uses closer perspective to prioritize Nari (phone wide FOV), full plaza remains in overview presets. Last character export and actual regression required; no pass asserted yet.
+
+- PROTO-ASSETS-006 DONE for scoped prototype: actual accepted-render images inspected, skin/waist corrected,10608tri chibi +38421tri world, raw3,117,216B, Validator0/0. Production typecheck/Vite + standalone46012a84 PASS. Native exact-static gameplay currently in progress (walk/run/air/closed-door/entry observed), no final play/access/media pass claimed.

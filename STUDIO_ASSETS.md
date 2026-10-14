@@ -170,3 +170,5 @@ Concept art is not a production texture/mesh/rig/animation/prototype or actual v
 - Refined world source/GLB clear real entry and unify floor/stair0.30m;7controller geometry checks PASS. Character current9,744tri/1,435,988B, world38,421tri/1,633,388B. Refined-render actual images retained. New exact clothing-plane cuts pending Blender re-export/validation.
 
 - Final-render39actual screenshots retained, including the rejected Run-a waist-weight defect. Current10608tri character/38421tri world source cost documented; visual benefit of seam topology is explicit+608tri over character goal, combined49029below50000. Waist weight fix changes no geometry, only genuine normalized skin weights.
+
+- Actual final candidate files now exist: showcase-v0.6/index.html/build-info and standard HTTP launchers/README; downloads/v0.6 prototype view/static ZIPs+manifest. Three embedded verified assets: two native GLBs +234,829B real v0.6 day poster with source provenance. New character10608tri1,483,828B, world38421tri1,633,388B. Prior approved concept/PDF/v0.5 files untouched. Native final package QA/video incomplete.

@@ -8,6 +8,7 @@ const root=resolve(import.meta.dirname,'../..'),io=new NodeIO().registerExtensio
 for(const name of ['nari-chibi','letter-plaza']){
  const file=`exports/v0.6/models/${name}.glb`,source=`assets/v0.6/source-blend/${name}.blend`,bytes=await readFile(resolve(root,file)),doc=await io.readBinary(bytes),r=doc.getRoot(),validation=await validator.validateBytes(bytes,{uri:file});if(validation.issues.numErrors||validation.issues.numWarnings)throw Error('GLB validation must pass0/0')
  let triangles=0,primitives=0;for(const node of r.listNodes())for(const p of node.getMesh()?.listPrimitives()||[]){primitives++;triangles+=(p.getIndices()?.getCount()||p.getAttribute('POSITION').getCount())/3}
+ await writeFile(resolve(root,`quality-reports/v0.6/prototype/${name}-validator-final.json`),JSON.stringify(validation,null,2)+'\n')
  const animations=r.listAnimations().map(a=>({name:a.getName(),channels:a.listChannels().length,duration:Math.max(...a.listSamplers().map(s=>s.getInput().getMax([])[0]))}))
  assets.push({id:name,file,bytes:bytes.length,sha256:hash(bytes),source,source_sha256:hash(await readFile(resolve(root,source))),triangles,primitives,materials:r.listMaterials().length,textures:r.listTextures().length,skins:r.listSkins().map(s=>s.listJoints().length),morphs:[...new Set(r.listMeshes().flatMap(m=>m.getExtras().targetNames||[]))],animations,validation:{errors:0,warnings:0},license:'project-owned-original',provenance:'Approved B+T1, original Blender procedural authored geometry and adapted original controller/IK authoring; no external game assets.'})
 }
