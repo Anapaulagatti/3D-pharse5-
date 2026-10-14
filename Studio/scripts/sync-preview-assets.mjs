@@ -23,3 +23,12 @@ for(const asset of polish.assets) {
   await copyFile(resolve(polishDir,asset.file),destination)
 }
 console.log('Synced',manifest.assets.length,'preserved base assets and',polish.assets.length,'v0.3 detail asset to preview/public/')
+
+const livingDir=resolve(root,'exports/v0.4')
+const living=JSON.parse(await readFile(resolve(livingDir,'asset-manifest.json'),'utf8'))
+for(const asset of living.assets){
+  const destination=resolve(publicDir,'v0.4',asset.file)
+  if(!destination.startsWith(publicDir+'/v0.4/'))throw new Error('Invalid v0.4 asset path')
+  await mkdir(dirname(destination),{recursive:true});await copyFile(resolve(livingDir,asset.file),destination)
+}
+console.log('Synced',living.assets.length,'versioned v0.4 assets')

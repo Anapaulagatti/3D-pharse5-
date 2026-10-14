@@ -70,8 +70,8 @@ Current task: BIG-UPDATE-004 — Living Hanok Showcase v0.4 overhaul. Preserve p
 | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|
 | OVERHAUL-AUDIT-004 | Archive review, inspect source and preserve v0.3 | DONE | AUDIT.md and preserved-v03.json; remote baseline verified |
-| OVERHAUL-MASCOT-004 | Versioned rig, 12 authored clips, expressive face | IN_PROGRESS | Foot pivots/face/clear walk-run-jump planned |
-| OVERHAUL-WORLD-004 | Readable architectural/courtyard/garden/skyline detail | TODO | Versioned additive layer, original arena retained |
+| OVERHAUL-MASCOT-004 | Versioned rig, 12 authored clips, expressive face | IN_PROGRESS | Versioned .blend/GLB saved: 12 real clips, independent legs/arms/ears and authored face states; runtime browser QA in progress |
+| OVERHAUL-WORLD-004 | Readable architectural/courtyard/garden/skyline detail | IN_PROGRESS | hanok-living.blend/GLB saved; 18,112 triangles/20 primitives after band optimization; actual render QA in progress |
 | OVERHAUL-LIFE-004 | Refined ambient life and day/evening/night materials | TODO | No heavy bloom or added dependencies |
 | OVERHAUL-PRESENT-004 | Hero/portrait camera, clean action UI, reactions | TODO | Live motion/accessibility retained |
 | OVERHAUL-QA-004 | Actual render/12 states/mobile/fallback/Validator/build/video | TODO | Screenshot and capture evidence required |

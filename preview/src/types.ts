@@ -1,6 +1,6 @@
 export type SceneKind = 'courtyard' | 'mascot'
 export type Quality = 'low' | 'medium' | 'high'
-export type Mood = 'Idle' | 'Happy' | 'Thinking' | 'Celebration' | 'Disappointed' | 'Greeting'
+export type Mood = 'Idle' | 'Happy' | 'Thinking' | 'Celebration' | 'Disappointed' | 'Greeting' | 'Walk' | 'Run' | 'Jump' | 'Curious' | 'ClickReaction' | 'ReturnToIdle'
 export type Lighting = 'day' | 'evening' | 'night'
 export type Focus = 'overview' | 'dais' | 'roof' | 'garden'
 export type Interaction = 'mascot' | 'lantern' | 'tree'
@@ -14,6 +14,7 @@ export interface SceneSettings {
   mobile: boolean
   focus: Focus
   cinematic: boolean
+  action: { mood: Mood | null; id: number }
   interaction: { type: Interaction | null; id: number }
 }
 
@@ -41,6 +42,12 @@ export interface StudioMetrics {
   interactivePoints?: Record<Interaction, [number, number]>
   facialBlink?: number
   motionActive?: boolean
+  facialExpression?: Mood
+  facialParts?: Record<string, number[]>
+  limbRotations?: number[][]
+  rootPosition?: number[]
+  headTilt?: number[]
+  authoredClips?: string[]
   cinematic?: boolean
 }
 declare global { interface Window { __STUDIO_METRICS__?: StudioMetrics } }

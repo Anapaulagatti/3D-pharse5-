@@ -12,7 +12,7 @@ const focusZoom: Record<Focus, number> = { overview: 1, dais: 1.48, roof: 1.20, 
 export default function PolishedCamera({ settings, animate, onOrbit }: { settings: SceneSettings; animate: boolean; onOrbit: () => void }) {
   const controls = useRef<ComponentRef<typeof OrbitControls>>(null)
   const { camera, size, invalidate } = useThree()
-  const desired = useMemo(() => new Vector3(...(settings.scene === 'mascot' ? [0, 1.58, 0] : targets[settings.focus])), [settings.scene, settings.focus])
+  const desired = useMemo(() => new Vector3(...(settings.scene === 'mascot' ? [0, 1.85, 0] : targets[settings.focus])), [settings.scene, settings.focus])
   const current = useRef(desired.clone()), zoom = useRef(40), cinemaTime = useRef(0)
   const initialTarget = useRef(desired.toArray())
   const manual = useRef(false)
@@ -21,8 +21,8 @@ export default function PolishedCamera({ settings, animate, onOrbit }: { setting
   const locations = useMemo(() => ({ mascot: new Vector3(), lantern: new Vector3(), tree: new Vector3() }), [])
   useEffect(() => {
     const ortho = camera as OrthographicCamera
-    const fit = settings.scene === 'mascot' ? Math.min(size.width / 3.5, size.height / 3.95)
-      : Math.min(size.width / (size.width < 500 ? 14.2 : 12.05), size.height / 9.1)
+    const fit = settings.scene === 'mascot' ? Math.min(size.width / 3.75, size.height / 4.65)
+      : Math.min(size.width / (size.width < 500 ? 14.2 : 12.05), size.height / 9.0)
     zoom.current = fit * (settings.scene === 'courtyard' ? focusZoom[settings.focus] : 1)
     if (!initialized.current || !animate) {
       current.current.copy(desired); controls.current?.target.copy(desired)
@@ -47,8 +47,8 @@ export default function PolishedCamera({ settings, animate, onOrbit }: { setting
     const m = window.__STUDIO_METRICS__
     if (m) {
       m.cameraZoom = ortho.zoom; m.cameraTarget = current.current.toArray(); m.cameraPosition = camera.position.toArray()
-      if (settings.scene === 'mascot') locations.mascot.set(0, 1.45, 0)
-      else locations.mascot.set(-.4, 1.36, 1)
+      if (settings.scene === 'mascot') locations.mascot.set(0, 1.60, 0)
+      else locations.mascot.set(-.4, 1.65, 1)
       locations.lantern.set(-2.1, 1, 2.5); locations.tree.set(-3, 1.78, 1.15)
       m.interactivePoints = Object.fromEntries(Object.entries(locations).map(([key, p]) => {
         p.project(camera); return [key, [(p.x + 1) * size.width / 2, (1 - p.y) * size.height / 2]]

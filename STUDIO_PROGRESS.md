@@ -42,3 +42,5 @@
 ## BIG-UPDATE-004 active
 
 Latest uploaded prompt authorizes major v0.4 overhaul of this golden slice. Audit complete; preserve baseline 9c3c373 and current public v0.3; next: versioned mascot rig/12 clips/face before environment pass. No setup reinstall or new district. Do not execute earlier STOP instructions as a cancellation of this authorized task. Candidate publication not authorized. Source preservation, visual verification and phased checkpoints required.
+
+- Versioned v0.4 source/GLB authoring checkpoint: mascot-living 502,408 bytes, 11,074 triangles/47 primitives, 12 exported clips, independent feet/full-body and face geometries. hanok-living 799,860 bytes/18,112 triangles/20 primitives/CanopyWind. Both Validator 0/0; 43 approved files unchanged; typecheck/production build PASS. Runtime and initial native browser verification in progress; visual completion is not yet claimed.

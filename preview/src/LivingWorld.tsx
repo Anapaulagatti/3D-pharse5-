@@ -8,9 +8,9 @@ import { useStudioModel } from './useStudioModel'
 import type { Interaction, SceneSettings } from './types'
 
 const presets = {
-  day: { bg: new Color('#e7e9df'), key: new Color('#ffedcf'), fill: new Color('#abc9df'), ambient: .70, hemi: .9, sun: 2.05, rim: .65, warmth: .25, reflection: .18 },
-  evening: { bg: new Color('#d5c5b9'), key: new Color('#ffd09a'), fill: new Color('#b3bfdc'), ambient: .63, hemi: .76, sun: 2.1, rim: .65, warmth: 1.7, reflection: .12 },
-  night: { bg: new Color('#30465c'), key: new Color('#bdcfe4'), fill: new Color('#86a9ce'), ambient: .58, hemi: .68, sun: .9, rim: .8, warmth: 5.0, reflection: .075 },
+  day: { bg: new Color('#e7e9df'), key: new Color('#ffedcf'), fill: new Color('#abc9df'), ambient: .40, hemi: .72, sun: 2.25, rim: .85, warmth: .32, reflection: .13 },
+  evening: { bg: new Color('#c7a9a3'), key: new Color('#ffd09a'), fill: new Color('#b3bfdc'), ambient: .34, hemi: .62, sun: 2.35, rim: .95, warmth: 3.8, reflection: .10 },
+  night: { bg: new Color('#30465c'), key: new Color('#bdcfe4'), fill: new Color('#86a9ce'), ambient: .36, hemi: .65, sun: .75, rim: 1.15, warmth: 7.0, reflection: .065 },
 }
 
 export function Atmosphere({ settings, animate }: { settings: SceneSettings; animate: boolean }) {
@@ -41,7 +41,9 @@ export function Atmosphere({ settings, animate }: { settings: SceneSettings; ani
     ground.current?.color.copy(bg)
     if (ambient.current) ambient.current.intensity = MathUtils.lerp(ambient.current.intensity, p.ambient, a)
     if (hemi.current) hemi.current.intensity = MathUtils.lerp(hemi.current.intensity, p.hemi, a)
-    if (sun.current) { sun.current.intensity = MathUtils.lerp(sun.current.intensity, p.sun, a); sun.current.color.lerp(p.key, a) }
+    if (sun.current) {
+      const direction = settings.lighting === 'evening' ? [-4,4,5] : settings.lighting === 'night' ? [-3,7,1] : [2,8,5]
+      sun.current.position.set(...sun.current.position.toArray().map((v,i) => MathUtils.lerp(v,direction[i],a)) as [number,number,number]); sun.current.intensity = MathUtils.lerp(sun.current.intensity, p.sun, a); sun.current.color.lerp(p.key, a) }
     if (rim.current) { rim.current.intensity = MathUtils.lerp(rim.current.intensity, p.rim, a); rim.current.color.lerp(p.fill, a) }
     const response = settings.interaction.type === 'lantern' ? 1.22 : 1
     const warmth = p.warmth * response * (animate ? 1 + .045 * Math.sin(time.current * 3.5) : 1)
@@ -71,8 +73,10 @@ export function LivingArena({ settings, animate, onInteract }: {
 }) {
   const { scene, animations } = useStudioModel('arena-hero')
   const { scene: detail, animations: detailClips } = useStudioModel('hanok-polish')
+  const { scene: narrative, animations: canopyClips } = useStudioModel('hanok-living')
   const { actions, mixer } = useAnimations(animations, scene)
   const { actions: wind, mixer: windMixer } = useAnimations(detailClips, detail)
+  const { actions: canopy, mixer: canopyMixer } = useAnimations(canopyClips, narrative)
   const invalidate = useThree(s => s.invalidate)
   const time = useRef(0), boost = useRef(0)
   const paper = useMemo(() => {
@@ -83,14 +87,16 @@ export function LivingArena({ settings, animate, onInteract }: {
   useEffect(() => {
     actions.LanternSway?.reset().setEffectiveTimeScale(.85).play()
     wind.GardenBreeze?.reset().setEffectiveTimeScale(.72).play()
-    return () => { mixer.stopAllAction(); windMixer.stopAllAction() }
-  }, [actions, wind, mixer, windMixer])
+    canopy.CanopyWind?.reset().setEffectiveTimeScale(.75).play()
+    return () => { mixer.stopAllAction(); windMixer.stopAllAction(); canopyMixer.stopAllAction() }
+  }, [actions, wind, canopy, mixer, windMixer, canopyMixer])
   useEffect(() => {
-    mixer.timeScale = windMixer.timeScale = animate ? 1 : 0
+    mixer.timeScale = windMixer.timeScale = canopyMixer.timeScale = animate ? 1 : 0
     if (actions.LanternSway) actions.LanternSway.paused = !animate
     if (wind.GardenBreeze) wind.GardenBreeze.paused = !animate
+    if (canopy.CanopyWind) canopy.CanopyWind.paused = !animate
     invalidate()
-  }, [actions, wind, mixer, windMixer, animate, invalidate])
+  }, [actions, wind, canopy, mixer, windMixer, canopyMixer, animate, invalidate])
   useEffect(() => { if (settings.interaction.type === 'lantern') boost.current = 1.25; invalidate() }, [settings.interaction, invalidate])
   useEffect(() => { invalidate() }, [settings.lighting, invalidate])
   useFrame((_, delta) => {
@@ -110,7 +116,7 @@ export function LivingArena({ settings, animate, onInteract }: {
         object = object.parent
       }
     }} />
-    <primitive object={detail} />
+    <primitive object={detail} /><primitive object={narrative} />
     <mesh name="PlumInteraction" visible={false} position={[-3, 1.78, 1.15]} onClick={e => { e.stopPropagation(); onInteract('tree') }}
       onPointerOver={() => { document.body.style.cursor = 'pointer' }} onPointerOut={() => { document.body.style.cursor = '' }}>
       <sphereGeometry args={[.76, 8, 6]} /><meshBasicMaterial transparent opacity={0} depthWrite={false} colorWrite={false} />

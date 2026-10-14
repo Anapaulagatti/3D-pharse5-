@@ -38,7 +38,7 @@ export default function SceneView({ settings, onReady, onFailure, onFocus, onInt
   const animate = visible && tabVisible && !settings.reducedMotion && !settings.paused
   return <div className="canvas-container" ref={container}>
     <Canvas orthographic shadows={settings.quality !== 'low' ? { type: PCFSoftShadowMap } : false}
-      camera={{ position: settings.scene === 'courtyard' ? [9, 7.7, 11] : [3.1, 2.6, 6], zoom: 42, near: .1, far: 100 }}
+      camera={{ position: settings.scene === 'courtyard' ? [8.5, 6.6, 11] : [2.5, 2.6, 6], zoom: 42, near: .1, far: 100 }}
       dpr={settings.quality === 'low' ? 1 : [1, settings.quality === 'high' ? 1.75 : 1.25]}
       frameloop={animate ? 'always' : 'demand'} gl={{ antialias: settings.quality !== 'low', alpha: false }}
       onCreated={({ gl }) => { canvas.current = gl.domElement; gl.domElement.addEventListener('webglcontextlost', lost) }}

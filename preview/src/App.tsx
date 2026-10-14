@@ -1,6 +1,6 @@
 import { Component, Suspense, lazy, useCallback, useEffect, useState, type ReactNode } from 'react'
 import Poster from './Poster'
-import type { Interaction, SceneSettings } from './types'
+import type { Interaction, Mood, SceneSettings } from './types'
 import { modelAssets, formatBytes, assetURL } from './assets'
 
 const SceneView = lazy(() => import('./SceneView'))
@@ -20,7 +20,7 @@ export default function App() {
     scene: 'courtyard', quality: window.matchMedia('(max-width: 640px)').matches ? 'low' : 'medium', mood: 'Idle', lighting: 'day',
     reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
     paused: false, mobile: window.matchMedia('(max-width: 640px)').matches, focus: 'overview', cinematic: false,
-    interaction: { type: null, id: 0 },
+    interaction: { type: null, id: 0 }, action: { mood: null, id: 0 },
   })
   const [notice, setNotice] = useState('Chạm linh vật, đèn lồng hoặc cây mận để khám phá.')
   const [systemReduced, setSystemReduced] = useState(window.matchMedia('(prefers-reduced-motion: reduce)').matches)
@@ -38,21 +38,22 @@ export default function App() {
   const update = <K extends keyof SceneSettings>(key: K, value: SceneSettings[K]) => setSettings(s => ({ ...s, [key]: value }))
   const interact = useCallback((type: Interaction) => {
     setSettings(s => ({ ...s, interaction: { type, id: s.interaction.id + 1 } }))
-    setNotice(type === 'mascot' ? 'Người bạn men ngọc đang chào bạn.' : type === 'lantern' ? 'Ánh đèn ấm vừa bừng lên.' : 'Một làn gió nhẹ qua cành mận.')
+    setNotice(type === 'mascot' ? 'Một cú nhảy nhỏ dành cho bạn.' : type === 'lantern' ? 'Ánh đèn ấm vừa bừng lên.' : 'Một làn gió nhẹ qua cành mận.')
   }, [])
+  const perform = (mood: Mood) => { setSettings(s => ({ ...s, action: { mood, id: s.action.id + 1 } })); setNotice('Người bạn men ngọc đang biểu diễn và sẽ trở về bình yên.') }
   const resetCamera = () => { update('focus', 'overview'); setReset(r => r + 1); if (engine !== 'fallback') setEngine('loading') }
   const switchScene = (scene: SceneSettings['scene']) => { if (settings.scene === scene) return; update('scene', scene); if (engine !== 'fallback') setEngine('loading') }
   const poster = <div className="poster"><Poster mascot={settings.scene === 'mascot'} /><p>Ảnh tĩnh · 3D tạm thời không khả dụng</p></div>
   return <div className="studio-shell">
     <header className="topbar">
       <a className="wordmark" href="#main"><span className="logo-mark" aria-hidden="true">◈</span> DISTRICT <span className="wordmark-light">/ 3D STUDIO</span></a>
-      <span className="demo-pill"><span /> LIVING HANOK · v0.3</span>
+      <span className="demo-pill"><span /> LIVING HANOK · v0.4</span>
     </header>
     <main id="main">
       <section className="intro">
         <p className="eyebrow">THE LIVING HANGEUL DISTRICT <span>한글 마을</span></p>
         <h1>Một góc phố.<br /><em>Một thế giới nhỏ.</em></h1>
-        <p className="intro-copy">Mái hanok, ánh đèn ấm và một người bạn men ngọc. Không gian thử nghiệm cho một hành trình học tập sống động.</p>
+        <p className="intro-copy">Theo bước một người bạn men ngọc: dạo dưới mái cong, nghe gió qua cành mận và khám phá những góc nhỏ đang sống.</p>
       </section>
       <div className="workspace">
         <aside className="controls" aria-label="Điều khiển demo 3D">
@@ -68,7 +69,7 @@ export default function App() {
           <div className="section-label"><span>02</span> THIẾT LẬP</div>
           <label className="field">Chất lượng<select value={settings.quality} onChange={e => update('quality', e.target.value as SceneSettings['quality'])}><option value="low">Thấp</option><option value="medium">Vừa</option><option value="high">Cao</option></select></label>
           <label className="field">Ánh sáng<select value={settings.lighting} onChange={e => update('lighting', e.target.value as SceneSettings['lighting'])}><option value="day">Nắng dịu</option><option value="evening">Chiều ấm</option><option value="night">Đêm đèn</option></select></label>
-          <label className="field">Trạng thái linh vật<select value={settings.mood} onChange={e => update('mood', e.target.value as SceneSettings['mood'])}><option value="Idle">Bình yên</option><option value="Happy">Vui vẻ</option><option value="Thinking">Suy nghĩ</option><option value="Celebration">Ăn mừng</option><option value="Disappointed">Buồn nhẹ</option><option value="Greeting">Chào bạn</option></select></label>
+          <label className="field">Trạng thái linh vật<select value={settings.mood} onChange={e => update('mood', e.target.value as SceneSettings['mood'])}><option value="Idle">Bình yên</option><option value="Happy">Vui vẻ</option><option value="Thinking">Suy nghĩ</option><option value="Celebration">Ăn mừng</option><option value="Disappointed">Buồn nhẹ</option><option value="Greeting">Chào bạn</option><option value="Walk">Đi dạo</option><option value="Run">Chạy vui</option><option value="Jump">Nhảy lên</option><option value="Curious">Tò mò</option><option value="ClickReaction">Bất ngờ</option><option value="ReturnToIdle">Thả lỏng</option></select></label>
           <label className="toggle"><input type="checkbox" checked={settings.reducedMotion} onChange={e => update('reducedMotion', e.target.checked)} /><span>Giảm chuyển động</span></label>
           {systemReduced && <p className="motion-preference">Thiết bị ưu tiên giảm chuyển động. Bạn có thể chọn bật chuyển động tại đây.</p>}
           <label className="toggle"><input type="checkbox" checked={settings.cinematic} disabled={settings.reducedMotion || settings.paused || engine === 'fallback'} onChange={e => update('cinematic', e.target.checked)} /><span>Góc nhìn điện ảnh</span></label>
@@ -81,7 +82,7 @@ export default function App() {
           </div>
         </aside>
         <section className="viewer-section" aria-label="Khung xem 3D">
-          <div className="viewer-header"><div><span className="eyebrow">{settings.scene === 'courtyard' ? 'SCENE 01 · LIVING HANOK' : 'SCENE 02 · MEET YOUR COMPANION'}</span><h2>{settings.scene === 'courtyard' ? 'Hanok Rooftop' : 'Ceramic Spirit'}</h2></div><span className="viewer-tag">BẢN DUYỆT · v0.3</span></div>
+          <div className="viewer-header"><div><span className="eyebrow">{settings.scene === 'courtyard' ? 'SCENE 01 · LIVING HANOK' : 'SCENE 02 · MEET YOUR COMPANION'}</span><h2>{settings.scene === 'courtyard' ? 'Hanok Rooftop' : 'Ceramic Spirit'}</h2></div><span className="viewer-tag">BẢN DUYỆT · v0.4</span></div>
           <div className={`stage ${settings.mobile ? 'mobile-frame' : ''}`} data-engine={engine} data-clip={settings.mood} data-scene={settings.scene}>
             {engine === 'fallback' ? poster : <SceneBoundary fallback={poster} onFailure={failed}>
               <Suspense fallback={<div className="loading" role="status">Đang dựng không gian…</div>}>
@@ -92,13 +93,16 @@ export default function App() {
             <span className="stage-note" role="status">{engine === 'ready' ? settings.reducedMotion ? '3D · Chuyển động nhẹ đã tắt' : settings.paused ? '3D · Đã tạm dừng' : '3D · Thế giới đang chuyển động' : engine === 'fallback' ? 'Chế độ 2D' : 'Đang tải 3D'}</span>
           </div>
           <div className="viewer-footer"><span>Kéo để xoay · Chọn điểm sáng để khám phá</span><div><button onClick={() => update('paused', !settings.paused)} aria-pressed={settings.paused}>{settings.paused ? 'Tiếp tục' : 'Tạm dừng'}</button><button onClick={resetCamera}>Đặt lại góc nhìn <span aria-hidden="true">↺</span></button></div></div>
-          <div className="interaction-bar" aria-label="Tương tác trong sân"><button disabled={engine !== 'ready'} onClick={() => interact('mascot')}>Chào linh vật</button><button disabled={engine !== 'ready' || settings.scene !== 'courtyard'} onClick={() => interact('lantern')}>Thắp đèn</button><button disabled={engine !== 'ready' || settings.scene !== 'courtyard'} onClick={() => interact('tree')}>Gió qua vườn</button><p role="status" className="interaction-notice">{notice}</p></div>
+          <div className="performance-actions" aria-label="Động tác của linh vật">
+            {([['Walk','Đi dạo'],['Run','Chạy vui'],['Jump','Nhảy lên'],['Greeting','Vẫy chào'],['Celebration','Ăn mừng']] as const).map(([mood,label]) => <button key={mood} disabled={engine !== 'ready'} onClick={() => perform(mood)}>{label}</button>)}
+          </div>
+          <div className="interaction-bar" aria-label="Tương tác trong sân"><button disabled={engine !== 'ready'} onClick={() => perform('Greeting')}>Chào linh vật</button><button disabled={engine !== 'ready' || settings.scene !== 'courtyard'} onClick={() => interact('lantern')}>Thắp đèn</button><button disabled={engine !== 'ready' || settings.scene !== 'courtyard'} onClick={() => interact('tree')}>Gió qua vườn</button><p role="status" className="interaction-notice">{notice}</p></div>
         </section>
       </div>
       <section className="asset-panel" aria-label="Thông tin asset"><div className="section-label">BỘ SƯU TẬP · ASSET 3D NGUYÊN BẢN</div><div className="asset-cards">
         {modelAssets.map(asset => <article key={asset.id}><div><h3>{asset.id === 'arena-hero' ? 'Hanok Rooftop Arena' : 'Ceramic Seed Spirit'}</h3><span>v{asset.version} · {formatBytes(asset.file_bytes)}</span></div><p>{asset.geometry?.totalTriangleCount.toLocaleString('vi-VN')} tam giác · {asset.animations?.length} clip · Nguyên bản</p><a href={assetURL(asset.id)} download={asset.file.split('/').pop()}>Tải model GLB <span aria-hidden="true">↓</span></a></article>)}
       </div></section>
-      <section className="notes" aria-label="Thông tin bản demo"><div><span className="section-label">CHẤT LIỆU</span><p>Giấy hanji. Gốm men ngọc.<br />Ánh sáng nhẹ, hình khối rõ ràng.</p></div><div><span className="section-label">CERAMIC SEED SPIRIT</span><p>Sáu chuyển động, một người bạn nhỏ.<br />Model và animation từ Blender.</p></div><div><span className="section-label">KHÔNG GIAN ĐỘC LẬP</span><p>Dữ liệu demo, không cần tài khoản.<br />Chưa tích hợp vào ứng dụng Korean Arena.</p></div></section>
+      <section className="notes" aria-label="Thông tin bản demo"><div><span className="section-label">CHẤT LIỆU</span><p>Giấy hanji. Gốm men ngọc.<br />Ánh sáng nhẹ, hình khối rõ ràng.</p></div><div><span className="section-label">CERAMIC SEED SPIRIT</span><p>Mười hai động tác, một người bạn nhỏ.<br />Model và animation từ Blender.</p></div><div><span className="section-label">KHÔNG GIAN ĐỘC LẬP</span><p>Dữ liệu demo, không cần tài khoản.<br />Chưa tích hợp vào ứng dụng Korean Arena.</p></div></section>
     </main>
     <footer className="site-footer"><span>3D-pharse5- / Studio</span><span>Mỗi góc nhỏ, một khởi đầu.</span></footer>
   </div>
