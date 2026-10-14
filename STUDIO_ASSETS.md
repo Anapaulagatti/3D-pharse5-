@@ -41,3 +41,6 @@ No learning-alley, celebration scene or six district assets are claimed in v0.2.
 
 | Initial v0.3 rendered evidence | quality-reports/v0.3/initial-render/ | Seven baseline browser checks PASS | Final light balance and new interaction/motion verification pending; do not use initial overbright shots as final art approval |
 | v0.3 preview implementation | Existing preview/src plus LivingMascot/LivingWorld/PolishedCamera/useStudioModel | Production build and typecheck PASS, detailed QA in progress | Original six GLB clips copied/accented at runtime; no approved GLB/source bytes changed |
+
+| Reaction/camera correction evidence | quality-reports/v0.3/intro-diagnostic.json; review-pass-1/2/3/ | Native Greeting→Idle confirmed; previous failures preserved | Identical DOM canvas bounds, actual mixer advance; final screenshots/full QA pending |
+| Separate v0.3 standalone candidate | showcase-v0.3/index.html + build-info.json | Built; full candidate QA pending | 8,212,845 bytes/8 verified embedded base+detail assets; does not alter public v0.2 |

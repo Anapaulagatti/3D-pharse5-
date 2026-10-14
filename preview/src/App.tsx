@@ -17,7 +17,7 @@ function canRender3D() {
 
 export default function App() {
   const [settings, setSettings] = useState<SceneSettings>({
-    scene: 'courtyard', quality: 'medium', mood: 'Idle', lighting: 'day',
+    scene: 'courtyard', quality: window.matchMedia('(max-width: 640px)').matches ? 'low' : 'medium', mood: 'Idle', lighting: 'day',
     reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
     paused: false, mobile: window.matchMedia('(max-width: 640px)').matches, focus: 'overview', cinematic: false,
     interaction: { type: null, id: 0 },

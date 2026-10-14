@@ -56,5 +56,5 @@ Current user gate: visual review received; work ONLY on VISUAL-POLISH-003 — Go
 | POLISH-ASSETS-003 | Additive original handcrafted Hanok detail GLB + editable Blender source | DONE | hanok-polish.blend + GLB/manifest; Validator 0 errors/0 warnings, 13,312 triangles/21 draws/527,852 bytes; 37 original hashes unchanged; visual review in POLISH-QA-003 |
 | POLISH-MOTION-003 | Six expressive clips, ambient motion and meaningful interactions | IN_PROGRESS | Actual rendered movement required; respect OS reduced motion/pause/visibility |
 | POLISH-CAMERA-003 | Larger responsive hero, smooth focus and optional cinematic mode | IN_PROGRESS | Keep orbit control; no continuous automatic movement by default |
-| POLISH-QA-003 | Production build, Validator, desktop/mobile/fallback, video and before/after | IN_PROGRESS | Save real rendered evidence under quality-reports/v0.3 |
+| POLISH-QA-003 | Production build, Validator, desktop/mobile/fallback, video and before/after | IN_PROGRESS | Build and all three GLB Validator 0/0; first seven browser regressions PASS; detailed failures preserved, reaction correction diagnosed; final QA/video pending |
 | POLISH-REVIEW-003 | Package candidate and checkpoint for user review | TODO | Do not update public v0.2 without explicit updated-publication approval |

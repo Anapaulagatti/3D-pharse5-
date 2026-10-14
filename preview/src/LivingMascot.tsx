@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import { useAnimations } from '@react-three/drei'
-import { AnimationClip, Euler, Group, MathUtils, Quaternion, Vector3 } from 'three'
+import { AnimationClip, Euler, Group, LoopOnce, LoopRepeat, MathUtils, Quaternion, Vector3 } from 'three'
 import type { AnimationAction } from 'three'
 import type { Interaction, Mood, SceneSettings } from './types'
 import { useStudioModel } from './useStudioModel'
@@ -37,6 +37,7 @@ export default function LivingMascot({ settings, animate, onReady, onInteract }:
   const clips = useMemo(() => animations.map(expressiveClip), [animations])
   const { actions, mixer } = useAnimations(clips, scene)
   const [mood, setMood] = useState<Mood>(settings.mood)
+  const [gestureId, setGestureId] = useState(0)
   const outer = useRef<Group>(null)
   const follow = useRef<Group>(null)
   const previous = useRef<AnimationAction | null>(null)
@@ -52,7 +53,7 @@ export default function LivingMascot({ settings, animate, onReady, onInteract }:
   const catchlights = useMemo(() => ['EyeCatchlight', 'EyeCatchlight001'].map(n => scene.getObjectByName(n)).filter(Boolean), [scene])
   const head = useMemo(() => scene.getObjectByName('HeadPivot')!, [scene])
   const leaf = useMemo(() => scene.getObjectByName('CeramicLeafPivot')!, [scene])
-  const gesture = useCallback((next: Mood) => { temporary.current = 3.3; idleAge.current = 0; setMood(next); invalidate() }, [invalidate])
+  const gesture = useCallback((next: Mood) => { temporary.current = 1; idleAge.current = 0; setMood(next); setGestureId(n => n + 1); invalidate() }, [invalidate])
 
   useEffect(() => { temporary.current = 0; idleAge.current = 0; setMood(settings.mood) }, [settings.mood])
   useEffect(() => {
@@ -70,11 +71,21 @@ export default function LivingMascot({ settings, animate, onReady, onInteract }:
     if (previous.current && previous.current !== action) {
       if (animate) previous.current.fadeOut(.24); else previous.current.stop()
     }
-    action.reset().setEffectiveWeight(1).setEffectiveTimeScale(.8).fadeIn(animate ? .24 : 0).play()
+    action.reset().setEffectiveWeight(1).setEffectiveTimeScale(.8)
+      .setLoop(temporary.current ? LoopOnce : LoopRepeat, temporary.current ? 1 : Infinity)
+      .fadeIn(animate ? .24 : 0).play()
+    action.clampWhenFinished = !!temporary.current
     previous.current = action
     if (!animate) { action.paused = true; action.time = .8; mixer.update(0) }
     invalidate()
-  }, [actions, mood, mixer, invalidate])
+  }, [actions, mood, gestureId, mixer, invalidate])
+  useEffect(() => {
+    const finished = (event: { action: AnimationAction }) => {
+      if (temporary.current && event.action === previous.current) { temporary.current = 0; idleAge.current = 0; setMood('Idle') }
+    }
+    mixer.addEventListener('finished', finished)
+    return () => mixer.removeEventListener('finished', finished)
+  }, [mixer])
   useEffect(() => {
     mixer.timeScale = animate ? 1 : 0
     if (actions[mood]) {
@@ -90,10 +101,7 @@ export default function LivingMascot({ settings, animate, onReady, onInteract }:
     if (animate) {
       const dt = Math.min(delta, .15)
       elapsed.current += dt
-      if (temporary.current > 0) {
-        temporary.current -= dt
-        if (temporary.current <= 0) setMood('Idle')
-      } else if (mood === 'Idle') {
+      if (!temporary.current && mood === 'Idle') {
         idleAge.current += dt
         if (idleAge.current > 11) gesture('Thinking')
       }

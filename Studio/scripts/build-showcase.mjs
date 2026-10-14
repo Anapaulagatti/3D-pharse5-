@@ -9,14 +9,18 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..')
 const preview = resolve(root, 'preview')
 const requirePreview = createRequire(resolve(preview, 'package.json'))
+if (!process.argv.includes('--candidate')) throw new Error('v0.3 source is a review candidate. Use --candidate; the published v0.2 showcase is preserved.')
 const { build } = await import(pathToFileURL(requirePreview.resolve('vite')).href)
 const { default: react } = await import(pathToFileURL(requirePreview.resolve('@vitejs/plugin-react')).href)
 const exportDir = resolve(root, 'exports/v1')
 const manifest = JSON.parse(await readFile(resolve(exportDir, 'asset-manifest.json'), 'utf8'))
+const polishDir = resolve(root, 'exports/v0.3')
+const polish = JSON.parse(await readFile(resolve(polishDir, 'asset-manifest.json'), 'utf8'))
 const embedded = {}
-for (const asset of manifest.assets) {
-  const path = resolve(exportDir, asset.file)
-  if (!path.startsWith(exportDir + '/')) throw new Error(`Invalid asset path: ${asset.id}`)
+for (const asset of [...manifest.assets, ...polish.assets]) {
+  const directory = polish.assets.includes(asset) ? polishDir : exportDir
+  const path = resolve(directory, asset.file)
+  if (!path.startsWith(directory + '/')) throw new Error(`Invalid asset path: ${asset.id}`)
   const bytes = await readFile(path)
   if (bytes.length !== asset.file_bytes || createHash('sha256').update(bytes).digest('hex') !== asset.checksum_sha256) {
     throw new Error(`Unverified asset: ${asset.id}; repack changed assets before bundling`)
@@ -86,7 +90,7 @@ const html = `<!doctype html>
   <meta name="theme-color" content="#15243a" />
   <link rel="icon" href="data:," />
   <meta name="description" content="Showcase 3D Hanok và Ceramic Seed Spirit — bản offline tự chứa, model và animation thật từ Blender." />
-  <title>Living Hangeul District · 3D Studio</title>
+  <title>Korean Arena 3D Studio v0.3 — Living Hanok Showcase</title>
   <style>${css.replace(/<\/style/gi, '<\\/style')}</style>
 </head>
 <body>
@@ -97,18 +101,20 @@ const html = `<!doctype html>
 </body>
 </html>
 `
-const dir = resolve(root, 'showcase')
+const dir = resolve(root, 'showcase-v0.3')
 await mkdir(dir, { recursive: true })
 await writeFile(resolve(dir, 'index.html'), html)
 const info = {
   format: 'single-file-offline-html',
   app_source: 'preview/src/main.tsx',
-  asset_manifest: 'exports/v1/asset-manifest.json',
-  asset_version: manifest.version,
-  file: 'showcase/index.html',
+  asset_manifest: 'exports/v0.3/asset-manifest.json',
+  base_manifest: 'exports/v1/asset-manifest.json',
+  asset_version: polish.version,
+  release_status: 'candidate-for-user-review; updated public publication not approved',
+  file: 'showcase-v0.3/index.html',
   file_bytes: Buffer.byteLength(html),
   checksum_sha256: createHash('sha256').update(html).digest('hex'),
-  embedded_assets: manifest.assets.map(({ id, file_bytes, checksum_sha256 }) => ({ id, file_bytes, checksum_sha256 })),
+  embedded_assets: [...manifest.assets, ...polish.assets].map(({ id, file_bytes, checksum_sha256 }) => ({ id, file_bytes, checksum_sha256 })),
   generated_at: new Date().toISOString(),
 }
 await writeFile(resolve(dir, 'build-info.json'), JSON.stringify(info, null, 2) + '\n')

@@ -2,7 +2,7 @@
 
 - Current milestone: VISUAL-POLISH-003 — Golden Vertical Slice v0.3, IN_PROGRESS.
 - Current task: POLISH-QA-003 / actual rendered validation of implemented motion/camera/lighting. Last completed: additive assets plus production/typecheck and seven initial browser regression checks.
-- Last verified remote checkpoint: b5ed079353c5d5846058d3563c5a8495e1b14832 independently matched origin/main at this session start. New checkpoints follow in Git history.
+- Last verified remote checkpoint: e0bf42b5bd4dfdaa70ffd9b67a948b1dcf3196de independently matched origin/main after preview implementation push. Further corrections/candidate checkpoint follows.
 - Authorization: upgrade existing arena/mascot with visual polish; no Hangul Garden or other district. STOP for review after candidate completion. v0.3 public release requires updated-showcase publication approval; existing v0.2 approval remains specific to v0.2.
 - Existing public site: https://anapaulagatti.github.io/3D-pharse5-/ remains the verified v0.2 (deployment source 8b562d4; successful run 38402363567 attempt 2). Do not describe it as v0.3.
 - Preservation: quality-reports/v0.3/preserved-v02.json records original assets/source-blend, models, textures, posters, animations, exports/v1, showcase and both lockfiles. Keep these bytes unchanged. Candidate assets/build/evidence use separate v0.3 paths.
@@ -10,6 +10,9 @@
 - Inspection: actual arena GLB has LanternSway; mascot GLB has all six clips. Existing R3F actions pause correctly but motions are small, paper motes tiny, lighting changes abrupt, camera lacks expressive focus, and OS preference listener is absent. Improve without replacing original base assets.
 - Files saved: archived user request, four progress records, preservation hashes. New asset: assets/v0.3/source-blend/hanok-polish.blend, exports/v0.3/models/hanok-polish.glb and asset-manifest.json. Validator 0 errors/0 warnings; 13,312 triangles/21 draws/527,852 bytes; 37 originals unchanged. Render quality pending.
 - Next action: complete verify-polish-v03.mjs against production at internal port 4173, inspect final screenshots, fix any failures, then record video and package separate candidate.
+- Corrections: native LoopOnce/finished-event reactions verified Greeting→Idle in intro-diagnostic.json; expanded portrait framing prevents celebration clipping; phones default low quality. Base and supplemental GLBs validate 0/0. Candidate single-file build saved separately (7.83 MiB, 8 verified embedded assets); not yet fully packaged/verified.
+- QA history: initial browser seven baseline checks passed; detailed review passes 1/2/3 failed timer/stability conditions and are retained. Current script fixes headless idle-canvas RAF stability waits using native scroll/page screenshot clips/real mouse input; no app motion/accessibility overrides or assertion removal. Full interaction/motion QA remains pending.
+- Current runtime blocker: sandbox changed to restricted on 2026-10-14; default Chromium socket/server bind denied. Supported require_escalated internal production server and browser verifier launched; confirm completion, restart only own services when needed.
 - Known limits: cloud uses software GPU; physical desktop/phone FPS cannot be inferred. Existing browser tools can capture real render/video.
 
 - Preview implementation: expressive original sample clones/crossfades, outward greeting/cheer silhouettes, blink/camera awareness/idle gestures, click reactions, foliage/flicker/instanced paper/petals, smooth focus/zoom/cinematic yield, OS preference listener, visibility/pause demand loop.
@@ -23,7 +26,7 @@
 
 **Current task ID:** POLISH-MOTION-003 / POLISH-CAMERA-003 implemented, final interaction/motion QA in progress.
 
-**Last verified checkpoint:** 15083387ec6e48e583151dbd8ab78c9a94e82f86 additive asset checkpoint pushed and remotely matched; preview implementation checkpoint follows.
+**Last verified checkpoint:** e0bf42b5bd4dfdaa70ffd9b67a948b1dcf3196de preview implementation matched remote; reaction/framing/candidate corrections checkpoint follows.
 
 **Completed work:** Review/preservation checkpoint pushed; actual Blender sources inspected read-only. Separate Hanok detail source/GLB/manifest exported and validated 0/0; original 37 files unchanged. Existing v0.2 public deployment retained.
 
@@ -31,7 +34,7 @@
 
 **Files to inspect:** docs/reviews/VISUAL_POLISH_V03_USER_REQUEST.md; preview/src/SceneView.tsx, App.tsx, types.ts; Studio/modeling/arena.py, mascot.py, common.py; preservation hashes.
 
-**Known blockers:** None for implementation. Physical device FPS unavailable; updated public publication not yet authorized.
+**Known blockers:** New restricted sandbox blocks default browser/server sockets; supported escalated runs are authorized and were accepted. Detailed QA needs completion; physical device FPS unavailable; updated public publication not yet authorized.
 
 **Exact next command or action:** Finish node Studio/scripts/verify-polish-v03.mjs http://127.0.0.1:4173/ using the built production app. Then record actual movement and package v0.3 separately. Never run existing build-showcase into public showcase/ for candidate work.
 
