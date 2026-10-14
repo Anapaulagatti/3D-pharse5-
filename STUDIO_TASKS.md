@@ -129,3 +129,5 @@ PUBLIC-RELEASE-005 COMPLETE: Actions38573493700/deployment7066939380 success; ca
 - Remote delivery VERIFIED: f6d9732ba999eacf7159c025df9d2a106a4db632 independently matches origin/main. Final proof/handoff tag checkpoint/v0.6-concepts-review follows; STOP for new user choice.
 
 - PIVOT-APPROVAL-006 DONE: user "B + T1 là phương án hợp lý", concepts/v0.6/APPROVAL.json. PIVOT-PROTOTYPE-006 IN_PROGRESS; PUBLIC-RELEASE-006 remains separately gated. Subtasks: PROTO-ASSETS-006 original chibi/house/plaza sources+GLBs; PROTO-PLAY-006 adapted existing controller/camera/accessibility; PROTO-QA-006 actual render/physics/mobile/quality/Validator/build/media/package.
+
+- PROTO-ASSETS-006 source preparation complete: new nari-v06.py/chibi_motion_v06.py and letter-plaza-v06.py Python syntax PASS. Actual exports/rig/structure/render acceptance pending; source checkpoint before Blender.

@@ -145,3 +145,5 @@ PUBLIC-RELEASE-005 COMPLETE: exact082c661b (13,543,219B) publicly serves at http
 - Complete concept content f6d9732 independently persisted on GitHub. Freeze these proposal outputs and await explicit new selection; final checkpoint/v0.6-concepts-review is a recovery tag, not approval or publication.
 
 - User explicitly accepts B+T1. Approval gate satisfied, authorize the scoped section13 vertical-slice prototype without re-asking. Keep v0.5 code byte-identical by using new preview/town.html + src/town modules and new source/export/scripts. Reuse validated controller/mixer/camera architecture with chibi dimensions and animation timing; no runtime scaling of old approved GLB as redesign. Public release still requires later permission.
+
+- Chibi rest proportions authored anew: about1.105m tall/0.41m head (~2.7heads), separate analytic head and continuous bone-heat limbs; .6s walk/.5s run with .16/.19m reach and .8889/2.375mps stride contracts. T1 compact4.6m house and10.4m plaza, broad tile ribs/rounded vegetation/shared palette rather than PBR grain. Verify actual geometry/skin/contact before acceptance.

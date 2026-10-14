@@ -25,3 +25,5 @@ Plan: versioned editable Blender chibi/one structurally complete house/plaza GLB
 **Verification required:** Source/skin/GLB/build, character front/side/rear/three faces, native walk/run/jump, house four sides, day/night/mobile/quality/fallback/reduced-motion and before/after.
 
 **Remote GitHub save status:** Concept b23a472 was independently verified; new approval checkpoint pending push/verification before expensive Blender runs.
+
+Source preparation checkpoint: new continuous short-limb body, analytic large head/eyes/hair/coral collar/mint satchel, compatible28bones and adapted IK stride authoring; T1 one complete house/solid roof/walls/windows/porch/stairs, open square/perimeter plants/lamps/benches/mailbox/platform. Flat palette, no texture dependency. Python syntax PASS. Actual Blender export/Validator/render pending; approval1dca068 independently saved.

@@ -158,3 +158,5 @@ Concept art is not a production texture/mesh/rig/animation/prototype or actual v
 - Full v0.6 concept/audit/PDF/evidence content checkpointf6d9732ba999eacf7159c025df9d2a106a4db632 pushed and independently verified on origin/main; quality-reports/v0.6/remote-checkpoint.json. Final proof handoff uses checkpoint/v0.6-concepts-review. Production v0.5 remains untouched.
 
 - APPROVAL.json records exact B+T1 user acceptance. Previous APPROVAL_PENDING.json retained as historical state; latest authoritative choice is APPROVAL.json. Approved concept PNGs retained unchanged. Prototype assets will use assets/v0.6/source-blend and exports/v0.6; not generated yet.
+
+- New editable generator sources only: Studio/modeling/nari-v06.py, chibi_motion_v06.py and letter-plaza-v06.py. Original v0.5 code not imported as a mesh, scaled, changed or regenerated. No new GLB or Blender output claimed yet.
