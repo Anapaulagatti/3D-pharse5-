@@ -11,7 +11,7 @@ import { Lighting, House, Contact } from './World'
 
 const positions:Record<Preset,[number[],number[],number]>={
  face:[[0,1.2,4],[0,1.2,0],.9],
- hero:[[10,8,14],[0,1.3,-.55],16.2],front:[[0,3,13],[0,1.8,-1.5],10],rear:[[0,3,-17],[0,1.8,-2.5],10],left:[[-15,3,-2],[0,1.8,-2],9],right:[[15,3,-2],[0,1.8,-2],9],roof:[[8,12,5],[0,1.2,-1.4],14],connection:[[4.1,3.2,2.4],[2.6,3,-.2],3.7],interior:[[-1.4,1.85,-1.95],[-2.2,1.1,-3.6],2.75],
+ hero:[[10,8,14],[0,1.3,-.55],16.2],front:[[0,3,13],[0,1.8,-1.5],10],rear:[[0,3,-17],[0,1.8,-2.5],10],left:[[-15,3,-2],[0,2.0,-2],10.2],right:[[15,3,-2],[0,2.0,-2],10.2],roof:[[8,12,5],[0,1.6,-1.4],16],connection:[[4.1,3.2,2.4],[2.6,3,-.2],3.7],interior:[[-2.1,1.65,-1.95],[-2.15,1.0,-3.45],2.1],
 }
 function Ready({onReady}:{onReady:()=>void}){
  const reported=useRef(false),frames=useRef(0),{invalidate}=useThree()

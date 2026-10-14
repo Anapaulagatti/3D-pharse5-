@@ -11,7 +11,7 @@ const url=process.argv[2]||'http://127.0.0.1:4186/?candidate=v05',errors=[],miss
 try{
  const p=await browser.newPage({viewport:{width:1280,height:1100},reducedMotion:'reduce'});p.setDefaultTimeout(60000)
  p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error')errors.push(m.text())});p.on('response',r=>{if(r.status()>=400)missing.push({url:r.url(),status:r.status()})})
- assert.equal((await p.goto(url)).status(),200);await p.getByLabel('Chế độ',{exact:true}).selectOption('portrait')
+ assert.equal((await p.goto(url)).status(),200);await p.getByLabel('Chất lượng',{exact:true}).selectOption('low');await p.getByLabel('Chế độ',{exact:true}).selectOption('portrait')
  await expect.poll(()=>p.evaluate(()=>window.__REFORGE_METRICS__?.skinBones)).toBe(28)
  const m=()=>p.evaluate(()=>window.__REFORGE_METRICS__),hash=b=>createHash('sha256').update(b).digest('hex')
  const shot=async n=>{await p.locator('canvas').evaluate(e=>e.scrollIntoView({block:'center'}));const buffer=await p.screenshot({path:resolve(out,n+'.png'),clip:await p.locator('canvas').boundingBox()});states[n]=await m();return hash(buffer)}

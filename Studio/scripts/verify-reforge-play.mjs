@@ -9,7 +9,7 @@ const url=process.argv[2]||'http://127.0.0.1:4186/?candidate=v05',errors=[],miss
 try{
  const p=await browser.newPage({viewport:{width:1280,height:1100},reducedMotion:'no-preference'});current=p;p.setDefaultTimeout(60000)
  p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error')errors.push(m.text())});p.on('response',r=>{if(r.status()>=400)missing.push({url:r.url(),status:r.status()})})
- assert.equal((await p.goto(url)).status(),200);await expect(p.getByTestId('reforge-stage')).toHaveAttribute('data-engine','ready');await p.getByLabel('Chế độ',{exact:true}).selectOption('play')
+ assert.equal((await p.goto(url)).status(),200);await expect(p.getByTestId('reforge-stage')).toHaveAttribute('data-engine','ready');await p.getByLabel('Chất lượng',{exact:true}).selectOption('low');await p.getByLabel('Chế độ',{exact:true}).selectOption('play')
  await expect(p.getByTestId('reforge-stage')).toHaveAttribute('data-engine','ready');await expect.poll(()=>p.evaluate(()=>window.__REFORGE_METRICS__?.skinBones)).toBe(28)
  const m=()=>p.evaluate(()=>window.__REFORGE_METRICS__),stage=p.getByTestId('reforge-stage'),focus=async()=>{await stage.evaluate(e=>e.scrollIntoView({block:'center'}));await stage.focus()}
  const click=async button=>button.evaluate(e=>e.click()),shot=async n=>{await focus();await p.screenshot({path:resolve(out,n+'.png'),clip:await p.locator('canvas').boundingBox()});states[n]=await m()}

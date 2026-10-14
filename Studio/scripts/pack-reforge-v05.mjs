@@ -11,7 +11,7 @@ const hash=b=>createHash('sha256').update(b).digest('hex'),baseline=JSON.parse(a
 // Only two deployment inputs may change AFTER the v0.5 candidate passes and release
 // is authorized; this pre-release pack still requires all75 baseline hashes intact.
 for(const [file,a] of Object.entries(baseline.files)){const b=await readFile(resolve(root,file));assert.equal(hash(b),a.sha256,file+' preserved')}
-const old=JSON.parse(await readFile(resolve(root,'exports/v0.5/asset-manifest.json'))),assets=old.assets.filter(a=>!['hanok-reforge','nari-messenger-art','hanok-day'].includes(a.id)),io=new NodeIO().registerExtensions(ALL_EXTENSIONS)
+const old=JSON.parse(await readFile(resolve(root,'exports/v0.5/asset-manifest.json'))),assets=old.assets.filter(a=>!['hanok-reforge','nari-messenger-art'].includes(a.id)),io=new NodeIO().registerExtensions(ALL_EXTENSIONS)
 for(const id of ['hanok-reforge','nari-messenger-art']){
  const file='models/'+id+'.glb',bytes=await readFile(resolve(root,'exports/v0.5',file)),doc=await io.read(resolve(root,'exports/v0.5',file)),r=doc.getRoot(),report=await validator.validateBytes(new Uint8Array(bytes),{uri:file});await writeFile(resolve(dir,id+'-validation.json'),JSON.stringify(report,null,2)+'\n');assert.equal(report.issues.numErrors,0);assert.equal(report.issues.numWarnings,0)
  const ps=r.listMeshes().flatMap(m=>m.listPrimitives()),triangles=ps.reduce((n,p)=>n+(p.getIndices()?.getCount()||0)/3,0),clips=r.listAnimations().map(a=>({name:a.getName(),duration_seconds:Math.max(...a.listSamplers().map(s=>Math.max(...s.getInput().getArray()))),channels:a.listChannels().length}))

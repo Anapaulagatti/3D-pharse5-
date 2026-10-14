@@ -59,7 +59,7 @@ export default function ReforgeApp(){
     <div className="buttons"><button disabled={disabled} onClick={()=>update('paused',!s.paused)}>{s.paused?'Tiếp tục':'Tạm dừng'}</button><button disabled={disabled} onClick={reset}>Trở lại sân</button></div>
     <p>Kéo để xoay, cuộn để xem gần. Mỗi mặt Hanok đều có thể được khám phá.</p>
    </aside><div className="presentation">
-    <div className="stage" ref={stage} data-testid="reforge-stage" data-engine={engine} tabIndex={0} role="group" aria-label="Sân chơi Nari" aria-describedby="play-help" onPointerDown={()=>{if(s.view==='play')stage.current?.focus({preventScroll:true})}} onBlur={clear}>
+    <div className="stage" ref={stage} data-testid="reforge-stage" data-engine={engine} data-view={s.view} tabIndex={0} role="group" aria-label="Sân chơi Nari" aria-describedby="play-help" onPointerDown={()=>{if(s.view==='play')stage.current?.focus({preventScroll:true})}} onBlur={clear}>
      {disabled?<div className="reforge-poster"><img src={reforgeURL('poster')} alt="Ảnh tĩnh thực tế sân Hanok v0.5 và Nari"/><p>Ảnh tĩnh · thiết bị chưa hỗ trợ WebGL.</p></div>:<Boundary onFailure={failure}><Suspense fallback={<p>Đang nạp sân Hanok…</p>}><Scene settings={{...s,active:visible&&tab}} input={input} player={player} onReact={react} onDoor={door} onDoorBlocked={doorBlocked} onStory={kind=>setNotice(kind==='plum'?'Hoa mận gửi vài cánh hoa theo gió.':'Ánh đèn đáp lại bằng một sắc ấm.')} onReady={ready} onFailure={failure}/></Suspense></Boundary>}
      {engine==='loading'&&<p className="reforge-loading">Đang nạp không gian…</p>}
     </div>

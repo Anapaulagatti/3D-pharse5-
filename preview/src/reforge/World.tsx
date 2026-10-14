@@ -13,7 +13,7 @@ export function Lighting({settings:s}:{settings:Settings}){
  const {gl,scene,invalidate}=useThree(),key=useRef<DirectionalLight>(null),rim=useRef<DirectionalLight>(null),hemi=useRef<HemisphereLight>(null)
  const bg=useMemo(()=>new Color(looks[s.lighting].bg),[]),fog=useMemo(()=>new Fog(looks[s.lighting].fog,17,40),[]),ambient=useRef({value:looks[s.lighting].ambient})
  const portrait=s.view==='portrait'||s.view==='animation'
- useEffect(()=>{const pmrem=new PMREMGenerator(gl),room=new RoomEnvironment(),texture=pmrem.fromScene(room,.04);scene.environment=texture.texture;room.dispose();pmrem.dispose();return()=>{scene.environment=null;texture.dispose()}},[gl,scene])
+ useEffect(()=>{if(s.quality==='low'){scene.environment=null;invalidate();return}const pmrem=new PMREMGenerator(gl),room=new RoomEnvironment(),texture=pmrem.fromScene(room,.04);scene.environment=texture.texture;room.dispose();pmrem.dispose();return()=>{scene.environment=null;texture.dispose()}},[gl,scene,s.quality,invalidate])
  useEffect(()=>{scene.background=bg;scene.fog=portrait?null:fog;invalidate();return()=>{scene.fog=null}},[scene,bg,fog,portrait,invalidate])
  useEffect(()=>{invalidate()},[s.lighting,s.reduced,invalidate])
  useFrame((_,dt)=>{
@@ -56,7 +56,10 @@ export function Particles({settings:s,burst,center,ambient=true}:{settings:Setti
 export function House({settings:s,player,onDoor,onDoorBlocked,onStory}:{settings:Settings;player:Player;onDoor:()=>void;onDoorBlocked:()=>void;onStory:(kind:string)=>void}){
  const gltf=useGLTF(reforgeURL('house')),{scene,invalidate}=useThree(),model=useMemo(()=>gltf.scene.clone(true),[gltf.scene])
  const mixer=useMemo(()=>new AnimationMixer(model),[model]),opening=useRef(s.door?1:0),blockedNotice=useRef(false),time=useRef(0),[petals,flash]=[useRef(0),useRef(-20)],trigger=useRef(0),lamp=useRef<PointLight>(null),lamp2=useRef<PointLight>(null)
- const glows=useMemo(()=>{const result:MeshStandardMaterial[]=[];model.traverse(o=>{if(o instanceof Mesh){o.castShadow=true;o.receiveShadow=true;const mats=Array.isArray(o.material)?o.material:[o.material];o.material=mats.map(m=>{if(m instanceof MeshStandardMaterial&&m.name.includes('LanternHanjiGlow')){const c=m.clone();result.push(c);return c}return m});if(!Array.isArray((o as Mesh).material)||mats.length===1)o.material=(o.material as MeshStandardMaterial[])[0]}});return result},[model])
+ const glows=useMemo(()=>{const result:MeshStandardMaterial[]=[];model.traverse(o=>{if(o instanceof Mesh){o.castShadow=true;o.receiveShadow=true;const mats=Array.isArray(o.material)?o.material:[o.material];o.material=mats.map(m=>{if(m instanceof MeshStandardMaterial&&m.name.includes('LanternHanjiGlow')){const c=m.clone();result.push(c);return c}return m.clone()});if(!Array.isArray((o as Mesh).material)||mats.length===1)o.material=(o.material as MeshStandardMaterial[])[0]}});return result},[model])
+ const materialMaps=useMemo(()=>{const found=new Map<MeshStandardMaterial,MeshStandardMaterial['normalMap']>();model.traverse(o=>{if(o instanceof Mesh)for(const m of Array.isArray(o.material)?o.material:[o.material])if(m instanceof MeshStandardMaterial)found.set(m,m.normalMap)});return found},[model])
+ useEffect(()=>{for(const [mat,map] of materialMaps){const value=s.quality==='low'?null:map;if(mat.normalMap!==value){mat.normalMap=value;mat.needsUpdate=true}}invalidate()},[materialMaps,s.quality,invalidate])
+ useEffect(()=>()=>{for(const mat of materialMaps.keys())mat.dispose()},[materialMaps])
  const ripples=useMemo(()=>{const result:{o:Object3D;scale:Vector3}[]=[];model.traverse(o=>{if(o.name.startsWith('BasinRipple'))result.push({o,scale:o.scale.clone()})});return result},[model])
  const doors=useMemo(()=>['DoorLeft','DoorRight'].map(name=>{const o=model.getObjectByName(name)!;return {o,x:o.position.x}}),[model])
  useEffect(()=>{const actions=gltf.animations.map(a=>mixer.clipAction(a).play());return()=>{actions.forEach(a=>a.stop());mixer.uncacheRoot(model)}},[gltf.animations,mixer,model])
@@ -79,8 +82,8 @@ export function House({settings:s,player,onDoor,onDoorBlocked,onStory}:{settings
   if(s.active&&!s.paused&&Math.abs(opening.current-desired)>.002)invalidate()
   queueMicrotask(()=>{window.__REFORGE_METRICS__={...window.__REFORGE_METRICS__,door:opening.current,environmentTime:time.current,environmentClips:gltf.animations.map(a=>a.name),lanternGlow:glows[0]?.emissiveIntensity,worldInteraction:trigger.current,effects:s.effects}})
  })
- return <><primitive object={model} onClick={(e:{object:Object3D;stopPropagation:()=>void})=>{let o:Object3D|null=e.object;while(o&&o!==model){if(/^DoorLeft|^DoorRight/.test(o.name)){e.stopPropagation();onDoor();break}if(/^InteractiveLantern|^LanternSwing/.test(o.name)){e.stopPropagation();flash.current=time.current;trigger.current++;onStory('lantern');invalidate();break}if(/^PlumCore|^PlumDetail|^PlumWind/.test(o.name)){e.stopPropagation();petals.current++;trigger.current++;onStory('plum');invalidate();break}o=o.parent}}}/>
-  <pointLight ref={lamp} position={[.25,1.35,3.45]} color="#ffd699" distance={5} decay={2}/><pointLight ref={lamp2} position={[4.10,1.50,-.15]} color="#ffd699" distance={4.8} decay={2}/>
+ return <><primitive object={model} onClick={(e:{object:Object3D;point:Vector3;stopPropagation:()=>void})=>{if(e.point.x> -5.4&&e.point.x< -3.4&&e.point.z>.1&&e.point.z<2.2&&e.point.y>.3&&e.point.y<2.9){e.stopPropagation();petals.current++;trigger.current++;onStory('plum');invalidate();return}let o:Object3D|null=e.object;while(o&&o!==model){if(/^DoorLeft|^DoorRight/.test(o.name)){e.stopPropagation();onDoor();break}if(/^InteractiveLantern|^LanternSwing/.test(o.name)){e.stopPropagation();flash.current=time.current;trigger.current++;onStory('lantern');invalidate();break}if(/^PlumCore|^PlumDetail|^PlumWind/.test(o.name)){e.stopPropagation();petals.current++;trigger.current++;onStory('plum');invalidate();break}o=o.parent}}}/>
+  {s.quality!=='low'&&<><pointLight ref={lamp} position={[.25,1.35,3.45]} color="#ffd699" distance={5} decay={2}/><pointLight ref={lamp2} position={[4.10,1.50,-.15]} color="#ffd699" distance={4.8} decay={2}/></>}
   <Particles settings={s} burst={petals} center={[-4.4,1,1.1]}/>
  </>
 }
