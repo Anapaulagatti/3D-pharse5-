@@ -117,3 +117,5 @@ PUBLIC-RELEASE-005 COMPLETE: Actions38573493700/deployment7066939380 success; ca
 | PIVOT-REVIEW-006 | Visually inspect concepts, verify preservation, save GitHub and STOP for choice | TODO | User request sections4/12 mandatory approval gate |
 | PIVOT-PROTOTYPE-006 | One approved chibi, house/plaza, move/run/jump, three emotions, interaction/camera/fallback | BLOCKED | Requires new v0.6 concept approval; not authorized to begin yet |
 | PUBLIC-RELEASE-006 | Publish redesigned showcase | BLOCKED | Separate updated-publication approval required; existing v0.5 stays live |
+
+- PIVOT-AUDIT-006 DONE: current public exact082c661b HTTP200, fresh Low57/99012 and Medium/High133/195524 measured; both GLBs Transform inspection + Validator0/0; both actual Blender sources read-only. PIVOT-CONCEPT-006 IN_PROGRESS: character sheet delivered/visually inspected; two town/material boards and cost/reuse plan pending.

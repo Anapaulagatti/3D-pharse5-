@@ -27,3 +27,7 @@ Existing working Node/Blender/React/R3F stack reused under cloud-environment-onb
 **Verification required:** Baseline asset/render measurements, open concept images, check deliverable coverage and all protected hashes; independently verify checkpoint remote.
 
 **Remote GitHub save status:** Baseline5578f5f verified. New registration checkpoint pending commit/push; do not claim new outputs remotely saved until verified.
+
+## Checkpoint update — baseline and character alternatives
+
+Audit DONE: fresh current public HTML exact082c661b, source/GLB hashes preserved; real Low/Medium/High scene measures match saved57/133/133 draws and99,012/195,524/195,524 triangles including passes. Current source geometry99,308tri/8,638,328B combined. Blender2sources opened read-only; genuine28bones/20clips/10morphs retained, Validator0/0. Actual day/night/character baseline PNGs opened. Character concept sheet1536×1024 produced/inspected: A student/B messenger/C maker, each front/side/silhouette/three faces/palette. Concept references only, no model/build/gameplay claim. Town/material concepts and recommendation plan remain. Registrationbfd811b independently verified origin. Remote save of this subtask follows before environment generation.
