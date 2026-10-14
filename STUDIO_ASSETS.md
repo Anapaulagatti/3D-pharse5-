@@ -61,3 +61,17 @@ Baseline source/export/published artifacts preserved by quality-reports/v0.4/pre
 - Saved showcase-v0.4/index.html and downloads/v0.4 review/static ZIPs; asset URLs embedded as Blob URLs, no CDN/server assets required. Candidate audit PASS. These are new recoverable outputs; live v0.3 deployment inputs remain untouched.
 
 - Production final-render/verification.json PASS (10 stages), actual desktop/mobile/face/motion screenshots saved and inspected. All five GLBs Validator 0/0. Native compositor video captured 52 actual frames/44.92s; raw JPEGs/timestamps retained. Remove the asynchronous film-caption strip from the final video, without retiming or changing character pixels.
+
+## v0.4 final inventory — complete for review (2026-10-14T04:52:37.822903+00:00)
+
+| Output | Status / evidence |
+|---|---|
+| mascot-living.blend / GLB | Original geometry derived from actual approved source, independent feet/arms/head/ears and editable 12 NLA clips including native facial reset channels; 696,568 bytes / 11,074 triangles / 47 source primitives; Validator 0/0 |
+| hanok-living.blend / GLB | Original complementary 18,112-triangle / 799,860-byte / 20-primitive detail layer, CanopyWind; architecture, courtyard props, stronger canopy and skyline; Validator 0/0 |
+| exports/v0.4/asset-manifest.json | Hashes/provenance, true clip duration/channels, geometry and bind-pose bounds; no decoder or new texture |
+| final-render/ and candidate-render/ | 10+10 actual browser stages PASS; desktop/three moods/12 static + live pairs/detail/mobile/fallback and inspected images saved |
+| living-hanok-v04-motion.mp4 | 44.92s, H.264 1280×660, 641,340 bytes, actual compositor timestamps; decoded frames inspected; raw 52 JPEGs/timestamps and uncropped movie preserved |
+| showcase-v0.4/ and downloads/v0.4/ | Final 10,213,265-byte HTML with 10 embedded verified assets; review/static ZIPs and tested HTTP launcher/subpath package; audit PASS |
+| REVIEW / VERIFICATION_SUMMARY | Before/after gallery, source/file change mapping, all required evidence links, limitations and STOP handoff |
+
+All 43 baseline files preserved; no app package or lockfile changes, paid service, optional audio or future district. Public v0.3 remains exact old artifact; v0.4 is a review candidate. Physical device FPS unmeasured.

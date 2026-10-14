@@ -2,7 +2,7 @@
 
 Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verification. Milestones follow the persistent-progress prompt (nine milestones).
 
-Current task: BIG-UPDATE-004 — Living Hanok Showcase v0.4 overhaul. Preserve public v0.3 and previous sources; complete candidate and STOP for review, no new districts.
+Current task: BIG-UPDATE-004 COMPLETE and verified. STOP for user visual feedback; v0.4 candidate saved, public v0.3 unchanged, no new districts.
 
 | Milestone | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|---|
@@ -74,5 +74,11 @@ Current task: BIG-UPDATE-004 — Living Hanok Showcase v0.4 overhaul. Preserve p
 | OVERHAUL-WORLD-004 | Readable architectural/courtyard/garden/skyline detail | DONE | Final production 10-stage browser PASS and actual images inspected; exports/build valid |
 | OVERHAUL-LIFE-004 | Refined ambient life and day/evening/night materials | DONE | Final production 10-stage browser PASS and actual images inspected; exports/build valid |
 | OVERHAUL-PRESENT-004 | Hero/portrait camera, clean action UI, reactions | DONE | Final production 10-stage browser PASS and actual images inspected; exports/build valid |
-| OVERHAUL-QA-004 | Actual render/12 states/mobile/fallback/Validator/build/video | IN_PROGRESS | Production 10 stages PASS; 5 GLBs Validator 0/0; exact static package and final media inspection in progress |
-| OVERHAUL-REVIEW-004 | Portable review candidate and remote verified checkpoint | TODO | STOP for review, public v0.3 unchanged |
+| OVERHAUL-QA-004 | Actual render/12 states/mobile/fallback/Validator/build/video | DONE | 10 production + 10 exact static-subpath checks PASS, five GLBs 0/0, actual images/45s decoded video inspected; VERIFICATION_SUMMARY.json |
+| OVERHAUL-REVIEW-004 | Portable review candidate and remote verified checkpoint | DONE | HTML/ZIP/audit/gallery/45s video and persistent handoff saved; checkpoint through 7bd2ada remotely verified, complete-evidence save follows |
+
+| Stable ID | Deliverable | Status | Evidence |
+|---|---|---|---|
+| BIG-UPDATE-004 | Living Hanok Showcase v0.4 review candidate | DONE | quality-reports/v0.4/REVIEW.md + VERIFICATION_SUMMARY.json; source/exports/images/video/ZIP verified |
+| VISUAL-REVIEW-004 | User reviews the v0.4 upgrade | BLOCKED | Await user feedback; STOP, no new districts |
+| PUBLIC-RELEASE-004 | Publish reviewed v0.4 if requested | BLOCKED | No explicit v0.4 publication authorization yet; reviewed v0.3 site preserved |

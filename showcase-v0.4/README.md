@@ -25,4 +25,4 @@ Thành tích FPS phần cứng/điện thoại thật chưa được đo; kiểm
 
 ## Release
 
-Public deployment of updated v0.4 requires the user's visual review and explicit authorization per section 13 of their request. This ZIP is a local review package. Keep the existing v0.3 live site unchanged until then.
+The user requested stopping after the completed v0.4 upgrade for review (section 19). This ZIP is the local review candidate; the existing v0.3 site remains unchanged. Public v0.4 publication can follow a separate user request.

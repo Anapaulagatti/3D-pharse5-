@@ -1,0 +1,111 @@
+{
+  "status": "REVIEW_CANDIDATE_COMPLETE",
+  "milestone": "BIG-UPDATE-004 — Living Hanok Showcase Overhaul",
+  "version": "0.4.0",
+  "verified_at": "2026-10-14T04:52:37.822903+00:00",
+  "production_build": "PASS",
+  "typecheck": "PASS",
+  "production_browser_checks": 10,
+  "exact_extracted_repo_subpath_checks": 10,
+  "critical_browser_errors": 0,
+  "missing_resources": 0,
+  "real_exported_mascot_clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Jump",
+    "Greeting",
+    "Happy",
+    "Thinking",
+    "Celebration",
+    "Disappointed",
+    "Curious",
+    "ClickReaction",
+    "ReturnToIdle"
+  ],
+  "glb_validation": {
+    "files": 5,
+    "errors": 0,
+    "warnings": 0
+  },
+  "preserved_previous_files": 43,
+  "html_bytes": 10213265,
+  "html_sha256": "cd238a4c79f378d05eea098ec3f55c207c24c91444afce459d1345c012572846",
+  "measured_low": {
+    "drawCalls": 115,
+    "triangles": 131121
+  },
+  "measured_medium": {
+    "drawCalls": 228,
+    "triangles": 262175
+  },
+  "video": {
+    "status": "VISUALLY_INSPECTED",
+    "file": "quality-reports/v0.4/living-hanok-v04-motion.mp4",
+    "bytes": 641340,
+    "sha256": "e481124298cdebfc1f8cbae3f8652723bec3d1954ad093970b3bdbd3f23e7abc",
+    "duration_seconds": 44.92,
+    "width": 1280,
+    "height": 660,
+    "codec": "h264",
+    "native_frame_count": 52,
+    "presentation_crop": "Bottom 60 pixels containing asynchronous film caption removed; real character/platform pixels and original timestamps unchanged",
+    "review_frames": [
+      {
+        "clip": "Walk",
+        "decoded_frame_index": 6,
+        "time_seconds": 4.358724117279053,
+        "file": "quality-reports/v0.4/capture/review-walk.png"
+      },
+      {
+        "clip": "Run",
+        "decoded_frame_index": 10,
+        "time_seconds": 10.720264196395874,
+        "file": "quality-reports/v0.4/capture/review-run.png"
+      },
+      {
+        "clip": "Jump",
+        "decoded_frame_index": 14,
+        "time_seconds": 14.279852151870728,
+        "file": "quality-reports/v0.4/capture/review-jump.png"
+      },
+      {
+        "clip": "Happy",
+        "decoded_frame_index": 24,
+        "time_seconds": 24.04082417488098,
+        "file": "quality-reports/v0.4/capture/review-happy.png"
+      },
+      {
+        "clip": "Thinking",
+        "decoded_frame_index": 26,
+        "time_seconds": 26.071691036224365,
+        "file": "quality-reports/v0.4/capture/review-thinking.png"
+      },
+      {
+        "clip": "Disappointed",
+        "decoded_frame_index": 29,
+        "time_seconds": 28.208796977996826,
+        "file": "quality-reports/v0.4/capture/review-disappointed.png"
+      },
+      {
+        "clip": "Celebration",
+        "decoded_frame_index": 37,
+        "time_seconds": 35.762763023376465,
+        "file": "quality-reports/v0.4/capture/review-celebration.png"
+      }
+    ],
+    "timing": "Actual compositor timestamps; VFR, no accelerated playback or synthetic/interpolated frames",
+    "fps_note": "Cloud software/compositor recording is not a physical device FPS claim",
+    "visual_inspection": "Actual decoded Walk/Run/Jump/Happy/Thinking/Disappointed/Celebration frames inspected after removing the asynchronous film-caption strip. Independent limbs, changing eye/mouth/brow shapes, airborne jump and full unclipped ears/platform visible. Raw JPEGs, original timestamps and uncropped video retained."
+  },
+  "public_v04_deployed": false,
+  "public_v03_unchanged": "Verified origin SHA 0ce49e58b26baa3802bc6e22fa4cab91d7181232e0069adcedd4f9353270c2d6",
+  "physical_device_fps": "Unmeasured, QA-004; software capture may stutter",
+  "application_dependencies_changed": false,
+  "limitations": [
+    "Actual device GPU/FPS not measured",
+    "Fallback intentionally uses preserved original base poster",
+    "V0.4 candidate not publicly deployed; awaiting visual feedback"
+  ],
+  "next_action": "STOP for user visual feedback; no Hangul Garden/new district"
+}

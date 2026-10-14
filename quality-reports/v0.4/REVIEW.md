@@ -45,3 +45,17 @@ Chạm mascot cho phản ứng nhảy nhỏ. Các nút Đi dạo / Chạy vui / 
 Bản ứng viên có JavaScript/CSS/GLB/PNG nhúng, đã kiểm tra riêng dưới repository subpath qua chính ZIP static. Bản công khai v0.3 không bị thay. Build/Validator/browser evidence và ảnh nằm trong thư mục này; giới hạn/chi phí render ghi tại PERFORMANCE_REPORT.md. Chưa đo FPS GPU/điện thoại thật; không cam kết 60 FPS. Fallback dùng ảnh render v0.2 gốc đã duyệt, không giả làm render v0.4.
 
 Dừng tại Big Update v0.4, chờ phản hồi của bạn trước khi xuất bản bản cập nhật hoặc xây district mới.
+
+## Các file chính thay đổi
+
+| Phần | File |
+|---|---|
+| Rig / animation / face nguồn | Studio/modeling/mascot-v04.py; assets/v0.4/source-blend/mascot-living.blend; exports/v0.4/models/mascot-living.glb |
+| Hanok / cây / props nguồn | Studio/modeling/hanok-v04.py; assets/v0.4/source-blend/hanok-living.blend; exports/v0.4/models/hanok-living.glb |
+| Chuyển động / phản ứng / face runtime | preview/src/LivingMascot.tsx, types.ts, assets.ts |
+| Ánh sáng / vật liệu / ambient life | preview/src/LivingWorld.tsx (cộng các tuning vật liệu đã giữ từ useStudioModel.ts) |
+| Camera / khung / action UI | preview/src/PolishedCamera.tsx, SceneView.tsx, App.tsx, style.css |
+| Packaging / validation / QA / recording | Studio/scripts/pack-v04.mjs, build-overhaul-v04.mjs, package-overhaul-v04.py, audit-overhaul-v04.py, verify-overhaul-v04.mjs, capture-overhaul-v04.mjs, finish-capture-v04.py; sync-preview-assets.mjs |
+| Recovery / evidence / budget | Bốn STUDIO records, AGENTS.md, README/Studio README, PERFORMANCE_REPORT.md, quality-reports/v0.4/ |
+
+**Kết quả cuối:** 10 production + 10 exact static-subpath browser stages đạt; cả năm GLB không có lỗi/cảnh báo; đã xem hình render và video thực. V0.4 hoàn tất cho review. Chỉ còn phản hồi hình ảnh, đo thiết bị thật và xuất bản nếu bạn yêu cầu; không bắt đầu district khác.
