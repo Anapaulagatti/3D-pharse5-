@@ -2,7 +2,7 @@
 
 Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verification. Milestones follow the persistent-progress prompt (nine milestones).
 
-Current task: REFORGE-GATE-B-005 IN_PROGRESS. User approved A — Nari; Gate A DONE. Continue v0.5 gates B–E, preserving public v0.4; no new districts or public v0.5 release.
+Current task: REFORGE-GATE-C-005 IN_PROGRESS; Gate B DONE. User approved A — Nari; Gate A DONE. Continue v0.5 gates B–E, preserving public v0.4; no new districts or public v0.5 release.
 
 | Milestone | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|---|
@@ -90,8 +90,8 @@ Current task: REFORGE-GATE-B-005 IN_PROGRESS. User approved A — Nari; Gate A D
 | REFORGE-AUDIT-005 | Inspect sources/history/GLBs, verify public and remote baseline, preserve v0.4 | DONE | AUDIT.md;75 protected hashes; read-only Blender inspection of five sources; five directly parsed GLBs; actual saved v0.4 images inspected; origin/main and recovery tag matched |
 | REFORGE-CONCEPT-005 | Three original humanoid concepts, comparison and architecture rebuild plan | DONE | concepts/v0.5/character-concepts.png + CONCEPT_REVIEW.md/provenance/prompt; docs/v0.5/ARCHITECTURE_REBUILD_PLAN.md; GATE_A_REVIEW.md and gate-a-verification.json; a6c1959 independently matched origin/main |
 | REFORGE-GATE-A-005 | User approves one final character direction | DONE | concepts/v0.5/APPROVAL.json: user explicitly selects recommended A — Nari |
-| REFORGE-GATE-B-005 | Complete four-sided Hanok graybox, scale/support checks and actual 360° review | IN_PROGRESS | Approved structural plan; build neutral full envelope/frame and inspect real renders before materials |
-| REFORGE-GATE-C-005 | Skinned humanoid,20 clips,10 expressions, playable collision/controller and touch input | TODO | A — Nari now approved; begin after structural graybox gate |
+| REFORGE-GATE-B-005 | Complete four-sided Hanok graybox, scale/support checks and actual 360° review | DONE | gate-b/render actual33 views inspected;209 support bounds0gaps; editable source/GLB Validator0/0; production PASS; structure-360.mp4 |
+| REFORGE-GATE-C-005 | Skinned humanoid,20 clips,10 expressions, playable collision/controller and touch input | IN_PROGRESS | A approved, structural gate passed; new armature/skin/face and authored gait/controller next |
 | REFORGE-GATE-D-005 | Architecture/material/environment/lighting/game-feel polish | TODO | Depends on structural and playable gates |
 | REFORGE-GATE-E-005 | GLB/build/browser/gameplay/video/accessibility/mobile/performance proof | TODO | Actual rendered evidence required; no v0.5 completion claim yet |
 | REFORGE-RELEASE-005 | User-reviewed candidate and separate publication authorization | BLOCKED | Preserve live v0.4; no approval to publish v0.5 |

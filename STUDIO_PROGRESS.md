@@ -1,7 +1,7 @@
 # Studio progress
 
 Current milestone: REFORGE-005 — Joseon Fantasy Reforge IN_PROGRESS.
-Current task: REFORGE-GATE-B-005, architecture graybox. Gate A DONE: user approved A — Nari (exact reply in concepts/v0.5/APPROVAL.json). Gates C/D/E remain TODO. v0.5 publication is not approved.
+Current task: REFORGE-GATE-C-005, approved Nari humanoid/controller. Gate B DONE with actually inspected graybox. Gate A DONE: user approved A — Nari (exact reply in concepts/v0.5/APPROVAL.json). Gates C/D/E remain TODO. v0.5 publication is not approved.
 
 Last completed: Gate A concepts/audit/plan remotely verified through1247fc059e143bba29c110d7fd8da43ff691e781. v0.4 recovery tag checkpoint/v0.4-pre-reforge-005→9cc1381. Public v0.4 inputs and75 protected hashes preserved.
 
@@ -11,9 +11,9 @@ Dependencies: existing pinned tools, no reinstall. Last update 2026-10-14T08:31:
 
 ## NEXT SESSION HANDOFF
 
-**Current milestone:** REFORGE-005; A approved, Gate B in progress.
+**Current milestone:** REFORGE-005; A approved, Gate B verified, Gate C in progress.
 
-**Current task ID:** REFORGE-GATE-B-005.
+**Current task ID:** REFORGE-GATE-C-005.
 
 **Last verified checkpoint:**1247fc059e143bba29c110d7fd8da43ff691e781; approval checkpoint follows in history.
 
@@ -25,8 +25,10 @@ Dependencies: existing pinned tools, no reinstall. Last update 2026-10-14T08:31:
 
 **Known blockers:** No implementation blocker after A approval. Public v0.5 release still requires user review/authorization; physical-device FPS unmeasured.
 
-**Exact next command or action:** Save approval checkpoint, build and inspect separate v0.5 graybox. Do not ask for A approval again. Preserve current public v0.4 and previous assets.
+**Exact next command or action:** Save verified Gate B checkpoint and build actual skinned Nari using approved A design; then20clips/10expressions/controller. Gate B source/GLB/render verified, do not regenerate graybox or re-ask approval. Preserve public v0.4.
 
 **Verification required:** Actual four-sided/connection/interior graybox inspection and validated GLB, then skin/weight/clip/controller/contact/render/build/mobile/fallback checks for subsequent gates. Concept art is not proof.
 
 **Remote GitHub save status:** Last completed Gate A checkpoint remotely verified; approval checkpoint must be pushed and origin-matched before expensive modeling.
+
+Gate B verified: production/typecheck PASS, GLB Validator0/0, actual33 browser views including24-angle orbit and phone,209support bounds0gaps, actual images inspected including full roof/rear/sides/connection/interior.12Low draws/51,908tri;24medium/103,816incl shadows. Evidence quality-reports/v0.5/gate-b/REVIEW.md. Gates C/D/E remain unfinished. No target-device FPS claim.75protected v0.4 hashes unchanged. Current source/runtime changes isolated to ?candidate=v05; default v0.4 viewer and public deployment inputs retained.

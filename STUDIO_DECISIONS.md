@@ -98,3 +98,5 @@
 - Gate A delivery remotely verified at a6c1959. Latest Pages workflow remains completed run38530210414; concept/docs checkpoints did not deploy. Stop for the actual user A/B/C choice; recommendations do not constitute approval.
 
 - User approved A — Nari with exact reply: "nếu bạn đề xuất là A thì hãy chọn A". Selection is now explicit, recorded in concepts/v0.5/APPROVAL.json. Gate A holds are superseded for this choice; continue original v0.5 scope through gates B–E without re-asking. Publication remains a separate hold.
+
+- Gate B passed actual visual inspection: source and validated GLB provide complete front/rear/sides/gables, grounded shoes/posts, beams/struts/purlins/rafters and solid roof, sliding doors, floors/stairs and simple interior.209 broad-phase support pair checks pass but do not substitute for engineering verification. CSS auto-margin shrink-to300px was corrected to width100%; roof camera widened after clipping found. Preserve first-pass images and separate graybox asset while continuing character/art work.

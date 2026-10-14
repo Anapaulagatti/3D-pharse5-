@@ -1,4 +1,5 @@
-import { copyFile, mkdir, readFile } from 'node:fs/promises'
+import { copyFile, mkdir, readFile, cp } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -32,3 +33,9 @@ for(const asset of living.assets){
   await mkdir(dirname(destination),{recursive:true});await copyFile(resolve(livingDir,asset.file),destination)
 }
 console.log('Synced',living.assets.length,'versioned v0.4 assets')
+
+const reforgeDir=resolve(root,'exports/v0.5')
+if(existsSync(reforgeDir)){
+  await cp(reforgeDir,resolve(publicDir,'v0.5'),{recursive:true})
+  console.log('Synced separate v0.5 candidate exports; no Blender/private source copied')
+}

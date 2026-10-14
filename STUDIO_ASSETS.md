@@ -100,3 +100,5 @@ No new final humanoid, skeleton/skin, `.blend`, GLB, animation, texture or playa
 - Gate A source/concept/plan/evidence checkpoint a6c1959 independently matched origin/main; remote proof saved in quality-reports/v0.5/remote-checkpoint.json. Recovery tag retained; no v0.5 production asset or deployment claimed.
 
 - A — Nari concept now APPROVED by the user; APPROVAL.json preserves reply and scope. Existing concept PNG retained byte-for-byte. Versioned v0.5 Blender/GLB/graybox outputs may now be built; not yet generated or verified.
+
+- Gate B actual outputs: assets/v0.5/source-blend/hanok-graybox.blend, exports/v0.5/models/hanok-graybox.glb (2142648bytes/51596triangles/11primitives, Validator0/0), hanok-graybox-structure.json (419modules/209support pairs/colliders/door contract), asset-manifest.json. Actual33 browser views + separately rechecked roof, manual-stepped6s360°MP4, production/typecheck PASS, zero critical console/resources. Low12draws/51,908triangles including1.45m scale proxy; medium24/103,816 incl shadows. Graybox only, not final art or playable Nari.
