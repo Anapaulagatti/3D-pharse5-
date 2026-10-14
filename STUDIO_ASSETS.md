@@ -139,3 +139,5 @@ PUBLIC-RELEASE-005 COMPLETE: exact082c661b (13,543,219B) publicly serves at http
 - New concept boards, models, prototype and exports do not yet exist. Image outputs will be references only; production .blend/GLBs await new concept approval.
 
 - v0.6 baseline: quality-reports/v0.6/baseline/{assets,blender,browser}.json + five actual public v0.5 PNGs; both GLBs fresh Validator0/0 and glTF Transform inspected, no write/regeneration. Character concepts: concepts/v0.6/nari-chibi-directions.png + exact CHARACTER_IMAGE_PROMPT.txt + character-concepts.json SHA/dimensions/provenance; original native image_gen, no reference images, front/side/silhouettes/three faces/palettes viewed. Not a rig/mesh/animation or v0.6 gameplay render. Town concepts/material board pending.
+
+- Original concepts/v0.6/town-and-material-directions.png, exact TOWN_MATERIAL_IMAGE_PROMPT.txt and town-concepts.json saved. Two distinct layouts plus seven palette/material examples. Native image_gen with no reference images; illustrations inspected, no production textures, Blender source, GLB, rig or gameplay capture created for v0.6.

@@ -119,3 +119,5 @@ PUBLIC-RELEASE-005 COMPLETE: Actions38573493700/deployment7066939380 success; ca
 | PUBLIC-RELEASE-006 | Publish redesigned showcase | BLOCKED | Separate updated-publication approval required; existing v0.5 stays live |
 
 - PIVOT-AUDIT-006 DONE: current public exact082c661b HTTP200, fresh Low57/99012 and Medium/High133/195524 measured; both GLBs Transform inspection + Validator0/0; both actual Blender sources read-only. PIVOT-CONCEPT-006 IN_PROGRESS: character sheet delivered/visually inspected; two town/material boards and cost/reuse plan pending.
+
+- PIVOT-CONCEPT-006 DONE: original three-character sheet + T1/T2 town/material sheet generated, saved with exact prompts/provenance/hashes and visually inspected. Seven-color/material samples included. PIVOT-PLAN-006/PIVOT-REVIEW-006 IN_PROGRESS; no production art replaced.
