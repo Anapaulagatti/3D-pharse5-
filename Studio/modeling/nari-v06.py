@@ -2,7 +2,7 @@
 Uses original v0.5 rig/controller naming and adapted authoring, never old GLB scaling.
 Blender Z-up/front-Y; GLB Y-up/front+Z. Flat vertex-color palette, no textures.
 """
-import bpy,sys,json,math
+import bpy,bmesh,sys,json,math
 from pathlib import Path
 from math import sin,cos,pi,sqrt
 from mathutils import Vector
@@ -32,14 +32,21 @@ body=join('ChibiContinuousBody',parts);apply(body)
 mod=body.modifiers.new('ContinuousAnatomy','REMESH');mod.mode='VOXEL';mod.voxel_size=.013;mod.use_smooth_shade=True;bpy.ops.object.modifier_apply(modifier=mod.name)
 mod=body.modifiers.new('SoftSurface','SMOOTH');mod.factor=.65;mod.iterations=4;bpy.ops.object.modifier_apply(modifier=mod.name)
 tris=sum(len(f.vertices)-2 for f in body.data.polygons);mod=body.modifiers.new('RealtimeBodyBudget','DECIMATE');mod.ratio=min(.9,3000/tris);bpy.ops.object.modifier_apply(modifier=mod.name)
+# Split the continuous surface at clothing boundaries before coloring. This preserves
+# genuine skin topology but avoids interpolated triangular color teeth at hems/cuffs.
+bm=bmesh.new();bm.from_mesh(body.data)
+for axis,value in [(2,.13),(2,.415),(2,.44),(2,.625),(0,.205),(0,-.205)]:
+ co=[0,0,0];normal=[0,0,0];co[axis]=value;normal[axis]=1
+ bmesh.ops.bisect_plane(bm,geom=list(bm.verts)+list(bm.edges)+list(bm.faces),dist=.000001,plane_co=co,plane_no=normal,clear_inner=False,clear_outer=False)
+bm.to_mesh(body.data);bm.free();body.data.update()
 body.data.materials.clear()
 for k in ['skin','cloth','dark']:body.data.materials.append(M[k])
 a=body.data.color_attributes.new(name='Color',type='FLOAT_COLOR',domain='CORNER')
 for f in body.data.polygons:
  f.material_index=1;f.use_smooth=True
  for i in f.loop_indices:
-  v=body.data.vertices[body.data.loops[i].vertex_index].co
-  c='skin' if v.z>.625 or abs(v.x)>.245 and v.z<.44 else 'navy' if v.z<.13 and abs(v.x)<.205 else 'cream' if v.z<.415 and abs(v.x)<.205 else 'coral'
+  v=sum((body.data.vertices[q].co for q in f.vertices),Vector())/len(f.vertices)
+  c='skin' if v.z>.625 or abs(v.x)>.205 and v.z<.44 else 'navy' if v.z<.13 and abs(v.x)<.205 else 'cream' if v.z<.415 and abs(v.x)<.205 else 'coral'
   a.data[i].color=color(COL[c])
 arm=bpy.data.armatures.new('NariChibiSkeleton');rig=bpy.data.objects.new('NariChibiArmature',arm);bpy.context.collection.objects.link(rig);bpy.context.view_layer.objects.active=rig;bpy.ops.object.select_all(action='DESELECT');rig.select_set(True);bpy.ops.object.mode_set(mode='EDIT');REST={}
 def bone(n,a,b,parent=None,connected=False):

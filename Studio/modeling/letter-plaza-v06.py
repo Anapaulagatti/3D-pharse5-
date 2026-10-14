@@ -33,8 +33,8 @@ for j in range(5):
 # Foundation -> continuous floor -> shoes -> columns -> beams -> purlins -> solid roof.
 B('HouseFoundation',(-1.2,.12,-2.2),(4.85,.24,3.45),'stone','foundation')
 floor=B('HouseContinuousFloor',(-1.2,.27,-2.15),(4.7,.06,3.30),'wood','floor')
-for i in range(8):B('PorchPlank',(-3.35+i*.61,.308,-.83),(.60,.016,.65),'wood','floor',bevel=.006)
-for i,(z,h) in enumerate([(-.33,.3),(-.03,.2),(.27,.1)]):B('EntryStep'+str(i),(-1.2,h/2,z),(1.5,h,.3),'paper','step',bevel=.018)
+for i in range(8):B('PorchPlank',(-3.35+i*.61,.292,-.83),(.60,.016,.65),'wood','floor',bevel=.006)
+for i,(z,h) in enumerate([(-.35,.3),(-.05,.2),(.25,.1)]):B('EntryStep'+str(i),(-1.2,h/2,z),(1.5,h,.3),'paper','step',bevel=.018)
 posts={}
 for x in [-3.5,-1.2,1.1]:
  for z in [-3.8,-1.2,-.50]:
@@ -134,7 +134,7 @@ for x,z in [(-2.15,2.45),(1.05,1.3),(3.6,2.0)]:
  reg(mesh('FoldedPaver',[xyz((x-.20,.035,z-.15)),xyz((x+.21,.035,z-.13)),xyz((x+.18,.035,z+.18)),xyz((x,.065,z))],[(0,1,3),(1,2,3),(2,0,3)],M['mint']),'ground')
 for i in range(5):B('PorchSteppingStone',(-1.2+rng.uniform(-.1,.1),.028,.65+i*.39),(.54,.05,.30),'paper','ground',bevel=.08)
 # Source semantic records saved before merging; renderer only pays shared material groups.
-data={'units':'metres/Y-up','modules':modules,'supports':supports,'colliders':colliders,'bounds':{'x':[-4.85,4.85],'z':[-4.35,3.5]},'floors':[{'min':[-3.55,-3.85],'max':[1.15,-.48],'height':.316},{'min':[-1.95,-.48],'max':[-.45,-.18],'height':.30},{'min':[-1.95,-.18],'max':[-.45,.12],'height':.20},{'min':[-1.95,.12],'max':[-.45,.42],'height':.10},{'min':[2.425,.90],'max':[3.775,1.80],'height':.16}],'door':{'center':[-1.2,-1.13],'min':[-1.65,.30,-1.23],'max':[-.75,1.9,-1.03],'travel':.45},'spawn':[.45,0,1.60]}
+data={'units':'metres/Y-up','modules':modules,'supports':supports,'colliders':colliders,'bounds':{'x':[-4.85,4.85],'z':[-4.35,3.5]},'floors':[{'min':[-3.55,-3.85],'max':[1.15,-.50],'height':.30},{'min':[-1.95,-.50],'max':[-.45,-.20],'height':.30},{'min':[-1.95,-.20],'max':[-.45,.10],'height':.20},{'min':[-1.95,.10],'max':[-.45,.40],'height':.10},{'min':[2.425,.90],'max':[3.775,1.80],'height':.16}],'door':{'center':[-1.2,-1.13],'min':[-1.65,.30,-1.23],'max':[-.75,1.9,-1.03],'travel':.45},'spawn':[.45,0,1.60]}
 groups={mat:[o for o in static if len(o.data.materials)==1 and o.data.materials[0]==mat] for mat in M.values()}
 for mat,objs in groups.items():
  if objs:join('Static_'+mat.name,objs)

@@ -29,9 +29,9 @@ function Camera({settings:s,player}:{settings:Settings;player:Player}){
  useEffect(()=>{
   let [pos,look,scale]=positions[s.preset]
   const portrait=s.view==='portrait'||s.view==='animation'
-  if(portrait){look=[0,.58,0];scale=1.8;pos=s.preset==='rear'?[0,1.1,-4]:s.preset==='left'?[-4,1.1,0]:s.preset==='right'?[4,1.1,0]:s.preset==='front'?[0,1.1,4]:[2,1.7,4]}
+  if(portrait){look=[0,.65,0];scale=2.15;pos=s.preset==='rear'?[0,1.1,-4]:s.preset==='left'?[-4,1.1,0]:s.preset==='right'?[4,1.1,0]:s.preset==='front'?[0,1.1,4]:[2,1.7,4]}
   if(portrait&&s.preset==='face'){look=[0,.87,0];scale=.75;pos=[0,.87,4]}
-  if(s.angle!==null){const a=s.angle*Math.PI/180;pos=portrait?[4*Math.sin(a),1.2,4*Math.cos(a)]:[14*Math.sin(a),5,-2.5+14*Math.cos(a)];look=portrait?[0,.75,0]:[0,1.7,-2.5];scale=portrait?1.8:9}
+  if(s.angle!==null){const a=s.angle*Math.PI/180;pos=portrait?[4*Math.sin(a),1.2,4*Math.cos(a)]:[14*Math.sin(a),5,-2.5+14*Math.cos(a)];look=portrait?[0,.75,0]:[0,1.7,-2.5];scale=portrait?2.15:9}
   if(s.view==='play'){look=[player.position[0],player.position[1]+.60,player.position[2]];pos=[look[0],look[1]+1.7,look[2]+3.5];offset.current.set(0,1.7,3.5)}
   const zoom=Math.min(size.width/scale,size.height/(scale*.72))
   goal.current={pos:new Vector3().fromArray(pos),look:new Vector3().fromArray(look),zoom}
@@ -69,6 +69,6 @@ export default function Scene({settings:s,input,player,onReact,onDoor,onDoorBloc
    {(portrait||world)&&<Contact settings={s} player={player}/>}
    <Ready key={s.view} onReady={onReady}/>
   </Suspense><Camera settings={s} player={player}/>
-  {portrait?<mesh position={[0,-.035,0]} receiveShadow><cylinderGeometry args={[.65,.68,.07,32]}/><meshStandardMaterial color="#f3dfbe" roughness={.9}/></mesh>:!world&&<mesh position={[0,.725,1.8]} castShadow><capsuleGeometry args={[.24,.97,6,12]}/><meshStandardMaterial color="#72beac" roughness={.8}/></mesh>}
+  {portrait&&<mesh position={[0,-.035,0]} receiveShadow><cylinderGeometry args={[.65,.68,.07,32]}/><meshStandardMaterial color="#f3dfbe" roughness={.9}/></mesh>}
  </Canvas>
 }

@@ -166,3 +166,5 @@ Concept art is not a production texture/mesh/rig/animation/prototype or actual v
 - First real review-pass-3 image set saved: hero/light/house/face/poses/moving-pairs/mobile. Actual initial head/face/day/night viewed. These are provisional: garment zigzags/framing rejected. Prior character GLB/source remains recoverable011cf32; re-export only new v0.6 character after source corrections.
 
 - New character source has per-vertex palette and actual collar/hem/cuffs; prior prototype011cf32 recoverable. T1 source now clears entrance; old world export recoverable. No v0.5 source/asset changed.
+
+- Refined world source/GLB clear real entry and unify floor/stair0.30m;7controller geometry checks PASS. Character current9,744tri/1,435,988B, world38,421tri/1,633,388B. Refined-render actual images retained. New exact clothing-plane cuts pending Blender re-export/validation.

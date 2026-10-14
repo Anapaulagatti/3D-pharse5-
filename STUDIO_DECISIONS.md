@@ -153,3 +153,5 @@ PUBLIC-RELEASE-005 COMPLETE: exact082c661b (13,543,219B) publicly serves at http
 - Use continuous per-vertex body palette instead of triangle-center skin/cloth material boundaries; add real collar/hem/ankle cuffs to hide coarse interpolation at clothes edges. Preserve genuine skin/IK, no old asset altered. Closer lower orthographic hero emphasizes Nari/house; whole-world/four-side presets remain available. Action lifecycle binds/uncaches inside one effect, making StrictMode replay safe.
 
 - Remove center front/porch posts obstructing real aperture; retain rear center/outer posts and continuous crossbeams. Test actual geometry and native threshold traversal rather than visually opened panels alone.
+
+- Split continuous body topology at palette boundaries, then paint per-face corners to prevent triangular interpolation teeth while retaining connected skinning. Wider portrait accommodates actual celebration root bob/head. Remove architecture capsule now that real chibi exists. Secondary optional live draw/triangle output, no FPS claim; Effects Off stops environmental updates.

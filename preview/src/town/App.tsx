@@ -13,9 +13,15 @@ class Boundary extends Component<{children:ReactNode;onFailure:()=>void},{failed
  render(){return this.state.failed?<p>Đang chuyển sang ảnh dự phòng…</p>:this.props.children}
 }
 const canRender=()=>{try{return !!document.createElement('canvas').getContext('webgl2')}catch{return false}}
+function Metrics(){
+ const [m,read]=useState(window.__TOWN_METRICS__)
+ useEffect(()=>{const id=setInterval(()=>read(window.__TOWN_METRICS__),1000);return()=>clearInterval(id)},[])
+ return <output className="metrics-note" aria-label="Thông số render">{m?.draws??'…'} draw calls · {(m?.triangles??0).toLocaleString('vi-VN')} tam giác trong frame hiện tại · Không phải số FPS.</output>
+}
 export default function TownApp(){
  const input=useMemo(createInput,[]),player=useMemo(createPlayer,[]),stage=useRef<HTMLDivElement>(null)
  const [s,set]=useState<Settings>({effects:'full',view:'hero',lighting:'day',quality:matchMedia('(max-width:640px)').matches?'low':'medium',reduced:matchMedia('(prefers-reduced-motion:reduce)').matches,paused:false,preset:'hero',door:false,angle:null,clip:'Idle',expression:'Auto',active:true,gesture:{name:'',id:0},reset:0})
+ const [settingsOpen,setSettingsOpen]=useState(false)
  const [engine,setEngine]=useState<'loading'|'ready'|'fallback'>(()=>canRender()?'loading':'fallback')
  const [notice,setNotice]=useState('Nari mang theo một lá thư. Cùng dạo quanh quảng trường nhé!'),[visible,setVisible]=useState(true),[tab,setTab]=useState(!document.hidden),[mobileRun,setMobileRun]=useState(false)
  const update=<K extends keyof Settings>(k:K,v:Settings[K])=>set(a=>({...a,[k]:v}))
@@ -47,7 +53,7 @@ export default function TownApp(){
  return <div className="town"><header><a href="#main">KOREAN ARENA <span>/ HANGEUL TOWN</span></a><b>v0.6 · B + T1 PROTOTYPE</b></header>
   <main id="main"><p className="overline">MỘT LÁ THƯ, MỘT CUỘC GẶP</p><h1>Xin chào, mình là Nari!<br/><em>Cùng khám phá nhé?</em></h1><p className="intro">Một góc phố nhỏ, một mái nhà ấm và vài niềm vui đang chờ bạn.</p>
    <nav className="town-toolbar" aria-label="Khám phá quảng trường"><button className="play-cta" disabled={disabled} onClick={()=>changeView(s.view==='play'?'hero':'play')}>{s.view==='play'?'Toàn cảnh':'Bắt đầu khám phá'} <span aria-hidden="true">↗</span></button><button disabled={disabled} onClick={()=>changeView('portrait')}>Gặp Nari</button><label>Ánh sáng <select aria-label="Ánh sáng" value={s.lighting} onChange={e=>update('lighting',e.target.value as Settings['lighting'])}><option value="day">Ngày nắng</option><option value="evening">Chiều ấm</option><option value="night">Đêm đèn lồng</option></select></label><button disabled={disabled} onClick={()=>update('paused',!s.paused)}>{s.paused?'Tiếp tục':'Tạm dừng'}</button></nav>
-   <section className="workspace"><aside><details className="studio-settings"><summary>Góc nhìn &amp; tùy chỉnh</summary><div className="settings-grid">
+   <section className="workspace"><aside><details className="studio-settings" onToggle={e=>setSettingsOpen(e.currentTarget.open)}><summary>Góc nhìn &amp; tùy chỉnh</summary><div className="settings-grid">
     <label>Chế độ<select aria-label="Chế độ" value={s.view} onChange={e=>changeView(e.target.value as Settings['view'])}><option value="hero">Letter Plaza</option><option value="play">Khám phá cùng Nari</option><option value="portrait">Cận cảnh Nari</option><option value="architecture">Kiến trúc Hanok</option><option value="animation">Xem chuyển động</option></select></label>
     {s.view!=='play'&&<><label>Góc kiểm tra<select aria-label="Góc kiểm tra" value={s.preset} disabled={disabled} onChange={e=>set(a=>({...a,preset:e.target.value as Settings['preset'],angle:null}))}>{Object.entries({hero:'Tổng thể',front:'Mặt trước',rear:'Mặt sau',left:'Bên trái',right:'Bên phải',roof:'Toàn mái',connection:'Liên kết mái–cột',interior:'Bên trong'}).map(([v,t])=><option key={v} value={v}>{t}</option>)}{(s.view==='portrait'||s.view==='animation')&&<option value="face">Khuôn mặt</option>}</select></label>
     <label>Vòng kiểm tra 360°<input aria-label="Vòng kiểm tra 360°" type="range" min="0" max="360" step="1" value={s.angle??0} disabled={disabled} onChange={e=>update('angle',Number(e.target.value))}/></label></>}
@@ -59,7 +65,7 @@ export default function TownApp(){
     {s.reduced&&<p>Chuyển động trang trí đã tắt. Nari vẫn di chuyển khi bạn điều khiển.</p>}
     <div className="buttons"><button disabled={disabled} onClick={reset}>Trở lại sân</button></div>
     <p>Kéo để xoay, cuộn để xem gần. Mỗi mặt Hanok đều có thể được khám phá.</p>
-   </div><p className="metrics-note">Prototype đã duyệt B + T1 · số liệu đo có trong báo cáo chất lượng, không phải cam kết FPS.</p></details></aside><div className="presentation">
+   </div>{settingsOpen&&<Metrics/>}</details></aside><div className="presentation">
     <div className="stage" ref={stage} data-testid="town-stage" data-engine={engine} data-view={s.view} tabIndex={0} role="group" aria-label="Sân chơi Nari" aria-describedby="play-help" onPointerDown={()=>{if(s.view==='play')stage.current?.focus({preventScroll:true})}} onBlur={clear}>
      {disabled?<div className="reforge-poster"><img src={townURL('poster')} alt="Ảnh render thực tế Letter Plaza v0.6 và Nari chibi"/><p>Ảnh tĩnh · thiết bị chưa hỗ trợ WebGL.</p></div>:<Boundary onFailure={failure}><Suspense fallback={<p>Đang nạp sân Hanok…</p>}><Scene settings={{...s,active:visible&&tab}} input={input} player={player} onReact={react} onDoor={door} onDoorBlocked={doorBlocked} onStory={kind=>setNotice(kind==='plum'?'Hoa mận gửi vài cánh hoa theo gió.':'Ánh đèn đáp lại bằng một sắc ấm.')} onReady={ready} onFailure={failure}/></Suspense></Boundary>}
      {engine==='loading'&&<p className="reforge-loading">Đang nạp không gian…</p>}
@@ -71,6 +77,6 @@ export default function TownApp(){
      <button aria-pressed={mobileRun} disabled={disabled||s.paused} onClick={()=>{input.mobileRun=!mobileRun;setMobileRun(!mobileRun);input.wake?.()}}>Chạy</button><button disabled={disabled||s.paused} onClick={()=>{input.jump=true;input.wake?.();stage.current?.focus({preventScroll:true})}}>Nhảy</button>
     </div>}
     <p className="reforge-notice" role="status">{notice}</p>
-   </div></section><footer>v0.6 prototype · Nari B + Letter Plaza T1 đã duyệt · Chưa xuất bản thay v0.5.</footer>
+   </div></section><footer>v0.6 · Playful Hangeul Town · Prototype B + T1</footer>
   </main></div>
 }
