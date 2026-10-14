@@ -36,8 +36,15 @@
 
 **Known blockers:** New restricted sandbox blocks default browser/server sockets; supported escalated runs are authorized and were accepted. Detailed QA needs completion; physical device FPS unavailable; updated public publication not yet authorized.
 
-**Exact next command or action:** Finish node Studio/scripts/verify-polish-v03.mjs http://127.0.0.1:4173/ using the built production app. Then record actual movement and package v0.3 separately. Never run existing build-showcase into public showcase/ for candidate work.
+**Exact next command or action:** Finish the final facial-refinement production build; rerun verify-polish-v03.mjs with supported escalated browser execution, inspect Thinking/Disappointed renders, then capture actual video and rebuild/package the final separate candidate. Never run existing build-showcase into public showcase/ for candidate work.
 
 **Verification required:** Preserved original SHA checks, new GLB Validator, production build, actual day/evening/night/hero/mascot/mobile images, movement/video, distinct clips, smooth cameras, reduced motion/pause/visibility and fallback.
 
 **Remote GitHub save status:** Baseline matched origin/main; checkpoint this audit before geometry work and verify remote after push. Candidate changes must not touch Pages workflow watched files.
+
+## Latest verified subtask
+
+- Production browser verification: all 11 checks PASS, final-render/verification.json (pre-final facial refinement). Six static/live clips, real mesh click and return-to-idle, flicker/petal interactions, dynamic OS reduced-motion/pause, smooth focus/cinematic/yield, all quality tiers, 390×844 and offscreen/fallback passed; zero critical errors or missing resources. Low 92 calls/112,777 triangles; medium 181 calls including shadows/225,407 triangles.
+- Human inspection then found Thinking hand still obscured and Disappointed still smiling. Added a cloned runtime chin-hand position track and tasteful smile/frown changes; all original source/export bytes preserved. Rebuild and revalidation pending before final video/package.
+- Last verified remote checkpoint: 47d6915824a248eec29e621dc0f514d9abf7b520, independently matched origin/main. New corrections/proof checkpoint follows.
+- Prepared local review/static ZIPs currently belong to the prior candidate SHA; rebuild/repackage them after final facial refinement. Do not hand off stale ZIPs as the final candidate.

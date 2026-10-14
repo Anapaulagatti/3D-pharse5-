@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import { useAnimations } from '@react-three/drei'
-import { AnimationClip, Euler, Group, LoopOnce, LoopRepeat, MathUtils, Quaternion, Vector3 } from 'three'
+import { AnimationClip, Euler, Group, LoopOnce, LoopRepeat, MathUtils, Quaternion, Vector3, VectorKeyframeTrack } from 'three'
 import type { AnimationAction } from 'three'
 import type { Interaction, Mood, SceneSettings } from './types'
 import { useStudioModel } from './useStudioModel'
@@ -25,6 +25,15 @@ function expressiveClip(source: AnimationClip) {
         e.set(e.x * gain, e.y * gain, e.z * gain * outward); q.setFromEuler(e).toArray(track.values, i)
       }
     }
+  }
+  if (source.name === 'Thinking') {
+    const times = Array.from(clip.tracks[0].times)
+    const values = times.flatMap(t => {
+      const weight = Math.sin(Math.PI * t / clip.duration) ** 2
+      // Bring the mitten in front of the ceramic body, just beneath the chin.
+      return [.375 - .05 * weight, .77 + .26 * weight, .36 * weight]
+    })
+    clip.tracks.push(new VectorKeyframeTrack('ArmRightPivot.position', times, values))
   }
   return clip
 }
@@ -52,6 +61,7 @@ export default function LivingMascot({ settings, animate, onReady, onInteract }:
   const eyes = useMemo(() => ['EyeLeft', 'EyeRight'].map(n => scene.getObjectByName(n)!), [scene])
   const catchlights = useMemo(() => ['EyeCatchlight', 'EyeCatchlight001'].map(n => scene.getObjectByName(n)).filter(Boolean), [scene])
   const head = useMemo(() => scene.getObjectByName('HeadPivot')!, [scene])
+  const mouth = useMemo(() => scene.getObjectByName('Smile')!, [scene])
   const leaf = useMemo(() => scene.getObjectByName('CeramicLeafPivot')!, [scene])
   const gesture = useCallback((next: Mood) => { temporary.current = 1; idleAge.current = 0; setMood(next); setGestureId(n => n + 1); invalidate() }, [invalidate])
 
@@ -98,6 +108,16 @@ export default function LivingMascot({ settings, animate, onReady, onInteract }:
 
   useFrame(({ gl, camera }, delta) => {
     frames.current++
+    const smiling = mood === 'Happy' || mood === 'Celebration'
+    mouth.scale.y = mood === 'Disappointed' ? -1 : smiling ? 1.4 : 1
+    mouth.position.y = mood === 'Disappointed' ? .27 : smiling ? -.052 : 0
+    if (!animate) {
+      for (const eye of eyes) {
+        if (mood === 'Disappointed') eye.scale.y = .72
+        else if (!smiling) eye.scale.y = 1
+      }
+      for (const light of catchlights) if (light) light.visible = true
+    }
     if (animate) {
       const dt = Math.min(delta, .15)
       elapsed.current += dt

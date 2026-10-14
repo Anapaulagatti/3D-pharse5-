@@ -44,3 +44,5 @@ No learning-alley, celebration scene or six district assets are claimed in v0.2.
 
 | Reaction/camera correction evidence | quality-reports/v0.3/intro-diagnostic.json; review-pass-1/2/3/ | Native Greeting→Idle confirmed; previous failures preserved | Identical DOM canvas bounds, actual mixer advance; final screenshots/full QA pending |
 | Separate v0.3 standalone candidate | showcase-v0.3/index.html + build-info.json | Built; full candidate QA pending | 8,212,845 bytes/8 verified embedded base+detail assets; does not alter public v0.2 |
+
+| Verified production polish evidence | quality-reports/v0.3/final-render/verification.json and full screenshot set | 11 checks PASS; final face review refinement pending | Actual static/live six poses, three lights, hero/detail/orbit, responsive/fallback captures; zero critical errors/missing resources |

@@ -16,13 +16,13 @@ try {
     const started=Date.now(),page=await context.newPage(),errors=[]
     page.on('pageerror',e=>errors.push(e.message));page.setDefaultTimeout(60_000)
     await page.goto(url);await expect(page.locator('.stage')).toHaveAttribute('data-engine','ready',{timeout:60_000})
-    await page.getByLabel('Chất lượng').selectOption('low')
+    await page.getByLabel('Chất lượng').selectOption(scene==='courtyard'?'medium':'low')
     if(scene==='mascot') {
       const button=page.getByRole('button',{name:/Linh vật gốm/});await button.evaluate(el=>el.scrollIntoView({block:'center'}))
       const box=await button.boundingBox();await page.mouse.click(box.x+box.width/2,box.y+box.height/2)
       await expect(page.locator('.stage')).toHaveAttribute('data-engine','ready',{timeout:60_000})
     }
-    await page.getByLabel('Ánh sáng').selectOption(scene==='courtyard'?'night':'day')
+    await page.getByLabel('Ánh sáng').selectOption('day')
     await page.addStyleTag({content:'.intro,.topbar,.controls,.viewer-header,.viewer-footer,.interaction-bar,.asset-panel,.notes,.site-footer{display:none!important}.studio-shell{padding:0!important;max-width:none}.workspace{display:block;border:0}.viewer-section{padding:0!important}.stage{height:720px!important;border-radius:0}.stage-note{display:none}'})
     await page.locator('canvas').evaluate(el=>el.scrollIntoView({block:'start'}))
     await page.waitForTimeout(1200)
@@ -34,6 +34,13 @@ try {
       samples.push({time:Date.now(),object:name,metrics:await page.evaluate(()=>window.__STUDIO_METRICS__)})
     }
     await page.waitForTimeout(3200)
+    if(scene==='courtyard') {
+      // Choreograph the same native lighting control while its UI is hidden for filming.
+      for(const lighting of ['evening','night']) {
+        await page.getByLabel('Ánh sáng').evaluate((select,value)=>{select.value=value;select.dispatchEvent(new Event('change',{bubbles:true}))},lighting)
+        await page.waitForTimeout(2000)
+      }
+    }
     await clickObject('mascot');await page.waitForTimeout(4000)
     if(scene==='courtyard') {await clickObject('lantern');await page.waitForTimeout(2500);await clickObject('tree');await page.waitForTimeout(4500)}
     else {await clickObject('mascot');await page.waitForTimeout(4300);await clickObject('mascot');await page.waitForTimeout(4000)}
