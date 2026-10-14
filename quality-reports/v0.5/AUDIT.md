@@ -25,6 +25,12 @@ Target: Korean Arena 3D Studio v0.5 — Joseon Fantasy Reforge. Gate A is concep
 
 Five exported GLBs were directly parsed in `existing-glb-inspection.json`; all original clip names and actual skin attributes are recorded. This structural inspection does not replace render review or a new Validator run. Existing five-GLB Validator0/0 and ten-stage public browser evidence remain in v0.4 reports.
 
+Blender4.3.2 successfully opened all five saved source `.blend` files read-only: original arena/mascot, v0.3 detail and both v0.4 sources. `blender-source-audit.json` records object counts, actual NLA names, armatures/modifiers/shape keys and before/after source hashes. All five hashes matched and no source was written. The mascot source confirms a node-transform rig, not a skinned humanoid. Reproduce only when needed: `blender --background --factory-startup --threads 4 --python quality-reports/v0.5/inspect-existing-blend.py`.
+
+Actual saved public v0.4 `hero.png` and `mascot-run.png` were opened and visually inspected during this audit. The hero shows the open pavilion/side railings and unsupported-looking roof gap; the run pose retains short ceramic feet with no articulated knees/elbows. These are actual earlier browser renders of the byte-identical release, not newly captured v0.5 screenshots. The current public hash independently matched that release. No claim of actual v0.5 building/gameplay visual verification is made.
+
+Source-derived scale check: at the main pavilion post centers, the `roof.height` formula places the thin roof surface roughly0.31m above the top of the crossbeam. This is an estimate from authoring coordinates, not a measured structural-engineering clearance. Existing scripts contain no bridging purlin/rafter system; Gate B must model and inspect those connections explicitly.
+
 ## Reference consulted
 
 [Seoul Metropolitan Government — Structure of Hanok](https://hanok.seoul.go.kr/front/eng/info/infoHanok.do?tab=2), fetched with TLS validation, HTTP200, 33,031 bytes, SHA `c419a612e75c5e50672b516c1eaa400bd52c867fa09599c8594e60d07704bddd`.
@@ -34,3 +40,10 @@ The page describes a timber framework of columns, crossbeams, purlins, rafters, 
 ## Current scope and gate
 
 Archive the exact request, inspect saved Blender sources and existing actual rendered evidence, produce three genuinely different original humanoid concepts and a dimensioned architecture/controller plan. Save and verify checkpoints. Stop for the user's concept choice before the expensive final character build, as requested in section15 Gate A. Gates B–E and the v0.5 milestone remain unfinished.
+
+## Gate A outputs
+
+- [Three concepts and rubric](../../concepts/v0.5/CONCEPT_REVIEW.md): A Nari, B Yun, C Dam; A recommended, no final selection.
+- [Actual concept board](../../concepts/v0.5/character-concepts.png) with original prompt/provenance/checksum. This is an illustration, not a model or rendered game.
+- [Architecture/playable implementation plan](../../docs/v0.5/ARCHITECTURE_REBUILD_PLAN.md): scale, floor plan, connected structural chain, Gate B checks, proper skinning/controller contract,20 clips/10 expressions, camera/input/accessibility/material/performance targets and release hold.
+- Gate A delivery can be complete while **Gate A approval remains pending**. Do not mark the whole v0.5 milestone complete.

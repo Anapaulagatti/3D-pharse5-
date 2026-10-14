@@ -2,7 +2,7 @@
 
 Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verification. Milestones follow the persistent-progress prompt (nine milestones).
 
-Current task: REFORGE-AUDIT-005 / Gate A preparation. Public v0.4 remains unchanged; v0.5 concept approval is required before final character production. No new districts.
+Current task: REFORGE-GATE-A-005 BLOCKED awaiting the user's A/B/C choice. Audit, three concrete character concepts and architecture plan delivered. Public v0.4 remains unchanged; v0.5 is not complete. No new districts.
 
 | Milestone | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|---|
@@ -87,9 +87,9 @@ Current task: REFORGE-AUDIT-005 / Gate A preparation. Public v0.4 remains unchan
 
 | Stable ID | Deliverable | Status | Evidence / next gate |
 |---|---|---|---|
-| REFORGE-AUDIT-005 | Inspect sources/history/GLBs, verify public and remote baseline, preserve v0.4 | IN_PROGRESS | quality-reports/v0.5/AUDIT.md, preserved-v04.json, existing-glb-inspection.json, v04-start-state.json; read-only Blender inspection follows |
-| REFORGE-CONCEPT-005 | Three original humanoid concepts, comparison and architecture rebuild plan | IN_PROGRESS | Separate concepts/v0.5 and docs/v0.5 outputs; no final design selected |
-| REFORGE-GATE-A-005 | User approves one final character direction | BLOCKED | Explicit section15 Gate A; show concrete alternatives before requesting a choice |
+| REFORGE-AUDIT-005 | Inspect sources/history/GLBs, verify public and remote baseline, preserve v0.4 | DONE | AUDIT.md;75 protected hashes; read-only Blender inspection of five sources; five directly parsed GLBs; actual saved v0.4 images inspected; origin/main and recovery tag matched |
+| REFORGE-CONCEPT-005 | Three original humanoid concepts, comparison and architecture rebuild plan | DONE | concepts/v0.5/character-concepts.png + CONCEPT_REVIEW.md/provenance/prompt; docs/v0.5/ARCHITECTURE_REBUILD_PLAN.md; GATE_A_REVIEW.md and gate-a-verification.json |
+| REFORGE-GATE-A-005 | User approves one final character direction | BLOCKED | Explicit section15 Gate A: A Nari recommended, B Yun or C Dam; original illustrated alternatives delivered, final choice pending |
 | REFORGE-GATE-B-005 | Complete four-sided Hanok graybox, scale/support checks and actual 360° review | TODO | Dimensioned plan first; validate structure before detailed materials |
 | REFORGE-GATE-C-005 | Skinned humanoid,20 clips,10 expressions, playable collision/controller and touch input | BLOCKED | Requires concept approval; no expensive final character build yet |
 | REFORGE-GATE-D-005 | Architecture/material/environment/lighting/game-feel polish | TODO | Depends on structural and playable gates |

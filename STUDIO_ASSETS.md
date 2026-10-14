@@ -86,3 +86,13 @@ All 43 baseline files preserved; no app package or lockfile changes, paid servic
 - quality-reports/v0.5/preserved-v04.json:75 protected source/art/export/package/modeling/deployment hashes at verified main9cc1381. No approved asset changed.
 - existing-glb-inspection.json: direct structural inspection of five actual GLBs, including12 v0.4 mascot clips and zero skins/JOINTS/WEIGHTS/morphs. v0.5 requires a new genuinely skinned human after concept approval.
 - New concept art and planning outputs are not yet production meshes, Blender projects, GLBs, animation clips or actual v0.5 render proof. No new exported asset claimed at this gate.
+
+| v0.5 Gate A output | Source / format | Verified status / usage |
+|---|---|---|
+| Three humanoid character concepts | concepts/v0.5/character-concepts.png, IMAGE_PROMPT.md, character-concepts.json | Actual original image_gen illustration inspected;1536×1024 PNG,2,710,246bytes, SHA2ed33ed6b078c1f8648d235892b98690723f4bbe6d7aac0144b60178622ac57c; no external reference image; A/B/C approval pending |
+| Concept specification/rubric | concepts/v0.5/CONCEPT_REVIEW.md | Eight-criterion editorial comparison, costume/rig risks, recommendation A; not benchmarked or selected by user |
+| Structural/playable plan | docs/v0.5/ARCHITECTURE_REBUILD_PLAN.md | Dimensioned floor plan/support chain, Gate B proof criteria, future armature/skin/controller/20clip/10expression/material/camera/accessibility/performance contracts; not an implemented graybox |
+| Actual existing Blender audit | quality-reports/v0.5/blender-source-audit.json and inspect-existing-blend.py | Five actual saved sources opened read-only; all source hashes unchanged; no armature/weights/shape keys in legacy rig |
+| Gate A review/evidence | quality-reports/v0.5/GATE_A_REVIEW.md, AUDIT.md, gate-a-verification.json | Reviewed concept and preserved actual v0.4 screenshots linked as before-state only; no v0.5 gameplay render claimed |
+
+No new final humanoid, skeleton/skin, `.blend`, GLB, animation, texture or playable build was produced before required concept approval. Approved75 baseline files, app/runtime and deployment inputs remain unchanged.
