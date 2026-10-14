@@ -164,3 +164,5 @@ Concept art is not a production texture/mesh/rig/animation/prototype or actual v
 - Actual editable assets/v0.6/source-blend/{nari-chibi,letter-plaza}.blend and exports/v0.6/models/*.glb saved; fresh Validator reports in prototype/. Nari genuinely skinned28bones/20clips/10morphs,8,976tri. No texture/CDN dependency. Draft runtime uses Vite URL-imported versioned GLBs; real fallback poster will come from actual v0.6 render.
 
 - First real review-pass-3 image set saved: hero/light/house/face/poses/moving-pairs/mobile. Actual initial head/face/day/night viewed. These are provisional: garment zigzags/framing rejected. Prior character GLB/source remains recoverable011cf32; re-export only new v0.6 character after source corrections.
+
+- New character source has per-vertex palette and actual collar/hem/cuffs; prior prototype011cf32 recoverable. T1 source now clears entrance; old world export recoverable. No v0.5 source/asset changed.

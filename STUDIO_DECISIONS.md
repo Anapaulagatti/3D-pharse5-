@@ -151,3 +151,5 @@ PUBLIC-RELEASE-005 COMPLETE: exact082c661b (13,543,219B) publicly serves at http
 - Initial raw GLBs combined2,997,220B meet provisional4MB before render acceptance; no blind simplification/decoder needed. Scene material primitives will be measured with shadows. Separate town.html/src/town entry leaves existing v0.5 main/controls/assets/deployment inputs exact. Stage and portrait require actual human inspection, not Validator alone.
 
 - Use continuous per-vertex body palette instead of triangle-center skin/cloth material boundaries; add real collar/hem/ankle cuffs to hide coarse interpolation at clothes edges. Preserve genuine skin/IK, no old asset altered. Closer lower orthographic hero emphasizes Nari/house; whole-world/four-side presets remain available. Action lifecycle binds/uncaches inside one effect, making StrictMode replay safe.
+
+- Remove center front/porch posts obstructing real aperture; retain rear center/outer posts and continuous crossbeams. Test actual geometry and native threshold traversal rather than visually opened panels alone.

@@ -38,11 +38,14 @@ for i,(z,h) in enumerate([(-.33,.3),(-.03,.2),(.27,.1)]):B('EntryStep'+str(i),(-
 posts={}
 for x in [-3.5,-1.2,1.1]:
  for z in [-3.8,-1.2,-.50]:
+  if x==-1.2 and z!=-3.8:continue # Clear entrance; crossbeam spans the outer columns.
   shoe=C('StoneShoe',(x,.35,z),.13,.10,'stone');post=C('TimberColumn',(x,1.16,z),.073,1.62,'wood',collision=True);posts[x,z]=post
   supports.append({'supported':post.name,'support':shoe.name,'tolerance':.02})
 for z in [-3.8,-1.2,-.50]:
  beam=B('CrossBeam',(-1.2,1.98,z),(4.87,.20,.18),'wood','beam')
- for x in [-3.5,-1.2,1.1]:supports.append({'supported':beam.name,'support':posts[x,z].name,'tolerance':.02});B('JoinerySeat',(x,2.07,z),(.28,.10,.25),'wood','joinery')
+ for x in [-3.5,-1.2,1.1]:
+  if (x,z) in posts:supports.append({'supported':beam.name,'support':posts[x,z].name,'tolerance':.02})
+  B('JoinerySeat',(x,2.07,z),(.28,.10,.25),'wood','joinery')
 for x in [-3.5,1.1]:B('DepthBeam',(x,1.98,-2.15),(.18,.20,3.45),'wood','beam')
 # Complete rear/side walls; windows have real frames and recessed paper panels.
 B('RearWall',(-1.2,1.15,-3.8),(4.55,1.70,.13),'paper','wall',True)

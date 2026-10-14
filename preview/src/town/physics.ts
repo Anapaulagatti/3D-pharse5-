@@ -1,4 +1,4 @@
-import world from '../../../exports/v0.6/collision-world.json'
+import world from '../../../exports/v0.6/collision-world.json' with {type:'json'}
 // Kinematic, metre-scale courtyard controller. Independent of the renderer/frame rate.
 export type V3=[number,number,number]
 export interface Collider {id:string;min:number[];max:number[]}
