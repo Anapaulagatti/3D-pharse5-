@@ -79,3 +79,10 @@ All 43 baseline files preserved; no app package or lockfile changes, paid servic
 - PUBLIC-RELEASE-004 staging: saved v0.4 HTML (10,213,265 bytes, cd238a4c) authorized for publication; no art/model regeneration. Source/GLB/textures/old showcase files unchanged; only two recorded deployment configuration changes. Site allowlist index.html/.nojekyll; public verification pending.
 
 - PUBLIC-RELEASE-004 COMPLETE (2026-10-14T14:59:37.097480+07:00): exact reviewed v0.4 HTML is PUBLIC_LIVE_VERIFIED at https://anapaulagatti.github.io/3D-pharse5-/. Ten real public browser stages passed, actual public screenshots inspected; evidence in quality-reports/v0.4/pages-release/. All art/source/model/texture/animation/previous artifact/lockfile bytes remain intact; only two authorized deployment config changes. No new/regenerated art for publication.
+
+## v0.5 Gate A preparation
+
+- Archived exact user scope in docs/reviews/REFORGE_V05_USER_REQUEST.md (normalized line endings only).
+- quality-reports/v0.5/preserved-v04.json:75 protected source/art/export/package/modeling/deployment hashes at verified main9cc1381. No approved asset changed.
+- existing-glb-inspection.json: direct structural inspection of five actual GLBs, including12 v0.4 mascot clips and zero skins/JOINTS/WEIGHTS/morphs. v0.5 requires a new genuinely skinned human after concept approval.
+- New concept art and planning outputs are not yet production meshes, Blender projects, GLBs, animation clips or actual v0.5 render proof. No new exported asset claimed at this gate.

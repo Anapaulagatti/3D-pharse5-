@@ -1,40 +1,35 @@
 # Studio progress
 
-- Current milestone: BIG-UPDATE-004 and PUBLIC-RELEASE-004 COMPLETE. v0.4 is PUBLIC_LIVE_VERIFIED; STOP for further visual feedback.
-- Public URL: https://anapaulagatti.github.io/3D-pharse5-/ (cache-refresh ?release=cd238a4c).
-- Latest explicit authorization: "xuất bản bản v0.4". Exact reviewed artifact published; no new district or art work authorized.
-- Verified at: 2026-10-14T14:59:37.097480+07:00 (Asia/Bangkok).
-- Last verified deployed source checkpoint: d4fecaa40d631d14fdb9120cf09b3cf24c4d576d matched origin/main after push. Complete public evidence/docs checkpoint follows in Git history.
-- GitHub Actions 38530210414: package/deploy success. Deployment 7059737978: success, authoritative environment URL above.
-- Origin: normal and cache-refresh HTTPS200 text/html, 10,213,265 bytes; exact approved SHA cd238a4c79f378d05eea098ec3f55c207c24c91444afce459d1345c012572846. Preserved HTML, no rebuild/asset regeneration for release.
-- Preflight: production/typecheck PASS; five GLBs Validator0 errors/0 warnings; ten original embedded assets/source provenance/checksums valid. Static allowlist index.html/.nojekyll only; private source/.blend/configs not published, known credential patterns0 and SDK notices retained. Inline JS/CSS and Blob GLB/PNG URLs work under repository subpath.
-- Public verification: ten real browser stages PASS, zero critical page/console errors or missing resources. Actual public hero/night/Happy/Thinking/Walk pair/Run/Jump/mobile hero/portrait/fallback images inspected.
-- Verified behaviors: 12 distinct authored poses/live clips and actual face shapes, mesh click hop and keyboard wave -> ReturnToIdle -> Idle, lantern/tree feedback and ambient movement, camera orbit/reset/focus/cinematic yield, Low/Medium/High and390×844 responsive layout, native OS reduced motion/pause/offscreen resume and missing-WebGL PNG fallback. Chromium HTTPS validation enabled; no certificate bypass.
-- Preserved art: original v0.2/v0.3 and new v0.4 .blend/GLB/textures/animations/exports/previous showcase/ZIP/lockfiles unchanged. Baseline41 immutable files retained; two authorized deployment-file updates (workflow/staging) have exact before/after hashes. Saved v0.4 candidate/reference metadata remains recoverable through fe485aa.
-- Existing v0.4 work: versioned independent limb/head/ear rig and twelve NLA/GLB full-body/face clips, gaze/blink/expressive state/one-shots; richer Hanok/courtyard/3 swaying plum crowns, original palette/light/material/camera/action UI. No paid service/new dependency/audio/backend or district.
-- Earlier evidence retained:20 production/extracted-subpath stages, before/after gallery,44.92s genuine VFR compositor movie/raw frames, standalone review/static ZIPs. Public10 brings verified stages to30; no new movie needed for identical published art.
-- Performance limits: Low115 calls/131,121 triangles; Medium/High228/262,175 incl shadows measured during candidate QA. Cloud SwiftShader functionality/viewport is not physical phone FPS; QA-004 unmeasured, no60FPS claim. Fallback intentionally preserves original base poster.
-- Final release evidence: quality-reports/v0.4/pages-release/VISUAL_REVIEW.md, deployment.json, public-http.json, github-run/deployment/status, preflight/authorization, render/verification.json and actual PNGs.
-- Setup: reused working toolchain/dependencies/GitHub authentication and cloud onboarding guidance; no installation/draft/network configuration needed. No user-facing loopback preview link. Live internal processes are separate from saved files.
+- Current milestone: REFORGE-005 — Joseon Fantasy Reforge, Gate A preparation.
+- Current task IDs: REFORGE-AUDIT-005 and REFORGE-CONCEPT-005 IN_PROGRESS. User's latest v0.5 request archived; audit and concrete concept alternatives in progress.
+- Last completed milestone: public v0.4, independently verified remote baseline9cc1381792b768f1e973d45b3421d24eb514c0d5; previous source/model/texture/animation/checkpoints retained.
+- Public v0.4 remains https://anapaulagatti.github.io/3D-pharse5-/; current HTTP200 text/html and exact cd238a4c SHA checked. Latest Actions run38530210414 completed success; none active.
+- New preservation manifest records75 immutable art/source/export/package/deployment files. Current runtime remains v0.4; isolated v0.5 work uses new paths.
+- Source audit: current pavilion has incomplete front/side envelope and no full purlin/rafter roof support. v0.4 mascot GLB has12 node-transform clips but no skin/JOINTS/WEIGHTS/morph targets; retain as optional legacy companion.
+- Dependencies installed: none. Existing pinned Blender/React/R3F/tooling reused. New GLBs/.blend exports: none; final humanoid construction awaits user's concept approval.
+- Scope of this stage: complete audit, three original concept alternatives, comparison/recommendation, dimensioned structural/controller plan, saved remote checkpoint. Concept illustrations are not real rendered 3D proof.
+- Current checks: clean entry Git/status/history; independently matched origin/main; public origin byte/hash; completed Actions; five GLB structural metadata;75 protected-file hashes. Read-only Blender/source and concept visual review follow.
+- Modified files: AGENTS and four records; new docs/reviews/REFORGE_V05_USER_REQUEST.md, quality-reports/v0.5 audit/preservation/source metadata; future concepts/v0.5 and docs/v0.5 review outputs.
+- Last checkpoint update: 2026-10-14T08:11:49.308669+00:00 (UTC).
 
 ## NEXT SESSION HANDOFF
 
-**Current milestone:** BIG-UPDATE-004 and PUBLIC-RELEASE-004 COMPLETE; STOP for further visual feedback.
+**Current milestone:** REFORGE-005 — Gate A preparation; v0.5 release is not complete.
 
-**Current task ID:** Await user feedback on public v0.4. WORLD tasks remain unstarted.
+**Current task ID:** REFORGE-AUDIT-005 / REFORGE-CONCEPT-005.
 
-**Last verified checkpoint:** d4fecaa40d631d14fdb9120cf09b3cf24c4d576d is the remotely verified successful deployed source. The final docs/public evidence commit follows; verify remote SHA after saving.
+**Last verified checkpoint:** baseline9cc1381792b768f1e973d45b3421d24eb514c0d5 matched origin/main; this audit checkpoint follows in Git history.
 
-**Completed work:** Exact approved v0.4 deployment, origin hash match, build/typecheck/five GLBs0/0, ten actual public browser stages and public image inspection; previous source/art/checkpoints preserved and release evidence saved.
+**Completed work:** Archived new user request, inspected required docs/modeling/runtime, verified public v0.4 and remote baseline, hashed75 protected files and parsed five real GLBs.
 
-**Unfinished work:** Further user visual feedback. Physical hardware profiling QA-004 remains unmeasured; no district work authorized.
+**Unfinished work:** Read-only Blender inspection, actual existing-render audit, three original character concepts and comparison, dimensioned architecture/controller plan, visual review and remote checkpoint; user concept choice then gates B–E.
 
-**Files to inspect:** quality-reports/v0.4/pages-release/VISUAL_REVIEW.md, deployment.json, public-http.json, render/verification.json, authorization.json; v0.4 REVIEW/VERIFICATION_SUMMARY, manifests/source and PERFORMANCE_REPORT.md.
+**Files to inspect:** docs/reviews/REFORGE_V05_USER_REQUEST.md, quality-reports/v0.5/AUDIT.md, preserved-v04.json, existing-glb-inspection.json, v04-start-state.json; concepts/v0.5 and docs/v0.5 as produced.
 
-**Known blockers:** None for public viewing. Hardware FPS remains unmeasured; fallback uses preserved original poster.
+**Known blockers:** Explicit section15 Gate A requires user approval before expensive final character build. v0.5 publication not authorized. Target hardware FPS still unmeasured.
 
-**Exact next command or action:** Open https://anapaulagatti.github.io/3D-pharse5-/?release=cd238a4c and await user visual feedback. Do not regenerate models, add districts or continue art automatically.
+**Exact next command or action:** Complete Gate A deliverables, inspect actual concept output, save checkpoint, then present all three designs for selection. Do not select one automatically.
 
-**Verification required:** This exact public release is fully verified. Repeat only for a new authorized change or concrete failure. Future art updates need their own reviewed scope/publication authorization; staging pins current approved checksum.
+**Verification required:** Inspect actual source files and illustration output, validate preserved75 hashes and unchanged publication inputs; later graybox/playable/render/export checks remain unrun for v0.5.
 
-**Remote GitHub save status:** d4fecaa40d631d14fdb9120cf09b3cf24c4d576d pushed and independently verified against origin/main. Final docs/public-evidence save follows and must be remotely matched after push. Docs/evidence paths do not trigger the scoped Pages workflow.
+**Remote GitHub save status:** baseline9cc1381 independently verified; preparation checkpoint must be committed/pushed and compared with remote before persistence is claimed.

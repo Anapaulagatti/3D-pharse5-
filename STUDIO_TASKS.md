@@ -2,7 +2,7 @@
 
 Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verification. Milestones follow the persistent-progress prompt (nine milestones).
 
-Current task: PUBLIC-RELEASE-004 DONE. v0.4 PUBLIC_LIVE_VERIFIED; STOP for further visual feedback, no new districts.
+Current task: REFORGE-AUDIT-005 / Gate A preparation. Public v0.4 remains unchanged; v0.5 concept approval is required before final character production. No new districts.
 
 | Milestone | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|---|
@@ -82,3 +82,16 @@ Current task: PUBLIC-RELEASE-004 DONE. v0.4 PUBLIC_LIVE_VERIFIED; STOP for furth
 | BIG-UPDATE-004 | Living Hanok Showcase v0.4 review candidate | DONE | quality-reports/v0.4/REVIEW.md + VERIFICATION_SUMMARY.json; source/exports/images/video/ZIP verified |
 | VISUAL-REVIEW-004 | User reviews the v0.4 upgrade | DONE | User explicitly requested v0.4 publication after candidate handoff; further visual feedback follows public verification |
 | PUBLIC-RELEASE-004 | Publish reviewed v0.4 and verify public scene | DONE | Actions 38530210414/deployment 7059737978 success; exact origin SHA, 10 public browser stages PASS and actual images inspected; pages-release/deployment.json |
+
+## REFORGE-005 — Joseon Fantasy Reforge
+
+| Stable ID | Deliverable | Status | Evidence / next gate |
+|---|---|---|---|
+| REFORGE-AUDIT-005 | Inspect sources/history/GLBs, verify public and remote baseline, preserve v0.4 | IN_PROGRESS | quality-reports/v0.5/AUDIT.md, preserved-v04.json, existing-glb-inspection.json, v04-start-state.json; read-only Blender inspection follows |
+| REFORGE-CONCEPT-005 | Three original humanoid concepts, comparison and architecture rebuild plan | IN_PROGRESS | Separate concepts/v0.5 and docs/v0.5 outputs; no final design selected |
+| REFORGE-GATE-A-005 | User approves one final character direction | BLOCKED | Explicit section15 Gate A; show concrete alternatives before requesting a choice |
+| REFORGE-GATE-B-005 | Complete four-sided Hanok graybox, scale/support checks and actual 360° review | TODO | Dimensioned plan first; validate structure before detailed materials |
+| REFORGE-GATE-C-005 | Skinned humanoid,20 clips,10 expressions, playable collision/controller and touch input | BLOCKED | Requires concept approval; no expensive final character build yet |
+| REFORGE-GATE-D-005 | Architecture/material/environment/lighting/game-feel polish | TODO | Depends on structural and playable gates |
+| REFORGE-GATE-E-005 | GLB/build/browser/gameplay/video/accessibility/mobile/performance proof | TODO | Actual rendered evidence required; no v0.5 completion claim yet |
+| REFORGE-RELEASE-005 | User-reviewed candidate and separate publication authorization | BLOCKED | Preserve live v0.4; no approval to publish v0.5 |
