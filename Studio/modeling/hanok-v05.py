@@ -113,7 +113,7 @@ P('RidgeCap',[(-3.9,4.18,-2.5),(3.9,4.18,-2.5)],.085,'ink','roof')
 def lattice(name,c,w,h,axis='front',sliding=None):
  x,y,z=c
  def piece(n,dx,dy,sx,sy,mat='wood'):
-  return B(name+n,(x+dx if axis=='front' else x,y+dy,z if axis=='front' else z+dx),(sx,sy,.065) if axis=='front' else (.065,sy,sx),mat,'door' if sliding else 'window',parent=sliding,bevel=.005)
+  return B(name+n,(x+dx if axis=='front' else x,y+dy,z if axis=='front' else z+dx),(sx,sy,.028 if not GRAY and n=='Hanji' else .065) if axis=='front' else (.028 if not GRAY and n=='Hanji' else .065,sy,sx),mat,'door' if sliding else 'window',parent=sliding,bevel=.005)
  piece('Hanji',0,0,w-.055,h-.055,'paper')
  for dx in [-w/2,w/2]:piece('Stile',dx,0,.045,h+.04)
  for dy in [-h/2,h/2]:piece('Rail',0,dy,w+.04,.045)

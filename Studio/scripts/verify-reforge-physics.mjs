@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict'
 import {readFile,writeFile} from 'node:fs/promises'
 import {createPlayer,stepPlayer,floorHeight} from '../../preview/src/reforge/physics.ts'
-const world=JSON.parse(await readFile(new URL('../../exports/v0.5/hanok-graybox-structure.json',import.meta.url),'utf8')),walls=world.colliders
+const full=process.env.STUDIO_V05_FULL==='1'
+const world=JSON.parse(await readFile(new URL(full?'../../exports/v0.5/hanok-reforge-structure.json':'../../exports/v0.5/hanok-graybox-structure.json',import.meta.url),'utf8')),walls=world.colliders
 const overlapTop=Math.max(...world.modules.filter(m=>['floor','stair'].includes(m.category)&&m.min[0]<=0&&m.max[0]>=0&&m.min[2]<=.28&&m.max[2]>=.28).map(m=>m.max[1]))
 assert.ok(Math.abs(floorHeight(0,.28)-overlapTop)<.00001,'support chooses actual higher floor where veranda overlaps top stair')
 const tick=(p,n,w,run,open,jump=false)=>{for(let i=0;i<n;i++)stepPlayer(p,w,run,jump&&i===0,1/60,walls,open)}
@@ -16,5 +17,5 @@ for(let i=0;i<100;i++){stepPlayer(p,[0,0],false,i===0,1/60,walls,true);peak=Math
 assert.ok(peak>.44&&peak<.53,'physics airborne arc with finite gravity');assert.equal(p.grounded,true);assert.equal(p.position[1],0)
 tick(p,60,[1,0],true,true);tick(p,40,[0,0],false,true);assert.ok(p.speed<.001,'release decelerates to stop')
 const result={status:'PASS',checks:['closed-door collision','walk staircase through opened door','raised interior ground contact','rear wall collision','physics jump and landing','input release stops'],closed_position:closed,rear_position:rear,jump_height:peak,limitation:'Actual shared controller geometry/physics checks; browser input and visual acceptance remain separate.'}
-await writeFile(new URL('../../quality-reports/v0.5/gate-c/physics-verification.json',import.meta.url),JSON.stringify(result,null,2)+'\n')
+await writeFile(new URL(full?'../../quality-reports/v0.5/gate-e/physics-verification.json':'../../quality-reports/v0.5/gate-c/physics-verification.json',import.meta.url),JSON.stringify(result,null,2)+'\n')
 console.log(JSON.stringify(result,null,2))
