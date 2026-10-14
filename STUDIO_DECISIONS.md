@@ -96,3 +96,5 @@
 - Gate A verification is limited to read-only source audit, unchanged-release integrity, concept visual inspection and complete planning deliverables. It is not v0.5 render/animation/controller/build acceptance. Gates B–E remain unfinished; stop for the actual A/B/C choice and keep public v0.4 intact.
 
 - Gate A delivery remotely verified at a6c1959. Latest Pages workflow remains completed run38530210414; concept/docs checkpoints did not deploy. Stop for the actual user A/B/C choice; recommendations do not constitute approval.
+
+- User approved A — Nari with exact reply: "nếu bạn đề xuất là A thì hãy chọn A". Selection is now explicit, recorded in concepts/v0.5/APPROVAL.json. Gate A holds are superseded for this choice; continue original v0.5 scope through gates B–E without re-asking. Publication remains a separate hold.

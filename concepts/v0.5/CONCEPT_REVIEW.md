@@ -1,6 +1,6 @@
 # Gate A — Ba hướng nhân vật v0.5
 
-**Chờ người dùng chọn. Chưa có thiết kế cuối được duyệt.**
+**ĐÃ DUYỆT A — Nari.** Người dùng: “nếu bạn đề xuất là A thì hãy chọn A”. Xem APPROVAL.json. Phần so sánh bên dưới được giữ như hồ sơ thiết kế ban đầu.
 
 ![Ba concept nhân vật Joseon Fantasy](character-concepts.png)
 
