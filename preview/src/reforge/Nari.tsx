@@ -7,15 +7,16 @@ import { clone } from 'three/addons/utils/SkeletonUtils.js'
 import { stepPlayer, type InputState, type Player, type Collider } from './physics'
 import type { Settings } from './types'
 import { TerrainFeet } from './footPlacement'
+import { reforgeURL } from './assets'
 
 export const clips=['Idle','Walk','Run','WalkStart','WalkStop','RunStart','RunStop','JumpStart','JumpAir','JumpLand','TurnLeft','TurnRight','Greeting','Happy','Thinking','Sad','Celebration','Surprised','Curious','InteractionReaction']
 export const expressions=['Auto','Neutral','Happy','Excited','Curious','Thinking','Confused','Sad','Surprised','Determined','Celebrating']
 export default function Nari({settings:s,input,player,colliders,doorOpen,onReact}:{settings:Settings;input:InputState;player:Player;colliders:Collider[];doorOpen:boolean;onReact:()=>void}){
- const gltf=useGLTF('/v0.5/models/nari-messenger.glb'),{invalidate}=useThree()
+ const gltf=useGLTF(reforgeURL('nari')),{invalidate}=useThree()
  const model=useMemo(()=>clone(gltf.scene),[gltf.scene]),mixer=useMemo(()=>new AnimationMixer(model),[model])
  const terrainFeet=useMemo(()=>new TerrainFeet(model),[model])
  const actions=useMemo(()=>new Map(gltf.animations.map(c=>[c.name,mixer.clipAction(c)])),[gltf.animations,mixer])
- const faces=useMemo(()=>{const meshes:Mesh[]=[];model.traverse(o=>{if(o instanceof Mesh){o.castShadow=true;o.receiveShadow=true;if(o.morphTargetDictionary)meshes.push(o)}});return meshes},[model])
+ const faces=useMemo(()=>{const meshes:Mesh[]=[];model.traverse(o=>{if(o instanceof Mesh){o.castShadow=!o.morphTargetDictionary;o.receiveShadow=!o.morphTargetDictionary&&!o.name.includes('NariSkinSurface');if(o.morphTargetDictionary)meshes.push(o)}});return meshes},[model])
  const outer=useRef<Group>(null),action=useRef<AnimationAction|null>(null),clip=useRef(''),once=useRef(false),finished=useRef(false)
  const manual=useRef(''),accumulator=useRef(0),idle=useRef(0),introduced=useRef(false),previousSpeed=useRef(0),lastRun=useRef(false)
  const events=useRef<{clip:string;at:number;position:number[]}[]>([])

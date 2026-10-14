@@ -109,3 +109,5 @@
 
 
 Gate D source preparation: separate full-art Hanok and Nari --art outputs prepared; C source/GLBs remain untouched. Original deterministic256px PBR map generator with checksum-verified cache; art roof rolls/endcaps, supported lanterns/banner, low courtyard borders/pavers, wind crowns, planters/bench/basin and separate historic backdrop. Full-art rafters21vsgraybox29 fund detail. Nari ART uses .33decimation, updated warped normals, separate skinned skin surface and original cloth UV/maps. Python syntax passes. Outputs NOT generated/validated/visually accepted yet; checkpoint before Blender.
+
+Gate D first actual art export retained as recovery, NOT final acceptance: Hanok4,726,520B/75,514tri/60primitives/3windclips; Nari2,616,680B/23,794tri/8primitives/20clips. Validator0errors but23/2tangent warnings. Found skin separation selection retains some unwanted faces; correct edit selection and export tangents before acceptance. Runtime PBR/lighting/world interactions and source refinements underway; build/render pending. Low combined geometry target may require selective detail/budget refinement.

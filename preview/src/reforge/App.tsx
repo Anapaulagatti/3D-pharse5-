@@ -1,5 +1,6 @@
 import { Component, Suspense, useState, useEffect, useMemo, useRef, useCallback, type ReactNode } from 'react'
 import Scene from './Scene'
+import { reforgeURL } from './assets'
 import type { Settings } from './types'
 import { createInput, createPlayer } from './physics'
 import { clips, expressions } from './Nari'
@@ -14,7 +15,7 @@ class Boundary extends Component<{children:ReactNode;onFailure:()=>void},{failed
 const canRender=()=>{try{return !!document.createElement('canvas').getContext('webgl2')}catch{return false}}
 export default function ReforgeApp(){
  const input=useMemo(createInput,[]),player=useMemo(createPlayer,[]),stage=useRef<HTMLDivElement>(null)
- const [s,set]=useState<Settings>({view:'architecture',lighting:'day',quality:matchMedia('(max-width:640px)').matches?'low':'medium',reduced:matchMedia('(prefers-reduced-motion:reduce)').matches,paused:false,preset:'hero',door:false,angle:null,clip:'Idle',expression:'Auto',active:true,gesture:{name:'',id:0},reset:0})
+ const [s,set]=useState<Settings>({effects:'full',view:'hero',lighting:'day',quality:matchMedia('(max-width:640px)').matches?'low':'medium',reduced:matchMedia('(prefers-reduced-motion:reduce)').matches,paused:false,preset:'hero',door:false,angle:null,clip:'Idle',expression:'Auto',active:true,gesture:{name:'',id:0},reset:0})
  const [engine,setEngine]=useState<'loading'|'ready'|'fallback'>(()=>canRender()?'loading':'fallback')
  const [notice,setNotice]=useState('Một lá thư đang chờ được đưa đến ngôi nhà học.'),[visible,setVisible]=useState(true),[tab,setTab]=useState(!document.hidden),[mobileRun,setMobileRun]=useState(false)
  const update=<K extends keyof Settings>(k:K,v:Settings[K])=>set(a=>({...a,[k]:v}))
@@ -52,13 +53,14 @@ export default function ReforgeApp(){
     <label>Ánh sáng<select aria-label="Ánh sáng" value={s.lighting} onChange={e=>update('lighting',e.target.value as Settings['lighting'])}><option value="day">Ngày trong trẻo</option><option value="evening">Chiều vàng</option><option value="night">Đêm đèn lồng</option></select></label>
     <label>Chất lượng<select aria-label="Chất lượng" value={s.quality} onChange={e=>update('quality',e.target.value as Settings['quality'])}><option value="low">Thấp</option><option value="medium">Vừa</option><option value="high">Cao</option></select></label>
     {(s.view==='portrait'||s.view==='animation')&&<><label>Animation<select aria-label="Animation" value={s.clip} disabled={disabled} onChange={e=>update('clip',e.target.value)}>{clips.map(c=><option key={c}>{c}</option>)}</select></label><label>Biểu cảm<select aria-label="Biểu cảm" value={s.expression} disabled={disabled} onChange={e=>update('expression',e.target.value)}>{expressions.map(c=><option key={c}>{c}</option>)}</select></label></>}
+    <label>Hiệu ứng<select aria-label="Hiệu ứng" value={s.effects} onChange={e=>update('effects',e.target.value as Settings['effects'])}><option value="full">Đầy đủ</option><option value="reduced">Ít</option><option value="off">Tắt</option></select></label>
     <label><input aria-label="Giảm chuyển động" type="checkbox" checked={s.reduced} onChange={e=>update('reduced',e.target.checked)}/> Giảm chuyển động</label>
     {s.reduced&&<p>Chuyển động trang trí đã tắt. Nari vẫn di chuyển khi bạn điều khiển.</p>}
     <div className="buttons"><button disabled={disabled} onClick={()=>update('paused',!s.paused)}>{s.paused?'Tiếp tục':'Tạm dừng'}</button><button disabled={disabled} onClick={reset}>Trở lại sân</button></div>
     <p>Kéo để xoay, cuộn để xem gần. Mỗi mặt Hanok đều có thể được khám phá.</p>
    </aside><div className="presentation">
     <div className="stage" ref={stage} data-testid="reforge-stage" data-engine={engine} tabIndex={0} role="group" aria-label="Sân chơi Nari" aria-describedby="play-help" onPointerDown={()=>{if(s.view==='play')stage.current?.focus({preventScroll:true})}} onBlur={clear}>
-     {disabled?<div className="reforge-poster"><img src="/posters/arena-desktop.png" alt="Ảnh dự phòng Hanok từ bản v0.4 được bảo toàn"/><p>Ảnh tĩnh · thiết bị chưa hỗ trợ WebGL.</p></div>:<Boundary onFailure={failure}><Suspense fallback={<p>Đang nạp sân Hanok…</p>}><Scene settings={{...s,active:visible&&tab}} input={input} player={player} onReact={react} onDoor={door} onDoorBlocked={doorBlocked} onReady={ready} onFailure={failure}/></Suspense></Boundary>}
+     {disabled?<div className="reforge-poster"><img src={reforgeURL('poster')} alt="Ảnh tĩnh thực tế sân Hanok v0.5 và Nari"/><p>Ảnh tĩnh · thiết bị chưa hỗ trợ WebGL.</p></div>:<Boundary onFailure={failure}><Suspense fallback={<p>Đang nạp sân Hanok…</p>}><Scene settings={{...s,active:visible&&tab}} input={input} player={player} onReact={react} onDoor={door} onDoorBlocked={doorBlocked} onStory={kind=>setNotice(kind==='plum'?'Hoa mận gửi vài cánh hoa theo gió.':'Ánh đèn đáp lại bằng một sắc ấm.')} onReady={ready} onFailure={failure}/></Suspense></Boundary>}
      {engine==='loading'&&<p className="reforge-loading">Đang nạp không gian…</p>}
     </div>
     <p id="play-help" className="play-help">{s.view==='play'?'Chạm vào sân rồi dùng WASD / phím mũi tên · Shift chạy · Space nhảy · E mở cửa.':'Chạm Nari để nhận lời chào. Đổi góc nhìn để khám phá mái nhà và căn phòng nhỏ.'}</p>

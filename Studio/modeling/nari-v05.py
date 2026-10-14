@@ -247,6 +247,8 @@ if ART:
  # Separate skin shading from cloth/hair without changing the continuous anatomy
  # or rig. This lets the stylized face avoid coarse received feature shadows.
  bpy.ops.object.select_all(action='DESELECT');costume.select_set(True);bpy.context.view_layer.objects.active=costume
+ bpy.ops.object.mode_set(mode='EDIT');bpy.ops.mesh.select_all(action='DESELECT');bpy.ops.object.mode_set(mode='OBJECT')
+ bpy.context.tool_settings.mesh_select_mode=(False,False,True)
  for f in costume.data.polygons:f.select=costume.data.materials[f.material_index]==M['skin']
  before=set(bpy.context.scene.objects)
  bpy.ops.object.mode_set(mode='EDIT');bpy.ops.mesh.separate(type='SELECTED');bpy.ops.object.mode_set(mode='OBJECT')
@@ -354,7 +356,7 @@ bpy.ops.wm.save_as_mainfile(filepath=str(src))
 # parent-transform semantics and Validator NODE_SKINNED_MESH_NON_ROOT warnings.
 for o in scene.objects:
  if o.type=='MESH':o.parent=None
-bpy.ops.export_scene.gltf(filepath=str(dst),export_format='GLB',export_yup=True,export_animations=True,export_animation_mode='NLA_TRACKS',export_nla_strips=True,export_force_sampling=True,export_optimize_animation_keep_anim_object=True,export_optimize_animation_keep_anim_armature=True,export_try_sparse_sk=True,export_cameras=False,export_lights=False)
+bpy.ops.export_scene.gltf(filepath=str(dst),export_format='GLB',export_yup=True,export_animations=True,export_animation_mode='NLA_TRACKS',export_nla_strips=True,export_force_sampling=True,export_optimize_animation_keep_anim_object=True,export_optimize_animation_keep_anim_armature=True,export_try_sparse_sk=True,export_tangents=ART,export_cameras=False,export_lights=False)
 report={'concept':'A — Nari, user approved','bone_count':len(REST),'bones':list(REST),'meshes':skin_report,'clips':CLIPS,'expressions':['Neutral']+EXPRESSIONS[:-1],'blink':'Blink morph plus native Idle channel','authoring':'Original continuous voxel-unioned body with Blender bone-heat anatomical weights, normalized maximum4 influences; explicit torso/accessory/face weights and deformation armature. Analytic two-bone leg/arm IK authored into quaternion keyframes; editable NLA in source. No image is used as a mesh.','limitations':'Requires actual browser pose/motion/side/rear deformation inspection and physics/controller verification before acceptance.'}
 report_dir=ROOT/('quality-reports/v0.5/gate-d' if ART else 'quality-reports/v0.5/gate-c');report_dir.mkdir(parents=True,exist_ok=True)
 (report_dir/('rig-authoring-art.json' if ART else 'rig-authoring.json')).write_text(json.dumps(report,indent=2)+'\n')

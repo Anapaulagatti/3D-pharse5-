@@ -188,7 +188,7 @@ def kept(o):
 static=[o for o in scene.objects if o.type=='MESH' and o not in door_objects and o not in art['hide_meshes'] and not kept(o)]
 join('HanokStaticStructure',static)
 for o in art['hide_meshes']:bpy.data.objects.remove(o,do_unlink=True)
-bpy.ops.export_scene.gltf(filepath=str(dst),export_format='GLB',export_yup=True,export_animations=not GRAY,export_animation_mode='NLA_TRACKS',export_nla_strips=True,export_force_sampling=True,export_cameras=False,export_lights=False)
+bpy.ops.export_scene.gltf(filepath=str(dst),export_format='GLB',export_yup=True,export_animations=not GRAY,export_animation_mode='NLA_TRACKS',export_nla_strips=True,export_force_sampling=True,export_tangents=not GRAY,export_cameras=False,export_lights=False)
 manifest={'version':'0.5.0','stage':'Gate B graybox' if GRAY else 'Gate D art','coordinate_system':'runtime Y-up metres, front +Z','source':str(src.relative_to(ROOT)),'glb':str(dst.relative_to(ROOT)),'bounds_contract':{'courtyard':[-6,6,-5.7,4.3],'building':[-3.2,3.2,-4.4,-.6],'floor_y':.4775,'person_height':1.45,'door_width':1.10},'modules':modules,'support_connections':connections,'colliders':colliders,'sliding_doors':{'nodes':['DoorLeft','DoorRight'],'travel_m':.56,'opening':{'min':[-.55,.477,-.67],'max':[.55,2.48,-.46]}},'provenance':'original-project-owned procedural geometry','limitations':'Not a certified historical/engineering reconstruction. Connection bounds require actual render inspection.'}
 (ROOT/f'exports/v0.5/hanok-{TAG}-structure.json').write_text(json.dumps(manifest,indent=2)+'\n')
 print('V05_HANOK',TAG,'modules',len(modules),'connections',len(connections),'bytes',dst.stat().st_size)
