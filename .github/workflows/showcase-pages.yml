@@ -1,6 +1,6 @@
-name: Publish approved v0.4 Living Hanok showcase
+name: Publish approved v0.5 Joseon Fantasy Reforge showcase
 
-# Public v0.4 publication was explicitly authorized by the repository owner.
+# Public v0.5 publication was explicitly authorized by the repository owner.
 # Documentation-only checkpoints do not redeploy the site.
 on:
   workflow_dispatch:
@@ -8,9 +8,9 @@ on:
     branches: [main]
     paths:
       - .github/workflows/showcase-pages.yml
-      - Studio/scripts/prepare-pages-site.py
-      - showcase-v0.4/index.html
-      - showcase-v0.4/build-info.json
+      - Studio/scripts/prepare-reforge-pages.py
+      - showcase-v0.5/index.html
+      - showcase-v0.5/build-info.json
 
 permissions:
   contents: read
@@ -30,7 +30,7 @@ jobs:
       - name: Read configured GitHub Pages metadata
         uses: actions/configure-pages@v5
       - name: Verify and stage approved static showcase
-        run: python3 Studio/scripts/prepare-pages-site.py
+        run: python3 Studio/scripts/prepare-reforge-pages.py
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
