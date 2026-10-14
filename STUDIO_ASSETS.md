@@ -141,3 +141,16 @@ PUBLIC-RELEASE-005 COMPLETE: exact082c661b (13,543,219B) publicly serves at http
 - v0.6 baseline: quality-reports/v0.6/baseline/{assets,blender,browser}.json + five actual public v0.5 PNGs; both GLBs fresh Validator0/0 and glTF Transform inspected, no write/regeneration. Character concepts: concepts/v0.6/nari-chibi-directions.png + exact CHARACTER_IMAGE_PROMPT.txt + character-concepts.json SHA/dimensions/provenance; original native image_gen, no reference images, front/side/silhouettes/three faces/palettes viewed. Not a rig/mesh/animation or v0.6 gameplay render. Town concepts/material board pending.
 
 - Original concepts/v0.6/town-and-material-directions.png, exact TOWN_MATERIAL_IMAGE_PROMPT.txt and town-concepts.json saved. Two distinct layouts plus seven palette/material examples. Native image_gen with no reference images; illustrations inspected, no production textures, Blender source, GLB, rig or gameplay capture created for v0.6.
+
+## v0.6 concept-gate final inventory — COMPLETE, pending user selection
+
+| Output | Actual status / limits |
+|---|---|
+| Three chibi character concepts | nari-chibi-directions.png1536×1024/1,933,207B/SHA bf85284455aa7ebb7bd6619876433f0a7316f88b1fa847cf839c55bb937ef44b; native image_gen original + exact prompt; front/side/silhouette/3faces/palettes visually inspected |
+| Two town concepts + material board | town-and-material-directions.png1536×1024/2,201,629B/SHA35ccb87d287c3a16e4b1baa4e9eaf4a62ad295b7af38588b25bf5de6b74fe639; T1/T2+7samples, native original; actual image viewed |
+| Palette/spec/approval | palette.json, CONCEPT_REVIEW.md, APPROVAL_PENDING.json. B+T1 recommended; no actual user choice yet. Budgets/complexity are estimates |
+| Portable concept PDF/report | downloads/v0.6/playful-hangeul-town-concepts.pdf, manifest/README;4pages decoded/opened, report-render.json desktop/mobile PASS; PDF-page PNGs in quality-reports/v0.6/pdf-review |
+| Current v0.5 baseline | baseline/{assets,blender,browser}.json + two Validator0/0reports +5real public screenshots; no original asset written; actual day/night/Nari images opened |
+| Preservation/release proof | all2,335protected baseline hashes PASS; latest Pages still v0.5run38573493700/source4a29565. No release input changed or new deployment |
+
+Concept art is not a production texture/mesh/rig/animation/prototype or actual v0.6 render. No new v0.6 Blender/GLB/export/build output exists before approval. Existing approved art/sources remain preserved and recoverable. No paid provider/dependency/backend/game asset pack installed.

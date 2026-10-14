@@ -2,7 +2,7 @@
 
 Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verification. Milestones follow the persistent-progress prompt (nine milestones).
 
-Current task: ART-PIVOT-006 — Playful Hangeul Town. Concept approval gate only; preserve public v0.5. No full remodeling or publication before new approval.
+Current task: ART-PIVOT-006 concept DELIVERY COMPLETE; PIVOT-APPROVAL-006 awaits user choice. STOP before full remodeling/prototype; public v0.5 preserved.
 
 | Milestone | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|---|
@@ -103,7 +103,7 @@ Final capture review found stale gesture replay after play→portrait Canvas cha
 
 Gate E COMPLETE: final access12checks PASS (realOS/offscreen/WebGL), extracted exactHTTP8checks PASS, final video185realframes/86s with decoded walk/run/jump/greeting/cheer/inside/Idlefaces inspected. Source297→082 change only clears prior gesture on mode switch; final artifact082c661b. All final GLB/build/privacy/rig/nativeplay gates pass; see quality-reports/v0.5/REVIEW.md and VERIFICATION_SUMMARY.json. Authorized PUBLIC-RELEASE-005 next, not deployed yet.
 
-| VISUAL-REVIEW-005 | User reviews the publicly verified v0.5 | TODO | https://anapaulagatti.github.io/3D-pharse5-/?release=082c661b; STOP for feedback |
+| VISUAL-REVIEW-005 | User reviews the publicly verified v0.5 | DONE | User requested v0.6 chibi art-direction pivot; docs/reviews/ART_PIVOT_V06_USER_REQUEST.md |
 
 PUBLIC-RELEASE-005 COMPLETE: Actions38573493700/deployment7066939380 success; canonical+fresh exact082c661b,8actual public checks and all7public images inspected. Final checkpoint tag checkpoint/v0.5-public-verified is saved after this report. No new work authorized beyond release.
 
@@ -111,13 +111,17 @@ PUBLIC-RELEASE-005 COMPLETE: Actions38573493700/deployment7066939380 success; ca
 
 | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|
-| PIVOT-AUDIT-006 | Archive review, preserve v0.5, inspect source and measure baseline | IN_PROGRESS | Exact user request archived; preserved-v05.json records all protected tracked files at5578f5f; fresh source/render audit pending |
-| PIVOT-CONCEPT-006 | Three chibi characters, two town concepts, color/material board | TODO | Separate concepts/v0.6; concept art only, not meshes |
-| PIVOT-PLAN-006 | Reuse, animation feasibility, complexity and likely render/asset costs | TODO | Estimates must remain distinct from measured baseline |
-| PIVOT-REVIEW-006 | Visually inspect concepts, verify preservation, save GitHub and STOP for choice | TODO | User request sections4/12 mandatory approval gate |
+| PIVOT-AUDIT-006 | Archive review, preserve v0.5, inspect source and measure baseline | DONE | AUDIT.md, preserved-v05.json; fresh public browser/GLTF Transform/Validator/Blender evidence in baseline/ |
+| PIVOT-CONCEPT-006 | Three chibi characters, two town concepts, color/material board | DONE | Two inspected original boards: three characters/two towns/seven material studies, exact prompts/provenance |
+| PIVOT-PLAN-006 | Reuse, animation feasibility, complexity and likely render/asset costs | DONE | concepts/v0.6/CONCEPT_REVIEW.md: options, prospective budgets, relative complexity, reuse/retarget/quality plan |
+| PIVOT-REVIEW-006 | Visually inspect concepts, verify preservation, save GitHub and STOP for choice | DONE | Four-page PDF and decoded pages inspected, desktop/mobile document PASS, preservation2335files PASS; checkpoint save follows |
+| PIVOT-APPROVAL-006 | User selects character A/B/C and town T1/T2; recommend B+T1 | TODO | Mandatory STOP; concepts/v0.6/APPROVAL_PENDING.json. Previous v0.5 A/publication approvals do not select/publish v0.6 |
 | PIVOT-PROTOTYPE-006 | One approved chibi, house/plaza, move/run/jump, three emotions, interaction/camera/fallback | BLOCKED | Requires new v0.6 concept approval; not authorized to begin yet |
 | PUBLIC-RELEASE-006 | Publish redesigned showcase | BLOCKED | Separate updated-publication approval required; existing v0.5 stays live |
 
 - PIVOT-AUDIT-006 DONE: current public exact082c661b HTTP200, fresh Low57/99012 and Medium/High133/195524 measured; both GLBs Transform inspection + Validator0/0; both actual Blender sources read-only. PIVOT-CONCEPT-006 IN_PROGRESS: character sheet delivered/visually inspected; two town/material boards and cost/reuse plan pending.
 
 - PIVOT-CONCEPT-006 DONE: original three-character sheet + T1/T2 town/material sheet generated, saved with exact prompts/provenance/hashes and visually inspected. Seven-color/material samples included. PIVOT-PLAN-006/PIVOT-REVIEW-006 IN_PROGRESS; no production art replaced.
+
+
+- Final concept delivery COMPLETE; supersedes earlier IN_PROGRESS checkpoint notes above. Actual approval, prototype and publication remain pending, not failed technical tasks. VERIFICATION_SUMMARY.json separates real v0.5 checks from v0.6 illustrations/budgets.
