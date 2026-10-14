@@ -10,8 +10,8 @@ export interface Player {
 }
 export const createPlayer=():Player=>({position:[0,0,2.4],velocity:[0,0],vertical:0,yaw:0,grounded:true,crouch:0,landing:0,speed:0,blocked:0,distance:0,steps:0,clip:'Idle',clipTime:0,actionId:0,resetId:0})
 export function floorHeight(x:number,z:number){
- if(Math.abs(x)<.64&&z>=.25&&z<1.21)return .45-.15*Math.min(2,Math.floor((z-.25)/.32))
  if(Math.abs(x)<3.25&&z>=-4.45&&z<.30)return .4775
+ if(Math.abs(x)<.64&&z>=.25&&z<1.21)return .45-.15*Math.min(2,Math.floor((z-.25)/.32))
  if(Math.abs(x)<3.375&&z>=-4.50&&z<.35)return .36
  return 0
 }

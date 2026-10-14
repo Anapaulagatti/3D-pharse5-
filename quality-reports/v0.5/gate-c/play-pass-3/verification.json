@@ -1,0 +1,2634 @@
+{
+  "status": "PASS_NATIVE_FUNCTIONAL_PARTIAL_VISUAL",
+  "url": "http://127.0.0.1:4186/?candidate=v05",
+  "verified_at": "2026-10-14T09:45:34.187Z",
+  "checks": [
+    "Native W movement -> WalkStart/Walk/WalkStop/Idle with real world translation",
+    "Native Shift+D gives distinct Run with faster displacement and stopping on a clear courtyard route",
+    "Native Space gives anticipation, physics air and actual grounded landing/recovery",
+    "Actual staircase raises character onto veranda and closed door blocks entry",
+    "Native E opens actual mesh panels; walk through door into supported central hall",
+    "Keyboard-operable greeting one-shot naturally returns to Idle",
+    "Pause freezes actual mixer/player, resumes without resetting pose",
+    "OS reduced motion stops decorative loops; explicit keyboard movement remains functional",
+    "390px mobile viewport, low quality and actual directional button pointer movement"
+  ],
+  "states": {
+    "spawn": {
+      "camera": [
+        0,
+        2.8400000000000003,
+        6.4
+      ],
+      "target": [
+        0,
+        0.84,
+        2.4
+      ],
+      "ready": true,
+      "stage": "Gate C real skinned Nari",
+      "door": 0,
+      "clip": "Idle",
+      "clipTime": 1.2166666666666666,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run",
+        "WalkStart",
+        "WalkStop",
+        "RunStart",
+        "RunStop",
+        "JumpStart",
+        "JumpAir",
+        "JumpLand",
+        "TurnLeft",
+        "TurnRight",
+        "Greeting",
+        "Happy",
+        "Thinking",
+        "Sad",
+        "Celebration",
+        "Surprised",
+        "Curious",
+        "InteractionReaction"
+      ],
+      "morphs": {
+        "Happy": 0,
+        "Excited": 0,
+        "Curious": 0,
+        "Thinking": 0,
+        "Confused": 0,
+        "Sad": 0,
+        "Surprised": 0,
+        "Determined": 0,
+        "Celebrating": 0,
+        "Blink": 0
+      },
+      "feet": [
+        [
+          0.11499999741168634,
+          0.07500006481700655,
+          2.4067328940100823
+        ],
+        [
+          -0.11499999741168634,
+          0.07500006481700655,
+          2.4067328940100823
+        ]
+      ],
+      "skinBones": 28,
+      "motion": true,
+      "draws": 34,
+      "triangles": 151808,
+      "player": [
+        0,
+        0,
+        2.4
+      ],
+      "yaw": 0,
+      "speed": 0,
+      "grounded": true,
+      "verticalVelocity": 0,
+      "blocked": 0,
+      "distance": 0,
+      "physicsSteps": 73,
+      "reduced": false,
+      "events": [
+        {
+          "clip": "Idle",
+          "at": 3610.5,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        }
+      ]
+    },
+    "walk": {
+      "camera": [
+        0,
+        2.970189040511658,
+        5.098756362457674
+      ],
+      "target": [
+        0,
+        0.9701890405116576,
+        1.098756362457674
+      ],
+      "ready": true,
+      "stage": "Gate C real skinned Nari",
+      "door": 0,
+      "clip": "Walk",
+      "clipTime": 0.5999999960263508,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run",
+        "WalkStart",
+        "WalkStop",
+        "RunStart",
+        "RunStop",
+        "JumpStart",
+        "JumpAir",
+        "JumpLand",
+        "TurnLeft",
+        "TurnRight",
+        "Greeting",
+        "Happy",
+        "Thinking",
+        "Sad",
+        "Celebration",
+        "Surprised",
+        "Curious",
+        "InteractionReaction"
+      ],
+      "morphs": {
+        "Happy": 0,
+        "Excited": 0,
+        "Curious": 0.9736022468283353,
+        "Thinking": 0,
+        "Confused": 0,
+        "Sad": 0,
+        "Surprised": 0,
+        "Determined": 0,
+        "Celebrating": 0,
+        "Blink": 0
+      },
+      "feet": [
+        [
+          -0.10840873952077655,
+          0.427391397732481,
+          1.025663109821433
+        ],
+        [
+          0.11097118437560449,
+          0.41735187547669317,
+          0.6886671256578557
+        ]
+      ],
+      "skinBones": 28,
+      "motion": true,
+      "draws": 34,
+      "triangles": 151808,
+      "player": [
+        0,
+        0.30000000000000004,
+        0.7736400000000013
+      ],
+      "yaw": 3.141592653585071,
+      "speed": 0.8148000000000022,
+      "grounded": true,
+      "verticalVelocity": 0,
+      "blocked": 0,
+      "distance": 1.6263600000000005,
+      "physicsSteps": 195,
+      "reduced": false,
+      "events": [
+        {
+          "clip": "Idle",
+          "at": 3610.5,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 7834.699999999255,
+          "position": [
+            0,
+            0,
+            2.226699999999999
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 10394.300000000745,
+          "position": [
+            0,
+            0,
+            1.8192999999999975
+          ]
+        }
+      ]
+    },
+    "run": {
+      "camera": [
+        2.9547556518850784,
+        2.8400000000000003,
+        6.4
+      ],
+      "target": [
+        2.9547556518850784,
+        0.84,
+        2.4
+      ],
+      "ready": true,
+      "stage": "Gate C real skinned Nari",
+      "door": 0,
+      "clip": "Run",
+      "clipTime": 0.5500000119209261,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run",
+        "WalkStart",
+        "WalkStop",
+        "RunStart",
+        "RunStop",
+        "JumpStart",
+        "JumpAir",
+        "JumpLand",
+        "TurnLeft",
+        "TurnRight",
+        "Greeting",
+        "Happy",
+        "Thinking",
+        "Sad",
+        "Celebration",
+        "Surprised",
+        "Curious",
+        "InteractionReaction"
+      ],
+      "morphs": {
+        "Happy": 0,
+        "Excited": 0,
+        "Curious": 0,
+        "Thinking": 0,
+        "Confused": 0,
+        "Sad": 0,
+        "Surprised": 0,
+        "Determined": 0.8929279446601897,
+        "Celebrating": 0,
+        "Blink": 0
+      },
+      "feet": [
+        [
+          3.9960273697993993,
+          0.2639968650670321,
+          2.2796374339796213
+        ],
+        [
+          3.6920050570212344,
+          0.15136680783696702,
+          2.5228676036638307
+        ]
+      ],
+      "skinBones": 28,
+      "motion": true,
+      "draws": 34,
+      "triangles": 151808,
+      "player": [
+        3.955624999999994,
+        0,
+        2.4
+      ],
+      "yaw": 1.5707963266900467,
+      "speed": 2.4374999999999947,
+      "grounded": true,
+      "verticalVelocity": 0,
+      "blocked": 0,
+      "distance": 3.955624999999994,
+      "physicsSteps": 105,
+      "reduced": false,
+      "events": [
+        {
+          "clip": "Idle",
+          "at": 3610.5,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 7834.699999999255,
+          "position": [
+            0,
+            0,
+            2.226699999999999
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 10394.300000000745,
+          "position": [
+            0,
+            0,
+            1.8192999999999975
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 16938.60000000149,
+          "position": [
+            0,
+            0.30000000000000004,
+            0.7545666666666679
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 17636.300000000745,
+          "position": [
+            0,
+            0.30000000000000004,
+            0.7545666666666679
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 18662.699999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "RunStart",
+          "at": 18899.10000000149,
+          "position": [
+            0.3,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Run",
+          "at": 20328.60000000149,
+          "position": [
+            1.5181249999999993,
+            0,
+            2.4
+          ]
+        }
+      ]
+    },
+    "jump-air": {
+      "camera": [
+        0,
+        2.8726477234497168,
+        6.4
+      ],
+      "target": [
+        0,
+        0.8726477234497164,
+        2.4
+      ],
+      "ready": true,
+      "stage": "Gate C real skinned Nari",
+      "door": 0,
+      "clip": "Idle",
+      "clipTime": 0.49999999999999994,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run",
+        "WalkStart",
+        "WalkStop",
+        "RunStart",
+        "RunStop",
+        "JumpStart",
+        "JumpAir",
+        "JumpLand",
+        "TurnLeft",
+        "TurnRight",
+        "Greeting",
+        "Happy",
+        "Thinking",
+        "Sad",
+        "Celebration",
+        "Surprised",
+        "Curious",
+        "InteractionReaction"
+      ],
+      "morphs": {
+        "Happy": 0,
+        "Excited": 0,
+        "Curious": 0,
+        "Thinking": 0,
+        "Confused": 0,
+        "Sad": 0,
+        "Surprised": 0,
+        "Determined": 0,
+        "Celebrating": 0,
+        "Blink": 0
+      },
+      "feet": [
+        [
+          0.11499999741168634,
+          0.07500006481700655,
+          2.401564944131128
+        ],
+        [
+          -0.11499999741168634,
+          0.07500006481700655,
+          2.401564944131128
+        ]
+      ],
+      "skinBones": 28,
+      "motion": true,
+      "draws": 34,
+      "triangles": 151808,
+      "player": [
+        0,
+        0,
+        2.4
+      ],
+      "yaw": 0,
+      "speed": 0,
+      "grounded": true,
+      "verticalVelocity": 0,
+      "blocked": 0,
+      "distance": 0,
+      "physicsSteps": 90,
+      "reduced": false,
+      "events": [
+        {
+          "clip": "Idle",
+          "at": 3610.5,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 7834.699999999255,
+          "position": [
+            0,
+            0,
+            2.226699999999999
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 10394.300000000745,
+          "position": [
+            0,
+            0,
+            1.8192999999999975
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 16938.60000000149,
+          "position": [
+            0,
+            0.30000000000000004,
+            0.7545666666666679
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 17636.300000000745,
+          "position": [
+            0,
+            0.30000000000000004,
+            0.7545666666666679
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 18662.699999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "RunStart",
+          "at": 18899.10000000149,
+          "position": [
+            0.3,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Run",
+          "at": 20328.60000000149,
+          "position": [
+            1.5181249999999993,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "RunStop",
+          "at": 24034.800000000745,
+          "position": [
+            4.16416666666666,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 24651.300000000745,
+          "position": [
+            4.16416666666666,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 25595.800000000745,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "JumpAir",
+          "at": 26281.5,
+          "position": [
+            0,
+            0.14749790618443667,
+            2.4
+          ]
+        },
+        {
+          "clip": "JumpLand",
+          "at": 28522.5,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 29037.199999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        }
+      ]
+    },
+    "jump-land": {
+      "camera": [
+        0,
+        2.840819693431538,
+        6.4
+      ],
+      "target": [
+        0,
+        0.8408196934315377,
+        2.4
+      ],
+      "ready": true,
+      "stage": "Gate C real skinned Nari",
+      "door": 0,
+      "clip": "Idle",
+      "clipTime": 1.4999999999999998,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run",
+        "WalkStart",
+        "WalkStop",
+        "RunStart",
+        "RunStop",
+        "JumpStart",
+        "JumpAir",
+        "JumpLand",
+        "TurnLeft",
+        "TurnRight",
+        "Greeting",
+        "Happy",
+        "Thinking",
+        "Sad",
+        "Celebration",
+        "Surprised",
+        "Curious",
+        "InteractionReaction"
+      ],
+      "morphs": {
+        "Happy": 0,
+        "Excited": 0,
+        "Curious": 0,
+        "Thinking": 0,
+        "Confused": 0,
+        "Sad": 0,
+        "Surprised": 0,
+        "Determined": 0,
+        "Celebrating": 0,
+        "Blink": 0
+      },
+      "feet": [
+        [
+          0.11499999741168634,
+          0.07500006481700655,
+          2.40786369302386
+        ],
+        [
+          -0.11499999741168634,
+          0.07500006481700655,
+          2.40786369302386
+        ]
+      ],
+      "skinBones": 28,
+      "motion": true,
+      "draws": 34,
+      "triangles": 151808,
+      "player": [
+        0,
+        0,
+        2.4
+      ],
+      "yaw": 0,
+      "speed": 0,
+      "grounded": true,
+      "verticalVelocity": 0,
+      "blocked": 0,
+      "distance": 0,
+      "physicsSteps": 150,
+      "reduced": false,
+      "events": [
+        {
+          "clip": "Idle",
+          "at": 3610.5,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 7834.699999999255,
+          "position": [
+            0,
+            0,
+            2.226699999999999
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 10394.300000000745,
+          "position": [
+            0,
+            0,
+            1.8192999999999975
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 16938.60000000149,
+          "position": [
+            0,
+            0.30000000000000004,
+            0.7545666666666679
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 17636.300000000745,
+          "position": [
+            0,
+            0.30000000000000004,
+            0.7545666666666679
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 18662.699999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "RunStart",
+          "at": 18899.10000000149,
+          "position": [
+            0.3,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Run",
+          "at": 20328.60000000149,
+          "position": [
+            1.5181249999999993,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "RunStop",
+          "at": 24034.800000000745,
+          "position": [
+            4.16416666666666,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 24651.300000000745,
+          "position": [
+            4.16416666666666,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 25595.800000000745,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "JumpAir",
+          "at": 26281.5,
+          "position": [
+            0,
+            0.14749790618443667,
+            2.4
+          ]
+        },
+        {
+          "clip": "JumpLand",
+          "at": 28522.5,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 29037.199999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        }
+      ]
+    },
+    "closed-door": {
+      "camera": [
+        0,
+        3.316795950532878,
+        3.7983094737808996
+      ],
+      "target": [
+        0,
+        1.3167959505328783,
+        -0.20169052621910138
+      ],
+      "ready": true,
+      "stage": "Gate C real skinned Nari",
+      "door": 0,
+      "clip": "Idle",
+      "clipTime": 0.5333333333333333,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run",
+        "WalkStart",
+        "WalkStop",
+        "RunStart",
+        "RunStop",
+        "JumpStart",
+        "JumpAir",
+        "JumpLand",
+        "TurnLeft",
+        "TurnRight",
+        "Greeting",
+        "Happy",
+        "Thinking",
+        "Sad",
+        "Celebration",
+        "Surprised",
+        "Curious",
+        "InteractionReaction"
+      ],
+      "morphs": {
+        "Happy": 0,
+        "Excited": 0,
+        "Curious": 0,
+        "Thinking": 0,
+        "Confused": 0,
+        "Sad": 0,
+        "Surprised": 0,
+        "Determined": 0,
+        "Celebrating": 0,
+        "Blink": 0
+      },
+      "feet": [
+        [
+          -0.11499999741168634,
+          0.5525000648170066,
+          -0.2194777104165184
+        ],
+        [
+          0.11499999741168634,
+          0.5525000648170066,
+          -0.21947771041651817
+        ]
+      ],
+      "skinBones": 28,
+      "motion": true,
+      "draws": 34,
+      "triangles": 151808,
+      "player": [
+        0,
+        0.4775,
+        -0.21769999999999914
+      ],
+      "yaw": 3.1415926535897922,
+      "speed": 0,
+      "grounded": true,
+      "verticalVelocity": 0,
+      "blocked": 1,
+      "distance": 2.6177000000000095,
+      "physicsSteps": 393,
+      "reduced": false,
+      "events": [
+        {
+          "clip": "Idle",
+          "at": 3610.5,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 7834.699999999255,
+          "position": [
+            0,
+            0,
+            2.226699999999999
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 10394.300000000745,
+          "position": [
+            0,
+            0,
+            1.8192999999999975
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 16938.60000000149,
+          "position": [
+            0,
+            0.30000000000000004,
+            0.7545666666666679
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 17636.300000000745,
+          "position": [
+            0,
+            0.30000000000000004,
+            0.7545666666666679
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 18662.699999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "RunStart",
+          "at": 18899.10000000149,
+          "position": [
+            0.3,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Run",
+          "at": 20328.60000000149,
+          "position": [
+            1.5181249999999993,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "RunStop",
+          "at": 24034.800000000745,
+          "position": [
+            4.16416666666666,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 24651.300000000745,
+          "position": [
+            4.16416666666666,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 25595.800000000745,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "JumpAir",
+          "at": 26281.5,
+          "position": [
+            0,
+            0.14749790618443667,
+            2.4
+          ]
+        },
+        {
+          "clip": "JumpLand",
+          "at": 28522.5,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 29037.199999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 34643.39999999851,
+          "position": [
+            0,
+            0,
+            2.226699999999999
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 35072,
+          "position": [
+            0,
+            0,
+            2.0229999999999966
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 42338.300000000745,
+          "position": [
+            0,
+            0.4775,
+            -0.21769999999999914
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 45299.5,
+          "position": [
+            0,
+            0.4775,
+            -0.21769999999999914
+          ]
+        }
+      ]
+    },
+    "entered-hanok": {
+      "camera": [
+        0,
+        3.3174999992466283,
+        2.5753031931324184
+      ],
+      "target": [
+        0,
+        1.3174999992466279,
+        -1.4246968068675814
+      ],
+      "ready": true,
+      "stage": "Gate C real skinned Nari",
+      "door": 0.9999989299444554,
+      "clip": "Idle",
+      "clipTime": 0.7499999999999999,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run",
+        "WalkStart",
+        "WalkStop",
+        "RunStart",
+        "RunStop",
+        "JumpStart",
+        "JumpAir",
+        "JumpLand",
+        "TurnLeft",
+        "TurnRight",
+        "Greeting",
+        "Happy",
+        "Thinking",
+        "Sad",
+        "Celebration",
+        "Surprised",
+        "Curious",
+        "InteractionReaction"
+      ],
+      "morphs": {
+        "Happy": 0,
+        "Excited": 0,
+        "Curious": 0,
+        "Thinking": 0,
+        "Confused": 0,
+        "Sad": 0,
+        "Surprised": 0,
+        "Determined": 0,
+        "Celebrating": 0,
+        "Blink": 0
+      },
+      "feet": [
+        [
+          -0.11499999741168634,
+          0.5525000648170066,
+          -1.4319220904651162
+        ],
+        [
+          0.11499999741168634,
+          0.5525000648170066,
+          -1.4319220904651155
+        ]
+      ],
+      "skinBones": 28,
+      "motion": true,
+      "draws": 34,
+      "triangles": 151808,
+      "player": [
+        0,
+        0.4775,
+        -1.428573333333331
+      ],
+      "yaw": 3.1415926535897922,
+      "speed": 0,
+      "grounded": true,
+      "verticalVelocity": 0,
+      "blocked": 1,
+      "distance": 3.828573333333355,
+      "physicsSteps": 620,
+      "reduced": false,
+      "events": [
+        {
+          "clip": "Idle",
+          "at": 3610.5,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 7834.699999999255,
+          "position": [
+            0,
+            0,
+            2.226699999999999
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 10394.300000000745,
+          "position": [
+            0,
+            0,
+            1.8192999999999975
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 16938.60000000149,
+          "position": [
+            0,
+            0.30000000000000004,
+            0.7545666666666679
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 17636.300000000745,
+          "position": [
+            0,
+            0.30000000000000004,
+            0.7545666666666679
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 18662.699999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "RunStart",
+          "at": 18899.10000000149,
+          "position": [
+            0.3,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Run",
+          "at": 20328.60000000149,
+          "position": [
+            1.5181249999999993,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "RunStop",
+          "at": 24034.800000000745,
+          "position": [
+            4.16416666666666,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 24651.300000000745,
+          "position": [
+            4.16416666666666,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 25595.800000000745,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "JumpAir",
+          "at": 26281.5,
+          "position": [
+            0,
+            0.14749790618443667,
+            2.4
+          ]
+        },
+        {
+          "clip": "JumpLand",
+          "at": 28522.5,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 29037.199999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 34643.39999999851,
+          "position": [
+            0,
+            0,
+            2.226699999999999
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 35072,
+          "position": [
+            0,
+            0,
+            2.0229999999999966
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 42338.300000000745,
+          "position": [
+            0,
+            0.4775,
+            -0.21769999999999914
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 45299.5,
+          "position": [
+            0,
+            0.4775,
+            -0.21769999999999914
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 51224.800000000745,
+          "position": [
+            0,
+            0.4775,
+            -0.39099999999999896
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 52726.89999999851,
+          "position": [
+            0,
+            0.4775,
+            -0.7983999999999996
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 55883,
+          "position": [
+            0,
+            0.4775,
+            -1.428573333333331
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 58614.89999999851,
+          "position": [
+            0,
+            0.4775,
+            -1.428573333333331
+          ]
+        }
+      ]
+    },
+    "greeting": {
+      "camera": [
+        0,
+        2.8400000000000003,
+        6.4
+      ],
+      "target": [
+        0,
+        0.84,
+        2.4
+      ],
+      "ready": true,
+      "stage": "Gate C real skinned Nari",
+      "door": 0.0040957678501501275,
+      "clip": "Greeting",
+      "clipTime": 1.4999999999999998,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run",
+        "WalkStart",
+        "WalkStop",
+        "RunStart",
+        "RunStop",
+        "JumpStart",
+        "JumpAir",
+        "JumpLand",
+        "TurnLeft",
+        "TurnRight",
+        "Greeting",
+        "Happy",
+        "Thinking",
+        "Sad",
+        "Celebration",
+        "Surprised",
+        "Curious",
+        "InteractionReaction"
+      ],
+      "morphs": {
+        "Happy": 0.9229434728622438,
+        "Excited": 0,
+        "Curious": 0,
+        "Thinking": 0,
+        "Confused": 0,
+        "Sad": 0,
+        "Surprised": 0,
+        "Determined": 0,
+        "Celebrating": 0,
+        "Blink": 0
+      },
+      "feet": [
+        [
+          0.11499999741168634,
+          0.07500006481700655,
+          2.4044181035746033
+        ],
+        [
+          -0.11499999741168634,
+          0.07500006481700655,
+          2.4044181035746033
+        ]
+      ],
+      "skinBones": 28,
+      "motion": true,
+      "draws": 34,
+      "triangles": 151808,
+      "player": [
+        0,
+        0,
+        2.4
+      ],
+      "yaw": 0,
+      "speed": 0,
+      "grounded": true,
+      "verticalVelocity": 0,
+      "blocked": 0,
+      "distance": 0,
+      "physicsSteps": 90,
+      "reduced": false,
+      "events": [
+        {
+          "clip": "Idle",
+          "at": 3610.5,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 7834.699999999255,
+          "position": [
+            0,
+            0,
+            2.226699999999999
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 10394.300000000745,
+          "position": [
+            0,
+            0,
+            1.8192999999999975
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 16938.60000000149,
+          "position": [
+            0,
+            0.30000000000000004,
+            0.7545666666666679
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 17636.300000000745,
+          "position": [
+            0,
+            0.30000000000000004,
+            0.7545666666666679
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 18662.699999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "RunStart",
+          "at": 18899.10000000149,
+          "position": [
+            0.3,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Run",
+          "at": 20328.60000000149,
+          "position": [
+            1.5181249999999993,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "RunStop",
+          "at": 24034.800000000745,
+          "position": [
+            4.16416666666666,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 24651.300000000745,
+          "position": [
+            4.16416666666666,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 25595.800000000745,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "JumpAir",
+          "at": 26281.5,
+          "position": [
+            0,
+            0.14749790618443667,
+            2.4
+          ]
+        },
+        {
+          "clip": "JumpLand",
+          "at": 28522.5,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 29037.199999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 34643.39999999851,
+          "position": [
+            0,
+            0,
+            2.226699999999999
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 35072,
+          "position": [
+            0,
+            0,
+            2.0229999999999966
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 42338.300000000745,
+          "position": [
+            0,
+            0.4775,
+            -0.21769999999999914
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 45299.5,
+          "position": [
+            0,
+            0.4775,
+            -0.21769999999999914
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 51224.800000000745,
+          "position": [
+            0,
+            0.4775,
+            -0.39099999999999896
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 52726.89999999851,
+          "position": [
+            0,
+            0.4775,
+            -0.7983999999999996
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 55883,
+          "position": [
+            0,
+            0.4775,
+            -1.428573333333331
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 58614.89999999851,
+          "position": [
+            0,
+            0.4775,
+            -1.428573333333331
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 60630,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Greeting",
+          "at": 60704.199999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        }
+      ]
+    },
+    "celebration": {
+      "camera": [
+        0,
+        2.8400000000000003,
+        6.4
+      ],
+      "target": [
+        0,
+        0.84,
+        2.4
+      ],
+      "ready": true,
+      "stage": "Gate C real skinned Nari",
+      "door": 2.694222021496798e-06,
+      "clip": "Celebration",
+      "clipTime": 0.9999999999999999,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run",
+        "WalkStart",
+        "WalkStop",
+        "RunStart",
+        "RunStop",
+        "JumpStart",
+        "JumpAir",
+        "JumpLand",
+        "TurnLeft",
+        "TurnRight",
+        "Greeting",
+        "Happy",
+        "Thinking",
+        "Sad",
+        "Celebration",
+        "Surprised",
+        "Curious",
+        "InteractionReaction"
+      ],
+      "morphs": {
+        "Happy": 0,
+        "Excited": 0,
+        "Curious": 0,
+        "Thinking": 0,
+        "Confused": 0,
+        "Sad": 0,
+        "Surprised": 0,
+        "Determined": 0,
+        "Celebrating": 0.9945208430290222,
+        "Blink": 0
+      },
+      "feet": [
+        [
+          0.11500000199041123,
+          0.10034723632083775,
+          2.689795161957419
+        ],
+        [
+          -0.11499999401786283,
+          0.10035112065064622,
+          2.6498196446415925
+        ]
+      ],
+      "skinBones": 28,
+      "motion": true,
+      "draws": 34,
+      "triangles": 151808,
+      "player": [
+        0,
+        0,
+        2.4
+      ],
+      "yaw": 0,
+      "speed": 0,
+      "grounded": true,
+      "verticalVelocity": 0,
+      "blocked": 0,
+      "distance": 0,
+      "physicsSteps": 210,
+      "reduced": false,
+      "events": [
+        {
+          "clip": "Idle",
+          "at": 3610.5,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 7834.699999999255,
+          "position": [
+            0,
+            0,
+            2.226699999999999
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 10394.300000000745,
+          "position": [
+            0,
+            0,
+            1.8192999999999975
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 16938.60000000149,
+          "position": [
+            0,
+            0.30000000000000004,
+            0.7545666666666679
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 17636.300000000745,
+          "position": [
+            0,
+            0.30000000000000004,
+            0.7545666666666679
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 18662.699999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "RunStart",
+          "at": 18899.10000000149,
+          "position": [
+            0.3,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Run",
+          "at": 20328.60000000149,
+          "position": [
+            1.5181249999999993,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "RunStop",
+          "at": 24034.800000000745,
+          "position": [
+            4.16416666666666,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 24651.300000000745,
+          "position": [
+            4.16416666666666,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 25595.800000000745,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "JumpAir",
+          "at": 26281.5,
+          "position": [
+            0,
+            0.14749790618443667,
+            2.4
+          ]
+        },
+        {
+          "clip": "JumpLand",
+          "at": 28522.5,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 29037.199999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 34643.39999999851,
+          "position": [
+            0,
+            0,
+            2.226699999999999
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 35072,
+          "position": [
+            0,
+            0,
+            2.0229999999999966
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 42338.300000000745,
+          "position": [
+            0,
+            0.4775,
+            -0.21769999999999914
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 45299.5,
+          "position": [
+            0,
+            0.4775,
+            -0.21769999999999914
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 51224.800000000745,
+          "position": [
+            0,
+            0.4775,
+            -0.39099999999999896
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 52726.89999999851,
+          "position": [
+            0,
+            0.4775,
+            -0.7983999999999996
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 55883,
+          "position": [
+            0,
+            0.4775,
+            -1.428573333333331
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 58614.89999999851,
+          "position": [
+            0,
+            0.4775,
+            -1.428573333333331
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 60630,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Greeting",
+          "at": 60704.199999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 69263.60000000149,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Celebration",
+          "at": 69515.80000000075,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        }
+      ]
+    },
+    "reduced-static": {
+      "camera": [
+        0,
+        2.8400000000000003,
+        6.4
+      ],
+      "target": [
+        0,
+        0.84,
+        2.4
+      ],
+      "ready": true,
+      "stage": "Gate C real skinned Nari",
+      "door": 0,
+      "clip": "Idle",
+      "clipTime": 0.9,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run",
+        "WalkStart",
+        "WalkStop",
+        "RunStart",
+        "RunStop",
+        "JumpStart",
+        "JumpAir",
+        "JumpLand",
+        "TurnLeft",
+        "TurnRight",
+        "Greeting",
+        "Happy",
+        "Thinking",
+        "Sad",
+        "Celebration",
+        "Surprised",
+        "Curious",
+        "InteractionReaction"
+      ],
+      "morphs": {
+        "Happy": 0,
+        "Excited": 0,
+        "Curious": 0,
+        "Thinking": 0,
+        "Confused": 0,
+        "Sad": 0,
+        "Surprised": 0,
+        "Determined": 0,
+        "Celebrating": 0,
+        "Blink": 0
+      },
+      "feet": [
+        [
+          0.11499999741168634,
+          0.07500006481700655,
+          2.4045220947723425
+        ],
+        [
+          -0.11499999741168634,
+          0.07500006481700655,
+          2.4045220947723425
+        ]
+      ],
+      "skinBones": 28,
+      "motion": false,
+      "draws": 34,
+      "triangles": 151808,
+      "player": [
+        0,
+        0,
+        2.4
+      ],
+      "yaw": 0,
+      "speed": 0,
+      "grounded": true,
+      "verticalVelocity": 0,
+      "blocked": 0,
+      "distance": 0,
+      "physicsSteps": 301,
+      "reduced": true,
+      "events": [
+        {
+          "clip": "Idle",
+          "at": 3610.5,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 7834.699999999255,
+          "position": [
+            0,
+            0,
+            2.226699999999999
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 10394.300000000745,
+          "position": [
+            0,
+            0,
+            1.8192999999999975
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 16938.60000000149,
+          "position": [
+            0,
+            0.30000000000000004,
+            0.7545666666666679
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 17636.300000000745,
+          "position": [
+            0,
+            0.30000000000000004,
+            0.7545666666666679
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 18662.699999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "RunStart",
+          "at": 18899.10000000149,
+          "position": [
+            0.3,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Run",
+          "at": 20328.60000000149,
+          "position": [
+            1.5181249999999993,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "RunStop",
+          "at": 24034.800000000745,
+          "position": [
+            4.16416666666666,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 24651.300000000745,
+          "position": [
+            4.16416666666666,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 25595.800000000745,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "JumpAir",
+          "at": 26281.5,
+          "position": [
+            0,
+            0.14749790618443667,
+            2.4
+          ]
+        },
+        {
+          "clip": "JumpLand",
+          "at": 28522.5,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 29037.199999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 34643.39999999851,
+          "position": [
+            0,
+            0,
+            2.226699999999999
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 35072,
+          "position": [
+            0,
+            0,
+            2.0229999999999966
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 42338.300000000745,
+          "position": [
+            0,
+            0.4775,
+            -0.21769999999999914
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 45299.5,
+          "position": [
+            0,
+            0.4775,
+            -0.21769999999999914
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 51224.800000000745,
+          "position": [
+            0,
+            0.4775,
+            -0.39099999999999896
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 52726.89999999851,
+          "position": [
+            0,
+            0.4775,
+            -0.7983999999999996
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 55883,
+          "position": [
+            0,
+            0.4775,
+            -1.428573333333331
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 58614.89999999851,
+          "position": [
+            0,
+            0.4775,
+            -1.428573333333331
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 60630,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Greeting",
+          "at": 60704.199999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 69263.60000000149,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Celebration",
+          "at": 69515.80000000075,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 75694.89999999851,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        }
+      ]
+    },
+    "mobile-play": {
+      "camera": [
+        0.4096533333333332,
+        2.8400000000000003,
+        6.4
+      ],
+      "target": [
+        0.4096533333333332,
+        0.84,
+        2.4
+      ],
+      "ready": true,
+      "stage": "Gate C real skinned Nari",
+      "door": 0,
+      "clip": "WalkStop",
+      "clipTime": 0,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run",
+        "WalkStart",
+        "WalkStop",
+        "RunStart",
+        "RunStop",
+        "JumpStart",
+        "JumpAir",
+        "JumpLand",
+        "TurnLeft",
+        "TurnRight",
+        "Greeting",
+        "Happy",
+        "Thinking",
+        "Sad",
+        "Celebration",
+        "Surprised",
+        "Curious",
+        "InteractionReaction"
+      ],
+      "morphs": {
+        "Happy": 0,
+        "Excited": 0,
+        "Curious": 0,
+        "Thinking": 0,
+        "Confused": 0,
+        "Sad": 0,
+        "Surprised": 0,
+        "Determined": 0,
+        "Celebrating": 0,
+        "Blink": 0
+      },
+      "feet": [
+        [
+          0.4696219813599114,
+          0.11532908308881679,
+          2.285047722141195
+        ],
+        [
+          0.26956138465330726,
+          0.11535120555278833,
+          2.51488847499652
+        ]
+      ],
+      "skinBones": 28,
+      "motion": false,
+      "draws": 17,
+      "triangles": 75904,
+      "player": [
+        0.4096533333333332,
+        0,
+        2.4
+      ],
+      "yaw": 1.5699998384322975,
+      "speed": 0,
+      "grounded": true,
+      "verticalVelocity": 0,
+      "blocked": 0,
+      "distance": 0.4096533333333332,
+      "physicsSteps": 72,
+      "reduced": true,
+      "events": [
+        {
+          "clip": "Idle",
+          "at": 3610.5,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 7834.699999999255,
+          "position": [
+            0,
+            0,
+            2.226699999999999
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 10394.300000000745,
+          "position": [
+            0,
+            0,
+            1.8192999999999975
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 16938.60000000149,
+          "position": [
+            0,
+            0.30000000000000004,
+            0.7545666666666679
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 17636.300000000745,
+          "position": [
+            0,
+            0.30000000000000004,
+            0.7545666666666679
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 18662.699999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "RunStart",
+          "at": 18899.10000000149,
+          "position": [
+            0.3,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Run",
+          "at": 20328.60000000149,
+          "position": [
+            1.5181249999999993,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "RunStop",
+          "at": 24034.800000000745,
+          "position": [
+            4.16416666666666,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 24651.300000000745,
+          "position": [
+            4.16416666666666,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 25595.800000000745,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "JumpAir",
+          "at": 26281.5,
+          "position": [
+            0,
+            0.14749790618443667,
+            2.4
+          ]
+        },
+        {
+          "clip": "JumpLand",
+          "at": 28522.5,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 29037.199999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 34643.39999999851,
+          "position": [
+            0,
+            0,
+            2.226699999999999
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 35072,
+          "position": [
+            0,
+            0,
+            2.0229999999999966
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 42338.300000000745,
+          "position": [
+            0,
+            0.4775,
+            -0.21769999999999914
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 45299.5,
+          "position": [
+            0,
+            0.4775,
+            -0.21769999999999914
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 51224.800000000745,
+          "position": [
+            0,
+            0.4775,
+            -0.39099999999999896
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 52726.89999999851,
+          "position": [
+            0,
+            0.4775,
+            -0.7983999999999996
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 55883,
+          "position": [
+            0,
+            0.4775,
+            -1.428573333333331
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 58614.89999999851,
+          "position": [
+            0,
+            0.4775,
+            -1.428573333333331
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 60630,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Greeting",
+          "at": 60704.199999999255,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 69263.60000000149,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Celebration",
+          "at": 69515.80000000075,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 75694.89999999851,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 78915.5,
+          "position": [
+            0.1733,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 80135.10000000149,
+          "position": [
+            0.4096533333333332,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Idle",
+          "at": 80346.39999999851,
+          "position": [
+            0,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "WalkStart",
+          "at": 81444.5,
+          "position": [
+            0.1733,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "Walk",
+          "at": 82638.89999999851,
+          "position": [
+            0.3769999999999999,
+            0,
+            2.4
+          ]
+        },
+        {
+          "clip": "WalkStop",
+          "at": 82836,
+          "position": [
+            0.4096533333333332,
+            0,
+            2.4
+          ]
+        }
+      ]
+    }
+  },
+  "critical_errors": [],
+  "missing_resources": [],
+  "limitation": "Cloud functional/viewport/input checks; actual image review and final Gate D/E required. No physical device FPS claim.",
+  "visual_capture_limit": "jump-air.png screenshot finished after landing (recorded playerY0); it is not actual airborne proof. play-pass-4 uses real pause control to hold and inspect airborne state."
+}

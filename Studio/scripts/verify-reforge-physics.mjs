@@ -1,7 +1,9 @@
 import assert from 'node:assert/strict'
 import {readFile,writeFile} from 'node:fs/promises'
-import {createPlayer,stepPlayer} from '../../preview/src/reforge/physics.ts'
+import {createPlayer,stepPlayer,floorHeight} from '../../preview/src/reforge/physics.ts'
 const world=JSON.parse(await readFile(new URL('../../exports/v0.5/hanok-graybox-structure.json',import.meta.url),'utf8')),walls=world.colliders
+const overlapTop=Math.max(...world.modules.filter(m=>['floor','stair'].includes(m.category)&&m.min[0]<=0&&m.max[0]>=0&&m.min[2]<=.28&&m.max[2]>=.28).map(m=>m.max[1]))
+assert.ok(Math.abs(floorHeight(0,.28)-overlapTop)<.00001,'support chooses actual higher floor where veranda overlaps top stair')
 const tick=(p,n,w,run,open,jump=false)=>{for(let i=0;i<n;i++)stepPlayer(p,w,run,jump&&i===0,1/60,walls,open)}
 let p=createPlayer();tick(p,360,[0,-1],true,false)
 assert.ok(p.position[2]>-.25,'closed sliding door blocks entry')

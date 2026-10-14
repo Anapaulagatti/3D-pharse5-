@@ -21,6 +21,7 @@ try{
  assert.deepEqual(new Set((await m()).clips),new Set(clips))
  for(const clip of clips){await p.getByLabel('Animation',{exact:true}).selectOption(clip);await expect.poll(async()=> (await m()).clip).toBe(clip);await shot('pose-'+clip.toLowerCase())}
  await p.getByLabel('Animation',{exact:true}).selectOption('Idle')
+ await p.getByLabel('Góc kiểm tra',{exact:true}).selectOption('face')
  const faceHashes=new Set()
  for(const name of ['Neutral','Happy','Excited','Curious','Thinking','Confused','Sad','Surprised','Determined','Celebrating']){
   await p.getByLabel('Biểu cảm',{exact:true}).selectOption(name)
@@ -28,7 +29,7 @@ try{
   faceHashes.add(await shot('face-'+name.toLowerCase()))
  }
  assert.equal(faceHashes.size,10)
- await p.getByLabel('Biểu cảm',{exact:true}).selectOption('Auto');await p.getByLabel('Giảm chuyển động',{exact:true}).uncheck()
+ await p.getByLabel('Góc kiểm tra',{exact:true}).selectOption('front');await p.getByLabel('Biểu cảm',{exact:true}).selectOption('Auto');await p.getByLabel('Giảm chuyển động',{exact:true}).uncheck()
  for(const clip of clips){await p.getByLabel('Animation',{exact:true}).selectOption(clip);await expect.poll(async()=> (await m()).clip).toBe(clip);const start=(await m()).clipTime,a=await shot('live-'+clip.toLowerCase()+'-a');await expect.poll(async()=> (await m()).clipTime).not.toBe(start);await p.waitForTimeout(130);const b=await shot('live-'+clip.toLowerCase()+'-b');assert.notEqual(a,b,clip+' actual rendered motion');states['live-'+clip.toLowerCase()+'-b'].pixelsChanged=true}
  assert.deepEqual(errors,[]);assert.deepEqual(missing,[])
  await writeFile(resolve(out,'verification.json'),JSON.stringify({status:'PASS_PENDING_VISUAL_REVIEW',url,verified_at:new Date().toISOString(),authored_clips:clips,static_views:4,expressions:10,actual_live_pairs:20,states,critical_errors:errors,missing_resources:missing,limitation:'Actual skinned GLB/render/animation/morph inspection only. Game controller, clothing/body human review and final mobile/quality/accessibility gates still required; no hardware FPS claim.'},null,2)+'\n')

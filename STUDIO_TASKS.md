@@ -2,7 +2,7 @@
 
 Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verification. Milestones follow the persistent-progress prompt (nine milestones).
 
-Current task: REFORGE-GATE-C-005 IN_PROGRESS; Gate B DONE. User approved A — Nari; Gate A DONE. Continue v0.5 gates B–E, preserving public v0.4; no new districts or public v0.5 release.
+Current task: REFORGE-GATE-D-005 IN_PROGRESS; Gates A/B/C DONE. User approved A — Nari; Gate A DONE. Continue v0.5 gates B–E, preserving public v0.4; no new districts or public v0.5 release.
 
 | Milestone | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|---|
@@ -91,7 +91,7 @@ Current task: REFORGE-GATE-C-005 IN_PROGRESS; Gate B DONE. User approved A — N
 | REFORGE-CONCEPT-005 | Three original humanoid concepts, comparison and architecture rebuild plan | DONE | concepts/v0.5/character-concepts.png + CONCEPT_REVIEW.md/provenance/prompt; docs/v0.5/ARCHITECTURE_REBUILD_PLAN.md; GATE_A_REVIEW.md and gate-a-verification.json; a6c1959 independently matched origin/main |
 | REFORGE-GATE-A-005 | User approves one final character direction | DONE | concepts/v0.5/APPROVAL.json: user explicitly selects recommended A — Nari |
 | REFORGE-GATE-B-005 | Complete four-sided Hanok graybox, scale/support checks and actual 360° review | DONE | gate-b/render actual33 views inspected;209 support bounds0gaps; editable source/GLB Validator0/0; production PASS; structure-360.mp4 |
-| REFORGE-GATE-C-005 | Skinned humanoid,20 clips,10 expressions, playable collision/controller and touch input | IN_PROGRESS | A approved; actual28bone/20clip/10morph humanoid and controller implemented.6physics checks pass. Actual pose/motion tests run but human rejects underarm wedges; bone-heat correction and native browser acceptance pending |
-| REFORGE-GATE-D-005 | Architecture/material/environment/lighting/game-feel polish | TODO | Depends on structural and playable gates |
+| REFORGE-GATE-C-005 | Skinned humanoid,20 clips,10 expressions, playable collision/controller and touch input | DONE | gate-c/REVIEW.md; final-rig-review actual20clips/10faces/20moving pairs visually inspected; play-pass-4 native9checks PASS; BoneHeat fixes wedges; Validator0/0 |
+| REFORGE-GATE-D-005 | Architecture/material/environment/lighting/game-feel polish | IN_PROGRESS | Preserve graybox/functional rig; separate art exports, textures/life/lighting/face-shadow/camera/effects next |
 | REFORGE-GATE-E-005 | GLB/build/browser/gameplay/video/accessibility/mobile/performance proof | TODO | Actual rendered evidence required; no v0.5 completion claim yet |
 | REFORGE-RELEASE-005 | User-reviewed candidate and separate publication authorization | BLOCKED | Preserve live v0.4; no approval to publish v0.5 |

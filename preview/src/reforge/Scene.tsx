@@ -9,11 +9,17 @@ import structure from '../../../exports/v0.5/hanok-graybox-structure.json'
 import Nari from './Nari'
 
 const positions:Record<Preset,[number[],number[],number]>={
+ face:[[0,1.2,4],[0,1.2,0],.9],
  hero:[[11,10,14],[0,1.1,-.7],15],front:[[0,3,13],[0,1.8,-1.5],10],rear:[[0,3,-17],[0,1.8,-2.5],10],left:[[-15,3,-2],[0,1.8,-2],9],right:[[15,3,-2],[0,1.8,-2],9],roof:[[8,12,5],[0,1.2,-1.4],14],connection:[[4.1,3.2,2.4],[2.6,3,-.2],3.7],interior:[[-1.4,1.85,-1.95],[-2.2,1.1,-3.6],2.75],
 }
 function Ready({onReady}:{onReady:()=>void}){
  const reported=useRef(false),frames=useRef(0),{invalidate}=useThree()
  useFrame(()=>{frames.current++;if(frames.current<2)invalidate();else if(!reported.current){reported.current=true;onReady()}})
+ return null
+}
+function ContextGuard({onFailure}:{onFailure:()=>void}){
+ const {gl}=useThree()
+ useEffect(()=>{const lost=(e:Event)=>{e.preventDefault();onFailure()};gl.domElement.addEventListener('webglcontextlost',lost);return()=>gl.domElement.removeEventListener('webglcontextlost',lost)},[gl,onFailure])
  return null
 }
 function Camera({settings:s,player}:{settings:Settings;player:Player}){
@@ -23,6 +29,7 @@ function Camera({settings:s,player}:{settings:Settings;player:Player}){
   let [pos,look,scale]=positions[s.preset]
   const portrait=s.view==='portrait'||s.view==='animation'
   if(portrait){look=[0,.75,0];scale=2.7;pos=s.preset==='rear'?[0,1.1,-4]:s.preset==='left'?[-4,1.1,0]:s.preset==='right'?[4,1.1,0]:s.preset==='front'?[0,1.1,4]:[2,1.7,4]}
+  if(portrait&&s.preset==='face'){look=[0,1.2,0];scale=.85;pos=[0,1.2,4]}
   if(s.angle!==null){const a=s.angle*Math.PI/180;pos=portrait?[4*Math.sin(a),1.2,4*Math.cos(a)]:[14*Math.sin(a),5,-2.5+14*Math.cos(a)];look=portrait?[0,.75,0]:[0,1.7,-2.5];scale=portrait?2.7:11}
   if(s.view==='play'){look=[player.position[0],player.position[1]+.84,player.position[2]];pos=[look[0],look[1]+2,look[2]+4];offset.current.set(0,2,4)}
   camera.position.fromArray(pos);target.current.fromArray(look);camera.lookAt(target.current)
@@ -64,10 +71,10 @@ function House({settings:s,player,onDoor,onDoorBlocked}:{settings:Settings;playe
 export default function Scene({settings:s,input,player,onReact,onDoor,onDoorBlocked,onReady,onFailure}:{settings:Settings;input:InputState;player:Player;onReact:()=>void;onDoor:()=>void;onDoorBlocked:()=>void;onReady:()=>void;onFailure:()=>void}){
  const portrait=s.view==='portrait'||s.view==='animation',world=s.view==='hero'||s.view==='play'
  const colliders=structure.colliders as Collider[]
- return <Canvas key={s.view==='play'?'perspective':'orthographic'} orthographic={s.view!=='play'} shadows={s.quality!=='low'} camera={{position:[11,10,14],near:.05,far:100,zoom:45}} dpr={s.quality==='low'?1:[1,s.quality==='high'?1.75:1.25]} frameloop={s.active&&!s.reduced&&!s.paused?'always':'demand'} gl={{antialias:s.quality!=='low'}}
-  onCreated={({gl})=>{gl.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();onFailure()},{once:true})}} fallback={<p>WebGL không khả dụng.</p>}>
+ return <Canvas key={s.view==='play'?'perspective':'orthographic'} orthographic={s.view!=='play'} shadows={s.quality!=='low'} camera={{position:[11,10,14],near:.05,far:100,zoom:45}} dpr={s.quality==='low'?1:[1,s.quality==='high'?1.75:1.25]} frameloop={s.active&&!s.reduced&&!s.paused?'always':'demand'} gl={{antialias:s.quality!=='low'}} fallback={<p>WebGL không khả dụng.</p>}>
+  <ContextGuard onFailure={onFailure}/>
   <color attach="background" args={[new Color('#dddeda')]}/><ambientLight intensity={.40}/><hemisphereLight args={['#d9e9f2','#8b856b',.8]}/>
-  <directionalLight position={[3,9,6]} intensity={2.2} castShadow shadow-mapSize={[1024,1024]} shadow-camera-left={-10} shadow-camera-right={10} shadow-camera-top={10} shadow-camera-bottom={-10} shadow-normalBias={.045} shadow-bias={-.0002}/>
+  <directionalLight position={[3,9,6]} intensity={2.2} castShadow shadow-mapSize={[s.quality==='high'?2048:1024,s.quality==='high'?2048:1024]} shadow-camera-left={portrait?-2.2:-8} shadow-camera-right={portrait?2.2:8} shadow-camera-top={portrait?2.2:8} shadow-camera-bottom={portrait?-2.2:-8} shadow-normalBias={portrait?.006:.035} shadow-bias={portrait?-.00005:-.0002} onUpdate={light=>light.shadow.camera.updateProjectionMatrix()}/>
   <directionalLight position={[-4,5,-5]} intensity={.7}/>
   <Suspense fallback={null}>
    {!portrait&&<House settings={s} player={player} onDoor={onDoor} onDoorBlocked={onDoorBlocked}/>}
