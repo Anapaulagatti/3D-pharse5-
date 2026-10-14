@@ -54,10 +54,11 @@ export function Particles({settings:s,burst,center,ambient=true}:{settings:Setti
 }
 
 export function House({settings:s,player,onDoor,onDoorBlocked,onStory}:{settings:Settings;player:Player;onDoor:()=>void;onDoorBlocked:()=>void;onStory:(kind:string)=>void}){
- const gltf=useGLTF(reforgeURL('house')),{scene,invalidate}=useThree(),model=gltf.scene
+ const gltf=useGLTF(reforgeURL('house')),{scene,invalidate}=useThree(),model=useMemo(()=>gltf.scene.clone(true),[gltf.scene])
  const mixer=useMemo(()=>new AnimationMixer(model),[model]),opening=useRef(s.door?1:0),blockedNotice=useRef(false),time=useRef(0),[petals,flash]=[useRef(0),useRef(-20)],trigger=useRef(0),lamp=useRef<PointLight>(null),lamp2=useRef<PointLight>(null)
  const glows=useMemo(()=>{const result:MeshStandardMaterial[]=[];model.traverse(o=>{if(o instanceof Mesh){o.castShadow=true;o.receiveShadow=true;const mats=Array.isArray(o.material)?o.material:[o.material];o.material=mats.map(m=>{if(m instanceof MeshStandardMaterial&&m.name.includes('LanternHanjiGlow')){const c=m.clone();result.push(c);return c}return m});if(!Array.isArray((o as Mesh).material)||mats.length===1)o.material=(o.material as MeshStandardMaterial[])[0]}});return result},[model])
- const ripples=useMemo(()=>{const result:Object3D[]=[];model.traverse(o=>{if(o.name.startsWith('BasinRipple'))result.push(o)});return result},[model])
+ const ripples=useMemo(()=>{const result:{o:Object3D;scale:Vector3}[]=[];model.traverse(o=>{if(o.name.startsWith('BasinRipple'))result.push({o,scale:o.scale.clone()})});return result},[model])
+ const doors=useMemo(()=>['DoorLeft','DoorRight'].map(name=>{const o=model.getObjectByName(name)!;return {o,x:o.position.x}}),[model])
  useEffect(()=>{const actions=gltf.animations.map(a=>mixer.clipAction(a).play());return()=>{actions.forEach(a=>a.stop());mixer.uncacheRoot(model)}},[gltf.animations,mixer,model])
  useEffect(()=>{scene.userData.reforgeHouse=model;invalidate();return()=>{delete scene.userData.reforgeHouse}},[model,scene,invalidate])
  useEffect(()=>{model.traverse(o=>{if(o.name.startsWith('PlumDetail'))o.visible=s.quality!=='low';if(o.name==='DistantTownBackdrop')o.visible=s.view!=='architecture'});invalidate()},[model,s.quality,s.view,invalidate])
@@ -69,12 +70,12 @@ export function House({settings:s,player,onDoor,onDoorBlocked,onStory}:{settings
   const occupied=s.view==='play'&&Math.abs(player.position[0])<.84&&Math.abs(player.position[2]+.6)<.52,desired=s.door||occupied&&opening.current>.5?1:0
   if(!s.door&&occupied&&opening.current>.5&&!blockedNotice.current){blockedNotice.current=true;onDoorBlocked()}
   if(!s.paused)opening.current=s.reduced?desired:MathUtils.damp(opening.current,desired,6,Math.min(dt,.15))
-  for(const [name,sign] of [['DoorLeft',-1],['DoorRight',1]] as const){const o=model.getObjectByName(name);if(o)o.position.x=sign*.56*opening.current}
+  doors.forEach(({o,x},i)=>{o.position.x=x+(i?1:-1)*.56*opening.current})
   const flicker=1+(!s.reduced?.075*Math.sin(time.current*5.1)+.045*Math.sin(time.current*9.3):0),boost=time.current-flash.current<1.2?1.9:1
   for(const material of glows)material.emissiveIntensity=looks[s.lighting].lantern*flicker*boost
   if(lamp.current)lamp.current.intensity=s.lighting==='night'?9*flicker*boost:s.lighting==='evening'?3:0
   if(lamp2.current)lamp2.current.intensity=s.lighting==='night'?7*flicker:s.lighting==='evening'?2:0
-  ripples.forEach((r,i)=>r.scale.setScalar(s.reduced?1:1+.07*Math.sin(time.current*1.3-i*.7)))
+  ripples.forEach(({o,scale},i)=>o.scale.copy(scale).multiplyScalar(s.reduced?1:1+.07*Math.sin(time.current*1.3-i*.7)))
   if(s.active&&!s.paused&&Math.abs(opening.current-desired)>.002)invalidate()
   queueMicrotask(()=>{window.__REFORGE_METRICS__={...window.__REFORGE_METRICS__,door:opening.current,environmentTime:time.current,environmentClips:gltf.animations.map(a=>a.name),lanternGlow:glows[0]?.emissiveIntensity,worldInteraction:trigger.current,effects:s.effects}})
  })
@@ -88,8 +89,9 @@ export function Contact({settings:s,player}:{settings:Settings;player:Player}){
  const shadow=useRef<Mesh>(null),burst=useRef(0),wasGrounded=useRef(true),wasClip=useRef(''),position=useRef<[number,number,number]>([0,0,2.4])
  useFrame(()=>{
   const portrait=s.view==='portrait'||s.view==='animation',p=portrait?[0,0,0]:player.position
-  if(shadow.current){shadow.current.position.set(p[0],floorHeight(p[0],p[2])+.008,p[2]);shadow.current.scale.setScalar(Math.max(.5,1-(p[1]-floorHeight(p[0],p[2]))*.4))}
-  if(s.active&&!s.paused&&((player.grounded&&!wasGrounded.current)||(player.clip==='Celebration'&&wasClip.current!=='Celebration'))){position.current=[p[0],floorHeight(p[0],p[2])+.05,p[2]];burst.current++}
+  const ground=portrait?0:floorHeight(p[0],p[2])
+  if(shadow.current){shadow.current.position.set(p[0],ground+.008,p[2]);shadow.current.scale.setScalar(Math.max(.5,1-(p[1]-ground)*.4))}
+  if(s.active&&!s.paused&&((player.grounded&&!wasGrounded.current)||(player.clip==='Celebration'&&wasClip.current!=='Celebration'))){position.current=[p[0],ground+.05,p[2]];burst.current++}
   wasGrounded.current=player.grounded;wasClip.current=player.clip
  })
  return <><mesh ref={shadow} rotation={[-Math.PI/2,0,0]}><circleGeometry args={[.21,24]}/><meshBasicMaterial color="#596354" transparent opacity={s.quality==='low'?.20:.10} depthWrite={false}/></mesh>

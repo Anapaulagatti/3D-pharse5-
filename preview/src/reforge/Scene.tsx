@@ -51,7 +51,7 @@ function Camera({settings:s,player}:{settings:Settings;player:Player}){
    if(house){dir.copy(offset.current).normalize();ray.set(target.current,dir);ray.far=offset.current.length();const hit=ray.intersectObject(house,true).find(h=>h.distance>.20);if(hit)camera.position.copy(target.current).addScaledVector(dir,Math.max(.5,hit.distance-.16))}
    controls.current.target.copy(target.current);controls.current.update()
   }
-  window.__REFORGE_METRICS__={...window.__REFORGE_METRICS__,camera:camera.position.toArray(),target:controls.current?.target.toArray()}
+  window.__REFORGE_METRICS__={...window.__REFORGE_METRICS__,camera:camera.position.toArray(),target:controls.current?.target.toArray(),projection:Array.from(camera.projectionMatrix.toArray()),viewMatrix:Array.from(camera.matrixWorldInverse.toArray())}
  })
  return <OrbitControls ref={controls} makeDefault enablePan={s.view!=='play'} minPolarAngle={.10} maxPolarAngle={Math.PI*.49} minZoom={15} maxZoom={500} minDistance={s.view==='play'?1.2:1} maxDistance={s.view==='play'?8:100} enableDamping={false}
   onStart={()=>{manual.current=true;goal.current=null}} onEnd={()=>{manual.current=false}}

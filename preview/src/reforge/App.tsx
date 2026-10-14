@@ -70,6 +70,6 @@ export default function ReforgeApp(){
      <button aria-pressed={mobileRun} disabled={disabled||s.paused} onClick={()=>{input.mobileRun=!mobileRun;setMobileRun(!mobileRun);input.wake?.()}}>Chạy</button><button disabled={disabled||s.paused} onClick={()=>{input.jump=true;input.wake?.();stage.current?.focus({preventScroll:true})}}>Nhảy</button>
     </div>}
     <p className="reforge-notice" role="status">{notice}</p>
-   </div></section><footer>Bản thử riêng v0.5 · Nari là nhân vật hư cấu theo concept A đã duyệt. Pages v0.4 vẫn được giữ nguyên.</footer>
+   </div></section><footer>v0.5 · Nari là nhân vật hư cấu theo concept A đã duyệt. <a href={reforgeURL('legacy')} download="ceramic-seed-spirit-legacy.glb">Linh vật gốm · GLB lưu trữ</a></footer>
   </main></div>
 }

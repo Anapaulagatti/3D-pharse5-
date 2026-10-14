@@ -46,7 +46,7 @@ if ART:
  group=body.vertex_groups.new(name='FaceSurfaceRelax')
  for v in body.data.vertices:
   if v.co.z>1.035:group.add([v.index],min(1,(v.co.z-1.035)/.055),'REPLACE')
- mod=body.modifiers.new('SoftHeadSurface','SMOOTH');mod.factor=.65;mod.iterations=10;mod.vertex_group=group.name;bpy.ops.object.modifier_apply(modifier=mod.name);body.vertex_groups.remove(group)
+ mod=body.modifiers.new('SoftHeadSurface','SMOOTH');mod.factor=.65;mod.iterations=10;mod.vertex_group=group.name;bpy.ops.object.modifier_apply(modifier=mod.name);body.vertex_groups.clear()
 for v in body.data.vertices:
  p=v.co
  if p.z<.003:p.z=.003
@@ -132,6 +132,18 @@ def skin(o,rigid=None,torso=False):
  else:
   for v in o.data.vertices:v.co=headwarp(v.co)
  if ART:o.data.update()
+ if ART and o==body:
+  # Stable stylized head normals remove the voxel/warp-transition chin crease
+  # without hiding skin deformation, adding geometry or changing the silhouette.
+  normals=[]
+  for v in o.data.vertices:
+   p=v.co;n=v.normal.copy()
+   if p.z>1.055 and abs(p.x)<.143:
+    target=Vector((p.x/(.1485**2),p.y/(.128**2),(p.z-1.19125)/(.15**2))).normalized()
+    blend=min(1,max(0,(p.z-1.055)/.040))*min(1,max(0,(.143-abs(p.x))/.018))
+    n=n.lerp(target,blend).normalized()
+   normals.append(n)
+  o.data.normals_split_custom_set_from_vertices(normals)
  groups={n:o.vertex_groups.get(n) or o.vertex_groups.new(name=n) for n in REST}
  for v in o.data.vertices:
   ws=[(rigid,1)] if rigid else weights(v.co)
