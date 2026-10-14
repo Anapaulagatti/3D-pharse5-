@@ -12,7 +12,7 @@ Prospective B+T1 budgets: world30–38ktri, character8–9.5ktri, raw combinedGL
 
 Preservation: all2,335protected baseline tracked files unchanged (only five evolving session records excluded). Public v0.5 exact082c661b, all approved sources/models/maps/clips/export packages/evidence/package locks/deployment inputs remain byte-identical. Recovery tag checkpoint/v0.5-public-verified→5578f5f4793e7823a30e172aaad738f57a5537ae. Fresh Pages API latest workflow still38573493700/source4a29565, not a v0.6 deployment. Prior release handoff retained in docs/v0.6/V05_RELEASE_HANDOFF.md. Existing tools reused with cloud-environment-onboarding:setup, no install/config change.
 
-Checkpoints independently matched origin/main: registrationbfd811b; baseline/characters1e4f714; town/materialea1e9dd. Final review documents/evidence save follows. One cloud command transport interruption recovered without lost tracked changes; first PDF pagination corrected and all final4pages inspected. No safety/credential/technical blocker.
+Checkpoints independently matched origin/main: registrationbfd811b; baseline/characters1e4f714; town/materialea1e9dd. Final content checkpointf6d9732ba999eacf7159c025df9d2a106a4db632 pushed and independently matched origin/main; remote-checkpoint.json records proof. Final handoff proof checkpoint/tag follows. One cloud command transport interruption recovered without lost tracked changes; first PDF pagination corrected and all final4pages inspected. No safety/credential/technical blocker.
 
 ## NEXT SESSION HANDOFF
 
@@ -20,7 +20,7 @@ Checkpoints independently matched origin/main: registrationbfd811b; baseline/cha
 
 **Current task ID:** PIVOT-APPROVAL-006. STOP.
 
-**Last verified checkpoint:** ea1e9ddb520f396d5fb51fedb2510b4518366bc0 independently matched origin/main before final review save. Final delivery checkpoint/tag follows; resolve git log/remote tag for exact SHA.
+**Last verified checkpoint:** f6d9732ba999eacf7159c025df9d2a106a4db632, complete concept delivery, independently matched origin/main. Final proof-only handoff is tagged checkpoint/v0.6-concepts-review after this commit; resolve remote tag for exact SHA.
 
 **Completed work:** v0.5 audit/baseline/preservation; three original character concepts; two town concepts; material/palette board; complexity/render-cost/reuse/prototype plan; actual concept/report/PDF inspection and review package; unchanged public v0.5.
 
@@ -32,6 +32,6 @@ Checkpoints independently matched origin/main: registrationbfd811b; baseline/cha
 
 **Exact next command or action:** Present existing boards/PDF and recommend B+T1, then wait. Upon explicit selection, record exact reply in approval file and begin ONLY the scoped one-character/one-house/one-plaza prototype. Do not regenerate these saved concepts or publish. Prior v0.5 A approval does not answer this new gate.
 
-**Verification required:** None remaining for concept delivery except final GitHub checkpoint verification. After approval, real front/side/rear, native locomotion/faces/architecture/day-night/mobile/quality/fallback/build/Validator/before-after evidence required for prototype; concept images cannot replace those checks.
+**Verification required:** None remaining for concept delivery. Content checkpointf6d9732 independently verified; final proof-only tag/branch verification follows. After approval, real front/side/rear, native locomotion/faces/architecture/day-night/mobile/quality/fallback/build/Validator/before-after evidence required for prototype; concept images cannot replace those checks.
 
-**Remote GitHub save status:** bfd811b/1e4f714/ea1e9dd pushed and independently matched; final review checkpoint pending save/verification. Do not claim exact final SHA before independently matching origin. v0.5 recovery tag verified.
+**Remote GitHub save status:** COMPLETE: bfd811b/1e4f714/ea1e9dd/f6d9732 pushed and independently matched. Full review content recoverable atf6d9732. This proof-only handoff commit will be pushed/tagged checkpoint/v0.6-concepts-review and independently matched before final reply. v0.5 recovery tag5578f5f remains unchanged.

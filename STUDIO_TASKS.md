@@ -114,7 +114,7 @@ PUBLIC-RELEASE-005 COMPLETE: Actions38573493700/deployment7066939380 success; ca
 | PIVOT-AUDIT-006 | Archive review, preserve v0.5, inspect source and measure baseline | DONE | AUDIT.md, preserved-v05.json; fresh public browser/GLTF Transform/Validator/Blender evidence in baseline/ |
 | PIVOT-CONCEPT-006 | Three chibi characters, two town concepts, color/material board | DONE | Two inspected original boards: three characters/two towns/seven material studies, exact prompts/provenance |
 | PIVOT-PLAN-006 | Reuse, animation feasibility, complexity and likely render/asset costs | DONE | concepts/v0.6/CONCEPT_REVIEW.md: options, prospective budgets, relative complexity, reuse/retarget/quality plan |
-| PIVOT-REVIEW-006 | Visually inspect concepts, verify preservation, save GitHub and STOP for choice | DONE | Four-page PDF and decoded pages inspected, desktop/mobile document PASS, preservation2335files PASS; checkpoint save follows |
+| PIVOT-REVIEW-006 | Visually inspect concepts, verify preservation, save GitHub and STOP for choice | DONE | Four-page PDF and decoded pages inspected, desktop/mobile document PASS, preservation2335files PASS; f6d9732 pushed/independently verified; final handoff tag checkpoint/v0.6-concepts-review |
 | PIVOT-APPROVAL-006 | User selects character A/B/C and town T1/T2; recommend B+T1 | TODO | Mandatory STOP; concepts/v0.6/APPROVAL_PENDING.json. Previous v0.5 A/publication approvals do not select/publish v0.6 |
 | PIVOT-PROTOTYPE-006 | One approved chibi, house/plaza, move/run/jump, three emotions, interaction/camera/fallback | BLOCKED | Requires new v0.6 concept approval; not authorized to begin yet |
 | PUBLIC-RELEASE-006 | Publish redesigned showcase | BLOCKED | Separate updated-publication approval required; existing v0.5 stays live |
@@ -125,3 +125,5 @@ PUBLIC-RELEASE-005 COMPLETE: Actions38573493700/deployment7066939380 success; ca
 
 
 - Final concept delivery COMPLETE; supersedes earlier IN_PROGRESS checkpoint notes above. Actual approval, prototype and publication remain pending, not failed technical tasks. VERIFICATION_SUMMARY.json separates real v0.5 checks from v0.6 illustrations/budgets.
+
+- Remote delivery VERIFIED: f6d9732ba999eacf7159c025df9d2a106a4db632 independently matches origin/main. Final proof/handoff tag checkpoint/v0.6-concepts-review follows; STOP for new user choice.

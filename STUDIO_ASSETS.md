@@ -154,3 +154,5 @@ PUBLIC-RELEASE-005 COMPLETE: exact082c661b (13,543,219B) publicly serves at http
 | Preservation/release proof | all2,335protected baseline hashes PASS; latest Pages still v0.5run38573493700/source4a29565. No release input changed or new deployment |
 
 Concept art is not a production texture/mesh/rig/animation/prototype or actual v0.6 render. No new v0.6 Blender/GLB/export/build output exists before approval. Existing approved art/sources remain preserved and recoverable. No paid provider/dependency/backend/game asset pack installed.
+
+- Full v0.6 concept/audit/PDF/evidence content checkpointf6d9732ba999eacf7159c025df9d2a106a4db632 pushed and independently verified on origin/main; quality-reports/v0.6/remote-checkpoint.json. Final proof handoff uses checkpoint/v0.6-concepts-review. Production v0.5 remains untouched.
