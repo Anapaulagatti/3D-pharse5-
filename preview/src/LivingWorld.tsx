@@ -103,10 +103,15 @@ export function LivingArena({ settings, animate, onInteract }: {
   })
   return <group>
     <primitive object={scene} onClick={(e: { object: Object3D; stopPropagation: () => void }) => {
-      if (e.object.name.startsWith('LanternMesh')) { e.stopPropagation(); onInteract('lantern') }
+      // Multi-material GLB primitives have generic mesh names beneath the named lantern node.
+      let object: Object3D | null = e.object
+      while (object && object !== scene) {
+        if (/^Lantern(?:Mesh|Swing)/.test(object.name)) { e.stopPropagation(); onInteract('lantern'); return }
+        object = object.parent
+      }
     }} />
     <primitive object={detail} />
-    <mesh name="PlumInteraction" position={[-3, 1.78, 1.15]} onClick={e => { e.stopPropagation(); onInteract('tree') }}
+    <mesh name="PlumInteraction" visible={false} position={[-3, 1.78, 1.15]} onClick={e => { e.stopPropagation(); onInteract('tree') }}
       onPointerOver={() => { document.body.style.cursor = 'pointer' }} onPointerOut={() => { document.body.style.cursor = '' }}>
       <sphereGeometry args={[.76, 8, 6]} /><meshBasicMaterial transparent opacity={0} depthWrite={false} colorWrite={false} />
     </mesh>

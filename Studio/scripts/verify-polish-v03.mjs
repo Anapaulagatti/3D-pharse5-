@@ -47,6 +47,11 @@ const shot=async(page,name)=>{
   // Page clip captures the real canvas without Playwright's idle-canvas RAF stability wait.
   return page.screenshot({path:resolve(out,name+'.png'),clip:box})
 }
+const clickObject=async(page,key)=>{
+  await ready(page)
+  const point=(await metric(page)).interactivePoints[key],box=await page.locator('canvas').boundingBox()
+  await page.mouse.click(box.x+point[0],box.y+point[1])
+}
 try {
   const context=await browser.newContext({viewport:{width:1280,height:1100},reducedMotion:'reduce'})
   const page=await context.newPage();lastPage=page;page.setDefaultTimeout(timeout);watch(page)
@@ -95,7 +100,7 @@ try {
   await expect(page.locator('.interaction-notice')).toHaveText('Người bạn men ngọc đang chào bạn.')
   await expect.poll(()=>page.evaluate(()=>window.__STUDIO_METRICS__?.activeClip),{timeout}).toBe('Greeting')
   await expect.poll(()=>page.evaluate(()=>window.__STUDIO_METRICS__?.activeClip),{timeout}).toBe('Idle')
-  await click(page,page.getByRole('button',{name:'Chào linh vật',exact:true}))
+  await page.getByRole('button',{name:'Chào linh vật',exact:true}).focus();await page.keyboard.press('Enter')
   await expect.poll(()=>page.evaluate(()=>window.__STUDIO_METRICS__?.activeClip),{timeout}).toBe('Celebration')
   await expect.poll(()=>page.evaluate(()=>window.__STUDIO_METRICS__?.activeClip),{timeout}).toBe('Idle')
   checks.push('Actual mascot mesh click greets; keyboard button triggers playful cheer; both return to idle')
@@ -106,11 +111,13 @@ try {
   const ambientAfter=await shot(page,'ambient-b'),end=await metric(page)
   assert.notEqual(hash(ambientBefore),hash(ambientAfter));assert.ok(end.environmentTime>start.environmentTime)
   assert.notEqual(end.lanternIntensity,start.lanternIntensity)
-  await click(page,page.getByRole('button',{name:'Thắp đèn',exact:true}));await ready(page)
+  await clickObject(page,'lantern');await ready(page)
   await expect(page.locator('.interaction-notice')).toHaveText('Ánh đèn ấm vừa bừng lên.')
   await expect.poll(()=>page.evaluate(()=>window.__STUDIO_METRICS__?.lanternIntensity),{timeout}).toBeGreaterThan(end.lanternIntensity)
   await shot(page,'lantern-response')
-  await click(page,page.getByRole('button',{name:'Gió qua vườn',exact:true}));await ready(page);await shot(page,'petals')
+  await clickObject(page,'tree');await ready(page)
+  await expect(page.locator('.interaction-notice')).toHaveText('Một làn gió nhẹ qua cành mận.')
+  await shot(page,'petals')
   checks.push('Ambient motion/flicker changes actual rendering; lantern and garden interactions give visible feedback')
   await click(page,page.getByRole('button',{name:'Tạm dừng',exact:true}))
   await expect.poll(()=>page.evaluate(()=>window.__STUDIO_METRICS__?.motionActive),{timeout}).toBe(false)

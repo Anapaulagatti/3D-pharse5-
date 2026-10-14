@@ -36,7 +36,7 @@
 
 **Known blockers:** New restricted sandbox blocks default browser/server sockets; supported escalated runs are authorized and were accepted. Detailed QA needs completion; physical device FPS unavailable; updated public publication not yet authorized.
 
-**Exact next command or action:** Finish the final facial-refinement production build; rerun verify-polish-v03.mjs with supported escalated browser execution, inspect Thinking/Disappointed renders, then capture actual video and rebuild/package the final separate candidate. Never run existing build-showcase into public showcase/ for candidate work.
+**Exact next command or action:** Run capture-polish-v03.mjs against production with supported browser execution, finish-capture-v03.py, inspect video frames, validate extracted candidate ZIP via its HTTP launcher, then final checkpoint and STOP. Never run existing build-showcase into public showcase/ for candidate work.
 
 **Verification required:** Preserved original SHA checks, new GLB Validator, production build, actual day/evening/night/hero/mascot/mobile images, movement/video, distinct clips, smooth cameras, reduced motion/pause/visibility and fallback.
 
@@ -48,3 +48,10 @@
 - Human inspection then found Thinking hand still obscured and Disappointed still smiling. Added a cloned runtime chin-hand position track and tasteful smile/frown changes; all original source/export bytes preserved. Rebuild and revalidation pending before final video/package.
 - Last verified remote checkpoint: 47d6915824a248eec29e621dc0f514d9abf7b520, independently matched origin/main. New corrections/proof checkpoint follows.
 - Prepared local review/static ZIPs currently belong to the prior candidate SHA; rebuild/repackage them after final facial refinement. Do not hand off stale ZIPs as the final candidate.
+
+## Final production verification complete
+
+- Final 11 browser checks PASS after human facial refinement and direct-object picking fix. Actual mascot, lantern and invisible tree hit-area clicks work; keyboard cheer works. No critical console/page errors or missing resources. Pause, changing OS preference, smooth camera/cinematic yield, three quality settings, 390×844, offscreen resume and PNG fallback verified.
+- Costs: low 91 calls / 112,697 triangles; medium 180 calls / 225,327 triangles including shadow passes. Invisible interaction proxy retains raycasting without a render draw. Physical-device FPS unverified.
+- Three GLB files validated 0 errors/0 warnings; all 37 original file hashes preserved. New final candidate SHA a667e98b5e042158291a5cc12e18dcb9cf7a65833d881deadc29a6f0f4d4449f, 8,213,612 bytes. Local/static ZIPs rebuilt to this hash and audited.
+- Remaining work: record real browser video and inspect its frames; validate extracted HTTP ZIP/candidate under a repository prefix; final gallery/progress checkpoint, then STOP for user review.

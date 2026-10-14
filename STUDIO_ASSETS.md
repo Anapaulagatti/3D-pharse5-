@@ -46,3 +46,6 @@ No learning-alley, celebration scene or six district assets are claimed in v0.2.
 | Separate v0.3 standalone candidate | showcase-v0.3/index.html + build-info.json | Built; full candidate QA pending | 8,212,845 bytes/8 verified embedded base+detail assets; does not alter public v0.2 |
 
 | Verified production polish evidence | quality-reports/v0.3/final-render/verification.json and full screenshot set | 11 checks PASS; final face review refinement pending | Actual static/live six poses, three lights, hero/detail/orbit, responsive/fallback captures; zero critical errors/missing resources |
+
+| Final production render/interaction evidence | quality-reports/v0.3/final-render/ | 11 checks PASS, actual images inspected | Refined six static/live poses, actual three object mesh clicks + keyboard, camera/motion/accessibility/mobile/fallback; 0 critical errors/missing resources |
+| Final candidate HTML/ZIPs | showcase-v0.3/; downloads/v0.3/ | Rebuilt to a667e98b…; privacy/integrity audit PASS | 8,213,612-byte HTML; 8 checksum-verified original assets; all 37 v0.2 originals unchanged; not publicly deployed |

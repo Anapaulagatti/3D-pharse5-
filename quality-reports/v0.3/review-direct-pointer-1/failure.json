@@ -1,0 +1,77 @@
+{
+  "status": "FAIL",
+  "url": "http://127.0.0.1:4173/",
+  "completedChecks": [
+    "Real detailed Hanok/mascot render; day/evening/night and full hero screenshots captured",
+    "Actual pointer drag changes camera; bounded orbit/reset and all focus points remain available",
+    "All six preserved clips have distinct rendered static poses with clearer outward greeting/cheer",
+    "All six clips visibly change rendered pixels and mixer time during real playback",
+    "Actual mascot mesh click greets; keyboard button triggers playful cheer; both return to idle"
+  ],
+  "errors": [],
+  "missing": [],
+  "diagnostics": {
+    "metrics": {
+      "frames": 19,
+      "activeClip": "Idle",
+      "clipTime": 1.0257604768395447,
+      "mascotY": 0.029178110190365345,
+      "drawCalls": 180,
+      "triangles": 225327,
+      "textures": 8,
+      "geometries": 97,
+      "assetsLoaded": true,
+      "reducedMotion": false,
+      "paused": false,
+      "focus": "overview",
+      "quality": "medium",
+      "canvasWidth": 872,
+      "canvasHeight": 560,
+      "motionActive": true,
+      "cinematic": false,
+      "facialBlink": 1,
+      "cameraZoom": 61.53846153846154,
+      "cameraTarget": [
+        0.08,
+        0.9,
+        0
+      ],
+      "cameraPosition": [
+        8.999999999999998,
+        7.7,
+        10.999999999999998
+      ],
+      "interactivePoints": {
+        "mascot": [
+          374.2970554880969,
+          267.1176185800155
+        ],
+        "lantern": [
+          234.90054422458638,
+          289.60140938918175
+        ],
+        "tree": [
+          244.20812923476214,
+          203.30138848052772
+        ]
+      },
+      "environmentTime": 2.1735000000074503,
+      "lanternIntensity": 2.8836817953223424
+    },
+    "hidden": false,
+    "canvasBox": {
+      "x": 319,
+      "y": 269.84375,
+      "width": 872,
+      "height": 560,
+      "top": 269.84375,
+      "right": 1191,
+      "bottom": 829.84375,
+      "left": 319
+    },
+    "scripts": [
+      "http://127.0.0.1:4173/assets/index-BgHQnIrq.js"
+    ]
+  },
+  "message": "Error: expect(locator).toHaveText(expected) failed\n\nLocator:  locator('.interaction-notice')\nExpected: \"Ánh đèn ấm vừa bừng lên.\"\nReceived: \"Người bạn men ngọc đang chào bạn.\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveText\" locator('.interaction-notice') with timeout 5000ms\n  - waiting for locator('.interaction-notice')\n    13 × locator resolved to <p role=\"status\" class=\"interaction-notice\">Người bạn men ngọc đang chào bạn.</p>\n       - unexpected value \"Người bạn men ngọc đang chào bạn.\"\n"
+}

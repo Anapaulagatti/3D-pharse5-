@@ -57,3 +57,6 @@
 
 - All 11 detailed production checks passed after awaiting real rendered state instead of fixed short delays and sequencing media-query changes through the actual UI signal. Low 92 draws/112,777 triangles; medium 181 draws including shadow passes.
 - Human review is stricter than image hash differences: the Thinking mitten was hidden in the torso and Disappointed retained a smile. Add an original runtime chin-hand track and expression-only mouth transforms; preserve the approved GLB/.blend data and revalidate the candidate before delivery.
+
+- Final production QA: all 11 checks PASS including actual mascot/lantern/tree mesh clicks and keyboard emote. Lamp GLB child primitive names are generic, so picking walks named LanternMesh/LanternSwing ancestors. Three.js source confirms hidden hit geometry can raycast; tree proxy no longer draws. Low 91 draws/112,697 triangles; medium exactly 180 draws including shadows.
+- Human-confirmed emotion refinements: visible Thinking mitten beneath chin; gentle Disappointed frown/downcast eyes; original Blender/GLB data retained. Final candidate packaged separately and audited; public v0.2 still untouched. Record/inspect real video before completing the milestone.

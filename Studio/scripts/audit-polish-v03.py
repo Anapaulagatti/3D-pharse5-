@@ -1,5 +1,5 @@
 """Read-only candidate integrity, preservation, provenance and publish-file audit."""
-import hashlib,json,pathlib,re
+import hashlib,json,pathlib,re,zipfile
 root=pathlib.Path(__file__).resolve().parents[2]
 info=json.loads((root/'showcase-v0.3/build-info.json').read_text())
 html=(root/'showcase-v0.3/index.html').read_bytes()
@@ -22,6 +22,12 @@ assert not any(re.search(p,text) for p in patterns),'Potential credential in can
 assert not re.search(r'<script\b[^>]*\bsrc\s*=',text,re.I),'External JavaScript'
 assert not re.search(r'<link\b[^>]*(?:stylesheet|preload|modulepreload)',text,re.I),'External bundle/resource'
 assert 'studio-dependency-licenses' in text
+static=root/'downloads/v0.3/living-hanok-v0.3-static.zip'
+if static.exists():
+    with zipfile.ZipFile(static) as archive:
+        assert set(archive.namelist())=={'index.html','.nojekyll'},'Unexpected static-site files'
+        assert archive.read('index.html')==html,'Static ZIP does not match latest candidate; repackage first'
+        assert archive.read('.nojekyll')==b''
 report={'status':'PASS','candidate_sha256':info['checksum_sha256'],'candidate_bytes':len(html),'preserved_v02_files':len(baseline['files']),
         'verified_original_assets':assets,'known_credential_patterns':0,'external_script_stylesheet_tags':0,'dependency_notices_present':True,
         'static_deployment_allowlist':['index.html','.nojekyll'],'private_source_blender_config_files_in_static_site':False,
