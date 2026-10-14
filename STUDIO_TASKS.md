@@ -131,3 +131,5 @@ PUBLIC-RELEASE-005 COMPLETE: Actions38573493700/deployment7066939380 success; ca
 - PIVOT-APPROVAL-006 DONE: user "B + T1 là phương án hợp lý", concepts/v0.6/APPROVAL.json. PIVOT-PROTOTYPE-006 IN_PROGRESS; PUBLIC-RELEASE-006 remains separately gated. Subtasks: PROTO-ASSETS-006 original chibi/house/plaza sources+GLBs; PROTO-PLAY-006 adapted existing controller/camera/accessibility; PROTO-QA-006 actual render/physics/mobile/quality/Validator/build/media/package.
 
 - PROTO-ASSETS-006 source preparation complete: new nari-v06.py/chibi_motion_v06.py and letter-plaza-v06.py Python syntax PASS. Actual exports/rig/structure/render acceptance pending; source checkpoint before Blender.
+
+- PROTO-ASSETS-006 first actual outputs saved: nari-chibi.blend/GLB8,976tri/1,356,152B/28bones/20clips/10morphs; letter-plaza.blend/GLB1,641,068B/495source modules/27support pairs. Both Validator0/0. Runtime draft typecheck PASS; actual deformation/build/render/gameplay pending.
