@@ -1,4 +1,4 @@
-// Actual rendered candidate QA. No public deployment, screenshot mocks or animation bypass.
+// Actual rendered QA of an existing local or public site; this script never deploys.
 import assert from 'node:assert/strict'
 import { createRequire } from 'node:module'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
@@ -10,6 +10,7 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'../..')
 const requirePreview=createRequire(resolve(root,'preview/package.json'))
 const {chromium,expect}=requirePreview('@playwright/test')
 const url=process.argv[2]||'http://127.0.0.1:4173/'
+const publicDeployment=new URL(url).hostname==='anapaulagatti.github.io'
 const out=resolve(process.env.STUDIO_POLISH_REPORT_DIR||resolve(root,'quality-reports/v0.3/final-render'))
 await mkdir(out,{recursive:true})
 const hash=b=>createHash('sha256').update(b).digest('hex')
@@ -186,7 +187,7 @@ try {
   await click(fallback,fallback.getByRole('button',{name:/Linh vật gốm/}));await expect(fallback.locator('.poster img')).toBeVisible()
   await fallbackContext.close();checks.push('Missing WebGL gives actual original PNG fallback and usable accessible controls')
   assert.deepEqual(errors,[]);assert.deepEqual(missing,[])
-  const report={status:'PASS',url,public_deployment:false,verified_at:new Date().toISOString(),browser:browser.version(),checks,metrics,critical_errors:errors,missing_resources:missing,limitation:'SwiftShader cloud software renderer; physical mobile FPS not measured'}
+  const report={status:'PASS',url,public_deployment:publicDeployment,verified_at:new Date().toISOString(),browser:browser.version(),checks,metrics,critical_errors:errors,missing_resources:missing,limitation:'SwiftShader cloud software renderer; physical mobile FPS not measured'}
   await writeFile(resolve(out,'verification.json'),JSON.stringify(report,null,2)+'\n')
   console.log(checks.length+' real v0.3 browser checks PASS; no critical errors/missing resources')
 } catch(error) {

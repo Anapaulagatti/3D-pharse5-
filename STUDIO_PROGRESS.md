@@ -39,3 +39,7 @@
 **Verification required:** Completed for this final candidate SHA 0ce49e58b26baa3802bc6e22fa4cab91d7181232e0069adcedd4f9353270c2d6. Repeat only for a new authorized change or concrete failure; do not broaden tests without cause. If later publishing is approved, stage only reviewed HTML/.nojekyll, preserve assets, audit and verify actual public render before claiming success.
 
 **Remote GitHub save status:** Complete-evidence checkpoint 007f423 pushed and independently verified against origin/main. This documentation-only handoff follows it. Docs/candidate/proof changes do not trigger the guarded v0.2 Pages workflow.
+
+## Authorized v0.3 public release — in progress
+
+Latest user request explicitly authorizes v0.3 Pages publication and supersedes the prior updated-publication hold. Reuse exact approved HTML SHA 0ce49e58b26baa3802bc6e22fa4cab91d7181232e0069adcedd4f9353270c2d6, with original showcase/ and all 37 baseline files preserved. Production/typecheck and 3 GLBs Validator 0/0 reverified; secret/provenance audit PASS. Scoped workflow now stages showcase-v0.3 only; approved checksum pinned; static allowlist index.html/.nojekyll. Next: push deployment checkpoint, monitor actual Actions run, inspect public rendered result and save release evidence. Deployment success is not yet claimed.

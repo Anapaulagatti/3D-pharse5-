@@ -45,3 +45,5 @@ No learning-alley, celebration scene or six district assets are claimed in v0.2.
 | Review request/history | docs/reviews/VISUAL_POLISH_V03_USER_REQUEST.md; all review-pass/failed/interrupted reports | Preserved checkpoints | Source of v0.3 scope and section-13 release gate; historical failures are not final pass evidence |
 
 No Hangul Garden/new district, paid provider, audio or backend assets were created. Physical-device FPS is unmeasured. Current candidate is ready for the user's visual feedback; public v0.3 is not deployed.
+
+- PUBLIC-RELEASE-003: user authorized publication of the saved v0.3 HTML (8,213,753 bytes; SHA 0ce49e58b26baa3802bc6e22fa4cab91d7181232e0069adcedd4f9353270c2d6). Artifact staged as only index.html/.nojekyll; no source/model regeneration; all 37 baseline file hashes remain unchanged. Public verification pending.

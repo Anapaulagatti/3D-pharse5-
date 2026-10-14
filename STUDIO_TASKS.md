@@ -2,7 +2,7 @@
 
 Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verification. Milestones follow the persistent-progress prompt (nine milestones).
 
-Current user gate: VISUAL-POLISH-003 — Golden Vertical Slice v0.3 candidate COMPLETE and verified. STOP for the user's visual review. Public v0.2 remains preserved; v0.3 publication requires explicit updated-showcase approval. No WORLD-001/WORLD-002 work.
+Current user gate: v0.3 public publication explicitly authorized by latest user request. PUBLIC-RELEASE-003 IN_PROGRESS; publish exact reviewed HTML, verify public scene and STOP for feedback. No WORLD-001/WORLD-002 work.
 
 | Milestone | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|---|
@@ -62,5 +62,5 @@ Current user gate: VISUAL-POLISH-003 — Golden Vertical Slice v0.3 candidate CO
 | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|
 | VISUAL-POLISH-003 | Golden Vertical Slice v0.3 — Living Hanok Showcase candidate | DONE | quality-reports/v0.3/REVIEW.md, VERIFICATION_SUMMARY.json, final production/artifact browser evidence and downloadable review ZIP |
-| VISUAL-REVIEW-003 | User reviews v0.3 visual results | BLOCKED | Waiting for user's feedback; STOP, no new district |
-| PUBLIC-RELEASE-003 | Publish updated v0.3 only after review/authorization | BLOCKED | User request section 13 requires updated-publication approval; existing v0.2 permission does not automatically cover new art |
+| VISUAL-REVIEW-003 | User reviews v0.3 visual results | DONE | User explicitly requested v0.3 Pages publication after candidate handoff; await further visual feedback after release |
+| PUBLIC-RELEASE-003 | Publish approved v0.3 and verify actual public render | IN_PROGRESS | Latest user explicitly authorized v0.3 Pages publication; preflight/build/3 GLB checks PASS, deployment pending |
