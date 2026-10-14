@@ -70,9 +70,9 @@ Current task: BIG-UPDATE-004 — Living Hanok Showcase v0.4 overhaul. Preserve p
 | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|
 | OVERHAUL-AUDIT-004 | Archive review, inspect source and preserve v0.3 | DONE | AUDIT.md and preserved-v03.json; remote baseline verified |
-| OVERHAUL-MASCOT-004 | Versioned rig, 12 authored clips, expressive face | IN_PROGRESS | 12 exported clips and face/limb reset channels validated; actual face/locomotion images inspected; final integrated QA pending |
-| OVERHAUL-WORLD-004 | Readable architectural/courtyard/garden/skyline detail | IN_PROGRESS | hanok-living.blend/GLB saved; 18,112 triangles/20 primitives after band optimization; actual render QA in progress |
-| OVERHAUL-LIFE-004 | Refined ambient life and day/evening/night materials | TODO | No heavy bloom or added dependencies |
-| OVERHAUL-PRESENT-004 | Hero/portrait camera, clean action UI, reactions | TODO | Live motion/accessibility retained |
-| OVERHAUL-QA-004 | Actual render/12 states/mobile/fallback/Validator/build/video | TODO | Screenshot and capture evidence required |
+| OVERHAUL-MASCOT-004 | Versioned rig, 12 authored clips, expressive face | DONE | Final production 10-stage browser PASS and actual images inspected; exports/build valid |
+| OVERHAUL-WORLD-004 | Readable architectural/courtyard/garden/skyline detail | DONE | Final production 10-stage browser PASS and actual images inspected; exports/build valid |
+| OVERHAUL-LIFE-004 | Refined ambient life and day/evening/night materials | DONE | Final production 10-stage browser PASS and actual images inspected; exports/build valid |
+| OVERHAUL-PRESENT-004 | Hero/portrait camera, clean action UI, reactions | DONE | Final production 10-stage browser PASS and actual images inspected; exports/build valid |
+| OVERHAUL-QA-004 | Actual render/12 states/mobile/fallback/Validator/build/video | IN_PROGRESS | Production 10 stages PASS; 5 GLBs Validator 0/0; exact static package and final media inspection in progress |
 | OVERHAUL-REVIEW-004 | Portable review candidate and remote verified checkpoint | TODO | STOP for review, public v0.3 unchanged |

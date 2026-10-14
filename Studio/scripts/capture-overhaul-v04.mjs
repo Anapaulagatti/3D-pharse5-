@@ -27,7 +27,7 @@ try{
  })
  await client.send('Page.startScreencast',{format:'jpeg',quality:90,maxWidth:1280,maxHeight:720,everyNthFrame:1})
  for(const [clip,ms] of [['Idle',1600],['Walk',3600],['Run',3000],['Jump',2800],['Greeting',2500],['Happy',2200],['Thinking',2400],['Disappointed',2200],['Curious',2300],['Celebration',3500],['ClickReaction',2200],['ReturnToIdle',1600]]){
-  await page.getByLabel('Trạng thái linh vật').selectOption(clip);await expect.poll(()=>page.evaluate(()=>window.__STUDIO_METRICS__?.activeClip),{timeout:60_000}).toBe(clip)
+  await page.getByLabel('Trạng thái linh vật').evaluate((select,value)=>{select.value=value;select.dispatchEvent(new Event('change',{bubbles:true}))},clip);await expect.poll(()=>page.evaluate(()=>window.__STUDIO_METRICS__?.activeClip),{timeout:60_000}).toBe(clip)
   samples.push({clip,firstFrame:frames.length,selected_at:Date.now(),metrics:await page.evaluate(()=>window.__STUDIO_METRICS__)})
   await page.waitForTimeout(ms)
  }

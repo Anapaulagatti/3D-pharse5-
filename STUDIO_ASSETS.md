@@ -59,3 +59,5 @@ Baseline source/export/published artifacts preserved by quality-reports/v0.4/pre
 - Corrected v0.4 mascot source/GLB retains native per-state face/leg reset tracks, 696,568 bytes and 12 clips. Actual face geometry seen in static browser shots; separate versioned GLB/source retained. No old approved .blend/GLB/texture changed.
 
 - Saved showcase-v0.4/index.html and downloads/v0.4 review/static ZIPs; asset URLs embedded as Blob URLs, no CDN/server assets required. Candidate audit PASS. These are new recoverable outputs; live v0.3 deployment inputs remain untouched.
+
+- Production final-render/verification.json PASS (10 stages), actual desktop/mobile/face/motion screenshots saved and inspected. All five GLBs Validator 0/0. Native compositor video captured 52 actual frames/44.92s; raw JPEGs/timestamps retained. Remove the asynchronous film-caption strip from the final video, without retiming or changing character pixels.

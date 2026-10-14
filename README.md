@@ -63,6 +63,12 @@ npm run dev
 
 Hướng dẫn Windows, phiên bản package và xử lý GLB: [Studio/README.md](Studio/README.md). Kết quả kiểm tra và ảnh demo thực tế: [quality-reports/SETUP_REPORT.md](quality-reports/SETUP_REPORT.md).
 
+## Living Hanok v0.4 — bản duyệt Big Update
+
+[Ảnh trước/sau và bộ biểu cảm](quality-reports/v0.4/REVIEW.md) · [Video chuyển động thật 45 giây](quality-reports/v0.4/living-hanok-v04-motion.mp4) · [Gói tương tác v0.4](downloads/v0.4/living-hanok-v0.4-review.zip).
+
+V0.4 thêm rig chân độc lập, 12 clip full-body/face xuất trong GLB, các nút Đi dạo/Chạy vui/Nhảy lên/Vẫy chào/Ăn mừng và Hanok nhiều chi tiết hơn. Gói review mở qua START_WINDOWS.cmd hoặc python3 start.py sau khi giải nén (cần Python3). Website Pages bên dưới vẫn là v0.3; dừng chờ review v0.4, chưa xây district mới.
+
 ## Living Hanok v0.3 — đã xuất bản
 
 [**Xem bộ ảnh trước/sau và hướng dẫn review**](quality-reports/v0.3/REVIEW.md) · [Video chuyển động thật 42 giây](quality-reports/v0.3/living-hanok-motion.mp4) · [Tải gói tương tác v0.3](downloads/v0.3/living-hanok-v0.3-review.zip).

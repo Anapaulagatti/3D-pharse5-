@@ -76,3 +76,7 @@
 - Constant exported face/pose tracks are semantically necessary; preserve them as minimal two-key channels using the supported Blender flag. Validate their presence per clip, rather than just counting clip names. Retain initial failed/interrupted images and meaningful assertions. Portrait ground aligned beneath the platform to avoid a second distant shadow; slightly closer portrait fit retains full jump margin.
 
 - Mandatory remaining verification targets are rebuilt production and exact extracted static candidate under /3D-pharse5-/. Connection-refused after cloud restart is an internal server lifecycle interruption, not a rendering/GLB failure; preserve evidence and restart owned server. Browser checks now persist IN_PROGRESS snapshots after each completed stage.
+
+- Final QA initial live phase hit the harness default 5s polling timeout with ReturnToIdle actually advancing to 0.7825/0.8s on software rendering. Use the existing cloud QA 60s expectation deadline for all polls; preserve assertions and failed diagnostics, then rerun. No animation/accessibility override used.
+
+- Actual video timestamps and native state samples preserved. CDP frames can arrive after native DOM caption updates, so remove the bottom 60px caption strip rather than present stale state labels as motion evidence. Actual character/platform pixels remain unaltered, VFR keeps original timing and the uncropped/raw capture is retained. Select review frames by encoded frame index to avoid timestamp seek rounding choosing the previous frame.

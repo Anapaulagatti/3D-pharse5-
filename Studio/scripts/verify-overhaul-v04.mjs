@@ -5,7 +5,7 @@ import {resolve} from 'node:path'
 import {mkdir,writeFile} from 'node:fs/promises'
 import {createHash} from 'node:crypto'
 const root=resolve(import.meta.dirname,'../..'),req=createRequire(resolve(root,'preview/package.json'))
-const {chromium,expect}=req('@playwright/test'),url=process.argv[2]||'http://127.0.0.1:4184/'
+const {chromium,expect:baseExpect}=req('@playwright/test'),expect=baseExpect.configure({timeout:60_000}),url=process.argv[2]||'http://127.0.0.1:4184/'
 const out=resolve(root,process.env.STUDIO_V04_REPORT_DIR||'quality-reports/v0.4/render');await mkdir(out,{recursive:true})
 const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']})
 const errors=[],missing=[],checks=[],states={},metrics={};let current
@@ -51,7 +51,7 @@ try{
  const box=await page.locator('canvas').boundingBox(),cam=(await m(page)).cameraPosition
  await page.mouse.move(box.x+box.width*.45,box.y+box.height*.3);await page.mouse.down();await page.mouse.move(box.x+box.width*.63,box.y+box.height*.36,{steps:12});await page.mouse.up();assert.notDeepEqual((await m(page)).cameraPosition,cam);await shot(page,'orbit')
  await click(page,page.getByRole('button',{name:/Đặt lại góc nhìn/}));await ready(page)
- for(const [name,f] of [['Mái hanok','roof'],['Vườn mận','garden'],['Đài gốm','dais']]){await click(page,page.getByRole('button',{name,exact:true}));await ready(page);await expect.poll(()=>page.evaluate(()=>window.__STUDIO_METRICS__?.focus)).toBe(f);await shot(page,f+'-detail')}
+ for(const [name,f] of [['Mái hanok','roof'],['Vườn mận','garden'],['Đài gốm','dais']]){await click(page,page.getByRole('button',{name,exact:true}));await ready(page);await expect.poll(()=>page.evaluate(()=>window.__STUDIO_METRICS__?.focus)).toBe(f);const target=f==='roof'?[-1.5,1.75,-1.6]:f==='garden'?[-3,1.22,1.15]:[-.4,1.05,1];await expect.poll(()=>page.evaluate(target=>Math.max(...window.__STUDIO_METRICS__.cameraTarget.map((v,i)=>Math.abs(v-target[i]))),target)).toBeLessThan(.03);await shot(page,f+'-detail')}
  await click(page,page.getByRole('button',{name:'Tổng quan',exact:true}));await toggle(page,'Góc nhìn điện ảnh',true);const cinema=(await m(page)).cameraPosition;await expect.poll(()=>page.evaluate(()=>window.__STUDIO_METRICS__?.cameraPosition)).not.toEqual(cinema);const ob=await page.locator('canvas').boundingBox();await page.mouse.move(ob.x+ob.width*.6,ob.y+ob.height*.3);await page.mouse.down();await page.mouse.move(ob.x+ob.width*.65,ob.y+ob.height*.32,{steps:7});await page.mouse.up();await expect(page.getByLabel('Góc nhìn điện ảnh')).not.toBeChecked()
  await recordCheck('Real orbit/reset/focus and gentle cinematic movement; cinematic yields to manual orbit')
  await toggle(page,'Giảm chuyển động',true);await ready(page);metrics.medium=await m(page)
