@@ -33,6 +33,7 @@ Visible issues and inspected sources are documented in [AUDIT.md](AUDIT.md): inc
 ## Preservation, checks and limits
 
 - v0.4 recoverable baseline: `9cc1381792b768f1e973d45b3421d24eb514c0d5`; tag `checkpoint/v0.4-pre-reforge-005` independently verified on origin.
+- Complete Gate A delivery checkpoint `a6c1959c0e7ab1247505f1ecb330d2a89cb90fb6` was pushed and independently matched origin/main; [remote proof](remote-checkpoint.json). Latest Pages run stayed38530210414, no new deployment.
 - Gate A preparation checkpoint `e0a7828fec814397bc5609cfb0a49f64414d24cc` independently matched origin/main before concept generation.
 - [75-file preservation inventory](preserved-v04.json), [source read-only audit](blender-source-audit.json), [actual GLB structure](existing-glb-inspection.json), [public/remote starting state](v04-start-state.json), and [Gate A verification](gate-a-verification.json).
 - No runtime/app/modeling-source/dependency/lockfile/deployment changes at this gate. No new `.blend` or `.glb` exported, no new animation/controller claimed. No v0.5 build/Validator/gameplay/mobile acceptance claim; those require implemented gates B–E.

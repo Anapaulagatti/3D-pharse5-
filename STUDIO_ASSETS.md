@@ -96,3 +96,5 @@ All 43 baseline files preserved; no app package or lockfile changes, paid servic
 | Gate A review/evidence | quality-reports/v0.5/GATE_A_REVIEW.md, AUDIT.md, gate-a-verification.json | Reviewed concept and preserved actual v0.4 screenshots linked as before-state only; no v0.5 gameplay render claimed |
 
 No new final humanoid, skeleton/skin, `.blend`, GLB, animation, texture or playable build was produced before required concept approval. Approved75 baseline files, app/runtime and deployment inputs remain unchanged.
+
+- Gate A source/concept/plan/evidence checkpoint a6c1959 independently matched origin/main; remote proof saved in quality-reports/v0.5/remote-checkpoint.json. Recovery tag retained; no v0.5 production asset or deployment claimed.

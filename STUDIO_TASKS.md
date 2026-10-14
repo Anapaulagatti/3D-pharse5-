@@ -88,7 +88,7 @@ Current task: REFORGE-GATE-A-005 BLOCKED awaiting the user's A/B/C choice. Audit
 | Stable ID | Deliverable | Status | Evidence / next gate |
 |---|---|---|---|
 | REFORGE-AUDIT-005 | Inspect sources/history/GLBs, verify public and remote baseline, preserve v0.4 | DONE | AUDIT.md;75 protected hashes; read-only Blender inspection of five sources; five directly parsed GLBs; actual saved v0.4 images inspected; origin/main and recovery tag matched |
-| REFORGE-CONCEPT-005 | Three original humanoid concepts, comparison and architecture rebuild plan | DONE | concepts/v0.5/character-concepts.png + CONCEPT_REVIEW.md/provenance/prompt; docs/v0.5/ARCHITECTURE_REBUILD_PLAN.md; GATE_A_REVIEW.md and gate-a-verification.json |
+| REFORGE-CONCEPT-005 | Three original humanoid concepts, comparison and architecture rebuild plan | DONE | concepts/v0.5/character-concepts.png + CONCEPT_REVIEW.md/provenance/prompt; docs/v0.5/ARCHITECTURE_REBUILD_PLAN.md; GATE_A_REVIEW.md and gate-a-verification.json; a6c1959 independently matched origin/main |
 | REFORGE-GATE-A-005 | User approves one final character direction | BLOCKED | Explicit section15 Gate A: A Nari recommended, B Yun or C Dam; original illustrated alternatives delivered, final choice pending |
 | REFORGE-GATE-B-005 | Complete four-sided Hanok graybox, scale/support checks and actual 360° review | TODO | Dimensioned plan first; validate structure before detailed materials |
 | REFORGE-GATE-C-005 | Skinned humanoid,20 clips,10 expressions, playable collision/controller and touch input | BLOCKED | Requires concept approval; no expensive final character build yet |

@@ -3,7 +3,7 @@
 - Current milestone: REFORGE-005 — Joseon Fantasy Reforge IN_PROGRESS. Gate A concept/audit delivery complete; **user A/B/C approval pending**. Do not mark v0.5 complete.
 - Current task ID: REFORGE-GATE-A-005 BLOCKED on explicit user concept choice. REFORGE-AUDIT-005 and REFORGE-CONCEPT-005 DONE; Gates B–E unimplemented.
 - Last completed subtask: three distinct original concepts with source/provenance, comparison/recommendation and dimensioned architecture/playable implementation plan.
-- Last verified remote checkpoint: e0a7828fec814397bc5609cfb0a49f64414d24cc, preparation before concept generation. Recovery tag checkpoint/v0.4-pre-reforge-005 points to9cc1381792b768f1e973d45b3421d24eb514c0d5 and independently matched origin. Final Gate A save follows in Git history.
+- Last verified remote Gate A checkpoint: a6c1959c0e7ab1247505f1ecb330d2a89cb90fb6, independently matched origin/main after concept/plan/evidence push. Recovery tag checkpoint/v0.4-pre-reforge-005 points to9cc1381792b768f1e973d45b3421d24eb514c0d5 and independently matched origin. Remote proof is saved in quality-reports/v0.5/remote-checkpoint.json; this final docs-only proof checkpoint follows in history.
 - Public v0.4 unchanged: https://anapaulagatti.github.io/3D-pharse5-/; current HTTPS200 text/html/10,213,265bytes/SHA cd238a4c79f378d05eea098ec3f55c207c24c91444afce459d1345c012572846 matched. Actions38530210414 completed success; no deployment active or dispatched for this task.
 - Audit: read required docs and all arena/mascot/v0.3/v0.4 modeling scripts plus R3F runtime; five actual Blender sources opened read-only and five actual GLBs parsed. Current pavilion lacks full wall envelope and purlin/rafter support; legacy12clip mascot has no skin/JOINTS/WEIGHTS/morphs. Actual saved public hero/run images inspected as before-state, not new v0.5 proof.
 - New art: concepts/v0.5/character-concepts.png, original1536×1024 PNG/2,710,246bytes, visually inspected. A Nari/Hanji Messenger recommended; B Yun/Apprentice Scholar; C Dam/Lantern Courtyard Keeper. Final character selection is NOT approved. Images are concepts, not meshes.
@@ -20,7 +20,7 @@
 
 **Current task ID:** REFORGE-GATE-A-005 BLOCKED for A/B/C selection. Gate B TODO; Gate C BLOCKED before final human construction; Gates D/E TODO. No public v0.5 authorization.
 
-**Last verified checkpoint:** e0a7828fec814397bc5609cfb0a49f64414d24cc independently matched origin/main before concept generation; recovery tag checkpoint/v0.4-pre-reforge-005 independently matched9cc1381. Final concept/plan/evidence checkpoint follows in Git history and must be independently checked after push.
+**Last verified checkpoint:** a6c1959c0e7ab1247505f1ecb330d2a89cb90fb6 is the complete Gate A concept/plan/evidence checkpoint, independently matched origin/main. Earlier audit e0a7828 and recovery tag checkpoint/v0.4-pre-reforge-005→9cc1381 also independently verified. Final remote-proof/handoff-only checkpoint follows in Git history.
 
 **Completed work:** Required repository/source/runtime/GLB/Blender audit, current public/remote confirmation,75-file preservation baseline and recovery tag; original A/B/C concept board with prompt/provenance/rubric; dimensioned four-sided Hanok and playable slice plan; actual illustration/legacy-render review and Gate A verification.
 
@@ -34,4 +34,4 @@
 
 **Verification required:** Gate A evidence is source/concept/preservation review only. Future gates need actual four-sided/connection renders, skin/weight/deformation/clip/contact/controller/collision proof, measured costs, accessibility/mobile/fallback, Validator and production/browser checks. Never substitute these concept illustrations for rendered gameplay evidence.
 
-**Remote GitHub save status:** Audit e0a7828 and v0.4 recovery tag independently verified. Save this final Gate A delivery and compare origin/main to local HEAD before claiming remote persistence. Docs/concept/report paths do not trigger Pages.
+**Remote GitHub save status:** Complete Gate A delivery a6c1959c0e7ab1247505f1ecb330d2a89cb90fb6 pushed and independently matched origin/main; audit e0a7828 and v0.4 recovery tag independently verified. See remote-checkpoint.json. Final docs-only proof/handoff save follows and must also be pushed/compared before finishing. Latest Pages run remains38530210414 completed success; no new deployment. STOP for user A/B/C choice.
