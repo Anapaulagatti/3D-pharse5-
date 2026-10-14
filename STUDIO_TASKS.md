@@ -139,3 +139,5 @@ PUBLIC-RELEASE-005 COMPLETE: Actions38573493700/deployment7066939380 success; ca
 - Geometry/controller check detects central porch/door column blocking entry before closed door. New T1 source clears two central entrance posts, retaining spanning crossbeams/outer supports; re-export and actual door/stair checks required.
 
 - Door/steps/floor geometry now PASS7checks after clearing center posts and aligning continuous floor/planks/stairs at0.30m. Actual refined world and character viewed; further polish splits body topology at cloth boundaries (not geometry replacement), widens portrait for celebration jump and removes old architecture scale-proxy capsule. Final export/QA pending.
+
+- Final pose review caught upper baji skin weights lifting a cream wedge into jacket during Run; stabilize waistband to Hips with smooth lower-leg blend. New hero uses closer perspective to prioritize Nari (phone wide FOV), full plaza remains in overview presets. Last character export and actual regression required; no pass asserted yet.

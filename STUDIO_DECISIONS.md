@@ -155,3 +155,5 @@ PUBLIC-RELEASE-005 COMPLETE: exact082c661b (13,543,219B) publicly serves at http
 - Remove center front/porch posts obstructing real aperture; retain rear center/outer posts and continuous crossbeams. Test actual geometry and native threshold traversal rather than visually opened panels alone.
 
 - Split continuous body topology at palette boundaries, then paint per-face corners to prevent triangular interpolation teeth while retaining connected skinning. Wider portrait accommodates actual celebration root bob/head. Remove architecture capsule now that real chibi exists. Secondary optional live draw/triangle output, no FPS claim; Effects Off stops environmental updates.
+
+- Pin only central waist vertices to pelvis with .30–.35m smooth transition, keeping arm/leg diffusion elsewhere; prevents high-knee baji crossing into coral jacket. Perspective hero brings foreground Nari forward, with wider mobile FOV; orbit/full-world orthographic QA presets retained. Do not accept technically moving clips with visible skin defects.

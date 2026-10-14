@@ -168,3 +168,5 @@ Concept art is not a production texture/mesh/rig/animation/prototype or actual v
 - New character source has per-vertex palette and actual collar/hem/cuffs; prior prototype011cf32 recoverable. T1 source now clears entrance; old world export recoverable. No v0.5 source/asset changed.
 
 - Refined world source/GLB clear real entry and unify floor/stair0.30m;7controller geometry checks PASS. Character current9,744tri/1,435,988B, world38,421tri/1,633,388B. Refined-render actual images retained. New exact clothing-plane cuts pending Blender re-export/validation.
+
+- Final-render39actual screenshots retained, including the rejected Run-a waist-weight defect. Current10608tri character/38421tri world source cost documented; visual benefit of seam topology is explicit+608tri over character goal, combined49029below50000. Waist weight fix changes no geometry, only genuine normalized skin weights.

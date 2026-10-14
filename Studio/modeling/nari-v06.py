@@ -64,6 +64,14 @@ excluded=['Root','Fingers.L','Fingers.R','HairKnot','PaperPin','LetterSatchel','
 for n in excluded:arm.bones[n].use_deform=False
 bpy.ops.object.select_all(action='DESELECT');body.select_set(True);rig.select_set(True);bpy.context.view_layer.objects.active=rig;bpy.ops.object.parent_set(type='ARMATURE_AUTO');bpy.context.view_layer.objects.active=body;rig.select_set(False);bpy.ops.object.vertex_group_limit_total(limit=4);bpy.ops.object.vertex_group_normalize_all(lock_active=False)
 for n in excluded:arm.bones[n].use_deform=True
+# Stabilize the trouser waistband against the pelvis. Bone-heat leg influence at
+# the upper baji otherwise pulls a cream wedge into the jacket during high knees.
+for v in body.data.vertices:
+ if .30<v.co.z<.45 and abs(v.co.x)<.19:
+  blend=min(1,max(0,(v.co.z-.30)/.05));ws={body.vertex_groups[g.group].name:g.weight*(1-blend) for g in v.groups}
+  ws['Hips']=ws.get('Hips',0)+blend;ws=sorted([(n,w) for n,w in ws.items() if w>.00001],key=lambda q:-q[1])[:4];total=sum(w for n,w in ws)
+  for group in body.vertex_groups:group.remove([v.index])
+  for n,w in ws:(body.vertex_groups.get(n) or body.vertex_groups.new(name=n)).add([v.index],w/total,'REPLACE')
 def skin(o,n):
  apply(o);g=o.vertex_groups.get(n) or o.vertex_groups.new(name=n);g.add(list(range(len(o.data.vertices))),1,'REPLACE');m=o.modifiers.new('ChibiSkin','ARMATURE');m.object=rig;o.parent=rig
 # Analytic smooth head, separate natural neck join, oversized cheeks and little ears.

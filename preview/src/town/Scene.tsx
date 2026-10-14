@@ -10,7 +10,7 @@ import Nari from './Nari'
 import { Lighting, House, Contact } from './World'
 
 const positions:Record<Preset,[number[],number[],number]>={
- face:[[0,.86,3],[0,.86,0],.76],hero:[[5,3.8,10],[-.5,1.0,-.45],10.8],front:[[-1.2,2.4,10],[-1.2,1.35,-2.0],7.8],rear:[[-1.2,2.4,-13],[-1.2,1.35,-2.2],7.8],left:[[-12,2.4,-2.1],[-1.2,1.35,-2.1],7.5],right:[[10,2.4,-2.1],[-1.2,1.35,-2.1],7.5],roof:[[6,10,5],[-1.2,1.45,-2],10],connection:[[2.7,2.8,1],[1.05,2,-.5],2.4],interior:[[-2.5,1.3,-1.5],[-2.5,1.1,-3.6],1.8],
+ face:[[0,.86,3],[0,.86,0],.76],hero:[[2.8,2.1,5.3],[-.7,1.0,-.4],10.8],front:[[-1.2,2.4,10],[-1.2,1.35,-2.0],7.8],rear:[[-1.2,2.4,-13],[-1.2,1.35,-2.2],7.8],left:[[-12,2.4,-2.1],[-1.2,1.35,-2.1],7.5],right:[[10,2.4,-2.1],[-1.2,1.35,-2.1],7.5],roof:[[6,10,5],[-1.2,1.45,-2],10],connection:[[2.7,2.8,1],[1.05,2,-.5],2.4],interior:[[-2.5,1.3,-1.5],[-2.5,1.1,-3.6],1.8],
 }
 function Ready({onReady}:{onReady:()=>void}){
  const reported=useRef(false),frames=useRef(0),{invalidate}=useThree()
@@ -37,7 +37,7 @@ function Camera({settings:s,player}:{settings:Settings;player:Player}){
   goal.current={pos:new Vector3().fromArray(pos),look:new Vector3().fromArray(look),zoom}
   if(!initialized.current||s.reduced||s.paused||s.view==='play'){camera.position.fromArray(pos);target.current.fromArray(look);camera.lookAt(target.current);if(camera instanceof OrthographicCamera)camera.zoom=zoom;goal.current=null}
   initialized.current=true
-  if(camera instanceof PerspectiveCamera){camera.zoom=1;camera.fov=45}
+  if(camera instanceof PerspectiveCamera){camera.zoom=1;camera.fov=s.view==='hero'&&size.width<700?60:45}
   camera.updateProjectionMatrix();controls.current?.target.copy(target.current);controls.current?.update();invalidate()
  },[camera,size,s.preset,s.angle,s.view,s.reset,s.reduced,s.paused,player,invalidate])
  useFrame((_,dt)=>{
@@ -60,7 +60,7 @@ function Camera({settings:s,player}:{settings:Settings;player:Player}){
 export default function Scene({settings:s,input,player,onReact,onDoor,onDoorBlocked,onStory,onReady,onFailure}:{settings:Settings;input:InputState;player:Player;onReact:()=>void;onDoor:()=>void;onDoorBlocked:()=>void;onStory:(kind:string)=>void;onReady:()=>void;onFailure:()=>void}){
  const portrait=s.view==='portrait'||s.view==='animation',world=s.view==='hero'||s.view==='play'
  const colliders=structure.colliders as Collider[]
- return <Canvas key={s.view==='play'?'perspective':'orthographic'} orthographic={s.view!=='play'} shadows={s.quality!=='low'} camera={{position:[11,10,14],near:.05,far:100,zoom:45}} dpr={s.quality==='low'?1:[1,s.quality==='high'?1.75:1.25]} frameloop={s.active&&!s.reduced&&!s.paused?'always':'demand'} gl={{antialias:s.quality!=='low'}} fallback={<p>WebGL không khả dụng.</p>}>
+ return <Canvas key={s.view==='play'||s.view==='hero'?'perspective':'orthographic'} orthographic={s.view!=='play'&&s.view!=='hero'} shadows={s.quality!=='low'} camera={{position:[11,10,14],near:.05,far:100,zoom:45}} dpr={s.quality==='low'?1:[1,s.quality==='high'?1.75:1.25]} frameloop={s.active&&!s.reduced&&!s.paused?'always':'demand'} gl={{antialias:s.quality!=='low'}} fallback={<p>WebGL không khả dụng.</p>}>
   <ContextGuard onFailure={onFailure}/>
   <Lighting settings={s}/>
   <Suspense fallback={null}>
