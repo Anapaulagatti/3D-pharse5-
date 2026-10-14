@@ -82,7 +82,7 @@ export default function App() {
         </aside>
         <section className="viewer-section" aria-label="Khung xem 3D">
           <div className="viewer-header"><div><span className="eyebrow">{settings.scene === 'courtyard' ? 'SCENE 01 · LIVING HANOK' : 'SCENE 02 · MEET YOUR COMPANION'}</span><h2>{settings.scene === 'courtyard' ? 'Hanok Rooftop' : 'Ceramic Spirit'}</h2></div><span className="viewer-tag">BẢN DUYỆT · v0.3</span></div>
-          <div className={`stage ${settings.mobile ? 'mobile-frame' : ''}`} data-engine={engine} data-clip={settings.mood}>
+          <div className={`stage ${settings.mobile ? 'mobile-frame' : ''}`} data-engine={engine} data-clip={settings.mood} data-scene={settings.scene}>
             {engine === 'fallback' ? poster : <SceneBoundary fallback={poster} onFailure={failed}>
               <Suspense fallback={<div className="loading" role="status">Đang dựng không gian…</div>}>
                 <SceneView key={`${settings.scene}:${reset}`} settings={settings} onReady={ready} onFailure={failed} onFocus={focus => update('focus', focus)} onInteract={interact} onOrbit={() => update('cinematic', false)} />

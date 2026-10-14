@@ -26,11 +26,11 @@ Bản ứng viên để bạn duyệt. GitHub Pages hiện vẫn dùng artifact 
 
 ## Xem chuyển động và tương tác
 
-[Video chuyển động thật](living-hanok-motion.mp4). Video ghi trình duyệt WebGL thực, không ghép mockup; độ mượt của GPU phần mềm cloud không đại diện điện thoại thật.
+[Video chuyển động thật](living-hanok-motion.mp4). Video H.264 42 giây ghi trình duyệt WebGL thực, đã xem các frame giải mã và bỏ đoạn tải/resize ban đầu, không ghép mockup; độ mượt của GPU phần mềm cloud không đại diện điện thoại thật.
 
 [Tải gói tương tác v0.3](../../downloads/v0.3/living-hanok-v0.3-review.zip). Giải nén toàn bộ, Windows mở `START_WINDOWS.cmd`; macOS/Linux chạy `python3 start.py` trong thư mục vừa giải nén. Cần Python 3; trình duyệt tự mở app. Không cần Node, Blender hoặc Internet. Mở `index.html` trong trình xem source của ChatGPT/GitHub không render app.
 
-Đèn, cây và mascot có phản ứng khi chạm; các nút dưới khung xem cung cấp cùng tương tác. Camera điện ảnh là tùy chọn và nhường lại khi bạn kéo xoay. Reduced motion mặc định theo hệ điều hành; tạm dừng và offscreen dừng chuyển động. Điện thoại mặc định chất lượng thấp.
+Đèn, cây và mascot có phản ứng khi chạm; các nút dưới khung xem cung cấp cùng tương tác. Camera điện ảnh là tùy chọn và nhường lại khi bạn kéo xoay. Reduced motion mặc định theo hệ điều hành; tạm dừng và offscreen dừng chuyển động. Điện thoại mặc định chất lượng thấp; khung diorama cao 260px để tránh khoảng trống thừa, khung mascot vẫn giữ đủ chiều cao cho động tác.
 
 ## Nguồn và giới hạn
 

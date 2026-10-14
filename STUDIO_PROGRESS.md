@@ -1,57 +1,41 @@
 # Studio progress
 
-- Current milestone: VISUAL-POLISH-003 — Golden Vertical Slice v0.3, IN_PROGRESS.
-- Current task: POLISH-QA-003 / actual rendered validation of implemented motion/camera/lighting. Last completed: additive assets plus production/typecheck and seven initial browser regression checks.
-- Last verified remote checkpoint: e0bf42b5bd4dfdaa70ffd9b67a948b1dcf3196de independently matched origin/main after preview implementation push. Further corrections/candidate checkpoint follows.
-- Authorization: upgrade existing arena/mascot with visual polish; no Hangul Garden or other district. STOP for review after candidate completion. v0.3 public release requires updated-showcase publication approval; existing v0.2 approval remains specific to v0.2.
-- Existing public site: https://anapaulagatti.github.io/3D-pharse5-/ remains the verified v0.2 (deployment source 8b562d4; successful run 38402363567 attempt 2). Do not describe it as v0.3.
-- Preservation: quality-reports/v0.3/preserved-v02.json records original assets/source-blend, models, textures, posters, animations, exports/v1, showcase and both lockfiles. Keep these bytes unchanged. Candidate assets/build/evidence use separate v0.3 paths.
-- Current environment: Node 24.19, Blender, Chromium, ffmpeg, pinned preview/Studio dependencies present; native Git read authenticated and remote SHA matched. No dependencies installed or configuration changed. Applying cloud-environment-onboarding:setup for capability checks; reusable startup already exists.
-- Inspection: actual arena GLB has LanternSway; mascot GLB has all six clips. Existing R3F actions pause correctly but motions are small, paper motes tiny, lighting changes abrupt, camera lacks expressive focus, and OS preference listener is absent. Improve without replacing original base assets.
-- Files saved: archived user request, four progress records, preservation hashes. New asset: assets/v0.3/source-blend/hanok-polish.blend, exports/v0.3/models/hanok-polish.glb and asset-manifest.json. Validator 0 errors/0 warnings; 13,312 triangles/21 draws/527,852 bytes; 37 originals unchanged. Render quality pending.
-- Next action: complete verify-polish-v03.mjs against production at internal port 4173, inspect final screenshots, fix any failures, then record video and package separate candidate.
-- Corrections: native LoopOnce/finished-event reactions verified Greeting→Idle in intro-diagnostic.json; expanded portrait framing prevents celebration clipping; phones default low quality. Base and supplemental GLBs validate 0/0. Candidate single-file build saved separately (7.83 MiB, 8 verified embedded assets); not yet fully packaged/verified.
-- QA history: initial browser seven baseline checks passed; detailed review passes 1/2/3 failed timer/stability conditions and are retained. Current script fixes headless idle-canvas RAF stability waits using native scroll/page screenshot clips/real mouse input; no app motion/accessibility overrides or assertion removal. Full interaction/motion QA remains pending.
-- Current runtime blocker: sandbox changed to restricted on 2026-10-14; default Chromium socket/server bind denied. Supported require_escalated internal production server and browser verifier launched; confirm completion, restart only own services when needed.
-- Known limits: cloud uses software GPU; physical desktop/phone FPS cannot be inferred. Existing browser tools can capture real render/video.
-
-- Preview implementation: expressive original sample clones/crossfades, outward greeting/cheer silhouettes, blink/camera awareness/idle gestures, click reactions, foliage/flicker/instanced paper/petals, smooth focus/zoom/cinematic yield, OS preference listener, visibility/pause demand loop.
-- Checks passed: npm run typecheck; npm run build; initial 7 HTTP browser checks, zero missing resources/critical errors. Actual first render inspection found washed-out reflections; reduced environment intensity and balanced day/evening/night. Final day/night renders inspected; detailed QA is running, not yet claimed PASS.
-- Runtime services: Vite production preview internal 4173; original standalone v0.2 internal 8093 for before comparison. Processes may need restart next session; no cloud user-facing localhost links.
-- Assets/public release: no source asset regenerated/replaced; no dependency install; deployed showcase/ and workflow unchanged.
+- Current milestone: VISUAL-POLISH-003 — Golden Vertical Slice v0.3 candidate COMPLETE and verified. STOP for visual feedback.
+- Current task ID: VISUAL-REVIEW-003 waiting for user; PUBLIC-RELEASE-003 gated on updated-publication approval. No Hangul Garden or other district.
+- Last completed: production/artifact/browser/GLB/visual/video/package audit and recoverable review deliverables.
+- Last verified remote checkpoint before final handoff: 1a724b59a21e2a1f670ae2a5de73885a70fae537 matched origin/main; final complete-evidence commit follows in Git history.
+- Last checkpoint record updated: 2026-10-14T10:20:33+07:00 (Asia/Saigon).
+- Final candidate: showcase-v0.3/index.html, 8,213,753 bytes, SHA-256 0ce49e58b26baa3802bc6e22fa4cab91d7181232e0069adcedd4f9353270c2d6; 8 original verified embedded assets and SDK license notices. JS/CSS inline, GLB/PNG Blob URLs; repository subpath /3D-pharse5-/ verified.
+- Deliverables: downloads/v0.3/living-hanok-v0.3-review.zip and static ZIP/package manifest; showcase-v0.3/start.py + START_WINDOWS.cmd + README; quality-reports/v0.3/REVIEW.md, day/evening/night/hero/six expressive close-ups/roof/garden/mobile/fallback, live pose pairs, 42s H.264 motion capture and decoded frame review.
+- Preservation: all 37 original source/GLB/PNG/animation/export/lockfile/showcase hashes unchanged from b5ed079 baseline. Original .blend and exports/v1 retained. New 527,852-byte / 13,312-triangle Hanok detail GLB and editable Blender source are separate assets/v0.3 + exports/v0.3. No approved model regenerated.
+- Code: additive model layer, lantern sway/flicker/foliage/instanced paper and petals; six expressive cloned runtime clips, blink/gaze/idle gestures, visible chin-hand/frown, actual mesh picking and keyboard reactions with native LoopOnce return to idle. Smooth focus/zoom/optional cinematic mode yields to orbit. Live OS reduced-motion preference, pause/offscreen/hidden-tab handling and original PNG fallback retained.
+- Framing: stronger desktop hero, unclipped character celebration; responsive phone courtyard 260px high avoids empty space, portrait remains tall enough for gestures. Low default on phones.
+- Checks PASS: npm run typecheck + production build; all 3 GLBs Validator 0 errors/0 warnings; 11 real production + 11 exact extracted-HTML repository-prefix browser checks, zero critical page/console errors or missing resources. Launcher and prefix HTTP responses match final HTML SHA/200 text/html. Actual images and four decoded video frames inspected.
+- Measured render costs: Low 91 calls/112,697 triangles; Medium 180 calls/225,327 triangles including shadows. New static details merged by material; particles instanced, raycast-only tree proxy does not render. Physical device GPU/FPS remains unmeasured (QA-004); no 60 FPS claim.
+- Dependencies/configuration: existing React/R3F/Drei/Three/Vite pins and lockfiles unchanged; no app dependency installed. Related official Playwright FFmpeg v1013 recording helper (2.2 MiB) added to ignored Studio/.cache via verified TLS/system CA; system ffmpeg/ffprobe reused. No new API key, paid provider, audio, backend or environment draft change.
+- Runtime note: restricted execution sandbox denies default browser/server sockets; supported require_escalated runs were accepted for authorized local QA. Reused internal production 4173, extracted launcher 8097 and prefix 8098; live processes may not survive a new task. No cloud user-facing localhost preview link.
+- History: initial rendering found washed-out environment reflections, hidden greeting/Thinking mittens, clipped celebration and parent-node picking gap; fixed and reverified. Headless idle-canvas RAF waits/media-event coalescing/early frame measurements corrected in harness with actual page clips, mouse input/state checks; assertions retained. Historical failed/incomplete captures and original raw WebM/long cut remain preserved.
+- Public website: verified existing v0.2 URL https://anapaulagatti.github.io/3D-pharse5-/; published artifact SHA 9105a93b022e6751831ba66ae4d353317c43179aa3f045824a329ffdcfc76c17 and watched workflow inputs untouched. Do not present this URL as v0.3. Section 13 of latest user review requires explicit updated-showcase publication approval.
+- Known blockers/limits: no implementation blocker. User review/publication approval pending; physical-device profiling unavailable. Optional audio deliberately deferred.
 
 ## NEXT SESSION HANDOFF
 
-**Current milestone:** VISUAL-POLISH-003 — Golden Vertical Slice v0.3.
+**Current milestone:** VISUAL-POLISH-003 v0.3 review candidate COMPLETE; STOP.
 
-**Current task ID:** POLISH-MOTION-003 / POLISH-CAMERA-003 implemented, final interaction/motion QA in progress.
+**Current task ID:** VISUAL-REVIEW-003 waits for user feedback; PUBLIC-RELEASE-003 requires updated-publication authorization.
 
-**Last verified checkpoint:** e0bf42b5bd4dfdaa70ffd9b67a948b1dcf3196de preview implementation matched remote; reaction/framing/candidate corrections checkpoint follows.
+**Last verified checkpoint:** 1a724b59a21e2a1f670ae2a5de73885a70fae537 matched remote before final full evidence/handoff. Final commit follows in history and must be remotely verified after push.
 
-**Completed work:** Review/preservation checkpoint pushed; actual Blender sources inspected read-only. Separate Hanok detail source/GLB/manifest exported and validated 0/0; original 37 files unchanged. Existing v0.2 public deployment retained.
+**Completed work:** All requested Hanok/mascot motion/details/material/light/camera/interactions/accessibility polish; production/build, 3 Validator 0/0 and 22 production/artifact browser checks; actual human image/video frame inspection, final ZIP/audit/provenance and before/after review gallery. 37 original files preserved.
 
-**Unfinished work:** Final detailed interaction/motion QA, read-only base GLB revalidation, animation video, before/after gallery, separate candidate ZIP and user review.
+**Unfinished work:** User visual feedback only within this task. Public v0.3 release not authorized; physical GPU/phone FPS remains QA-004. No learning district work permitted.
 
-**Files to inspect:** docs/reviews/VISUAL_POLISH_V03_USER_REQUEST.md; preview/src/SceneView.tsx, App.tsx, types.ts; Studio/modeling/arena.py, mascot.py, common.py; preservation hashes.
+**Files to inspect:** quality-reports/v0.3/REVIEW.md, VERIFICATION_SUMMARY.json, final-render/verification.json, candidate-render/verification.json, capture/media-report.json and living-hanok-motion.mp4; downloads/v0.3/package-manifest.json; showcase-v0.3/build-info.json; new Blender/detail manifest/source and preserved-v02.json.
 
-**Known blockers:** New restricted sandbox blocks default browser/server sockets; supported escalated runs are authorized and were accepted. Detailed QA needs completion; physical device FPS unavailable; updated public publication not yet authorized.
+**Known blockers:** None for reviewing candidate. Updated public publication needs user approval per section 13; physical device profiling lacks hardware. Use supported execution permissions if restricted sandbox blocks internal QA sockets.
 
-**Exact next command or action:** Run capture-polish-v03.mjs against production with supported browser execution, finish-capture-v03.py, inspect video frames, validate extracted candidate ZIP via its HTTP launcher, then final checkpoint and STOP. Never run existing build-showcase into public showcase/ for candidate work.
+**Exact next command or action:** Present/review the gallery/video/ZIP, then WAIT for the user's visual feedback. Personal viewing: extract review ZIP and run START_WINDOWS.cmd or python3 start.py. Do not rerun model generation/setup, deploy v0.3 or start Hangul Garden automatically.
 
-**Verification required:** Preserved original SHA checks, new GLB Validator, production build, actual day/evening/night/hero/mascot/mobile images, movement/video, distinct clips, smooth cameras, reduced motion/pause/visibility and fallback.
+**Verification required:** Completed for this final candidate SHA 0ce49e58b26baa3802bc6e22fa4cab91d7181232e0069adcedd4f9353270c2d6. Repeat only for a new authorized change or concrete failure; do not broaden tests without cause. If later publishing is approved, stage only reviewed HTML/.nojekyll, preserve assets, audit and verify actual public render before claiming success.
 
-**Remote GitHub save status:** Baseline matched origin/main; checkpoint this audit before geometry work and verify remote after push. Candidate changes must not touch Pages workflow watched files.
-
-## Latest verified subtask
-
-- Production browser verification: all 11 checks PASS, final-render/verification.json (pre-final facial refinement). Six static/live clips, real mesh click and return-to-idle, flicker/petal interactions, dynamic OS reduced-motion/pause, smooth focus/cinematic/yield, all quality tiers, 390×844 and offscreen/fallback passed; zero critical errors or missing resources. Low 92 calls/112,777 triangles; medium 181 calls including shadows/225,407 triangles.
-- Human inspection then found Thinking hand still obscured and Disappointed still smiling. Added a cloned runtime chin-hand position track and tasteful smile/frown changes; all original source/export bytes preserved. Rebuild and revalidation pending before final video/package.
-- Last verified remote checkpoint: 47d6915824a248eec29e621dc0f514d9abf7b520, independently matched origin/main. New corrections/proof checkpoint follows.
-- Prepared local review/static ZIPs currently belong to the prior candidate SHA; rebuild/repackage them after final facial refinement. Do not hand off stale ZIPs as the final candidate.
-
-## Final production verification complete
-
-- Final 11 browser checks PASS after human facial refinement and direct-object picking fix. Actual mascot, lantern and invisible tree hit-area clicks work; keyboard cheer works. No critical console/page errors or missing resources. Pause, changing OS preference, smooth camera/cinematic yield, three quality settings, 390×844, offscreen resume and PNG fallback verified.
-- Costs: low 91 calls / 112,697 triangles; medium 180 calls / 225,327 triangles including shadow passes. Invisible interaction proxy retains raycasting without a render draw. Physical-device FPS unverified.
-- Three GLB files validated 0 errors/0 warnings; all 37 original file hashes preserved. New final candidate SHA a667e98b5e042158291a5cc12e18dcb9cf7a65833d881deadc29a6f0f4d4449f, 8,213,612 bytes. Local/static ZIPs rebuilt to this hash and audited.
-- Remaining work: record real browser video and inspect its frames; validate extracted HTTP ZIP/candidate under a repository prefix; final gallery/progress checkpoint, then STOP for user review.
+**Remote GitHub save status:** Existing checkpoints through 1a724b5 pushed and independently verified. Final full evidence/handoff commit follows; verify origin/main after push. Docs/candidate/proof changes do not trigger the guarded v0.2 Pages workflow.

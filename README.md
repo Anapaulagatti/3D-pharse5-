@@ -63,6 +63,12 @@ npm run dev
 
 Hướng dẫn Windows, phiên bản package và xử lý GLB: [Studio/README.md](Studio/README.md). Kết quả kiểm tra và ảnh demo thực tế: [quality-reports/SETUP_REPORT.md](quality-reports/SETUP_REPORT.md).
 
+## Living Hanok v0.3 — bản duyệt
+
+[**Xem bộ ảnh trước/sau và hướng dẫn review**](quality-reports/v0.3/REVIEW.md) · [Video chuyển động thật 42 giây](quality-reports/v0.3/living-hanok-motion.mp4) · [Tải gói tương tác v0.3](downloads/v0.3/living-hanok-v0.3-review.zip).
+
+Giải nén ZIP, Windows mở `START_WINDOWS.cmd`; macOS/Linux chạy `python3 start.py`. Cần Python3; trình duyệt tự mở app. Đã kiểm tra production và chính HTML trong gói tại repository subpath, tất cả sáu animation/mesh clicks/camera/ba chế độ sáng/mobile/reduced motion/fallback. Nguồn và assets v0.2 giữ nguyên. **v0.3 chưa thay website GitHub Pages:** chờ bạn duyệt hình ảnh và chấp thuận xuất bản bản cập nhật theo mục 13. Chưa đo FPS phần cứng/điện thoại thật; không có district mới.
+
 ## Golden slice v0.2.0
 
 **Xem showcase 3D online:** [https://anapaulagatti.github.io/3D-pharse5-/](https://anapaulagatti.github.io/3D-pharse5-/). GitHub Pages đã deploy và kiểm tra bản render thật, camera/ngày-đêm/sáu animation/reduced motion/mobile fallback; không cần tải HTML hoặc cài package. [Bằng chứng kiểm tra website công khai](quality-reports/pages-live/VISUAL_REVIEW.md).

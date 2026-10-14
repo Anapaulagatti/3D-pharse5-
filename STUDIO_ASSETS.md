@@ -31,21 +31,17 @@ No learning-alley, celebration scene or six district assets are claimed in v0.2.
 | Public GitHub Pages site | Approved scoped push/manual workflow in existing repo | LIVE, public render verified | https://anapaulagatti.github.io/3D-pharse5-/; run 38402363567 attempt 2 success, deployment 7039586635; public 200 HTML/approved SHA, 7 browser checks and actual screenshot inspection |
 | Public-site verification evidence | Deployed website + verify-preview-http.mjs | Saved and visually inspected | quality-reports/pages-live/ deployment.json, http-verification.json, VISUAL_REVIEW.md and actual scene/day/night/camera/six poses/mobile/fallback screenshots; zero critical console/missing-resource errors |
 
-## v0.3 candidate work
+## v0.3 review candidate (complete)
 
-| Asset | Source/output | Status | Provenance/preservation |
+| Asset | Source / output | Status | Provenance / evidence |
 |---|---|---|---|
-| Approved v0.2 baseline | quality-reports/v0.3/preserved-v02.json; baseline b5ed079 | Hashes recorded before polish | All original assets/source/exports/deployed HTML retained |
-| v0.3 review request | docs/reviews/VISUAL_POLISH_V03_USER_REQUEST.md | Saved | User's authored visual review and explicit release gate |
-| Hanok polish layer | Studio/modeling/polish-v03.py; assets/v0.3/source-blend/hanok-polish.blend; exports/v0.3/models/hanok-polish.glb and manifest | Generated and Validator verified; render pending | Original additive artwork; 527,852 bytes, 13,312 triangles, 21 primitives; GardenBreeze clip; 0 errors/0 warnings |
+| Approved v0.2 originals | preserved-v02.json; baseline b5ed079; all old assets/exports/showcase and lockfiles | 37 exact hashes unchanged | No original model/source/texture/animation regenerated or replaced |
+| Hanok polish layer | Studio/modeling/polish-v03.py; assets/v0.3/source-blend/hanok-polish.blend; exports/v0.3/models/hanok-polish.glb + manifest/dimensions | Generated, Validator 0/0, actual browser render verified | Original project-owned geometry; 527,852 bytes / 13,312 triangles / 21 primitives; GardenBreeze; no new textures/decoders |
+| Expressive mascot/ambient systems | preview/src/LivingMascot.tsx, LivingWorld.tsx, PolishedCamera.tsx | Six real static/live clips and mesh/keyboard reactions verified | Original GLBs reused; cloned/accented samples + chin-hand/frown/gaze/blink at runtime; no new mascot mesh claimed |
+| Actual visual comparisons | quality-reports/v0.3/final-render/ + candidate-render/, REVIEW.md | 11 + 11 browser checks PASS; actual photos inspected | Day/evening/night/hero, six poses, live pairs, details, default phone fit, fallback; 0 critical errors/missing resources |
+| Real movement capture | capture/ original WebM + reviewed trims/frames; living-hanok-motion.mp4 | H.264 1280×720, 41.92s, 767,431 bytes; decoded frames inspected | Actual WebGL/browser playback, loading/resize trimmed only; no motion interpolation/speed-up; not GPU FPS evidence |
+| Standalone review HTML | showcase-v0.3/index.html + build-info/launchers/README | Final build, 8 original embedded assets, private-content/strict static allowlist audit | Final checksum in build-info; actual extracted/prefix HTML render verified; original public showcase/ untouched |
+| Local/static review packages | downloads/v0.3/ ZIPs + package-manifest.json | Final SHA verified; extracted launcher and /3D-pharse5-/ served/rendered correctly | Local HTTP viewer needs Python3, no Node/Blender/Internet; Windows launch text/code reused, native Windows GUI not measured |
+| Review request/history | docs/reviews/VISUAL_POLISH_V03_USER_REQUEST.md; all review-pass/failed/interrupted reports | Preserved checkpoints | Source of v0.3 scope and section-13 release gate; historical failures are not final pass evidence |
 
-| Initial v0.3 rendered evidence | quality-reports/v0.3/initial-render/ | Seven baseline browser checks PASS | Final light balance and new interaction/motion verification pending; do not use initial overbright shots as final art approval |
-| v0.3 preview implementation | Existing preview/src plus LivingMascot/LivingWorld/PolishedCamera/useStudioModel | Production build and typecheck PASS, detailed QA in progress | Original six GLB clips copied/accented at runtime; no approved GLB/source bytes changed |
-
-| Reaction/camera correction evidence | quality-reports/v0.3/intro-diagnostic.json; review-pass-1/2/3/ | Native Greeting→Idle confirmed; previous failures preserved | Identical DOM canvas bounds, actual mixer advance; final screenshots/full QA pending |
-| Separate v0.3 standalone candidate | showcase-v0.3/index.html + build-info.json | Built; full candidate QA pending | 8,212,845 bytes/8 verified embedded base+detail assets; does not alter public v0.2 |
-
-| Verified production polish evidence | quality-reports/v0.3/final-render/verification.json and full screenshot set | 11 checks PASS; final face review refinement pending | Actual static/live six poses, three lights, hero/detail/orbit, responsive/fallback captures; zero critical errors/missing resources |
-
-| Final production render/interaction evidence | quality-reports/v0.3/final-render/ | 11 checks PASS, actual images inspected | Refined six static/live poses, actual three object mesh clicks + keyboard, camera/motion/accessibility/mobile/fallback; 0 critical errors/missing resources |
-| Final candidate HTML/ZIPs | showcase-v0.3/; downloads/v0.3/ | Rebuilt to a667e98b…; privacy/integrity audit PASS | 8,213,612-byte HTML; 8 checksum-verified original assets; all 37 v0.2 originals unchanged; not publicly deployed |
+No Hangul Garden/new district, paid provider, audio or backend assets were created. Physical-device FPS is unmeasured. Current candidate is ready for the user's visual feedback; public v0.3 is not deployed.

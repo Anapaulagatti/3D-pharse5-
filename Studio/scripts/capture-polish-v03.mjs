@@ -4,6 +4,7 @@ import { mkdir, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'../..')
+process.env.PLAYWRIGHT_BROWSERS_PATH ||= resolve(root,'Studio/.cache/playwright')
 const req=createRequire(resolve(root,'preview/package.json'))
 const {chromium,expect}=req('@playwright/test')
 const dir=resolve(root,'quality-reports/v0.3/capture');await mkdir(dir,{recursive:true})

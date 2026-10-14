@@ -28,3 +28,18 @@ Software rendering in this cloud instance is slow: approximately 3.3 FPS. Loweri
 The lazy 3D JS chunk is approximately 1,006.68 kB minified / 269.87 kB gzip; app shell 239.27 kB / 75.31 kB gzip. Vite warns about the large engine chunk. Further bundling and real-device profiling remain outside the first art-delivery scope.
 
 Evidence: quality-reports/renderer-desktop.json, renderer-low.json, software-benchmark.json, GLB validation reports, current manifest, browser captures and nine passing smoke tests. No claim of measured physical-device acceptance or full production performance is made.
+
+## Living Hanok v0.3 candidate
+
+Original v0.2 model/source/export bytes remain unchanged. The new original additive layer costs 527,852 bytes, 13,312 triangles and 21 primitives; no new textures or required decoders. Combined arena + detail GLBs total 3,907,584 bytes, below the original 4 MB arena budget. Static props share material primitives, foliage uses three wind pivots, paper/motes/petals use instancing. An invisible raycast-only tree hit area does not draw.
+
+Actual production diagnostics at 872×560 CSS pixels, captured in quality-reports/v0.3/final-render/verification.json:
+
+| Quality | Render calls | Triangles including applicable shadow passes |
+|---|---:|---:|
+| Low | 91 | 112,697 |
+| Medium | 180 | 225,327 |
+
+Low meets the existing <120,000-triangle budget; the new detail layer raises draws above the old 80-call low provisional target. Medium meets the existing <=180-call target. These are observed costs, not physical-device FPS acceptance. Default phones use Low, no shadow pass, DPR 1; Medium/High DPR caps are 1.25/1.75 instead of the earlier 1.5/2. Limited non-shadow point lights and no bloom/postprocessing. Both higher tiers were actually rendered during verification.
+
+The self-contained review HTML is 8,213,753 bytes; compressed HTTP ZIP is 3,076,718 bytes. It embeds eight checksum-verified original assets and dependency notices. No external asset/CDN request is needed by the app. A browser clip shows real-time software-GPU movement; encoded video FPS must not be represented as actual GPU FPS. Hardware/phone profiling remains QA-004, and existing SVG/PNG fallback remains available.

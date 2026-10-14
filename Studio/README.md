@@ -107,3 +107,13 @@ npm --prefix Studio run assets:pack
 ```
 
 Cloud Cycles không có OpenImageDenoise nên render dùng 96 samples và tắt chức năng khử nhiễu không khả dụng. Đây là thiết lập render; không bỏ kiểm tra GLB hay checksum.
+
+## v0.3 candidate recovery
+
+Read the four STUDIO progress files and the latest user review gate first. Do not regenerate approved v0.2 .blend/GLB/PNG files or publish updated art without its required review/authorization. Use the existing checkout and pinned packages; no worktree or reinstall is needed when the snapshot already has them.
+
+Production: `npm --prefix preview run build`, then `npm --prefix preview run preview -- --port 4173` for internal QA. Use `node Studio/scripts/verify-polish-v03.mjs <internal-http-url>`; set `STUDIO_POLISH_REPORT_DIR` when checking the extracted candidate so production proof is retained. A sandbox EPERM/socket denial requires supported execution permission for the same internal server/browser command, not a verification bypass. No cloud user-facing localhost preview is exposed.
+
+Single-file candidate: `node Studio/scripts/build-showcase.mjs --candidate`, then `python3 Studio/scripts/package-polish-v03.py` and `python3 Studio/scripts/audit-polish-v03.py`. This writes showcase-v0.3/downloads/v0.3, preserving the published showcase/ artifact. Do not run the guarded Pages deployment for the candidate until the user approves updated publication.
+
+Real browser video uses the pinned Playwright FFmpeg helper, stored in ignored Studio/.cache/playwright. If that helper alone is missing, run from preview: `PLAYWRIGHT_BROWSERS_PATH=../Studio/.cache/playwright node --use-system-ca node_modules/@playwright/test/cli.js install ffmpeg`. This is the official 2.2 MiB recording helper; it does not change application packages/lockfiles. TLS verification stays enabled. Then run `node Studio/scripts/capture-polish-v03.mjs <internal-http-url>` and `python3 Studio/scripts/finish-capture-v03.py`; inspect extracted video frames before recording visual acceptance. Native system ffmpeg/ffprobe are already installed. Live server/browser processes may need restart in a new cloud task.

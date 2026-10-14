@@ -2,7 +2,7 @@
 
 Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verification. Milestones follow the persistent-progress prompt (nine milestones).
 
-Current user gate: visual review received; work ONLY on VISUAL-POLISH-003 — Golden Vertical Slice v0.3, then STOP for review. Public v0.2 stays live. Updated v0.3 publication has not been approved; do not touch watched deployment artifacts or start WORLD-001/WORLD-002.
+Current user gate: VISUAL-POLISH-003 — Golden Vertical Slice v0.3 candidate COMPLETE and verified. STOP for the user's visual review. Public v0.2 remains preserved; v0.3 publication requires explicit updated-showcase approval. No WORLD-001/WORLD-002 work.
 
 | Milestone | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|---|
@@ -56,5 +56,11 @@ Current user gate: visual review received; work ONLY on VISUAL-POLISH-003 — Go
 | POLISH-ASSETS-003 | Additive original handcrafted Hanok detail GLB + editable Blender source | DONE | hanok-polish.blend + GLB/manifest; Validator 0 errors/0 warnings, 13,312 triangles/21 draws/527,852 bytes; 37 original hashes unchanged; visual review in POLISH-QA-003 |
 | POLISH-MOTION-003 | Six expressive clips, ambient motion and meaningful interactions | DONE | Final 11 production checks PASS; human-verified chin-hand Thinking/frown Disappointed; actual mascot/lantern/tree mesh clicks, keyboard cheer, all six live clips and native return to idle |
 | POLISH-CAMERA-003 | Larger responsive hero, smooth focus and optional cinematic mode | DONE | Actual intermediate focus positions, cinematic movement/yield to orbit, full unclipped portrait and mobile framing verified |
-| POLISH-QA-003 | Production build, Validator, desktop/mobile/fallback, video and before/after | IN_PROGRESS | Build and all three GLB Validator 0/0; first seven browser regressions PASS; detailed failures preserved, reaction correction diagnosed; final QA/video pending |
-| POLISH-REVIEW-003 | Package candidate and checkpoint for user review | TODO | Do not update public v0.2 without explicit updated-publication approval |
+| POLISH-QA-003 | Production build, Validator, desktop/mobile/fallback, video and before/after | DONE | Typecheck/build PASS; 3 GLBs Validator 0/0; 11 production + 11 extracted-repo-prefix browser checks PASS; actual screenshots and decoded video frames inspected; REVIEW.md/VERIFICATION_SUMMARY.json |
+| POLISH-REVIEW-003 | Package candidate and checkpoint for user review | DONE | Final standalone HTML, two ZIPs/manifest, audited strict static file allowlist, 42s real video, before/after gallery and session handoff; final Git checkpoint follows |
+
+| Stable ID | Deliverable | Status | Evidence |
+|---|---|---|---|
+| VISUAL-POLISH-003 | Golden Vertical Slice v0.3 — Living Hanok Showcase candidate | DONE | quality-reports/v0.3/REVIEW.md, VERIFICATION_SUMMARY.json, final production/artifact browser evidence and downloadable review ZIP |
+| VISUAL-REVIEW-003 | User reviews v0.3 visual results | BLOCKED | Waiting for user's feedback; STOP, no new district |
+| PUBLIC-RELEASE-003 | Publish updated v0.3 only after review/authorization | BLOCKED | User request section 13 requires updated-publication approval; existing v0.2 permission does not automatically cover new art |

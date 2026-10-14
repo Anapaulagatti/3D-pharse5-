@@ -22,7 +22,7 @@ export default function PolishedCamera({ settings, animate, onOrbit }: { setting
   useEffect(() => {
     const ortho = camera as OrthographicCamera
     const fit = settings.scene === 'mascot' ? Math.min(size.width / 3.5, size.height / 3.95)
-      : Math.min(size.width / (size.width < 500 ? 13.2 : 12.05), size.height / 9.1)
+      : Math.min(size.width / (size.width < 500 ? 14.2 : 12.05), size.height / 9.1)
     zoom.current = fit * (settings.scene === 'courtyard' ? focusZoom[settings.focus] : 1)
     if (!initialized.current || !animate) {
       current.current.copy(desired); controls.current?.target.copy(desired)
