@@ -1,36 +1,42 @@
 # Studio progress
 
-Current milestone: REFORGE-005 — Joseon Fantasy Reforge IN_PROGRESS.
-Current task: REFORGE-GATE-C-005, approved Nari humanoid/controller. Gate B DONE with actually inspected graybox. Gate A DONE: user approved A — Nari (exact reply in concepts/v0.5/APPROVAL.json). Gates C/D/E remain TODO. v0.5 publication is not approved.
+Current milestone: REFORGE-005 — Joseon Fantasy Reforge IN_PROGRESS. User explicitly APPROVED A — Nari; no re-approval needed. Public v0.5 deployment NOT authorized. Public v0.4 preserved.
+Current task: REFORGE-GATE-C-005 IN_PROGRESS. Gate A/B DONE; D/E TODO. Gate C is NOT accepted while deformation/browser checks remain.
 
-Last completed: Gate A concepts/audit/plan remotely verified through1247fc059e143bba29c110d7fd8da43ff691e781. v0.4 recovery tag checkpoint/v0.4-pre-reforge-005→9cc1381. Public v0.4 inputs and75 protected hashes preserved.
+Last verified remote checkpoints:03cc02b2134c7b1d9362a13a08a8c34fc98eed40 (verified Gate B) and572d53f6fe14b09491338f6377e763cfa0438006 (actual Nari draft1 + visible defects), both origin/main matched after push. v0.4 recovery tag checkpoint/v0.4-pre-reforge-005→9cc1381.75 protected source/art/deployment/lock hashes unchanged at Gate B.
 
-Latest work: recorded explicit A approval; character-concepts metadata and four records updated. No new model, animation or runtime claimed yet. Next: full four-sided neutral Hanok with genuine roof support, scale/collision manifest, Blender/GLB and actual front/back/side/roof/interior inspection before materials. Then skinned Nari/controller and polish under original v0.5 scope.
+Gate B: actual full four-sided Hanok graybox Blender/GLB2,142,648bytes/51,596triangles/11primitives, Validator0/0, source419modules/209support pairs. Actual33 views including24-angle orbit/mobile; front/rear/sides/roof/connection/interior inspected. Source/displayCSS and roof-framing fixes verified. REVIEW.md and6s manually-stepped360MP4 retained. Low12draws/51,908tri incl1.45m proxy, medium24/103,816incl shadows. Not final art.
 
-Dependencies: existing pinned tools, no reinstall. Last update 2026-10-14T08:31:52.087044+00:00 UTC.
+Gate C actual files: Studio/modeling/nari-v05.py; assets/v0.5/source-blend/nari-messenger.blend; exports/v0.5/models/nari-messenger.glb; gate-c/rig-authoring.json. Continuous voxel-unioned body, genuine28bone armature/normalized≤4skin weights,20native clips,10morphs (Neutral basis+9emotions/Blink), editable NLA and analytic limb IK. Current GLB2,173,544bytes/24,308triangles/6primitives. Source/export now uses native bone-heat body weighting after manual underarm wedges found. Latest correction needs actual review/Validator.
+
+Important failed visual history: initial-render/ shows hip/vest grabbed by arm weights; corrected-render/ and rig-review/ have actual20static/20live/10face automated pass but human-rejected underarm white wedges. Both reports explicitly say AUTOMATED_PASS_VISUAL_DEFORMATION_REJECTED. Do NOT count them as visual acceptance. Latest bone-heat fix untested. Source currently solves body with Root/accessory/Finger bones excluded from heat, then normalizes/limits4; torso garments and accessories retain explicit weights. Blender solve succeeded (685weights limited). Export temporarily roots meshes (saved authoring source remains parented) removes17initialValidator warnings; plainGLB no Draco dependency.
+
+Controller code implemented in preview/src/reforge/physics.ts and Nari/App/Scene/types/style: fixed1/60kinematic capsule, world movement matched to in-place stride (.8148walk/2.4375run), acceleration/stop/heading, stairs/floor/collision/door and physics jump, native clip scheduler/crossfades/one-shots, keyboardWASD/arrows/Shift/Space/E, pointer/keyboardDPad, perspective follow/orbit/obstruction, pause/OS reduced motion/offscreen logic, basic WebGL/context-loss fallback. Actual6pure physics tests PASS (closed door, staircase+opened entry, raised floor, rear wall,0.472mjump+landing,release stop). Browser play-review first W movement passed then Run wait timed out; state/path suggests short Run window before door but not yet proven. Driver now resets and uses clear Shift+D runway plus50–100ms polling and bounded actual clip event history. All real native/mobile/camera/pause/OS checks must finish; do not claim them done.
+
+Current runtime: isolated ?candidate=v05, existing default v0.4 App/public artifact unchanged. Existing internal Vite preview4186 session53015 serves preview/dist; must restart if lost, no user-facing loopback URL. Latest build before current bone-heat export/event trace; rebuild required. No dependencies installed/locks changed. Existing toolchain reused.
+
+Remaining Gate D: full art Hanok (not graybox), roof tiles/joinery/lattice/ground/plum/props/lanterns/banner/water where relevant; original procedural texture grain/materials; day/evening/night currently UI exists but Scene lighting still fixed! Ambient life/contact-shadow/effects controls/interactive tree+lantern, smooth focus/preset transitions and finished camera. Default local candidate still architecture mode until final art hero. Optional legacy companion asset preserved; no new districts/audio/backend.
+
+Remaining Gate E: current new GLB/rig proof, actual final desktop/mobile/OS/fallback/quality/console/resource checks, measured costs (no hardwareFPS), genuine gameplay video≥5swalk+5srun+jump/greet/face/enter or circle, before-after and final PNG/video review, versioned standalone/static review package/privacy/provenance/subpath checks and checkpoint. Do not modify workflow/staging/showcase-v0.4 inputs or publish v0.5 until explicit approval.
 
 ## NEXT SESSION HANDOFF
 
-**Current milestone:** REFORGE-005; A approved, Gate B verified, Gate C in progress.
+**Current milestone:** REFORGE-005; A/B complete, C IN_PROGRESS, D/E TODO.
 
-**Current task ID:** REFORGE-GATE-C-005.
+**Current task ID:** REFORGE-GATE-C-005 — fix actual humanoid deformation and verify playable controller.
 
-**Last verified checkpoint:**1247fc059e143bba29c110d7fd8da43ff691e781; approval checkpoint follows in history.
+**Last verified checkpoint:**03cc02b verified Gate B;572d53f remotely verified draft1. Current recovery checkpoint follows in history.
 
-**Completed work:** Audit,75-file preservation/recovery tag,3 concepts and structural plan; explicit user approval of A recorded. Previous review hold satisfied.
+**Completed work:** A approval, full verified graybox, real rig/weights/morphs/20clips draft, isolated R3F review/controller/input/camera code,6physics checks. Prior actual images and failures retained truthfully.
 
-**Unfinished work:** Gate B graybox/render/GLB proof; Gate C real humanoid/rig/20clips/10expressions/controller; Gate D materials/life/camera; Gate E production/browser/mobile/accessibility/video/asset verification.
+**Unfinished work:** Bone-heat current model actual pose inspection, full native play/OS/mobile run, then Gate D art/life/lighting and Gate E production/media/package. Current callbacks/code may still contain defects; inspect actual browser outcomes.
 
-**Files to inspect:** concepts/v0.5/APPROVAL.json, docs/v0.5/ARCHITECTURE_REBUILD_PLAN.md, docs/reviews/REFORGE_V05_USER_REQUEST.md, quality-reports/v0.5/preserved-v04.json.
+**Files to inspect:** source nari-v05.py; gate-c/rig-authoring.json, validator-current.json (preceding manual-weight model, must recheck), rig-review/verification.json (REJECTED), play-review/failure.json, physics-verification.json; verify-reforge-character/play/physics.mjs; preview/src/reforge/*; STUDIO_TASKS and original request.
 
-**Known blockers:** No implementation blocker after A approval. Public v0.5 release still requires user review/authorization; physical-device FPS unmeasured.
+**Known blockers:** No user-decision blocker. Need resolve visible underarm skin distortion and actual native browser acceptance. Public v0.5 release not authorized; target hardware FPS unmeasured.
 
-**Exact next command or action:** Save verified Gate B checkpoint and build actual skinned Nari using approved A design; then20clips/10expressions/controller. Gate B source/GLB/render verified, do not regenerate graybox or re-ask approval. Preserve public v0.4.
+**Exact next command or action:** Run Validator on latest Nari, npm --prefix preview run build; inspect a few actual Happy/Greeting/Thinking/side/rear renders first to see whether bone-heat removed wedges. Do not rerun all72images before checking key defects. Run updated native play driver with STUDIO_V05_PLAY_REPORT_DIR=.../play-pass-2 (preserve failed first output). Continue fixing until Gate C accepted, then checkpoint and Gate D/E. Do not stop for another A choice.
 
-**Verification required:** Actual four-sided/connection/interior graybox inspection and validated GLB, then skin/weight/clip/controller/contact/render/build/mobile/fallback checks for subsequent gates. Concept art is not proof.
+**Verification required:** Actual rendered anatomy/side/rear deformation and foot contact,20clips/10distinct expressions, real native keyboard/touch world movement/run/jump/collision/door/camera/one-shotreturn/pause/OS/offscreen/fallback, then final art and production/package/video checks. No conceptual or automated-only acceptance.
 
-**Remote GitHub save status:** Last completed Gate A checkpoint remotely verified; approval checkpoint must be pushed and origin-matched before expensive modeling.
-
-Gate B verified: production/typecheck PASS, GLB Validator0/0, actual33 browser views including24-angle orbit and phone,209support bounds0gaps, actual images inspected including full roof/rear/sides/connection/interior.12Low draws/51,908tri;24medium/103,816incl shadows. Evidence quality-reports/v0.5/gate-b/REVIEW.md. Gates C/D/E remain unfinished. No target-device FPS claim.75protected v0.4 hashes unchanged. Current source/runtime changes isolated to ?candidate=v05; default v0.4 viewer and public deployment inputs retained.
-
-- Gate C current: actual draft Nari source/GLB/20clips/28bones/10morphs and initial browser images saved, but observed arm/hip/vest weight defects and17non-root-skinned warnings remain. Next fix weights/hierarchy/cost and inspect new actual renders. No Gate C acceptance, controller or v0.5 production claim yet.
+**Remote GitHub save status:**03cc02b and572d53f pushed+origin matched. Current recovery checkpoint must be committed/pushed and compared. No Pages deployment triggered; publication inputs preserved.

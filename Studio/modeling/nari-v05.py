@@ -38,12 +38,12 @@ for side in [-1,1]:
 body=join('NariContinuousBody',parts);apply_world(body)
 mod=body.modifiers.new('ContinuousAnatomyUnion','REMESH');mod.mode='VOXEL';mod.voxel_size=.009;mod.use_smooth_shade=True;bpy.ops.object.modifier_apply(modifier=mod.name)
 mod=body.modifiers.new('JointSurfaceRelax','SMOOTH');mod.factor=.65;mod.iterations=4;bpy.ops.object.modifier_apply(modifier=mod.name)
-mod=body.modifiers.new('RealtimeTopology','DECIMATE');mod.ratio=.67;bpy.ops.object.modifier_apply(modifier=mod.name)
+mod=body.modifiers.new('RealtimeTopology','DECIMATE');mod.ratio=.34;bpy.ops.object.modifier_apply(modifier=mod.name)
 for v in body.data.vertices:
  p=v.co
  if p.z<.003:p.z=.003
  # Soft planar face for eyes/lips; keep natural side/rear volume.
- if p.z>1.10 and p.y<-.105:p.y=-.119+.012*(abs(p.x)/.165)**2
+ if p.z>1.10 and p.y<0:p.y*=.90
 for f in body.data.polygons:f.use_smooth=True
 body.data.materials.clear()
 for k in ['skin','cloth','dark']:body.data.materials.append(M[k])
@@ -56,12 +56,27 @@ for f in body.data.polygons:
  elif p.z<.25:c,mat='ivory',1
  elif p.z<.72:c,mat='navy',1
  f.material_index=mat
- for i in f.loop_indices:attr.data[i].color=color(COL[c])
+ for i in f.loop_indices:
+  # Vertex interpolation avoids saw-tooth polygon-centre color borders at cuffs.
+  vp=body.data.vertices[body.data.loops[i].vertex_index].co
+  vc=c
+  if mat==1:
+   if abs(vp.x)>.22:vc='ivory'
+   elif vp.z<.25:vc='ivory'
+   elif vp.z<.72:vc='navy'
+   else:vc='ivory'
+  attr.data[i].color=color(COL[vc])
 
 # Rig: explicit bones, meaningful parents and deform groups, not node-pivot limbs.
 arm=bpy.data.armatures.new('NariSkeleton');rig=bpy.data.objects.new('NariArmature',arm);bpy.context.collection.objects.link(rig);bpy.context.view_layer.objects.active=rig;rig.select_set(True);body.select_set(False);bpy.ops.object.mode_set(mode='EDIT')
 REST={}
+def headwarp(p):
+ p=Vector(p)
+ if p.z>1.075:
+  blend=min(1,(p.z-1.075)/.06);p.x*=1-.10*blend;p.y*=1-.10*blend;p.z=1.075+(p.z-1.075)*.75
+ return p
 def bone(name,a,b,parent=None,connected=False):
+ if name in ['Head','HairKnot','PaperPin']:a,b=headwarp(a),headwarp(b)
  o=arm.edit_bones.new(name);o.head=a;o.tail=b
  if parent:o.parent=arm.edit_bones[parent];o.use_connect=connected
  REST[name]=(Vector(a),Vector(b));return o
@@ -93,22 +108,44 @@ def weights(p):
  x,y,z=p;side='L' if x>=0 else 'R'
  if z>1.10:return [('Head',1)]
  if z>1.015:return [('Head',max(0,min(1,(z-1.015)/.085))),('Neck',1-max(0,min(1,(z-1.015)/.085)))]
- if abs(x)>.153 and z>.515:
-  candidates=['Chest','Clavicle.'+side,'UpperArm.'+side,'Forearm.'+side,'Hand.'+side,'Fingers.'+side]
+ if (abs(x)>.235 and z>.515) or (abs(x)>.12 and z>.72):
+  candidates=['Spine','Chest','Clavicle.'+side,'UpperArm.'+side,'Forearm.'+side,'Hand.'+side,'Fingers.'+side]
  elif z<.71:candidates=['Hips','Thigh.'+side,'Shin.'+side,'Foot.'+side,'Toe.'+side]
  else:candidates=['Hips','Spine','Chest','Neck']
  ds=sorted([(distance(p,*REST[n]),n) for n in candidates])[:4]
  vals=[(n,1/(d*d+.00018)**2) for d,n in ds];total=sum(w for n,w in vals)
  return [(n,w/total) for n,w in vals if w/total>.0001]
-def skin(o,rigid=None):
+def skin(o,rigid=None,torso=False):
  apply_world(o)
+ if o.data.shape_keys:
+  for key in o.data.shape_keys.key_blocks:
+   for v in key.data:v.co=headwarp(v.co)
+  for i,v in enumerate(o.data.vertices):v.co=o.data.shape_keys.key_blocks['Basis'].data[i].co
+ else:
+  for v in o.data.vertices:v.co=headwarp(v.co)
  groups={n:o.vertex_groups.get(n) or o.vertex_groups.new(name=n) for n in REST}
  for v in o.data.vertices:
-  ws=[(rigid,1)] if rigid else weights(v.co);total=sum(w for n,w in ws)
+  ws=[(rigid,1)] if rigid else weights(v.co)
+  if torso:
+   ds=sorted([(distance(v.co,*REST[n]),n) for n in ['Hips','Spine','Chest','Neck']])[:3]
+   ws=[(n,1/(d*d+.00018)**2) for d,n in ds]
+  total=sum(w for n,w in ws)
   for n,w in ws:
    if w>0:groups[n].add([v.index],w/total,'REPLACE')
  m=o.modifiers.new('NariSkin','ARMATURE');m.object=rig;o.parent=rig
 skin(body)
+# Bone-heat diffusion on the connected anatomical surface prevents underarm skin
+# from being captured by nearby forearm/hand segments. Props retain explicit weights.
+for m in list(body.modifiers):
+ if m.type=='ARMATURE':body.modifiers.remove(m)
+body.parent=None;body.vertex_groups.clear()
+excluded=['Root','Fingers.L','Fingers.R','HairKnot','PaperPin','LetterSatchel','GoreumTie']
+for n in excluded:arm.bones[n].use_deform=False
+bpy.ops.object.select_all(action='DESELECT');body.select_set(True);rig.select_set(True);bpy.context.view_layer.objects.active=rig
+bpy.ops.object.parent_set(type='ARMATURE_AUTO')
+bpy.context.view_layer.objects.active=body;rig.select_set(False)
+bpy.ops.object.vertex_group_limit_total(limit=4);bpy.ops.object.vertex_group_normalize_all(lock_active=False)
+for n in excluded:arm.bones[n].use_deform=True
 garments=[]
 # Fabric vest, actual curved silhouette and crossed collar; all deform with skeleton.
 verts=[];faces=[];nr=28
@@ -133,7 +170,12 @@ for side in [-1,1]:
  tieparts.append(P('GoreumLoop',[(.035,-.127,.944),(.035+side*.047,-.13,.954),(.035+side*.040,-.133,.925),(.035,-.127,.944)],.009,'coral'))
  tieparts.append(B('GoreumTail',(.035+side*.013,-.126,.884),(.019,.008,.10),'coral',bevel=.002))
 tie=join('GoreumBow',tieparts);skin(tie,'GoreumTie')
-for o in garments:skin(o)
+for o in garments:skin(o,torso=True)
+for side,suffix in [(1,'L'),(-1,'R')]:
+ bpy.ops.mesh.primitive_torus_add(major_segments=20,minor_segments=8,major_radius=.039,minor_radius=.009,location=(side*.330,0,.690))
+ cuff=paint(bpy.context.object,'ivory');cuff.name='RolledSleeveCuff'+suffix;cuff.rotation_euler=Vector((side*.055,0,-.165)).to_track_quat('Z','Y').to_euler();skin(cuff,'Forearm.'+suffix)
+ bpy.ops.mesh.primitive_torus_add(major_segments=20,minor_segments=6,major_radius=.052,minor_radius=.008,location=(side*.110,0,.245))
+ cuff=paint(bpy.context.object,'ivory');cuff.name='SockWrapCuff'+suffix;skin(cuff,'Shin.'+suffix)
 
 # Sculpted dark hair cap with original asymmetric knot/paper pin.
 verts=[];faces=[];n=32;rings=10
@@ -171,7 +213,7 @@ for side,suffix in [(-1,'L'),(1,'R')]:
 facepart(S('Nose',(0,-.132,1.217),(.019,.018,.025),'skin','skin',16,10),'RegionNose')
 verts=[(0,-.131,1.168)]+[(.035*cos(i/28*2*pi),-.132,1.168+.006*sin(i/28*2*pi)) for i in range(28)]
 facepart(paint(mesh('Mouth',verts,[(0,i+1,(i+1)%28+1) for i in range(28)],None),'pupil','dark'),'RegionMouth')
-face=join('NariFacialControls',faceparts);skin(face,'Head')
+face=join('NariFacialControls',faceparts)
 regions={g.name:{v.index for v in face.data.vertices if any(x.group==g.index and x.weight>.5 for x in v.groups)} for g in face.vertex_groups if g.name.startswith('Region')}
 face.shape_key_add(name='Basis')
 EXPRESSIONS=['Happy','Excited','Curious','Thinking','Confused','Sad','Surprised','Determined','Celebrating','Blink']
@@ -195,6 +237,10 @@ for mood in EXPRESSIONS:
  # Static neutral reset is the Basis; Blink affects eyes only.
  if mood=='Blink':
   for i in regions['RegionMouth']|regions['RegionBrowL']|regions['RegionBrowR']:key.data[i].co=face.data.vertices[i].co
+
+skin(face,'Head')
+# Merge non-morph meshes while retaining the same normalized deform groups.
+costume=join('NariSkinnedBodyAndCostume',[o for o in bpy.context.scene.objects if o.type=='MESH' and o!=face])
 
 # Authored bone poses use world-axis intent, conjugated into each bone's rest basis.
 def rot(name,rx=0,ry=0,rz=0):
@@ -254,7 +300,7 @@ for clip,seconds in CLIPS.items():
    rot('Chest',0,0,.08*sin(p));rot('Head',-.05,0,-.05*sin(p))
    if celebration:leg(1,-.02,.10,0);leg(-1,.02,.10,0)
   elif clip=='Thinking':
-   arm_ik(-1,(-.055,-.215,1.15),(-.33,-.13,.84));rot('Head',.08,.08,.13*pulse);rot('Chest',.025)
+   arm_ik(-1,(-.055,-.180,1.08),(-.33,-.13,.84));rot('Head',.08,.08,.13*pulse);rot('Chest',.025)
   elif clip=='Sad':
    rot('Chest',.13*pulse);rot('Head',.24*pulse,-.03,.035);root_z=-.015*pulse;rot('UpperArm.L',.07,.12);rot('UpperArm.R',.07,-.12)
   elif clip in ['Surprised','InteractionReaction']:
@@ -288,8 +334,13 @@ for o in scene.objects:
  skin_report.append({'mesh':o.name,'vertices':len(o.data.vertices),'unweighted_vertices':sum(c==0 for c in counts),'max_influences':max(counts),'max_weight_error':max(abs(v-1) for v in totals),'morphs':[k.name for k in o.data.shape_keys.key_blocks] if o.data.shape_keys else []})
  assert max(counts)<=4 and min(counts)>=1 and max(abs(v-1) for v in totals)<.00001
 bpy.ops.wm.save_as_mainfile(filepath=str(src))
+# glTF skinned meshes are scene roots, with skeleton roots as siblings. Keep the
+# editable Blender outliner parented; export identity root meshes to avoid ignored
+# parent-transform semantics and Validator NODE_SKINNED_MESH_NON_ROOT warnings.
+for o in scene.objects:
+ if o.type=='MESH':o.parent=None
 bpy.ops.export_scene.gltf(filepath=str(dst),export_format='GLB',export_yup=True,export_animations=True,export_animation_mode='NLA_TRACKS',export_nla_strips=True,export_force_sampling=True,export_optimize_animation_keep_anim_object=True,export_optimize_animation_keep_anim_armature=True,export_try_sparse_sk=True,export_cameras=False,export_lights=False)
-report={'concept':'A — Nari, user approved','bone_count':len(REST),'bones':list(REST),'meshes':skin_report,'clips':CLIPS,'expressions':['Neutral']+EXPRESSIONS[:-1],'blink':'Blink morph plus native Idle channel','authoring':'Original continuous voxel-unioned body with deliberate normalized segment weights and deformation armature. Analytic two-bone leg/arm IK authored into quaternion keyframes; editable NLA in source. No image is used as a mesh.','limitations':'Requires actual browser pose/motion/side/rear deformation inspection and physics/controller verification before acceptance.'}
+report={'concept':'A — Nari, user approved','bone_count':len(REST),'bones':list(REST),'meshes':skin_report,'clips':CLIPS,'expressions':['Neutral']+EXPRESSIONS[:-1],'blink':'Blink morph plus native Idle channel','authoring':'Original continuous voxel-unioned body with Blender bone-heat anatomical weights, normalized maximum4 influences; explicit torso/accessory/face weights and deformation armature. Analytic two-bone leg/arm IK authored into quaternion keyframes; editable NLA in source. No image is used as a mesh.','limitations':'Requires actual browser pose/motion/side/rear deformation inspection and physics/controller verification before acceptance.'}
 (ROOT/'quality-reports/v0.5/gate-c').mkdir(parents=True,exist_ok=True)
 (ROOT/'quality-reports/v0.5/gate-c/rig-authoring.json').write_text(json.dumps(report,indent=2)+'\n')
 print('NARI_ACTUAL_SKIN_SAVED',len(REST),'bones',dst.stat().st_size,'bytes')
