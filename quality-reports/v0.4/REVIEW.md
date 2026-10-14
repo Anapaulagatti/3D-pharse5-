@@ -1,6 +1,6 @@
 # Korean Arena 3D Studio v0.4 — Living Hanok Showcase
 
-Bản v0.4 để bạn duyệt; website công khai vẫn là v0.3 đã duyệt. Không có district mới. Báo cáo `VERIFICATION_SUMMARY.json` ghi trạng thái kiểm chứng cuối; các lượt thất bại/gián đoạn được giữ riêng làm lịch sử.
+V0.4 đã được bạn cho phép xuất bản tại [https://anapaulagatti.github.io/3D-pharse5-/](https://anapaulagatti.github.io/3D-pharse5-/?release=cd238a4c). [Bằng chứng public render](pages-release/VISUAL_REVIEW.md). Không có district mới. Báo cáo `VERIFICATION_SUMMARY.json` ghi trạng thái kiểm chứng cuối; các lượt thất bại/gián đoạn được giữ riêng làm lịch sử.
 
 ## Trước / sau
 
@@ -42,9 +42,9 @@ Chạm mascot cho phản ứng nhảy nhỏ. Các nút Đi dạo / Chạy vui / 
 
 `assets/v0.4/source-blend/` giữ Blender chỉnh sửa được; `exports/v0.4/asset-manifest.json` ghi checksum, clip, geometry, bounds và provenance. Hai GLB v0.4 là `mascot-living` (12 clip) và `hanok-living` (CanopyWind). Source/export/artifact v0.2/v0.3 được giữ nguyên; không có dịch vụ trả phí hay dependency mới.
 
-Bản ứng viên có JavaScript/CSS/GLB/PNG nhúng, đã kiểm tra riêng dưới repository subpath qua chính ZIP static. Bản công khai v0.3 không bị thay. Build/Validator/browser evidence và ảnh nằm trong thư mục này; giới hạn/chi phí render ghi tại PERFORMANCE_REPORT.md. Chưa đo FPS GPU/điện thoại thật; không cam kết 60 FPS. Fallback dùng ảnh render v0.2 gốc đã duyệt, không giả làm render v0.4.
+Bản ứng viên có JavaScript/CSS/GLB/PNG nhúng, đã kiểm tra riêng dưới repository subpath qua chính ZIP static. V0.3 source/artifact được giữ để khôi phục; website hiện dùng đúng v0.4 đã duyệt. Build/Validator/browser evidence và ảnh nằm trong thư mục này; giới hạn/chi phí render ghi tại PERFORMANCE_REPORT.md. Chưa đo FPS GPU/điện thoại thật; không cam kết 60 FPS. Fallback dùng ảnh render v0.2 gốc đã duyệt, không giả làm render v0.4.
 
-Dừng tại Big Update v0.4, chờ phản hồi của bạn trước khi xuất bản bản cập nhật hoặc xây district mới.
+V0.4 đã xuất bản và kiểm tra thực tế. Dừng tại Big Update v0.4, chờ phản hồi hình ảnh tiếp theo; chưa xây district mới.
 
 ## Các file chính thay đổi
 
@@ -58,4 +58,4 @@ Dừng tại Big Update v0.4, chờ phản hồi của bạn trước khi xuất
 | Packaging / validation / QA / recording | Studio/scripts/pack-v04.mjs, build-overhaul-v04.mjs, package-overhaul-v04.py, audit-overhaul-v04.py, verify-overhaul-v04.mjs, capture-overhaul-v04.mjs, finish-capture-v04.py; sync-preview-assets.mjs |
 | Recovery / evidence / budget | Bốn STUDIO records, AGENTS.md, README/Studio README, PERFORMANCE_REPORT.md, quality-reports/v0.4/ |
 
-**Kết quả cuối:** 10 production + 10 exact static-subpath browser stages đạt; cả năm GLB không có lỗi/cảnh báo; đã xem hình render và video thực. V0.4 hoàn tất cho review. Chỉ còn phản hồi hình ảnh, đo thiết bị thật và xuất bản nếu bạn yêu cầu; không bắt đầu district khác.
+**Kết quả cuối:** 10 production + 10 exact static-subpath browser stages đạt; cả năm GLB không có lỗi/cảnh báo; đã xem hình render và video thực. V0.4 hoàn tất cho review. V0.4 đã xuất bản theo yêu cầu. Chỉ còn phản hồi hình ảnh và đo thiết bị thật; không bắt đầu district khác.

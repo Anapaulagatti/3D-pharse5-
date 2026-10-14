@@ -2,7 +2,7 @@
 
 Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verification. Milestones follow the persistent-progress prompt (nine milestones).
 
-Current task: PUBLIC-RELEASE-004 IN_PROGRESS after explicit user authorization. Publish exact reviewed v0.4, verify public render and STOP for feedback; no new districts.
+Current task: PUBLIC-RELEASE-004 DONE. v0.4 PUBLIC_LIVE_VERIFIED; STOP for further visual feedback, no new districts.
 
 | Milestone | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|---|
@@ -81,4 +81,4 @@ Current task: PUBLIC-RELEASE-004 IN_PROGRESS after explicit user authorization. 
 |---|---|---|---|
 | BIG-UPDATE-004 | Living Hanok Showcase v0.4 review candidate | DONE | quality-reports/v0.4/REVIEW.md + VERIFICATION_SUMMARY.json; source/exports/images/video/ZIP verified |
 | VISUAL-REVIEW-004 | User reviews the v0.4 upgrade | DONE | User explicitly requested v0.4 publication after candidate handoff; further visual feedback follows public verification |
-| PUBLIC-RELEASE-004 | Publish reviewed v0.4 and verify public scene | IN_PROGRESS | Latest request authorizes publication; build/five GLBs/audit/staging PASS; deployment/public browser pending |
+| PUBLIC-RELEASE-004 | Publish reviewed v0.4 and verify public scene | DONE | Actions 38530210414/deployment 7059737978 success; exact origin SHA, 10 public browser stages PASS and actual images inspected; pages-release/deployment.json |

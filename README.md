@@ -63,21 +63,21 @@ npm run dev
 
 Hướng dẫn Windows, phiên bản package và xử lý GLB: [Studio/README.md](Studio/README.md). Kết quả kiểm tra và ảnh demo thực tế: [quality-reports/SETUP_REPORT.md](quality-reports/SETUP_REPORT.md).
 
-## Living Hanok v0.4 — bản duyệt Big Update
+## Living Hanok v0.4 — đã xuất bản
 
 [Ảnh trước/sau và bộ biểu cảm](quality-reports/v0.4/REVIEW.md) · [Video chuyển động thật 45 giây](quality-reports/v0.4/living-hanok-v04-motion.mp4) · [Gói tương tác v0.4](downloads/v0.4/living-hanok-v0.4-review.zip).
 
-V0.4 thêm rig chân độc lập, 12 clip full-body/face xuất trong GLB, các nút Đi dạo/Chạy vui/Nhảy lên/Vẫy chào/Ăn mừng và Hanok nhiều chi tiết hơn. Gói review mở qua START_WINDOWS.cmd hoặc python3 start.py sau khi giải nén (cần Python3). Website Pages bên dưới vẫn là v0.3; dừng chờ review v0.4, chưa xây district mới.
+**Xem v0.4 online:** [https://anapaulagatti.github.io/3D-pharse5-/](https://anapaulagatti.github.io/3D-pharse5-/?release=cd238a4c). Đã triển khai nguyên HTML đã duyệt và kiểm tra render thật/10 public browser stages. [Bằng chứng website](quality-reports/v0.4/pages-release/VISUAL_REVIEW.md). Có rig chân độc lập, 12 clip body/face, các nút Đi dạo/Chạy vui/Nhảy lên/Vẫy chào/Ăn mừng và Hanok phong phú hơn. Nguồn/asset các phiên bản trước giữ nguyên. Gói ZIP vẫn mở qua HTTP launcher. Dừng chờ phản hồi, chưa xây district mới.
 
-## Living Hanok v0.3 — đã xuất bản
+## Living Hanok v0.3 — bản lưu
 
 [**Xem bộ ảnh trước/sau và hướng dẫn review**](quality-reports/v0.3/REVIEW.md) · [Video chuyển động thật 42 giây](quality-reports/v0.3/living-hanok-motion.mp4) · [Tải gói tương tác v0.3](downloads/v0.3/living-hanok-v0.3-review.zip).
 
-**Xem v0.3 tương tác online:** [https://anapaulagatti.github.io/3D-pharse5-/](https://anapaulagatti.github.io/3D-pharse5-/). GitHub Actions đã triển khai đúng HTML đã duyệt; 11 kiểm tra browser công khai đạt, và ảnh render thật đã được xem. [Bằng chứng triển khai](quality-reports/v0.3/pages-release/VISUAL_REVIEW.md). Nguồn và assets v0.2 giữ nguyên. Gói ZIP vẫn dùng được qua START_WINDOWS.cmd hoặc python3 start.py. Chưa đo FPS phần cứng/điện thoại thật; dừng chờ phản hồi, không có district mới.
+Website hiện dùng v0.4 ở phần trên. V0.3 source/artifact/ZIP và bằng chứng website trước đây vẫn giữ nguyên; 11 kiểm tra browser công khai v0.3 đã đạt. [Bằng chứng triển khai](quality-reports/v0.3/pages-release/VISUAL_REVIEW.md). Nguồn và assets v0.2 giữ nguyên. Gói ZIP vẫn dùng được qua START_WINDOWS.cmd hoặc python3 start.py. Chưa đo FPS phần cứng/điện thoại thật; dừng chờ phản hồi, không có district mới.
 
 ## Golden slice v0.2.0 — bản lưu
 
-Website hiện dùng v0.3 ở phần trên. Source/artifact/ZIP và [bằng chứng website v0.2 trước đây](quality-reports/pages-live/VISUAL_REVIEW.md) vẫn được giữ để khôi phục.
+Website hiện dùng v0.4 ở phần trên. Source/artifact/ZIP và [bằng chứng website v0.2 trước đây](quality-reports/pages-live/VISUAL_REVIEW.md) vẫn được giữ để khôi phục.
 
 **Xem bản tương tác qua HTTP trên máy cá nhân:** tải [showcase-v0.2-http.zip](downloads/showcase-v0.2-http.zip), giải nén; Windows mở `START_WINDOWS.cmd`, macOS/Linux chạy `python3 start.py` trong thư mục đã giải nén. Trình duyệt tự mở app. Cần Python 3; không cần Node/Blender. Mở HTML trong ChatGPT/Codex/GitHub chỉ hiện source. Xem [hướng dẫn từng bước](showcase/README.md); [gói static](downloads/showcase-v0.2-static.zip) và [cấu hình Pages](showcase/DEPLOYMENT.md) vẫn được giữ để khôi phục/triển khai.
 
