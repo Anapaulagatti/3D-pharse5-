@@ -41,7 +41,7 @@ export default function ReforgeApp(){
  const gesture=useCallback((name:string)=>{set(a=>({...a,gesture:{name,id:a.gesture.id+1}}));setNotice(name==='Greeting'?'Nari gửi bạn một lời chào.':name==='Celebration'?'Một niềm vui nhỏ trong sân Hanok.':'Nari vừa chú ý đến bạn.')},[])
  const react=useCallback(()=>gesture('InteractionReaction'),[gesture])
  const ready=useCallback(()=>setEngine('ready'),[]),failure=useCallback(()=>{clear();setEngine('fallback')},[clear])
- const changeView=(value:Settings['view'])=>{if(engine!=='fallback')setEngine('loading');set(a=>({...a,view:value,preset:'hero',angle:null}));clear()}
+ const changeView=(value:Settings['view'])=>{if(engine!=='fallback')setEngine('loading');set(a=>({...a,view:value,preset:'hero',angle:null,gesture:{name:'',id:0}}));clear()}
  const reset=()=>{Object.assign(player,createPlayer());set(a=>({...a,reset:a.reset+1,preset:'hero',angle:null,door:false,gesture:{name:'',id:0}}));clear();setNotice('Nari đã trở về đầu sân.')}
  const disabled=engine==='fallback'
  return <div className="reforge"><header><a href="#main">KOREAN ARENA <span>/ STUDIO</span></a><b>v0.5 · JOSEON FANTASY REFORGE</b></header>
