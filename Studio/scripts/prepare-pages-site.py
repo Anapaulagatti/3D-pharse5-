@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Stage only the approved saved v0.3 HTML; never rebuild art or the app."""
+"""Stage only the approved saved v0.4 HTML; never rebuild art or the app."""
 import argparse
 import hashlib
 import json
@@ -11,11 +11,11 @@ parser = argparse.ArgumentParser(description="Prepare the approved two-file GitH
 parser.add_argument("--output", default=str(root / "_site"))
 args = parser.parse_args()
 # Pin the reviewed artifact. Future art changes require their own release approval.
-approved_sha = "0ce49e58b26baa3802bc6e22fa4cab91d7181232e0069adcedd4f9353270c2d6"
-info = json.loads((root / "showcase-v0.3/build-info.json").read_text())
-html = (root / "showcase-v0.3/index.html").read_bytes()
-if info["asset_version"] != "0.3.0" or len(html) != info["file_bytes"] or hashlib.sha256(html).hexdigest() != info["checksum_sha256"] or info["checksum_sha256"] != approved_sha:
-    raise SystemExit("Approved v0.3 HTML integrity check failed")
+approved_sha = "cd238a4c79f378d05eea098ec3f55c207c24c91444afce459d1345c012572846"
+info = json.loads((root / "showcase-v0.4/build-info.json").read_text())
+html = (root / "showcase-v0.4/index.html").read_bytes()
+if info["asset_version"] != "0.4.0" or len(html) != info["file_bytes"] or hashlib.sha256(html).hexdigest() != info["checksum_sha256"] or info["checksum_sha256"] != approved_sha:
+    raise SystemExit("Approved v0.4 HTML integrity check failed")
 text = html.decode("utf-8")
 patterns = [
     r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----",
@@ -38,5 +38,5 @@ if any(path.name not in expected or path.is_symlink() or not path.is_file() for 
 (site / "index.html").write_bytes(html)
 (site / ".nojekyll").write_bytes(b"")
 assert {path.name for path in site.iterdir()} == expected
-print("Staged approved v0.3 HTML and .nojekyll only; no source/private files or build/model regeneration")
+print("Staged approved v0.4 HTML and .nojekyll only; no source/private files or build/model regeneration")
 print(f"HTML bytes: {len(html)}; SHA-256: {info['checksum_sha256']}")

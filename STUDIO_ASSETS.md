@@ -75,3 +75,5 @@ Baseline source/export/published artifacts preserved by quality-reports/v0.4/pre
 | REVIEW / VERIFICATION_SUMMARY | Before/after gallery, source/file change mapping, all required evidence links, limitations and STOP handoff |
 
 All 43 baseline files preserved; no app package or lockfile changes, paid service, optional audio or future district. Public v0.3 remains exact old artifact; v0.4 is a review candidate. Physical device FPS unmeasured.
+
+- PUBLIC-RELEASE-004 staging: saved v0.4 HTML (10,213,265 bytes, cd238a4c) authorized for publication; no art/model regeneration. Source/GLB/textures/old showcase files unchanged; only two recorded deployment configuration changes. Site allowlist index.html/.nojekyll; public verification pending.

@@ -2,7 +2,11 @@
   "status": "PASS",
   "candidate_sha256": "cd238a4c79f378d05eea098ec3f55c207c24c91444afce459d1345c012572846",
   "candidate_bytes": 10213265,
-  "preserved_v03_files": 43,
+  "preserved_v03_files": 41,
+  "authorized_deployment_file_changes": [
+    ".github/workflows/showcase-pages.yml",
+    "Studio/scripts/prepare-pages-site.py"
+  ],
   "verified_original_assets": [
     "arena-hero",
     "mascot-base",
@@ -24,5 +28,7 @@
   ],
   "private_source_blender_config_files_in_static_site": false,
   "public_deployment": false,
-  "release_gate": "User review and updated-publication authorization required"
+  "scope": "Static artifact audit; does not prove public deployment",
+  "publication_authorized": true,
+  "release_gate": "Publication explicitly authorized"
 }

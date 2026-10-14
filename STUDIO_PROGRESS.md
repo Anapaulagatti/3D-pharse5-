@@ -38,3 +38,5 @@
 **Verification required:** All relevant checks complete for HTML SHAcd238a4c79f378d05eea098ec3f55c207c24c91444afce459d1345c012572846. Repeat only for a new authorized change or concrete failure. Source/export/asset preservation must continue.
 
 **Remote GitHub save status:** Prior checkpoints through7bd2ada verified. Final docs/candidate proof save follows in history; compare origin/main to HEAD after push before claiming persistence. V0.4/doc/evidence paths do not trigger scoped v0.3 Pages deployment.
+
+- PUBLIC-RELEASE-004 active: user explicitly authorized v0.4 publication. Exact reviewed HTML cd238a4c unchanged; production/typecheck PASS and five GLBs Validator0/0. Static artifact is only index.html/.nojekyll with ten verified original assets and SDK licenses; no known credential/private-source inclusion. Two authorized deployment files updated (workflow and staging guard), recorded exact before/after hashes; remaining41 baseline originals and all v0.4 sources/assets unchanged. Next: push deployment checkpoint, monitor Actions, inspect public render, checkpoint then STOP.

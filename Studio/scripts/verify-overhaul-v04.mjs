@@ -6,6 +6,7 @@ import {mkdir,writeFile} from 'node:fs/promises'
 import {createHash} from 'node:crypto'
 const root=resolve(import.meta.dirname,'../..'),req=createRequire(resolve(root,'preview/package.json'))
 const {chromium,expect:baseExpect}=req('@playwright/test'),expect=baseExpect.configure({timeout:60_000}),url=process.argv[2]||'http://127.0.0.1:4184/'
+const publicDeployment=new URL(url).hostname==='anapaulagatti.github.io'
 const out=resolve(root,process.env.STUDIO_V04_REPORT_DIR||'quality-reports/v0.4/render');await mkdir(out,{recursive:true})
 const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']})
 const errors=[],missing=[],checks=[],states={},metrics={};let current
@@ -65,6 +66,6 @@ try{
  const fc=await browser.newContext({viewport:{width:390,height:844}}),fp=await fc.newPage();watch(fp)
  await fp.addInitScript(()=>{const old=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(t,...a){return t.startsWith('webgl')?null:old.call(this,t,...a)}});await fp.goto(url);await expect(fp.locator('.stage')).toHaveAttribute('data-engine','fallback');await expect(fp.locator('.poster img')).toBeVisible();await expect(fp.getByLabel('Góc nhìn điện ảnh')).toBeDisabled();await fp.screenshot({path:resolve(out,'fallback.png'),fullPage:true});await click(fp,fp.getByRole('button',{name:/Linh vật gốm/}));await expect(fp.locator('.poster img')).toBeVisible();await fc.close();await recordCheck('Actual missing-WebGL original PNG fallback and usable phone controls, no misleading action buttons')
  assert.deepEqual(errors,[]);assert.deepEqual(missing,[])
- await writeFile(resolve(out,'verification.json'),JSON.stringify({status:'PASS',url,verified_at:new Date().toISOString(),checks,states,metrics,critical_errors:errors,missing_resources:missing,public_deployment:false,limitation:'Cloud SwiftShader functional rendering; physical phone/GPU FPS unmeasured'},null,2)+'\n')
+ await writeFile(resolve(out,'verification.json'),JSON.stringify({status:'PASS',url,verified_at:new Date().toISOString(),checks,states,metrics,critical_errors:errors,missing_resources:missing,public_deployment:publicDeployment,limitation:'Cloud SwiftShader functional rendering; physical phone/GPU FPS unmeasured'},null,2)+'\n')
  console.log(checks.length+' actual v0.4 browser checks PASS; 12 authored static/live states; no critical errors/missing resources')
 }catch(e){await writeFile(resolve(out,'failure.json'),JSON.stringify({status:'FAIL',url,checks,errors,missing,message:String(e),metrics:current?await m(current).catch(()=>null):null},null,2)+'\n');throw e}finally{await browser.close()}
