@@ -1,6 +1,6 @@
 # Korean Arena 3D Studio v0.3 — Living Hanok Showcase
 
-Bản ứng viên để bạn duyệt. GitHub Pages hiện vẫn dùng artifact v0.2 đã duyệt; v0.3 chưa triển khai công khai. Không có Hangul Garden hay district mới.
+Bản v0.3 đã được bạn cho phép xuất bản và đã kiểm tra render thật tại [https://anapaulagatti.github.io/3D-pharse5-/](https://anapaulagatti.github.io/3D-pharse5-/). [Bằng chứng kiểm tra công khai](pages-release/VISUAL_REVIEW.md). Không có Hangul Garden hay district mới.
 
 ## Trước / sau
 
@@ -38,4 +38,4 @@ Toàn bộ .blend/GLB/texture/animation/export v0.2 và artifact public được
 
 Kiểm tra production/typecheck, GLB Validator, hành vi browser và audit được lưu trong thư mục này. `final-render/verification.json` là báo cáo cuối; các `review-pass-*` và lượt bị gián đoạn được giữ làm lịch sử, không dùng để khẳng định đã đạt. FPS điện thoại/phần cứng thật chưa được đo. Bản fallback dùng các ảnh render gốc đã duyệt.
 
-Theo mục 13 yêu cầu của bạn, bản cập nhật chỉ được công khai sau khi bạn duyệt hình ảnh và cho phép xuất bản v0.3. Dừng tại milestone này, chờ phản hồi của bạn.
+Bạn đã cho phép xuất bản v0.3; bản HTML được triển khai nguyên checksum đã duyệt. Dừng tại milestone này, chờ phản hồi hình ảnh tiếp theo của bạn.

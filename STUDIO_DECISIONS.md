@@ -66,3 +66,5 @@
 - STOP after this milestone. Public v0.2 remains preserved; latest section 13 requires user review/explicit updated-publication authorization before v0.3 deployment. No new districts or optional audio.
 
 - 2026-10-14: latest user "công bộ v.03 lên pages" grants updated-publication authorization. Publish the exact previously verified candidate, keep original v0.2 source/artifact/checkpoints, and pin the approved HTML checksum in staging. Existing Pages workflow/source setting reused; docs-only pushes do not redeploy. Verify origin hash and real public browser before claiming success, then STOP for visual feedback.
+
+- 2026-10-14T03:41:55.638744+00:00: PUBLIC-RELEASE-003 verified. Actions 38507114065 package/deploy success at 264734a; deployment 7056177598 authoritative URL matches origin 200 text/html and approved v0.3 SHA. All 11 actual public browser checks passed; public hero/night/evening/mascot/motion/mobile/fallback images inspected. TLS validation enabled. Stop for visual feedback; docs/evidence pushes do not trigger deployment. Physical FPS remains unmeasured.

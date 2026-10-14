@@ -1,6 +1,6 @@
 # Korean Arena 3D Studio v0.3 — Living Hanok Showcase
 
-Bản ứng viên để bạn duyệt hình ảnh. Website GitHub Pages hiện vẫn là v0.2; v0.3 chưa triển khai công khai.
+Bản v0.3 đã xuất bản tại [https://anapaulagatti.github.io/3D-pharse5-/](https://anapaulagatti.github.io/3D-pharse5-/), sau khi bạn cho phép. Gói ZIP review trước đây vẫn được giữ để xem cục bộ.
 
 ## Xem tương tác trên máy cá nhân
 
@@ -25,4 +25,4 @@ Thành tích FPS phần cứng/điện thoại thật chưa được đo; kiểm
 
 ## Release
 
-Public deployment of updated v0.3 requires the user's visual review and explicit authorization per section 13 of their request. This ZIP is a local review package. Keep the existing v0.2 live site unchanged until then.
+The user authorized v0.3 publication. The exact reviewed HTML is live and verified; original v0.2 source/artifact/checkpoints remain preserved. STOP for further visual feedback, with no new districts.

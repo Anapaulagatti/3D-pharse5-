@@ -1,45 +1,40 @@
 # Studio progress
 
-- Current milestone: VISUAL-POLISH-003 — Golden Vertical Slice v0.3 candidate COMPLETE and verified. STOP for visual feedback.
-- Current task ID: VISUAL-REVIEW-003 waiting for user; PUBLIC-RELEASE-003 gated on updated-publication approval. No Hangul Garden or other district.
-- Last completed: production/artifact/browser/GLB/visual/video/package audit and recoverable review deliverables.
-- Last verified complete-evidence checkpoint: 007f4234ef5b1843bb4fd2894bcabc1240bdc6ae matched origin/main after push. This documentation-only handoff records that verification.
-- Last checkpoint record updated: 2026-10-14T10:20:33+07:00 (Asia/Saigon).
-- Final candidate: showcase-v0.3/index.html, 8,213,753 bytes, SHA-256 0ce49e58b26baa3802bc6e22fa4cab91d7181232e0069adcedd4f9353270c2d6; 8 original verified embedded assets and SDK license notices. JS/CSS inline, GLB/PNG Blob URLs; repository subpath /3D-pharse5-/ verified.
-- Deliverables: downloads/v0.3/living-hanok-v0.3-review.zip and static ZIP/package manifest; showcase-v0.3/start.py + START_WINDOWS.cmd + README; quality-reports/v0.3/REVIEW.md, day/evening/night/hero/six expressive close-ups/roof/garden/mobile/fallback, live pose pairs, 42s H.264 motion capture and decoded frame review.
-- Preservation: all 37 original source/GLB/PNG/animation/export/lockfile/showcase hashes unchanged from b5ed079 baseline. Original .blend and exports/v1 retained. New 527,852-byte / 13,312-triangle Hanok detail GLB and editable Blender source are separate assets/v0.3 + exports/v0.3. No approved model regenerated.
-- Code: additive model layer, lantern sway/flicker/foliage/instanced paper and petals; six expressive cloned runtime clips, blink/gaze/idle gestures, visible chin-hand/frown, actual mesh picking and keyboard reactions with native LoopOnce return to idle. Smooth focus/zoom/optional cinematic mode yields to orbit. Live OS reduced-motion preference, pause/offscreen/hidden-tab handling and original PNG fallback retained.
-- Framing: stronger desktop hero, unclipped character celebration; responsive phone courtyard 260px high avoids empty space, portrait remains tall enough for gestures. Low default on phones.
-- Checks PASS: npm run typecheck + production build; all 3 GLBs Validator 0 errors/0 warnings; 11 real production + 11 exact extracted-HTML repository-prefix browser checks, zero critical page/console errors or missing resources. Launcher and prefix HTTP responses match final HTML SHA/200 text/html. Actual images and four decoded video frames inspected.
-- Measured render costs: Low 91 calls/112,697 triangles; Medium 180 calls/225,327 triangles including shadows. New static details merged by material; particles instanced, raycast-only tree proxy does not render. Physical device GPU/FPS remains unmeasured (QA-004); no 60 FPS claim.
-- Dependencies/configuration: existing React/R3F/Drei/Three/Vite pins and lockfiles unchanged; no app dependency installed. Related official Playwright FFmpeg v1013 recording helper (2.2 MiB) added to ignored Studio/.cache via verified TLS/system CA; system ffmpeg/ffprobe reused. No new API key, paid provider, audio, backend or environment draft change.
-- Runtime note: restricted execution sandbox denies default browser/server sockets; supported require_escalated runs were accepted for authorized local QA. Reused internal production 4173, extracted launcher 8097 and prefix 8098; live processes may not survive a new task. No cloud user-facing localhost preview link.
-- History: initial rendering found washed-out environment reflections, hidden greeting/Thinking mittens, clipped celebration and parent-node picking gap; fixed and reverified. Headless idle-canvas RAF waits/media-event coalescing/early frame measurements corrected in harness with actual page clips, mouse input/state checks; assertions retained. Historical failed/incomplete captures and original raw WebM/long cut remain preserved.
-- Public website: verified existing v0.2 URL https://anapaulagatti.github.io/3D-pharse5-/; published artifact SHA 9105a93b022e6751831ba66ae4d353317c43179aa3f045824a329ffdcfc76c17 and watched workflow inputs untouched. Do not present this URL as v0.3. Section 13 of latest user review requires explicit updated-showcase publication approval.
-- Known blockers/limits: no implementation blocker. User review/publication approval pending; physical-device profiling unavailable. Optional audio deliberately deferred.
+- Current milestone: VISUAL-POLISH-003 and PUBLIC-RELEASE-003 COMPLETE. v0.3 is PUBLIC_LIVE_VERIFIED; STOP for further visual feedback.
+- Public URL: https://anapaulagatti.github.io/3D-pharse5-/
+- Latest authorization: user explicitly requested "công bộ v.03 lên pages"; previous updated-publication hold was satisfied. No new district authorized.
+- Last verified deployment checkpoint: 264734a7fc76e8ad00f238a402d7bc37695ecdee matched origin/main after push. Final documentation/evidence checkpoint follows in Git history.
+- Release verified at: 2026-10-14T03:41:55.638744+00:00.
+- GitHub Actions 38507114065: package/deploy success; deployment 7056177598 success and authoritative URL above.
+- Exact saved v0.3 HTML: 8,213,753 bytes, SHA-256 0ce49e58b26baa3802bc6e22fa4cab91d7181232e0069adcedd4f9353270c2d6; both normal and cache-refresh public HTTP responses match. Original showcase/ v0.2 HTML remains archived untouched.
+- Release checks: production typecheck/build PASS; all 3 GLBs Validator 0 errors/0 warnings; 11 actual public browser checks PASS, no critical console/page errors or missing resources. Public hero/evening/night/greeting/live Celebration pair/mobile hero/fallback screenshots inspected. Origin/browser TLS verification enabled, no bypass.
+- Asset loading: self-contained inline JS/CSS and 8 verified original GLB/texture/PNG assets through Blob URLs, working under repository subpath. Static artifact only index.html/.nojekyll, license notices retained; secret/private-source/provenance audit PASS.
+- Preservation: all 37 approved original .blend/GLB/texture/animation/export/lockfile/showcase file hashes unchanged. No approved model regenerated. Separate v0.3 original detail layer 527,852 bytes/13,312 triangles/21 primitives retained with editable source.
+- Implemented polish retained: expressive six cloned clips, blink/gaze/idles/one-shot click and keyboard greeting/celebration with natural Idle return; lantern sway/flicker/wind/instanced paper/petals; architectural/courtyard foliage/detail layer; readable day/evening/night light; larger responsive hero, smooth focus and optional gentle cinematic mode yielding to orbit. Live OS reduced motion, pause/visibility and PNG fallback retained.
+- Existing candidate evidence: 11 production + 11 extracted-subpath checks, before/after gallery, 42s real motion capture and review/static ZIPs. Review ZIP remains the recoverable package prepared before publication.
+- Performance: Low 91 draw calls/112,697 triangles; Medium 180 calls/225,327 triangles including shadows. Phone defaults Low; physical-phone/GPU FPS unmeasured (QA-004), no 60 FPS claim. App dependencies and lockfiles unchanged.
+- Limitations: browser QA uses Chromium SwiftShader cloud rendering; 390×844 is a responsive viewport, not a physical device. Optional audio deferred. No implementation/deployment blocker remains.
+- Evidence: quality-reports/v0.3/pages-release/VISUAL_REVIEW.md, deployment.json, github-run.json, github-deployment-status.json, public-http.json, preflight.json, render/verification.json and actual public PNGs.
+- Cloud setup: existing Node/dependencies/Chromium/GitHub authentication reused through cloud-environment-onboarding:setup guidance; no install/start/config-draft changes required. No user-facing localhost link.
 
 ## NEXT SESSION HANDOFF
 
-**Current milestone:** VISUAL-POLISH-003 v0.3 review candidate COMPLETE; STOP.
+**Current milestone:** VISUAL-POLISH-003 and PUBLIC-RELEASE-003 COMPLETE. STOP for user visual feedback.
 
-**Current task ID:** VISUAL-REVIEW-003 waits for user feedback; PUBLIC-RELEASE-003 requires updated-publication authorization.
+**Current task ID:** Await post-publication visual feedback. WORLD-001/WORLD-002 remain unstarted.
 
-**Last verified checkpoint:** 007f4234ef5b1843bb4fd2894bcabc1240bdc6ae contains the complete verified candidate/evidence and matched remote after push.
+**Last verified checkpoint:** 264734a7fc76e8ad00f238a402d7bc37695ecdee is the remotely verified successful deployed source. The final docs/evidence commit follows; verify remote SHA after saving before claiming its persistence.
 
-**Completed work:** All requested Hanok/mascot motion/details/material/light/camera/interactions/accessibility polish; production/build, 3 Validator 0/0 and 22 production/artifact browser checks; actual human image/video frame inspection, final ZIP/audit/provenance and before/after review gallery. 37 original files preserved.
+**Completed work:** Exact previously reviewed v0.3 published through existing Actions/Pages; origin SHA byte match, build/Validator and 11 real public browser checks; actual public images inspected, source/asset preservation verified.
 
-**Unfinished work:** User visual feedback only within this task. Public v0.3 release not authorized; physical GPU/phone FPS remains QA-004. No learning district work permitted.
+**Unfinished work:** Further user visual feedback only. Physical hardware profiling remains QA-004; optional audio deferred.
 
-**Files to inspect:** quality-reports/v0.3/REVIEW.md, VERIFICATION_SUMMARY.json, final-render/verification.json, candidate-render/verification.json, capture/media-report.json and living-hanok-motion.mp4; downloads/v0.3/package-manifest.json; showcase-v0.3/build-info.json; new Blender/detail manifest/source and preserved-v02.json.
+**Files to inspect:** quality-reports/v0.3/pages-release/VISUAL_REVIEW.md, deployment.json, public-http.json, render/verification.json; STUDIO_TASKS.md, v0.3 REVIEW/VERIFICATION_SUMMARY and exports/source manifests.
 
-**Known blockers:** None for reviewing candidate. Updated public publication needs user approval per section 13; physical device profiling lacks hardware. Use supported execution permissions if restricted sandbox blocks internal QA sockets.
+**Known blockers:** None for public viewing. Physical GPU/mobile FPS has not been measured; do not claim it.
 
-**Exact next command or action:** Present/review the gallery/video/ZIP, then WAIT for the user's visual feedback. Personal viewing: extract review ZIP and run START_WINDOWS.cmd or python3 start.py. Do not rerun model generation/setup, deploy v0.3 or start Hangul Garden automatically.
+**Exact next command or action:** Open https://anapaulagatti.github.io/3D-pharse5-/, optionally refresh with ?release=0ce49e58 if an older cached page persists; await the user's feedback. Do not regenerate models, build new districts or continue artwork automatically.
 
-**Verification required:** Completed for this final candidate SHA 0ce49e58b26baa3802bc6e22fa4cab91d7181232e0069adcedd4f9353270c2d6. Repeat only for a new authorized change or concrete failure; do not broaden tests without cause. If later publishing is approved, stage only reviewed HTML/.nojekyll, preserve assets, audit and verify actual public render before claiming success.
+**Verification required:** This public release is already verified. Repeat checks only for a new authorized change or concrete failure. Future art changes need their own publication approval; prepare-pages-site.py pins the currently approved artifact.
 
-**Remote GitHub save status:** Complete-evidence checkpoint 007f423 pushed and independently verified against origin/main. This documentation-only handoff follows it. Docs/candidate/proof changes do not trigger the guarded v0.2 Pages workflow.
-
-## Authorized v0.3 public release — in progress
-
-Latest user request explicitly authorizes v0.3 Pages publication and supersedes the prior updated-publication hold. Reuse exact approved HTML SHA 0ce49e58b26baa3802bc6e22fa4cab91d7181232e0069adcedd4f9353270c2d6, with original showcase/ and all 37 baseline files preserved. Production/typecheck and 3 GLBs Validator 0/0 reverified; secret/provenance audit PASS. Scoped workflow now stages showcase-v0.3 only; approved checksum pinned; static allowlist index.html/.nojekyll. Next: push deployment checkpoint, monitor actual Actions run, inspect public rendered result and save release evidence. Deployment success is not yet claimed.
+**Remote GitHub save status:** Deployment source 264734a7fc76e8ad00f238a402d7bc37695ecdee pushed and independently matched origin/main. Final docs/evidence checkpoint follows and does not trigger the scoped deployment workflow; independently verify it after push.

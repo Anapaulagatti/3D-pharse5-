@@ -2,7 +2,7 @@
 
 Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verification. Milestones follow the persistent-progress prompt (nine milestones).
 
-Current user gate: v0.3 public publication explicitly authorized by latest user request. PUBLIC-RELEASE-003 IN_PROGRESS; publish exact reviewed HTML, verify public scene and STOP for feedback. No WORLD-001/WORLD-002 work.
+Current user gate: PUBLIC-RELEASE-003 DONE; approved v0.3 is PUBLIC_LIVE_VERIFIED. STOP for further visual feedback; no WORLD-001/WORLD-002 work.
 
 | Milestone | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|---|
@@ -63,4 +63,4 @@ Current user gate: v0.3 public publication explicitly authorized by latest user 
 |---|---|---|---|
 | VISUAL-POLISH-003 | Golden Vertical Slice v0.3 — Living Hanok Showcase candidate | DONE | quality-reports/v0.3/REVIEW.md, VERIFICATION_SUMMARY.json, final production/artifact browser evidence and downloadable review ZIP |
 | VISUAL-REVIEW-003 | User reviews v0.3 visual results | DONE | User explicitly requested v0.3 Pages publication after candidate handoff; await further visual feedback after release |
-| PUBLIC-RELEASE-003 | Publish approved v0.3 and verify actual public render | IN_PROGRESS | Latest user explicitly authorized v0.3 Pages publication; preflight/build/3 GLB checks PASS, deployment pending |
+| PUBLIC-RELEASE-003 | Publish approved v0.3 and verify actual public render | DONE | Actions 38507114065/deployment 7056177598 success; exact origin HTML SHA; 11 public browser checks PASS and real screenshots inspected; pages-release/deployment.json |
