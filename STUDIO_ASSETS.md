@@ -55,3 +55,7 @@ No Hangul Garden/new district, paid provider, audio or backend assets were creat
 Baseline source/export/published artifacts preserved by quality-reports/v0.4/preserved-v03.json. New files will use assets/v0.4, exports/v0.4, showcase-v0.4 and quality-reports/v0.4; no existing approved files overwritten. Mascot v0.4 derives actual Blender geometry with new leg pivots and authored facial/full-body clips.
 
 - New actual sources/assets: assets/v0.4/source-blend/mascot-living.blend and hanok-living.blend; exports/v0.4/models GLBs, asset-manifest with 12/1 clips and Validator 0/0. Original geometry/versions preserved; detail bands reduced from 64 to 24 segments, 25,792→18,112 triangles. Runtime scene and clean five-action UI implemented, pending human/render validation.
+
+- Corrected v0.4 mascot source/GLB retains native per-state face/leg reset tracks, 696,568 bytes and 12 clips. Actual face geometry seen in static browser shots; separate versioned GLB/source retained. No old approved .blend/GLB/texture changed.
+
+- Saved showcase-v0.4/index.html and downloads/v0.4 review/static ZIPs; asset URLs embedded as Blob URLs, no CDN/server assets required. Candidate audit PASS. These are new recoverable outputs; live v0.3 deployment inputs remain untouched.

@@ -40,7 +40,7 @@ export default function App() {
     setSettings(s => ({ ...s, interaction: { type, id: s.interaction.id + 1 } }))
     setNotice(type === 'mascot' ? 'Một cú nhảy nhỏ dành cho bạn.' : type === 'lantern' ? 'Ánh đèn ấm vừa bừng lên.' : 'Một làn gió nhẹ qua cành mận.')
   }, [])
-  const perform = (mood: Mood) => { setSettings(s => ({ ...s, action: { mood, id: s.action.id + 1 } })); setNotice('Người bạn men ngọc đang biểu diễn và sẽ trở về bình yên.') }
+  const perform = (mood: Mood) => { setSettings(s => ({ ...s, action: { mood, id: s.action.id + 1 } })); setNotice(settings.reducedMotion || settings.paused ? 'Biểu cảm tĩnh được giữ lại khi giảm chuyển động hoặc tạm dừng.' : 'Người bạn men ngọc đang biểu diễn và sẽ trở về bình yên.') }
   const resetCamera = () => { update('focus', 'overview'); setReset(r => r + 1); if (engine !== 'fallback') setEngine('loading') }
   const switchScene = (scene: SceneSettings['scene']) => { if (settings.scene === scene) return; update('scene', scene); if (engine !== 'fallback') setEngine('loading') }
   const poster = <div className="poster"><Poster mascot={settings.scene === 'mascot'} /><p>Ảnh tĩnh · 3D tạm thời không khả dụng</p></div>

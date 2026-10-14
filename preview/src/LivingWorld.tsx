@@ -62,7 +62,7 @@ export function Atmosphere({ settings, animate }: { settings: SceneSettings; ani
       <pointLight ref={warmB} position={[.9, 1.25, -.75]} color="#ffd59b" intensity={.35} distance={4.4} decay={2} />
     </>}
     <pointLight ref={hero} position={settings.scene === 'courtyard' ? [-.1, 2, 2.4] : [0, 2.3, 2]} color="#ffe4bd" intensity={.35} distance={4.4} decay={2} />
-    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -.72, 0]} receiveShadow>
+    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, settings.scene === 'courtyard' ? -.72 : -.035, 0]} receiveShadow>
       <planeGeometry args={[200, 200]} /><meshStandardMaterial ref={ground} color="#e7e9df" roughness={1} />
     </mesh>
   </>

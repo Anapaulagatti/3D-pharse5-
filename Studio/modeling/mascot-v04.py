@@ -132,5 +132,5 @@ bpy.context.scene.frame_set(1)
 src=ROOT/'assets/v0.4/source-blend/mascot-living.blend';dst=ROOT/'exports/v0.4/models/mascot-living.glb'
 src.parent.mkdir(parents=True,exist_ok=True);dst.parent.mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.save_as_mainfile(filepath=str(src))
-bpy.ops.export_scene.gltf(filepath=str(dst),export_format='GLB',export_yup=True,export_animations=True,export_animation_mode='NLA_TRACKS',export_nla_strips=True,export_force_sampling=True,export_cameras=False,export_lights=False)
+bpy.ops.export_scene.gltf(filepath=str(dst),export_format='GLB',export_yup=True,export_animations=True,export_animation_mode='NLA_TRACKS',export_nla_strips=True,export_force_sampling=True,export_optimize_animation_keep_anim_object=True,export_cameras=False,export_lights=False)
 print('V04_MASCOT_SAVED',dst.stat().st_size,'clips',list(clips))
