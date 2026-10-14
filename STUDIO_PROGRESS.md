@@ -1,6 +1,6 @@
 # Studio progress
 
-Current milestone: REFORGE-005 — Joseon Fantasy Reforge. Gates A/B/C/D DONE; Gate E IN_PROGRESS; public release TODO. The user explicitly authorizes finishing remaining tasks AND publishing v0.5: “tiếp tục hoàn thành những task còn lại và xuất bản bản v.05”. Do not ask again. No new districts.
+Current milestone: REFORGE-005 — Joseon Fantasy Reforge. Gates A/B/C/D/E DONE; PUBLIC-RELEASE-005 IN_PROGRESS (not yet deployed). The user explicitly authorizes finishing remaining tasks AND publishing v0.5: “tiếp tục hoàn thành những task còn lại và xuất bản bản v.05”. Do not ask again. No new districts.
 
 Last independently matched remote checkpoint:6b7658cb610db014cb9dafb92a003163f6daee8c. Recovery tag checkpoint/v0.4-pre-reforge-005→9cc1381. Public v0.4 remains live; its HTML cd238a4c, all approved source/model/map/ZIP files and old staging script remain unchanged. Only the authorized Pages workflow is prepared locally to switch to v0.5; DO NOT push that workflow until final Gate E passes.
 
@@ -39,3 +39,5 @@ Remaining: finish final-access OS/offscreen/mobile/WebGL tests, final exact HTML
 **Remote save status:**6b7658c verified. Public still v0.4. Local deployment files prepared but not committed; never publish while the required final tests are pending.
 
 Final capture review found stale gesture replay after play→portrait Canvas change. Clear gesture on mode change; no asset/rig/physics changes. New final HTML 082c661b5da2b4c8e66e81b2f52405ef460947bfeff27e2fd6fe771b2e3c716f; preserve earlier297d4e9c/126frame113.64s partial attempt. Recapture holds three actual interior compositor frames and waits for portrait Idle. OS reduced preference passes after true OS transition; offscreen test now waits for actual motion=false rather than a fixed400ms during slow render. Exact response hash uses an independent same-URL HTTP GET plus real browser200/render because Chromium evicts the13.5MB document body from inspector cache. Final access/media/artifact verification pending, no deployment yet.
+
+Gate E COMPLETE: final access12checks PASS (realOS/offscreen/WebGL), extracted exactHTTP8checks PASS, final video185realframes/86s with decoded walk/run/jump/greeting/cheer/inside/Idlefaces inspected. Source297→082 change only clears prior gesture on mode switch; final artifact082c661b. All final GLB/build/privacy/rig/nativeplay gates pass; see quality-reports/v0.5/REVIEW.md and VERIFICATION_SUMMARY.json. Authorized PUBLIC-RELEASE-005 next, not deployed yet.

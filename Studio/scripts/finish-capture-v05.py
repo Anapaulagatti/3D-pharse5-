@@ -12,6 +12,9 @@ subprocess.run(['ffmpeg','-y','-loglevel','error','-f','concat','-safe','0','-i'
 probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_format','-show_streams','-of','json',str(dst)]));review=[]
 for e in ['walk-start','run-start','jump-air','greeting','celebration','inside-hanok','face-happy','face-sad']:
  s=next(x for x in j['samples'] if x['event']==e);next_sample=next((x for x in j['samples'] if x['firstFrame']>s['firstFrame']),{'firstFrame':len(frames)});idx=min(len(frames)-1,s['firstFrame']+max(0,(next_sample['firstFrame']-s['firstFrame'])//2));p=d/('review-'+e+'.png')
+ # Prefer a known genuine gesture frame; a long interval until the next event
+ # may include later native locomotion after a one-shot gesture completes.
+ if e=='celebration':idx=min(len(frames)-1,s['firstFrame']+3)
  # Decode the exact source timestamp's video frame; preserve the raw frame list.
  time=max(0,frames[idx]['timestamp']-frames[0]['timestamp']);subprocess.run(['ffmpeg','-y','-loglevel','error','-ss',str(time),'-i',str(dst),'-frames:v','1',str(p)],check=True);review.append({'event':e,'source_frame':idx,'time_seconds':time,'file':str(p.relative_to(root))})
 report={'status':'RECORDED_PENDING_VISUAL_REVIEW','file':str(dst.relative_to(root)),'bytes':dst.stat().st_size,'sha256':hashlib.sha256(dst.read_bytes()).hexdigest(),'duration_seconds':float(probe['format']['duration']),'width':probe['streams'][0]['width'],'height':probe['streams'][0]['height'],'native_frame_count':len(frames),'timing':'Native compositor VFR timestamps. No interpolation, retiming, accelerated gameplay or synthetic frames.','renderer':'Cloud SwiftShader. This video is not a physical-device FPS claim.','review_frames':review};(d/'media-report.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
