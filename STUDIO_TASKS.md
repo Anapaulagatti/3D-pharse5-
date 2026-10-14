@@ -127,3 +127,5 @@ PUBLIC-RELEASE-005 COMPLETE: Actions38573493700/deployment7066939380 success; ca
 - Final concept delivery COMPLETE; supersedes earlier IN_PROGRESS checkpoint notes above. Actual approval, prototype and publication remain pending, not failed technical tasks. VERIFICATION_SUMMARY.json separates real v0.5 checks from v0.6 illustrations/budgets.
 
 - Remote delivery VERIFIED: f6d9732ba999eacf7159c025df9d2a106a4db632 independently matches origin/main. Final proof/handoff tag checkpoint/v0.6-concepts-review follows; STOP for new user choice.
+
+- PIVOT-APPROVAL-006 DONE: user "B + T1 là phương án hợp lý", concepts/v0.6/APPROVAL.json. PIVOT-PROTOTYPE-006 IN_PROGRESS; PUBLIC-RELEASE-006 remains separately gated. Subtasks: PROTO-ASSETS-006 original chibi/house/plaza sources+GLBs; PROTO-PLAY-006 adapted existing controller/camera/accessibility; PROTO-QA-006 actual render/physics/mobile/quality/Validator/build/media/package.

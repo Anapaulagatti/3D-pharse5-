@@ -143,3 +143,5 @@ PUBLIC-RELEASE-005 COMPLETE: exact082c661b (13,543,219B) publicly serves at http
 - Final four-page PDF inspected from actual decoded pages; concept report is a static review artifact, not a replacement showcase. All2,335protected v0.5 files and Pages source unchanged. STOP for PIVOT-APPROVAL-006; publication separately gated.
 
 - Complete concept content f6d9732 independently persisted on GitHub. Freeze these proposal outputs and await explicit new selection; final checkpoint/v0.6-concepts-review is a recovery tag, not approval or publication.
+
+- User explicitly accepts B+T1. Approval gate satisfied, authorize the scoped section13 vertical-slice prototype without re-asking. Keep v0.5 code byte-identical by using new preview/town.html + src/town modules and new source/export/scripts. Reuse validated controller/mixer/camera architecture with chibi dimensions and animation timing; no runtime scaling of old approved GLB as redesign. Public release still requires later permission.
