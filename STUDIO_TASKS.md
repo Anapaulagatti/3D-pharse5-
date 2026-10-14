@@ -2,7 +2,7 @@
 
 Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verification. Milestones follow the persistent-progress prompt (nine milestones).
 
-Current task: PUBLIC-RELEASE-005 DONE. REFORGE-005 Gates A–E DONE. STOP for VISUAL-REVIEW-005; no new districts.
+Current task: ART-PIVOT-006 — Playful Hangeul Town. Concept approval gate only; preserve public v0.5. No full remodeling or publication before new approval.
 
 | Milestone | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|---|
@@ -106,3 +106,14 @@ Gate E COMPLETE: final access12checks PASS (realOS/offscreen/WebGL), extracted e
 | VISUAL-REVIEW-005 | User reviews the publicly verified v0.5 | TODO | https://anapaulagatti.github.io/3D-pharse5-/?release=082c661b; STOP for feedback |
 
 PUBLIC-RELEASE-005 COMPLETE: Actions38573493700/deployment7066939380 success; canonical+fresh exact082c661b,8actual public checks and all7public images inspected. Final checkpoint tag checkpoint/v0.5-public-verified is saved after this report. No new work authorized beyond release.
+
+## ART-PIVOT-006 — Playful Hangeul Town v0.6
+
+| Stable ID | Deliverable | Status | Evidence |
+|---|---|---|---|
+| PIVOT-AUDIT-006 | Archive review, preserve v0.5, inspect source and measure baseline | IN_PROGRESS | Exact user request archived; preserved-v05.json records all protected tracked files at5578f5f; fresh source/render audit pending |
+| PIVOT-CONCEPT-006 | Three chibi characters, two town concepts, color/material board | TODO | Separate concepts/v0.6; concept art only, not meshes |
+| PIVOT-PLAN-006 | Reuse, animation feasibility, complexity and likely render/asset costs | TODO | Estimates must remain distinct from measured baseline |
+| PIVOT-REVIEW-006 | Visually inspect concepts, verify preservation, save GitHub and STOP for choice | TODO | User request sections4/12 mandatory approval gate |
+| PIVOT-PROTOTYPE-006 | One approved chibi, house/plaza, move/run/jump, three emotions, interaction/camera/fallback | BLOCKED | Requires new v0.6 concept approval; not authorized to begin yet |
+| PUBLIC-RELEASE-006 | Publish redesigned showcase | BLOCKED | Separate updated-publication approval required; existing v0.5 stays live |

@@ -131,3 +131,9 @@ Final capture review found stale gesture replay after play→portrait Canvas cha
 Gate E COMPLETE: final access12checks PASS (realOS/offscreen/WebGL), extracted exactHTTP8checks PASS, final video185realframes/86s with decoded walk/run/jump/greeting/cheer/inside/Idlefaces inspected. Source297→082 change only clears prior gesture on mode switch; final artifact082c661b. All final GLB/build/privacy/rig/nativeplay gates pass; see quality-reports/v0.5/REVIEW.md and VERIFICATION_SUMMARY.json. Authorized PUBLIC-RELEASE-005 next, not deployed yet.
 
 PUBLIC-RELEASE-005 COMPLETE: exact082c661b (13,543,219B) publicly serves at https://anapaulagatti.github.io/3D-pharse5-/?release=082c661b; canonical root also matches. Source4a29565, Actions38573493700/deployment7066939380 success. Actual public8checks and7PNG visual inspection PASS,0critical errors/missing resources. Final source/asset manifests,86s/185nativeframe video and packages retained. Stable recovery tag checkpoint/v0.5-public-verified saved after this evidence checkpoint. STOP for user visual feedback; no new districts/further art.
+
+## v0.6 concept pivot registration
+
+- Exact new user scope archived in docs/reviews/ART_PIVOT_V06_USER_REQUEST.md. v0.5 release handoff copied to docs/v0.6/V05_RELEASE_HANDOFF.md.
+- quality-reports/v0.6/preserved-v05.json hashes all tracked baseline files except five evolving session records at5578f5f. Public082c661b/v0.5 Blender/GLB/maps/controllers/animations/package locks/workflow are protected. No existing asset regenerated or replaced.
+- New concept boards, models, prototype and exports do not yet exist. Image outputs will be references only; production .blend/GLBs await new concept approval.
