@@ -162,3 +162,5 @@ Concept art is not a production texture/mesh/rig/animation/prototype or actual v
 - New editable generator sources only: Studio/modeling/nari-v06.py, chibi_motion_v06.py and letter-plaza-v06.py. Original v0.5 code not imported as a mesh, scaled, changed or regenerated. No new GLB or Blender output claimed yet.
 
 - Actual editable assets/v0.6/source-blend/{nari-chibi,letter-plaza}.blend and exports/v0.6/models/*.glb saved; fresh Validator reports in prototype/. Nari genuinely skinned28bones/20clips/10morphs,8,976tri. No texture/CDN dependency. Draft runtime uses Vite URL-imported versioned GLBs; real fallback poster will come from actual v0.6 render.
+
+- First real review-pass-3 image set saved: hero/light/house/face/poses/moving-pairs/mobile. Actual initial head/face/day/night viewed. These are provisional: garment zigzags/framing rejected. Prior character GLB/source remains recoverable011cf32; re-export only new v0.6 character after source corrections.

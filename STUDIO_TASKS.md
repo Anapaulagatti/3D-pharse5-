@@ -133,3 +133,5 @@ PUBLIC-RELEASE-005 COMPLETE: Actions38573493700/deployment7066939380 success; ca
 - PROTO-ASSETS-006 source preparation complete: new nari-v06.py/chibi_motion_v06.py and letter-plaza-v06.py Python syntax PASS. Actual exports/rig/structure/render acceptance pending; source checkpoint before Blender.
 
 - PROTO-ASSETS-006 first actual outputs saved: nari-chibi.blend/GLB8,976tri/1,356,152B/28bones/20clips/10morphs; letter-plaza.blend/GLB1,641,068B/495source modules/27support pairs. Both Validator0/0. Runtime draft typecheck PASS; actual deformation/build/render/gameplay pending.
+
+- First actual art reviewed: world/readable night/rounded head visible; rejected jagged clothing color boundaries and distant hero. Fix per-vertex color + physical collar/hem/cuffs and closer/lower hero. Vite export403 corrected with restricted new config; StrictMode exposed stale AnimationMixer cache, fixed binding/release in same effect. Final re-export/render pending.

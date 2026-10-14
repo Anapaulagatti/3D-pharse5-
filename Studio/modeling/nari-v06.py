@@ -11,7 +11,7 @@ from common import reset,material,sphere,box,path,mesh,join,color
 from chibi_motion_v06 import author
 ROOT=Path(__file__).resolve().parents[2];reset()
 COL={'skin':'F1C4A5','cream':'FFF0D8','mint':'88C9B3','navy':'293C55','hair':'292833','coral':'F18478','honey':'E9BB69','white':'FFFCF1','iris':'624335','pupil':'202837','cheek':'EDA090'}
-M={k:material('Chibi_'+k,'FFFFFF',r,0) for k,r in [('skin',.78),('cloth',.88),('dark',.66),('accent',.55)]}
+M={k:material('Chibi_'+k,'FFFFFF',r,0) for k,r in [('skin',.78),('cloth',.88),('dark',.82),('accent',.55)]}
 for m in M.values():
  n=m.node_tree.nodes.new('ShaderNodeVertexColor');n.layer_name='Color';m.node_tree.links.new(n.outputs['Color'],m.node_tree.nodes.get('Principled BSDF').inputs['Base Color']);m.node_tree.nodes.get('Principled BSDF').inputs['Specular IOR Level'].default_value=.25
 def paint(o,c,mat='cloth'):
@@ -36,10 +36,10 @@ body.data.materials.clear()
 for k in ['skin','cloth','dark']:body.data.materials.append(M[k])
 a=body.data.color_attributes.new(name='Color',type='FLOAT_COLOR',domain='CORNER')
 for f in body.data.polygons:
- p=sum((body.data.vertices[i].co for i in f.vertices),Vector())/len(f.vertices);skin=p.z>.625 or abs(p.x)>.264 and p.z<.385;mat=0 if skin else 2 if p.z<.085 else 1
- f.material_index=mat;f.use_smooth=True
+ f.material_index=1;f.use_smooth=True
  for i in f.loop_indices:
-  v=body.data.vertices[body.data.loops[i].vertex_index].co;c='skin' if skin else 'navy' if v.z<.085 or .085<v.z<.13 else 'cream' if v.z<.415 and abs(v.x)<.205 else 'coral'
+  v=body.data.vertices[body.data.loops[i].vertex_index].co
+  c='skin' if v.z>.625 or abs(v.x)>.245 and v.z<.44 else 'navy' if v.z<.13 and abs(v.x)<.205 else 'cream' if v.z<.415 and abs(v.x)<.205 else 'coral'
   a.data[i].color=color(COL[c])
 arm=bpy.data.armatures.new('NariChibiSkeleton');rig=bpy.data.objects.new('NariChibiArmature',arm);bpy.context.collection.objects.link(rig);bpy.context.view_layer.objects.active=rig;bpy.ops.object.select_all(action='DESELECT');rig.select_set(True);bpy.ops.object.mode_set(mode='EDIT');REST={}
 def bone(n,a,b,parent=None,connected=False):
@@ -69,6 +69,11 @@ for points in [[(-.073,-.09,.63),(-.015,-.113,.574),(.035,-.113,.53)],[(.073,-.0
 bag=join('MintEnvelopeSatchel',[B('Bag',(.222,-.035,.405),(.132,.081,.145),'mint',bevel=.02),B('Flap',(.222,-.084,.447),(.134,.012,.065),'mint',bevel=.009),P('EnvelopeSeam',[(.162,-.094,.466),(.222,-.096,.427),(.282,-.094,.466)],.0038,'cream'),S('HoneyClasp',(.222,-.101,.422),(.011,.005,.011),'honey','accent',10,6)]);skin(bag,'LetterSatchel')
 skin(P('ShortSatchelStrap',[(-.12,-.078,.612),(-.04,-.115,.553),(.065,-.116,.48),(.192,-.097,.455)],.009,'navy'),'Chest')
 tie=join('NavyGoreum',[S('Knot',(.02,-.127,.565),(.014,.008,.011),'navy','cloth',10,6),P('TieTail',[(.02,-.127,.565),(.032,-.132,.5)],.008,'navy')]);skin(tie,'GoreumTie')
+# Physical collar/hem/cuffs give clean clothing edges over smoothly colored anatomy.
+bpy.ops.mesh.primitive_torus_add(major_segments=20,minor_segments=6,major_radius=.057,minor_radius=.009,location=(0,0,.638));skin(paint(bpy.context.object,'cream'),'Neck')
+bpy.ops.mesh.primitive_torus_add(major_segments=20,minor_segments=6,major_radius=.152,minor_radius=.008,location=(0,0,.419));o=paint(bpy.context.object,'coral');o.scale.y=.70;skin(o,'Hips')
+for side,suf in [(1,'L'),(-1,'R')]:
+ bpy.ops.mesh.primitive_torus_add(major_segments=12,minor_segments=6,major_radius=.052,minor_radius=.008,location=(side*.105,0,.115));skin(paint(bpy.context.object,'navy'),'Shin.'+suf)
 # Coherent rounded cap with sculpted scalloped fringe and visible low hair loop.
 verts=[];faces=[];nr=24;rr=9
 for j in range(rr+1):

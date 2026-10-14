@@ -15,7 +15,9 @@ export default function Nari({settings:s,input,player,colliders,doorOpen,onReact
  const gltf=useGLTF(townURL('nari')),{invalidate}=useThree()
  const model=useMemo(()=>clone(gltf.scene),[gltf.scene]),mixer=useMemo(()=>new AnimationMixer(model),[model])
  const terrainFeet=useMemo(()=>new TerrainFeet(model),[model])
- const actions=useMemo(()=>new Map(gltf.animations.map(c=>[c.name,mixer.clipAction(c)])),[gltf.animations,mixer])
+ const actions=useMemo(()=>new Map<string,AnimationAction>(),[])
+ // Bind/release inside one effect so React StrictMode cleanup/replay never reuses uncached actions.
+ useEffect(()=>{for(const c of gltf.animations)actions.set(c.name,mixer.clipAction(c));return()=>{mixer.stopAllAction();mixer.uncacheRoot(model);actions.clear()}},[gltf.animations,mixer,model,actions])
  const faces=useMemo(()=>{const meshes:Mesh[]=[];model.traverse(o=>{if(o instanceof Mesh){o.castShadow=!o.morphTargetDictionary;o.receiveShadow=!o.morphTargetDictionary&&!o.name.includes('ChibiSkinSurface');if(o.morphTargetDictionary)meshes.push(o)}});return meshes},[model])
  const outer=useRef<Group>(null),action=useRef<AnimationAction|null>(null),clip=useRef(''),once=useRef(false),finished=useRef(false)
  const manual=useRef(''),accumulator=useRef(0),idle=useRef(0),introduced=useRef(false),previousSpeed=useRef(0),lastRun=useRef(false)
@@ -35,7 +37,7 @@ export default function Nari({settings:s,input,player,colliders,doorOpen,onReact
   mixer.addEventListener('finished',onFinish);return()=>mixer.removeEventListener('finished',onFinish)
  },[mixer,invalidate])
  useEffect(()=>{
-  mixer.stopAllAction();clip.current='';finished.current=true;manual.current='';accumulator.current=0;previousSpeed.current=0
+  mixer.stopAllAction();action.current=null;clip.current='';finished.current=true;manual.current='';accumulator.current=0;previousSpeed.current=0
   switchClip(world?'Idle':s.clip,false,0)
   if(s.reduced||s.paused){action.current!.time=Math.min(action.current!.getClip().duration*.42,.9);action.current!.paused=true}
   mixer.update(0);invalidate()
@@ -51,7 +53,6 @@ export default function Nari({settings:s,input,player,colliders,doorOpen,onReact
  },[s.gesture.id,s.gesture.name,mixer,switchClip,invalidate])
  useEffect(()=>{input.wake=invalidate;return()=>{input.wake=undefined}},[input,invalidate])
  useEffect(()=>{invalidate()},[s.expression,invalidate])
- useEffect(()=>()=>{mixer.stopAllAction();mixer.uncacheRoot(model)},[mixer,model])
  useFrame(({gl,camera},delta)=>{
   const active=s.active&&!s.paused,ambient=active&&!s.reduced
   let simulated=0,movingInput=false,run=false
