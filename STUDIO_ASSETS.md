@@ -49,3 +49,7 @@ No Hangul Garden/new district, paid provider, audio or backend assets were creat
 - PUBLIC-RELEASE-003: user authorized publication of the saved v0.3 HTML (8,213,753 bytes; SHA 0ce49e58b26baa3802bc6e22fa4cab91d7181232e0069adcedd4f9353270c2d6). Artifact staged as only index.html/.nojekyll; no source/model regeneration; all 37 baseline file hashes remain unchanged. Public verification pending.
 
 - PUBLIC-RELEASE-003 complete (2026-10-14T03:41:55.638744+00:00): existing exact v0.3 artifact is PUBLIC_LIVE_VERIFIED at https://anapaulagatti.github.io/3D-pharse5-/. Release evidence in quality-reports/v0.3/pages-release/ (11 public checks, inspected screenshots, origin byte match). Original source assets/approved v0.2 HTML and 37 baseline checksums retained. No new asset generated for deployment.
+
+## v0.4 overhaul in progress
+
+Baseline source/export/published artifacts preserved by quality-reports/v0.4/preserved-v03.json. New files will use assets/v0.4, exports/v0.4, showcase-v0.4 and quality-reports/v0.4; no existing approved files overwritten. Mascot v0.4 derives actual Blender geometry with new leg pivots and authored facial/full-body clips.

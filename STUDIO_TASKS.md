@@ -2,7 +2,7 @@
 
 Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verification. Milestones follow the persistent-progress prompt (nine milestones).
 
-Current user gate: PUBLIC-RELEASE-003 DONE; approved v0.3 is PUBLIC_LIVE_VERIFIED. STOP for further visual feedback; no WORLD-001/WORLD-002 work.
+Current task: BIG-UPDATE-004 — Living Hanok Showcase v0.4 overhaul. Preserve public v0.3 and previous sources; complete candidate and STOP for review, no new districts.
 
 | Milestone | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|---|
@@ -64,3 +64,15 @@ Current user gate: PUBLIC-RELEASE-003 DONE; approved v0.3 is PUBLIC_LIVE_VERIFIE
 | VISUAL-POLISH-003 | Golden Vertical Slice v0.3 — Living Hanok Showcase candidate | DONE | quality-reports/v0.3/REVIEW.md, VERIFICATION_SUMMARY.json, final production/artifact browser evidence and downloadable review ZIP |
 | VISUAL-REVIEW-003 | User reviews v0.3 visual results | DONE | User explicitly requested v0.3 Pages publication after candidate handoff; await further visual feedback after release |
 | PUBLIC-RELEASE-003 | Publish approved v0.3 and verify actual public render | DONE | Actions 38507114065/deployment 7056177598 success; exact origin HTML SHA; 11 public browser checks PASS and real screenshots inspected; pages-release/deployment.json |
+
+## BIG-UPDATE-004 — Living Hanok Showcase Overhaul
+
+| Stable ID | Deliverable | Status | Evidence |
+|---|---|---|---|
+| OVERHAUL-AUDIT-004 | Archive review, inspect source and preserve v0.3 | DONE | AUDIT.md and preserved-v03.json; remote baseline verified |
+| OVERHAUL-MASCOT-004 | Versioned rig, 12 authored clips, expressive face | IN_PROGRESS | Foot pivots/face/clear walk-run-jump planned |
+| OVERHAUL-WORLD-004 | Readable architectural/courtyard/garden/skyline detail | TODO | Versioned additive layer, original arena retained |
+| OVERHAUL-LIFE-004 | Refined ambient life and day/evening/night materials | TODO | No heavy bloom or added dependencies |
+| OVERHAUL-PRESENT-004 | Hero/portrait camera, clean action UI, reactions | TODO | Live motion/accessibility retained |
+| OVERHAUL-QA-004 | Actual render/12 states/mobile/fallback/Validator/build/video | TODO | Screenshot and capture evidence required |
+| OVERHAUL-REVIEW-004 | Portable review candidate and remote verified checkpoint | TODO | STOP for review, public v0.3 unchanged |

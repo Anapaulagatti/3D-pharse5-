@@ -38,3 +38,7 @@
 **Verification required:** This public release is already verified. Repeat checks only for a new authorized change or concrete failure. Future art changes need their own publication approval; prepare-pages-site.py pins the currently approved artifact.
 
 **Remote GitHub save status:** Deployment source 264734a7fc76e8ad00f238a402d7bc37695ecdee pushed and independently matched origin/main. Final docs/evidence checkpoint follows and does not trigger the scoped deployment workflow; independently verify it after push.
+
+## BIG-UPDATE-004 active
+
+Latest uploaded prompt authorizes major v0.4 overhaul of this golden slice. Audit complete; preserve baseline 9c3c373 and current public v0.3; next: versioned mascot rig/12 clips/face before environment pass. No setup reinstall or new district. Do not execute earlier STOP instructions as a cancellation of this authorized task. Candidate publication not authorized. Source preservation, visual verification and phased checkpoints required.
