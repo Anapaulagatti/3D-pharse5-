@@ -6,7 +6,8 @@ import {mkdir,readFile,writeFile} from 'node:fs/promises'
 import {createHash} from 'node:crypto'
 const root=resolve(import.meta.dirname,'../..'),req=createRequire(resolve(root,'preview/package.json')),{chromium,expect:base}=req('@playwright/test'),expect=base.configure({timeout:90000}),url=process.argv[2],out=resolve(root,process.env.STUDIO_V05_RELEASE_REPORT_DIR||'quality-reports/v0.5/pages-release/render');if(!url)throw Error('URL required');await mkdir(out,{recursive:true})
 const info=JSON.parse(await readFile(resolve(root,'showcase-v0.5/build-info.json'))),errors=[],missing=[],checks=[],states={}
-const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']})
+const runtimeProxy=url.startsWith('https:')&&process.env.HTTPS_PROXY?{server:process.env.HTTPS_PROXY}:undefined
+const browser=await chromium.launch({proxy:runtimeProxy,executablePath:'/usr/bin/chromium',args:['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']})
 try{
  const p=await browser.newPage({viewport:{width:1280,height:1100},reducedMotion:'reduce'});p.setDefaultTimeout(90000);p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error')errors.push(m.text())});p.on('response',r=>{if(r.status()>=400)missing.push({url:r.url(),status:r.status()})})
  const exact=await p.context().request.get(url),body=await exact.body();assert.equal(exact.status(),200);assert.match(exact.headers()['content-type'],/text\/html/);assert.equal(createHash('sha256').update(body).digest('hex'),info.checksum_sha256);const response=await p.goto(url);assert.equal(response.status(),200);assert.match(response.headers()['content-type'],/text\/html/);checks.push('HTTP200 text/html with exact approved standalone SHA256')

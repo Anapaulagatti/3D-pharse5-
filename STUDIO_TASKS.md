@@ -2,7 +2,7 @@
 
 Statuses: TODO, IN_PROGRESS, DONE, BLOCKED. DONE requires outputs and verification. Milestones follow the persistent-progress prompt (nine milestones).
 
-Current task: REFORGE-GATE-E-005 IN_PROGRESS; Gates A/B/C/D DONE. User authorizes v0.5 publication after final verification. User approved A — Nari; Gate A DONE. Continue v0.5 gates B–E, preserving public v0.4; no new districts or public v0.5 release.
+Current task: PUBLIC-RELEASE-005 DONE. REFORGE-005 Gates A–E DONE. STOP for VISUAL-REVIEW-005; no new districts.
 
 | Milestone | Stable ID | Deliverable | Status | Evidence |
 |---|---|---|---|---|
@@ -94,7 +94,7 @@ Current task: REFORGE-GATE-E-005 IN_PROGRESS; Gates A/B/C/D DONE. User authorize
 | REFORGE-GATE-C-005 | Skinned humanoid,20 clips,10 expressions, playable collision/controller and touch input | DONE | gate-c/REVIEW.md; final-rig-review actual20clips/10faces/20moving pairs visually inspected; play-pass-4 native9checks PASS; BoneHeat fixes wedges; Validator0/0 |
 | REFORGE-GATE-D-005 | Architecture/material/environment/lighting/game-feel polish | DONE | final-layer-review actual13views, updated PBR/source/GLB, native lantern/tree feedback and advancing3windclips |
 | REFORGE-GATE-E-005 | GLB/build/browser/gameplay/video/accessibility/mobile/performance proof | DONE | Validator0/0, build PASS, final Nari74actual frames inspected,9native playchecks PASS; remaining final access/video/exact-static proof |
-| REFORGE-RELEASE-005 | Publish completed v0.5 and verify public URL | IN_PROGRESS | User explicitly authorizes completion/publication; publish exact297d4e9c after Gate E, preserve v0.4 sources/artifact |
+| REFORGE-RELEASE-005 | Publish completed v0.5 and verify public URL | DONE | User explicitly authorizes completion/publication; publish exact297d4e9c after Gate E, preserve v0.4 sources/artifact |
 
 
 Intermediate Gate D failures and fixes are preserved in Git history and quality-reports/v0.5. Latest authoritative state is STUDIO_PROGRESS.md.
@@ -102,3 +102,7 @@ Intermediate Gate D failures and fixes are preserved in Git history and quality-
 Final capture review found stale gesture replay after play→portrait Canvas change. Clear gesture on mode change; no asset/rig/physics changes. New final HTML 082c661b5da2b4c8e66e81b2f52405ef460947bfeff27e2fd6fe771b2e3c716f; preserve earlier297d4e9c/126frame113.64s partial attempt. Recapture holds three actual interior compositor frames and waits for portrait Idle. OS reduced preference passes after true OS transition; offscreen test now waits for actual motion=false rather than a fixed400ms during slow render. Exact response hash uses an independent same-URL HTTP GET plus real browser200/render because Chromium evicts the13.5MB document body from inspector cache. Final access/media/artifact verification pending, no deployment yet.
 
 Gate E COMPLETE: final access12checks PASS (realOS/offscreen/WebGL), extracted exactHTTP8checks PASS, final video185realframes/86s with decoded walk/run/jump/greeting/cheer/inside/Idlefaces inspected. Source297→082 change only clears prior gesture on mode switch; final artifact082c661b. All final GLB/build/privacy/rig/nativeplay gates pass; see quality-reports/v0.5/REVIEW.md and VERIFICATION_SUMMARY.json. Authorized PUBLIC-RELEASE-005 next, not deployed yet.
+
+| VISUAL-REVIEW-005 | User reviews the publicly verified v0.5 | TODO | https://anapaulagatti.github.io/3D-pharse5-/?release=082c661b; STOP for feedback |
+
+PUBLIC-RELEASE-005 COMPLETE: Actions38573493700/deployment7066939380 success; canonical+fresh exact082c661b,8actual public checks and all7public images inspected. Final checkpoint tag checkpoint/v0.5-public-verified is saved after this report. No new work authorized beyond release.

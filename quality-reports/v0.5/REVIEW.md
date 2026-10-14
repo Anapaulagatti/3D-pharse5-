@@ -1,6 +1,6 @@
 # Korean Arena v0.5 — Joseon Fantasy Reforge
 
-Gates A–E complete. User approved Nari (concept A) and explicitly authorized completion plus public v0.5 publication. Exact verified static HTML: `082c661b5da2b4c8e66e81b2f52405ef460947bfeff27e2fd6fe771b2e3c716f` (13,543,219 bytes). Deployment is a separate step; actual status is recorded in pages-release/deployment.json only after verified.
+Gates A–E complete. User approved Nari (concept A) and explicitly authorized completion plus public v0.5 publication. Exact verified static HTML: `082c661b5da2b4c8e66e81b2f52405ef460947bfeff27e2fd6fe771b2e3c716f` (13,543,219 bytes). Public release is COMPLETE and actually inspected: https://anapaulagatti.github.io/3D-pharse5-/?release=082c661b. See pages-release/deployment.json; Actions38573493700 and public exact082c661b response/render verified.
 
 ## Actual visual results
 
@@ -30,3 +30,7 @@ Measured render counts: Low57draws/99,012triangles; Medium/High133draws/195,524t
 The cloud software renderer is visibly slow; the video keeps that timing. No physical phone/GPU FPS claim; QA-004 remains hardware profiling. Portrait/presets remain simple inspection tools, not a full commercial game camera. No new district, paid service, backend or audio. All previous assets/Blender sources remain recoverable. v0.4 standalone SHA cd238a4c remains unchanged; the authorized deployment workflow update is the only changed protected release input.
 
 STOP after the authorized release and public visual verification. Wait for user feedback before further art or districts.
+
+## Public release verified
+
+The canonical root and fresh URL serve exact13,543,219B HTML082c661b. Eight real public HTTP/WebGL/animation/face/keyboard/mobile/fallback checks passed; actual screenshots opened and no critical console/resource errors. Source4a29565, Actions38573493700, deployment7066939380. Publication used only index.html/.nojekyll; no source or restricted assets staged. Documentation checkpoints do not redeploy. STOP for user visual feedback.
