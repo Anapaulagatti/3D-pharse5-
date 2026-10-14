@@ -75,10 +75,12 @@ for z in ZS:
 for x in XS:
  B('DepthTieBeam',(x,2.77,-2.075),(.20,.24,4.85),'wood','beam')
  # Ridge posts sit on the centre crossbeam, fully connected to ridge purlin.
-for i in range(29):
- x=-3.70+7.40*i/28
+rafter_count=29 if GRAY else 21
+rafter_samples=18 if GRAY else 12
+for i in range(rafter_count):
+ x=-3.70+7.40*i/(rafter_count-1)
  for side,reach in [(-1,2.45),(1,3.30)]:
-  pts=[(x,roof_h(-2.5+side*reach*j/18)-.14,-2.5+side*reach*j/18) for j in range(19)]
+  pts=[(x,roof_h(-2.5+side*reach*j/rafter_samples)-.14,-2.5+side*reach*j/rafter_samples) for j in range(rafter_samples+1)]
   r=P('Rafter_%s_%02d'%(side,i),pts,.060,'lightwood','rafter')
   for z in ZS:
    if (z+2.5)*side>=0:
@@ -148,13 +150,14 @@ door_objects=[]
 for side,name in [(-1,'DoorLeft'),(1,'DoorRight')]:
  before=set(bpy.context.scene.objects)
  lattice(name,(side*.275,1.49,-.53),.55,1.98)
+ if not GRAY:B(name+'Handle',(side*.15,1.35,-.475),(.035,.14,.025),'brass','detail')
  for o in list(bpy.context.scene.objects):
   if o not in before:o.select_set(False)
  panel=join(name,[o for o in bpy.context.scene.objects if o not in before and o.type=='MESH'])
  # Shared panel-local origin at world zero; runtime slides ±.56m along X.
  bpy.context.scene.cursor.location=(0,0,0);bpy.context.view_layer.objects.active=panel;bpy.ops.object.origin_set(type='ORIGIN_CURSOR')
  door_objects.append(panel)
- B(name+'Handle',(side*.15,1.35,-.475),(.035,.14,.025),'brass','detail')
+ if GRAY:B(name+'Handle',(side*.15,1.35,-.475),(.035,.14,.025),'brass','detail')
 # Interior room partitions have actual apertures facing the maru.
 for x in [-1.1,1.1]:
  for z,length in [(-3.325,2.15),(-.825,.45)]:B('RoomPartition',(x,1.59,z),(.12,2.22,length),'paper','wall',True)
@@ -166,15 +169,26 @@ for x in [-2.15,2.15]:
  B('FloorCushion',(x,.54,-2.6),(.52,.12,.48),'jade','furniture',False,bevel=.05)
  B('PaperBook',(x,.84,-3.35),(.30,.045,.23),'paper','furniture',False,bevel=.008)
 
+art={'keep':[],'hide_meshes':[]}
+if not GRAY:
+ from hanok_art_v05 import build_art
+ art=build_art(globals())
 # Keep source modules editable and manifest derived from their actual world bounds.
 src=ROOT/f'assets/v0.5/source-blend/hanok-{TAG}.blend';dst=ROOT/f'exports/v0.5/models/hanok-{TAG}.glb'
 src.parent.mkdir(parents=True,exist_ok=True);dst.parent.mkdir(parents=True,exist_ok=True)
 scene=bpy.context.scene;scene.unit_settings.system='METRIC';scene.frame_set(1)
+if not GRAY:scene.frame_end=121
 bpy.ops.wm.save_as_mainfile(filepath=str(src))
 # Merge static render geometry per material; keep real sliding doors independent.
-static=[o for o in scene.objects if o.type=='MESH' and o not in door_objects]
+def kept(o):
+ while o:
+  if o in art['keep']:return True
+  o=o.parent
+ return False
+static=[o for o in scene.objects if o.type=='MESH' and o not in door_objects and o not in art['hide_meshes'] and not kept(o)]
 join('HanokStaticStructure',static)
-bpy.ops.export_scene.gltf(filepath=str(dst),export_format='GLB',export_yup=True,export_animations=False,export_cameras=False,export_lights=False)
+for o in art['hide_meshes']:bpy.data.objects.remove(o,do_unlink=True)
+bpy.ops.export_scene.gltf(filepath=str(dst),export_format='GLB',export_yup=True,export_animations=not GRAY,export_animation_mode='NLA_TRACKS',export_nla_strips=True,export_force_sampling=True,export_cameras=False,export_lights=False)
 manifest={'version':'0.5.0','stage':'Gate B graybox' if GRAY else 'Gate D art','coordinate_system':'runtime Y-up metres, front +Z','source':str(src.relative_to(ROOT)),'glb':str(dst.relative_to(ROOT)),'bounds_contract':{'courtyard':[-6,6,-5.7,4.3],'building':[-3.2,3.2,-4.4,-.6],'floor_y':.4775,'person_height':1.45,'door_width':1.10},'modules':modules,'support_connections':connections,'colliders':colliders,'sliding_doors':{'nodes':['DoorLeft','DoorRight'],'travel_m':.56,'opening':{'min':[-.55,.477,-.67],'max':[.55,2.48,-.46]}},'provenance':'original-project-owned procedural geometry','limitations':'Not a certified historical/engineering reconstruction. Connection bounds require actual render inspection.'}
 (ROOT/f'exports/v0.5/hanok-{TAG}-structure.json').write_text(json.dumps(manifest,indent=2)+'\n')
 print('V05_HANOK',TAG,'modules',len(modules),'connections',len(connections),'bytes',dst.stat().st_size)

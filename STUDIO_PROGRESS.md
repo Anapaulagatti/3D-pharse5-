@@ -2,7 +2,7 @@
 
 Current milestone: REFORGE-005 — Joseon Fantasy Reforge IN_PROGRESS. A — Nari explicitly approved; do not ask again. Gates A/B/C DONE. Gate D IN_PROGRESS, E TODO. v0.5 public publication NOT authorized; existing Pages v0.4 and75protected hashes preserved.
 Current task: REFORGE-GATE-D-005 — art/material/environment/life/lighting/camera/game-feel polish.
-Last verified remote checkpoint:8e5e84daf6eaae4b94b188777ba0f9535be63f9c recovery checkpoint, origin matched. Gate C accepted checkpoint follows in history. Earlier Gate B03cc02b and draft572d53f remotely verified. Recovery tag checkpoint/v0.4-pre-reforge-005→9cc1381.
+Last verified remote checkpoint:e2129c99e0b08c91fe045360a5b0bde2d88534f6 accepted Gate C, independently origin matched. Earlier Gate B03cc02b and draft572d53f remotely verified. Recovery tag checkpoint/v0.4-pre-reforge-005→9cc1381.
 
 Gate B complete: source hanok-graybox.blend, GLB2,142,648bytes/51,596tri/11primitives;419modules/209support pairs; Validator0/0, production PASS; actual33views/360orbit source PNGs and6sstepped video inspected. Four-sided full envelope, roof support, floors/stairs/doors/simple interior. Remain neutral and preserved; no regenerate.
 
@@ -42,8 +42,11 @@ Last update: 2026-10-14T10:14:30.999990+00:00 UTC.
 
 **Known blockers:** None after native fixes. Need address facial coarse received feature shadows as art issue. Physical hardware FPS unmeasured. Publication remains user review/approval gate.
 
-**Exact next command or action:** Save/push/origin-match accepted Gate C checkpoint, then implement separate Gate D art outputs as described above. Do not regenerate graybox/current functional Nari or redo concept choice. Preserve public v0.4.
+**Exact next command or action:** Run separate Gate D Blender art exports after this source-preparation checkpoint is remotely matched. Do not regenerate graybox/current functional Nari or redo concept choice. Preserve public v0.4.
 
 **Verification required:** Actual final art render all required modes and sides, source/GLB/texture/clip validation, native controls/accessibility/mobile/fallback/camera, exact final static subpath render, real-time media with honest limits and secret/provenance allowlist checks. Existing C acceptance is functional, not finished art.
 
 **Remote GitHub save status:**8e5e84d pushed/matched, previous gates preserved. Accepted C checkpoint must be pushed and independently matched before expensive art generation. Documentation/source changes do not trigger Pages;75protected hashes still unchanged.
+
+
+Gate D source preparation: separate full-art Hanok and Nari --art outputs prepared; C source/GLBs remain untouched. Original deterministic256px PBR map generator with checksum-verified cache; art roof rolls/endcaps, supported lanterns/banner, low courtyard borders/pavers, wind crowns, planters/bench/basin and separate historic backdrop. Full-art rafters21vsgraybox29 fund detail. Nari ART uses .33decimation, updated warped normals, separate skinned skin surface and original cloth UV/maps. Python syntax passes. Outputs NOT generated/validated/visually accepted yet; checkpoint before Blender.

@@ -9,6 +9,7 @@ from mathutils import Vector,Quaternion,Euler
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from common import reset,material,box,sphere,path,mesh,join,color
 ROOT=Path(__file__).resolve().parents[2]
+ART='--art' in sys.argv
 reset()
 COL={'skin':'E4AD89','ivory':'F2E8D4','jade':'72B9A3','navy':'25384A','hair':'362820','coral':'D67F6C','brass':'C5A66D','white':'FFF6E7','eye':'442D21','pupil':'152335','cheek':'DA8E78'}
 M={k:material('Nari_'+k,'FFFFFF',r,m) for k,r,m in [('skin',.50,0),('cloth',.85,0),('dark',.48,0),('accent',.34,.35)]}
@@ -38,7 +39,7 @@ for side in [-1,1]:
 body=join('NariContinuousBody',parts);apply_world(body)
 mod=body.modifiers.new('ContinuousAnatomyUnion','REMESH');mod.mode='VOXEL';mod.voxel_size=.009;mod.use_smooth_shade=True;bpy.ops.object.modifier_apply(modifier=mod.name)
 mod=body.modifiers.new('JointSurfaceRelax','SMOOTH');mod.factor=.65;mod.iterations=4;bpy.ops.object.modifier_apply(modifier=mod.name)
-mod=body.modifiers.new('RealtimeTopology','DECIMATE');mod.ratio=.34;bpy.ops.object.modifier_apply(modifier=mod.name)
+mod=body.modifiers.new('RealtimeTopology','DECIMATE');mod.ratio=.33 if ART else .34;bpy.ops.object.modifier_apply(modifier=mod.name)
 for v in body.data.vertices:
  p=v.co
  if p.z<.003:p.z=.003
@@ -123,6 +124,7 @@ def skin(o,rigid=None,torso=False):
   for i,v in enumerate(o.data.vertices):v.co=o.data.shape_keys.key_blocks['Basis'].data[i].co
  else:
   for v in o.data.vertices:v.co=headwarp(v.co)
+ if ART:o.data.update()
  groups={n:o.vertex_groups.get(n) or o.vertex_groups.new(name=n) for n in REST}
  for v in o.data.vertices:
   ws=[(rigid,1)] if rigid else weights(v.co)
@@ -241,6 +243,18 @@ for mood in EXPRESSIONS:
 skin(face,'Head')
 # Merge non-morph meshes while retaining the same normalized deform groups.
 costume=join('NariSkinnedBodyAndCostume',[o for o in bpy.context.scene.objects if o.type=='MESH' and o!=face])
+if ART:
+ # Separate skin shading from cloth/hair without changing the continuous anatomy
+ # or rig. This lets the stylized face avoid coarse received feature shadows.
+ bpy.ops.object.select_all(action='DESELECT');costume.select_set(True);bpy.context.view_layer.objects.active=costume
+ for f in costume.data.polygons:f.select=costume.data.materials[f.material_index]==M['skin']
+ before=set(bpy.context.scene.objects)
+ bpy.ops.object.mode_set(mode='EDIT');bpy.ops.mesh.separate(type='SELECTED');bpy.ops.object.mode_set(mode='OBJECT')
+ skin_surface=next(o for o in bpy.context.scene.objects if o not in before);skin_surface.name='NariSkinSurface'
+ from reforge_materials import textured,surface_uv
+ textured(M['cloth'],'nari-wovencloth','cloth','FFFFFF',56,vertex_color=True)
+ for o in bpy.context.scene.objects:
+  if o.type=='MESH':surface_uv(o,4)
 
 # Authored bone poses use world-axis intent, conjugated into each bone's rest basis.
 def rot(name,rx=0,ry=0,rz=0):
@@ -326,7 +340,8 @@ for p in rig.pose.bones:p.location=(0,0,0);p.rotation_quaternion=(1,0,0,0);p.sca
 for k in face.data.shape_keys.key_blocks:k.value=0
 # Save full editable rig/weights/NLA/morphs. Geometry stays in-place; world movement is runtime.
 scene=bpy.context.scene;scene.frame_set(1);scene.frame_end=97;scene.unit_settings.system='METRIC'
-src=ROOT/'assets/v0.5/source-blend/nari-messenger.blend';dst=ROOT/'exports/v0.5/models/nari-messenger.glb';src.parent.mkdir(parents=True,exist_ok=True);dst.parent.mkdir(parents=True,exist_ok=True)
+stem='nari-messenger-art' if ART else 'nari-messenger'
+src=ROOT/f'assets/v0.5/source-blend/{stem}.blend';dst=ROOT/f'exports/v0.5/models/{stem}.glb';src.parent.mkdir(parents=True,exist_ok=True);dst.parent.mkdir(parents=True,exist_ok=True)
 skin_report=[]
 for o in scene.objects:
  if o.type!='MESH':continue
@@ -341,6 +356,6 @@ for o in scene.objects:
  if o.type=='MESH':o.parent=None
 bpy.ops.export_scene.gltf(filepath=str(dst),export_format='GLB',export_yup=True,export_animations=True,export_animation_mode='NLA_TRACKS',export_nla_strips=True,export_force_sampling=True,export_optimize_animation_keep_anim_object=True,export_optimize_animation_keep_anim_armature=True,export_try_sparse_sk=True,export_cameras=False,export_lights=False)
 report={'concept':'A — Nari, user approved','bone_count':len(REST),'bones':list(REST),'meshes':skin_report,'clips':CLIPS,'expressions':['Neutral']+EXPRESSIONS[:-1],'blink':'Blink morph plus native Idle channel','authoring':'Original continuous voxel-unioned body with Blender bone-heat anatomical weights, normalized maximum4 influences; explicit torso/accessory/face weights and deformation armature. Analytic two-bone leg/arm IK authored into quaternion keyframes; editable NLA in source. No image is used as a mesh.','limitations':'Requires actual browser pose/motion/side/rear deformation inspection and physics/controller verification before acceptance.'}
-(ROOT/'quality-reports/v0.5/gate-c').mkdir(parents=True,exist_ok=True)
-(ROOT/'quality-reports/v0.5/gate-c/rig-authoring.json').write_text(json.dumps(report,indent=2)+'\n')
+report_dir=ROOT/('quality-reports/v0.5/gate-d' if ART else 'quality-reports/v0.5/gate-c');report_dir.mkdir(parents=True,exist_ok=True)
+(report_dir/('rig-authoring-art.json' if ART else 'rig-authoring.json')).write_text(json.dumps(report,indent=2)+'\n')
 print('NARI_ACTUAL_SKIN_SAVED',len(REST),'bones',dst.stat().st_size,'bytes')

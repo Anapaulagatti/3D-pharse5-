@@ -95,3 +95,6 @@ Current task: REFORGE-GATE-D-005 IN_PROGRESS; Gates A/B/C DONE. User approved A 
 | REFORGE-GATE-D-005 | Architecture/material/environment/lighting/game-feel polish | IN_PROGRESS | Preserve graybox/functional rig; separate art exports, textures/life/lighting/face-shadow/camera/effects next |
 | REFORGE-GATE-E-005 | GLB/build/browser/gameplay/video/accessibility/mobile/performance proof | TODO | Actual rendered evidence required; no v0.5 completion claim yet |
 | REFORGE-RELEASE-005 | User-reviewed candidate and separate publication authorization | BLOCKED | Preserve live v0.4; no approval to publish v0.5 |
+
+
+Gate D source preparation: separate full-art Hanok and Nari --art outputs prepared; C source/GLBs remain untouched. Original deterministic256px PBR map generator with checksum-verified cache; art roof rolls/endcaps, supported lanterns/banner, low courtyard borders/pavers, wind crowns, planters/bench/basin and separate historic backdrop. Full-art rafters21vsgraybox29 fund detail. Nari ART uses .33decimation, updated warped normals, separate skinned skin surface and original cloth UV/maps. Python syntax passes. Outputs NOT generated/validated/visually accepted yet; checkpoint before Blender.
