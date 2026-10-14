@@ -32,3 +32,5 @@ Dependencies: existing pinned tools, no reinstall. Last update 2026-10-14T08:31:
 **Remote GitHub save status:** Last completed Gate A checkpoint remotely verified; approval checkpoint must be pushed and origin-matched before expensive modeling.
 
 Gate B verified: production/typecheck PASS, GLB Validator0/0, actual33 browser views including24-angle orbit and phone,209support bounds0gaps, actual images inspected including full roof/rear/sides/connection/interior.12Low draws/51,908tri;24medium/103,816incl shadows. Evidence quality-reports/v0.5/gate-b/REVIEW.md. Gates C/D/E remain unfinished. No target-device FPS claim.75protected v0.4 hashes unchanged. Current source/runtime changes isolated to ?candidate=v05; default v0.4 viewer and public deployment inputs retained.
+
+- Gate C current: actual draft Nari source/GLB/20clips/28bones/10morphs and initial browser images saved, but observed arm/hip/vest weight defects and17non-root-skinned warnings remain. Next fix weights/hierarchy/cost and inspect new actual renders. No Gate C acceptance, controller or v0.5 production claim yet.
