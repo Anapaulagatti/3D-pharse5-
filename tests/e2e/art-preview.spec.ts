@@ -11,12 +11,12 @@ async function walk(p: Page, key: string, ms: number) {
   await p.locator("canvas").focus();
   const initial = await metrics(p);
   await p.keyboard.down(key);
-  // Original assertions are preserved. Wait actual engine frames rather than
-  // assuming the cloud compositor presents60 frames per wall-clock second.
+  // Wait elapsed simulation time, not a frame count: high-refresh and software
+  // renderers can advance a different amount of game time per presented frame.
   await p.waitForFunction(
-    ({ start, frames }) =>
-      (window.__PIXEL_METRICS__?.frameCount ?? 0) >= start + frames,
-    { start: initial.frameCount, frames: Math.ceil(ms / 16.667) },
+    ({ start, duration }) =>
+      (window.__PIXEL_METRICS__?.environmentFrame ?? 0) >= start + duration,
+    { start: initial.environmentFrame, duration: ms },
     { timeout: Math.max(12000, ms * 12) },
   );
   const m = await metrics(p);
@@ -393,12 +393,22 @@ test("four historical guests greet, teach a word and visibly move without preten
     }, id);
     await page.getByRole("button", { name: "Đóng lời nhắn" }).click();
   }
-  await page.waitForTimeout(5000);
-  const later = await metrics(page);
-  for (const g of later.guests) {
-    const old = first.guests.find((a) => a.id === g.id)!;
-    expect(Math.hypot(g.x - old.x, g.y - old.y)).toBeGreaterThan(1);
-  }
+  // Observe each patrol actually move. A single wall-clock snapshot can catch
+  // a guest resting or returning to its start and does not prove inactivity.
+  await Promise.all(
+    first.guests.map((old) =>
+      page.waitForFunction(
+        (old) => {
+          const g = window.__PIXEL_METRICS__!.guests.find(
+            (g) => g.id === old.id,
+          );
+          return !!g && Math.hypot(g.x - old.x, g.y - old.y) > 1;
+        },
+        old,
+        { timeout: 20000 },
+      ),
+    ),
+  );
   expect(observed.errors).toEqual([]);
   expect(observed.missing).toEqual([]);
 });
