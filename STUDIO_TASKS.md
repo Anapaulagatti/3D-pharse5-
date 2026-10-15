@@ -1,33 +1,21 @@
-# Pixel Social Learning RPG v3.1 — active tasks
+# Korean Arena — active Gate 2 art reset
 
-| ID | State | Artifact / verification |
-|---|---|---|
-| PIXEL-ARCHIVE-000 | VERIFIED_REMOTE | f1f13f2 branch+annotated tag; independent remote clone2738SHA256 matches; docs/migration |
-| PIXEL-TOOLCHAIN-001 | VERIFIED_LOCAL | Phaser4.2.1 default app; clean remote-clone npm ci/type/lint/format/5unit/build PASS;3actual browser flows PASS; install/skill matrix |
-| PIXEL-ART-002 | VERIFIED_LOCAL; USER_SELECTION_PENDING | 3original indexed directions,4-way6-frame walk, actual map/house/character, source-vs-engine, phone/fallback,6.55s/17frame video, exact HTTP ZIP |
-| PIXEL-FIRST-DELIVERY-003 | BLOCKED | Explicit A/B/C visual selection required by Gate2 before production |
-| PIXEL-AVATAR-004 | NOT_STARTED | Wardrobe/customization later; current3candidate avatars are art proof |
-| PIXEL-SOCIAL-005 | NOT_STARTED | No real players/auth/rooms/chat/backend |
-| PIXEL-LEARNING-006 | NOT_STARTED | Full content/exams/SRS and human Korean review pending |
-| PIXEL-PVP-007 | NOT_STARTED | Server authority/fair ranked play later |
-| PIXEL-ADS-008 | NOT_STARTED | No ad SDK/providers/revenue |
-| PIXEL-DEPLOY-009 | BLOCKED | Replacement public release requires separate authorization |
+Milestone: **PIXEL-ART-RESET-002 — Premium town direction review**
+Current task: **WAIT_FOR_NEW_VISUAL_FEEDBACK**. Technical delivery complete; **no art direction approved**.
 
-STOP for the user's final art selection. Existing v0.5 public website unchanged. Verification details: quality-reports/pixel-v3.1/REVIEW.md and VERIFICATION_SUMMARY.json. Native Tiled/LibreSprite GUI not installed; verified permitted editable PNG/TiledJSON alternative. Only onboarding skill was invoked while catalog exposed; custom/Forge skills not activated. No remote CI outcome claimed without separate evidence.
+| Task | State | Evidence |
+| --- | --- | --- |
+| Audit rejected Gate 2 | COMPLETE | docs/reviews/pixel-reset-v2/AUDIT.md |
+| Preserve engine, dependency lock, old art and 3D archive | VERIFIED | quality-reports/pixel-reset-v2/preservation.json |
+| Three original character and town directions | REVIEW_READY | assets-src/reset-v2; docs/PIXEL_RESET_ART_BIBLE.md |
+| Larger idle/readable walk/emote proof | VERIFIED_RENDER; USER_JUDGMENT_PENDING | final-render, blink, ACTUAL_CHARACTER_READABILITY.png |
+| Rich plaza/building/layered trees and independent maps | REVIEW_READY | A/B/C native overview and hero screenshots |
+| Old/new and source/engine comparisons | COMPLETE | OLD_VS_NEW.png; SOURCE_VS_ENGINE_A/B/C.png |
+| Native controls, collision, reduced motion, phone and fallback | PASS | native-final-verification.json; 3 browser flows |
+| Build, asset QA, unit tests and static HTTP ZIP | PASS | REVIEW.md; package/exact-package-verification.json |
+| Actual movement capture and decoded inspection | COMPLETE | premium-pixel-reset-motion.mp4; motion/capture.json |
+| Final Gate 2 selection | **WAITING_FOR_USER** | New explicit visual feedback required |
+| Gate 3 / mass assets / gameplay expansion / multiplayer / ads | BLOCKED | Must not proceed before new direction approval |
+| Public pixel replacement deployment | NOT_AUTHORIZED | Existing v0.5 Pages untouched |
 
-Remote content checkpoint519fa74941698b3b3f253f282fd2df841d4707f4 independently matched origin. Actions0dd7550 run38668885824 succeeded (actual remote tests). Later519fa74 CI exposed formatting of new delivery helper; local formatter/lint now PASS, no runtime/art change. Proof checkpoint will rerun CI and retain observed outcomes.
-
-FINAL VERIFIED HANDOFF: d7570bc31df8fe858d46748b67bf3b85bec80660 independently remote-matched; Actions38669691060 SUCCESS after formatter fix. tools/setup.sh actually executed full validation PASS (5unit,3browser), reporting to ignored .cache/setup-qa without changing source art or accepted evidence. Final proof/setup-only checkpoint saved with checkpoint/pixel-v3.1-art-review-20261015. Runtime/ZIP unchanged. STOP for explicit new pixel A/B/C selection.
-
-## PIXEL-ART-RESET-002 — user rejected previous Gate2
-New authoritative reset review: docs/reviews/pixel-reset-v2/USER_REVIEW.md; audit explains palette/layout/scale/form failures. Previous035d4cd/tag preserved as rejected baseline. Reuse working Phaser/packages; new assets use reset-v2 versioned paths and independent scene data. No Gate3/public deployment. Next: produce three substantially distinct original world/character directions, inspect actual gameplay rendering, then STOP for new approval.
-
-Original native image_gen production object masters A/B/C and exact prompts/provenance saved under assets-src/reset-v2. Actual sources inspected: A L-wing hanok/plum/pine/garden, Cterraced workshop/willow/festival props substantively distinct. Bfirst atlas has good mass but European civic/royal motifs: reject architecture/cultural drift; correct to Korean seowon campus before release. Provider masters are source art, NOT proof of gameplay; exports/Phaser still pending. Prior assets/toolchain untouched.
-
-First reset in-engine render captured and inspected: draft-render/A,B,C-hero-idle show distinct garden/civic/street architecture and larger128CSSpx frame. New independent maps25/24/25objects,23/20/21colliders,72frames/style; working Phaser/runtime preserved. Corrected Korean B source now active; rejected European atlas retained as source history. No missing resources/console errors in initial capture. Visual issues still being refined: coarse lawn patch contrast, oversized simple planters versus detailed architecture, minor hero roof clearance. Native source object crop fragments filtered via documented alpha connected components; raw masters untouched. New asset QA/native regression/media and package pending.
-
-RESET technical checkpoint: native3flows PASS after meaningful harness corrections (wait actual engine frames and navigate to relocated NPC; input/collision/content assertions retained). Unit5/build/type/lint/new52asset QA also PASS. Source character height measured53/53/54px old→126/124/126CSSpx at default2x. New active public-reset excludes rejected old art; old files/hashes retained. Refined renderedA/B/C and phone images saved, no resource/console errors. Pending CDP original-timing idle/walk/emote capture, final visual comparison/package and review handoff; no production approval/publication.
-
-Final visual refinement: scholar book-overhead cheer and performer raised lightsticks now drawn beyond head silhouette; source poses improved after first52s movie review. Added transparent native stone edging/corners to ground layer, no physics/gameplay expansion. Updated native3flows PASS again; final-render actual three styles/phone and clearly paused emote captures saved, render reports0errors/missing. First motion retained in motion-attempt-1; recapture exact new asset payload and ZIP pending.
-
-Blink correction: inspecting installed Phaser4.2.1 Animation.getNextTick showed duration is an absolute override (duration || msPerFrame), not additive. Corrected idle timings1800/120/350/1100ms, replacing mistaken20ms blink. Native3flows pass again; natural blink frame is observed then retained by normal Pause UI for real screenshot, no pose injection. Source/geometry/emotes unchanged; previous motion-attempt-2 retained, final matching-timing clip/package validation pending.
+STOP here. Read this handoff and quality-reports/pixel-reset-v2/REVIEW.md before acting on the next reply. Earlier 3D A/B/T1 preferences and the rejected pixel A/B/C are not approval of these new candidates. Historical records remain in Git at 035d4cd and intermediate reset checkpoints. No Hangul Garden or other new districts.
