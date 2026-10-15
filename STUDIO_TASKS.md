@@ -21,3 +21,5 @@ FINAL VERIFIED HANDOFF: d7570bc31df8fe858d46748b67bf3b85bec80660 independently r
 
 ## PIXEL-ART-RESET-002 — user rejected previous Gate2
 New authoritative reset review: docs/reviews/pixel-reset-v2/USER_REVIEW.md; audit explains palette/layout/scale/form failures. Previous035d4cd/tag preserved as rejected baseline. Reuse working Phaser/packages; new assets use reset-v2 versioned paths and independent scene data. No Gate3/public deployment. Next: produce three substantially distinct original world/character directions, inspect actual gameplay rendering, then STOP for new approval.
+
+Original native image_gen production object masters A/B/C and exact prompts/provenance saved under assets-src/reset-v2. Actual sources inspected: A L-wing hanok/plum/pine/garden, Cterraced workshop/willow/festival props substantively distinct. Bfirst atlas has good mass but European civic/royal motifs: reject architecture/cultural drift; correct to Korean seowon campus before release. Provider masters are source art, NOT proof of gameplay; exports/Phaser still pending. Prior assets/toolchain untouched.
