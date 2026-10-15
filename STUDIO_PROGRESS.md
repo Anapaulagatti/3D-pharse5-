@@ -21,3 +21,5 @@ Gates0/1 complete; Gate2 preview/evidence portion complete, final style approval
 - Exact next action: read REVIEW.md and user's explicit new style selection; if absent STOP. If approved, record exact reply then start PIXEL-FIRST-DELIVERY-003. Do not infer approval from older3D A/B/T1 replies.
 - Verification: VERIFICATION_SUMMARY.json + per-flow reports/actual screenshots/video; installation/skill states separate. No target-hardware FPS/complete RPG/real multiplayer claims.
 - Remote save: content/evidence checkpoint and review tag saved by session-end workflow; verify origin/rebuild/pixel-social-rpg-v3 and checkpoint/pixel-v3.1-art-review-20261015 before resuming. Remote proof file records the prior exact content SHA; final proof commit may follow it. Never force/reset unknown work.
+
+Remote content checkpoint519fa74941698b3b3f253f282fd2df841d4707f4 independently matched origin. Actions0dd7550 run38668885824 succeeded (actual remote tests). Later519fa74 CI exposed formatting of new delivery helper; local formatter/lint now PASS, no runtime/art change. Proof checkpoint will rerun CI and retain observed outcomes.

@@ -56,15 +56,13 @@ for (const [name, viewport, dpr] of [
   const moved = await page.evaluate(() => window.__PIXEL_METRICS__);
   await page.keyboard.up("ArrowDown");
   if (moved.y <= before.y) throw Error("Package input did not move");
-  const crisp = await page
-    .locator("canvas")
-    .evaluate((e) => ({
-      nativeWidth: e.width,
-      cssWidth: e.getBoundingClientRect().width,
-      nativeHeight: e.height,
-      cssHeight: e.getBoundingClientRect().height,
-      imageRendering: getComputedStyle(e).imageRendering,
-    }));
+  const crisp = await page.locator("canvas").evaluate((e) => ({
+    nativeWidth: e.width,
+    cssWidth: e.getBoundingClientRect().width,
+    nativeHeight: e.height,
+    cssHeight: e.getBoundingClientRect().height,
+    imageRendering: getComputedStyle(e).imageRendering,
+  }));
   if (
     crisp.nativeWidth !== crisp.cssWidth ||
     crisp.nativeHeight !== crisp.cssHeight

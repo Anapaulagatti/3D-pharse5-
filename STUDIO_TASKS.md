@@ -14,3 +14,5 @@
 | PIXEL-DEPLOY-009 | BLOCKED | Replacement public release requires separate authorization |
 
 STOP for the user's final art selection. Existing v0.5 public website unchanged. Verification details: quality-reports/pixel-v3.1/REVIEW.md and VERIFICATION_SUMMARY.json. Native Tiled/LibreSprite GUI not installed; verified permitted editable PNG/TiledJSON alternative. Only onboarding skill was invoked while catalog exposed; custom/Forge skills not activated. No remote CI outcome claimed without separate evidence.
+
+Remote content checkpoint519fa74941698b3b3f253f282fd2df841d4707f4 independently matched origin. Actions0dd7550 run38668885824 succeeded (actual remote tests). Later519fa74 CI exposed formatting of new delivery helper; local formatter/lint now PASS, no runtime/art change. Proof checkpoint will rerun CI and retain observed outcomes.

@@ -52,3 +52,5 @@ Portable view: downloads/pixel-v3.1 ZIP480147bytes, manifest exactSHA; verified 
 | public/assets/direction-B.png | 8416 | 37c288661530d60d021cf669e4ed7e29c23d2b1d7b503943e1e4b985a38fe84c |
 | public/assets/direction-C.png | 8718 | 2eae0d93ea569c53b2bc2ba0a6f2d5d456c5ce182a11a16d64058eae689229e7 |
 | public/assets/plaza.json | 3763 | 319d5f6a1df1529f8b3da8503eb22c4d935b903f241c393a6f22154f2240f821 |
+
+Remote content checkpoint519fa74941698b3b3f253f282fd2df841d4707f4 independently matched origin. Actions0dd7550 run38668885824 succeeded (actual remote tests). Later519fa74 CI exposed formatting of new delivery helper; local formatter/lint now PASS, no runtime/art change. Proof checkpoint will rerun CI and retain observed outcomes.

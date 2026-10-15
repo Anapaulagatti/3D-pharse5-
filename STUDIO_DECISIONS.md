@@ -9,3 +9,5 @@
 7. Local player/Mira are local game entities, not real remote presence. No accounts/cloud/data schema/ads/free-text chat. Vietnamese HTML Hangul remains smooth NFC; no curriculum expert review or full lesson/exam implemented.
 8. Static delivery dist-only plus dependency license files; fixed repository subpath tested; Python HTTP ZIP tested after extraction. No public replacement permission. Existing Pages bytes independently unchanged082c661b.
 9. Gate2 explicit STOP for final style choice. Earlier user “B+T1”/“chooseAifrecommended” were3D decisions and do not approve new pixel art. No Gate3or mass production before a new explicit response.
+
+Remote content checkpoint519fa74941698b3b3f253f282fd2df841d4707f4 independently matched origin. Actions0dd7550 run38668885824 succeeded (actual remote tests). Later519fa74 CI exposed formatting of new delivery helper; local formatter/lint now PASS, no runtime/art change. Proof checkpoint will rerun CI and retain observed outcomes.
