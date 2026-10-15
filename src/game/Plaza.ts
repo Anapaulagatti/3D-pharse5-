@@ -1,4 +1,5 @@
 import Phaser from "phaser";
+import { ActorMotion, type Emote } from "./ActorMotion";
 import world from "../../assets-src/unified-v4/world.json";
 type World = typeof world;
 import { facing, inputVector, type Direction } from "../domains/state";
@@ -73,7 +74,8 @@ export class Plaza extends Phaser.Scene {
   private particles: Phaser.GameObjects.Rectangle[] = [];
   private elapsed = 0;
   private interactions = 0;
-  private waveUntil = 0;
+  private motion = new ActorMotion();
+  private lastFoot = { x: 512, y: 560 };
   private active = true;
   private overlay!: Phaser.GameObjects.Rectangle;
   constructor() {
@@ -116,7 +118,7 @@ export class Plaza extends Phaser.Scene {
       "satchel",
     ])
       this.load.atlas(layer, `${base}${layer}.png`, `${base}avatar.json`);
-    const heroBase = import.meta.env.BASE_URL + "assets/chibi-v1/";
+    const heroBase = import.meta.env.BASE_URL + "assets/actors/hero/";
     for (const layer of [
       "body",
       "outfit0",
@@ -133,7 +135,7 @@ export class Plaza extends Phaser.Scene {
       this.load.atlas(
         `hero-${layer}`,
         `${heroBase}${layer}.png`,
-        `${heroBase}avatar.json`,
+        `${heroBase}atlas.json`,
       );
     this.load.tilemapTiledJSON("plaza", `${base}plaza.json`);
     this.load.on("loaderror", (file: Phaser.Loader.File) =>
@@ -189,7 +191,7 @@ export class Plaza extends Phaser.Scene {
       );
       this.solids.add(rect);
     }
-    for (const actor of ["npc", "hero"])
+    for (const actor of ["npc"])
       for (const dr of ["down", "left", "right", "up"])
         for (const [action, n, fps] of [
           ["idle", 4, 10],
@@ -219,10 +221,10 @@ export class Plaza extends Phaser.Scene {
         "hero-body",
         "idle-down-0",
       )
-      .setOrigin(0.5, 1)
+      .setOrigin(0.5, 64 / 68)
       .setCollideWorldBounds(true);
     this.player.body?.setSize(16, 8);
-    this.player.body?.setOffset(12, 47);
+    this.player.body?.setOffset(16, 55);
     this.physics.add.collider(this.player, this.solids);
     this.npc = this.add
       .sprite(this.layout.npc[0], this.layout.npc[1], "body", "idle-left-0")
@@ -238,7 +240,7 @@ export class Plaza extends Phaser.Scene {
     ].map((k) =>
       this.add
         .sprite(this.player.x, this.player.y, k, "idle-down-0")
-        .setOrigin(0.5, 1),
+        .setOrigin(0.5, 64 / 68),
     );
     this.npcLayers = ["outfit1", "hair1"].map((k) =>
       this.add
@@ -412,10 +414,8 @@ export class Plaza extends Phaser.Scene {
   wave() {
     this.emote("wave");
   }
-  emote(action: "wave" | "celebrate" | "pose") {
-    if (controls.paused) return;
-    this.waveUntil = this.time.now + (action === "wave" ? 720 : 880);
-    this.player.anims.play(`hero-${action}-${this.direction}`, false);
+  emote(action: Emote) {
+    if (!controls.paused) this.motion.emote(action);
   }
   update(_time: number, delta: number) {
     if (!this.player?.body) return;
@@ -435,30 +435,41 @@ export class Plaza extends Phaser.Scene {
         : 0);
     const v = inputVector(x, y);
     const moving = !blocked && (!!v.x || !!v.y);
-    const speed = controls.run || this.keys.SHIFT.isDown ? 126 : 78;
-    this.player.setVelocity(moving ? v.x * speed : 0, moving ? v.y * speed : 0);
+    const speed = controls.run || this.keys.SHIFT.isDown ? 100 : 60;
+    const travelled = Math.hypot(
+      this.player.x - this.lastFoot.x,
+      this.player.y - this.lastFoot.y,
+    );
+    this.lastFoot = { x: this.player.x, y: this.player.y };
     this.direction = facing(moving ? v.x : 0, moving ? v.y : 0, this.direction);
-    this.player.setDepth(Math.round(this.player.y));
+    const frame = this.motion.step(
+      delta,
+      travelled,
+      moving,
+      speed === 100,
+      this.direction,
+      controls.reduced,
+      blocked,
+    );
+    this.player.setFrame(frame);
+    const targetX = moving ? v.x * speed * this.motion.moveScale : 0;
+    const targetY = moving ? v.y * speed * this.motion.moveScale : 0;
+    const step = Math.min(delta, 100) * (moving ? 0.85 : 1.2);
+    const approach = (current: number, target: number) =>
+      current +
+      Math.sign(target - current) * Math.min(Math.abs(target - current), step);
     if (blocked) {
       this.physics.world.pause();
-      this.player.anims.pause();
+      this.player.setVelocity(0);
       this.npc.anims.pause();
     } else {
       this.physics.world.resume();
-      this.player.anims.resume();
-      if (moving) {
-        this.waveUntil = 0;
-        this.player.anims.play(
-          `hero-${speed === 126 ? "run" : "walk"}-${this.direction}`,
-          true,
-        );
-      } else if (this.time.now > this.waveUntil) {
-        if (controls.reduced) {
-          this.player.anims.stop();
-          this.player.setFrame(`idle-${this.direction}-0`);
-        } else this.player.anims.play(`hero-idle-${this.direction}`, true);
-      }
+      this.player.setVelocity(
+        approach(this.player.body.velocity.x, targetX),
+        approach(this.player.body.velocity.y, targetY),
+      );
     }
+    this.player.setDepth(Math.round(this.player.y));
     if (!blocked && !controls.reduced) {
       this.elapsed += Math.min(delta, 50);
       this.npc.anims.play("idle-left", true);
@@ -482,11 +493,7 @@ export class Plaza extends Phaser.Scene {
       `hero-hair${controls.hair}`,
       this.player.frame.name,
     );
-    const emotion = this.player.frame.name.startsWith("celebrate-")
-      ? "happy"
-      : this.player.frame.name.startsWith("pose-")
-        ? "focused"
-        : controls.expression;
+    const emotion = this.motion.mood ?? controls.expression;
     this.layers[3].setTexture(`hero-face-${emotion}`, this.player.frame.name);
     this.layers[2].setVisible(controls.accessory);
     for (let i = 0; i < this.layers.length; i++)
@@ -538,7 +545,7 @@ export class Plaza extends Phaser.Scene {
       accessory: controls.accessory,
       layerFrames: this.layers.map((l) => l.frame.name),
       expression: emotion,
-      avatarVersion: "chibi-v1",
+      avatarVersion: "chibi-motion-v2",
       screenFoot: {
         x: Math.round(
           (this.player.x - this.cameras.main.worldView.x) * controls.zoom,

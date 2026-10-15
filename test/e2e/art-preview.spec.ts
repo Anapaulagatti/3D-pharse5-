@@ -69,7 +69,7 @@ test("unified plaza native movement, collision, layered outfits, distinct run an
   await ready(page);
   const first = await metrics(page);
   expect(first.style).toBe("unified");
-  expect(first.animationFrames).toBe(152);
+  expect(first.animationFrames).toBe(284);
   expect(first.colliders).toBe(77);
   await page.locator("canvas").focus();
   await page.keyboard.press("e");
@@ -104,7 +104,7 @@ test("unified plaza native movement, collision, layered outfits, distinct run an
   await page.keyboard.down("Shift");
   const run = await walk(page, "ArrowLeft", 250);
   await page.keyboard.up("Shift");
-  expect(run.speed).toBe(126);
+  expect(run.speed).toBe(100);
   expect(run.frame).toMatch(/^run-left-/);
   expect(run.layerFrames.every((f) => f === run.frame)).toBe(true);
   await moveAxis(page, "y", 560);
@@ -119,7 +119,7 @@ test("unified plaza native movement, collision, layered outfits, distinct run an
   await walk(page, "ArrowDown", 250);
   await page.waitForFunction(() => !window.__PIXEL_METRICS__?.moving);
   const emotes = [];
-  for (const action of ["wave", "celebrate", "pose"]) {
+  for (const action of ["wave", "celebrate", "pose", "think"]) {
     await page.locator("#" + action).click();
     await page.waitForFunction(
       (a) =>
@@ -323,7 +323,7 @@ test("new chibi hero renders four visibly different moods at the same pixel crop
   await page.goto("./");
   await ready(page);
   const initial = await metrics(page);
-  expect(initial.avatarVersion).toBe("chibi-v1");
+  expect(initial.avatarVersion).toBe("chibi-motion-v2");
   expect(initial.heroCssHeight).toBe(112);
   expect(initial.layerFrames).toHaveLength(5);
   const hashes = new Set<string>();

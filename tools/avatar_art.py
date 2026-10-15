@@ -2,8 +2,8 @@
 from PIL import Image,ImageDraw
 import math
 P={'ink':'#302d3d','edge':'#504252','skinD':'#b97568','skinM':'#df9d7d','skin':'#f4c8a1','skinL':'#ffe0b8','blush':'#dc8d87','white':'#fff0d2','iris':'#436a73','irisL':'#79b6ab','hairD':'#272c3d','hairM':'#424456','hair':'#626376','hairL':'#858797','brownD':'#543747','brownM':'#80505a','brown':'#ab7569','brownL':'#ce9b7f','jadeD':'#345a5b','jade':'#548780','jadeL':'#8bb4a0','jadeH':'#bdd0ad','navyD':'#343c56','navy':'#52617d','navyL':'#7f93a0','creamD':'#b7a88e','cream':'#e8d4ab','goldD':'#af7a46','gold':'#e6b66b','coralD':'#9f4d55','coral':'#d47b72','coralL':'#edac90','shoeD':'#353440','shoe':'#665460','shoeL':'#99838a','bagD':'#684552','bag':'#ad7763','bagL':'#d8a67b'}
-A={'idle':6,'walk':12,'run':12,'wave':8,'celebrate':10,'pose':6,'think':8,'start':3,'stop':3,'turn':3};D=['down','left','right','up'];L=['body','outfit0','outfit1','hair0','hair1','satchel','hands']+['face-'+x for x in ['neutral','happy','focused','surprised']];W,H=48,64
-def draw(key):
+A={'idle':6,'walk':12,'run':12,'wave':8,'celebrate':10,'pose':6,'think':8,'start':3,'stop':3,'turn':3};D=['down','left','right','up'];L=['body','outfit0','outfit1','hair0','hair1','satchel','hands']+['face-'+x for x in ['neutral','happy','focused','surprised']];W,H=48,68
+def pose(key):
  a,dr,n=key.split('-');i=int(n);side=dr in ['left','right'];sign=1 if dr=='right' else -1
  running=a=='run';walking=a=='walk';moving=running or walking
  phase=i*2*math.pi/(12 if moving else A[a])
@@ -23,6 +23,11 @@ def draw(key):
    knee=(round((20+j*3+fx)/2)+(sign*2 if side and lift else 0),47+dy-(2 if lift else 0))
   else:fx=20+j*4;fy=52;knee=(18+j*4,47+dy)
   legs.append((j,fx,min(53,fy),knee))
+ return locals()
+
+def draw(key):
+ state=pose(key)
+ a,dr,i,side,sign,running,walking,moving,phase,dy,lean,cx,cy,legs=(state[k] for k in ['a', 'dr', 'i', 'side', 'sign', 'running', 'walking', 'moving', 'phase', 'dy', 'lean', 'cx', 'cy', 'legs'])
  ims={k:Image.new('RGBA',(W,H)) for k in L};ds={k:ImageDraw.Draw(v) for k,v in ims.items()}
  def poly(k,pts,c):ds[k].polygon([(x+4,y+8) for x,y in pts],fill=P.get(c,c))
  def rect(k,box,c):
