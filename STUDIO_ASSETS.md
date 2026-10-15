@@ -1,3 +1,9 @@
+# V4 CURRENT — Living Pixel Seoul
+
+The unified V4 specification in docs/reviews/unified-v4 supersedes ALL previous art directions below. Gate0 remote recovery PASS (fresh clone2738hashes); previous pixel review2554327 preserved, no deletion or publication. Gates0–2 now authorized: one cohesive native pixel town and layered avatar; STOP before Gate3/public release. Current task: verify retained toolkit, then implement/inspect ONE Central Plaza.
+
+---
+
 # Korean Arena — reset asset inventory
 
 Active review candidate: **reset-v2; no direction approved**. All paths below are relative to this repository.

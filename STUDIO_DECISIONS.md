@@ -1,3 +1,9 @@
+# V4 CURRENT — Living Pixel Seoul
+
+The unified V4 specification in docs/reviews/unified-v4 supersedes ALL previous art directions below. Gate0 remote recovery PASS (fresh clone2738hashes); previous pixel review2554327 preserved, no deletion or publication. Gates0–2 now authorized: one cohesive native pixel town and layered avatar; STOP before Gate3/public release. Current task: verify retained toolkit, then implement/inspect ONE Central Plaza.
+
+---
+
 # Korean Arena — current decisions and approval boundary
 
 1. The latest pasted PIXEL ART DIRECTION RESET supersedes rejected Gate2 art. User feedback/audit are in docs/reviews/pixel-reset-v2. Old A/B/C, “B+T1” and “choose recommended A” are historical decisions, not approval of the new pixel candidates. Gate2 stops for explicit new visual review.
