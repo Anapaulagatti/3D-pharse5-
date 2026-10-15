@@ -1,0 +1,333 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/3D-pharse5-/node_modules/.bin/playwright",
+      "test"
+    ],
+    "configFile": "/workspace/3D-pharse5-/playwright.config.ts",
+    "rootDir": "/workspace/3D-pharse5-/test/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/3D-pharse5-/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/workspace/3D-pharse5-/test/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/workspace/3D-pharse5-/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/workspace/3D-pharse5-/test/e2e",
+        "snapshotDir": "/workspace/3D-pharse5-/test/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4201/3D-pharse5-/",
+          "headless": true,
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--use-gl=angle",
+              "--use-angle=swiftshader",
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "screenshot": "only-on-failure",
+          "video": "off"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "quality-reports/pixel-v3.1/e2e-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://127.0.0.1:4201/3D-pharse5-/",
+      "reuseExistingServer": true,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "art-preview.spec.ts",
+      "file": "art-preview.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "actual three-direction art, animation, collision, HTML dialogue and settings",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 15678,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /workspace/3D-pharse5-/test/e2e/art-preview.spec.ts:23:26",
+                    "location": {
+                      "file": "/workspace/3D-pharse5-/test/e2e/art-preview.spec.ts",
+                      "column": 26,
+                      "line": 23
+                    },
+                    "snippet": "  21 |  await page.reload();await ready(page);expect((await metrics(page)).style).toBe('B');expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('hangeul-pixel-guest-v1')!).metMira)).toBe(true);\n  22 |  await context.setOffline(true);await expect(page.locator('#offline')).toContainText('Đang offline');const offBefore=await metrics(page);const offAfter=await walk(page,'ArrowDown',300);expect(offAfter.y).toBeGreaterThan(offBefore.y);await page.screenshot({path:out+'/offline-loaded.png'});await context.setOffline(false);\n> 23 |  expect(observed.errors).toEqual([]);expect(observed.missing).toEqual([]);writeFileSync(out+'/desktop-verification.json',JSON.stringify({status:'PASS',initial:first,movement,run,closedWall:[wallA,wallB],pause:[pausedA,pausedB],...observed,offline:'Loaded assets continue; no cold-offline caching claim'},null,2));\n     |                          ^\n  24 | });\n  25 | test('OS reduced motion, actual touch, mobile layout and DPR',async({browser})=>{\n  26 |  const reports=[];for(const dpr of [1,2]){const context=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:dpr,isMobile:true,hasTouch:true,reducedMotion:'reduce'});const page=await context.newPage();const observed=watch(page);await page.goto('http://127.0.0.1:4201/3D-pharse5-/');await ready(page);expect((await metrics(page)).reduced).toBe(true);await expect(page.locator('#motion')).toBeChecked();const stillA=await metrics(page);await page.waitForTimeout(300);const stillB=await metrics(page);expect(stillB.environmentFrame).toBe(stillA.environmentFrame);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/3D-pharse5-/test/e2e/art-preview.spec.ts",
+                        "column": 26,
+                        "line": 23
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  21 |  await page.reload();await ready(page);expect((await metrics(page)).style).toBe('B');expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('hangeul-pixel-guest-v1')!).metMira)).toBe(true);\n  22 |  await context.setOffline(true);await expect(page.locator('#offline')).toContainText('Đang offline');const offBefore=await metrics(page);const offAfter=await walk(page,'ArrowDown',300);expect(offAfter.y).toBeGreaterThan(offBefore.y);await page.screenshot({path:out+'/offline-loaded.png'});await context.setOffline(false);\n> 23 |  expect(observed.errors).toEqual([]);expect(observed.missing).toEqual([]);writeFileSync(out+'/desktop-verification.json',JSON.stringify({status:'PASS',initial:first,movement,run,closedWall:[wallA,wallB],pause:[pausedA,pausedB],...observed,offline:'Loaded assets continue; no cold-offline caching claim'},null,2));\n     |                          ^\n  24 | });\n  25 | test('OS reduced motion, actual touch, mobile layout and DPR',async({browser})=>{\n  26 |  const reports=[];for(const dpr of [1,2]){const context=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:dpr,isMobile:true,hasTouch:true,reducedMotion:'reduce'});const page=await context.newPage();const observed=watch(page);await page.goto('http://127.0.0.1:4201/3D-pharse5-/');await ready(page);expect((await metrics(page)).reduced).toBe(true);await expect(page.locator('#motion')).toBeChecked();const stillA=await metrics(page);await page.waitForTimeout(300);const stillB=await metrics(page);expect(stillB.environmentFrame).toBe(stillA.environmentFrame);\n    at /workspace/3D-pharse5-/test/e2e/art-preview.spec.ts:23:26"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T01:55:51.363Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/3D-pharse5-/test-results/art-preview-actual-three-d-b3c6a--HTML-dialogue-and-settings/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/3D-pharse5-/test-results/art-preview-actual-three-d-b3c6a--HTML-dialogue-and-settings/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/3D-pharse5-/test/e2e/art-preview.spec.ts",
+                    "column": 26,
+                    "line": 23
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a3a3034c3a50dcf38220-1c91818d2bf8e0ae724b",
+          "file": "art-preview.spec.ts",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "OS reduced motion, actual touch, mobile layout and DPR",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3188,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /workspace/3D-pharse5-/test/e2e/art-preview.spec.ts:27:961",
+                    "location": {
+                      "file": "/workspace/3D-pharse5-/test/e2e/art-preview.spec.ts",
+                      "column": 961,
+                      "line": 27
+                    },
+                    "snippet": "  25 | test('OS reduced motion, actual touch, mobile layout and DPR',async({browser})=>{\n  26 |  const reports=[];for(const dpr of [1,2]){const context=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:dpr,isMobile:true,hasTouch:true,reducedMotion:'reduce'});const page=await context.newPage();const observed=watch(page);await page.goto('http://127.0.0.1:4201/3D-pharse5-/');await ready(page);expect((await metrics(page)).reduced).toBe(true);await expect(page.locator('#motion')).toBeChecked();const stillA=await metrics(page);await page.waitForTimeout(300);const stillB=await metrics(page);expect(stillB.environmentFrame).toBe(stillA.environmentFrame);\n> 27 |  const button=page.getByRole('button',{name:'Đi xuống',exact:true});await button.scrollIntoViewIfNeeded();const box=(await button.boundingBox())!;const cdp=await context.newCDPSession(page);const before=await metrics(page);await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:box.x+box.width/2,y:box.y+box.height/2}]});await page.waitForTimeout(450);const after=await metrics(page);await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});expect(after.y).toBeGreaterThan(before.y+5);await page.waitForTimeout(100);const stopped=await metrics(page);await page.waitForTimeout(200);expect((await metrics(page)).y).toBeCloseTo(stopped.y,1);expect(after.frame).toContain('walk-down');await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({path:`${out}/mobile-dpr-${dpr}.png`,fullPage:true});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);expect(observed.errors).toEqual([]);expect(observed.missing).toEqual([]);reports.push({dpr,before,after,...observed});await context.close();}writeFileSync(out+'/mobile-verification.json',JSON.stringify({status:'PASS',reports,limitation:'Cloud Chromium touch emulation; physical-device FPS unmeasured'},null,2));\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ^\n  28 | });\n  29 | test('genuine WebGL-unavailable Canvas fallback',async({browser})=>{\n  30 |  const context=await browser.newContext();await context.addInitScript(()=>{const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type:string,...args:unknown[]){if(type.includes('webgl'))return null;return Reflect.apply(original,this,[type,...args]);} as typeof original;});const page=await context.newPage();const observed=watch(page);await page.goto('http://127.0.0.1:4201/3D-pharse5-/');await ready(page);expect((await metrics(page)).renderer).toBe('Canvas');const a=await metrics(page);const b=await walk(page,'ArrowDown',300);expect(b.y).toBeGreaterThan(a.y);await page.locator('canvas').screenshot({path:out+'/canvas-fallback.png'});expect(observed.errors).toEqual([]);expect(observed.missing).toEqual([]);writeFileSync(out+'/fallback-verification.json',JSON.stringify({status:'PASS',renderer:'Canvas',a,b,...observed},null,2));await context.close();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/3D-pharse5-/test/e2e/art-preview.spec.ts",
+                        "column": 961,
+                        "line": 27
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  25 | test('OS reduced motion, actual touch, mobile layout and DPR',async({browser})=>{\n  26 |  const reports=[];for(const dpr of [1,2]){const context=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:dpr,isMobile:true,hasTouch:true,reducedMotion:'reduce'});const page=await context.newPage();const observed=watch(page);await page.goto('http://127.0.0.1:4201/3D-pharse5-/');await ready(page);expect((await metrics(page)).reduced).toBe(true);await expect(page.locator('#motion')).toBeChecked();const stillA=await metrics(page);await page.waitForTimeout(300);const stillB=await metrics(page);expect(stillB.environmentFrame).toBe(stillA.environmentFrame);\n> 27 |  const button=page.getByRole('button',{name:'Đi xuống',exact:true});await button.scrollIntoViewIfNeeded();const box=(await button.boundingBox())!;const cdp=await context.newCDPSession(page);const before=await metrics(page);await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:box.x+box.width/2,y:box.y+box.height/2}]});await page.waitForTimeout(450);const after=await metrics(page);await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});expect(after.y).toBeGreaterThan(before.y+5);await page.waitForTimeout(100);const stopped=await metrics(page);await page.waitForTimeout(200);expect((await metrics(page)).y).toBeCloseTo(stopped.y,1);expect(after.frame).toContain('walk-down');await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({path:`${out}/mobile-dpr-${dpr}.png`,fullPage:true});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);expect(observed.errors).toEqual([]);expect(observed.missing).toEqual([]);reports.push({dpr,before,after,...observed});await context.close();}writeFileSync(out+'/mobile-verification.json',JSON.stringify({status:'PASS',reports,limitation:'Cloud Chromium touch emulation; physical-device FPS unmeasured'},null,2));\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ^\n  28 | });\n  29 | test('genuine WebGL-unavailable Canvas fallback',async({browser})=>{\n  30 |  const context=await browser.newContext();await context.addInitScript(()=>{const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type:string,...args:unknown[]){if(type.includes('webgl'))return null;return Reflect.apply(original,this,[type,...args]);} as typeof original;});const page=await context.newPage();const observed=watch(page);await page.goto('http://127.0.0.1:4201/3D-pharse5-/');await ready(page);expect((await metrics(page)).renderer).toBe('Canvas');const a=await metrics(page);const b=await walk(page,'ArrowDown',300);expect(b.y).toBeGreaterThan(a.y);await page.locator('canvas').screenshot({path:out+'/canvas-fallback.png'});expect(observed.errors).toEqual([]);expect(observed.missing).toEqual([]);writeFileSync(out+'/fallback-verification.json',JSON.stringify({status:'PASS',renderer:'Canvas',a,b,...observed},null,2));await context.close();\n    at /workspace/3D-pharse5-/test/e2e/art-preview.spec.ts:27:961"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T01:56:08.047Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/3D-pharse5-/test-results/art-preview-OS-reduced-mot-ecd9e-touch-mobile-layout-and-DPR/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/3D-pharse5-/test-results/art-preview-OS-reduced-mot-ecd9e-touch-mobile-layout-and-DPR/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/3D-pharse5-/test/e2e/art-preview.spec.ts",
+                    "column": 961,
+                    "line": 27
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a3a3034c3a50dcf38220-262f3cdb83589bc1d85a",
+          "file": "art-preview.spec.ts",
+          "line": 25,
+          "column": 1
+        },
+        {
+          "title": "genuine WebGL-unavailable Canvas fallback",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2474,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /workspace/3D-pharse5-/test/e2e/art-preview.spec.ts:30:711",
+                    "location": {
+                      "file": "/workspace/3D-pharse5-/test/e2e/art-preview.spec.ts",
+                      "column": 711,
+                      "line": 30
+                    },
+                    "snippet": "  28 | });\n  29 | test('genuine WebGL-unavailable Canvas fallback',async({browser})=>{\n> 30 |  const context=await browser.newContext();await context.addInitScript(()=>{const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type:string,...args:unknown[]){if(type.includes('webgl'))return null;return Reflect.apply(original,this,[type,...args]);} as typeof original;});const page=await context.newPage();const observed=watch(page);await page.goto('http://127.0.0.1:4201/3D-pharse5-/');await ready(page);expect((await metrics(page)).renderer).toBe('Canvas');const a=await metrics(page);const b=await walk(page,'ArrowDown',300);expect(b.y).toBeGreaterThan(a.y);await page.locator('canvas').screenshot({path:out+'/canvas-fallback.png'});expect(observed.errors).toEqual([]);expect(observed.missing).toEqual([]);writeFileSync(out+'/fallback-verification.json',JSON.stringify({status:'PASS',renderer:'Canvas',a,b,...observed},null,2));await context.close();\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ^\n  31 | });\n  32 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/3D-pharse5-/test/e2e/art-preview.spec.ts",
+                        "column": 711,
+                        "line": 30
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  28 | });\n  29 | test('genuine WebGL-unavailable Canvas fallback',async({browser})=>{\n> 30 |  const context=await browser.newContext();await context.addInitScript(()=>{const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type:string,...args:unknown[]){if(type.includes('webgl'))return null;return Reflect.apply(original,this,[type,...args]);} as typeof original;});const page=await context.newPage();const observed=watch(page);await page.goto('http://127.0.0.1:4201/3D-pharse5-/');await ready(page);expect((await metrics(page)).renderer).toBe('Canvas');const a=await metrics(page);const b=await walk(page,'ArrowDown',300);expect(b.y).toBeGreaterThan(a.y);await page.locator('canvas').screenshot({path:out+'/canvas-fallback.png'});expect(observed.errors).toEqual([]);expect(observed.missing).toEqual([]);writeFileSync(out+'/fallback-verification.json',JSON.stringify({status:'PASS',renderer:'Canvas',a,b,...observed},null,2));await context.close();\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ^\n  31 | });\n  32 |\n    at /workspace/3D-pharse5-/test/e2e/art-preview.spec.ts:30:711"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T01:56:12.036Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/3D-pharse5-/test-results/art-preview-genuine-WebGL-unavailable-Canvas-fallback/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/3D-pharse5-/test-results/art-preview-genuine-WebGL-unavailable-Canvas-fallback/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/3D-pharse5-/test/e2e/art-preview.spec.ts",
+                    "column": 711,
+                    "line": 30
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a3a3034c3a50dcf38220-b4c85f5d9b8ac65c68c5",
+          "file": "art-preview.spec.ts",
+          "line": 29,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-15T01:55:50.815Z",
+    "duration": 24102.073999999997,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

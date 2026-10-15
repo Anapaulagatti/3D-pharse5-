@@ -37,7 +37,7 @@ def roof(a,x,y,w,h):
  a.line([(x+19,y+h-5),(x+w-19,y+h-5)],'jadeDark',2);a.line([(x+23,y+h-4),(x+w-23,y+h-4)],'jadeLight')
  a.rect((x+w//2-3,y-3,x+w//2+3,y+8),'roofLight');a.rect((x+w//2-2,y-5,x+w//2+2,y-2),'gold');a.rect((x+w//2-8,y+7,x+w//2+8,y+9),'roofLight')
 
-def house(p):
+def house(p,style):
  a=Art(224,208,p)
  a.poly([(17,191),(207,191),(216,202),(207,207),(17,207),(8,202)],'stoneDark')
  a.rect((21,123,203,193),'woodDark');a.rect((25,126,199,178),'paper')
@@ -61,7 +61,14 @@ def house(p):
   a.rect((112-w//2,y,112+w//2,y+3),'stone');a.line([(112-w//2,y),(112+w//2,y)],'stoneLight')
  # letter-mark plaque, roof annex, ornamental colored timber joinery
  a.rect((88,115,135,130),'outline');a.rect((90,117,133,128),'woodLight');a.rect((104,118,119,126),'cream');a.line([(104,118),(111,123),(119,118)],'coralDark')
- roof(a,5,35,214,87);roof(a,55,14,114,45)
+ roof(a,5,35,214,87)
+ if style=='B':roof(a,55,14,114,45)
+ elif style=='A':
+  a.rect((91,43,132,48),'roofLight');a.rect((104,36,119,45),'gold');a.rect((107,34,116,36),'cream')
+ else:
+  roof(a,67,18,90,42)
+  for x in range(51,180,16):
+   a.line([(x,123),(x,132)],'woodDark');a.poly([(x-4,132),(x+4,132),(x+3,143),(x,146),(x-3,143)],'gold');a.rect((x,134,x,141),'cream')
  for x in (36,180):
   a.rect((x,130,x+1,135),'woodDark');a.rect((x-6,136,x+7,149),'coralDark');a.rect((x-5,138,x+6,147),'coral');a.rect((x-2,138,x+1,147),'goldLight');a.rect((x-5,134,x+6,136),'gold');a.line([(x,150),(x,156)],'gold')
  for x in (18,199):
@@ -69,6 +76,7 @@ def house(p):
  return a.im
 
 def char(p,direction,frame,action,style):
+ p={**p,'coral':p['jade'],'coralDark':p['jadeDark'],'coralLight':p['jadeLight']} if style=='bob' else p
  a=Art(48,64,p);side=direction in ('left','right');back=direction=='up'; swing=[0,1,2,0,-1,-2][frame%6] if action in ('walk','run') else 0
  bob=1 if action in ('walk','run') and frame%3==1 else 0;cy=24+bob
  # anchored feet/offset legs, rich small garments, face and hair clusters
@@ -151,7 +159,7 @@ def tiles(p):
   a=Art(32,32,p)
   if n<4:
    a.rect((0,0,31,31),'grass')
-   for k in range(3):
+   for k in range([0,1,2,1][n]):
     x=rng.randrange(3,26);y=rng.randrange(3,26);a.line([(x,y+2),(x,y),(x+1,y+1),(x+2,y-1)],'grassDark' if n%2 else 'grassLight')
   elif n<10:
    a.rect((0,0,31,31),'stoneDark');a.rect((1,1,30,14),'stone');a.rect((1,17,14,30),'stone');a.rect((17,17,30,30),'stone');a.line([(2,1),(29,1)],'stoneLight');a.line([(2,17),(12,17)],'stoneLight');a.line([(18,17),(29,17)],'stoneLight');
@@ -170,8 +178,8 @@ def tiles(p):
 
 def indexed(im,path):
  # No interpolation/dither; exact <= 32 palette + transparent index.
- rgba=im.convert('RGBA');opaque=sorted(set(rgba.getdata())-{(0,0,0,0)});assert len(opaque)<=32,(path,len(opaque))
- rgb=[(0,0,0)]+[v[:3] for v in opaque];lookup={v:i+1 for i,v in enumerate(opaque)};out=Image.new('P',im.size);out.putpalette([c for v in rgb for c in v]+[0]*(768-len(rgb)*3));out.putdata([0 if v[3]==0 else lookup[v] for v in rgba.getdata()]);out.info['transparency']=0;out.save(path,optimize=True)
+ rgba=im.convert('RGBA');opaque=sorted(set(rgba.get_flattened_data())-{(0,0,0,0)});assert len(opaque)<=32,(path,len(opaque))
+ rgb=[(0,0,0)]+[v[:3] for v in opaque];lookup={v:i+1 for i,v in enumerate(opaque)};out=Image.new('P',im.size);out.putpalette([c for v in rgb for c in v]+[0]*(768-len(rgb)*3));out.putdata([0 if v[3]==0 else lookup[v] for v in rgba.get_flattened_data()]);out.info['transparency']=0;out.save(path,optimize=True)
 
 def make_map():
  w,h=layout['width'],layout['height'];rng=random.Random(43);ground=[];overlay=[]
@@ -202,12 +210,12 @@ for key,s in STYLES.items():
   for action,n in [('idle',2),('walk',6),('wave',4)]:
    for f in range(n):pack(f'{action}-{dr}-{f}',char(p,dr,f,action,s['hair']))
  atlas.save(dest/'avatar.png',optimize=True);(dest/'avatar.json').write_text(json.dumps({'frames':frames,'meta':{'app':'Original Hangeul Pixel Town exporter','version':'1','image':'avatar.png','format':'RGBA8888','size':{'w':512,'h':512},'scale':'1'}},indent=2))
- imgs={'house':house(p),'tiles':tiles(p),**{k:prop(p,k) for k in ['tree','lamp','mailbox','bench','market','bridge','flowers','fence']}}
+ imgs={'house':house(p,key),'tiles':tiles(p),**{k:prop(p,k) for k in ['tree','lamp','mailbox','bench','market','bridge','flowers','fence']}}
  for name,im in imgs.items():indexed(im,master/(name+'.png'));im.save(dest/(name+'.png'),optimize=True)
  # contact sheet, exact integer enlargement separate from runtime source.
- sheet=Image.new('RGBA',(640,416),'#'+p['grass']);sheet.alpha_composite(imgs['house'],(20,25));sheet.alpha_composite(imgs['tree'],(250,52));sheet.alpha_composite(imgs['market'],(346,110));sheet.alpha_composite(imgs['mailbox'],(276,235));sheet.alpha_composite(imgs['lamp'],(224,222));sheet.alpha_composite(imgs['bench'],(374,258))
+ sheet=Image.new('RGBA',(320,384),'#'+p['grass']);sheet.alpha_composite(imgs['house'],(48,10));sheet.alpha_composite(imgs['tree'],(2,160));sheet.alpha_composite(imgs['market'],(202,180));sheet.alpha_composite(imgs['mailbox'],(140,240));sheet.alpha_composite(imgs['lamp'],(179,214));sheet.alpha_composite(imgs['bench'],(72,263))
  for i,dr in enumerate(('down','left','right','up')):
-  sheet.alpha_composite(char(p,dr,0,'idle',s['hair']).resize((96,128),Image.Resampling.NEAREST),(40+i*138,278))
+  sheet.alpha_composite(char(p,dr,0,'idle',s['hair']),(24+i*70,314))
  sheet.convert('RGB').save(OUT/f'direction-{key}.png')
 make_map()
 for f in sorted(OUT.rglob('*')):

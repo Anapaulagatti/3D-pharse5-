@@ -13,3 +13,5 @@ Gate0 verified. Archive `f1f13f2b4aebcc2659d94cde84800cef17ad7a4e` remotely matc
 - Exact next action: implement Phaser root scene and typed shell, run asset QA/typecheck/browser.
 - Verification: see archive proof; no game runtime PASS claimed.
 - Remote save: next pixel checkpoint push pending.
+
+Gate1 runtime checkpoint: Phaser4.2.1 production builds and real tilemap/sprite/Arcade collision, four-direction walk/run, dialogue, OS-reduced motion, native Chromium touch and real Canvas fallback executed. Initial browser suite fails only missing favicon404; retained attempt-1 evidence, fixing favicon and mobile framing before final PASS. First actual render inspected: source remains crisp, phone roof framing requires upward follow offset. Three art directions now receive distinct character/roof treatments. Next: final render regression + media/clean install.
