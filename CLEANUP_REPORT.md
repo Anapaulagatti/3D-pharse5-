@@ -1,3 +1,5 @@
+> Historical cleanup checkpoint: the193-file count below describes33360ed before the new character-reboot concept gate. New review/source files are intentionally retained pending selection. Production actors are preserved until an approved replacement is tested; no new cleanup/deletion is authorized at this gate. See docs/character-reboot/REVIEW.md.
+
 # Active-tree cleanup — current source checkpoint
 
 Before: **5948 tracked files /744800556bytes**, at3b62e9b772e9d1e542d13b951ba67a0744c38c35. Final active tree: **193 tracked files**, a **96.76% reduction**. Fresh-clone verification is complete; exact final metadata SHA/CI are recorded in the final checkpoint tag.

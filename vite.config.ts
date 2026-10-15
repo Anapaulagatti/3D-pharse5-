@@ -3,5 +3,11 @@ export default defineConfig({
   base: "/3D-pharse5-/",
   publicDir: "public",
   server: { host: "127.0.0.1", port: 4200, strictPort: true },
-  build: { target: "es2022", chunkSizeWarningLimit: 1600 },
+  build: {
+    target: "es2022",
+    chunkSizeWarningLimit: 1600,
+    rolldownOptions: {
+      input: { game: "index.html", characterReview: "character-review.html" },
+    },
+  },
 });

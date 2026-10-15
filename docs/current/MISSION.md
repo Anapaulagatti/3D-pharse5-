@@ -1,3 +1,5 @@
+> Superseded for current character work by [CHARACTER_REBOOT.md](CHARACTER_REBOOT.md): the prior player/NPC designs are now rejected. Preserve town/gameplay and stop after three new player concepts for approval. The older request below remains historical context.
+
 # KOREAN ARENA — PIXEL PRODUCTION & REPOSITORY CLEANUP
 ## Unified Master Prompt for Codex
 

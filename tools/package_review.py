@@ -1,6 +1,7 @@
 """Allowlisted current static build + notices + actual local HTTP launcher. No source or old projects."""
 from pathlib import Path
-import json,hashlib,shutil,zipfile
+import json,hashlib,shutil,zipfile,argparse
+ap=argparse.ArgumentParser();ap.add_argument('--review-dir',default='docs/review');ap.add_argument('--entry',choices=['','character-review.html'],default='');ap.add_argument('--folder',choices=['Korean-Arena-Review','Korean-Arena-Character-Review'],default='Korean-Arena-Review');a=ap.parse_args()
 R=Path(__file__).resolve().parents[1];D=R/'dist';assert (D/'index.html').exists();files=[p for p in D.rglob('*') if p.is_file()]
 for p in files:
  assert p.suffix in {'.html','.js','.css','.png','.json','.svg','.txt'},p
@@ -9,7 +10,7 @@ for p in files:
 assert len(list((D/'assets/world').iterdir()))==23
 for actor in ['hero','sejong','jang','saimdang','yi']:assert (D/'assets/actors'/actor/'atlas.json').exists()
 assert not any(p.suffix in ['.blend','.glb'] for p in files)
-rows=[{'path':str(p.relative_to(D)),'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'bytes':p.stat().st_size} for p in sorted(files)];buildhash=hashlib.sha256(json.dumps(rows).encode()).hexdigest()[:12];stage=R/'.cache/portable'/buildhash;root=stage/'Korean-Arena-Review';root.mkdir(parents=True,exist_ok=True);shutil.copytree(D,root/'3D-pharse5-',dirs_exist_ok=True)
+rows=[{'path':str(p.relative_to(D)),'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'bytes':p.stat().st_size} for p in sorted(files)];buildhash=hashlib.sha256(json.dumps(rows).encode()).hexdigest()[:12];stage=R/'.cache/portable'/buildhash;root=stage/a.folder;root.mkdir(parents=True,exist_ok=True);shutil.copytree(D,root/'3D-pharse5-',dirs_exist_ok=True)
 launcher='''from pathlib import Path
 from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 from functools import partial
@@ -22,14 +23,15 @@ if not a.no_browser:webbrowser.open(url)
 try:s.serve_forever()
 except KeyboardInterrupt:s.server_close()
 '''
-(root/'start.py').write_text(launcher);(root/'README.txt').write_text('Korean Arena — current animation/historical guest review, NOT PUBLICLY RELEASED.\nExtract, run python3 start.py (Windows py start.py), open printed HTTPURL. Python3required; noNode needed to view. Do not open index.html as source or file://. Ctrl+C stops.\nWASD/arrows walk; Shift run; E nearby guest; Spacewave. Touchpad/buttons, hair/outfit/satchel/4moods/zoom, OSreducedmotion/pause/Canvasfallback. Guests are educational fictional projections from different eras. Hooks are concepts only, no fullquests/onlineusers/backend/ads.\n')
-q=R/'docs/review';q.mkdir(parents=True,exist_ok=True);dest=q/'playable-review.zip'
+launcher=launcher.replace("/3D-pharse5-/'",f"/3D-pharse5-/{a.entry}'")
+(root/'start.py').write_text(launcher);(root/'README.txt').write_text(('Korean Arena — THREE STATIC CHARACTER CONCEPTS, A/B/C. NOT APPROVED OR PUBLICLY RELEASED.\nChoose front/back/left/right and 1x native / 2x gameplay camera. These are static direction drawings, not action animations. The current game is preserved and linked separately; its old actors have been rejected and await a future approved replacement.\n' if a.entry else 'Korean Arena — current animation/historical guest review, NOT PUBLICLY RELEASED.\nWASD/arrows walk; Shift run; E nearby guest; Space wave.\n')+'Extract, run python3 start.py (Windows py start.py), open printed HTTP URL. Python 3 required; no Node needed to view. Do not open HTML as source or file://. Ctrl+C stops. No online users, paid services or ads.\n')
+q=R/a.review_dir;assert q.resolve().is_relative_to((R/'docs').resolve());q.mkdir(parents=True,exist_ok=True);dest=q/'playable-review.zip'
 with zipfile.ZipFile(dest,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
  for p in sorted(root.rglob('*')):
   if p.is_file():z.write(p,p.relative_to(stage))
 sha=hashlib.sha256(dest.read_bytes()).hexdigest();extract=R/'.cache/extracted'/sha[:12];extract.mkdir(parents=True,exist_ok=True)
 with zipfile.ZipFile(dest) as z:
  assert z.testzip() is None and all(not Path(n).is_absolute() and '..' not in Path(n).parts for n in z.namelist());z.extractall(extract)
-for r in rows:assert hashlib.sha256((extract/'Korean-Arena-Review/3D-pharse5-'/r['path']).read_bytes()).hexdigest()==r['sha256']
-m={'status':'PACKAGED_PENDING_HTTP_BROWSER_VERIFICATION','zip':'docs/review/playable-review.zip','zip_bytes':dest.stat().st_size,'zip_sha256':sha,'build_bytes':sum(r['bytes'] for r in rows),'files':rows,'extract_root':str(extract/'Korean-Arena-Review'),'security_scan':'dist only; suffix allowlist; no private-key/provider-token markers,3D,rejectedsource or third-party artwork; original/Phaser/Zod notices included.'}
+for r in rows:assert hashlib.sha256((extract/a.folder/'3D-pharse5-'/r['path']).read_bytes()).hexdigest()==r['sha256']
+m={'status':'PACKAGED_PENDING_HTTP_BROWSER_VERIFICATION','zip':str(dest.relative_to(R)),'zip_bytes':dest.stat().st_size,'zip_sha256':sha,'build_bytes':sum(r['bytes'] for r in rows),'files':rows,'extract_root':str(extract/a.folder),'entry':a.entry,'security_scan':'dist only; suffix allowlist; no private-key/provider-token markers,3D or authoring sources; original/Phaser/Zod notices included. Current working game actors deliberately retained pending replacement approval.'}
 (q/'package.json').write_text(json.dumps(m,indent=2)+'\n');print(json.dumps({k:v for k,v in m.items() if k!='files'}))

@@ -1,3 +1,15 @@
+# Current gate: choose a completely new character
+
+Previous player and NPC designs are **rejected**. New original A/B/C concepts, four directions and actual Phaser comparisons are ready in [the character reboot review](docs/character-reboot/REVIEW.md).
+
+![New A/B/C review](docs/character-reboot/avatar-review-board.png)
+
+[Download the separate character review](docs/character-reboot/playable-review.zip): extract Korean-Arena-Character-Review, run `python3 start.py` (Windows `py start.py`), open the printed HTTP URL. The review page offers four directions and 1×/2× camera scales, and links back to the intact existing game. These are **static design candidates**, not an approved animation set. No new NPCs or publication before your selection.
+
+Development: `npm run dev`; open the repository base plus `character-review.html`. Production build emits both that review and the existing game. Original gameplay/actors/world/UI sources and dependency lock are unchanged. See the new Forge execution/QA report for actual image routes, commands, warnings and limits. All four STUDIO records track this current gate.
+
+## Preserved game baseline — earlier review, character art now rejected
+
 # Korean Arena — Living Pixel Seoul
 
 An original, local-play pixel social-town review built with Phaser, TypeScript and Vite. Provisionally accepted chibi/town art, improved distance-driven animation, layered outfits and four fictional historical guest interpretations. Animation/NPC visual approval is pending. No online players, full quests, backend, ads or new public deployment.

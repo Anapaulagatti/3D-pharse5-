@@ -1,3 +1,13 @@
+# Latest asset state — rejected production characters retained, new concepts pending
+
+- assets-src/character-reboot/{A,B,C}: newly generated original source masters and referenced turnaround images, identity specs, actual prompts, canonical Forge master records and native four-direction PNGs/palettes. References/ retains only source images required by narrow edit provenance. No new character geometry drawn by code.
+- public/review/characters/{A,B,C}: separate static PNG atlases, Forge standard manifests and Phaser frame-name adapters. Four still views each,80px body/80×104/root40,96. Not an animation set; unused manifest timeline fields do not make a motion clip.
+- docs/character-reboot: one current concept collage, actual four-way/native/mobile/full-page Phaser captures, review ZIP/manifest, exact browser and preservation evidence, Forge command/route/QA report. Raw failed/alternate finish attempts remain ignored.cache.
+- Existing assets-src/actors, public/assets/actors, all accepted world art/source/map/colliders and old review package retained byte-for-byte. Their PLAYER/NPC ART is rejected, not approved for a new release. Replacement/cleanup waits for visual selection and tested motion.
+- No new NPC or action-animation assets produced, no paid API/video generation, no world regeneration. Original masters are generated source art; native pixel exports are separately labelled and verified. Current review awaits explicit A/B/C selection.
+
+## Previous inventory — preserved working baseline at33360ed
+
 # Current asset inventory
 
 - assets-src/world:24exactacceptedsource PNG/Tiled/placementfiles, manifestandoriginalsourceatlas/brief/provenance. Runtimepublic/assets/world has23files (worldplacementJSON importedfromsource);76props,77colliders,11reachablelandmarks. Native32tiles/one1024×768town. Originalgeneratedobjectartandcodegroundprovenanceunchanged.

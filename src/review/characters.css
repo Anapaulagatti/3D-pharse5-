@@ -1,0 +1,257 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  color: #283b3c;
+  background: #f3efe3;
+  font-family: Inter, system-ui, sans-serif;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 5vw;
+  border-bottom: 1px solid #d4d1bf;
+}
+header a {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: inherit;
+  text-decoration: none;
+}
+header a span {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin-top: 6px;
+}
+header > span,
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #68796e;
+}
+main {
+  max-width: 1120px;
+  margin: auto;
+  padding: 48px 24px 64px;
+}
+h1 {
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin: 18px 0;
+}
+.lead {
+  max-width: 720px;
+  line-height: 1.7;
+  color: #677568;
+}
+.toolbar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 30px 0 18px;
+}
+fieldset {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+legend,
+label {
+  font-size: 11px;
+  color: #68796e;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+button,
+select {
+  border: 1px solid #ced1bf;
+  border-radius: 6px;
+  padding: 10px 14px;
+  background: #fffdf5;
+  color: #394c44;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+button[aria-pressed="true"] {
+  background: #375f53;
+  color: #fffdf5;
+  border-color: #375f53;
+}
+label select {
+  display: block;
+  margin-top: 8px;
+}
+.review-stage {
+  border: 1px solid #c9cfb8;
+  background: #ddcba3;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  background: #314d43;
+  color: #f5f0d8;
+  padding: 14px 18px;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+#review-stage {
+  width: 100%;
+  min-height: 480px;
+}
+canvas {
+  display: block;
+  image-rendering: pixelated;
+  max-width: 100%;
+}
+.concepts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 22px;
+}
+article {
+  position: relative;
+  background: #fffdf5;
+  border: 1px solid #d6d7c8;
+  padding: 24px 18px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.letter {
+  position: absolute;
+  right: 20px;
+  top: 22px;
+  border: 1px solid #c6cdb6;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+h2 {
+  margin: 0 0 6px;
+  font-size: 26px;
+}
+h3 {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #577865;
+}
+article p {
+  font-size: 11px;
+  line-height: 1.65;
+  color: #7a8072;
+  min-height: 38px;
+}
+.native-pair {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  height: 340px;
+  overflow: hidden;
+}
+figure {
+  margin: 0;
+  text-align: center;
+}
+figcaption {
+  font-size: 9px;
+  color: #7a8072;
+  margin-top: 8px;
+}
+.native-atlas {
+  object-fit: none;
+  object-position: left top;
+  width: 80px;
+  height: 104px;
+  image-rendering: pixelated;
+}
+.detail-crop {
+  width: 120px;
+  height: 260px;
+  overflow: hidden;
+  position: relative;
+}
+.detail-crop img {
+  width: 960px;
+  height: 312px;
+  position: absolute;
+  left: -60px;
+  top: -30px;
+  max-width: none;
+  image-rendering: pixelated;
+}
+.note {
+  font-size: 12px;
+  line-height: 1.8;
+  max-width: 850px;
+  color: #6e7d6d;
+  margin: 26px 0;
+}
+.back {
+  display: inline-block;
+  color: #375f53;
+  font-size: 13px;
+  text-decoration: none;
+  border-bottom: 1px solid #b2c1ad;
+  padding-bottom: 6px;
+}
+button:focus-visible,
+a:focus-visible,
+select:focus-visible {
+  outline: 3px solid #bf8e48;
+  outline-offset: 3px;
+}
+@media (max-width: 700px) {
+  header {
+    padding: 18px 20px;
+  }
+  header > span {
+    display: none;
+  }
+  main {
+    padding: 30px 14px;
+  }
+  .toolbar {
+    align-items: start;
+    flex-direction: column;
+  }
+  .concepts {
+    grid-template-columns: 1fr;
+  }
+  .caption {
+    font-size: 8px;
+    padding: 12px 8px;
+  }
+  .native-pair {
+    height: 330px;
+  }
+  article p {
+    min-height: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto;
+  }
+}

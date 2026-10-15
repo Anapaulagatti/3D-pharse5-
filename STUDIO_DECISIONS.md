@@ -1,3 +1,13 @@
+# Latest decisions — character reboot concept gate
+
+1. The new explicit user request supersedes prior provisional acceptance: player and historical NPC artwork rejected; environment and working systems preserved. Only three original player concepts and static direction proof are in scope now.
+2. Actual host image generation replaces the earlier code-drawn approach. Distinct faces/proportions/hair/costume silhouettes, not recolors. No copied artwork or old actor reference. Source masters and edits retained; no paid APIs invoked.
+3. Real Forge processing, truthful route and QA reporting. Preserve facial detail with supported area+palette finish after rejecting destructive default cleanup. Record raw safe_frame warnings and unsupported PNG-only verify; do not invent full animation pipeline success. Codeart used only for pixelQA.
+4. New static review is a separate Vite/Phaser entry reusing existing scene creation. Four still orientations are not walk/idle clips. Proposed80px body scale is identical among candidates and remains unapproved. Game/source/collisions/UI/old actors retained until visual acceptance and runtime tests.
+5. Sejong and all other NPC redesigns, action animation production and the real approved-character motion demo wait for explicit player selection. No main push or Pages release for this unapproved gate. Verified recovery/current branch checkpoints only.
+
+## Earlier milestone decisions — historical, superseded above
+
 # Current decisions
 
 1. Latest docs/current/MISSION.md provisionally accepts player/world identity and authorizes animation,4historicalguests and actualactive-treecleanup. Earlier instructions retaining obsolete active folders are superseded; Git tags preserve historicalwork. No newgameplay/districts/ads/publication.

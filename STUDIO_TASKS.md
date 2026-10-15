@@ -1,10 +1,14 @@
-# Animation, historical guests and cleanup — completed review candidate
+# CHARACTER-REBOOT-001 — three concepts, visual selection pending
 
-Authority: [current user mission](docs/current/MISSION.md). The player and town retain their provisionally accepted identity. New animation and NPC artwork await visual approval.
+Latest authority: docs/current/CHARACTER_REBOOT.md. Prior player/NPC artwork REJECTED; environment/gameplay/infrastructure preserved.
 
-- **Gate A — COMPLETE.** All five Sprite Forge skills inspected. Actual free diagnostics, registration, clip assembly and pixel QA recorded. No available video-generation route; no paid calls. Immutable pixel and historical 3D tags freshly cloned from GitHub and every tracked file hashed.
-- **Gate B — COMPLETE.** Sixteen accepted idle combinations preserved pixel-for-pixel. Registered 48×68 motion canvas, 284 frames per layer, distinct twelve-pose walk/run, distance-driven gait, start/stop/turn, blink, secondary motion and four emotes. Real Phaser footage decoded and visually inspected.
-- **Gate C — COMPLETE.** Sejong built and inspected in Phaser before the other three guests. All four have 196 frames, directional idle/walk/blink/greeting, two facial states, original costumes/props, Vietnamese-first dialogue and one Korean-learning quest concept. Historical fiction is explicit; full quests remain unimplemented.
-- **Gate D — COMPLETE.** Obsolete active 3D, rejected pixel experiments, duplicate asset trees and stale media/scripts removed after recovery verification. One current source/runtime tree; exact package lock retained. Cleaned source promoted to main by normal fast-forward with legacy publication disabled.
-- **Gate E — COMPLETE.** Fresh remote clone: npm ci, typecheck, lint, formatting, 8 unit tests, production/source QA and 5 native browser flows pass. Source CI [38720697542](https://github.com/Anapaulagatti/3D-pharse5-/actions/runs/38720697542) succeeds. Latest board, screenshot, mobile evidence, actual before/after video and extracted HTTP-tested playable ZIP retained.
-- **USER VISUAL REVIEW — PENDING.** Final metadata checkpoint and exact CI results are recorded by annotated tag `checkpoint/pixel-animation-history-cleanup-20261015` and GitHub Actions. STOP: no new district, learning system, multiplayer, advertising or website publication.
+- COMPLETE: remote baseline33360ed matched; immutable recovery/before-character-reboot-20261015 created, pushed and peeled SHA verified before character work.
+- COMPLETE: official Forge HEAD verified; relevant skills and dependencies inspected; billable API routes disabled; host image_gen route used for actual original artwork, video route unavailable and disclosed.
+- COMPLETE: three genuinely distinct new player concepts A/B/C, referenced back/left/right views, narrow key/eye/ornament fixes, original masters/sources/metadata retained.
+- COMPLETE: actual Forge normalization/finish/quantize/pixelQA/PNG export. Static-native80px comparison with real Phaser front/back/left/right, camera1×/2× and mobile Canvas. Collage labels source vs engine panels.
+- COMPLETE: type/lint/format/build/source checks,8unit/7browser flows, exact extracted HTTP review ZIP/browser and preservation of130 baseline files. FourSTUDIO records updated. Verified source checkpoint and final CI recorded in tag checkpoint/character-reboot-concepts-20261015.
+- **PENDING USER APPROVAL: choose A, B or C, or request revisions.** None approved automatically; no production character replacement or cleanup yet.
+- **BLOCKED ON SELECTION:** full idle/walk/run/start/stop/turn/jump/landing/emotes/secondary motion, actual approved-character animation demo, then four historical NPC redesigns and eventual safe integration. Video generation additionally needs an available authorized route; no paid route implied.
+- STOP: no mass animations/NPCs, new districts, unrelated gameplay, main promotion or public deployment.
+
+Previous animation/NPC/cleanup milestone checkpoint33360ed remains recoverable. Its numeric/technical verification does not override the user's rejection of its character artwork.

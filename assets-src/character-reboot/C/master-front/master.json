@@ -1,0 +1,161 @@
+{
+  "schema": "generate2dsprite.master.v1",
+  "tool": {
+    "name": "master_still",
+    "version": "0.4.0"
+  },
+  "created": "2026-10-15T12:18:29.960Z",
+  "name": "c-nari-storyweaver",
+  "subject": "an original contemporary Korean fantasy chibi storyweaver, full body",
+  "identity_recap": "original contemporary Korean fantasy chibi storyweaver, full body (Nari, an original thoughtful and warmly curious Korean Arena storyweaver. Balanced 2.8-head-tall pear-shaped silhouette with softly heart-shaped face and slender expressive hands. Clear pale warm skin, thoughtful dark sapphire almond eyes, delicately arched eyebrows, small defined nose, gentle knowing smile and restrained rosy cheeks. Glossy midnight-blue hair with a side part and a thick low side braid tied with a dark-red silk cord, layered crown volume, one small asymmetrical crescent brass hairpin. A contemporary plum short jacket inspired by jeogori crossing construction, cream collar and muted celadon goreum bow, split longer side panels, ivory softly pleated culotte trousers, dark indigo socks and simple dark-red flat shoes. A small original celadon/brass norigae bell pendant at the waist and a closed ivory paper fan on the belt. Everyday playful fantasy, no imperial crown, no religious symbols, no weapon. Calm attentive posture, clear shoulders/elbows/knees and feet. Distinct braid and layered flared jacket/culotte silhouette, NOT A or B in different colors. Soft upper-left light and restrained material-specific pixel clusters)",
+  "facing": "front",
+  "view": "elevated three-quarter top-down RPG view, camera 30 degrees above eye level, south/front facing with both eyes visible and visible top of hair; not isometric and not ground-level portrait",
+  "finish": "pixel",
+  "class": "hero",
+  "framing": {
+    "canvas": [
+      1024,
+      1024
+    ],
+    "subject_height_px": 788,
+    "top_margin_px": 138,
+    "lead_px": 0,
+    "preset": "hero",
+    "subject_bbox": [
+      307,
+      138,
+      717,
+      926
+    ],
+    "anchor": [
+      508.0,
+      926.0
+    ],
+    "opaque_area_px": 187283,
+    "width_limited": false
+  },
+  "key": "#FF00FF",
+  "files": {
+    "master": {
+      "path": "master.png",
+      "sha256": "750d4501286a054b5993194d37a309b12c750d328d587866f184db7b06d90bb5",
+      "bytes": 338411,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "cutout": {
+      "path": "master_rgba.png",
+      "sha256": "56aab74f6bab94caaf95202504dcfe6433b28c4986e6d6974fa40da8c20d801a",
+      "bytes": 395480,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "source": {
+      "path": "source.png",
+      "sha256": "de8d29610d260d1a9960d3fde5ba7d97802efd2dec46d1fac32e7ca0695b8b7c",
+      "bytes": 1464820,
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "spec": {
+      "path": "spec.json",
+      "sha256": "1b8a31822f8632f38c5ccd011d703f0dcaa8f849e40c78cd17445236c27e1fdc",
+      "bytes": 3979
+    },
+    "prompt": {
+      "path": "prompt.txt",
+      "sha256": "c33c5941f5de33f1ccf08909077b6db3d19b050a5def2117088cd0d42b74739d",
+      "bytes": 3484
+    }
+  },
+  "references": [],
+  "transform": {
+    "mapping": "master = scale * source + offset (continuous pixel coordinates: pixel i spans [i, i + 1))",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "source_subject_bbox": [
+      354,
+      96,
+      904,
+      1157
+    ],
+    "crop_box": [
+      348,
+      90,
+      910,
+      1163
+    ],
+    "crop_margin_px": 6,
+    "scale": 0.7426955702167767,
+    "offset": [
+      44.84448633364747,
+      66.70122525918944
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "resampler": "lanczos",
+    "premultiplied": true,
+    "alpha_floor_px": 2639,
+    "subject_parts": 1,
+    "ignored_parts": 0,
+    "ignored_px": 0,
+    "source_touches": [],
+    "key_rgb": [
+      255,
+      0,
+      255
+    ]
+  },
+  "route": "host-image_gen",
+  "provenance": {
+    "command": "prompt",
+    "run": "../prompt",
+    "take": null,
+    "source_name": "source-front.png",
+    "source_sha256": "de8d29610d260d1a9960d3fde5ba7d97802efd2dec46d1fac32e7ca0695b8b7c",
+    "media": null,
+    "media_cli_source": null,
+    "edit": null
+  },
+  "matte": {
+    "requested": "soft",
+    "key_estimate": {
+      "key": [
+        251.0,
+        3.0,
+        250.0
+      ],
+      "source": "border_median",
+      "valid": true,
+      "ring_share": 1.0,
+      "coverage": 0.7819888637063153,
+      "distance_from_declared": 7.07
+    },
+    "quality": "soft",
+    "interior_despill": false,
+    "qa": {
+      "opaque_key_px": 0,
+      "outer_ring_spill_fraction": 0.0003475842891901286,
+      "semitransparent_fraction": 0.024701325750927323,
+      "enclosed_key_pockets": 0,
+      "key_hued_px": 69,
+      "visible_px": 341844
+    },
+    "key_choice": {
+      "status": "ok",
+      "overlap_share": 0.003397,
+      "rule": "reject a key when more than 0.5% of subject pixels have key dominance >= 40; first acceptable candidate wins"
+    }
+  },
+  "warnings": []
+}

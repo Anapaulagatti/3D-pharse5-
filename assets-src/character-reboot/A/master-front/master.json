@@ -1,0 +1,161 @@
+{
+  "schema": "generate2dsprite.master.v1",
+  "tool": {
+    "name": "master_still",
+    "version": "0.4.0"
+  },
+  "created": "2026-10-15T12:18:27.354Z",
+  "name": "a-bori-trailblazer",
+  "subject": "an original young chibi trail-map adventurer, full body",
+  "identity_recap": "original young chibi trail-map adventurer, full body (Bori, a lively original Korean Arena trailblazer. Compact athletic 2.7-head-tall body, rounded triangular face, sparkling honey-amber almond eyes with clearly drawn upper eyelids, expressive slightly mismatched eyebrows, tiny nose, mischievous open smile and three faint cheek freckles. Thick chestnut-auburn hair in separated sculpted tousled locks, pointed lifted cowlick and one broad windswept side lock; NOT a helmet or smooth bob. Short ochre field jacket with rolled cream cuffs over a deep petrol-blue fitted top, visible waist, olive cuffed shorts with articulated bare knees, warm cream ankle socks and brown hiking boots. Diagonal burgundy utility strap, small angular olive backpack with rolled paper map, one copper compass clipped at waist. Clear separated hands and visible elbows. Cheerful eager posture, hands relaxed away from torso. Strong compact triangular adventurer silhouette. Upper-left soft key lighting, layered material-specific clusters, thoughtful restrained colors)",
+  "facing": "front",
+  "view": "elevated three-quarter top-down RPG view, camera 30 degrees above eye level, south/front facing with both eyes visible and visible top of hair; not isometric and not ground-level portrait",
+  "finish": "pixel",
+  "class": "hero",
+  "framing": {
+    "canvas": [
+      1024,
+      1024
+    ],
+    "subject_height_px": 788,
+    "top_margin_px": 138,
+    "lead_px": 0,
+    "preset": "hero",
+    "subject_bbox": [
+      324,
+      138,
+      700,
+      926
+    ],
+    "anchor": [
+      520.0,
+      926.0
+    ],
+    "opaque_area_px": 179168,
+    "width_limited": false
+  },
+  "key": "#FF00FF",
+  "files": {
+    "master": {
+      "path": "master.png",
+      "sha256": "9d972b62df81d89e74fc1bfd2f3f1ac85f22a280f16621c5135746f48abaead5",
+      "bytes": 329555,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "cutout": {
+      "path": "master_rgba.png",
+      "sha256": "cdf78ee8a6043f240c643dd4033e6477ba5a3cc6664668c81efb318de2dcc453",
+      "bytes": 388499,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "source": {
+      "path": "source.png",
+      "sha256": "63109915349e781c0124de95d28650cf08a1ce72796f876b4f69427aa867f494",
+      "bytes": 1468056,
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "spec": {
+      "path": "spec.json",
+      "sha256": "b12601435f7cabe70d84f6aedf0a73750ed1f4acc452ec500a49474bfa48687c",
+      "bytes": 3639
+    },
+    "prompt": {
+      "path": "prompt.txt",
+      "sha256": "253a9ff404ba2a91701694cc37788420dc131038e3bcab8d117739cb9a6f2575",
+      "bytes": 3314
+    }
+  },
+  "references": [],
+  "transform": {
+    "mapping": "master = scale * source + offset (continuous pixel coordinates: pixel i spans [i, i + 1))",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "source_subject_bbox": [
+      367,
+      69,
+      876,
+      1138
+    ],
+    "crop_box": [
+      361,
+      63,
+      882,
+      1144
+    ],
+    "crop_margin_px": 6,
+    "scale": 0.7371375116931712,
+    "offset": [
+      53.86903648269407,
+      87.13751169317118
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "resampler": "lanczos",
+    "premultiplied": true,
+    "alpha_floor_px": 3188,
+    "subject_parts": 1,
+    "ignored_parts": 0,
+    "ignored_px": 0,
+    "source_touches": [],
+    "key_rgb": [
+      255,
+      0,
+      255
+    ]
+  },
+  "route": "host-image_gen",
+  "provenance": {
+    "command": "prompt",
+    "run": "../prompt",
+    "take": null,
+    "source_name": "source-front.png",
+    "source_sha256": "63109915349e781c0124de95d28650cf08a1ce72796f876b4f69427aa867f494",
+    "media": null,
+    "media_cli_source": null,
+    "edit": null
+  },
+  "matte": {
+    "requested": "soft",
+    "key_estimate": {
+      "key": [
+        251.0,
+        3.0,
+        250.0
+      ],
+      "source": "border_median",
+      "valid": true,
+      "ring_share": 1.0,
+      "coverage": 0.788199293361721,
+      "distance_from_declared": 7.07
+    },
+    "quality": "soft",
+    "interior_despill": true,
+    "qa": {
+      "opaque_key_px": 0,
+      "outer_ring_spill_fraction": 0.0,
+      "semitransparent_fraction": 0.023883221525009334,
+      "enclosed_key_pockets": 0,
+      "key_hued_px": 0,
+      "visible_px": 332116
+    },
+    "key_choice": {
+      "status": "ok",
+      "overlap_share": 0.0,
+      "rule": "reject a key when more than 0.5% of subject pixels have key dominance >= 40; first acceptable candidate wins"
+    }
+  },
+  "warnings": []
+}

@@ -1,3 +1,11 @@
+# Current character-reboot provenance
+
+The new A/B/C concept artwork in assets-src/character-reboot is original host image_gen output plus reference-based corrections, processed with Agent Sprite Forge into static native pixel exports. No rejected actor, third-party game character, portrait or copyrighted asset was used as a generation reference. Source prompts, references and artifact hashes are retained. The new candidates are not code-drawn geometry. Model/version/cost are not exposed by the host tool; no fabricated values or paid provider API calls. Original project licensing applies.
+
+Production actors remain the previous code-drawn assets until an approved replacement passes review/tests. The approved world is unchanged. Source-master images, finalized native pixel assets and actual engine screenshot crops are explicitly distinguished. See docs/character-reboot/forge-execution.json and REVIEW.md.
+
+## Preserved baseline provenance
+
 # Licenses and source provenance
 
 Original Korean Arena code and art follow LICENSE (MIT). Current player and four historical guests are original code-drawn native pixel geometry, no image/video model used; accepted hero identity is retained exactly with transparent motion padding. No copied modern portraits, game sprites, maps, UI, logos, NFT assets or third-party character packs.

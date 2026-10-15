@@ -1,0 +1,275 @@
+{
+  "schemaVersion": "3.0",
+  "name": "direction-stills",
+  "sourceSize": [
+    80,
+    104
+  ],
+  "sourceAnchor": [
+    40.0,
+    96.0
+  ],
+  "inputFrameSize": [
+    80,
+    104
+  ],
+  "sourceRect": [
+    0.0,
+    0.0,
+    80.0,
+    104.0
+  ],
+  "sourceRectFormat": "x,y,width,height",
+  "encodedSize": [
+    80,
+    104
+  ],
+  "contentSize": [
+    80,
+    104
+  ],
+  "encodedAnchor": [
+    40.0,
+    96.0
+  ],
+  "registration": {
+    "mode": "preserved",
+    "legacyMode": "preserved-source-canvas"
+  },
+  "fps": 1.0,
+  "fpsRational": "1/1",
+  "frameCount": 4,
+  "durationSeconds": 4.0,
+  "loop": false,
+  "reviewStatus": "needs-visual-review",
+  "hitEvents": [],
+  "poster": {
+    "file": "direction-stills-poster.png",
+    "bytes": 5770,
+    "sha256": "f764adc4895347a1c18becf56941135239e8c5646321dfaa78c13a0c6136e9d5"
+  },
+  "fallback": {
+    "type": "png-atlas",
+    "cellSize": [
+      80,
+      104
+    ],
+    "pages": [
+      {
+        "file": "direction-stills-atlas-00.png",
+        "bytes": 18222,
+        "sha256": "4162df458578b94a7fea0547596077ff67db915a4b955ba0c4892efd13e7a7c9",
+        "firstFrame": 0,
+        "frameCount": 4,
+        "columns": 4
+      }
+    ]
+  },
+  "qa": {
+    "status": "needs-visual-review",
+    "method": "engine_export package: forge_matte.matte_qa key-residue gate on every packaged source frame (alpha <= 16 cleared, D18; key from flag, D17); body-bounds and premultiplied seam diagnostics; selection, registration and review bound by sha256; forge_av encoders verify packet counts and keyframes; every encoded file is decoded completely",
+    "notProven": [
+      "Visual identity, contact and gait quality: a low seam ratio or stable bounds do not prove a seamless cycle or a planted foot.",
+      "Playback of the encoded files: run engine_export.py verify to decode them and compare them with the atlas, then validate_animation.py.",
+      "Browser, Safari, WebGL or iPhone playback, decoder throughput and memory on target devices.",
+      "Key-residue thresholds were set on one clip (report v2); unusual keys or costumes need a look."
+    ],
+    "checks": [
+      {
+        "id": "opaque_key_px",
+        "value": 0,
+        "threshold": 0,
+        "status": "pass"
+      },
+      {
+        "id": "outer_ring_spill_fraction",
+        "value": 0.0,
+        "threshold": 0.01,
+        "status": "pass"
+      },
+      {
+        "id": "semitransparent_fraction",
+        "status": "pass",
+        "value": 0.0,
+        "threshold": null
+      },
+      {
+        "id": "enclosed_key_pockets",
+        "value": 0,
+        "threshold": 0,
+        "status": "pass"
+      },
+      {
+        "id": "blank_frames",
+        "status": "pass",
+        "value": [],
+        "threshold": []
+      },
+      {
+        "id": "edge_touch_frames",
+        "status": "pass",
+        "value": [],
+        "threshold": []
+      },
+      {
+        "id": "selection_hashes",
+        "status": "skipped",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "id": "registration",
+        "status": "skipped",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "id": "fps_cap",
+        "status": "pass",
+        "value": "1/1",
+        "threshold": "60/1"
+      },
+      {
+        "id": "review_verdict",
+        "status": "needs-visual-review",
+        "value": null,
+        "threshold": "accepted"
+      }
+    ],
+    "inputs": [
+      {
+        "path": "00-front.png",
+        "sha256": "f764adc4895347a1c18becf56941135239e8c5646321dfaa78c13a0c6136e9d5",
+        "bytes": 5770
+      },
+      {
+        "path": "01-back.png",
+        "sha256": "4a2587e81768c49dd2ca271d2f60824aa70e9a7fdecf1601f1da9ff5c5540d51",
+        "bytes": 4855
+      },
+      {
+        "path": "02-left.png",
+        "sha256": "603d0a62d7972aea92f824f9a6fd633962bf4a0a8e9b97c9726ed77c9495f38d",
+        "bytes": 4749
+      },
+      {
+        "path": "03-right.png",
+        "sha256": "3b844f753a94200607980515a75b5d08be5fb563bf6513605395d773c2d6601b",
+        "bytes": 4630
+      }
+    ],
+    "outputs": [
+      {
+        "path": "direction-stills-poster.png",
+        "sha256": "f764adc4895347a1c18becf56941135239e8c5646321dfaa78c13a0c6136e9d5",
+        "bytes": 5770
+      },
+      {
+        "path": "direction-stills-atlas-00.png",
+        "sha256": "4162df458578b94a7fea0547596077ff67db915a4b955ba0c4892efd13e7a7c9",
+        "bytes": 18222
+      }
+    ],
+    "tool": {
+      "name": "engine_export.py",
+      "version": "0.4.0"
+    },
+    "loopRequested": false,
+    "frameCount": 4,
+    "durationSeconds": 4.0,
+    "blankFrames": [],
+    "edgeTouchFrames": [],
+    "boundsBottomSpanPx": 0,
+    "boundsCenterXSpanPx": 0.5,
+    "seamPremultipliedMAE": 0.075496,
+    "adjacentMedianMAE": 0.049864,
+    "seamToMedianRatio": 1.514,
+    "adjacentMaxMAE": 0.059699,
+    "notes": [
+      "Bounds bottom is a contact-drift proxy, not a tracked foot/root.",
+      "A similar first/last frame does not prove a seamless cycle or stable identity.",
+      "Airborne poses may legitimately change bottom position; review at runtime scale."
+    ],
+    "keyResidue": {
+      "key": [
+        255,
+        0,
+        255
+      ],
+      "framesMeasured": 4,
+      "opaqueKeyPx": 0,
+      "framesWithOpaqueKey": [],
+      "maxOuterRingSpillFraction": 0.0,
+      "framesOverRingSpill": [],
+      "maxSemitransparentFraction": 0.0,
+      "minSemitransparentFraction": 0.0,
+      "enclosedKeyPockets": 0,
+      "keyHuedPx": 0,
+      "limits": {
+        "opaqueKeyPx": 0,
+        "outerRingSpillFraction": 0.01
+      },
+      "thresholds": {
+        "key_tolerance": 48.0,
+        "spill_threshold": 20.0,
+        "min_pocket_area": 16,
+        "opaque_alpha": 128,
+        "spill_hue_balance": 0.5,
+        "alpha_floor": 16
+      },
+      "method": "forge_matte.matte_qa v1: straight-colour key distance and dominance on the keyed image; two-channel keys count spill only where the key channels are balanced; each frame measured on a copy with alpha <= 16 cleared, so invisible resampling halo is not counted (D18)"
+    },
+    "allowKeyResidue": false,
+    "keySource": "flag"
+  },
+  "inputFrames": [
+    {
+      "file": "00-front.png",
+      "bytes": 5770,
+      "sha256": "f764adc4895347a1c18becf56941135239e8c5646321dfaa78c13a0c6136e9d5"
+    },
+    {
+      "file": "01-back.png",
+      "bytes": 4855,
+      "sha256": "4a2587e81768c49dd2ca271d2f60824aa70e9a7fdecf1601f1da9ff5c5540d51"
+    },
+    {
+      "file": "02-left.png",
+      "bytes": 4749,
+      "sha256": "603d0a62d7972aea92f824f9a6fd633962bf4a0a8e9b97c9726ed77c9495f38d"
+    },
+    {
+      "file": "03-right.png",
+      "bytes": 4630,
+      "sha256": "3b844f753a94200607980515a75b5d08be5fb563bf6513605395d773c2d6601b"
+    }
+  ],
+  "runtimeNotes": [
+    "Game logic owns hit timings, damage and root motion.",
+    "Packed MP4 has no native alpha; reconstruct RGB and alpha before displaying.",
+    "Keep sourceSize/sourceAnchor for world geometry when selecting smaller media.",
+    "Use the PNG poster until a decoded first frame exists; preload only current scene actions.",
+    "Packed halves are padded to even sizes: crop RGB at (0, 0, width, height) and alpha (red) at (halfWidth, 0, width, height).",
+    "durationsMs is the timeline; fps/fpsRational is the constant rate of the video transports."
+  ],
+  "sourceIndices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "durationsMs": [
+    1000,
+    1000,
+    1000,
+    1000
+  ],
+  "loopPolicy": "oneshot",
+  "events": [],
+  "sampling": "nearest",
+  "pixelArt": true,
+  "bodyHeightPx": 80.0,
+  "provenanceFile": "provenance.json",
+  "artSource": "host_image",
+  "placeholder": false
+}

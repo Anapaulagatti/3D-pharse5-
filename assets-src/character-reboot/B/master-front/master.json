@@ -1,0 +1,161 @@
+{
+  "schema": "generate2dsprite.master.v1",
+  "tool": {
+    "name": "master_still",
+    "version": "0.4.0"
+  },
+  "created": "2026-10-15T12:33:11.103Z",
+  "name": "b-juni-social-stylist",
+  "subject": "an original fashionable social RPG chibi creative, full body",
+  "identity_recap": "original fashionable social RPG chibi creative, full body (Juni, an original confident friendly Korean Arena social stylist. Slightly taller elegant 3-head-tall proportions with readable torso and long articulated trousered legs. Warm medium-brown skin, distinctive softly diamond-shaped face, wide hazel-green almond eyes with clever upper eyelids, thick gently raised expressive eyebrows, rounded nose, one charming cheek dimple and a small asymmetrical closed smile. Jet-black textured hair gathered into two compact high loop buns with loose curly face-framing locks and two cream barrette accents. Ivory cropped bomber jacket with structured oversized sleeves and dusty-rose lining, lilac fitted shirt, high-waisted deep ink-navy wide-leg trousers with a clear stitched waistband, ivory chunky sneakers. Small coral on-ear headphones resting around neck, tiny geometric messenger pouch on a short hip strap; small silver earring. Warm outgoing confident posture, fingers/arms clear of outfit. Distinct vertical fashion silhouette, no shorts, scarf, hiking equipment or hairstyle from concept A. Soft upper-left light and cohesive muted Korean town-compatible colors)",
+  "facing": "front",
+  "view": "elevated three-quarter top-down RPG view, camera 30 degrees above eye level, south/front facing with both eyes visible and visible top of hair; not isometric and not ground-level portrait",
+  "finish": "pixel",
+  "class": "hero",
+  "framing": {
+    "canvas": [
+      1024,
+      1024
+    ],
+    "subject_height_px": 788,
+    "top_margin_px": 138,
+    "lead_px": 0,
+    "preset": "hero",
+    "subject_bbox": [
+      342,
+      138,
+      682,
+      926
+    ],
+    "anchor": [
+      519.5,
+      926.0
+    ],
+    "opaque_area_px": 168144,
+    "width_limited": false
+  },
+  "key": "#00FF00",
+  "files": {
+    "master": {
+      "path": "master.png",
+      "sha256": "f6b1d859c6566149627c39c7dc7faf6215f59a8073173427deb9e11063c1c7e5",
+      "bytes": 318704,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "cutout": {
+      "path": "master_rgba.png",
+      "sha256": "00082fec83684b7d9084743abcd50a3bddd9cfb931add219554b59463cb41b5a",
+      "bytes": 374745,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "source": {
+      "path": "source.png",
+      "sha256": "335747a5f2a62e7da5a34152aca17150578a50ca60dc2dd0f10b29f25b842528",
+      "bytes": 1494951,
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "spec": {
+      "path": "spec.json",
+      "sha256": "805b1982299f557b60659d7ada4d073277b47d9ac6f73c200b915ab3251d2e7e",
+      "bytes": 3882
+    },
+    "prompt": {
+      "path": "prompt.txt",
+      "sha256": "488fa5654b919c149f7190d9a9bb13a3c987ecdcea3023a97b6542d15ac441f5",
+      "bytes": 986
+    }
+  },
+  "references": [],
+  "transform": {
+    "mapping": "master = scale * source + offset (continuous pixel coordinates: pixel i spans [i, i + 1))",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "source_subject_bbox": [
+      387,
+      57,
+      868,
+      1174
+    ],
+    "crop_box": [
+      381,
+      51,
+      874,
+      1180
+    ],
+    "crop_margin_px": 6,
+    "scale": 0.7054610564010743,
+    "offset": [
+      69.3231871083259,
+      97.78871978513877
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "resampler": "lanczos",
+    "premultiplied": true,
+    "alpha_floor_px": 3296,
+    "subject_parts": 1,
+    "ignored_parts": 0,
+    "ignored_px": 0,
+    "source_touches": [],
+    "key_rgb": [
+      0,
+      255,
+      0
+    ]
+  },
+  "route": "host-image_gen",
+  "provenance": {
+    "command": "external",
+    "run": null,
+    "take": null,
+    "source_name": "source-front.png",
+    "source_sha256": "335747a5f2a62e7da5a34152aca17150578a50ca60dc2dd0f10b29f25b842528",
+    "media": null,
+    "media_cli_source": null,
+    "edit": null
+  },
+  "matte": {
+    "requested": "soft",
+    "key_estimate": {
+      "key": [
+        4.0,
+        248.0,
+        15.0
+      ],
+      "source": "border_median",
+      "valid": true,
+      "ring_share": 1.0,
+      "coverage": 0.7832581671665027,
+      "distance_from_declared": 17.03
+    },
+    "quality": "soft",
+    "interior_despill": true,
+    "qa": {
+      "opaque_key_px": 0,
+      "outer_ring_spill_fraction": 0.0,
+      "semitransparent_fraction": 0.026250818319794974,
+      "enclosed_key_pockets": 0,
+      "key_hued_px": 0,
+      "visible_px": 340637
+    },
+    "key_choice": {
+      "status": "ok",
+      "overlap_share": 0.0,
+      "rule": "reject a key when more than 0.5% of subject pixels have key dominance >= 40; first acceptable candidate wins"
+    }
+  },
+  "warnings": []
+}
