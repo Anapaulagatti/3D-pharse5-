@@ -1,10 +1,13 @@
 import Phaser from "phaser";
+import { JuniMotion, type JuniView } from "./JuniMotion";
+import type { Emote } from "../game/ActorMotion";
+import animation from "../../assets-src/juni-animation/runtime.json";
 import { Plaza, controls } from "../game/Plaza";
 import layout from "../../assets-src/gwanghwamun/world.json";
 import bundle from "../../assets-src/gwanghwamun/map-bundle.json";
 import anchors from "../../public/review/gwanghwamun/anchors.json";
 
-type View = "front" | "back" | "left" | "right";
+type View = JuniView;
 declare global {
   interface Window {
     __PLAZA_REVIEW__?: {
@@ -13,7 +16,10 @@ declare global {
       player: string;
       direction: View;
       nativeBodyHeight: number;
-      staticCharacter: true;
+      staticCharacter: false;
+      action: string;
+      frame: string;
+      phase: number;
       environmentClock: number;
       occludedPixels: number;
       userApproval: "PENDING";
@@ -24,7 +30,9 @@ declare global {
 // Only artwork/layout differ. Movement, acceleration, keyboard/touch, pause,
 // visibility and UI remain the existing Plaza controller's implementation.
 export class Gwanghwamun extends Plaza {
-  private juni!: Phaser.GameObjects.Image;
+  private juniMotion = new JuniMotion();
+  private lastPosition = { x: 512, y: 600 };
+  private juni!: Phaser.GameObjects.Sprite;
   private cue!: Phaser.GameObjects.Image;
   private cueTexture!: Phaser.Textures.CanvasTexture;
   private mask = document.createElement("canvas");
@@ -48,8 +56,8 @@ export class Gwanghwamun extends Plaza {
     const base = import.meta.env.BASE_URL;
     this.load.atlas(
       "juni-review",
-      `${base}review/characters/B/direction-stills-atlas-00.png`,
-      `${base}review/characters/B/atlas.json`,
+      `${base}review/juni-animation/juni.png`,
+      `${base}review/juni-animation/juni.json`,
     );
     this.load.image("water-review", `${base}review/gwanghwamun/water.png`);
     this.load.image("leaf-review", `${base}review/gwanghwamun/leaf.png`);
@@ -59,18 +67,18 @@ export class Gwanghwamun extends Plaza {
     // Centre the existing16x8 foot collider on Juni's recorded root; default game unchanged.
     this.player.body?.setOffset(16, 60);
     this.juni = this.add
-      .image(this.player.x, this.player.y, "juni-review", "front")
-      .setOrigin(0.5, 96 / 104);
-    this.mask.width = 80;
-    this.mask.height = 104;
+      .sprite(this.player.x, this.player.y, "juni-review", "idle-front-0")
+      .setOrigin(0.5, 100 / 112);
+    this.mask.width = 96;
+    this.mask.height = 112;
     this.cueTexture = this.textures.createCanvas(
       "juni-occlusion-cue",
-      80,
-      104,
+      96,
+      112,
     )!;
     this.cue = this.add
       .image(this.player.x, this.player.y, "juni-occlusion-cue")
-      .setOrigin(0.5, 96 / 104)
+      .setOrigin(0.5, 100 / 112)
       .setDepth(9000)
       .setAlpha(0.48);
     this.water = this.add
@@ -91,7 +99,7 @@ export class Gwanghwamun extends Plaza {
       );
     this.game.canvas.setAttribute(
       "aria-label",
-      "Gwanghwamun Plaza — Juni bốn hướng tĩnh. WASD/mũi tên, Shift chạy, E khám phá địa điểm. Chưa có hoạt ảnh nhân vật mới.",
+      "Gwanghwamun Plaza — Juni có hoạt ảnh bốn hướng. WASD/mũi tên đi bộ, Shift chạy, E khám phá; nút Chào, Vui mừng và Biểu cảm.",
     );
     this.events.once("shutdown", () => {
       delete window.__PLAZA_REVIEW__;
@@ -134,29 +142,32 @@ export class Gwanghwamun extends Plaza {
       window.dispatchEvent(
         new CustomEvent("town-dialog", {
           detail:
-            "Đến gần cổng, tượng Sejong, đình đọc sách hoặc cây; nhấn E hay chạm vào địa điểm. Juni đang dùng bốn hướng tĩnh, chưa có bộ hoạt ảnh mới.",
+            "Đến gần cổng, tượng Sejong, đình đọc sách hoặc cây; nhấn E hay chạm vào địa điểm. Dùng Chào, Vui mừng hoặc Biểu cảm để Juni đáp lại.",
         }),
       );
   }
-  override emote() {
-    // Four static Juni views are not action clips; no hidden legacy emote is played.
+  override emote(action: Emote) {
+    if (!controls.paused && !document.hidden)
+      this.juniMotion.gesture(
+        action === "pose" || action === "think" ? "social" : action,
+      );
   }
-  private updateCue(view: View) {
+  private updateCue(frame: string) {
     const x = Math.round(this.player.x),
       y = Math.round(this.player.y);
-    const key = `${x},${y},${view}`;
+    const key = `${x},${y},${frame}`;
     if (key === this.cueKey) return;
     this.cueKey = key;
     const mask = this.mask.getContext("2d")!;
-    mask.clearRect(0, 0, 80, 104);
-    const left = x - 40,
-      top = y - 96;
+    mask.clearRect(0, 0, 96, 112);
+    const left = x - 48,
+      top = y - 100;
     for (const o of bundle.objects) {
       if (o.sortY <= y || o.prop === "bridge") continue;
       const p = bundle.props[o.prop as keyof typeof bundle.props];
       const ox = o.x - p.anchor_px[0] - left,
         oy = o.y - p.anchor_px[1] - top;
-      if (ox >= 80 || oy >= 104 || ox + p.size[0] <= 0 || oy + p.size[1] <= 0)
+      if (ox >= 96 || oy >= 112 || ox + p.size[0] <= 0 || oy + p.size[1] <= 0)
         continue;
       mask.drawImage(
         this.textures.get(o.prop).getSourceImage() as HTMLImageElement,
@@ -164,9 +175,9 @@ export class Gwanghwamun extends Plaza {
         oy,
       );
     }
-    const f = this.textures.getFrame("juni-review", view);
+    const f = this.textures.getFrame("juni-review", frame);
     const ctx = this.cueTexture.context;
-    ctx.clearRect(0, 0, 80, 104);
+    ctx.clearRect(0, 0, 96, 112);
     ctx.globalCompositeOperation = "source-over";
     ctx.drawImage(
       f.source.image as HTMLImageElement,
@@ -176,16 +187,16 @@ export class Gwanghwamun extends Plaza {
       f.cutHeight,
       0,
       0,
-      80,
-      104,
+      96,
+      112,
     );
     ctx.globalCompositeOperation = "source-in";
     ctx.fillStyle = "#fff0b8";
-    ctx.fillRect(0, 0, 80, 104);
+    ctx.fillRect(0, 0, 96, 112);
     ctx.globalCompositeOperation = "destination-in";
     ctx.drawImage(this.mask, 0, 0);
     ctx.globalCompositeOperation = "source-over";
-    const pixels = ctx.getImageData(0, 0, 80, 104).data;
+    const pixels = ctx.getImageData(0, 0, 96, 112).data;
     this.covered = 0;
     for (let i = 3; i < pixels.length; i += 4)
       if (pixels[i] > 0) this.covered++;
@@ -203,12 +214,26 @@ export class Gwanghwamun extends Plaza {
         : m.direction === "up"
           ? "back"
           : m.direction;
+    const distance = Math.hypot(
+      m.x - this.lastPosition.x,
+      m.y - this.lastPosition.y,
+    );
+    this.lastPosition = { x: m.x, y: m.y };
+    const frame = this.juniMotion.step(
+      delta,
+      distance,
+      m.moving,
+      m.speed === 100,
+      view,
+      controls.reduced,
+      m.paused,
+    );
     this.juni
       .setPosition(Math.round(m.x), Math.round(m.y))
-      .setFrame(view)
+      .setFrame(frame)
       .setDepth(Math.round(m.y) + 0.1);
     this.cue.setPosition(Math.round(m.x), Math.round(m.y));
-    this.updateCue(view);
+    this.updateCue(frame);
     if (!m.paused && !controls.reduced) {
       this.clock += Math.min(delta, 50);
       this.water.tilePositionY = Math.floor(this.clock / 230);
@@ -231,16 +256,21 @@ export class Gwanghwamun extends Plaza {
     this.leaves.forEach((l) => l.setVisible(!controls.reduced));
     if (this.scale.width < 600 && controls.zoom === 1)
       this.cameras.main.startFollow(this.player, true, 1, 1, 0, 60);
-    m.avatarVersion = "Juni-provisional-static-directions";
+    m.avatarVersion = "Juni-imagegen-actions-v1";
+    m.frame = frame;
+    m.layerFrames = [frame];
     m.heroCssHeight = 80 * controls.zoom;
-    m.animationFrames = 0;
+    m.animationFrames = animation.frameCount;
     window.__PLAZA_REVIEW__ = {
       ready: true,
       district: "Gwanghwamun Plaza · B Ginkgo Commons",
       player: "Juni · provisional B",
-      direction: view,
+      direction: this.juniMotion.view,
+      action: this.juniMotion.action,
+      frame,
+      phase: this.juniMotion.phase,
       nativeBodyHeight: 80,
-      staticCharacter: true,
+      staticCharacter: false,
       environmentClock: this.clock,
       occludedPixels: this.covered,
       userApproval: "PENDING",

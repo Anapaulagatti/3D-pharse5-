@@ -194,7 +194,7 @@ if (plazaReview) {
   document.querySelector(".intro .eyebrow")!.textContent =
     "B — GINKGO COMMONS · ĐỀ XUẤT, CHƯA DUYỆT";
   document.querySelector(".intro > p:last-child")!.textContent =
-    "Môi trường mới từ Sprite Forge · Juni bốn hướng tĩnh · WASD, Shift, E hoặc cảm ứng.";
+    "Juni đi bộ, chạy và chào bằng khung hình thật · WASD, Shift, E hoặc cảm ứng.";
   document.querySelector(".world-caption span")!.textContent =
     "광화문 · Gwanghwamun Plaza";
   document.querySelector("#mode-label")!.textContent =
@@ -202,28 +202,21 @@ if (plazaReview) {
   document.querySelector("aside > h2")!.textContent = "Juni & Ginkgo Commons";
   document.querySelector("aside > p:not(.eyebrow)")!.textContent =
     "Cổng hai tầng, tượng Sejong, đình đọc sách, nhà trà và rãnh nước trong một quảng trường. Nhấn E gần địa điểm hoặc chạm props để xem ghi chú.";
-  for (const id of [
-    "hair",
-    "outfit",
-    "expression",
-    "accessory",
-    "wave",
-    "celebrate",
-    "pose",
-    "think",
-  ]) {
+  for (const id of ["hair", "outfit", "expression", "accessory", "think"]) {
     const el = document.getElementById(id) as
       HTMLButtonElement | HTMLSelectElement | HTMLInputElement;
     el.disabled = true;
-    el.title = "Juni mới chỉ có4 hướng tĩnh; hoạt ảnh và tùy biến chờ duyệt.";
+    el.title =
+      "Giữ nguyên thiết kế Juni đã chọn; chưa tạo kiểu tóc/trang phục hoặc clip suy nghĩ riêng.";
   }
+  document.querySelector("#pose")!.textContent = "Biểu cảm";
   document.querySelector(".guest-list")!.setAttribute("hidden", "");
   document
     .querySelectorAll("aside .note")
     .forEach(
       (n) =>
         (n.textContent =
-          "Juni được chọn tạm thời. A/Bori và C/Nari vẫn được giữ làm avatar tương lai. Chưa sản xuất hoạt ảnh/NPC mới."),
+          "Juni được chọn tạm thời. A/Bori và C/Nari vẫn được giữ làm avatar tương lai. Hoạt ảnh Juni và bố cục mới đang chờ bạn duyệt; chưa tạo NPC mới."),
     );
   document.querySelector(".directions h2")!.textContent =
     "Một khu duy nhất để duyệt.";

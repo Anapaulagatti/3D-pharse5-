@@ -1,3 +1,15 @@
+# Latest decisions — genuine animation and deliberate composition
+
+1. User authorizes Juni action production/layout polish only; chosen identity preserved, A/Bori/C/Nari retained. No broader release/NPC/district/cleanup permission inferred.
+2. Actual creator action-by-direction imagegen +Forge PNG clean/area finish/approved-base64palette/clip/engine export;23hostcalls and all provenance retained. Video route unavailable, no fabricated video2dsprite generation or paid routes. Native80pxbody/padded96x112root48,100; no forced64, mirrored directions or procedural limbs.
+3. Default assembler per-framebbox scaling rejected. Use actual creator components with every detached part retained, navyhip registration and one fixed whole-clip integer x root correction, preserve common y/flight/bodyweight. Sprite state clock selects genuine frames; physics/controller unchanged. Cadence by actual distance, phase retained and zero-travel freeze. No zero-foot-slide/mocap claim.
+4. Source-detection/timing/start-after-turn/map warning failures diagnosed and corrected without relaxed assertions/thresholds. Final strict right-idle/smallwave meanpixel-motion failures remain documented as candidate visual limitations despite visible blink/hand/expression; technical success is not art approval.
+5. Preserve all architecture/tree/terrain images/transforms;12decorations recompose around buildings/gardens/bridge. Audit all32props for purpose/visibility/reachable approaches. Correct hidden props and isolated4px navcell, don't fake tree fading or weaken navigation.
+6. Optional PerfectPixel principles evaluated, no paid ppgen/app; claude-pxl unnecessary, not executed; SpriteBrew AGPL reference only. No new production dependencies/lock changes.
+7. Real native/all4gaits/gestures/mobile/before-after renders/video +exactHTTP ZIP before source-only verified checkpoint. Final actual SHA/CI/recovery in immutable checkpoint/juni-animation-polish-20261016; no Pages/main promotion. STOP for user review.
+
+## Historical decisions
+
 Second CI note: the original walk helper also counted browser input-dispatch latency in its350ms budget. The same-duration observation now begins after the game receives the direction; all thresholds unchanged. See CI-HISTORY.md and final tag.
 
 Latest verification note: first remote CI exposed an existing mobile-test deceleration timing race; only its wait is corrected, strict precision and runtime movement unchanged. See docs/gwanghwamun/CI-HISTORY.md and the final verified tag for actual final outcomes.

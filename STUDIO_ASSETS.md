@@ -1,3 +1,13 @@
+# Current assets — Juni animation and revised plaza placements
+
+- assets-src/juni-animation:20accepted action/direction source strips from23actual hostimage calls,3prior idle references, exact prompts/runmanifest,144editable native PNGs,64-color approved-base palette, registration/root/matte/finish/clip/engine QA and actual commands.96x112/root48,100/body80;4way idle6/walk8/run8/start3/stop3,8turn orientations,3frontgestures8each;24clips. No code-drawn limbs/mirrors/video route.
+- public/review/juni-animation: actual Forge1202x1394PNG/144frames, original AsepriteJSON and lossless named Phaseradapter. Source/runtime all144pixels equal. OriginalBfront/turnaround/staticatlas and A/C preserved.
+- assets-src/gwanghwamun/publicreview:12decorative transforms changed, actual regenerated Forge bundle/nav/Tiled/collision data. Same12props/8terrain PNGs; architecture/tree/statue/bridge/wall transforms unchanged.257protectedfiles/oldactors/controller/lock unchanged. No cleanup or new districts.
+- docs/juni-animation: real31.24s/781frame MP4, sourcecontactsheet, nativewalk/run/wave/celebrate, actualworld/detail/mobile/evening, before-after4xboard, decodedvideo board, toolchain/QA/provenance/preservation and32prop audit. Raw strict right-idle/smallwave detector failures retained. Actualuser approval PENDING.
+- Playable ZIP4,981,796bytes SHA3c3d03191abc48c34307568ad55a7211c0dafe10d2c8b68257a44897ee92db51, exact extractedPythonHTTPdesktop/mobileCanvas equals source, genuinewalk/celebrate/oldtown4guestsverified. No public deployment/privateauthoringfiles in ZIP. Original packages/evidence/recovery tags retained.
+
+## Historical assets
+
 # Latest inventory — Gwanghwamun review, approval pending
 
 - assets-src/gwanghwamun/concepts:3new original visual directions, exact prompts, A camera-edit provenance and its first-source reference retained. These high-resolution source concepts are not native gameplay screenshots.

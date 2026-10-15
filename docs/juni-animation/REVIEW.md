@@ -1,0 +1,31 @@
+# Juni animation + Gwanghwamun composition — visual review candidate
+
+Juni's selected design is preserved. Bori and Nari remain future avatar styles. This user request authorizes real Juni action production and placement polish only; no new NPCs/districts, repository cleanup, main promotion or public game/Pages release.
+
+## View the result
+
+- [Before/after and actual native-pixel pose board](animation-world-review-board.png).
+- [31.24-second real Phaser gameplay MP4](juni-gameplay.mp4): all4directions walk/run, idle, start/stop/turn, wave, celebration and social reaction. [Decoded video frames](video-contact.png). Real keyboard/buttons at original60/100world speeds; no actor teleport/pose injection, mirroring, CSS bounce, camera-only substitute or video speed-up.
+- [All144native source poses](sprite-contact-sheet.png). [Native world](native-after-map.png), [2x actual camera](native-gameplay-detail.png), [mobile Canvas](mobile-canvas.png), [evening](evening-after-map.png).
+- [Actual native walk](native-walk-right.png), [run](native-run-back.png), [wave](native-wave.png), [airborne celebration](native-celebrate.png). Existing Pause button freezes a real input-driven frame for each still. The board's4x crops use nearest scaling of actual rendered pixels; its world panels remain1024x768native.
+- [Toolchain and QA report](TOOLCHAIN.md), [all32prop purposes/visibility/approaches](prop-audit.json), [preservation proof](preservation.json).
+
+[Download playable-review.zip](playable-review.zip), extract **Korean-Arena-Juni-Animation-Review**, run `python3 start.py` (Windows `py start.py`), open the printed HTTP URL ending `/3D-pharse5-/plaza-review.html`. Python3 required; no Node needed to VIEW. Do not open HTML as source or file://. WASD/arrows walk, Shift/Run runs, Chao/Wave, Vui mung/Celebrate and Bieu cam/Social play one-shots. Camera1x/2x/3x, evening, pause, reduced-motion and touch remain. Brand link opens the preserved town.
+
+ZIP4,981,796bytes, SHA256 **3c3d03191abc48c34307568ad55a7211c0dafe10d2c8b68257a44897ee92db51**. Actual extracted Python HTTP launcher verified: desktop and genuine WebGL-unavailable mobileCanvas images byte-identical to fresh source-preview renders; real walk/celebration and old town4guests load. [Exact package verification](package-verification.json). Cloud loopback is not a public browser preview URL.
+
+## What changed
+
+20action/direction strips from23actual host imagegen calls (20initial,3targeted idle refinements), all grounded in approved Juni front/turnaround.144original generated frames,64-color shared palette extending approved40-color base; fixed96x112canvas/root48,100/body80px. Four-direction idle6/walk8/run8/start3/stop3,8authored turn orientations, front wave8/celebrate8/social8;24Forge clips. No forced64px body, procedural limbs, mirrored direction or static-frame scaling substitute. [Original sources/prompts](../../assets-src/juni-animation).
+
+The original Phaser controller/physics remain byte-identical. JuniMotion selects genuine atlas poses using actual collision-resolved distance; stride declarations44walk/64run world units and phase retained across changes. Blocked travel freezes gait; start/stop and intermediate turn poses, one-shot recovery, pause/tab visibility and OS preference are explicit. Reduced-motion stops idle/environment and simplifies requested gestures, retaining essential user-controlled articulated movement. Cadence reduces foot sliding; zero foot slip/mocap precision is NOT claimed.
+
+12decorative placements changed, no approved prop/architecture/tree/terrain artwork or main landmark transform changed. Remove central bench obstruction; reading/tea frontage and western garden seating, onggi groups by wooden buildings, visible connector/bridge lamps, flower borders. Painted-alpha audit found hidden first-trial props; corrected them instead of fading trees. All benches/lamps now>=81.88%visible; all32props have a reachable approach within existing140px range. Three overlapping boundary-wall segments intentionally remain partly under buildings/foliage. Forge nav10/10targets/0pockets,33exact exported solids, Tiled read-back0different pixels. [Placement changes](placement-changes.json).
+
+## Verification and remaining limits
+
+TypeScript/lint/format,11unit tests, production build and10actual browser flows passed locally, including the unchanged game/character review, eight gait frames per direction, transitions/gestures, collision/bridge/occlusion, CDP touch, reduced-motion/pause and genuine Canvas fallback. Capture and portable package: no missing resources or critical console/page errors.257protected source/runtime/character/controller/lock files byte-identical to3ed9429. Final exact sourceSHA/remoteCI/independent clean-checkout verification belongs in immutable `checkpoint/juni-animation-polish-20261016` AFTER observed success; inspect that actual tag, never infer a future CI result.
+
+Strict creator walk/run geometry+motion reports PASS. Idle and wave strict geometry command returnsFAIL **because of weak-motion warnings**, not missing frames/alpha/crops: right idle adjacent differences `[0.009,0.01,0.009]`; small greeting `[0.0114,0.0106,0.0081,0.0099,0.0118,0.0068]`, default threshold0.012unchanged. Source/native/runtime were visually inspected; the greeting's visible hand/smile and deliberate side blink remain candidate art for USER review. These failures are retained, never relabelled allPASS. No thresholds weakened or fake body jitter added. Initial3idle warnings drove3real targeted edits; only right-idle small changes remain. [Visual candidate inspection](visual-review.json), [raw idle](idle-geometry.json), [raw wave](wave-geometry.json).
+
+Source concepts/architecture are not newly regenerated. Existing hard terrain edges/straight rill remain from the accepted map, outside this placement-only pass. Physical phone/WindowsGUI/TiledGUI untested. Software Chromium/emulated mobile is not hardware60FPS evidence; MP4 is encoded25fps,781frames. Source detection/finishing diagnostics cannot approve anatomy or artistic appeal. Creator uniform diagnostic GIFs are labelled by their generated filenames; `*-authored.webp` uses Forge authored holds, with locomotion previews at nominal cadence; actual engine gait is distance-driven. STOP for visual approval.

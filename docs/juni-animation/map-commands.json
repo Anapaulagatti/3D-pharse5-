@@ -1,0 +1,226 @@
+[
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "assets-src/gwanghwamun/map-draft.json",
+      "--output",
+      "assets-src/gwanghwamun/map-polish-hashed.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/map-polish-hashed.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/map-polish-hashed.json\", \"files_hashed\": 47}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "assets-src/gwanghwamun/map-bundle.json",
+      "--report",
+      "docs/juni-animation/map-validation.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/map-bundle.json\", \"id\": \"gwanghwamun-review\", \"version\": 2, \"errors\": 0, \"warnings\": 0, \"metadata\": \"/workspace/3D-pharse5-/docs/juni-animation/map-validation.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "assets-src/gwanghwamun/map-bundle.json",
+      "--output-dir",
+      "assets-src/gwanghwamun/navigation",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"warn\", \"output\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/navigation\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/navigation/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/navigation/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/navigation/nav-debug.png\", \"map\": \"gwanghwamun-review\", \"cell\": 4, \"targets\": 10, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/export_tiled.py",
+      "export",
+      "--bundle",
+      "assets-src/gwanghwamun/map-bundle.json",
+      "--output-dir",
+      "assets-src/gwanghwamun/tiled",
+      "--embedded-variant"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/tiled\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/tiled/export-report.json\", \"map\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/tiled/map.tmj\", \"embedded\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/tiled/map.embedded.tmj\", \"tilesets\": 2, \"layers\": [\"Ground\", \"Edging\", \"Props\", \"collision\", \"interactions\"], \"differingPixels\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "tools/export_gwanghwamun.py"
+    ],
+    "exit": 0,
+    "stdout": "Candidate frame paths: ['assets-src/character-reboot/B/source-front.png', 'assets-src/character-reboot/B/native/00-front.png']\nExported review-only Phaser assets; original game untouched.\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "assets-src/gwanghwamun/map-draft.json",
+      "--output",
+      "assets-src/gwanghwamun/map-layout-final.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/map-layout-final.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/map-layout-final.json\", \"files_hashed\": 47}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "assets-src/gwanghwamun/map-bundle.json",
+      "--report",
+      "docs/juni-animation/map-validation.json"
+    ],
+    "exit": 1,
+    "stdout": "",
+    "stderr": "error: [Errno 17] Refusing to replace existing file: '/workspace/3D-pharse5-/docs/juni-animation/map-validation.json'\n"
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "assets-src/gwanghwamun/map-bundle.json",
+      "--report",
+      "docs/juni-animation/map-validation.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/map-bundle.json\", \"id\": \"gwanghwamun-review\", \"version\": 2, \"errors\": 0, \"warnings\": 0, \"metadata\": \"/workspace/3D-pharse5-/docs/juni-animation/map-validation.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "assets-src/gwanghwamun/map-bundle.json",
+      "--output-dir",
+      "assets-src/gwanghwamun/navigation",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/navigation\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/navigation/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/navigation/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/navigation/nav-debug.png\", \"map\": \"gwanghwamun-review\", \"cell\": 4, \"targets\": 10, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/export_tiled.py",
+      "export",
+      "--bundle",
+      "assets-src/gwanghwamun/map-bundle.json",
+      "--output-dir",
+      "assets-src/gwanghwamun/tiled",
+      "--embedded-variant"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/tiled\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/tiled/export-report.json\", \"map\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/tiled/map.tmj\", \"embedded\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/tiled/map.embedded.tmj\", \"tilesets\": 2, \"layers\": [\"Ground\", \"Edging\", \"Props\", \"collision\", \"interactions\"], \"differingPixels\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "tools/export_gwanghwamun.py"
+    ],
+    "exit": 0,
+    "stdout": "Candidate frame paths: ['assets-src/character-reboot/B/source-front.png', 'assets-src/character-reboot/B/native/00-front.png']\nExported review-only Phaser assets; original game untouched.\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "assets-src/gwanghwamun/map-draft.json",
+      "--output",
+      "assets-src/gwanghwamun/map-visibility-hashed.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/map-visibility-hashed.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/map-visibility-hashed.json\", \"files_hashed\": 47}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "assets-src/gwanghwamun/map-bundle.json",
+      "--report",
+      "docs/juni-animation/map-validation.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/map-bundle.json\", \"id\": \"gwanghwamun-review\", \"version\": 2, \"errors\": 0, \"warnings\": 0, \"metadata\": \"/workspace/3D-pharse5-/docs/juni-animation/map-validation.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "assets-src/gwanghwamun/map-bundle.json",
+      "--output-dir",
+      "assets-src/gwanghwamun/navigation",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/navigation\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/navigation/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/navigation/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/navigation/nav-debug.png\", \"map\": \"gwanghwamun-review\", \"cell\": 4, \"targets\": 10, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/export_tiled.py",
+      "export",
+      "--bundle",
+      "assets-src/gwanghwamun/map-bundle.json",
+      "--output-dir",
+      "assets-src/gwanghwamun/tiled",
+      "--embedded-variant"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/tiled\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/tiled/export-report.json\", \"map\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/tiled/map.tmj\", \"embedded\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/tiled/map.embedded.tmj\", \"tilesets\": 2, \"layers\": [\"Ground\", \"Edging\", \"Props\", \"collision\", \"interactions\"], \"differingPixels\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "tools/export_gwanghwamun.py"
+    ],
+    "exit": 0,
+    "stdout": "Candidate frame paths: ['assets-src/character-reboot/B/source-front.png', 'assets-src/character-reboot/B/native/00-front.png']\nExported review-only Phaser assets; original game untouched.\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "tools/audit_plaza_props.py"
+    ],
+    "exit": 0,
+    "stdout": "{\"fully_hidden\": [], \"low_visibility\": [[\"wall-29\", 0.353], [\"wall-30\", 0.3575], [\"wall-31\", 0.108]], \"approach_inaccessible\": []}\n",
+    "stderr": ""
+  }
+]

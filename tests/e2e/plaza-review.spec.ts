@@ -46,10 +46,10 @@ test("new layered district retains the controller: water blocks, bridge passes, 
     m: window.__PIXEL_METRICS__!,
   }));
   expect(initial.r.player).toContain("Juni");
-  expect(initial.r.staticCharacter).toBe(true);
+  expect(initial.r.staticCharacter).toBe(false);
   expect(initial.m.colliders).toBe(33);
   expect(initial.m.guests).toHaveLength(0);
-  expect(initial.m.animationFrames).toBe(0);
+  expect(initial.m.animationFrames).toBe(144);
   await axis(page, "ArrowUp", "y", 555, false);
   await axis(page, "ArrowRight", "x", 661, true);
   await page.keyboard.down("ArrowRight");

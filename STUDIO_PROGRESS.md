@@ -1,3 +1,17 @@
+# Current handoff — Juni real animation + Gwanghwamun polish review
+
+Latest user implementation request completed locally; read docs/current/JUNI_ANIMATION_WORLD_POLISH.md and docs/juni-animation/REVIEW.md/TOOLCHAIN.md. Juni's chosen design preserved, Bori/Nari retained; no NPC/other-district production. Actual23hostimage calls (20initial +3targetedidle) and real local creator/Forge processing produce144frames/24clips,64shared colors/native80body/96x112/root48,100. All source PNG/prompts/metadata saved. No paid/provider/video-generation/mirroring/code-limb/bounce substitute. Existing controller/old game retained,257protectedfiles unchanged.
+
+Phaser Sprite frame selection uses collision-resolved distance, real start-stop/8orientationturn and one-shot recovery. Reduced idle/environment freeze, requested gestures simplified, essential locomotion retained; pause/tab visibility stop clocks. Initial missing-start-after-turn browser assertion exposed a real state branch and was fixed, not weakened. Walk/run8frames in all4directions now recorded and tested. Proper hip-based registration and one fixed clip-root correction remove arm-centroid drift without destroying genuine flight/bob. Raw strict right-idle/smallwave motion warnings remain visible; they are NOT relabelled PASS or user approval.
+
+Map only12decorative transforms changed. All architecture/foliage/statue/bridge/wall transforms and prop/terrain PNGs unchanged. Central axis clear, seat/frontage/bridge clusters intentional. Initial isolated navcell and hidden3props corrected;32prop report confirms reachable approaches and visible benches/lamps. Forge10/10targets,0pockets,33solids and0pixelTiledreadback. Existing terrain hard edges/rill preserved.
+
+Actual31.24s/781frame H264MP4, native/detail/4xposes/sourcecontact/before-after/mobile/evening images inspected; no missing resources/critical browser errors. Types/lint/format/11unit/build/10browser PASS. Exact reviewZIP4,981,796bytes SHA3c3d03191abc48c34307568ad55a7211c0dafe10d2c8b68257a44897ee92db51, extracted PythonHTTP source/ZIPdesktop+mobileCanvas PNGs byte-identical, real walk+celebrate and oldtown4guests verified. View extract Korean-Arena-Juni-Animation-Review, python3 start.py (Windows py start.py), printedHTTP URL/plaza-review.html; no Node/file:// needed. MP4 encoding25fps is not hardwareFPS; physical phones untested.
+
+Recovery BEFORE edits recovery/before-juni-animation-20261016 ->3ed9429 pushed/peeled. Final exact sourceSHA/remoteCI/independent recovery verification lives in checkpoint/juni-animation-polish-20261016 AFTER verification; inspect actual tag. Source branch only, no main/Pages publication. Saved environment setup must validate assets, never generate; future processing tools optional outside production tree. Next action after verified source checkpoint: STOP for user visual feedback, not further production.
+
+## Historical handoff
+
 Second CI note: the original walk helper also counted browser input-dispatch latency in its350ms budget. The same-duration observation now begins after the game receives the direction; all thresholds unchanged. See CI-HISTORY.md and final tag.
 
 Latest verification note: first remote CI exposed an existing mobile-test deceleration timing race; only its wait is corrected, strict precision and runtime movement unchanged. See docs/gwanghwamun/CI-HISTORY.md and the final verified tag for actual final outcomes.

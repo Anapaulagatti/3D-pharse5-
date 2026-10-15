@@ -1,3 +1,17 @@
+# JUNI-ANIMATION-POLISH-001 — local work verified / visual review pending
+
+- COMPLETE: before-work3ed9429recovery tag created/pushed/peeled; original game/source/avatars/history retained.
+- COMPLETE: requested5tool repositories audited; actual creator+Forge local workflows used, no production dependency/API/provider/token calls.
+- COMPLETE:20accepted strips from23actual original-reference imagegen calls,144native poses/24clips; targeted weak idle refinements; full source/prompt/QA provenance.
+- COMPLETE: real4way idle/walk/run/start-stop/turn, frontwave/hopcelebration/social, distance cadence/pause/OSpreference/visibility and recovery integrated into existing Phaser scene.
+- COMPLETE:12purposeful placement changes, all32props audited; hidden props corrected, nav10targets/0pockets,33exact Tiledsolids, approved architecture/terrain unchanged.
+- COMPLETE: actual31.24s Phaser recording/native4xdetail/contact/before-after/mobile/evening evidence inspected; exact extractedHTTP ZIP verified.
+- COMPLETE LOCAL: types/lint/format/11unit/build/10browser;257protectedfiles/lock/controller unchanged. Raw strict idle-right/wave weak-motion failures retained, not autoapproved.
+- CHECKPOINT: actual final SHA/CI/clean-checkout result is in immutable checkpoint/juni-animation-polish-20261016 only after observed success; read it before resuming.
+- PENDING USER VISUAL REVIEW ONLY: animation appeal/contacts/small idle+wave and composition. STOP; no public deployment, new districts/NPCs or cleanup.
+
+## Historical tasks
+
 Second CI note: the original walk helper also counted browser input-dispatch latency in its350ms budget. The same-duration observation now begins after the game receives the direction; all thresholds unchanged. See CI-HISTORY.md and final tag.
 
 Latest verification note: first remote CI exposed an existing mobile-test deceleration timing race; only its wait is corrected, strict precision and runtime movement unchanged. See docs/gwanghwamun/CI-HISTORY.md and the final verified tag for actual final outcomes.

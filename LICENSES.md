@@ -25,3 +25,8 @@ Runtime Phaser4.2.1 and Zod4.6.7 are MIT. Exact notices ship in public/licenses/
 Agent Sprite Forge5324342fdfab72430f4e9604f3fe427009f8596d is MIT, kept as an optional external authoring-tool cache. Its actual commands/results are documented in docs/SPRITE_FORGE_USAGE.md. No Forge source is copied into the game/runtime; no paid generation or billable infrastructure invoked. Tiled-compatible JSON is data; no Tiled/LibreSprite program binary distributed. No audio or external font assets shipped.
 
 Historical old projects/licenses remain in verified immutable Git tags, outside the cleaned active tree; docs/RECOVERY.md.
+
+
+## Juni animation and plaza placement review
+
+New animation source is original builtin imagegen artwork grounded solely in the existing original Juni reference; native processing/provenance in assets-src/juni-animation and docs/juni-animation/TOOLCHAIN.md. Existing world artwork unchanged; placements are authored data. External Sprite Forge/character-animation-creator tools used outside production tree; PerfectPixel/claude-pxl evaluated, SpriteBrew AGPL reference only with no game code integrated. No paid generation provider, service token or copied third-party character assets. Existing Phaser/Zod notices remain in the static review bundle.
