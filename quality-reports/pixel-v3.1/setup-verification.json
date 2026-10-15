@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "script": "tools/setup.sh",
+  "commands": [
+    "reuse validated dependencies",
+    "assets:check",
+    "typecheck",
+    "lint",
+    "format:check",
+    "5unit",
+    "build",
+    "3browser flows"
+  ],
+  "report_directory": ".cache/setup-qa",
+  "tracked_art_or_review_evidence_changed": false,
+  "browser_expected": 3,
+  "browser_unexpected": 0
+}

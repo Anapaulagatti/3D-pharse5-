@@ -11,3 +11,5 @@
 9. Gate2 explicit STOP for final style choice. Earlier user “B+T1”/“chooseAifrecommended” were3D decisions and do not approve new pixel art. No Gate3or mass production before a new explicit response.
 
 Remote content checkpoint519fa74941698b3b3f253f282fd2df841d4707f4 independently matched origin. Actions0dd7550 run38668885824 succeeded (actual remote tests). Later519fa74 CI exposed formatting of new delivery helper; local formatter/lint now PASS, no runtime/art change. Proof checkpoint will rerun CI and retain observed outcomes.
+
+FINAL VERIFIED HANDOFF: d7570bc31df8fe858d46748b67bf3b85bec80660 independently remote-matched; Actions38669691060 SUCCESS after formatter fix. tools/setup.sh actually executed full validation PASS (5unit,3browser), reporting to ignored .cache/setup-qa without changing source art or accepted evidence. Final proof/setup-only checkpoint saved with checkpoint/pixel-v3.1-art-review-20261015. Runtime/ZIP unchanged. STOP for explicit new pixel A/B/C selection.

@@ -1,7 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { createHash } from "node:crypto";
-const out = "quality-reports/pixel-v3.1";
+const out = process.env.PIXEL_REPORT_DIR ?? "quality-reports/pixel-v3.1";
 mkdirSync(out, { recursive: true });
 const metrics = (p: Page) => p.evaluate(() => window.__PIXEL_METRICS__!);
 async function ready(p: Page) {

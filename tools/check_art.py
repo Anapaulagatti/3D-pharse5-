@@ -1,8 +1,8 @@
 """Validate actual Tiled objects, PNG grid/palettes, frame rects, provenance."""
 from pathlib import Path
 from PIL import Image
-import json,hashlib,collections
-R=Path(__file__).resolve().parents[1]; src=R/'assets-src';out=R/'quality-reports/pixel-v3.1';out.mkdir(parents=True,exist_ok=True)
+import json,hashlib,collections,os
+R=Path(__file__).resolve().parents[1]; src=R/'assets-src';out=R/os.environ.get('PIXEL_REPORT_DIR','quality-reports/pixel-v3.1');out.mkdir(parents=True,exist_ok=True)
 manifest=json.loads((src/'manifest.json').read_text());m=json.loads((R/'public/assets/plaza.json').read_text());assert m==json.loads((src/'plaza.tmj').read_text());assert m['tilewidth']==m['tileheight']==32 and m['orientation']=='orthogonal'
 assert len({l['name'] for l in m['layers']})==4
 for l in m['layers']:

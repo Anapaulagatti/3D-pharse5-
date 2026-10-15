@@ -6,7 +6,12 @@ export default defineConfig({
   timeout: 45000,
   reporter: [
     ["list"],
-    ["json", { outputFile: "quality-reports/pixel-v3.1/e2e-results.json" }],
+    [
+      "json",
+      {
+        outputFile: `${process.env.PIXEL_REPORT_DIR ?? "quality-reports/pixel-v3.1"}/e2e-results.json`,
+      },
+    ],
   ],
   use: {
     baseURL: "http://127.0.0.1:4201/3D-pharse5-/",
