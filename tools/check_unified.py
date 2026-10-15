@@ -9,7 +9,7 @@ for layer in m['layers']:
  atlas=Image.open(O/(layer+'.png')).convert('RGBA');assert set(atlas.getchannel('A').get_flattened_data())<= {0,255};assert len(set(atlas.get_flattened_data()))<=65
  for key,info in frames.items():
   f=info['frame'];crop=atlas.crop((f['x'],f['y'],f['x']+32,f['y']+48));src=Image.open(S/'avatar'/layer/(key+'.png')).convert('RGBA');assert crop.tobytes()==src.tobytes(),(layer,key)
-  gutter=atlas.crop((f['x']-2,f['y']-2,f['x']+34,f['y']+50));d=gutter.getchannel('A');assert not d.crop((0,0,36,2)).getbbox();assert not d.crop((0,50,36,52)).getbbox()
+  gutter=atlas.crop((f['x']-2,f['y']-2,f['x']+34,f['y']+50));d=gutter.getchannel('A');assert not d.crop((0,0,36,2)).getbbox();assert not d.crop((0,50,36,52)).getbbox();assert not d.crop((0,0,2,52)).getbbox();assert not d.crop((34,0,36,52)).getbbox()
  for dr in m['directions']:
   differences=0;unique=set()
   for i in range(8):
