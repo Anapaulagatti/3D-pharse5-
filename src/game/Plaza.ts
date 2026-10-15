@@ -5,7 +5,7 @@ import {
   historicalGuests,
   historicalDisclaimer,
 } from "../content/historicalGuests";
-import world from "../../assets-src/unified-v4/world.json";
+import world from "../../assets-src/world/world.json";
 type World = typeof world;
 import { facing, inputVector, type Direction } from "../domains/state";
 
@@ -83,7 +83,7 @@ export class Plaza extends Phaser.Scene {
     this.layout = world;
   }
   preload() {
-    const base = import.meta.env.BASE_URL + "assets/unified-v4/";
+    const base = import.meta.env.BASE_URL + "assets/world/";
     for (const kind of [
       "wall",
       "jars",

@@ -7,18 +7,18 @@
     "node": ">=24.0.0"
   },
   "scripts": {
-    "assets": "python3 tools/export_reference_kit.py && python3 tools/export_chibi.py",
-    "assets:check": "python3 tools/check_art.py && python3 tools/check_reset.py && python3 tools/check_unified.py && python3 tools/check_chibi.py",
+    "assets": "python3 tools/export_world.py && python3 tools/export_actors.py",
+    "assets:check": "python3 tools/check_world.py && python3 tools/check_actors.py",
     "dev": "vite --host 127.0.0.1 --port 4200",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "format": "prettier --write src test tools/*.mjs *.ts *.json index.html",
-    "format:check": "prettier --check src test tools/*.mjs *.ts *.json index.html",
+    "format": "prettier --write src tests tools/*.mjs *.ts *.json index.html",
+    "format:check": "prettier --check src tests tools/*.mjs *.ts *.json index.html",
     "test": "vitest run",
     "test:e2e": "playwright test",
     "build": "npm run typecheck && npm run assets:check && vite build",
     "preview": "vite preview --host 127.0.0.1 --port 4201",
-    "assets:chibi": "python3 tools/export_chibi.py"
+    "assets:chibi": "python3 tools/export_actors.py"
   },
   "dependencies": {
     "phaser": "4.2.1",

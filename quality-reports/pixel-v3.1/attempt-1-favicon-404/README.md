@@ -1,1 +1,0 @@
-Initial real browser run: gameplay, touch, reduced motion and Canvas fallback assertions passed; final no-console-errors checks failed on missing favicon404. Do not count as final PASS. Initial images retained before camera/style refinements.

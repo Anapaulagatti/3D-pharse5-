@@ -3,8 +3,8 @@ from pathlib import Path
 from PIL import Image,ImageDraw
 import json,math,hashlib,shutil
 from avatar_art import A,D,L,W,H,P,draw,composite
-R=Path(__file__).resolve().parents[1];S=R/'assets-src/actors';O=R/'public-unified/assets/actors';CACHE=R/'.cache/actor-frames';S.mkdir(exist_ok=True,parents=True);O.mkdir(exist_ok=True,parents=True)
-DURATIONS={'idle':[1800,70,70,450,450,1800],'wave':[80,80,100,120,130,110,100,140],'celebrate':[100,80,60,70,100,90,70,90,100,150],'pose':[100,100,150,350,150,150],'think':[100,100,120,150,500,150,120,140],'start':[40,40,40],'stop':[40,50,60],'turn':[40,40,40]}
+R=Path(__file__).resolve().parents[1];S=R/'assets-src/actors';O=R/'public/assets/actors';CACHE=R/'.cache/actor-frames';S.mkdir(exist_ok=True,parents=True);O.mkdir(exist_ok=True,parents=True)
+DURATIONS={'idle':[1800,50,50,450,450,1800],'wave':[80,80,100,120,130,110,100,140],'celebrate':[100,80,60,70,100,90,70,90,100,150],'pose':[100,100,150,350,150,150],'think':[100,100,120,150,500,150,120,140],'start':[40,40,40],'stop':[40,50,60],'turn':[40,40,40]}
 def atlas_bundle(actor,actions,layers,render,master):
  src=S/actor;out=O/actor;src.mkdir(parents=True,exist_ok=True);out.mkdir(parents=True,exist_ok=True)
  keys=[f'{a}-{dr}-{i}' for dr in D for a,n in actions.items() for i in range(n)];cols=12;size=(cols*52,math.ceil(len(keys)/cols)*72);sheets={k:Image.new('RGBA',size) for k in layers};frames={}

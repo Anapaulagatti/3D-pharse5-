@@ -1,22 +1,10 @@
-# Living Pixel Seoul — current tasks
+# ANIMATION-HISTORY-CLEANUP — current gates
 
-Milestone **CHARACTER-CHIBI-001 — Avatar-only style override**. Authoritative latest request: docs/reviews/chibi-v1/CHARACTER_STYLE_OVERRIDE.md. World retained temporarily; previous player NOT approved. Prior complete candidate9bd6979/tag is recoverable.
+Current authoritative request docs/current/MISSION.md. Current art provisionally accepted; no game release authorization.
 
-- COMPLETE: read override, audit previous actual screenshot, preserve30runtime world/NPC files, map/source atlas and exact lock hashes.
-- COMPLETE: original native40×56 chibi; large sculpted head/face/hair, short torso, separated limbs; independently authored front/back/profiles.
-- COMPLETE:4way idle/walk/distinct run, blink/wave/celebration/socialpose;2hair/2constructed outfits/directional satchel; neutral/happy/focused/surprised face layers.
-- COMPLETE: actual Phaser integration, namespaced hero textures/animations, unchanged oldNPC/world/collisions; sourceQA/type/lint/5unit/build passed.
-- COMPLETE: actual rendered hand-layer inspection,4direction/4mood/4wardrobe/2×/3×/mobile/source/old-vs-new proofs;334frame/40.049s original-time gameplay and idle/walk/run/emote clips.
-- COMPLETE: exact static ZIP desktop/mobile HTTP verified,4native browser tests pass27.4s; source80cea09 independently matched remote with GitHub CI38708659482 SUCCESS.
-- COMPLETE: review evidence/package/four STUDIO handoff records saved; final recovery tag identifies final checkpoint.
-- PENDING: user visual approval — READY_FOR_USER_REVIEW. STOP after avatar review package. No environment reset, mass production, Gate3, website publication or separate production-app change.
-
-- COMPLETE follow-up: one1600×1300 avatar-review-board.png combines old/new, front/back/left/right, idle/walk/run/emote,2hair/2outfits/4expressions and a small actual Phaser scene. Visually inspected; no runtime or art changes.
-
-## Current mission — ANIMATION-HISTORY-CLEANUP
-
-Latest docs/current/MISSION.md provisionally accepts current art. GateA: remote3b62e9b verified; immutable2D/3D recovery tags pushed and fresh HTTPS clone/read-hash tests passed5948/2738files. Forge5skills inspected, video route no-route, ffmpeg alpha roundtrip passes. No billable generation. GateB authored animation preserving accepted master underway; NPC validation then cleanup follows. Main/public boundary must be checked; no game publication authorized.
-
-GateB animation verified:16accepted master combinations pixel-equal with added transparent motion padding48×68/anchor24,64.284frames per11layers;12posewalk/run, distance-driven phase with start/stop/turn/think.8unit/4nativebrowser passed; actual365frame/37.18s original-time capture decoded and inspected. Forge registration/clipbuilder/pixelQA executed,0warnings; first native-canvas border rejection fixed by transparent padding, no waiver. GateC starts with Sejong first.
-
-GateC: Sejong validated first in actualPhaser; then all4original historicalguests authored196frames each, neutral/happy faces/idle/blink/walk/greeting/socialposes, Vietnamese-first dialogue/oneword/concept-onlyhook. Five browserflows passed35.4s; everycurrentactorframe matches source/runtime/regeneration and fits uncut motioncanvas. GeometricQA caught bench/lantern patrol collisions; homes corrected, allroutes clear. Follow offset96 frames the group at normal2× without editingworldbytes. Save allcurrentwork before GateD cleanup.
+- GateA COMPLETE: remote3b62e9b verified; fiveForgeSKILLs inspected; actual diagnostic/route checks, no video route; immutable2D/3D tags freshly cloned/read-hashed5948/2738files. No paid calls.
+- GateB COMPLETE: accepted16master combinations preserved pixel-for-pixel; padded48×68/root24,64;284frames per11layers,12posewalk/run, distance gait/start/stop/turn/think, expressions/wardrobe. Actual GateB365frames37.18s decoded/inspected,8unit/4browser passed. Forge real registration/clip/pixelQA used.
+- GateC COMPLETE: Sejong validated source+Phaser before others. Fouroriginal guests196frames each,4directions/idle/blink/walk/greeting/gestures/twofacialstates, Vietnamese-first Korean vocabulary and concept-onlyhooks, clear fiction context.5browserflows/sourceQA passed; patrol footprints corrected/verified. Immutable precleanupNPC tagbd241a9.
+- GateD IMPLEMENTED: obsolete active3D/rejected2D/oldmedia/reports/scripts deleted after backups. Single public/assets tree, editable currentactors/world, tests/. OldduplicateframePNGs losslessly represented in editable native atlases +generators, historical source/evidence preserved viaGit tags. Package-lock unchanged. Main promotion conditional on no deployment.
+- GateE IN PROGRESS: latest actual screenshots/board/extracted HTTP ZIP verified; full corrected original-time capture and clean-clone validation/checkpoint/CI/main safety verification underway.
+- USER VISUAL REVIEW PENDING. STOP after review package, no districts/fullquests/multiplayer/ads/public website release.

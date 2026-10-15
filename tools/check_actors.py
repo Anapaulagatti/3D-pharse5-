@@ -4,7 +4,7 @@ from PIL import Image
 import hashlib,json,sys
 from avatar_art import draw,composite
 from guest_art import guest
-R=Path(__file__).resolve().parents[1];S=R/'assets-src/actors';O=R/'public-unified/assets/actors';reports=[]
+R=Path(__file__).resolve().parents[1];S=R/'assets-src/actors';O=R/'public/assets/actors';reports=[]
 for actor in ['hero','sejong','jang','saimdang','yi']:
  m=json.loads((S/actor/'manifest.json').read_text());f=json.loads((S/actor/'atlas.json').read_text())['frames'];assert len(f)==m['frames'];assert m['frame']==[48,68] and m['anchor']==[24,64]
  for r in m['files']:assert hashlib.sha256((O/actor/r['path']).read_bytes()).hexdigest()==r['sha256'];assert (S/actor/r['path']).read_bytes()==(O/actor/r['path']).read_bytes()

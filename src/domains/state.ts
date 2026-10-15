@@ -1,25 +1,23 @@
 import { z } from "zod";
-export const Style = z.enum(["A", "B", "C"]);
 export type Direction = "down" | "left" | "right" | "up";
-export const Guest = z.object({
-  version: z.literal(1),
-  style: Style,
-  visits: z.number().int().nonnegative().max(100000),
-  metMira: z.boolean(),
+const Choice = z.union([z.literal(0), z.literal(1)]);
+const AvatarPreferences = z.object({
+  hair: Choice,
+  outfit: Choice,
+  accessory: z.boolean(),
 });
-export type GuestState = z.infer<typeof Guest>;
-export const defaultGuest: GuestState = {
-  version: 1,
-  style: "B",
-  visits: 0,
-  metMira: false,
+export type AvatarPreferences = z.infer<typeof AvatarPreferences>;
+export const defaultAvatarPreferences: AvatarPreferences = {
+  hair: 0,
+  outfit: 0,
+  accessory: true,
 };
-export function decodeGuest(raw: string | null): GuestState {
+export function decodeAvatarPreferences(raw: string | null): AvatarPreferences {
   try {
-    const result = Guest.safeParse(JSON.parse(raw ?? "null"));
-    return result.success ? result.data : { ...defaultGuest };
+    const r = AvatarPreferences.safeParse(JSON.parse(raw ?? "null"));
+    return r.success ? r.data : { ...defaultAvatarPreferences };
   } catch {
-    return { ...defaultGuest };
+    return { ...defaultAvatarPreferences };
   }
 }
 export function inputVector(x: number, y: number): { x: number; y: number } {

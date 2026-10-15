@@ -1,7 +1,7 @@
 import { defineConfig } from "@playwright/test";
 import { existsSync } from "node:fs";
 export default defineConfig({
-  testDir: "test/e2e",
+  testDir: "tests/e2e",
   workers: 1,
   timeout: 120000,
   reporter: [
@@ -9,7 +9,7 @@ export default defineConfig({
     [
       "json",
       {
-        outputFile: `${process.env.PIXEL_REPORT_DIR ?? "quality-reports/unified-v4/native"}/e2e-results.json`,
+        outputFile: `${process.env.PIXEL_REPORT_DIR ?? ".cache/browser"}/e2e-results.json`,
       },
     ],
   ],

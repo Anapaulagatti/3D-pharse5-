@@ -1,18 +1,15 @@
 import Phaser from "phaser";
 import { Plaza, controls } from "./game/Plaza";
 import "./style.css";
+import { decodeAvatarPreferences } from "./domains/state";
 const base = import.meta.env.BASE_URL;
 try {
-  const saved = JSON.parse(
-    localStorage.getItem("living-pixel-seoul-v4") ?? "null",
+  Object.assign(
+    controls,
+    decodeAvatarPreferences(localStorage.getItem("living-pixel-seoul-v4")),
   );
-  if (saved && [0, 1].includes(saved.hair) && [0, 1].includes(saved.outfit)) {
-    controls.hair = saved.hair;
-    controls.outfit = saved.outfit;
-    controls.accessory = saved.accessory !== false;
-  }
 } catch {
-  /* Private mode/corrupt local storage still allows play. */
+  /* Private storage mode remains playable. */
 }
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 <header><a class="brand" href="${base}"><span class="stamp" aria-hidden="true">✉</span><span>KOREAN ARENA<small>Living Pixel Seoul</small></span></a><span class="edition">CENTRAL PLAZA · V4</span><button id="pause" aria-pressed="false">Tạm dừng</button></header>

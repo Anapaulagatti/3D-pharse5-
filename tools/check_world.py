@@ -24,7 +24,8 @@ for p in w['objects']:
   assert any(abs(x-p['x'])<=16 and abs(y-(p['y']+20))<=16 for x,y in seen),('unreachable',p)
   landmarks.append(p['label'])
 # All guest patrol rectangles, checked continuously along edges, not just endpoints.
-for gx,gy in [(450,525),(595,528),(426,607),(650,574)]:
+for actor in json.loads((R/"src/content/historicalGuests.json").read_text()):
+ gx,gy=actor["home"]
  for x in range(gx-10,gx+11):assert free(x,gy) and free(x,gy+12),('guest horizontal route',gx,gy,x)
  for y in range(gy,gy+13):assert free(gx-10,y) and free(gx+10,y),('guest vertical route',gx,gy,y)
 r={'status':'PASS','preserved_source_files':len(m['files']),'objects':len(w['objects']),'colliders':len(colliders),'reachable_landmarks':landmarks,'guest_patrol_footprints_clear':True,'world_art_map_unchanged':True}

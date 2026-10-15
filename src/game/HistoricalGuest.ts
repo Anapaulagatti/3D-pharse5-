@@ -10,6 +10,8 @@ export class HistoricalGuest {
   private previous: { x: number; y: number };
   private rest = 2400;
   private target = 0;
+  private nextGesture: Emote | null = null;
+  private gestureWait = 0;
   private route: { x: number; y: number }[];
   constructor(
     scene: Phaser.Scene,
@@ -46,9 +48,14 @@ export class HistoricalGuest {
     ];
   }
   greet() {
-    this.rest = 2100;
+    this.rest = 2600;
     this.body.setVelocity(0);
-    this.motion.emote(this.definition.gesture as Emote);
+    this.motion.emote("wave");
+    this.nextGesture =
+      this.definition.gesture === "wave"
+        ? null
+        : (this.definition.gesture as Emote);
+    this.gestureWait = 900;
   }
   step(dt: number, paused: boolean, reduced: boolean) {
     const b = this.body;
@@ -59,6 +66,13 @@ export class HistoricalGuest {
       dy = 0;
     if (!paused) {
       this.rest = Math.max(0, this.rest - dt);
+      if (this.nextGesture) {
+        this.gestureWait -= dt;
+        if (this.gestureWait <= 0) {
+          this.motion.emote(this.nextGesture);
+          this.nextGesture = null;
+        }
+      }
       if (!reduced && !this.rest) {
         const t = this.route[this.target];
         dx = t.x - b.x;

@@ -1,1 +1,0 @@
-Stopped browser run used prior build because new strict TS test typing failed before rebuild. Two no-error assertions still failed favicon404; fallback not run. This is historical failure, not final evidence. Fixed explicit HTMLCanvasElement this type, then rebuild required.

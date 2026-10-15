@@ -1,17 +1,11 @@
-# Licenses and provenance
+# Licenses and source provenance
 
-New original pixel source/artwork is MIT (LICENSE and assets-src/manifest.json). No third-party pixel packs, generated-provider outputs or licensed audio. No audio shipped. Source creation: deterministic integer raster/code, no image model.
+Original Korean Arena code and art follow LICENSE (MIT). Current player and four historical guests are original code-drawn native pixel geometry, no image/video model used; accepted hero identity is retained exactly with transparent motion padding. No copied modern portraits, game sprites, maps, UI, logos, NFT assets or third-party character packs.
 
-Runtime Phaser4.2.1 and Zod4.6.7: MIT; exact notices in node_modules packages, standard dependency licenses preserved in builds. Development TypeScript/Playwright Apache2; Vite/Vitest/ESLint/Prettier MIT. Registry lock includes integrity values. Tiled/LibreSprite are optional GPL authoring programs, not copied into runtime or used as artwork provenance. Optional Forge MIT source audited outside bundle, not invoked/vendored.
+Accepted world source combines an original native image_gen object atlas with documented crop/native palette export and code-raster ground/small props. Its original source, brief, transform provenance and exact bytes remain in assets-src/world/provenance and manifest.json. It is not all hand-placed/code-drawn artwork; no new world generation occurred in this milestone.
 
-Frozen legacy showcase-v0.5 retains historical embedded dependency notices and original version provenance at the verified archive; it is not included in new dist.
+Runtime Phaser4.2.1 and Zod4.6.7 are MIT. Exact notices ship in public/licenses/{PHASER,ZOD,ORIGINAL_ART}.txt and the static review ZIP. Development TypeScript/Playwright Apache2; Vite/Vitest/ESLint/Prettier MIT; pinned lock includes registry integrity values.
 
-Reset-v2 originals use native image_gen object sources (no reference images) plus independently code-authored characters/tiles. Exact prompts/source hashes and transform contract: assets-src/reset-v2/SOURCE_PROVENANCE.json. Raw generated masters retained; runtime crops/nearest/palette derivatives are recorded, not described as entirely hand-placed source pixels. No external paid generation route or third-party game asset pack activated. Project original artwork/code follows LICENSE; runtime Phaser/Zod notices still shipped.
+Agent Sprite Forge5324342fdfab72430f4e9604f3fe427009f8596d is MIT, kept as an optional external authoring-tool cache. Its actual commands/results are documented in docs/SPRITE_FORGE_USAGE.md. No Forge source is copied into the game/runtime; no paid generation or billable infrastructure invoked. Tiled-compatible JSON is data; no Tiled/LibreSprite program binary distributed. No audio or external font assets shipped.
 
-## Living Pixel Seoul — unified V4 original kit
-
-assets-src/unified-v4 and public-unified/assets/unified-v4 combine original native image_gen pixel-object sources with code-raster layered avatars/ground, exported by tools/export_reference_kit.py and tools/export_unified.py, under this repository's MIT terms. No external game sprites, copied reference pixels, logos, maps, UI or NFT assets used. Original source atlas, generation brief and crop/native-palette provenance retained. The earlier all-code candidate is preserved at94117b0. User reference screenshots are not included in runtime. All active frames/modules/palette/provenance are editable; previous rejected artwork remains archived and excluded from this build. Existing third-party Phaser/tool licenses remain included.
-
-## Avatar-only chibi-v1
-
-Original native40×56 player geometry, editable per-layer frames/atlases and tools/export_chibi.py are covered by the repository MIT license. No image generator, AI painting, copied sprite or character pack was used. The prior world and NPC source/provenance remain unchanged. Runtime Phaser/Zod notices continue to ship in the static package.
+Historical old projects/licenses remain in verified immutable Git tags, outside the cleaned active tree; docs/RECOVERY.md.
