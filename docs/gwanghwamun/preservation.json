@@ -1,7 +1,7 @@
 {
   "status": "PASS",
   "baseline": "6ff6df0f5671c98291d9b0b6b719ee2e96a6d64c",
-  "protected_files": 204,
+  "protected_files": 203,
   "files": [
     {
       "path": "assets-src/actors/codeart-meta.json",
@@ -808,10 +808,6 @@
       "sha256": "271f184bd32ff2265ee2dc0aff6698648c3a4e5ac26a2ed2e3f8f65ac057a56b"
     },
     {
-      "path": "tests/e2e/art-preview.spec.ts",
-      "sha256": "2af0634865c6cdfdc4b43799c21e9b52997527462c4d37fd6ba044b0147f555a"
-    },
-    {
       "path": "tests/e2e/character-review.spec.ts",
       "sha256": "45796cac973acda77cbdb45577e5829534f472c7bfb90a26a89debd395769239"
     },
@@ -826,6 +822,7 @@
     "Optional Plaza layout/root/anchor/guest/ambience configuration; new review subclass/entry.",
     "Evening overlay fill alpha fixed from0to1 with initial object alpha0; existing update unchanged.",
     "New review-only UI copy/style and provisional character-review labels; original UI remains.",
-    "Offline new asset checks appended to build; no dependencies/lock changes."
+    "Offline new asset checks appended to build; no dependencies/lock changes.",
+    "One existing mobile test now observes3stationary game updates before its unchanged0.05px/200ms stop assertion. CI exposed residual natural deceleration beyond its fixed100ms wait; no runtime movement change."
   ]
 }

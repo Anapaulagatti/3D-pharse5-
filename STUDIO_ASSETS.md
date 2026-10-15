@@ -7,7 +7,7 @@
 - map-bundle.json/tileset.json/tiles.png/layers/world.json/navigation/tiled:1024×768 editable layered map,32placements,10reachable targets, real .tmj/.tsx/PNG export and exact33runtime solid rectangles. Leaf/water/concept export recipes process retained pixels only; no code-drawn map artwork.
 - public/review/gwanghwamun + plaza-review.html:isolated playable B proof. Uses existing public/review/characters/B atlas unchanged,4STATIC80px Juni directions. Environmentwater/leaf/lantern motion, not character clip production. No new living Sejong or other NPC: seated sculpture is a required landmark prop.
 - docs/gwanghwamun:labelled world-review-board; native/day/evening/detail/gate-scale/mobile/behind-front/water-collision actual Phaser PNGs;33s real input/ambient MP4; exact4,434,956byte verified HTTP ZIP; execution/QA/reference/preservation reports. ZIP SHA55fba6719cadd45c6a24b5d48b9f2c040b7c1accf09ce803150c5e8e26715d16. No website deployment.
-- Existing town/world/actors, all A/Bori-B/Juni-C/Nari source+runtime stills, dependency lock, old review packages and separate3D Git history retained.204protected files byte-identical to6ff; original controller update/UI template identical. Original actors remain for recoverable working game, their rejected artwork is not re-approved.
+- Existing town/world/actors, all A/Bori-B/Juni-C/Nari source+runtime stills, dependency lock, old review packages and separate3D Git history retained.203protected files byte-identical to6ff; original controller update/UI template identical. Original actors remain for recoverable working game, their rejected artwork is not re-approved.
 
 B/Juni provisional, plaza directions still PENDING USER VISUAL APPROVAL. No mass animation/NPC/other district production or repository cleanup.
 

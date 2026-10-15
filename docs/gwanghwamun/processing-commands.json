@@ -543,5 +543,33 @@
     "exit": 0,
     "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/tiled\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/tiled/export-report.json\", \"map\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/tiled/map.tmj\", \"embedded\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/tiled/map.embedded.tmj\", \"tilesets\": 2, \"layers\": [\"Ground\", \"Edging\", \"Props\", \"collision\", \"interactions\"], \"differingPixels\": 0}\n",
     "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/gwanghwamun/map-draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/gwanghwamun/map-hashed-e9a4fd74ed57.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/map-hashed-e9a4fd74ed57.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/map-hashed-e9a4fd74ed57.json\", \"files_hashed\": 47}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/gwanghwamun/map-bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/gwanghwamun/bundle-qa-7b17a5f9f120-32.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/gwanghwamun/map-bundle.json\", \"id\": \"gwanghwamun-review\", \"version\": 2, \"errors\": 0, \"warnings\": 0, \"metadata\": \"/workspace/3D-pharse5-/.cache/gwanghwamun/bundle-qa-7b17a5f9f120-32.json\"}\n",
+    "stderr": ""
   }
 ]

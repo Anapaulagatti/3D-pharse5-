@@ -243,7 +243,31 @@ test("OS reduced motion, actual touch, mobile layout and DPR", async ({
       touchPoints: [],
     });
     expect(after.y).toBeGreaterThan(before.y + 5);
-    await page.waitForTimeout(100);
+    // Natural deceleration may outlast 100 ms on a software renderer. Observe
+    // three stationary game updates before measuring the strict stop check.
+    await page.waitForFunction(
+      () =>
+        new Promise<boolean>((resolve) => {
+          let previous = { x: NaN, y: NaN, frame: -1 };
+          let stable = 0;
+          const sample = () => {
+            const m = window.__PIXEL_METRICS__!;
+            if (m.frameCount !== previous.frame) {
+              stable =
+                !m.moving && m.x === previous.x && m.y === previous.y
+                  ? stable + 1
+                  : 0;
+              previous = { x: m.x, y: m.y, frame: m.frameCount };
+              if (stable >= 3) {
+                resolve(true);
+                return;
+              }
+            }
+            requestAnimationFrame(sample);
+          };
+          sample();
+        }),
+    );
     const stopped = await metrics(page);
     await page.waitForTimeout(200);
     expect((await metrics(page)).y).toBeCloseTo(stopped.y, 1);

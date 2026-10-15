@@ -1,8 +1,10 @@
+Latest verification note: first remote CI exposed an existing mobile-test deceleration timing race; only its wait is corrected, strict precision and runtime movement unchanged. See docs/gwanghwamun/CI-HISTORY.md and the final verified tag for actual final outcomes.
+
 # GWANGHWAMUN-REVIEW-001 — three plaza concepts / visual approval pending
 
 Latest: docs/current/GWANGHWAMUN_REVIEW.md. CHARACTER B/Juni provisional; A/Bori and C/Nari retained. PLAZA B is recommended, NOT yet selected by the user.
 
-- COMPLETE: preserve baseline6ff; recovery/before-gwanghwamun-world-20261015 pushed and peeled before art work. Current town remains active;204 protected files unchanged, controller update/UI template unchanged.
+- COMPLETE: preserve baseline6ff; recovery/before-gwanghwamun-world-20261015 pushed and peeled before art work. Current town remains active;203 protected files unchanged, controller update/UI template unchanged.
 - COMPLETE: verify official Forge pin/tools/skills/architectural facts; host route only, no paid/provider generation.
 - COMPLETE: original distinct A/Royal Stone Promenade, B/Ginkgo Commons, C/Hanji Lantern Court concepts, real source prompts/refinement/provenance retained.
 - COMPLETE: limited B layered proof from12generated props,8extracted terrain variants, separate sources/palette/JSON/layers and real Forge Tiled/.tsx exports. Zero differencing pixels;10reachable map targets; exact33solid rectangles reused in Phaser.
