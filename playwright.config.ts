@@ -1,4 +1,5 @@
 import { defineConfig } from "@playwright/test";
+import { existsSync } from "node:fs";
 export default defineConfig({
   testDir: "test/e2e",
   workers: 1,
@@ -11,7 +12,9 @@ export default defineConfig({
     baseURL: "http://127.0.0.1:4201/3D-pharse5-/",
     headless: true,
     launchOptions: {
-      executablePath: "/usr/bin/chromium",
+      executablePath:
+        process.env.PIXEL_CHROMIUM_PATH ??
+        (existsSync("/usr/bin/chromium") ? "/usr/bin/chromium" : undefined),
       args: [
         "--no-sandbox",
         "--use-gl=angle",

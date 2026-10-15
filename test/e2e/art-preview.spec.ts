@@ -231,6 +231,7 @@ test("genuine WebGL-unavailable Canvas fallback", async ({ browser }) => {
   await context.addInitScript(() => {
     const original = HTMLCanvasElement.prototype.getContext;
     HTMLCanvasElement.prototype.getContext = function (
+      this: HTMLCanvasElement,
       type: string,
       ...args: unknown[]
     ) {

@@ -10,7 +10,8 @@ OUT=ROOT/'public/assets'; SRC=ROOT/'assets-src'; OUT.mkdir(parents=True,exist_ok
 BASE={'outline':'343c51','woodDark':'705254','wood':'aa7661','woodLight':'d8a47b','cream':'fff0cd','paper':'e8d7b0','stoneDark':'9daaa0','stone':'c8cab2','stoneLight':'e5dfc3','jadeDark':'477b6b','jade':'77ac86','jadeLight':'b6d2a0','grassDark':'82a17a','grass':'abc291','grassLight':'c4d3a5','roofDark':'34495c','roof':'506b77','roofLight':'81959b','coralDark':'ac5e66','coral':'e68d86','coralLight':'ffc1a4','goldDark':'bf874f','gold':'e7b66e','goldLight':'ffe4a2','skinDark':'c88e73','skin':'efbb90','skinLight':'ffe0b6','hair':'3d3946','hairLight':'645161','waterDark':'578c9c','water':'82b4bc','waterLight':'c0e3d5'}
 STYLES={'A':{'name':'Celadon Morning','description':'Thanh thoát · ngói lam · vườn mơ','colors':{},'hair':'bob'},'B':{'name':'Coral Courier','description':'Ấm áp · người đưa thư · mái ngói cong','colors':{'wood':'a97159','woodLight':'d9a077','coral':'ed9385','jade':'7fab8c'},'hair':'bun'},'C':{'name':'Indigo Festival','description':'Chàm sâu · đèn mật ong · phố lễ hội','colors':{'grass':'a2b3a3','grassDark':'798f8f','grassLight':'bbccba','roof':'415578','roofDark':'303b5b','roofLight':'7281a2','wood':'957b75','woodLight':'c1a290','coral':'a7a0ce','coralDark':'77789f','coralLight':'d8b9d6'},'hair':'cap'}}
 for s in STYLES.values():s['palette']={**BASE,**s['colors']}
-(SRC/'directions.json').write_text(json.dumps(STYLES,ensure_ascii=False,indent=2)+'\n')
+if (SRC/'directions.json').exists():STYLES=json.loads((SRC/'directions.json').read_text())
+else:(SRC/'directions.json').write_text(json.dumps(STYLES,ensure_ascii=False,indent=2)+'\n')
 layout={'tile':32,'width':24,'height':18,'spawn':[384,355],'house':[384,274],'npc':[430,320],'props':[{'kind':'tree','x':170,'y':208},{'kind':'tree','x':612,'y':218},{'kind':'tree','x':100,'y':420},{'kind':'tree','x':650,'y':465},{'kind':'market','x':588,'y':345},{'kind':'bench','x':196,'y':370},{'kind':'bench','x':566,'y':440},{'kind':'lamp','x':270,'y':318},{'kind':'lamp','x':494,'y':318},{'kind':'mailbox','x':332,'y':315},{'kind':'bridge','x':384,'y':559}]}
 if (SRC/'layout.json').exists():layout=json.loads((SRC/'layout.json').read_text())
 else:(SRC/'layout.json').write_text(json.dumps(layout,indent=2)+'\n')
@@ -182,6 +183,8 @@ def indexed(im,path):
  rgb=[(0,0,0)]+[v[:3] for v in opaque];lookup={v:i+1 for i,v in enumerate(opaque)};out=Image.new('P',im.size);out.putpalette([c for v in rgb for c in v]+[0]*(768-len(rgb)*3));out.putdata([0 if v[3]==0 else lookup[v] for v in rgba.get_flattened_data()]);out.info['transparency']=0;out.save(path,optimize=True)
 
 def make_map():
+ if (SRC/'plaza.tmj').exists():
+  m=json.loads((SRC/'plaza.tmj').read_text());(OUT/'plaza.json').write_text(json.dumps(m,separators=(',',':')));return m
  w,h=layout['width'],layout['height'];rng=random.Random(43);ground=[];overlay=[]
  for y in range(h):
   for x in range(w):

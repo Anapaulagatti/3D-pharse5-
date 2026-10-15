@@ -1,0 +1,284 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/3D-pharse5-/node_modules/.bin/playwright",
+      "test"
+    ],
+    "configFile": "/workspace/3D-pharse5-/playwright.config.ts",
+    "rootDir": "/workspace/3D-pharse5-/test/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/3D-pharse5-/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/workspace/3D-pharse5-/test/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/workspace/3D-pharse5-/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/workspace/3D-pharse5-/test/e2e",
+        "snapshotDir": "/workspace/3D-pharse5-/test/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4201/3D-pharse5-/",
+          "headless": true,
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--use-gl=angle",
+              "--use-angle=swiftshader",
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "screenshot": "only-on-failure",
+          "video": "off"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "quality-reports/pixel-v3.1/e2e-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://127.0.0.1:4201/3D-pharse5-/",
+      "reuseExistingServer": true,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "art-preview.spec.ts",
+      "file": "art-preview.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "actual three-direction art, animation, collision, HTML dialogue and settings",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 18151,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /workspace/3D-pharse5-/test/e2e/art-preview.spec.ts:137:27",
+                    "location": {
+                      "file": "/workspace/3D-pharse5-/test/e2e/art-preview.spec.ts",
+                      "column": 27,
+                      "line": 137
+                    },
+                    "snippet": "  135 |   await page.screenshot({ path: out + \"/offline-loaded.png\" });\n  136 |   await context.setOffline(false);\n> 137 |   expect(observed.errors).toEqual([]);\n      |                           ^\n  138 |   expect(observed.missing).toEqual([]);\n  139 |   writeFileSync(\n  140 |     out + \"/desktop-verification.json\","
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/3D-pharse5-/test/e2e/art-preview.spec.ts",
+                        "column": 27,
+                        "line": 137
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  135 |   await page.screenshot({ path: out + \"/offline-loaded.png\" });\n  136 |   await context.setOffline(false);\n> 137 |   expect(observed.errors).toEqual([]);\n      |                           ^\n  138 |   expect(observed.missing).toEqual([]);\n  139 |   writeFileSync(\n  140 |     out + \"/desktop-verification.json\",\n    at /workspace/3D-pharse5-/test/e2e/art-preview.spec.ts:137:27"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T01:58:05.384Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/3D-pharse5-/test-results/art-preview-actual-three-d-b3c6a--HTML-dialogue-and-settings/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/3D-pharse5-/test-results/art-preview-actual-three-d-b3c6a--HTML-dialogue-and-settings/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/3D-pharse5-/test/e2e/art-preview.spec.ts",
+                    "column": 27,
+                    "line": 137
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a3a3034c3a50dcf38220-1c91818d2bf8e0ae724b",
+          "file": "art-preview.spec.ts",
+          "line": 30,
+          "column": 1
+        },
+        {
+          "title": "OS reduced motion, actual touch, mobile layout and DPR",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3146,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /workspace/3D-pharse5-/test/e2e/art-preview.spec.ts:210:29",
+                    "location": {
+                      "file": "/workspace/3D-pharse5-/test/e2e/art-preview.spec.ts",
+                      "column": 29,
+                      "line": 210
+                    },
+                    "snippet": "  208 |       ),\n  209 |     ).toBe(true);\n> 210 |     expect(observed.errors).toEqual([]);\n      |                             ^\n  211 |     expect(observed.missing).toEqual([]);\n  212 |     reports.push({ dpr, before, after, ...observed });\n  213 |     await context.close();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/3D-pharse5-/test/e2e/art-preview.spec.ts",
+                        "column": 29,
+                        "line": 210
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  208 |       ),\n  209 |     ).toBe(true);\n> 210 |     expect(observed.errors).toEqual([]);\n      |                             ^\n  211 |     expect(observed.missing).toEqual([]);\n  212 |     reports.push({ dpr, before, after, ...observed });\n  213 |     await context.close();\n    at /workspace/3D-pharse5-/test/e2e/art-preview.spec.ts:210:29"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T01:58:24.619Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/3D-pharse5-/test-results/art-preview-OS-reduced-mot-ecd9e-touch-mobile-layout-and-DPR/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/3D-pharse5-/test-results/art-preview-OS-reduced-mot-ecd9e-touch-mobile-layout-and-DPR/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/3D-pharse5-/test/e2e/art-preview.spec.ts",
+                    "column": 29,
+                    "line": 210
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a3a3034c3a50dcf38220-262f3cdb83589bc1d85a",
+          "file": "art-preview.spec.ts",
+          "line": 157,
+          "column": 1
+        },
+        {
+          "title": "genuine WebGL-unavailable Canvas fallback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "a3a3034c3a50dcf38220-b4c85f5d9b8ac65c68c5",
+          "file": "art-preview.spec.ts",
+          "line": 229,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-15T01:58:04.647Z",
+    "duration": 23852.295000000002,
+    "expected": 0,
+    "skipped": 1,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}
