@@ -5,14 +5,17 @@ import "./style.css";
 const guest = decodeGuest(safeRead());
 function safeRead() {
   try {
-    return localStorage.getItem("hangeul-pixel-guest-v1");
+    return localStorage.getItem("hangeul-pixel-premium-reset-v2");
   } catch {
     return null;
   }
 }
 function save() {
   try {
-    localStorage.setItem("hangeul-pixel-guest-v1", JSON.stringify(guest));
+    localStorage.setItem(
+      "hangeul-pixel-premium-reset-v2",
+      JSON.stringify(guest),
+    );
   } catch {
     /* private mode: session still playable */
   }
@@ -21,12 +24,12 @@ guest.visits = Math.min(100000, guest.visits + 1);
 save();
 const base = import.meta.env.BASE_URL;
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-<header><a class="brand" href="${base}"><span class="stamp" aria-hidden="true">✉</span><span>KOREAN ARENA<small>Hangeul Pixel Town</small></span></a><span class="edition">ART PREVIEW · GATE 2</span><button id="pause" aria-pressed="false">Tạm dừng</button></header>
-<main><div class="intro"><p class="eyebrow">MỘT TẤM BƯU THIẾP ĐANG ĐỢI BẠN</p><h1>Chào mừng đến <em>Phố Chữ.</em></h1><p>Dạo một vòng, gặp Mira và chọn thế giới pixel bạn muốn khám phá.</p></div>
-<div class="play-layout"><section class="stage-wrap" aria-label="Bản đồ tương tác"><div class="world-caption"><span>✦ Quảng trường Bưu Thiếp</span><span id="mode-label">Chơi cục bộ · Không có người chơi online</span></div><div id="stage"><p id="loading" role="status">Đang mở cánh cửa phố…</p></div><div class="game-bar"><button id="focus">Khám phá</button><span>WASD / ↑↓←→ · Shift chạy · E trò chuyện</span><button id="wave">Vẫy tay</button><button id="interact">Trò chuyện</button></div><div class="touch-pad" aria-label="Điều khiển cảm ứng"><button data-x="0" data-y="-1" aria-label="Đi lên">↑</button><div><button data-x="-1" data-y="0" aria-label="Sang trái">←</button><button data-x="0" data-y="1" aria-label="Đi xuống">↓</button><button data-x="1" data-y="0" aria-label="Sang phải">→</button></div></div></section>
-<aside><p class="eyebrow">BẢN DUYỆT MỸ THUẬT</p><h2>Những lá thư<br>không còn tên.</h2><p>Mira đang đợi bên bưu điện. Có chuyện gì vừa xảy ra ở thị trấn này?</p><p class="quest-step"><span>01</span>Đến gần Mira và nhấn E.</p><p class="note">Đây là bản thử hình ảnh và điều khiển. Nhiệm vụ học, trang phục và chơi cùng bạn bè sẽ được làm ở các gate sau.</p><label for="direction">Hướng hình ảnh</label><select id="direction"><option value="A">A · Celadon Morning</option><option value="B">B · Coral Courier — đề xuất</option><option value="C">C · Indigo Festival</option></select><label for="zoom">Zoom pixel nguyên</label><select id="zoom"><option value="1">1× · Toàn cảnh</option><option value="2">2× · Xem chi tiết</option><option value="3">3× · Xem từng pixel</option></select><button id="night" aria-pressed="false">Ánh chiều dịu</button><label class="check"><input id="motion" type="checkbox">Giảm chuyển động</label><p id="offline" role="status"></p><output id="render-status">Đang tải…</output></aside></div>
+<header><a class="brand" href="${base}"><span class="stamp" aria-hidden="true">✉</span><span>KOREAN ARENA<small>Hangeul Pixel Town</small></span></a><span class="edition">ART RESET · GATE 2</span><button id="pause" aria-pressed="false">Tạm dừng</button></header>
+<main><div class="intro"><p class="eyebrow">BA KHU PHỐ · BA VAI NHÂN VẬT</p><h1>Một nơi bạn muốn <em>ở lại.</em></h1><p>Dạo phố ở tầm nhìn gần, gặp Mira và so sánh ba hướng mỹ thuật mới.</p></div>
+<div class="play-layout"><section class="stage-wrap" aria-label="Bản đồ tương tác"><div class="world-caption"><span>✦ Bản duyệt Gate 2 · Reset</span><span id="mode-label">Chơi cục bộ · Không có người chơi online</span></div><div id="stage"><p id="loading" role="status">Đang mở cánh cửa phố…</p></div><div class="game-bar"><button id="focus">Khám phá</button><span>WASD / ↑↓←→ · Shift chạy · E trò chuyện</span><button id="wave">Biểu cảm</button><button id="interact">Trò chuyện</button></div><div class="touch-pad" aria-label="Điều khiển cảm ứng"><button data-x="0" data-y="-1" aria-label="Đi lên">↑</button><div><button data-x="-1" data-y="0" aria-label="Sang trái">←</button><button data-x="0" data-y="1" aria-label="Đi xuống">↓</button><button data-x="1" data-y="0" aria-label="Sang phải">→</button></div></div></section>
+<aside><p class="eyebrow">BẢN DUYỆT MỸ THUẬT</p><h2>Những lá thư<br>không còn tên.</h2><p>Mira đang đợi bên bưu điện. Có chuyện gì vừa xảy ra ở thị trấn này?</p><p class="quest-step"><span>01</span>Đến gần Mira và nhấn E.</p><p class="note">Đây là bản thử hình ảnh và điều khiển. Nhiệm vụ học, trang phục và chơi cùng bạn bè sẽ được làm ở các gate sau.</p><label for="direction">Hướng hình ảnh</label><select id="direction"><option value="A">A · Thư quán ven hồ</option><option value="B">B · Quảng trường Ngân Hạnh</option><option value="C">C · Phố xưởng Hanji</option></select><label for="zoom">Zoom pixel nguyên</label><select id="zoom"><option value="1">1× · Toàn cảnh bản đồ</option><option value="2" selected>2× · Tầm chơi nhân vật</option><option value="3">3× · Cận cảnh nhân vật</option></select><button id="night" aria-pressed="false">Ánh chiều dịu</button><label class="check"><input id="motion" type="checkbox">Giảm chuyển động</label><p id="offline" role="status"></p><output id="render-status">Đang tải…</output></aside></div>
 <div id="dialog" class="dialog" hidden><p id="dialog-copy" role="status"></p><button id="close-dialog">Đóng lời nhắn</button></div>
-<section class="directions"><p class="eyebrow">BA HƯỚNG · CÙNG MỘT LƯỚI PIXEL</p><h2>Một khu phố, ba cảm xúc.</h2><p>Đây là chính các sprite dùng trong game: nhà, cây, quầy hàng và avatar bốn hướng. B chưa được duyệt; chọn A/B/C sẽ đổi bản chạy phía trên.</p><div class="art-grid">${(["A", "B", "C"] as const).map((s, i) => `<article><div class="sheet-scroll"><img src="${base}assets/direction-${s}.png" width="320" height="384" alt="Nguồn pixel hướng ${s}: nhà hanok, cây hoa, quầy hàng và bốn hướng nhân vật"></div><h3>${s} · ${["Celadon Morning", "Coral Courier", "Indigo Festival"][i]}</h3><p>${["Trong trẻo, ngói lam và sân xanh.", "Ấm áp, dễ gần và rõ vai người đưa thư.", "Tĩnh hơn, điểm mật ong và sắc chàm."][i]}</p><button data-style="${s}">Thử hướng ${s}</button></article>`).join("")}</div></section>
+<section class="directions"><p class="eyebrow">BA THIẾT KẾ · BA BỐ CỤC RIÊNG</p><h2>Bạn muốn sống ở khu phố nào?</h2><p>Mỗi hướng có kiến trúc, cây, đường đi và nhân vật riêng. Đây là chính asset đang chạy trong Phaser; cả ba đều chờ duyệt.</p><div class="art-grid">${(["A", "B", "C"] as const).map((s, i) => `<article><div class="sheet-scroll"><img src="${base}assets/reset-v2/direction-${s}.png" width="448" height="448" alt="Nguồn pixel hướng ${s}: nhà hanok, cây hoa, quầy hàng và bốn hướng nhân vật"></div><h3>${s} · ${["Moonletter Garden", "Ginkgo Commons", "Hanji Afterhours"][i]}</h3><p>${["Thư quán hanok và người đưa thư áo choàng.", "Học viện seowon, sân đá và học viên đeo kính.", "Phố xưởng lệch tầng, sân khấu và người biểu diễn."][i]}</p><button data-style="${s}">Thử hướng ${s}</button></article>`).join("")}</div></section>
 <footer>Pixel gốc · Không quảng cáo · Không thu thập tài khoản · Chưa thay website công khai</footer></main>`;
 const stage = document.querySelector<HTMLDivElement>("#stage")!;
 let game: Phaser.Game;
@@ -60,8 +63,8 @@ function start(style: ArtStyle) {
   game = new Phaser.Game({
     type: renderer,
     parent: stage,
-    width: Math.min(768, stage.clientWidth),
-    height: Math.min(576, stage.clientHeight),
+    width: Math.min(1024, stage.clientWidth),
+    height: Math.min(640, stage.clientHeight),
     backgroundColor: "#abc291",
     pixelArt: true,
     roundPixels: true,
@@ -75,8 +78,8 @@ function start(style: ArtStyle) {
   });
   observer = new ResizeObserver(() =>
     game.scale.resize(
-      Math.min(768, stage.clientWidth),
-      Math.min(576, stage.clientHeight),
+      Math.min(1024, stage.clientWidth),
+      Math.min(640, stage.clientHeight),
     ),
   );
   observer.observe(stage);
@@ -168,7 +171,7 @@ document.querySelector("#close-dialog")!.addEventListener("click", () => {
 window.addEventListener("game-ready", () => {
   document.querySelector("#loading")?.remove();
   document.querySelector("#render-status")!.textContent =
-    "Pixel 32 px · Nguồn gốc độc lập · Sẵn sàng";
+    "Camera 2× · Nhân vật 48×64 · Bản mới chưa duyệt";
 });
 window.addEventListener("game-error", (e) => {
   document.querySelector("#render-status")!.textContent = (
