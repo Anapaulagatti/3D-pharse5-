@@ -1,18 +1,16 @@
-# Pixel Social Learning RPG v3.1
+# Pixel Social Learning RPG v3.1 — active tasks
 
-| ID | State | Evidence / gate |
+| ID | State | Artifact / verification |
 |---|---|---|
-| PIXEL-ARCHIVE-000 | VERIFIED_REMOTE | docs/migration/3d-archive-proof.json; 2738 remote-cloned files SHA256 matched |
-| PIXEL-TOOLCHAIN-001 | IN_PROGRESS | 2718 old paths removed on pixel branch; Phaser4.2.1 installed; runtime not verified yet |
-| PIXEL-ART-002 | IN_PROGRESS | Three original code-authored source directions + indexed masters; awaiting actual Phaser/browser review |
-| PIXEL-FIRST-DELIVERY-003 | BLOCKED | Explicit final art selection required |
-| PIXEL-AVATAR-004 | NOT_STARTED | After Gate3 |
-| PIXEL-SOCIAL-005 | NOT_STARTED | No real players/backend |
-| PIXEL-LEARNING-006 | NOT_STARTED | Human Korean content review pending |
-| PIXEL-PVP-007 | NOT_STARTED | No ranked game |
-| PIXEL-ADS-008 | NOT_STARTED | No ads/providers/revenue |
-| PIXEL-DEPLOY-009 | BLOCKED | Public replacement requires separate approval |
+| PIXEL-ARCHIVE-000 | VERIFIED_REMOTE | f1f13f2 branch+annotated tag; independent remote clone2738SHA256 matches; docs/migration |
+| PIXEL-TOOLCHAIN-001 | VERIFIED_LOCAL | Phaser4.2.1 default app; clean remote-clone npm ci/type/lint/format/5unit/build PASS;3actual browser flows PASS; install/skill matrix |
+| PIXEL-ART-002 | VERIFIED_LOCAL; USER_SELECTION_PENDING | 3original indexed directions,4-way6-frame walk, actual map/house/character, source-vs-engine, phone/fallback,6.55s/17frame video, exact HTTP ZIP |
+| PIXEL-FIRST-DELIVERY-003 | BLOCKED | Explicit A/B/C visual selection required by Gate2 before production |
+| PIXEL-AVATAR-004 | NOT_STARTED | Wardrobe/customization later; current3candidate avatars are art proof |
+| PIXEL-SOCIAL-005 | NOT_STARTED | No real players/auth/rooms/chat/backend |
+| PIXEL-LEARNING-006 | NOT_STARTED | Full content/exams/SRS and human Korean review pending |
+| PIXEL-PVP-007 | NOT_STARTED | Server authority/fair ranked play later |
+| PIXEL-ADS-008 | NOT_STARTED | No ad SDK/providers/revenue |
+| PIXEL-DEPLOY-009 | BLOCKED | Replacement public release requires separate authorization |
 
-Gate1 runtime checkpoint: Phaser4.2.1 production builds and real tilemap/sprite/Arcade collision, four-direction walk/run, dialogue, OS-reduced motion, native Chromium touch and real Canvas fallback executed. Initial browser suite fails only missing favicon404; retained attempt-1 evidence, fixing favicon and mobile framing before final PASS. First actual render inspected: source remains crisp, phone roof framing requires upward follow offset. Three art directions now receive distinct character/roof treatments. Next: final render regression + media/clean install.
-
-Verified local checkpoint: lint/typecheck/5unit tests/build and all3 production browser flows PASS, 0 console/resource errors. Three real A/B/C engine renders opened and inspected; full house readable, distinct silhouette/outfit/palette, crisp original pixels. Phone touch and OS-reduced, reload/local state, collision, offline-loaded and genuine Canvas fallback verified. Formatter PASS after helper formatting. Exporter preserves user-editable palette/Tiled sources. Public v0.5 exact082c661b hash unchanged. Next: genuine motion capture, source-vs-engine comparison, portable package and clean remote clone install; no Gate3/public release.
+STOP for the user's final art selection. Existing v0.5 public website unchanged. Verification details: quality-reports/pixel-v3.1/REVIEW.md and VERIFICATION_SUMMARY.json. Native Tiled/LibreSprite GUI not installed; verified permitted editable PNG/TiledJSON alternative. Only onboarding skill was invoked while catalog exposed; custom/Forge skills not activated. No remote CI outcome claimed without separate evidence.

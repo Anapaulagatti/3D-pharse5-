@@ -30,6 +30,18 @@ page.on("response", (r) => {
 });
 await page.goto("http://127.0.0.1:4201/3D-pharse5-/");
 await page.waitForFunction(() => window.__PIXEL_METRICS__?.ready);
+for (const style of ["A", "B", "C"]) {
+  await page.locator("#direction").selectOption(style);
+  await page.waitForFunction(
+    (s) => window.__PIXEL_METRICS__?.style === s,
+    style,
+  );
+  await page
+    .locator("canvas")
+    .screenshot({ path: `quality-reports/pixel-v3.1/engine-${style}.png` });
+}
+await page.locator("#direction").selectOption("B");
+await page.waitForFunction(() => window.__PIXEL_METRICS__?.style === "B");
 await page.locator("canvas").focus();
 const frames = [];
 const begin = performance.now();

@@ -6,4 +6,4 @@ Read docs/reviews/pixel-v3.1/USER_REQUEST.txt and all four STUDIO records first.
 
 Use existing checkout; do not create worktrees unless explicitly asked. Pin dependencies and preserve original editable sources/provenance. After each meaningful result update four STUDIO records, commit/push this branch and independently verify remote SHA. Report actual screenshots/movement, not HTML source; no hardware FPS claims from SwiftShader. No token values in logs/files. Never blindly run downloaded scripts.
 
-Fresh startup: npm ci; python3 tools/export_art.py; npm run assets:check; npm run typecheck; npm test; npm run build; npm run dev. Project skills on disk may not appear in this session inventory; distinguish installation from runtime discovery. No agents/delegation requested.
+Fresh startup: inspect existing packages; npm ci only when missing/invalid; npm run assets:check; npm run typecheck; npm test; npm run build; npm run dev. Project skills on disk may not appear in this session inventory; distinguish installation from runtime discovery. No agents/delegation requested.
