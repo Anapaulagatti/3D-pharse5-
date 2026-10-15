@@ -9,7 +9,7 @@ export default defineConfig({
     [
       "json",
       {
-        outputFile: `${process.env.PIXEL_REPORT_DIR ?? "quality-reports/pixel-reset-v2/native"}/e2e-results.json`,
+        outputFile: `${process.env.PIXEL_REPORT_DIR ?? "quality-reports/unified-v4/native"}/e2e-results.json`,
       },
     ],
   ],

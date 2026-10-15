@@ -1,25 +1,11 @@
-# V4 CURRENT — Living Pixel Seoul
+# Living Pixel Seoul — unified V4
 
-The unified V4 specification in docs/reviews/unified-v4 supersedes ALL previous art directions below. Gate0 remote recovery PASS (fresh clone2738hashes); previous pixel review2554327 preserved, no deletion or publication. Gates0–2 now authorized: one cohesive native pixel town and layered avatar; STOP before Gate3/public release. Current task: verify retained toolkit, then implement/inspect ONE Central Plaza.
+Current milestone: UNIFIED-PIXEL-V4-GATE2. Gates0–1 verified; Gate2 source and native regression PASS; final current render/video/package in progress. ALL previous A/B/C rejected. STOP for visual approval after Gate2.
 
----
+- Gate0: fresh remote3D clone2738hashes matches f1f13f2; old pixel2554327 preserved. Gate0–1 checkpoint03473c4 independently remote-matched. No new3D deletions, lock changes, worktrees or publication.
+- Active source: assets-src/unified-v4; original code-drawn modular32px kit,32×48layered avatar;2hairstyles/2outfits/satchel. PublicDir public-unified; previous art/evidence remains unchanged/excluded.152frames/layer,6layers; true distinct run cycles;64props/65colliders; all10landmarks andNPCapproach reachable.
+- Technical: type/lint/build,5original unit tests,3adapted native browser flows PASS. Frame/source/palette/alpha/gutters/run-difference QA PASS. Actual controls, collision, emotes, four-way layer registration, outfit persistence, pause/reduced motion, touchDPR1/2/offline-loaded and WebGL-unavailableCanvas verified. No physical-device FPS claim.
+- Next: inspect current images and decoded gameplay, exact extracted HTTP ZIP, save evidence/checkpoint/handoff. Full future gameplay/35minigame/social/PvP/voluntary cosmetic-only ads roadmap is documented, not implemented. No Gate3 or public deploy.
+- Source provenance, projection/palette/scale budgets: PIXEL_ART_BIBLE.md; readiness INSTALLATION_MATRIX.md andSKILL_REGISTRY.md. GUItools absent; editablePNG/TiledJSON verified. No paid API or Forge skill invoked.
 
-# Korean Arena — Gate 2 reset review handoff
-
-2026-10-15. Active branch: rebuild/pixel-social-rpg-v3. State: **WAIT_FOR_NEW_VISUAL_FEEDBACK**.
-
-The user's latest visual review rejects the original minimal pixel A/B/C. Its shared layout, near-identical character construction, 53–54px idle silhouette and shallow object forms are documented in docs/reviews/pixel-reset-v2/AUDIT.md. That rejected baseline remains recoverable at 035d4cdf6fa0e0ecc3c46070269ea92c2f101fd8 / checkpoint/pixel-v3.1-art-review-20261015.
-
-Three new playable studies now reuse the existing Phaser/TypeScript/Vite foundation. A Moonletter Garden pairs courier Arin with a timber hanok, plum garden and koi pond. B Ginkgo Commons pairs scholar Seoha with a two-storey Korean seowon library, formal stone plaza and book fountain. C Hanji Afterhours pairs performer Jun with a terraced workshop, zigzag brick lane, willow and festival props. Maps, building silhouettes, tree sets, road layouts, role silhouettes and emotes differ. They are candidates, not approved production art.
-
-Native character source remains 48×64, with 72 frames per style: four idle, eight walk and six emote frames in each direction. Default integer camera 2× makes visible idle height 126/124/126 CSSpx, compared with old 53/53/54. Actual native screenshots, 1× map overview, source comparisons, phone captures, natural blink screenshots and a 46.55s original-timestamp CDP movie are saved in quality-reports/pixel-reset-v2. The assistant inspected actual Phaser output and decoded motion: courier letter-wave, scholar lifted book and performer overhead lightsticks. User aesthetic approval remains pending.
-
-Validation: production build, type/lint/format, original five unit tests, three adapted native browser flows and both legacy/new asset checks pass. Current source checkpoint f22a9d9dfc0bccb78a9c1a27e74b342248cf1bdb has successful remote Actions run38677204356. Browser tests retain native input/collision/content assertions, cover touch/DPR2, reduced motion/pause, loaded-session offline and Canvas fallback. Earlier wall-clock/NPC-route harness failures and weak first motion remain recorded, with no failing output relabeled as final. Phaser4 absolute frame-duration behavior was verified in installed source; idle blink corrected to120ms.
-
-Delivery: downloads/pixel-reset-v2/premium-pixel-reset-review.zip, 1,746,808 bytes, SHA256 7351fd54f57bec5a848400c11c07284a8a3e39f9e9bdd0cb85af6127987b7ed0. The exact extracted package was HTTP/browser-tested on desktop/mobile with no missing resources or critical errors. Unzip, run python3 start.py (Windows py start.py), open its printed URL. Cloud localhost is not a public browser link. No Node is required to view this package.
-
-Preservation: 214 protected old source/art/lock/package files and110 old review files byte-match the rejected baseline. All2738 archived3D files remain recoverable at f1f13f2b4aebcc2659d94cde84800cef17ad7a4e; archive proof and restore steps are in docs/migration. Live Pages HTML remains SHA082c661b5da2b4c8e66e81b2f52405ef460947bfeff27e2fd6fe771b2e3c716f. No Pages deployment or separate Korean Arena production changes.
-
-Limitations: software-rendered cloud Chromium and emulated mobile are not physical-device performance certification. Object masters were created originally with native image generation and exported as individual game sprites; characters/tiles are code-raster-authored. Not every master pixel was placed manually. Native GUI Tiled/LibreSprite remain unavailable; editable PNG and TiledJSON pipeline retained. Full gameplay, curriculum, wardrobe, real social presence and final polish are later gates.
-
-Recovery: final review tag checkpoint/pixel-art-reset-v2-review-20261015 identifies this handoff and media. Read STUDIO_TASKS/DECISIONS/ASSETS, inspect Git status and remote refs, then respond only to the user's new visual feedback. Do not continue mass production, expand gameplay, infer a selection or publish a replacement without authorization. Technical artifact readiness does not establish visual approval.
+Earlier records recoverable in Git2554327 and03473c4; current V4 spec is authoritative.

@@ -1,8 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { createHash } from "node:crypto";
-const out =
-  process.env.PIXEL_REPORT_DIR ?? "quality-reports/pixel-reset-v2/native";
+const out = process.env.PIXEL_REPORT_DIR ?? "quality-reports/unified-v4/native";
 mkdirSync(out, { recursive: true });
 const metrics = (p: Page) => p.evaluate(() => window.__PIXEL_METRICS__!);
 async function ready(p: Page) {
@@ -61,18 +60,22 @@ function watch(p: Page) {
   });
   return { errors, missing };
 }
-test("actual three-direction art, animation, collision, HTML dialogue and settings", async ({
+test("unified plaza native movement, collision, layered outfits, distinct run and social emotes", async ({
   page,
   context,
 }) => {
   const observed = watch(page);
   await page.goto("./");
   await ready(page);
-  await page.screenshot({ path: out + "/desktop-B.png", fullPage: true });
-  await page.locator("canvas").screenshot({ path: out + "/engine-B.png" });
   const first = await metrics(page);
-  expect(first.animationFrames).toBe(72);
-  expect(first.colliders).toBeGreaterThanOrEqual(20);
+  expect(first.style).toBe("unified");
+  expect(first.animationFrames).toBe(152);
+  expect(first.colliders).toBe(65);
+  await page.locator("canvas").focus();
+  await page.keyboard.press("e");
+  await expect(page.locator("#dialog-copy")).toContainText("Mira");
+  await expect(page.locator("#dialog-copy")).toContainText("우체국");
+  await page.getByRole("button", { name: "Đóng lời nhắn" }).click();
   const movement = [];
   for (const [key, direction] of [
     ["ArrowDown", "down"],
@@ -81,98 +84,106 @@ test("actual three-direction art, animation, collision, HTML dialogue and settin
     ["ArrowRight", "right"],
   ]) {
     const initial = await metrics(page);
-    const m = await walk(page, key, 550);
+    const m = await walk(page, key, 350);
     expect(m.direction).toBe(direction);
     expect(Math.hypot(m.x - initial.x, m.y - initial.y)).toBeGreaterThan(10);
+    expect(m.frame).toContain("walk-");
+    expect(m.layerFrames.every((f) => f === m.frame)).toBe(true);
     movement.push(m);
-    await page
-      .locator("canvas")
-      .screenshot({ path: `${out}/walk-${direction}.png` });
   }
   await page.locator("canvas").focus();
   await page.keyboard.down("ArrowRight");
-  await page.waitForTimeout(70);
-  const a = await page
-    .locator("canvas")
-    .screenshot({ path: out + "/moving-a.png" });
+  await page.waitForTimeout(80);
+  const a = await page.locator("canvas").screenshot();
   await page.waitForTimeout(220);
-  const b = await page
-    .locator("canvas")
-    .screenshot({ path: out + "/moving-b.png" });
+  const b = await page.locator("canvas").screenshot();
   await page.keyboard.up("ArrowRight");
   expect(createHash("sha256").update(a).digest("hex")).not.toBe(
     createHash("sha256").update(b).digest("hex"),
   );
   await page.keyboard.down("Shift");
-  const run = await walk(page, "ArrowLeft", 350);
+  const run = await walk(page, "ArrowLeft", 250);
   await page.keyboard.up("Shift");
   expect(run.speed).toBe(126);
-  await walk(page, "ArrowUp", 2200);
+  expect(run.frame).toMatch(/^run-left-/);
+  expect(run.layerFrames.every((f) => f === run.frame)).toBe(true);
+  await moveAxis(page, "y", 560);
+  await moveAxis(page, "x", 512);
+  await walk(page, "ArrowUp", 1800);
   const wallA = await metrics(page);
-  await walk(page, "ArrowUp", 500);
+  await walk(page, "ArrowUp", 400);
   const wallB = await metrics(page);
   expect(wallB.y).toBeCloseTo(wallA.y, 0);
-  expect(wallA.y).toBeGreaterThan(257);
-  // Native route through the new academy courtyard; no teleport/state injection.
-  await moveAxis(page, "y", 440);
-  await moveAxis(page, "x", 451);
-  await moveAxis(page, "y", 420);
-  await page.keyboard.press("e");
-  await expect(page.locator("#dialog-copy")).toContainText("Mira");
-  await expect(page.locator("#dialog-copy")).toContainText("우체국");
-  await page.screenshot({ path: out + "/dialogue-hangul.png" });
-  await page.getByRole("button", { name: "Đóng lời nhắn" }).click();
-  await page.getByRole("button", { name: "Tạm dừng", exact: true }).click();
-  await page.waitForTimeout(100);
+  expect(wallA.y).toBeGreaterThan(470);
+  expect(wallA.y).toBeLessThan(500);
+  await walk(page, "ArrowDown", 250);
+  await page.waitForFunction(() => !window.__PIXEL_METRICS__?.moving);
+  const emotes = [];
+  for (const action of ["wave", "celebrate", "pose"]) {
+    await page.locator("#" + action).click();
+    await page.waitForFunction(
+      (a) =>
+        window.__PIXEL_METRICS__!.frame.startsWith(a + "-") &&
+        Number(window.__PIXEL_METRICS__!.frame.split("-").at(-1)) >= 2,
+      action,
+    );
+    const m = await metrics(page);
+    expect(m.layerFrames.every((f) => f === m.frame)).toBe(true);
+    emotes.push(m);
+    await page
+      .locator("canvas")
+      .screenshot({ path: out + "/" + action + ".png" });
+    await page.waitForFunction(() =>
+      window.__PIXEL_METRICS__!.frame.startsWith("idle-"),
+    );
+  }
+  for (const hair of ["0", "1"])
+    for (const outfit of ["0", "1"]) {
+      await page.locator("#hair").selectOption(hair);
+      await page.locator("#outfit").selectOption(outfit);
+      await page.waitForFunction(
+        ({ h, o }) =>
+          window.__PIXEL_METRICS__!.hair === +h &&
+          window.__PIXEL_METRICS__!.outfit === +o,
+        { h: hair, o: outfit },
+      );
+      const m = await metrics(page);
+      expect(m.layerFrames.every((f) => f === m.frame)).toBe(true);
+    }
+  await page.locator("#accessory").uncheck();
+  await page.reload();
+  await ready(page);
+  expect((await metrics(page)).hair).toBe(1);
+  expect((await metrics(page)).outfit).toBe(1);
+  expect((await metrics(page)).accessory).toBe(false);
+  await page.locator("#pause").click();
+  await page.waitForFunction(() => window.__PIXEL_METRICS__!.paused);
   const pausedA = await metrics(page);
-  await page.waitForTimeout(400);
+  await page.waitForTimeout(250);
   const pausedB = await metrics(page);
   expect(pausedB.environmentFrame).toBe(pausedA.environmentFrame);
   expect(pausedB.x).toBe(pausedA.x);
-  await page.getByRole("button", { name: "Tiếp tục", exact: true }).click();
-  for (const zoom of ["2", "3", "1"]) {
+  await page.locator("#pause").click();
+  for (const zoom of ["1", "2", "3"]) {
     await page.locator("#zoom").selectOption(zoom);
-    await page.waitForTimeout(150);
-    await page
-      .locator("canvas")
-      .screenshot({ path: `${out}/pixel-zoom-${zoom}.png` });
+    await page.waitForFunction(
+      (z) => window.__PIXEL_METRICS__!.cameraZoom === +z,
+      zoom,
+    );
     expect(
       await page
         .locator("canvas")
         .evaluate((e) => getComputedStyle(e).imageRendering),
     ).toBe("pixelated");
-  }
-  await page
-    .getByRole("button", { name: "Ánh chiều dịu", exact: true })
-    .click();
-  await page.waitForTimeout(200);
-  await page.locator("canvas").screenshot({ path: out + "/evening.png" });
-  for (const style of ["A", "C", "B"]) {
-    await page.locator("#direction").selectOption(style);
-    await page.waitForFunction(
-      (s) => window.__PIXEL_METRICS__?.style === s,
-      style,
-    );
     await page
       .locator("canvas")
-      .screenshot({ path: `${out}/engine-${style}.png` });
+      .screenshot({ path: out + "/zoom-" + zoom + ".png" });
   }
-  await page.reload();
-  await ready(page);
-  expect((await metrics(page)).style).toBe("B");
-  expect(
-    await page.evaluate(
-      () =>
-        JSON.parse(localStorage.getItem("hangeul-pixel-premium-reset-v2")!)
-          .metMira,
-    ),
-  ).toBe(true);
   await context.setOffline(true);
   await expect(page.locator("#offline")).toContainText("Đang offline");
-  const offBefore = await metrics(page);
-  const offAfter = await walk(page, "ArrowDown", 300);
-  expect(offAfter.y).toBeGreaterThan(offBefore.y);
-  await page.screenshot({ path: out + "/offline-loaded.png" });
+  const before = await metrics(page);
+  const after = await walk(page, "ArrowDown", 250);
+  expect(after.y).toBeGreaterThan(before.y);
   await context.setOffline(false);
   expect(observed.errors).toEqual([]);
   expect(observed.missing).toEqual([]);
@@ -181,13 +192,13 @@ test("actual three-direction art, animation, collision, HTML dialogue and settin
     JSON.stringify(
       {
         status: "PASS",
-        initial: first,
+        first,
         movement,
         run,
         closedWall: [wallA, wallB],
+        emotes,
         pause: [pausedA, pausedB],
         ...observed,
-        offline: "Loaded assets continue; no cold-offline caching claim",
       },
       null,
       2,

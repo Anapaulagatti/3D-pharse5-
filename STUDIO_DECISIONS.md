@@ -1,20 +1,11 @@
-# V4 CURRENT — Living Pixel Seoul
+# Living Pixel Seoul — unified V4
 
-The unified V4 specification in docs/reviews/unified-v4 supersedes ALL previous art directions below. Gate0 remote recovery PASS (fresh clone2738hashes); previous pixel review2554327 preserved, no deletion or publication. Gates0–2 now authorized: one cohesive native pixel town and layered avatar; STOP before Gate3/public release. Current task: verify retained toolkit, then implement/inspect ONE Central Plaza.
+Current milestone: UNIFIED-PIXEL-V4-GATE2. Gates0–1 verified; Gate2 source and native regression PASS; final current render/video/package in progress. ALL previous A/B/C rejected. STOP for visual approval after Gate2.
 
----
+- Gate0: fresh remote3D clone2738hashes matches f1f13f2; old pixel2554327 preserved. Gate0–1 checkpoint03473c4 independently remote-matched. No new3D deletions, lock changes, worktrees or publication.
+- Active source: assets-src/unified-v4; original code-drawn modular32px kit,32×48layered avatar;2hairstyles/2outfits/satchel. PublicDir public-unified; previous art/evidence remains unchanged/excluded.152frames/layer,6layers; true distinct run cycles;64props/65colliders; all10landmarks andNPCapproach reachable.
+- Technical: type/lint/build,5original unit tests,3adapted native browser flows PASS. Frame/source/palette/alpha/gutters/run-difference QA PASS. Actual controls, collision, emotes, four-way layer registration, outfit persistence, pause/reduced motion, touchDPR1/2/offline-loaded and WebGL-unavailableCanvas verified. No physical-device FPS claim.
+- Next: inspect current images and decoded gameplay, exact extracted HTTP ZIP, save evidence/checkpoint/handoff. Full future gameplay/35minigame/social/PvP/voluntary cosmetic-only ads roadmap is documented, not implemented. No Gate3 or public deploy.
+- Source provenance, projection/palette/scale budgets: PIXEL_ART_BIBLE.md; readiness INSTALLATION_MATRIX.md andSKILL_REGISTRY.md. GUItools absent; editablePNG/TiledJSON verified. No paid API or Forge skill invoked.
 
-# Korean Arena — current decisions and approval boundary
-
-1. The latest pasted PIXEL ART DIRECTION RESET supersedes rejected Gate2 art. User feedback/audit are in docs/reviews/pixel-reset-v2. Old A/B/C, “B+T1” and “choose recommended A” are historical decisions, not approval of the new pixel candidates. Gate2 stops for explicit new visual review.
-2. Reuse working Phaser4.2.1/TypeScript/Vite engine, packages, exact lock, tests/build/setup/checkpoints. No backend, gameplay systems, Hangul Garden, new districts, ads, account changes or worktrees. Dedicated Studio repo only; no separate production access.
-3. Target original detailed3/4 top-down form: roof thickness/eaves, front walls/porches/plinths, grouped foliage/trunks/shadows, road edges and storytelling props. Different maps/architecture/roles/props/foliage, not colour swaps. Default2× integer camera and48×64 characters address tiny idle readability; native1× map overview remains available.
-4. Native image-generated original object masters supplement code-raster characters/tiles; exact prompts/masters, editable frames and hash manifests retained. No existing game reference sprites/maps used. Bfirst master drifted toward European royal architecture and is rejected; corrected Korean seowon master alone active. Never call generated masters all manually pixel-authored.
-5. New versioned source/runtime/evidence paths preserve rejected files. Vite publicDir public-reset prevents old assets/3D from shipping. Original3D remote archive f1f13f2 and oldpixel035d4cd remain recoverable. Preservation hashes and livev0.5 HTML independently checked. No public replacement deployed.
-6. Native tests keep meaningful input/collision/content assertions. Fixed-time harness assumptions were replaced with observed engine-frame waits and native routes to the relocated NPC. Do not teleport or widen interaction ranges to pass tests. First failures remain evidence, not final success.
-7. Installed Phaser4 Animation.getNextTick uses frame.duration || msPerFrame (absolute override), unlike an earlier mistaken additive assumption. Final idle frame durations1800/120/350/1100ms give an actual120ms blink. Observe natural frame, use normal Pause control for screenshot; no pose injection. Reduced motion remains OS-respecting and static at rest; explicit walk/emote are available.
-8. Actual Phaser screenshots and original-timestamp CDP motion are the evidence. Source sheets alone do not prove gameplay. Emote screenshots use real UI and Pause; decoded movie frames reviewed. Cloud software-renderer/emulated phone evidence cannot certify physical-mobile FPS or subjective excitement. User approval is still pending.
-9. Delivery is an allowlisted static HTTP ZIP, not a replacement Pages site. Unzip, python3 start.py (Windows py start.py), open printed address. Source build subpath remains /3D-pharse5-/. Read-only CI uploads evidence and cannot publish Pages. Public release needs its own authorization after review.
-10. Every meaningful stage is checkpointed on rebuild/pixel-social-rpg-v3 with remote SHA verification. Current source CI f22a9d9/run38677204356 succeeded. Final review tag checkpoint/pixel-art-reset-v2-review-20261015 records completed media/handoff. No force push or archive rewriting. Environment draft save, environment publication/restoration, Git checkpoint and public deployment are separate states.
-
-Historical rationale/checkpoints remain in Git; baseline four records are available at035d4cd. Next action is to read the user's new feedback and update the review decision. **STOP until then.**
+Earlier records recoverable in Git2554327 and03473c4; current V4 spec is authoritative.

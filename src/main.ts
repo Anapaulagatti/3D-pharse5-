@@ -1,40 +1,28 @@
 import Phaser from "phaser";
-import { Plaza, controls, type ArtStyle } from "./game/Plaza";
-import { decodeGuest, Style } from "./domains/state";
+import { Plaza, controls } from "./game/Plaza";
 import "./style.css";
-import worlds from "../assets-src/reset-v2/worlds.json";
-const guest = decodeGuest(safeRead());
-function safeRead() {
-  try {
-    return localStorage.getItem("hangeul-pixel-premium-reset-v2");
-  } catch {
-    return null;
-  }
-}
-function save() {
-  try {
-    localStorage.setItem(
-      "hangeul-pixel-premium-reset-v2",
-      JSON.stringify(guest),
-    );
-  } catch {
-    /* private mode: session still playable */
-  }
-}
-guest.visits = Math.min(100000, guest.visits + 1);
-save();
 const base = import.meta.env.BASE_URL;
+try {
+  const saved = JSON.parse(
+    localStorage.getItem("living-pixel-seoul-v4") ?? "null",
+  );
+  if (saved && [0, 1].includes(saved.hair) && [0, 1].includes(saved.outfit)) {
+    controls.hair = saved.hair;
+    controls.outfit = saved.outfit;
+    controls.accessory = saved.accessory !== false;
+  }
+} catch {
+  /* Private mode/corrupt local storage still allows play. */
+}
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-<header><a class="brand" href="${base}"><span class="stamp" aria-hidden="true">✉</span><span>KOREAN ARENA<small>Hangeul Pixel Town</small></span></a><span class="edition">ART RESET · GATE 2</span><button id="pause" aria-pressed="false">Tạm dừng</button></header>
-<main><div class="intro"><p class="eyebrow">BA KHU PHỐ · BA VAI NHÂN VẬT</p><h1>Một nơi bạn muốn <em>ở lại.</em></h1><p>Dạo phố ở tầm nhìn gần, gặp Mira và so sánh ba hướng mỹ thuật mới.</p></div>
-<div class="play-layout"><section class="stage-wrap" aria-label="Bản đồ tương tác"><div class="world-caption"><span>✦ Bản duyệt Gate 2 · Reset</span><span id="mode-label">Chơi cục bộ · Không có người chơi online</span></div><div id="stage"><p id="loading" role="status">Đang mở cánh cửa phố…</p></div><div class="game-bar"><button id="focus">Khám phá</button><span>WASD / ↑↓←→ · Shift chạy · E trò chuyện</span><button id="wave">Biểu cảm</button><button id="interact">Trò chuyện</button></div><div class="touch-pad" aria-label="Điều khiển cảm ứng"><button data-x="0" data-y="-1" aria-label="Đi lên">↑</button><div><button data-x="-1" data-y="0" aria-label="Sang trái">←</button><button data-x="0" data-y="1" aria-label="Đi xuống">↓</button><button data-x="1" data-y="0" aria-label="Sang phải">→</button></div></div></section>
-<aside><p class="eyebrow">BẢN DUYỆT MỸ THUẬT</p><h2 id="review-title">Ba nơi để ở lại.</h2><p id="review-mood"></p><p id="review-role" class="quest-step"></p><p>Di chuyển để xem chiều sâu; Space để xem biểu cảm. Nhấn E khi đến gần Mira.</p><p class="note">Đây là bản thử hình ảnh và điều khiển. Nhiệm vụ học, trang phục và chơi cùng bạn bè sẽ được làm ở các gate sau.</p><label for="direction">Hướng hình ảnh</label><select id="direction"><option value="A">A · Thư quán ven hồ</option><option value="B">B · Quảng trường Ngân Hạnh</option><option value="C">C · Phố xưởng Hanji</option></select><label for="zoom">Zoom pixel nguyên</label><select id="zoom"><option value="1">1× · Toàn cảnh bản đồ</option><option value="2" selected>2× · Tầm chơi nhân vật</option><option value="3">3× · Cận cảnh nhân vật</option></select><button id="night" aria-pressed="false">Ánh chiều dịu</button><label class="check"><input id="motion" type="checkbox">Giảm chuyển động</label><p id="offline" role="status"></p><output id="render-status">Đang tải…</output></aside></div>
+<header><a class="brand" href="${base}"><span class="stamp" aria-hidden="true">✉</span><span>KOREAN ARENA<small>Living Pixel Seoul</small></span></a><span class="edition">CENTRAL PLAZA · V4</span><button id="pause" aria-pressed="false">Tạm dừng</button></header>
+<main><div class="intro"><p class="eyebrow">MỘT QUẢNG TRƯỜNG · NHỮNG LÁ THƯ THẤT LẠC</p><h1>Hẹn nhau <em>ở quảng trường.</em></h1><p>Dạo phố, thử trang phục và để lại một lời chào. Bản duyệt hình ảnh — chơi cục bộ.</p></div>
+<div class="play-layout"><section class="stage-wrap" aria-label="Central Plaza tương tác"><div class="world-caption"><span>✦ Central Plaza</span><span id="mode-label">NPC demo · Chưa có người chơi online</span></div><div id="stage"><p id="loading" role="status">Đang mở quảng trường…</p></div><div class="game-bar"><button id="focus">Khám phá</button><span>WASD / ↑↓←→ · Shift chạy · E trò chuyện</span><button id="wave">Chào</button><button id="celebrate">Vui mừng</button><button id="pose">Tạo dáng</button><button id="interact">Trò chuyện</button></div><div class="touch-pad" aria-label="Điều khiển cảm ứng"><button data-x="0" data-y="-1" aria-label="Đi lên">↑</button><div><button data-x="-1" data-y="0" aria-label="Sang trái">←</button><button data-x="0" data-y="1" aria-label="Đi xuống">↓</button><button data-x="1" data-y="0" aria-label="Sang phải">→</button></div><button id="run" aria-pressed="false">Chạy</button></div></section>
+<aside><p class="eyebrow">NGƯỜI GIỮ NHỮNG LÁ THƯ</p><h2>Một phố, một câu chuyện.</h2><p>Trạm thư, Café Dal và nhà văn hóa đang chờ. Gặp Mira hoặc chạm vào các bảng hiệu để khám phá.</p><label for="hair">Kiểu tóc</label><select id="hair"><option value="0">Tóc gợn ngắn</option><option value="1">Tóc bob buộc</option></select><label for="outfit">Trang phục</label><select id="outfit"><option value="0">Áo người đưa thư</option><option value="1">Áo khoác học viện</option></select><label class="check"><input id="accessory" type="checkbox" checked>Túi thư đeo chéo</label><label for="zoom">Tầm nhìn</label><select id="zoom"><option value="1">1× · Xem khu phố</option><option value="2" selected>2× · Dạo phố</option><option value="3">3× · Xem nhân vật</option></select><button id="night" aria-pressed="false">Ánh chiều dịu</button><label class="check"><input id="motion" type="checkbox">Giảm chuyển động</label><p class="note">Bản thử hình ảnh và trang phục. Nhiệm vụ The First Delivery, trò học, multiplayer và đấu trường chưa mở.</p><p id="offline" role="status"></p><output id="render-status">Đang tải…</output></aside></div>
 <div id="dialog" class="dialog" hidden><p id="dialog-copy" role="status"></p><button id="close-dialog">Đóng lời nhắn</button></div>
-<section class="directions"><p class="eyebrow">BA THIẾT KẾ · BA BỐ CỤC RIÊNG</p><h2>Bạn muốn sống ở khu phố nào?</h2><p>Mỗi hướng có kiến trúc, cây, đường đi và nhân vật riêng. Đây là chính asset đang chạy trong Phaser; cả ba đều chờ duyệt.</p><div class="art-grid">${(["A", "B", "C"] as const).map((s, i) => `<article><div class="sheet-scroll"><img src="${base}assets/reset-v2/direction-${s}.png" width="448" height="448" alt="Nguồn pixel hướng ${s}: nhà hanok, cây hoa, quầy hàng và bốn hướng nhân vật"></div><h3>${s} · ${["Moonletter Garden", "Ginkgo Commons", "Hanji Afterhours"][i]}</h3><p>${["Thư quán hanok và người đưa thư áo choàng.", "Học viện seowon, sân đá và học viên đeo kính.", "Phố xưởng lệch tầng, sân khấu và người biểu diễn."][i]}</p><button data-style="${s}">Thử hướng ${s}</button></article>`).join("")}</div></section>
-<footer>Pixel gốc · Không quảng cáo · Không thu thập tài khoản · Chưa thay website công khai</footer></main>`;
+<section class="directions"><p class="eyebrow">THE LOST LETTERS</p><h2>Những góc phố để trở về.</h2><p>Một bộ pixel gốc thống nhất: nhà hanok, quán café, vườn cây và quảng trường chung. Các trạm học và đấu trường hiện là địa điểm minh họa, chưa phải tính năng đã mở.</p></section>
+<footer>Artwork gốc · NPC demo cục bộ · Không quảng cáo · Không tài khoản · Gate 2 chờ duyệt</footer></main>`;
 const stage = document.querySelector<HTMLDivElement>("#stage")!;
-let game: Phaser.Game;
-let observer: ResizeObserver;
 function hasWebGL() {
   try {
     const c = document.createElement("canvas");
@@ -43,81 +31,48 @@ function hasWebGL() {
       gl.getExtension("WEBGL_lose_context")?.loseContext();
       return true;
     }
-    return false;
   } catch {
-    return false;
+    /* Use Canvas. */
   }
+  return false;
 }
-function start(style: ArtStyle) {
-  window.__PIXEL_METRICS__ = undefined;
-  document.querySelector("#review-title")!.textContent = worlds[style].vi;
-  document.querySelector("#review-mood")!.textContent = worlds[style].mood;
-  document.querySelector("#review-role")!.textContent = worlds[style].role;
-  document.querySelector("#render-status")!.textContent = "Đang tải…";
-  if (game) {
-    observer.disconnect();
-    game.destroy(true);
-    stage.replaceChildren();
-  }
-  const renderer =
+const game = new Phaser.Game({
+  type:
     new URLSearchParams(location.search).get("renderer") === "canvas" ||
     !hasWebGL()
       ? Phaser.CANVAS
-      : Phaser.AUTO;
-  game = new Phaser.Game({
-    type: renderer,
-    parent: stage,
-    width: Math.min(1024, stage.clientWidth),
-    height: Math.min(640, stage.clientHeight),
-    backgroundColor: "#abc291",
-    pixelArt: true,
-    roundPixels: true,
-    antialias: false,
-    antialiasGL: false,
-    transparent: false,
-    physics: { default: "arcade", arcade: { debug: false } },
-    scene: [new Plaza(style)],
-    audio: { noAudio: true },
-    banner: false,
-  });
-  observer = new ResizeObserver(() =>
-    game.scale.resize(
-      Math.min(1024, stage.clientWidth),
-      Math.min(640, stage.clientHeight),
-    ),
-  );
-  observer.observe(stage);
-}
-function select(style: ArtStyle) {
-  if (style === guest.style) return;
-  guest.style = style;
-  save();
-  (document.querySelector("#direction") as HTMLSelectElement).value = style;
-  start(style);
-}
-document.querySelector<HTMLSelectElement>("#direction")!.value = guest.style;
-document
-  .querySelector("#direction")!
-  .addEventListener("change", (e) =>
-    select(Style.parse((e.target as HTMLSelectElement).value)),
-  );
-for (const b of document.querySelectorAll<HTMLButtonElement>("[data-style]"))
-  b.onclick = () => {
-    select(Style.parse(b.dataset.style));
-    stage.scrollIntoView({
-      behavior: controls.reduced ? "instant" : "smooth",
-      block: "center",
-    });
-  };
+      : Phaser.AUTO,
+  parent: stage,
+  width: Math.min(1024, stage.clientWidth),
+  height: Math.min(640, stage.clientHeight),
+  backgroundColor: "#79935f",
+  pixelArt: true,
+  roundPixels: true,
+  antialias: false,
+  antialiasGL: false,
+  physics: { default: "arcade", arcade: { debug: false } },
+  scene: [new Plaza()],
+  audio: { noAudio: true },
+  banner: false,
+});
+const observer = new ResizeObserver(() =>
+  game.scale.resize(
+    Math.min(1024, stage.clientWidth),
+    Math.min(640, stage.clientHeight),
+  ),
+);
+observer.observe(stage);
+const scene = () => game.scene.getScene("plaza") as Plaza;
 document
   .querySelector("#focus")!
   .addEventListener("click", () => game.canvas.focus());
-document.querySelector("#wave")!.addEventListener("click", () => {
-  (game.scene.getScene("plaza") as Plaza).wave();
-});
-document.querySelector("#interact")!.addEventListener("click", () => {
-  (game.scene.getScene("plaza") as Plaza).interact();
-});
+for (const action of ["wave", "celebrate", "pose"] as const)
+  document
+    .querySelector(`#${action}`)!
+    .addEventListener("click", () => scene().emote(action));
+document
+  .querySelector("#interact")!
+  .addEventListener("click", () => scene().interact());
 document.querySelector("#pause")!.addEventListener("click", (e) => {
   controls.paused = !controls.paused;
   const b = e.currentTarget as HTMLButtonElement;
@@ -133,6 +88,34 @@ document.querySelector("#night")!.addEventListener("click", (e) => {
 document.querySelector("#zoom")!.addEventListener("change", (e) => {
   controls.zoom = Number((e.target as HTMLSelectElement).value);
 });
+function save() {
+  try {
+    localStorage.setItem(
+      "living-pixel-seoul-v4",
+      JSON.stringify({
+        hair: controls.hair,
+        outfit: controls.outfit,
+        accessory: controls.accessory,
+      }),
+    );
+  } catch {
+    /* session only */
+  }
+}
+for (const key of ["hair", "outfit"] as const) {
+  const select = document.querySelector<HTMLSelectElement>(`#${key}`)!;
+  select.value = String(controls[key]);
+  select.onchange = () => {
+    controls[key] = Number(select.value) === 1 ? 1 : 0;
+    save();
+  };
+}
+const accessory = document.querySelector<HTMLInputElement>("#accessory")!;
+accessory.checked = controls.accessory;
+accessory.onchange = () => {
+  controls.accessory = accessory.checked;
+  save();
+};
 const reduced = document.querySelector<HTMLInputElement>("#motion")!;
 reduced.checked = controls.reduced;
 reduced.onchange = () => {
@@ -145,24 +128,29 @@ matchMedia("(prefers-reduced-motion: reduce)").addEventListener(
     reduced.checked = e.matches;
   },
 );
-for (const button of document.querySelectorAll<HTMLButtonElement>("[data-x]")) {
-  button.onpointerdown = (e) => {
+for (const b of document.querySelectorAll<HTMLButtonElement>("[data-x]")) {
+  b.onpointerdown = (e) => {
     e.preventDefault();
-    button.setPointerCapture(e.pointerId);
-    controls.x = Number(button.dataset.x);
-    controls.y = Number(button.dataset.y);
+    b.setPointerCapture(e.pointerId);
+    controls.x = Number(b.dataset.x);
+    controls.y = Number(b.dataset.y);
   };
   const stop = () => {
     controls.x = 0;
     controls.y = 0;
   };
-  button.onpointerup = stop;
-  button.onpointercancel = stop;
-  button.onlostpointercapture = stop;
+  b.onpointerup = stop;
+  b.onpointercancel = stop;
+  b.onlostpointercapture = stop;
 }
+document.querySelector("#run")!.addEventListener("click", (e) => {
+  controls.run = !controls.run;
+  (e.currentTarget as HTMLButtonElement).setAttribute(
+    "aria-pressed",
+    String(controls.run),
+  );
+});
 window.addEventListener("town-dialog", (e) => {
-  guest.metMira = true;
-  save();
   document.querySelector("#dialog-copy")!.textContent = (
     e as CustomEvent<string>
   ).detail;
@@ -175,7 +163,7 @@ document.querySelector("#close-dialog")!.addEventListener("click", () => {
 window.addEventListener("game-ready", () => {
   document.querySelector("#loading")?.remove();
   document.querySelector("#render-status")!.textContent =
-    "Camera 2× · Nhân vật 48×64 · Bản mới chưa duyệt";
+    "Một Central Plaza · Hình ảnh chờ duyệt";
 });
 window.addEventListener("game-error", (e) => {
   document.querySelector("#render-status")!.textContent = (
@@ -185,9 +173,8 @@ window.addEventListener("game-error", (e) => {
 function network() {
   document.querySelector("#offline")!.textContent = navigator.onLine
     ? ""
-    : "Đang offline · Bản đã tải vẫn chơi được. Tải mới cần máy chủ cục bộ.";
+    : "Đang offline · Bản đã tải vẫn chơi được; tải mới cần HTTP.";
 }
 window.addEventListener("online", network);
 window.addEventListener("offline", network);
 network();
-start(guest.style);

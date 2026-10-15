@@ -7,3 +7,7 @@ Runtime Phaser4.2.1 and Zod4.6.7: MIT; exact notices in node_modules packages, s
 Frozen legacy showcase-v0.5 retains historical embedded dependency notices and original version provenance at the verified archive; it is not included in new dist.
 
 Reset-v2 originals use native image_gen object sources (no reference images) plus independently code-authored characters/tiles. Exact prompts/source hashes and transform contract: assets-src/reset-v2/SOURCE_PROVENANCE.json. Raw generated masters retained; runtime crops/nearest/palette derivatives are recorded, not described as entirely hand-placed source pixels. No external paid generation route or third-party game asset pack activated. Project original artwork/code follows LICENSE; runtime Phaser/Zod notices still shipped.
+
+## Living Pixel Seoul — unified V4 original kit
+
+assets-src/unified-v4 and public-unified/assets/unified-v4 are original deterministic native raster artwork authored in tools/export_unified.py, licensed under this repository's MIT terms. No image model, external sprites, copied reference pixels, logos, maps, UI or NFT assets used. User reference screenshots are not included in runtime. All active frames/modules/palette/provenance are editable; previous rejected artwork remains archived and excluded from this build. Existing third-party Phaser/tool licenses remain included.

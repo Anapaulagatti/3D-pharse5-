@@ -1,16 +1,19 @@
-# Korean Arena — Hangeul Pixel Town
+# Korean Arena — Living Pixel Seoul
 
-Original top-down pixel social learning RPG studio. Active app is Phaser + TypeScript + Vite. Current work: Pixel Art Direction Reset v2. Previous Gate2 A/B/C was rejected; new garden/academy/festival studies await visual approval. Engine/toolchain retained.
+ONE original unified pixel social-town art proof, V4 Gate2. All prior A/B/C rejected. Current build reuses Phaser4/TypeScript/Vite and implements a single modular Central Plaza, layered32×48 avatar, true four-direction idle/walk/run, wave/celebration/social pose, two hairstyles/two outfits/satchel. No real online players; Mira is a local demo NPC.
 
-```sh
-npm ci
-npm run assets
-npm run dev
-# open the HTTP address printed by Vite, including /3D-pharse5-/
-```
+## Run
 
-Checks: npm run assets:check, npm run typecheck, npm run lint, npm test, npm run build, npm run test:e2e. Python3 + Pillow12.3.0 required for editable pixel exports. Node24+. Do not open index.html as raw text; Vite builds/runs the app.
+Node24+, exact npm lock; existing packages first. `bash tools/setup.sh` verifies prerequisites, source/asset QA, types/lint/format/unit/build/browser checks without regenerating art. `npm run dev` from this root starts development; production `npm run build` then `npm run preview`. Base `/3D-pharse5-/`. Cloud loopback is internal, not a public preview link.
 
-3D recovery: docs/migration/3d-archive-proof.md. Existing public v0.5 remains unchanged; no pixel public replacement approved. Gates3–9 are unimplemented/approval-gated. No real multiplayer, ads or paid services.
+WASD/arrows walk, Shift runs, E talks near Mira, Space waves. UI and touch buttons provide alternatives. Try clothes/hair/accessory,1×/2×/3×, pause/reduced motion. HTML dialogue uses readable Korean/system fonts. Source art is native integer raster, no copied game pixels or downscaled illustrated backgrounds. See PIXEL_ART_BIBLE.md and assets-src/unified-v4/manifest.json.
 
-Current art proof: docs/PIXEL_RESET_ART_BIBLE.md and quality-reports/pixel-reset-v2/REVIEW.md. Download downloads/pixel-reset-v2/premium-pixel-reset-review.zip; unzip/run python3 start.py (Windows py start.py). Active public root is public-reset; legacy public assets are preserved but excluded from new builds. No replacement Pages publication.
+## Review and approval
+
+quality-reports/unified-v4/REVIEW.md contains final actual engine images/video and viewing instructions. Portable package under downloads/unified-v4, unzip then `python3 start.py` (Windows `py start.py`), open printed HTTP URL. Python required; Node not required to view. Gate2 technical readiness is not user visual approval.
+
+STOP before Gate3, public replacement or further gameplay. Full roadmap in docs/UNIFIED_V4_ROADMAP.md and35design entries in docs/UNIFIED_V4_MINIGAMES.csv. First Delivery, two minigames, learning courses, real social/multiplayer/PvP and optional disabled rewarded ads are planned, not shipped. All learning/exam paths remain free by design.
+
+## Recovery
+
+Previous rejected pixel checkpoint2554327/tag checkpoint/pixel-art-reset-v2-review-20261015. Complete3D remote archive f1f13f2/tag checkpoint/3d-before-pixel-v3-20261015, fresh2738file hash recovery repeated at V4Gate0. Exact recovery steps docs/reviews/unified-v4/RECOVERY.md. Existing Pages retains publicv0.5. No force/history rewriting, no separate Korean Arena main app changes.

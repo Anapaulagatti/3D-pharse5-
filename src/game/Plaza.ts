@@ -1,8 +1,8 @@
 import Phaser from "phaser";
-import worlds from "../../assets-src/reset-v2/worlds.json";
-type World = typeof worlds.A;
+import world from "../../assets-src/unified-v4/world.json";
+type World = typeof world;
 import { facing, inputVector, type Direction } from "../domains/state";
-export type ArtStyle = "A" | "B" | "C";
+
 export const controls = {
   x: 0,
   y: 0,
@@ -11,10 +11,13 @@ export const controls = {
   paused: false,
   night: false,
   zoom: 2,
+  hair: 0,
+  outfit: 0,
+  accessory: true,
 };
 export type Metrics = {
   ready: boolean;
-  style: ArtStyle;
+  style: string;
   x: number;
   y: number;
   frame: string;
@@ -37,6 +40,10 @@ export type Metrics = {
   worldProps: number;
   heroCssHeight: number;
   animationFrames: number;
+  hair: number;
+  outfit: number;
+  accessory: boolean;
+  layerFrames: string[];
 };
 declare global {
   interface Window {
@@ -44,8 +51,10 @@ declare global {
   }
 }
 export class Plaza extends Phaser.Scene {
-  private style: ArtStyle;
+  private style = "unified";
   private layout: World;
+  private layers: Phaser.GameObjects.Sprite[] = [];
+  private npcLayers: Phaser.GameObjects.Sprite[] = [];
   private player!: Phaser.Physics.Arcade.Sprite;
   private npc!: Phaser.GameObjects.Sprite;
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
@@ -58,30 +67,44 @@ export class Plaza extends Phaser.Scene {
   private waveUntil = 0;
   private active = true;
   private overlay!: Phaser.GameObjects.Rectangle;
-  constructor(style: ArtStyle) {
+  constructor() {
     super("plaza");
-    this.style = style;
-    this.layout = worlds[style];
+    this.layout = world;
   }
   preload() {
-    const base = import.meta.env.BASE_URL + `assets/reset-v2/${this.style}/`;
+    const base = import.meta.env.BASE_URL + "assets/unified-v4/";
     for (const kind of [
-      "house",
-      "tree1",
-      "tree2",
-      "feature",
-      "kiosk",
-      "decor",
+      "gardenbed",
+      "parcel",
+      "table",
+      "courier",
+      "cafe",
+      "hanok",
+      "academy",
+      "tree",
+      "pine",
+      "plum",
+      "fountain",
+      "board",
+      "puzzle",
+      "portal",
+      "outfit",
+      "stall",
       "bench",
       "planter",
-      "crate",
-      "lamp",
-      "sign",
-      "flowers",
+      "lantern",
       "tiles",
     ])
       this.load.image(kind, `${base}${kind}.png`);
-    this.load.atlas("avatar", `${base}avatar.png`, `${base}avatar.json`);
+    for (const layer of [
+      "body",
+      "outfit0",
+      "outfit1",
+      "hair0",
+      "hair1",
+      "satchel",
+    ])
+      this.load.atlas(layer, `${base}${layer}.png`, `${base}avatar.json`);
     this.load.tilemapTiledJSON("plaza", `${base}plaza.json`);
     this.load.on("loaderror", (file: Phaser.Loader.File) =>
       window.dispatchEvent(
@@ -106,37 +129,22 @@ export class Plaza extends Phaser.Scene {
     this.cameras.main.setBounds(0, 0, this.layout.width, this.layout.height);
     this.cameras.main.roundPixels = true;
     for (const p of this.layout.objects) {
-      const groundShadow = this.add
-        .ellipse(
-          p.x + 8,
-          p.y - 5,
-          p.kind === "house" ? 200 : p.kind.startsWith("tree") ? 80 : 35,
-          p.kind === "house" ? 32 : 12,
-          0x283a3f,
-          0.15,
+      this.add
+        .rectangle(
+          p.x + 5,
+          p.y - 2,
+          p.width + 6,
+          Math.max(4, p.height / 3),
+          0x536457,
         )
         .setDepth(-50);
-      groundShadow.setOrigin(0.5, 0.5);
       const image = this.add
         .image(p.x, p.y, p.kind)
         .setOrigin(0.5, 1)
         .setDepth(p.y);
-      if (["lamp", "sign", "kiosk"].includes(p.kind))
-        image
-          .setInteractive({ pixelPerfect: true })
-          .on("pointerdown", () => this.interactProp(p.kind));
-    }
-    if (this.style === "C") {
-      const string = this.add.graphics().setDepth(510);
-      string.lineStyle(1, 0x6e645b, 1);
-      string.lineBetween(270, 278, 690, 298);
-      const colors = [0xe8ae72, 0xb5d2b7, 0xe58d89];
-      for (let i = 0; i < 14; i++) {
-        const x = 280 + i * 30,
-          y = Math.round(278 + i * 1.5);
-        string.fillStyle(colors[i % 3]);
-        string.fillTriangle(x, y, x + 10, y, x + 5, y + 12);
-      }
+      image
+        .setInteractive({ pixelPerfect: true })
+        .on("pointerdown", () => this.interactProp(p.kind));
     }
     this.solids = this.physics.add.staticGroup();
     for (const o of map.getObjectLayer("Collision")?.objects ?? []) {
@@ -153,50 +161,58 @@ export class Plaza extends Phaser.Scene {
     for (const dr of ["down", "left", "right", "up"])
       for (const [action, n, fps] of [
         ["idle", 4, 10],
-        ["walk", 8, 12],
-        ["run", 8, 18],
+        ["walk", 8, 10],
+        ["run", 8, 13],
         ["wave", 6, 9],
+        ["celebrate", 8, 10],
+        ["pose", 4, 5],
       ] as const)
         this.anims.create({
           key: `${action}-${dr}`,
           frames: Array.from({ length: n }, (_, i) => ({
-            key: "avatar",
-            frame: `${action === "run" ? "walk" : action}-${dr}-${i}`,
+            key: "body",
+            frame: `${action}-${dr}-${i}`,
             ...(action === "idle"
               ? { duration: [1800, 120, 350, 1100][i] }
               : {}),
           })),
           frameRate: fps,
-          repeat: action === "wave" ? 0 : -1,
+          repeat: ["wave", "celebrate", "pose"].includes(action) ? 0 : -1,
           repeatDelay: 0,
         });
     this.player = this.physics.add
-      .sprite(
-        this.layout.spawn[0],
-        this.layout.spawn[1],
-        "avatar",
-        "idle-down-0",
-      )
+      .sprite(this.layout.spawn[0], this.layout.spawn[1], "body", "idle-down-0")
       .setOrigin(0.5, 1)
       .setCollideWorldBounds(true);
-    this.player.body?.setSize(16, 10);
-    this.player.body?.setOffset(16, 53);
+    this.player.body?.setSize(16, 8);
+    this.player.body?.setOffset(8, 39);
     this.physics.add.collider(this.player, this.solids);
     this.npc = this.add
-      .sprite(this.layout.npc[0], this.layout.npc[1], "avatar", "idle-left-0")
+      .sprite(this.layout.npc[0], this.layout.npc[1], "body", "idle-left-0")
       .setOrigin(0.5, 1)
       .setTint(0xf3dfb0)
       .setDepth(this.layout.npc[1]);
+    this.layers = ["outfit0", "hair0", "satchel"].map((k) =>
+      this.add
+        .sprite(this.player.x, this.player.y, k, "idle-down-0")
+        .setOrigin(0.5, 1),
+    );
+    this.npcLayers = ["outfit1", "hair1"].map((k) =>
+      this.add
+        .sprite(this.npc.x, this.npc.y, k, "idle-left-0")
+        .setOrigin(0.5, 1)
+        .setDepth(this.npc.y + 0.1),
+    );
     this.add
-      .text(this.layout.npc[0] - 4, this.layout.npc[1] - 72, "Mira", {
+      .text(this.layout.npc[0], this.layout.npc[1] - 53, "Mira · demo NPC", {
         fontFamily: "system-ui",
-        fontSize: "12px",
-        color: "#343c51",
-        backgroundColor: "#fff0cd",
-        padding: { x: 5, y: 2 },
+        fontSize: "8px",
+        color: "#f4e6ba",
+        backgroundColor: "#303945",
+        padding: { x: 3, y: 2 },
       })
       .setOrigin(0.5, 1)
-      .setDepth(800);
+      .setDepth(900);
     this.overlay = this.add
       .rectangle(
         this.layout.width / 2,
@@ -279,13 +295,25 @@ export class Plaza extends Phaser.Scene {
   }
   interactProp(kind: string) {
     this.interactions++;
+    const messages: Record<string, string> = {
+      courier:
+        "Trạm thư · Những lá thư thất lạc sẽ mở thành nhiệm vụ ở Gate 3.",
+      cafe: "Café Dal · Một nơi để gặp gỡ. Hiện chỉ có NPC demo cục bộ.",
+      board:
+        "Bảng chuyện · The Lost Letters. Nhiệm vụ chưa mở trong bản duyệt hình ảnh.",
+      puzzle: "Ghép âm · Sign Repair sẽ được xây sau khi duyệt hình ảnh.",
+      academy:
+        "TOPIK I / II và EPS-TOPIK · Lối học trực tiếp đang được lên kế hoạch; chưa có khóa học trong bản này.",
+      portal: "Đấu trường · PvP công bằng theo trình độ, chưa kết nối máy chủ.",
+      outfit: "Góc trang phục · Thử tóc và áo trong bảng điều khiển bên cạnh.",
+      fountain: "Giếng thư · Những câu chuyện của phố bắt đầu từ một lá thư.",
+    };
     this.wave();
     window.dispatchEvent(
       new CustomEvent("town-dialog", {
         detail:
-          kind === "mailbox"
-            ? "Hòm thư đang đợi một tấm bưu thiếp. Mira có biết ai gửi nó không?"
-            : "Một đốm sáng ấm đáp lại bạn. Lễ hội đèn lồng sẽ được mở ở milestone sau.",
+          messages[kind] ??
+          "Một góc nhỏ của quảng trường. Chào mừng bạn đến Living Pixel Seoul.",
       }),
     );
   }
@@ -302,7 +330,7 @@ export class Plaza extends Phaser.Scene {
       this.wave();
       window.dispatchEvent(
         new CustomEvent("town-dialog", {
-          detail: `Mira · Người giữ phố\nChào bạn! ${this.layout.mood}\nVai nhân vật: ${this.layout.role}.\n우체국 — Bưu điện. Chuyến phiêu lưu đầu tiên sẽ chờ sau khi chọn hướng hình ảnh.`,
+          detail: `Mira · NPC demo cục bộ\nChào bạn! ${this.layout.mood}\nVai nhân vật: ${this.layout.role}.\n우체국 — Bưu điện. Chuyến phiêu lưu đầu tiên sẽ chờ sau khi duyệt bản hình ảnh thống nhất.`,
         }),
       );
     } else
@@ -313,8 +341,12 @@ export class Plaza extends Phaser.Scene {
       );
   }
   wave() {
-    this.waveUntil = this.time.now + 800;
-    this.player.anims.play(`wave-${this.direction}`, true);
+    this.emote("wave");
+  }
+  emote(action: "wave" | "celebrate" | "pose") {
+    if (controls.paused) return;
+    this.waveUntil = this.time.now + (action === "wave" ? 720 : 880);
+    this.player.anims.play(`${action}-${this.direction}`, false);
   }
   update(_time: number, delta: number) {
     if (!this.player?.body) return;
@@ -373,6 +405,22 @@ export class Plaza extends Phaser.Scene {
     this.overlay.setAlpha(controls.night ? 0.34 : 0);
     for (const p of this.particles) p.setVisible(!controls.reduced);
     if (this.cameras.main.zoom !== controls.zoom) this.resize();
+    this.layers[0].setTexture(
+      `outfit${controls.outfit}`,
+      this.player.frame.name,
+    );
+    this.layers[1].setTexture(`hair${controls.hair}`, this.player.frame.name);
+    this.layers[2].setVisible(controls.accessory);
+    for (let i = 0; i < this.layers.length; i++)
+      this.layers[i]
+        .setPosition(Math.round(this.player.x), Math.round(this.player.y))
+        .setDepth(Math.round(this.player.y) + (i + 1) * 0.01)
+        .setFrame(this.player.frame.name);
+    for (let i = 0; i < this.npcLayers.length; i++)
+      this.npcLayers[i]
+        .setPosition(Math.round(this.npc.x), Math.round(this.npc.y))
+        .setDepth(this.npc.y + (i + 1) * 0.01)
+        .setFrame(this.npc.frame.name);
     window.__PIXEL_METRICS__ = {
       ready: true,
       style: this.style,
@@ -396,8 +444,12 @@ export class Plaza extends Phaser.Scene {
       role: this.layout.role,
       mapSha: this.layout.mapSha256,
       worldProps: this.layout.objects.length,
-      heroCssHeight: 64 * this.cameras.main.zoom,
-      animationFrames: this.textures.get("avatar").getFrameNames().length,
+      heroCssHeight: 48 * this.cameras.main.zoom,
+      hair: controls.hair,
+      outfit: controls.outfit,
+      accessory: controls.accessory,
+      layerFrames: this.layers.map((l) => l.frame.name),
+      animationFrames: this.textures.get("body").getFrameNames().length,
     };
   }
 }
