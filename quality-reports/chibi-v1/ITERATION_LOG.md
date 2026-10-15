@@ -1,0 +1,8 @@
+# Actual iteration record
+
+1. Read override completely; checked previous actual engine close-up, documented flat hair, fused torso/sleeves, long block legs and insufficient profile differentiation. Recorded all30original world/NPC runtime assets plus map/source atlas/exact lock hashes before edits.
+2. New40×56 native layered raster source; source contract caught reused front/back skin and left/right clothing detail. Added explicit nape/back shading, profile jacket planes/collars and directional detail, preserving assertions.
+3. First original3native browser tests passed24.5s. Actual render inspection showed waving hands partly covered by hair. Added separate foreground hand layer and extended hand silhouettes; natural run head sway adds genuine alternating weight/pose phases. Source contract caught insufficient unique body-run phases after separating hands; corrected anatomy, not threshold.
+4. Screenshot helper initially missed short ArrowDown keypress and timed out; corrected to wait actual moving/direction before key release. No teleport/state injection. Reran real capture after final build.
+5. Additional rendered-expression test initially cropped below default720px viewport. Application and original3flows passed; corrected the test viewport to1440×1100, retained all4mood-distinct pixel assertions. Final4tests passed27.4s.
+6. Inspected actual idle, wave, celebration, four directions/moods/outfits, mobile, decoded gameplay.334frames/40.049s captured at original compositor timestamps with native UI/keys; four-way run differs visibly from walk. Exact separate ZIP HTTP/browser checked on desktop/mobile, original package unchanged.

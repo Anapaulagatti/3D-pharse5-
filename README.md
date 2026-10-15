@@ -1,3 +1,11 @@
+# Current review: avatar-only chibi rebuild
+
+Player40×56 with4directions,2hair/2outfits/accessory and4expressions is ready for user visual review. World/NPC assets retained byte-identically. No new public site or gameplay expansion. See [review evidence](quality-reports/chibi-v1/REVIEW.md) and [latest handoff](STUDIO_PROGRESS.md).
+
+Download `downloads/chibi-v1/korean-arena-chibi-review.zip`, extract, run `python3 start.py` (Windows `py start.py`) in Living-Pixel-Seoul-Chibi, open printed HTTP URL. Python3required; noNode needed to view. Source `npm run dev`; avatar-only source export `npm run assets:chibi`. Do not regenerate world artwork during setup. STOP for avatar approval.
+
+---
+
 # Korean Arena — Living Pixel Seoul
 
 ONE original unified pixel social-town art proof, V4 Gate2. All prior A/B/C rejected. Current build reuses Phaser4/TypeScript/Vite and implements a single modular Central Plaza, layered32×48 avatar, true four-direction idle/walk/run, wave/celebration/social pose, two hairstyles/two outfits/satchel. No real online players; Mira is a local demo NPC.

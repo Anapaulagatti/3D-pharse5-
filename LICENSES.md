@@ -11,3 +11,7 @@ Reset-v2 originals use native image_gen object sources (no reference images) plu
 ## Living Pixel Seoul — unified V4 original kit
 
 assets-src/unified-v4 and public-unified/assets/unified-v4 combine original native image_gen pixel-object sources with code-raster layered avatars/ground, exported by tools/export_reference_kit.py and tools/export_unified.py, under this repository's MIT terms. No external game sprites, copied reference pixels, logos, maps, UI or NFT assets used. Original source atlas, generation brief and crop/native-palette provenance retained. The earlier all-code candidate is preserved at94117b0. User reference screenshots are not included in runtime. All active frames/modules/palette/provenance are editable; previous rejected artwork remains archived and excluded from this build. Existing third-party Phaser/tool licenses remain included.
+
+## Avatar-only chibi-v1
+
+Original native40×56 player geometry, editable per-layer frames/atlases and tools/export_chibi.py are covered by the repository MIT license. No image generator, AI painting, copied sprite or character pack was used. The prior world and NPC source/provenance remain unchanged. Runtime Phaser/Zod notices continue to ship in the static package.

@@ -22,9 +22,11 @@ jobs:
       - run: npm run assets:check && npm run typecheck && npm run lint && npm run format:check && npm test && npm run build
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
+        env:
+          PIXEL_REPORT_DIR: quality-reports/chibi-v1/native
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: unified-v4-browser-evidence
-          path: quality-reports/unified-v4
+          name: chibi-v1-browser-evidence
+          path: quality-reports/chibi-v1/native
 # No pages:write, no deploy job. Replacement publication awaits explicit approval.

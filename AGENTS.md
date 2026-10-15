@@ -1,4 +1,6 @@
-# Living Pixel Seoul — authoritative V4
+# Living Pixel Seoul — authoritative V4 + avatar-only override
+
+LATEST: docs/reviews/chibi-v1/CHARACTER_STYLE_OVERRIDE.md overrides avatar style only. CHARACTER-CHIBI-001 new hero40×56/152frames×11registered layers in assets-src/chibi-v1/public-unified/assets/chibi-v1; tools/export_chibi.py native raster (no AI character painting), npm run assets:chibi. Old world AND NPC assets remain byte-identical by quality-reports/chibi-v1/preserved-foundation.json. No town redesign. Review quality-reports/chibi-v1/REVIEW.md; four facial moods,2hair/2outfits/optional satchel, true four-way animation. Namespaced hero textures/animations; foot collider16×8 offset12,47. New actual screenshots/movie/exactZIP in chibi-v1. STOP for avatar visual approval, not yet granted. Earlier32×48 avatar descriptions below refer to retained NPC/previous player kit, NOT current hero. Existing archives/checkpoints retained.
 
 Read docs/reviews/unified-v4/KOREAN_ARENA_PIXEL_UNIFIED_MASTER_V4.md completely and all four STUDIO records. Work only in Anapaulagatti/3D-pharse5-, branch rebuild/pixel-social-rpg-v3; verify HEAD/status. Previous minimal AND painterly A/B/C rejected. One coherent original pixel social town; no further art-direction selector. User reference screenshots are quality references only, never copy their sprites/maps/UI/NFTs.
 
