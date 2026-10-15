@@ -1,42 +1,37 @@
-# Living Pixel Seoul — unified V4 Gate2 review
+# Living Pixel Seoul — final Gate2 hanok-courtyard review
 
-**PLAYABLE REVIEW CANDIDATE — NOT VISUALLY APPROVED.** All prior minimalist and painterly A/B/C rejected. One original town, one consistent native pixel kit, no copied reference game assets/map/UI. Artwork is openly code-drawn native raster, no image model. Beauty/cohesion/readability remain the user's review decision.
+**READY FOR USER VISUAL REVIEW — NOT APPROVED.** Full V4 and latest rich hanok-courtyard image drive this ONE original town. All previous A/B/C and initial code-only candidate remain unapproved and recoverable. No public replacement or Gate3 gameplay expansion.
 
-![Actual Phaser2× Central Plaza](render/gameplay-2x.png)
+![Actual current Phaser2×gameplay](render/gameplay-2x.png)
 
-[Actual1×overview](render/overview-1x.png) · [idle3×](render/idle-closeup.png) · [actual outfits](ACTUAL_OUTFIT_COMPARISON.png) · [rejected-vs-new](REJECTED_VS_UNIFIED.png) · [mobile](render/mobile.png).
+[Whole town1×](render/overview-1x.png) · [idle3×](render/idle-closeup.png) · [actual outfit examples](ACTUAL_OUTFIT_COMPARISON.png) · [old-vs-new](REJECTED_VS_UNIFIED.png) · [mobile](render/mobile.png).
 
-## What actually runs
+Five original hanok/courier/café/culture buildings, rich curved charcoal giwa roofs/lattice doors/plinths, broad layered green/cream/gold trees, roofed walls/onggi/hanji screen, warm sand/stepping-stones and social court.76props/77colliders,11landmark approaches reachable. Buildings/trees are separate sorted objects on a genuine tilemap, not a whole painted scene. Source comprises one original native image_gen pixel-object atlas with disclosed crops/NEAREST/native128colour export plus code-raster layered chibi/ground/small props. No copied reference pixels/map/UI; not every source pixel manually placed. Source atlas/brief/provenance preserved.
 
-One32×24tilemap with modular Korean-style roofs/eaves, wall/window/door bays, shaded side walls, foundation/steps, shared tree/ground/prop pixel density. Courier, café/social area, culture hanok, quest board, puzzle sign, TOPIK entrance, PvP sign, outfit corner and gardens are present.64props/65colliders, all10landmark approaches reachable. Buildings/trees are separate sorted/collidable sprites on the tilemap, not a single painted backdrop. Stations for later systems clearly explain that they are not open features. Mira is explicitly a local demoNPC, not a connected player.
+Avatar32×48 with clear large eyes/face/hair/outfit/signaturepin,≈90CSSpx visible idle at2×. Common body/outfit/hair/accessory registration,2hair/2constructed outfits/satchel. Four-direction idle/blink/walk, separately authored run, wave/celebrate/social pose. Actual review caught enlarged head hiding raised arms: final arms extend outside silhouette; paused actual emotes and final decoded video inspected. Outfits reflect current selectors after an explicit render-frame wait. Three NPCs explicitly labelled demo, no real connected users claimed.
 
-Avatar32×48 with body/outfit/hair/accessory common registration; two hairstyles, two constructed outfits and satchel toggle affect the actual player. Four-direction idle/blink/walk/run, wave/celebration/social pose. Run uses separately authored frames, not faster walk:6+of8poses differ in each direction; actual gait contact sheet ACTUAL_GAIT_FRAME_REVIEW.png shows larger steps/airborne phases/side lean. Default2× gives a visibly readable86px idle silhouette while retaining a shared door/building/prop scale; source frame48px has transparent top padding.1×map/3×inspection available. Compare readability yourself; the new character is intentionally balanced with town scale, not claimed larger than the rejected version.
+## Real movement and details
 
-## Actual rendered proof
+[Final actual gameplay movie25.45s](living-pixel-seoul-gameplay.mp4), 286CDPcompositor frames with original Chrome timestamps. Native keyboard/UI, no injected positions/poses or speed-up. Natural idle, three social gestures, hair/outfit change and four-way walk/run. Actual gait contact sheet and decoded wave/celebrate/pose/run inspected. Different reach/airborne/side-lean run silhouettes are visible; run never remaps walk frames at a higher rate.
 
-[Gameplay movie22.87s](living-pixel-seoul-gameplay.mp4),288raw CDP compositor frames/original Chrome timestamps; native keyboard/UI, no teleports/pose injection/playback speed-up. Includes natural idle, individual social emotes, outfit/hair change and four-way walking/running. Final decoded wave/celebrate/pose plus frame sequences184–191walk,216–223run,240–247run-left inspected. Raw frames/metrics preserved in motion/capture.json, with clear source/runtime identities. Capture overhead/software renderer is not physical-device FPS evidence.
+[House detail](render/house-detail-gameplay.png) uses native keyboard navigation. [Tree detail](render/tree-detail-gameplay.png) is an explicitly labelled native crop from real2×canvas, no resampling, not a falsely claimed new camera position. [Natural blink](render/natural-blink.png) reached by actual idle and retained with normal Pause UI; no pose injection. Source boards are source, not gameplay evidence. Initial candidate/rawfilm and earlier failed helper routes remain historical; ITERATION_LOG.md describes corrections.
 
-Actual native camera navigation: [house detail](render/house-detail-gameplay.png) / [tree detail](render/tree-detail-gameplay.png). [Natural blink](render/natural-blink.png) was reached by normal runtime then retained with Pause UI. No animation frame assignment. Outfit screenshots use actual UI combinations. Source sheets/modules are editable originals, separately labelled; screenshots contain real running Phaser output.
+## Checks / practical limits
 
-Initial renderer refinement and helper failures in ITERATION_LOG.md, first render in render-attempt-1. Final images have the quieter stone court/brick accents/landscape details/longer Korean roof ridge and corrected accessible boards. No old concept image is relabelled actual gameplay.
+Production build/type/lint/format,5original unit tests and3native browser flows PASS; latest suite22.28s,0failures/skips/flaky. Native controls/collision/HTMLdialogue, emotes returningidle, layer/outfit persistence, OS reduced motion/pause, touchDPR1/2/loaded-offline and genuine Canvas fallback tested. SourceQA checks30hashes/152frames×6layers/source equality/binaryalpha/palette/gutters,6+of8run poses different per direction and all11station approaches. These checks do not establish aesthetic approval.
 
-## Verified checks
+Source checkpoint0d523b1 [CI38695321226](https://github.com/Anapaulagatti/3D-pharse5-/actions/runs/38695321226) succeeded; final hand correction also passed current local native suite. Final remote checkpoint/tag must be independently checked before claiming latest CI success. Read-only workflow has no deploy job. Fresh3D remote2738hash recovery,1923oldfiles/exactlock preservation and publicv0.5 hold verified. Dev/preview startup actual HTTP and included package launcher exercised. Earlier transient approval-review usage error is resolved; no remaining credential/tool blocker.
 
-- Gate0 fresh HTTPS remote3D recovery2738file hashes PASS at f1f13f2; old pixel2554327 preserved,1923old art/evidence/package files and exact lock unchanged.
-- Toolkit/version/type/build PASS; original5unit tests and3adapted native browser flows PASS,21.62s/no failures/skips/flaky. Native controls/collision/dialogue, distinct run keys, layer registration/outfit persistence, emote returns, OS reduced motion/pause, touchDPR1/2, loaded-sessionoffline and genuine WebGL-unavailable Canvas fallback.
-- SourceQA:28files/hashes,152frames/layer6layers, source/atlas equality, binary alpha/palette/gutters, run-difference and all station/NPC reachability. See asset-qa.json. Geometry checks do not establish artistic approval.
-- Source00139ca [remote CI38681323177 SUCCESS](https://github.com/Anapaulagatti/3D-pharse5-/actions/runs/38681323177). Final review checkpoints use the same JS/art; HTML title changed only. Read-only CI has no deploy job.
-- Exact extracted static package HTTP/browser PASS desktop/mobileDPR2,1:1nativeCSS canvas, actual movement, no missing resources/critical console errors. Included Python entry point actually launched. Windows GUI/browser auto-open itself not tested; use printed URL.
-- Publicv0.5 live HTML unchanged SHA082c661b5da2b4c8e66e81b2f52405ef460947bfeff27e2fd6fe771b2e3c716f. No public replacement or separate Korean Arena changes.
+Cloud SwiftShader/emulated phone/capture overhead are not physical-device or60FPS guarantees. See PERFORMANCE_REPORT.md for actual phase counter/time/artifact facts. Native GUI Tiled/LibreSprite absent; editablePNG/TiledJSON alternatives actually tested. Full learning content needs qualified human review. Current NPCs are demo only.
 
-## View and play
+## Play this exact version
 
-Download [living-pixel-seoul-v4-review.zip](../../downloads/unified-v4/living-pixel-seoul-v4-review.zip), unzip, open terminal in Living-Pixel-Seoul-V4, run `python3 start.py` (Windows `py start.py`), open printed HTTP address. Python3 required, no Node to view. Do not open HTML through a source-text viewer. Cloud has no public preview port.
+Download [living-pixel-seoul-v4-review.zip](../../downloads/unified-v4/living-pixel-seoul-v4-review.zip), unzip, open terminal in Living-Pixel-Seoul-V4, run `python3 start.py` (Windows `py start.py`), open printed HTTP address. Python3 required; no Node needed to view. Do not open HTML as source text. Cloud loopback has no public preview link.
 
-WASD/arrows walk, Shift run, E near Mira, Space wave. Buttons offer all emotes, touch movement/run, hair/outfit/accessory,1×/2×/3×camera, pause/reduced motion. No account, cloud service, live players, quest completion, ad SDK or full learning system.
+WASD/arrows walk, Shift run, E near Mira, Space wave. UI/touch buttons offer movement/run/gestures/hair/outfit/accessory/1×2×3×/pause/reduced motion. No account, quest completion, backend/PvP/ad SDK or official learning/exam endorsement.
 
-ZIP474,901bytes/SHA256e904884782658a717d15fc87c4e076bcbcece94ef8a4d129451a49269e6f7eef; full manifest downloads/unified-v4/package-manifest.json. Build1,666,980bytes; original pixel data174,461bytes. Dist-only allowlisted HTML/JS/CSS/PNG/JSON/SVG/license text; no source/private-key/provider-token markers/old3D shipped. No claim that an automated marker scan substitutes for a broad security certification.
+ZIP 704,330bytes, SHA25662d142674f0caba6f4344a1e0977e280fc61f645cdf28cb5058d0733e7960068. Build 1,901,391bytes, active pixel files407,249bytes. Per-file manifest saved; allowlisted runtime-only HTML/JS/CSS/PNG/JSON/SVG/license text, original/runtime licenses included, no source/private-key/provider-token markers/old3D/rejected art. Exact extracted package browser desktop/mobile checks verify rendered scene, native1:1CSS canvas/DPR2, input, no missing resources or critical errors. Windows GUI auto-open itself untested; printed URL is usable.
 
-Full future roadmap docs/UNIFIED_V4_ROADMAP.md;35minigame designs docs/UNIFIED_V4_MINIGAMES.csv. First Delivery/Sign Repair/Courier Rush come after visual approval. Human Korean content review, physical-device tests, real backend/moderation/ranked anti-cheat, optional disabled cosmetic-only ad adapter and publication remain later gates. GUI Tiled/LibreSprite unavailable; tested editable PNG/TiledJSON alternatives retained.
+Roadmap docs/UNIFIED_V4_ROADMAP.md and35designs docs/UNIFIED_V4_MINIGAMES.csv remain future design. First Delivery/Sign Repair/Courier Rush after approval; free direct courses/SRS/TOPIK/EPS, safe real social/proficiency-fair PvP, disabled voluntary cosmetic-only ad adapter and publication are later gates.
 
-**STOP: please review this ONE town's coherence, idle readability, architecture/trees and movement. Do not expand content or publish until new user approval.**
+**STOP for new visual feedback on this one town. No mass production, gameplay expansion or public replacement before approval.**

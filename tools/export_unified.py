@@ -198,14 +198,17 @@ for idx,key in enumerate(NAMES):
   line(d,[(hx-1 if dr=='down' else hx-5 if dr=='left' else hx+5,hy+11),(hx+1 if dr=='down' else hx-3 if dr=='left' else hx+7,hy+11)],'coral0')
  # Hands/arms and clothing: actual per-pose anatomy rather than a recolour atlas.
  left=(8,30+dy+stride//2);right=(24,30+dy-stride//2)
- if a=='wave':right=(26,20+dy-[0,2,6,4,6,0][i])
- if a=='celebrate':left=(6,17+dy-(i%2)*2);right=(26,17+dy-(i%2)*2)
- if a=='pose':left=(7,31+dy);right=(24,24+dy)
+ if a=='wave':right=(29,[22,12,5,8,4,22][i]+dy)
+ if a=='celebrate':left=(3,[23,13,5,4,5,10,17,25][i]+dy);right=(29,[23,13,5,4,5,10,17,25][i]+dy)
+ if a=='pose':left=(7,33+dy);right=(28,24+dy)
  for x,y in [left,right]:rect(d,(x-2,y-2,x+2,y+3),'skin0');rect(d,(x-1,y-2,x+1,y+1),'skin2')
  for outfit in [0,1]:
   dd=ds[f'outfit{outfit}'];c0,c1,c2=('jade0','jade1','jade2') if outfit==0 else ('roof0','roof1','roof2')
   poly(dd,[(11+lean,23+dy),(21+lean,23+dy),(24,34+dy),(22,38+dy),(10,38+dy),(8,34+dy)],c0);rect(dd,(12+lean,24+dy,20+lean,35+dy),c1);rect(dd,(12+lean,24+dy,14+lean,34+dy),c2)
-  for x,y in [left,right]:line(dd,[(11 if x<16 else 21,25+dy),(x,y-3)],c0,5);line(dd,[(12 if x<16 else 20,25+dy),(x,y-3)],c1,3)
+  for x,y in [left,right]:
+   arm=[(11 if x<16 else 21,25+dy)]
+   if a in ['wave','celebrate'] and y<21:arm.append((5 if x<16 else 27,27+dy))
+   arm.append((x,y-3));line(dd,arm,c0,5);line(dd,arm,c1,3)
   if outfit==0:poly(dd,[(11+lean,23+dy),(16+lean,27+dy),(22+lean,23+dy),(21+lean,26+dy),(16+lean,30+dy)],'coral1');rect(dd,(18+lean,27+dy,20+lean,34+dy),'coral0')
   else:rect(dd,(15+lean,24+dy,17+lean,36+dy),'cream1');poly(dd,[(11+lean,24+dy),(15+lean,25+dy),(13+lean,29+dy)],'cream2');rect(dd,(19+lean,29+dy,21+lean,32+dy),'gold')
  for h in [0,1]:
