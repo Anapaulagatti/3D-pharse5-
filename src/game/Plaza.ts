@@ -14,6 +14,7 @@ export const controls = {
   hair: 0,
   outfit: 0,
   accessory: true,
+  expression: "neutral",
 };
 export type Metrics = {
   ready: boolean;
@@ -44,6 +45,9 @@ export type Metrics = {
   outfit: number;
   accessory: boolean;
   layerFrames: string[];
+  expression: string;
+  avatarVersion: string;
+  screenFoot: { x: number; y: number };
 };
 declare global {
   interface Window {
@@ -112,6 +116,25 @@ export class Plaza extends Phaser.Scene {
       "satchel",
     ])
       this.load.atlas(layer, `${base}${layer}.png`, `${base}avatar.json`);
+    const heroBase = import.meta.env.BASE_URL + "assets/chibi-v1/";
+    for (const layer of [
+      "body",
+      "outfit0",
+      "outfit1",
+      "hair0",
+      "hair1",
+      "satchel",
+      "face-neutral",
+      "face-happy",
+      "face-focused",
+      "face-surprised",
+      "hands",
+    ])
+      this.load.atlas(
+        `hero-${layer}`,
+        `${heroBase}${layer}.png`,
+        `${heroBase}avatar.json`,
+      );
     this.load.tilemapTiledJSON("plaza", `${base}plaza.json`);
     this.load.on("loaderror", (file: Phaser.Loader.File) =>
       window.dispatchEvent(
@@ -166,41 +189,53 @@ export class Plaza extends Phaser.Scene {
       );
       this.solids.add(rect);
     }
-    for (const dr of ["down", "left", "right", "up"])
-      for (const [action, n, fps] of [
-        ["idle", 4, 10],
-        ["walk", 8, 10],
-        ["run", 8, 13],
-        ["wave", 6, 9],
-        ["celebrate", 8, 10],
-        ["pose", 4, 5],
-      ] as const)
-        this.anims.create({
-          key: `${action}-${dr}`,
-          frames: Array.from({ length: n }, (_, i) => ({
-            key: "body",
-            frame: `${action}-${dr}-${i}`,
-            ...(action === "idle"
-              ? { duration: [1800, 120, 350, 1100][i] }
-              : {}),
-          })),
-          frameRate: fps,
-          repeat: ["wave", "celebrate", "pose"].includes(action) ? 0 : -1,
-          repeatDelay: 0,
-        });
+    for (const actor of ["npc", "hero"])
+      for (const dr of ["down", "left", "right", "up"])
+        for (const [action, n, fps] of [
+          ["idle", 4, 10],
+          ["walk", 8, 10],
+          ["run", 8, 13],
+          ["wave", 6, 9],
+          ["celebrate", 8, 10],
+          ["pose", 4, 5],
+        ] as const)
+          this.anims.create({
+            key: `${actor === "hero" ? "hero-" : ""}${action}-${dr}`,
+            frames: Array.from({ length: n }, (_, i) => ({
+              key: actor === "hero" ? "hero-body" : "body",
+              frame: `${action}-${dr}-${i}`,
+              ...(action === "idle"
+                ? { duration: [1800, 120, 350, 1100][i] }
+                : {}),
+            })),
+            frameRate: fps,
+            repeat: ["wave", "celebrate", "pose"].includes(action) ? 0 : -1,
+            repeatDelay: 0,
+          });
     this.player = this.physics.add
-      .sprite(this.layout.spawn[0], this.layout.spawn[1], "body", "idle-down-0")
+      .sprite(
+        this.layout.spawn[0],
+        this.layout.spawn[1],
+        "hero-body",
+        "idle-down-0",
+      )
       .setOrigin(0.5, 1)
       .setCollideWorldBounds(true);
     this.player.body?.setSize(16, 8);
-    this.player.body?.setOffset(8, 39);
+    this.player.body?.setOffset(12, 47);
     this.physics.add.collider(this.player, this.solids);
     this.npc = this.add
       .sprite(this.layout.npc[0], this.layout.npc[1], "body", "idle-left-0")
       .setOrigin(0.5, 1)
       .setTint(0xf3dfb0)
       .setDepth(this.layout.npc[1]);
-    this.layers = ["outfit0", "hair0", "satchel"].map((k) =>
+    this.layers = [
+      "hero-outfit0",
+      "hero-hair0",
+      "hero-satchel",
+      "hero-face-neutral",
+      "hero-hands",
+    ].map((k) =>
       this.add
         .sprite(this.player.x, this.player.y, k, "idle-down-0")
         .setOrigin(0.5, 1),
@@ -380,7 +415,7 @@ export class Plaza extends Phaser.Scene {
   emote(action: "wave" | "celebrate" | "pose") {
     if (controls.paused) return;
     this.waveUntil = this.time.now + (action === "wave" ? 720 : 880);
-    this.player.anims.play(`${action}-${this.direction}`, false);
+    this.player.anims.play(`hero-${action}-${this.direction}`, false);
   }
   update(_time: number, delta: number) {
     if (!this.player?.body) return;
@@ -414,14 +449,14 @@ export class Plaza extends Phaser.Scene {
       if (moving) {
         this.waveUntil = 0;
         this.player.anims.play(
-          `${speed === 126 ? "run" : "walk"}-${this.direction}`,
+          `hero-${speed === 126 ? "run" : "walk"}-${this.direction}`,
           true,
         );
       } else if (this.time.now > this.waveUntil) {
         if (controls.reduced) {
           this.player.anims.stop();
           this.player.setFrame(`idle-${this.direction}-0`);
-        } else this.player.anims.play(`idle-${this.direction}`, true);
+        } else this.player.anims.play(`hero-idle-${this.direction}`, true);
       }
     }
     if (!blocked && !controls.reduced) {
@@ -440,15 +475,24 @@ export class Plaza extends Phaser.Scene {
     for (const p of this.particles) p.setVisible(!controls.reduced);
     if (this.cameras.main.zoom !== controls.zoom) this.resize();
     this.layers[0].setTexture(
-      `outfit${controls.outfit}`,
+      `hero-outfit${controls.outfit}`,
       this.player.frame.name,
     );
-    this.layers[1].setTexture(`hair${controls.hair}`, this.player.frame.name);
+    this.layers[1].setTexture(
+      `hero-hair${controls.hair}`,
+      this.player.frame.name,
+    );
+    const emotion = this.player.frame.name.startsWith("celebrate-")
+      ? "happy"
+      : this.player.frame.name.startsWith("pose-")
+        ? "focused"
+        : controls.expression;
+    this.layers[3].setTexture(`hero-face-${emotion}`, this.player.frame.name);
     this.layers[2].setVisible(controls.accessory);
     for (let i = 0; i < this.layers.length; i++)
       this.layers[i]
         .setPosition(Math.round(this.player.x), Math.round(this.player.y))
-        .setDepth(Math.round(this.player.y) + (i + 1) * 0.01)
+        .setDepth(Math.round(this.player.y) + [0.01, 0.03, 0.05, 0.02, 0.04][i])
         .setFrame(this.player.frame.name);
     for (let i = 0; i < this.npcLayers.length; i++)
       this.npcLayers[i]
@@ -488,12 +532,22 @@ export class Plaza extends Phaser.Scene {
       role: this.layout.role,
       mapSha: this.layout.mapSha256,
       worldProps: this.layout.objects.length,
-      heroCssHeight: 48 * this.cameras.main.zoom,
+      heroCssHeight: 56 * this.cameras.main.zoom,
       hair: controls.hair,
       outfit: controls.outfit,
       accessory: controls.accessory,
       layerFrames: this.layers.map((l) => l.frame.name),
-      animationFrames: this.textures.get("body").getFrameNames().length,
+      expression: emotion,
+      avatarVersion: "chibi-v1",
+      screenFoot: {
+        x: Math.round(
+          (this.player.x - this.cameras.main.worldView.x) * controls.zoom,
+        ),
+        y: Math.round(
+          (this.player.y - this.cameras.main.worldView.y) * controls.zoom,
+        ),
+      },
+      animationFrames: this.textures.get("hero-body").getFrameNames().length,
     };
   }
 }

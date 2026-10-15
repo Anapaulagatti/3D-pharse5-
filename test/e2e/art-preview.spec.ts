@@ -313,3 +313,47 @@ test("genuine WebGL-unavailable Canvas fallback", async ({ browser }) => {
   );
   await context.close();
 });
+
+test("new chibi hero renders four visibly different moods at the same pixel crop", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 1100 });
+  const observed = watch(page);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("./");
+  await ready(page);
+  const initial = await metrics(page);
+  expect(initial.avatarVersion).toBe("chibi-v1");
+  expect(initial.heroCssHeight).toBe(112);
+  expect(initial.layerFrames).toHaveLength(5);
+  const hashes = new Set<string>();
+  for (const mood of ["neutral", "happy", "focused", "surprised"]) {
+    await page.locator("#expression").selectOption(mood);
+    await page.waitForFunction(
+      (e) => window.__PIXEL_METRICS__!.expression === e,
+      mood,
+    );
+    const start = await metrics(page);
+    await page.waitForFunction(
+      (f) => window.__PIXEL_METRICS__!.frameCount > f + 3,
+      start.frameCount,
+    );
+    const m = await metrics(page);
+    expect(m.frame).toBe("idle-down-0");
+    expect(m.x).toBe(initial.x);
+    expect(m.y).toBe(initial.y);
+    const canvas = (await page.locator("canvas").boundingBox())!;
+    const pixels = await page.screenshot({
+      clip: {
+        x: canvas.x + m.screenFoot.x - 40,
+        y: canvas.y + m.screenFoot.y - 112,
+        width: 80,
+        height: 112,
+      },
+    });
+    hashes.add(createHash("sha256").update(pixels).digest("hex"));
+  }
+  expect(hashes.size).toBe(4);
+  expect(observed.errors).toEqual([]);
+  expect(observed.missing).toEqual([]);
+});

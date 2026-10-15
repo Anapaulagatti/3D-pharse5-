@@ -10,3 +10,7 @@ One candidate, no visual approval. assets-src/unified-v4 contains editable nativ
 - Recovery:3D f1f13f2 fresh2738hashes; rejectedpixel2554327/tag,1923old source/evidence/package hashes and exact lock unchanged. Initial all-code V4 at94117b0. New current sources are original supplementary art; no approved source deleted. Publicv0.5 hash082c661b retained.
 
 PIXEL_ART_BIBLE.md defines active grid/scale/shading/layers/timing. Full roadmap/35designs are not implemented quest/backend/PvP/ad assets. Final tag checkpoint/unified-v4-gate2-review-20261015 is recovery boundary. Await user feedback.
+
+## New unapproved avatar candidate — chibi-v1
+
+assets-src/chibi-v1 and public-unified/assets/chibi-v1, separate from unchanged unified-v4 world/NPC kit. Native40×56 frames,704×1024 atlas per11layers;152frames/layer (idle4,walk8,run8,wave6,celebrate8,pose4 ×4directions). Skin/body,2outfits,2hair,satchel,4mood face overlays,foreground hands; all registered. Original code-raster geometry in tools/export_chibi.py, no AI character image or copied sprite.2pxgutters/alpha0or255/≤64colors. Individual editable frame PNGs and metadata retained. Source proof boards and actual Phaser proofs being saved under quality-reports/chibi-v1. Previous world/evidence/ZIP/3D archive retained unchanged. Avatar review still pending.
