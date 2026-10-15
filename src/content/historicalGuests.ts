@@ -29,7 +29,7 @@ export const historicalGuests = [
     id: "saimdang",
     name: "Shin Saimdang",
     ko: "신사임당",
-    home: [426, 599],
+    home: [426, 607],
     theme: "Hội họa · Thiên nhiên",
     gesture: "wave",
     dialogue:
@@ -42,7 +42,7 @@ export const historicalGuests = [
     id: "yi",
     name: "Đô đốc Yi Sun-sin",
     ko: "이순신",
-    home: [652, 574],
+    home: [650, 574],
     theme: "Chiến lược · Đồng đội",
     gesture: "wave",
     dialogue:

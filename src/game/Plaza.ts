@@ -1,5 +1,10 @@
 import Phaser from "phaser";
 import { ActorMotion, type Emote } from "./ActorMotion";
+import { HistoricalGuest } from "./HistoricalGuest";
+import {
+  historicalGuests,
+  historicalDisclaimer,
+} from "../content/historicalGuests";
 import world from "../../assets-src/unified-v4/world.json";
 type World = typeof world;
 import { facing, inputVector, type Direction } from "../domains/state";
@@ -49,6 +54,7 @@ export type Metrics = {
   expression: string;
   avatarVersion: string;
   screenFoot: { x: number; y: number };
+  guests: HistoricalGuest["metrics"][];
 };
 declare global {
   interface Window {
@@ -59,14 +65,8 @@ export class Plaza extends Phaser.Scene {
   private style = "unified";
   private layout: World;
   private layers: Phaser.GameObjects.Sprite[] = [];
-  private neighbors: {
-    body: Phaser.GameObjects.Sprite;
-    layers: Phaser.GameObjects.Sprite[];
-    dr: string;
-  }[] = [];
-  private npcLayers: Phaser.GameObjects.Sprite[] = [];
+  private guests: HistoricalGuest[] = [];
   private player!: Phaser.Physics.Arcade.Sprite;
-  private npc!: Phaser.GameObjects.Sprite;
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
   private keys!: Record<string, Phaser.Input.Keyboard.Key>;
   private direction: Direction = "down";
@@ -109,15 +109,6 @@ export class Plaza extends Phaser.Scene {
       "tiles",
     ])
       this.load.image(kind, `${base}${kind}.png`);
-    for (const layer of [
-      "body",
-      "outfit0",
-      "outfit1",
-      "hair0",
-      "hair1",
-      "satchel",
-    ])
-      this.load.atlas(layer, `${base}${layer}.png`, `${base}avatar.json`);
     const heroBase = import.meta.env.BASE_URL + "assets/actors/hero/";
     for (const layer of [
       "body",
@@ -137,6 +128,14 @@ export class Plaza extends Phaser.Scene {
         `${heroBase}${layer}.png`,
         `${heroBase}atlas.json`,
       );
+    for (const guest of historicalGuests) {
+      const guestBase = import.meta.env.BASE_URL + `assets/actors/${guest.id}/`;
+      this.load.atlas(
+        `guest-${guest.id}`,
+        `${guestBase}sprite.png`,
+        `${guestBase}atlas.json`,
+      );
+    }
     this.load.tilemapTiledJSON("plaza", `${base}plaza.json`);
     this.load.on("loaderror", (file: Phaser.Loader.File) =>
       window.dispatchEvent(
@@ -191,29 +190,6 @@ export class Plaza extends Phaser.Scene {
       );
       this.solids.add(rect);
     }
-    for (const actor of ["npc"])
-      for (const dr of ["down", "left", "right", "up"])
-        for (const [action, n, fps] of [
-          ["idle", 4, 10],
-          ["walk", 8, 10],
-          ["run", 8, 13],
-          ["wave", 6, 9],
-          ["celebrate", 8, 10],
-          ["pose", 4, 5],
-        ] as const)
-          this.anims.create({
-            key: `${actor === "hero" ? "hero-" : ""}${action}-${dr}`,
-            frames: Array.from({ length: n }, (_, i) => ({
-              key: actor === "hero" ? "hero-body" : "body",
-              frame: `${action}-${dr}-${i}`,
-              ...(action === "idle"
-                ? { duration: [1800, 120, 350, 1100][i] }
-                : {}),
-            })),
-            frameRate: fps,
-            repeat: ["wave", "celebrate", "pose"].includes(action) ? 0 : -1,
-            repeatDelay: 0,
-          });
     this.player = this.physics.add
       .sprite(
         this.layout.spawn[0],
@@ -226,11 +202,6 @@ export class Plaza extends Phaser.Scene {
     this.player.body?.setSize(16, 8);
     this.player.body?.setOffset(16, 55);
     this.physics.add.collider(this.player, this.solids);
-    this.npc = this.add
-      .sprite(this.layout.npc[0], this.layout.npc[1], "body", "idle-left-0")
-      .setOrigin(0.5, 1)
-      .setTint(0xf3dfb0)
-      .setDepth(this.layout.npc[1]);
     this.layers = [
       "hero-outfit0",
       "hero-hair0",
@@ -242,48 +213,12 @@ export class Plaza extends Phaser.Scene {
         .sprite(this.player.x, this.player.y, k, "idle-down-0")
         .setOrigin(0.5, 64 / 68),
     );
-    this.npcLayers = ["outfit1", "hair1"].map((k) =>
-      this.add
-        .sprite(this.npc.x, this.npc.y, k, "idle-left-0")
-        .setOrigin(0.5, 1)
-        .setDepth(this.npc.y + 0.1),
-    );
-    this.add
-      .text(this.layout.npc[0], this.layout.npc[1] - 53, "Mira · demo NPC", {
-        fontFamily: "system-ui",
-        fontSize: "8px",
-        color: "#f4e6ba",
-        backgroundColor: "#303945",
-        padding: { x: 3, y: 2 },
-      })
-      .setOrigin(0.5, 1)
-      .setDepth(900);
-    for (const [x, y, name, hair, outfit, dr] of [
-      [618, 529, "Hana", 1, 0, "left"],
-      [420, 589, "Do-yun", 0, 1, "right"],
-    ] as const) {
-      const body = this.add
-        .sprite(x, y, "body", `idle-${dr}-0`)
-        .setOrigin(0.5, 1)
-        .setDepth(y);
-      const layers = [`outfit${outfit}`, `hair${hair}`].map((key, i) =>
-        this.add
-          .sprite(x, y, key, `idle-${dr}-0`)
-          .setOrigin(0.5, 1)
-          .setDepth(y + (i + 1) * 0.01),
+    for (const guest of historicalGuests)
+      this.guests.push(
+        new HistoricalGuest(this, guest, this.solids, () =>
+          this.interactGuest(guest.id),
+        ),
       );
-      this.neighbors.push({ body, layers, dr });
-      this.add
-        .text(x, y - 53, `${name} · demo NPC`, {
-          fontFamily: "system-ui",
-          fontSize: "8px",
-          color: "#f4e6ba",
-          backgroundColor: "#303945",
-          padding: { x: 3, y: 2 },
-        })
-        .setOrigin(0.5, 1)
-        .setDepth(900);
-    }
     this.overlay = this.add
       .rectangle(
         this.layout.width / 2,
@@ -359,6 +294,7 @@ export class Plaza extends Phaser.Scene {
         0,
         Math.min(
           this.layout.follow,
+          96,
           Math.max(0, this.scale.height / (2 * controls.zoom) - 24),
         ),
       );
@@ -388,26 +324,40 @@ export class Plaza extends Phaser.Scene {
       }),
     );
   }
+  interactGuest(id: string) {
+    const guest = this.guests.find((g) => g.definition.id === id);
+    if (!guest) return;
+    guest.greet();
+    this.interactions++;
+    window.dispatchEvent(
+      new CustomEvent("town-dialog", {
+        detail: `${guest.definition.name} · ${guest.definition.ko}
+${guest.definition.dialogue}
+
+${guest.definition.hook}
+
+${historicalDisclaimer}`,
+      }),
+    );
+  }
   interact() {
-    if (
-      Phaser.Math.Distance.Between(
-        this.player.x,
-        this.player.y,
-        this.npc.x,
-        this.npc.y,
-      ) < 88
-    ) {
-      this.interactions++;
-      this.wave();
+    const nearest = this.guests
+      .map((g) => ({
+        g,
+        d: Phaser.Math.Distance.Between(
+          this.player.x,
+          this.player.y,
+          g.body.x,
+          g.body.y,
+        ),
+      }))
+      .sort((a, b) => a.d - b.d)[0];
+    if (nearest && nearest.d < 100) this.interactGuest(nearest.g.definition.id);
+    else
       window.dispatchEvent(
         new CustomEvent("town-dialog", {
-          detail: `Mira · NPC demo cục bộ\nChào bạn! ${this.layout.mood}\nVai nhân vật: ${this.layout.role}.\n우체국 — Bưu điện. Chuyến phiêu lưu đầu tiên sẽ chờ sau khi duyệt bản hình ảnh thống nhất.`,
-        }),
-      );
-    } else
-      window.dispatchEvent(
-        new CustomEvent("town-dialog", {
-          detail: "Hãy đến gần Mira bên bưu điện, rồi nhấn E.",
+          detail:
+            "Đến gần một vị khách lịch sử rồi nhấn E, hoặc chạm vào nhân vật để nghe lời chào.",
         }),
       );
   }
@@ -461,7 +411,6 @@ export class Plaza extends Phaser.Scene {
     if (blocked) {
       this.physics.world.pause();
       this.player.setVelocity(0);
-      this.npc.anims.pause();
     } else {
       this.physics.world.resume();
       this.player.setVelocity(
@@ -472,16 +421,14 @@ export class Plaza extends Phaser.Scene {
     this.player.setDepth(Math.round(this.player.y));
     if (!blocked && !controls.reduced) {
       this.elapsed += Math.min(delta, 50);
-      this.npc.anims.play("idle-left", true);
-      this.npc.anims.resume();
-      this.npc.x =
-        this.layout.npc[0] + Math.round(Math.sin(this.elapsed / 3200) * 6);
       for (let i = 0; i < this.particles.length; i++) {
         const p = this.particles[i];
         p.x = Math.round(100 + ((i * 89 + this.elapsed / 60) % 570));
         p.y = Math.round(200 + ((i * 53 + this.elapsed / 150) % 230));
       }
-    } else this.npc.anims.pause();
+    }
+    for (const guest of this.guests)
+      guest.step(delta, blocked, controls.reduced);
     this.overlay.setAlpha(controls.night ? 0.34 : 0);
     for (const p of this.particles) p.setVisible(!controls.reduced);
     if (this.cameras.main.zoom !== controls.zoom) this.resize();
@@ -501,21 +448,6 @@ export class Plaza extends Phaser.Scene {
         .setPosition(Math.round(this.player.x), Math.round(this.player.y))
         .setDepth(Math.round(this.player.y) + [0.01, 0.03, 0.05, 0.02, 0.04][i])
         .setFrame(this.player.frame.name);
-    for (let i = 0; i < this.npcLayers.length; i++)
-      this.npcLayers[i]
-        .setPosition(Math.round(this.npc.x), Math.round(this.npc.y))
-        .setDepth(this.npc.y + (i + 1) * 0.01)
-        .setFrame(this.npc.frame.name);
-    for (const n of this.neighbors) {
-      if (blocked || controls.reduced) {
-        n.body.anims.pause();
-        if (controls.reduced && !blocked) n.body.setFrame(`idle-${n.dr}-0`);
-      } else {
-        n.body.anims.play(`idle-${n.dr}`, true);
-        n.body.anims.resume();
-      }
-      for (const l of n.layers) l.setFrame(n.body.frame.name);
-    }
     window.__PIXEL_METRICS__ = {
       ready: true,
       style: this.style,
@@ -554,6 +486,7 @@ export class Plaza extends Phaser.Scene {
           (this.player.y - this.cameras.main.worldView.y) * controls.zoom,
         ),
       },
+      guests: this.guests.map((g) => g.metrics),
       animationFrames: this.textures.get("hero-body").getFrameNames().length,
     };
   }

@@ -73,8 +73,8 @@ test("unified plaza native movement, collision, layered outfits, distinct run an
   expect(first.colliders).toBe(77);
   await page.locator("canvas").focus();
   await page.keyboard.press("e");
-  await expect(page.locator("#dialog-copy")).toContainText("Mira");
-  await expect(page.locator("#dialog-copy")).toContainText("우체국");
+  await expect(page.locator("#dialog-copy")).toContainText("Sejong");
+  await expect(page.locator("#dialog-copy")).toContainText("글자");
   await page.getByRole("button", { name: "Đóng lời nhắn" }).click();
   const movement = [];
   for (const [key, direction] of [
@@ -354,6 +354,51 @@ test("new chibi hero renders four visibly different moods at the same pixel crop
     hashes.add(createHash("sha256").update(pixels).digest("hex"));
   }
   expect(hashes.size).toBe(4);
+  expect(observed.errors).toEqual([]);
+  expect(observed.missing).toEqual([]);
+});
+
+test("four historical guests greet, teach a word and visibly move without pretending to be online players", async ({
+  page,
+}) => {
+  const observed = watch(page);
+  await page.goto("./");
+  await ready(page);
+  const first = await metrics(page);
+  expect(first.guests.map((g) => g.id)).toEqual([
+    "sejong",
+    "jang",
+    "saimdang",
+    "yi",
+  ]);
+  for (const [id, ko, word] of [
+    ["sejong", "세종대왕", "글자"],
+    ["jang", "장영실", "물"],
+    ["saimdang", "신사임당", "나무"],
+    ["yi", "이순신", "함께"],
+  ]) {
+    await page.locator(`[data-guest="${id}"]`).click();
+    await expect(page.locator("#dialog-copy")).toContainText(ko);
+    await expect(page.locator("#dialog-copy")).toContainText(word);
+    await expect(page.locator("#dialog-copy")).toContainText(
+      "những thời kỳ khác nhau",
+    );
+    await page.waitForFunction((id) => {
+      const g = window.__PIXEL_METRICS__!.guests.find((g) => g.id === id);
+      return (
+        !!g &&
+        /^(wave|think|pose)-/.test(g.frame) &&
+        +g.frame.split("-").at(-1)! >= 2
+      );
+    }, id);
+    await page.getByRole("button", { name: "Đóng lời nhắn" }).click();
+  }
+  await page.waitForTimeout(5000);
+  const later = await metrics(page);
+  for (const g of later.guests) {
+    const old = first.guests.find((a) => a.id === g.id)!;
+    expect(Math.hypot(g.x - old.x, g.y - old.y)).toBeGreaterThan(1);
+  }
   expect(observed.errors).toEqual([]);
   expect(observed.missing).toEqual([]);
 });

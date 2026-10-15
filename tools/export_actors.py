@@ -24,4 +24,6 @@ def atlas_bundle(actor,actions,layers,render,master):
 if __name__=='__main__':
  m=atlas_bundle('hero',A,L,draw,composite)
  (S/'palette.json').write_text(json.dumps(list(P.values()),indent=2)+'\n')
+ from guest_art import guest,N
+ for actor in ['sejong','jang','saimdang','yi']:atlas_bundle(actor,N,['sprite'],lambda k,actor=actor:{'sprite':guest(actor,k)},lambda k,actor=actor:guest(actor,k))
  print('Hero exported',m['frames'],'registered frames x',len(L),'layers; source48x68 includes motion padding only.')
