@@ -1,3 +1,17 @@
+# Latest decisions — premium Korean plaza review
+
+1. User provisionally selects CHARACTER B/Juni; A/Bori/C/Nari are future styles. Environment rebuild is newly authorized, old town retained. PLAZA B/Ginkgo Commons is a separate recommendation and still unapproved.
+2. Execute only the first review gate:3original visual concepts plus a limited recommended playable art proof. Gwanghwamun only. No Bukchon/Stream/Namsan production, NPC/action mass production, cleanup/main promotion/publication.
+3. Actual host images + Forge prop/terrain extraction and native palette finishing; data authors map layout/collision, not generic code-drawn replacement art. Source concepts, native exports and real engine evidence distinctly labelled. No paid provider route/spending consent inferred.
+4. Preserve old game with optional scene configuration instead of copying/rebuilding movement. NativeJuni80px body/root40,96 uses existing4stills for scale/movement only. Hidden legacy actor physics retains the controller; new scene centres its16×8foot body. All33solids come from Forge Tiled export.204protected assets/framework files unchanged; original movement update/UI template unchanged.
+5. Y-sort by feet, full opaque foliage, a pale cue restricted to actual overlapping opaque sprite pixels. No entire-canopy fade. Bridge deck remains below actor. Mobile1× follows Juni, desktop1× shows native map. Existing evening-fillAlpha0 bug fixed to make the original toggle render; pixel difference verified, not UI-state-only testing.
+6. Lightweight generated-water/6leaf/lantern effects respect OS reduced-motion/pause/visibility. No fabricated video route or character-motion claim. No audio/backends/new gameplay systems.
+7. Keep honest QA: initial source matte and earth failures retained; curate valid material variants without weakening thresholds.103tiny unowned extraction pixels remain WARN. No seamless/Wang/physicalphoneFPS/GUI-Tiled claim. Source concepts richer than this deliberately small reusable proof kit; hard transitions/straight rill await visual feedback.
+8. Default Forge file:// browser check failed due transport policy. Unchanged official verifier run via authorized localHTTP with installedChromium;14assets/10routes/pixelYsortPASS. Separate actual Phaser keyboard/touch/Canvas/occlusion/evening captures and extractedZIP render equality validate the user experience.
+9. Keep one current downloadable Gwanghwamun review ZIP plus source/evidence; preserve older town/character packages and recovery tags. Final checkpoint only on authorized review branch, independently verified remote/sourceCI/clean-checkout before annotated tag. No deploy workflow added. Env draft Review/Save/Publish is distinct from website release. STOP for visual approval.
+
+## Earlier record — historical; latest authority above supersedes conflicts
+
 # Latest decisions — character reboot concept gate
 
 1. The new explicit user request supersedes prior provisional acceptance: player and historical NPC artwork rejected; environment and working systems preserved. Only three original player concepts and static direction proof are in scope now.

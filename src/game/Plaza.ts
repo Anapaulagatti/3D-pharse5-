@@ -7,6 +7,13 @@ import {
 } from "../content/historicalGuests";
 import world from "../../assets-src/world/world.json";
 type World = typeof world;
+type PlazaOptions = {
+  layout?: World;
+  assetRoot?: string;
+  anchors?: Record<string, number[]>;
+  guests?: boolean;
+  ambience?: boolean;
+};
 import { facing, inputVector, type Direction } from "../domains/state";
 
 export const controls = {
@@ -64,51 +71,54 @@ declare global {
 export class Plaza extends Phaser.Scene {
   private style = "unified";
   private layout: World;
-  private layers: Phaser.GameObjects.Sprite[] = [];
+  protected layers: Phaser.GameObjects.Sprite[] = [];
   private guests: HistoricalGuest[] = [];
-  private player!: Phaser.Physics.Arcade.Sprite;
+  protected player!: Phaser.Physics.Arcade.Sprite;
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
   private keys!: Record<string, Phaser.Input.Keyboard.Key>;
   private direction: Direction = "down";
   private solids!: Phaser.Physics.Arcade.StaticGroup;
   private particles: Phaser.GameObjects.Rectangle[] = [];
   private elapsed = 0;
-  private interactions = 0;
+  protected interactions = 0;
   private motion = new ActorMotion();
   private lastFoot = { x: 512, y: 560 };
   private active = true;
   private overlay!: Phaser.GameObjects.Rectangle;
-  constructor() {
+  constructor(private options: PlazaOptions = {}) {
     super("plaza");
-    this.layout = world;
+    this.layout = options.layout ?? world;
   }
   preload() {
-    const base = import.meta.env.BASE_URL + "assets/world/";
-    for (const kind of [
-      "wall",
-      "jars",
-      "gardenbed",
-      "parcel",
-      "table",
-      "courier",
-      "cafe",
-      "hanok",
-      "academy",
-      "tree",
-      "pine",
-      "plum",
-      "fountain",
-      "board",
-      "puzzle",
-      "portal",
-      "outfit",
-      "stall",
-      "bench",
-      "planter",
-      "lantern",
-      "tiles",
-    ])
-      this.load.image(kind, `${base}${kind}.png`);
+    const base =
+      import.meta.env.BASE_URL + (this.options.assetRoot ?? "assets/world/");
+    const kinds = this.options.assetRoot
+      ? [...new Set(this.layout.objects.map((p) => p.kind)), "tiles"]
+      : [
+          "wall",
+          "jars",
+          "gardenbed",
+          "parcel",
+          "table",
+          "courier",
+          "cafe",
+          "hanok",
+          "academy",
+          "tree",
+          "pine",
+          "plum",
+          "fountain",
+          "board",
+          "puzzle",
+          "portal",
+          "outfit",
+          "stall",
+          "bench",
+          "planter",
+          "lantern",
+          "tiles",
+        ];
+    for (const kind of kinds) this.load.image(kind, `${base}${kind}.png`);
     const heroBase = import.meta.env.BASE_URL + "assets/actors/hero/";
     for (const layer of [
       "body",
@@ -128,7 +138,7 @@ export class Plaza extends Phaser.Scene {
         `${heroBase}${layer}.png`,
         `${heroBase}atlas.json`,
       );
-    for (const guest of historicalGuests) {
+    for (const guest of this.options.guests === false ? [] : historicalGuests) {
       const guestBase = import.meta.env.BASE_URL + `assets/actors/${guest.id}/`;
       this.load.atlas(
         `guest-${guest.id}`,
@@ -174,6 +184,9 @@ export class Plaza extends Phaser.Scene {
         .image(p.x, p.y, p.kind)
         .setOrigin(0.5, 1)
         .setDepth(p.y);
+      const anchor = this.options.anchors?.[p.kind];
+      if (anchor)
+        image.setOrigin(anchor[0] / image.width, anchor[1] / image.height);
       image
         .setInteractive({ pixelPerfect: true })
         .on("pointerdown", () => this.interactProp(p.kind));
@@ -213,7 +226,7 @@ export class Plaza extends Phaser.Scene {
         .sprite(this.player.x, this.player.y, k, "idle-down-0")
         .setOrigin(0.5, 64 / 68),
     );
-    for (const guest of historicalGuests)
+    for (const guest of this.options.guests === false ? [] : historicalGuests)
       this.guests.push(
         new HistoricalGuest(this, guest, this.solids, () =>
           this.interactGuest(guest.id),
@@ -226,9 +239,10 @@ export class Plaza extends Phaser.Scene {
         this.layout.width,
         this.layout.height,
         0x263b65,
-        0,
+        1,
       )
-      .setDepth(10000);
+      .setDepth(10000)
+      .setAlpha(0);
     this.cursors = this.input.keyboard!.createCursorKeys();
     this.keys = this.input.keyboard!.addKeys("W,A,S,D,E,SHIFT,SPACE") as Record<
       string,
@@ -247,7 +261,7 @@ export class Plaza extends Phaser.Scene {
     );
     this.resize();
     this.scale.on("resize", this.resize, this);
-    for (let i = 0; i < 7; i++)
+    for (let i = 0; i < (this.options.ambience === false ? 0 : 7); i++)
       this.particles.push(
         this.add
           .rectangle(150 + i * 73, 180 + i * 37, 3, 2, 0xffe0c0)

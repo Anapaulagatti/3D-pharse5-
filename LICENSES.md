@@ -1,3 +1,11 @@
+# Gwanghwamun review provenance — latest environment milestone
+
+assets-src/gwanghwamun contains original host image_gen concepts, isolated Korean architecture/foliage/furniture source packs and generated material textures. Actual Sprite Forge extraction, area finishing, shared96-color prop palette and layered-map/Tiled processing are recorded in docs/gwanghwamun. Ground is assembled from generated textures; Python writes map/collision data and crops/resamples existing pixels, not substitute code-drawn map artwork. The previous town/source and all three character designs remain unchanged. B/Juni is provisionally selected; A/Bori and C/Nari remain future styles. Plaza B is only recommended, not approved.
+
+Architectural facts were checked against the linked Gwanghwamun/Gyeongbokgung/Gwanghwamun Square references in docs/gwanghwamun/REFERENCES.md. No reference photographs, game assets, branded maps, portraits, fonts or audio are copied into new game assets. Original stylized architectural adaptation, not a historic reconstruction. Source concepts, native exports and actual engine screenshots are explicitly labelled. Model/cost are unexposed; no provider API routes or paid credits invoked. Existing MIT project/Phaser/Zod notices remain in the static package.
+
+## Earlier provenance — retained for its checkpoint
+
 # Current character-reboot provenance
 
 The new A/B/C concept artwork in assets-src/character-reboot is original host image_gen output plus reference-based corrections, processed with Agent Sprite Forge into static native pixel exports. No rejected actor, third-party game character, portrait or copyrighted asset was used as a generation reference. Source prompts, references and artifact hashes are retained. The new candidates are not code-drawn geometry. Model/version/cost are not exposed by the host tool; no fabricated values or paid provider API calls. Original project licensing applies.

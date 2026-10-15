@@ -1,3 +1,18 @@
+# Latest inventory — Gwanghwamun review, approval pending
+
+- assets-src/gwanghwamun/concepts:3new original visual directions, exact prompts, A camera-edit provenance and its first-source reference retained. These high-resolution source concepts are not native gameplay screenshots.
+- assets-src/gwanghwamun/raw + gate-master-prompt + image-route.json:10actual host image calls incl concepts/refinement and new isolated architecture/foliage/statue/furniture/terrain/stonework. No provider APIs, copied game textures or regenerated characters.
+- keyed:12extracted editable transparent source props, measured/auto box metadata and real Forge QA. processing/palette/props:12native96-color shared-palette binary-alpha/guttered props from actual Forge area finish; first-pass intermediate matte images kept only in.cache, not approved town cleanup.
+- terrain-accepted:8strict-default-QA32px generated-material variants (granite/earth/grass/water). raw terrain-curation records cells; initial failed16variant extraction remains separately for honest QA. No seam/Wang claim.
+- map-bundle.json/tileset.json/tiles.png/layers/world.json/navigation/tiled:1024×768 editable layered map,32placements,10reachable targets, real .tmj/.tsx/PNG export and exact33runtime solid rectangles. Leaf/water/concept export recipes process retained pixels only; no code-drawn map artwork.
+- public/review/gwanghwamun + plaza-review.html:isolated playable B proof. Uses existing public/review/characters/B atlas unchanged,4STATIC80px Juni directions. Environmentwater/leaf/lantern motion, not character clip production. No new living Sejong or other NPC: seated sculpture is a required landmark prop.
+- docs/gwanghwamun:labelled world-review-board; native/day/evening/detail/gate-scale/mobile/behind-front/water-collision actual Phaser PNGs;33s real input/ambient MP4; exact4,434,956byte verified HTTP ZIP; execution/QA/reference/preservation reports. ZIP SHA55fba6719cadd45c6a24b5d48b9f2c040b7c1accf09ce803150c5e8e26715d16. No website deployment.
+- Existing town/world/actors, all A/Bori-B/Juni-C/Nari source+runtime stills, dependency lock, old review packages and separate3D Git history retained.204protected files byte-identical to6ff; original controller update/UI template identical. Original actors remain for recoverable working game, their rejected artwork is not re-approved.
+
+B/Juni provisional, plaza directions still PENDING USER VISUAL APPROVAL. No mass animation/NPC/other district production or repository cleanup.
+
+## Earlier record — historical; latest authority above supersedes conflicts
+
 # Latest asset state — rejected production characters retained, new concepts pending
 
 - assets-src/character-reboot/{A,B,C}: newly generated original source masters and referenced turnaround images, identity specs, actual prompts, canonical Forge master records and native four-direction PNGs/palettes. References/ retains only source images required by narrow edit provenance. No new character geometry drawn by code.

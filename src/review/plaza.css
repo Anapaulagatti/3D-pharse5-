@@ -1,0 +1,50 @@
+body.plaza-review main {
+  max-width: 1536px;
+}
+body.plaza-review .play-layout {
+  grid-template-columns: minmax(0, 1026px) minmax(200px, 240px);
+  gap: 20px;
+  justify-content: center;
+}
+body.plaza-review #stage {
+  height: 768px;
+}
+body.plaza-review .intro {
+  padding-top: 24px;
+}
+body.plaza-review .intro h1 {
+  font-size: 34px;
+}
+body.plaza-review button:disabled,
+body.plaza-review select:disabled {
+  opacity: 0.5;
+}
+.plaza-concepts > div {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.plaza-concepts figure {
+  margin: 0;
+}
+.plaza-concepts img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+.plaza-concepts figcaption {
+  font-size: 12px;
+  line-height: 1.8;
+  padding: 10px 0;
+}
+@media (max-width: 900px) {
+  .plaza-concepts > div {
+    grid-template-columns: 1fr;
+  }
+  body.plaza-review .play-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  body.plaza-review #stage {
+    height: 416px;
+  }
+}

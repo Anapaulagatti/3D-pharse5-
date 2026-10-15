@@ -42,7 +42,7 @@ const choices = [
 ];
 const base = import.meta.env.BASE_URL;
 document.querySelector("#character-review")!.innerHTML = `
-<header><a href="${base}">KOREAN ARENA <span>Living Pixel Seoul</span></a><span>BẢN DUYỆT THIẾT KẾ · CHƯA CHỌN NHÂN VẬT</span></header>
+<header><a href="${base}">KOREAN ARENA <span>Living Pixel Seoul</span></a><span>JUNI · PHƯƠNG ÁN CHÍNH TẠM THỜI</span></header>
 <main><p class="eyebrow">CHARACTER REBOOT · THREE ORIGINAL DIRECTIONS</p><h1>Ba cá tính. Một thế giới.</h1>
 <p class="lead">So sánh thiết kế mới trong chính quảng trường hiện tại. Cùng chiều cao pixel, cùng ánh sáng, cùng điểm đặt chân.</p>
 <div class="toolbar"><fieldset><legend>Hướng nhìn</legend>${(
@@ -61,7 +61,7 @@ document.querySelector("#character-review")!.innerHTML = `
 <label for="review-zoom">Tỷ lệ camera <select id="review-zoom"><option value="1">1× · Pixel gốc</option><option value="2" selected>2× · Gameplay</option></select></label></div>
 <section class="review-stage"><div class="caption"><span>PHASER · CENTRAL PLAZA</span><span id="review-status" role="status">Đang mở bản duyệt…</span></div><div id="review-stage"></div></section>
 <div class="concepts">${choices.map((c) => `<article><span class="letter">${c.id}</span><h2>${c.name}</h2><h3>${c.title}</h3><p>${c.detail}</p><div class="native-pair"><figure><img src="${base}review/characters/${c.id}/direction-stills-atlas-00.png" class="native-atlas" alt="${c.name}, bản pixel mặt trước ở 1×"><figcaption>1× · 80 px</figcaption></figure><figure><div class="detail-crop"><img src="${base}review/characters/${c.id}/direction-stills-atlas-00.png" alt="${c.name}, chi tiết pixel phóng 3×"></div><figcaption>3× · Chi tiết pixel</figcaption></figure></div></article>`).join("")}</div>
-<p class="note">Đây là bốn dáng đứng để chọn thiết kế, chưa phải bộ hoạt ảnh. Chuyển hướng không phải hoạt ảnh đi bộ. Sau khi bạn chọn A, B hoặc C, mới sản xuất idle/walk/run, biểu cảm và NPC lịch sử. Game hiện tại, trang phục và hội thoại vẫn được giữ nguyên.</p>
+<p class="note">Bạn đã chọn B — Juni tạm thời. A — Bori và C — Nari được giữ làm phong cách avatar tương lai. Đây là bốn hướng tĩnh, chưa phải hoạt ảnh đi bộ. Bộ hoạt ảnh và NPC mới chờ xác nhận hình ảnh; game cũ vẫn được giữ nguyên.</p>
 <a class="back" href="${base}">Mở game hiện tại →</a></main>`;
 
 // A separate review entry reuses the approved scene's real preload/create path.

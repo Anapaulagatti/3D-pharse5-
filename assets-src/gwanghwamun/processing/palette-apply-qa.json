@@ -1,0 +1,302 @@
+{
+  "status": "pass",
+  "method": "forge_palette.quantize_image: OKLab-nearest palette colour per pixel (exact palette colours kept), alpha binary at the threshold, then the written PNGs re-read and measured with forge_palette.fit_report against the palette",
+  "notProven": [
+    "Visual quality after snapping: compare an output with its input.",
+    "Indexed PNGs are engine exports; they are not checked by builders.",
+    "No --max-delta-e gate was set."
+  ],
+  "checks": [
+    {
+      "id": "output_off_palette_px",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "output_partial_alpha_px",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "max_delta_e",
+      "status": "skipped",
+      "value": 0.16894,
+      "threshold": null
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../resized/bench.png",
+      "sha256": "012f9a284a049f248ab9d5552012ecfc36a13c324a9c871b59c2a7778c4b8c7c",
+      "bytes": 7072
+    },
+    {
+      "path": "../resized/bridge.png",
+      "sha256": "76a9866ba0f53b037fc503f7ce96cc249ed51d311f9362e77c1849a14df3ad50",
+      "bytes": 13560
+    },
+    {
+      "path": "../resized/gate.png",
+      "sha256": "6cfbf2b5de55cf99bd99983d5e9ba10847b52c7ba875a22e3cac48fb21920bd1",
+      "bytes": 303224
+    },
+    {
+      "path": "../resized/ginkgo.png",
+      "sha256": "0ff45d63cd5e0457f1e0cf42435f6594c4f126b0e5195aa732da0d1d1560f205",
+      "bytes": 78300
+    },
+    {
+      "path": "../resized/hall.png",
+      "sha256": "4ca5e8f45a9603980a5aa0619a37d1cdce83e4f01f8e075eddfe0aac6749a256",
+      "bytes": 106199
+    },
+    {
+      "path": "../resized/jars.png",
+      "sha256": "49ade8288dbf444c9915df59817167286cdeb38821d4bd146295c9e521cb097a",
+      "bytes": 6966
+    },
+    {
+      "path": "../resized/lantern.png",
+      "sha256": "78a44791c4cb1c4d33d8af282e981e64959d8954981b409882209a01021681de",
+      "bytes": 7443
+    },
+    {
+      "path": "../resized/pavilion.png",
+      "sha256": "8556aa4b928b3e7bf0b71a224aae0ed2011a2bb379631fcdf91f781764b6c3f4",
+      "bytes": 78669
+    },
+    {
+      "path": "../resized/planter.png",
+      "sha256": "4da38e065c9a82631d6106a38aa9a84dd0df03fcf5ef3bc8b233ec6f471aa1de",
+      "bytes": 5243
+    },
+    {
+      "path": "../resized/sejong.png",
+      "sha256": "f9c0eca170d967c8cb7863b7a4983b312ecaba7297efc51804bbd949d54570d0",
+      "bytes": 26475
+    },
+    {
+      "path": "../resized/tree.png",
+      "sha256": "ed24f7e617339e901baa1fd6d14cf157c42dda5bdd423c4ee39b9a2700deaf86",
+      "bytes": 63902
+    },
+    {
+      "path": "../resized/wall.png",
+      "sha256": "17c0b7f032ee802f36d57a359daa450f013e8840919945d91a38a257bf222c0c",
+      "bytes": 16120
+    },
+    {
+      "path": "../../../assets-src/gwanghwamun/palette/palette.json",
+      "sha256": "7bdc07a755bbeb1ea78b4983adc8b0f52b8ccab69fb920ddf1ea5ea90aebe69b",
+      "bytes": 3681
+    }
+  ],
+  "outputs": [
+    {
+      "path": "bench.png",
+      "sha256": "d9c67168199dd1ccea37bfff536827a697f26d147accb0b80e78466326c73569",
+      "bytes": 5090
+    },
+    {
+      "path": "bridge.png",
+      "sha256": "8840b4e33cc6bd28e525c629ffdecd8f0128347a5d55b4697e4ff552a46b0805",
+      "bytes": 8529
+    },
+    {
+      "path": "gate.png",
+      "sha256": "fd11e7a66d9ba21b4c196a4c3db2231b77257da71b6f81d066b31b051b300171",
+      "bytes": 191737
+    },
+    {
+      "path": "ginkgo.png",
+      "sha256": "718dbab6da031a5ba158c71cedf0e353556c098c7fbe567514767b880b54dd6b",
+      "bytes": 48762
+    },
+    {
+      "path": "hall.png",
+      "sha256": "9122c7cb13709f17e4e507b6ad31536040b559016a09fd720b7ee0a6622b2a1d",
+      "bytes": 72415
+    },
+    {
+      "path": "jars.png",
+      "sha256": "09f06e6840551f4049fe2b9ff22ef2478ce2b63ff8a4f1b7a67d000fc638ddfc",
+      "bytes": 5199
+    },
+    {
+      "path": "lantern.png",
+      "sha256": "13f828c966f1fd1db64a53f3bd32a30c5f58dd958b47c33d287c69b69de61d7b",
+      "bytes": 6016
+    },
+    {
+      "path": "pavilion.png",
+      "sha256": "cf76d93832dd9e062b2e25eaa3346c7fd1ccf9a7dfc73aca68903187ab60954e",
+      "bytes": 54761
+    },
+    {
+      "path": "planter.png",
+      "sha256": "1c776cdc38d17f332555aaaab8daeccfa70a4e3c5d91577704f201c8522c7f30",
+      "bytes": 4239
+    },
+    {
+      "path": "sejong.png",
+      "sha256": "ec047410f3526bea20d3e462fcc7b9619c7c5756f315691c3e97649c9817c0d2",
+      "bytes": 18640
+    },
+    {
+      "path": "tree.png",
+      "sha256": "2b26e6787f28b53ba0227c016d5cc0ca683ace6c6052c8538d281693fe2fd3b5",
+      "bytes": 40318
+    },
+    {
+      "path": "wall.png",
+      "sha256": "6585f545555dc530866ff2773194183330c61ea365e9e6c858491d17b79029a5",
+      "bytes": 10902
+    }
+  ],
+  "tool": {
+    "name": "palette_tool",
+    "version": "0.4.0"
+  },
+  "fit": {
+    "bench.png": {
+      "measured_px": 2064,
+      "alpha_threshold": 128,
+      "off_palette_px": 2064,
+      "partial_alpha_px": 358,
+      "colors": 2009,
+      "palette_colors_used": 69,
+      "mean_delta_e": 0.016537,
+      "p95_delta_e": 0.028855,
+      "max_delta_e": 0.06301
+    },
+    "bridge.png": {
+      "measured_px": 4957,
+      "alpha_threshold": 128,
+      "off_palette_px": 4950,
+      "partial_alpha_px": 385,
+      "colors": 4286,
+      "palette_colors_used": 51,
+      "mean_delta_e": 0.012828,
+      "p95_delta_e": 0.024022,
+      "max_delta_e": 0.125198
+    },
+    "gate.png": {
+      "measured_px": 118129,
+      "alpha_threshold": 128,
+      "off_palette_px": 118073,
+      "partial_alpha_px": 1454,
+      "colors": 78430,
+      "palette_colors_used": 96,
+      "mean_delta_e": 0.017012,
+      "p95_delta_e": 0.034265,
+      "max_delta_e": 0.1479
+    },
+    "ginkgo.png": {
+      "measured_px": 24214,
+      "alpha_threshold": 128,
+      "off_palette_px": 24214,
+      "partial_alpha_px": 2290,
+      "colors": 20089,
+      "palette_colors_used": 75,
+      "mean_delta_e": 0.018096,
+      "p95_delta_e": 0.033768,
+      "max_delta_e": 0.16894
+    },
+    "hall.png": {
+      "measured_px": 37344,
+      "alpha_threshold": 128,
+      "off_palette_px": 37322,
+      "partial_alpha_px": 758,
+      "colors": 31686,
+      "palette_colors_used": 95,
+      "mean_delta_e": 0.016914,
+      "p95_delta_e": 0.029833,
+      "max_delta_e": 0.072014
+    },
+    "jars.png": {
+      "measured_px": 2062,
+      "alpha_threshold": 128,
+      "off_palette_px": 2062,
+      "partial_alpha_px": 204,
+      "colors": 2020,
+      "palette_colors_used": 75,
+      "mean_delta_e": 0.018974,
+      "p95_delta_e": 0.033643,
+      "max_delta_e": 0.054901
+    },
+    "lantern.png": {
+      "measured_px": 2001,
+      "alpha_threshold": 128,
+      "off_palette_px": 2000,
+      "partial_alpha_px": 338,
+      "colors": 1991,
+      "palette_colors_used": 89,
+      "mean_delta_e": 0.016575,
+      "p95_delta_e": 0.032118,
+      "max_delta_e": 0.073795
+    },
+    "pavilion.png": {
+      "measured_px": 25979,
+      "alpha_threshold": 128,
+      "off_palette_px": 25969,
+      "partial_alpha_px": 1125,
+      "colors": 23078,
+      "palette_colors_used": 96,
+      "mean_delta_e": 0.018406,
+      "p95_delta_e": 0.033479,
+      "max_delta_e": 0.1112
+    },
+    "planter.png": {
+      "measured_px": 1361,
+      "alpha_threshold": 128,
+      "off_palette_px": 1359,
+      "partial_alpha_px": 224,
+      "colors": 1343,
+      "palette_colors_used": 73,
+      "mean_delta_e": 0.019279,
+      "p95_delta_e": 0.037156,
+      "max_delta_e": 0.055195
+    },
+    "sejong.png": {
+      "measured_px": 8537,
+      "alpha_threshold": 128,
+      "off_palette_px": 8534,
+      "partial_alpha_px": 443,
+      "colors": 7843,
+      "palette_colors_used": 72,
+      "mean_delta_e": 0.015173,
+      "p95_delta_e": 0.0263,
+      "max_delta_e": 0.044576
+    },
+    "tree.png": {
+      "measured_px": 20096,
+      "alpha_threshold": 128,
+      "off_palette_px": 20091,
+      "partial_alpha_px": 1604,
+      "colors": 18546,
+      "palette_colors_used": 84,
+      "mean_delta_e": 0.020212,
+      "p95_delta_e": 0.036809,
+      "max_delta_e": 0.141824
+    },
+    "wall.png": {
+      "measured_px": 5734,
+      "alpha_threshold": 128,
+      "off_palette_px": 5732,
+      "partial_alpha_px": 334,
+      "colors": 5330,
+      "palette_colors_used": 77,
+      "mean_delta_e": 0.015798,
+      "p95_delta_e": 0.03013,
+      "max_delta_e": 0.049168
+    }
+  },
+  "totals": {
+    "max_delta_e": 0.16894,
+    "worst_p95_delta_e": 0.037156,
+    "off_palette_px": 252370
+  },
+  "locked_inputs": []
+}

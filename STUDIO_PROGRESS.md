@@ -1,3 +1,23 @@
+# Current handoff — Gwanghwamun concepts / recommended B playable proof
+
+Read docs/current/GWANGHWAMUN_REVIEW.md and docs/gwanghwamun/REVIEW.md/FORGE.md. User chose CHARACTER B/Juni provisionally; preserve A/Bori and C/Nari. PLAZA B/Ginkgo Commons is only recommended. Current gate is ready for visual review, not approved production. Stop before further world/character/NPC production, cleanup or publishing.
+
+Three new source concepts: A formal Royal Stone Promenade; B intimate Ginkgo Commons with reading pavilion/tea hall, Sejong and rill; C Hanji Lantern Court with festival/cultural-stage arrangement and dusk. Actual original host images, not palette swaps. Runtime B has a complete two-tier/3arch gate, separate architecture, layered ginkgo/green trees, seated bronze scholar, onggi/benches/lanterns/flowers/walls/bridge.8image-generated32px terrain variants,12props/32placements,1024×768 and33solid rectangles. Canonical layered bundle/Tiled sources editable; no baked concept map background or new code-drawn world art. Original town/source/actors/charA-B-C/lock remain unchanged204files; old UI/controller update byte-identical. Optional scene setup and existing evening-fill bug fix documented.
+
+Actual Forge workflow executed and warnings retained. Final bundle structuralPASS47refs, nav10targets/0pockets, strict source feet/bounds auditPASS, Tiled read-back0pixel differences, official HTTP verifier14assets/10routes/YsortPASS. Default file:// path blocked, not reported passed.2sourceearth variants rejected; curated8tiles strictdefaultPASS. Tiny103px auto-box leaf-fragment WARN remains; no seam/Wang/GUI-editor verification claim. No paid API/CLI generation or video route. Environment effects use generated water/leaf crops and lantern tint, freeze on OS reduced-motion/pause/tab hiding.
+
+Real Phaser1×/2×/gate-scale/day/evening/behind-front/mobileCanvas PNGs, labelled board and33s/825frameMP4 inspected. Evening/day mean-channel ratio0.836889 after correcting transparent fill. Four existing Juni still directions move through the real controller; no new walk/idle animation or NPC produced. Video shows input traversal/ambient effects, not completed character animation. Physical-phone performance unmeasured; hard tile edges/straight rill remain openly visible review limitations.
+
+Root source/type/lint/format/8unit/production/9browser flows PASS, preserving previous game/character review. Additional actual CDP touchStart/touchEnd test PASS with reduced-motion/Canvas. Final exact CI/clean-checkout/source SHA lives in checkpoint/gwanghwamun-concepts-20261015 once verified. Source-only checkpoints on rebuild/pixel-social-rpg-v3; main/Pages not promoted or deployed. Do not infer a CI outcome without reading that tag/run.
+
+View: docs/gwanghwamun/playable-review.zip4,434,956bytes SHA25655fba6719cadd45c6a24b5d48b9f2c040b7c1accf09ce803150c5e8e26715d16. Extract Korean-Arena-Gwanghwamun-Review, python3 start.py (Windows py start.py), open printed HTTPURL ending /3D-pharse5-/plaza-review.html. Exact extracted launcher verified; day/evening/mobileDPR2 Canvas images byte-identical to inspected root captures; no404/criticalconsole errors, previous town4guests ready. NoNode to view. No public browser tunnel/website release created; cloudloopback is not a public link.
+
+Recovery before work recovery/before-gwanghwamun-world-20261015 ->6ff6df0f5671c98291d9b0b6b719ee2e96a6d64c, pushed/remote peeled before changes. Earlier3D/pixel/character tags retained. Existing town remains runnable via brand link/index.html. Reuse exact Node24/Phaser4.2.1/Vite/TS/Pillow12.3/Chromium/FFmpeg. Setup validates, never regenerates art. Env draft activation is separate from site publishing; servers must restart after snapshot and readiness must be checked in real browser.
+
+NEXT: read the user's plaza visual feedback. Do not silently treat the provisional Juni/B selection as approval of plazaB. No additional art/animations/NPCs/districts until that review decision.
+
+## Earlier record — historical; latest authority above supersedes conflicts
+
 # Current handoff — COMPLETE CHARACTER REBOOT / concept gate
 
 Read AGENTS.md, docs/current/CHARACTER_REBOOT.md and all four STUDIO records. User rejects previous player and four NPC designs. Approved town/gameplay/UI/collisions/infrastructure remain intact. Current gate is READY FOR VISUAL SELECTION, NOT APPROVED. Stop before animation/NPC production or publication.

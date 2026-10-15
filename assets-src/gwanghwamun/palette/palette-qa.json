@@ -1,0 +1,263 @@
+{
+  "status": "pass",
+  "method": "forge_palette.build_palette (weighted k-means++ in OKLab over unique colours, reserved colours fixed, coverage skipping) then forge_palette.fit_report of every input: OKLab dE of each pixel with alpha >= the threshold to its nearest palette colour",
+  "notProven": [
+    "Visual quality of the palette: look at swatches.png and an applied frame.",
+    "Colours of pixels below the alpha threshold were not sampled or measured.",
+    "No --max-delta-e gate was set."
+  ],
+  "checks": [
+    {
+      "id": "palette_colors",
+      "status": "pass",
+      "value": 96,
+      "threshold": 96
+    },
+    {
+      "id": "inputs_without_samples",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0,
+      "files": []
+    },
+    {
+      "id": "max_delta_e",
+      "status": "skipped",
+      "value": 0.16894,
+      "threshold": null
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../.cache/gwanghwamun/resized/bench.png",
+      "sha256": "012f9a284a049f248ab9d5552012ecfc36a13c324a9c871b59c2a7778c4b8c7c",
+      "bytes": 7072
+    },
+    {
+      "path": "../../../.cache/gwanghwamun/resized/bridge.png",
+      "sha256": "76a9866ba0f53b037fc503f7ce96cc249ed51d311f9362e77c1849a14df3ad50",
+      "bytes": 13560
+    },
+    {
+      "path": "../../../.cache/gwanghwamun/resized/gate.png",
+      "sha256": "6cfbf2b5de55cf99bd99983d5e9ba10847b52c7ba875a22e3cac48fb21920bd1",
+      "bytes": 303224
+    },
+    {
+      "path": "../../../.cache/gwanghwamun/resized/ginkgo.png",
+      "sha256": "0ff45d63cd5e0457f1e0cf42435f6594c4f126b0e5195aa732da0d1d1560f205",
+      "bytes": 78300
+    },
+    {
+      "path": "../../../.cache/gwanghwamun/resized/hall.png",
+      "sha256": "4ca5e8f45a9603980a5aa0619a37d1cdce83e4f01f8e075eddfe0aac6749a256",
+      "bytes": 106199
+    },
+    {
+      "path": "../../../.cache/gwanghwamun/resized/jars.png",
+      "sha256": "49ade8288dbf444c9915df59817167286cdeb38821d4bd146295c9e521cb097a",
+      "bytes": 6966
+    },
+    {
+      "path": "../../../.cache/gwanghwamun/resized/lantern.png",
+      "sha256": "78a44791c4cb1c4d33d8af282e981e64959d8954981b409882209a01021681de",
+      "bytes": 7443
+    },
+    {
+      "path": "../../../.cache/gwanghwamun/resized/pavilion.png",
+      "sha256": "8556aa4b928b3e7bf0b71a224aae0ed2011a2bb379631fcdf91f781764b6c3f4",
+      "bytes": 78669
+    },
+    {
+      "path": "../../../.cache/gwanghwamun/resized/planter.png",
+      "sha256": "4da38e065c9a82631d6106a38aa9a84dd0df03fcf5ef3bc8b233ec6f471aa1de",
+      "bytes": 5243
+    },
+    {
+      "path": "../../../.cache/gwanghwamun/resized/sejong.png",
+      "sha256": "f9c0eca170d967c8cb7863b7a4983b312ecaba7297efc51804bbd949d54570d0",
+      "bytes": 26475
+    },
+    {
+      "path": "../../../.cache/gwanghwamun/resized/tree.png",
+      "sha256": "ed24f7e617339e901baa1fd6d14cf157c42dda5bdd423c4ee39b9a2700deaf86",
+      "bytes": 63902
+    },
+    {
+      "path": "../../../.cache/gwanghwamun/resized/wall.png",
+      "sha256": "17c0b7f032ee802f36d57a359daa450f013e8840919945d91a38a257bf222c0c",
+      "bytes": 16120
+    }
+  ],
+  "outputs": [
+    {
+      "path": "palette.json",
+      "sha256": "7bdc07a755bbeb1ea78b4983adc8b0f52b8ccab69fb920ddf1ea5ea90aebe69b",
+      "bytes": 3681
+    },
+    {
+      "path": "palette.gpl",
+      "sha256": "f12132a418d0cbbe22a21e84cd2a3944752d97c9d42df44c403563744168897f",
+      "bytes": 1968
+    },
+    {
+      "path": "palette.hex",
+      "sha256": "c8445ec193d68daff48af9ae91c13bbd435c05b18b128269e7ec7517cdf0e2e0",
+      "bytes": 672
+    },
+    {
+      "path": "swatches.png",
+      "sha256": "0b9dc73aff9bd183ca9914d78028596c012b1d5f869bb459add99b49036c6e49",
+      "bytes": 1254
+    }
+  ],
+  "tool": {
+    "name": "palette_tool",
+    "version": "0.4.0"
+  },
+  "palette": {
+    "colors": 96,
+    "reserved": 0,
+    "transparent_index": 255,
+    "seed": 0
+  },
+  "fit": {
+    "../../../.cache/gwanghwamun/resized/bench.png": {
+      "measured_px": 2064,
+      "alpha_threshold": 128,
+      "off_palette_px": 2064,
+      "partial_alpha_px": 358,
+      "colors": 2009,
+      "palette_colors_used": 69,
+      "mean_delta_e": 0.016537,
+      "p95_delta_e": 0.028855,
+      "max_delta_e": 0.06301
+    },
+    "../../../.cache/gwanghwamun/resized/bridge.png": {
+      "measured_px": 4957,
+      "alpha_threshold": 128,
+      "off_palette_px": 4950,
+      "partial_alpha_px": 385,
+      "colors": 4286,
+      "palette_colors_used": 51,
+      "mean_delta_e": 0.012828,
+      "p95_delta_e": 0.024022,
+      "max_delta_e": 0.125198
+    },
+    "../../../.cache/gwanghwamun/resized/gate.png": {
+      "measured_px": 118129,
+      "alpha_threshold": 128,
+      "off_palette_px": 118073,
+      "partial_alpha_px": 1454,
+      "colors": 78430,
+      "palette_colors_used": 96,
+      "mean_delta_e": 0.017012,
+      "p95_delta_e": 0.034265,
+      "max_delta_e": 0.1479
+    },
+    "../../../.cache/gwanghwamun/resized/ginkgo.png": {
+      "measured_px": 24214,
+      "alpha_threshold": 128,
+      "off_palette_px": 24214,
+      "partial_alpha_px": 2290,
+      "colors": 20089,
+      "palette_colors_used": 75,
+      "mean_delta_e": 0.018096,
+      "p95_delta_e": 0.033768,
+      "max_delta_e": 0.16894
+    },
+    "../../../.cache/gwanghwamun/resized/hall.png": {
+      "measured_px": 37344,
+      "alpha_threshold": 128,
+      "off_palette_px": 37322,
+      "partial_alpha_px": 758,
+      "colors": 31686,
+      "palette_colors_used": 95,
+      "mean_delta_e": 0.016914,
+      "p95_delta_e": 0.029833,
+      "max_delta_e": 0.072014
+    },
+    "../../../.cache/gwanghwamun/resized/jars.png": {
+      "measured_px": 2062,
+      "alpha_threshold": 128,
+      "off_palette_px": 2062,
+      "partial_alpha_px": 204,
+      "colors": 2020,
+      "palette_colors_used": 75,
+      "mean_delta_e": 0.018974,
+      "p95_delta_e": 0.033643,
+      "max_delta_e": 0.054901
+    },
+    "../../../.cache/gwanghwamun/resized/lantern.png": {
+      "measured_px": 2001,
+      "alpha_threshold": 128,
+      "off_palette_px": 2000,
+      "partial_alpha_px": 338,
+      "colors": 1991,
+      "palette_colors_used": 89,
+      "mean_delta_e": 0.016575,
+      "p95_delta_e": 0.032118,
+      "max_delta_e": 0.073795
+    },
+    "../../../.cache/gwanghwamun/resized/pavilion.png": {
+      "measured_px": 25979,
+      "alpha_threshold": 128,
+      "off_palette_px": 25969,
+      "partial_alpha_px": 1125,
+      "colors": 23078,
+      "palette_colors_used": 96,
+      "mean_delta_e": 0.018406,
+      "p95_delta_e": 0.033479,
+      "max_delta_e": 0.1112
+    },
+    "../../../.cache/gwanghwamun/resized/planter.png": {
+      "measured_px": 1361,
+      "alpha_threshold": 128,
+      "off_palette_px": 1359,
+      "partial_alpha_px": 224,
+      "colors": 1343,
+      "palette_colors_used": 73,
+      "mean_delta_e": 0.019279,
+      "p95_delta_e": 0.037156,
+      "max_delta_e": 0.055195
+    },
+    "../../../.cache/gwanghwamun/resized/sejong.png": {
+      "measured_px": 8537,
+      "alpha_threshold": 128,
+      "off_palette_px": 8534,
+      "partial_alpha_px": 443,
+      "colors": 7843,
+      "palette_colors_used": 72,
+      "mean_delta_e": 0.015173,
+      "p95_delta_e": 0.0263,
+      "max_delta_e": 0.044576
+    },
+    "../../../.cache/gwanghwamun/resized/tree.png": {
+      "measured_px": 20096,
+      "alpha_threshold": 128,
+      "off_palette_px": 20091,
+      "partial_alpha_px": 1604,
+      "colors": 18546,
+      "palette_colors_used": 84,
+      "mean_delta_e": 0.020212,
+      "p95_delta_e": 0.036809,
+      "max_delta_e": 0.141824
+    },
+    "../../../.cache/gwanghwamun/resized/wall.png": {
+      "measured_px": 5734,
+      "alpha_threshold": 128,
+      "off_palette_px": 5732,
+      "partial_alpha_px": 334,
+      "colors": 5330,
+      "palette_colors_used": 77,
+      "mean_delta_e": 0.015798,
+      "p95_delta_e": 0.03013,
+      "max_delta_e": 0.049168
+    }
+  },
+  "totals": {
+    "max_delta_e": 0.16894,
+    "worst_p95_delta_e": 0.037156,
+    "off_palette_px": 252370
+  }
+}

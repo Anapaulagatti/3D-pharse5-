@@ -2,6 +2,9 @@ import Phaser from "phaser";
 import { Plaza, controls } from "./game/Plaza";
 import "./style.css";
 import { decodeAvatarPreferences } from "./domains/state";
+import { Gwanghwamun } from "./review/Gwanghwamun";
+import "./review/plaza.css";
+const plazaReview = location.pathname.endsWith("/plaza-review.html");
 const base = import.meta.env.BASE_URL;
 try {
   Object.assign(
@@ -41,21 +44,21 @@ const game = new Phaser.Game({
       : Phaser.AUTO,
   parent: stage,
   width: Math.min(1024, stage.clientWidth),
-  height: Math.min(640, stage.clientHeight),
+  height: Math.min(plazaReview ? 768 : 640, stage.clientHeight),
   backgroundColor: "#79935f",
   pixelArt: true,
   roundPixels: true,
   antialias: false,
   antialiasGL: false,
   physics: { default: "arcade", arcade: { debug: false } },
-  scene: [new Plaza()],
+  scene: [plazaReview ? new Gwanghwamun() : new Plaza()],
   audio: { noAudio: true },
   banner: false,
 });
 const observer = new ResizeObserver(() =>
   game.scale.resize(
     Math.min(1024, stage.clientWidth),
-    Math.min(640, stage.clientHeight),
+    Math.min(plazaReview ? 768 : 640, stage.clientHeight),
   ),
 );
 observer.observe(stage);
@@ -182,3 +185,69 @@ function network() {
 window.addEventListener("online", network);
 window.addEventListener("offline", network);
 network();
+if (plazaReview) {
+  document.body.classList.add("plaza-review");
+  controls.zoom = 1;
+  document.querySelector<HTMLSelectElement>("#zoom")!.value = "1";
+  document.querySelector(".edition")!.textContent = "GWANGHWAMUN · ART REVIEW";
+  document.querySelector(".intro h1")!.textContent = "Dưới tán bạch quả.";
+  document.querySelector(".intro .eyebrow")!.textContent =
+    "B — GINKGO COMMONS · ĐỀ XUẤT, CHƯA DUYỆT";
+  document.querySelector(".intro > p:last-child")!.textContent =
+    "Môi trường mới từ Sprite Forge · Juni bốn hướng tĩnh · WASD, Shift, E hoặc cảm ứng.";
+  document.querySelector(".world-caption span")!.textContent =
+    "광화문 · Gwanghwamun Plaza";
+  document.querySelector("#mode-label")!.textContent =
+    "Phaser · Chơi cục bộ · Chờ duyệt";
+  document.querySelector("aside > h2")!.textContent = "Juni & Ginkgo Commons";
+  document.querySelector("aside > p:not(.eyebrow)")!.textContent =
+    "Cổng hai tầng, tượng Sejong, đình đọc sách, nhà trà và rãnh nước trong một quảng trường. Nhấn E gần địa điểm hoặc chạm props để xem ghi chú.";
+  for (const id of [
+    "hair",
+    "outfit",
+    "expression",
+    "accessory",
+    "wave",
+    "celebrate",
+    "pose",
+    "think",
+  ]) {
+    const el = document.getElementById(id) as
+      HTMLButtonElement | HTMLSelectElement | HTMLInputElement;
+    el.disabled = true;
+    el.title = "Juni mới chỉ có4 hướng tĩnh; hoạt ảnh và tùy biến chờ duyệt.";
+  }
+  document.querySelector(".guest-list")!.setAttribute("hidden", "");
+  document
+    .querySelectorAll("aside .note")
+    .forEach(
+      (n) =>
+        (n.textContent =
+          "Juni được chọn tạm thời. A/Bori và C/Nari vẫn được giữ làm avatar tương lai. Chưa sản xuất hoạt ảnh/NPC mới."),
+    );
+  document.querySelector(".directions h2")!.textContent =
+    "Một khu duy nhất để duyệt.";
+  document.querySelector(".directions > p:last-child")!.textContent =
+    "Đây là bản thử nghệ thuật đề xuất B. Khu phố cũ được giữ nguyên trong liên kết thương hiệu đầu trang. Bukchon, Cheonggyecheon và Namsan chưa được xây. Chưa xuất bản công khai.";
+  const gallery = document.createElement("section");
+  gallery.className = "plaza-concepts";
+  gallery.innerHTML = `<h2>Ba hướng quảng trường</h2><p>Ảnh dưới là concept nguồn, không phải screenshot gameplay. Bản chơi Phaser phía trên là hướng B.</p><div>${[
+    ["A", "Royal Stone Promenade", "Trục nghi lễ · Đá granite · Trang trọng"],
+    [
+      "B",
+      "Ginkgo Commons",
+      "Đề xuất · Sân đọc sách · Cây bạch quả & rãnh nước",
+    ],
+    [
+      "C",
+      "Hanji Lantern Court",
+      "Sân lễ hội · Nhà sân khấu · Ánh hanji buổi tối",
+    ],
+  ]
+    .map(
+      ([id, name, description]) =>
+        `<figure><img src="${base}review/gwanghwamun/concepts/${id}.png" alt="Concept ${id}: ${name}"><figcaption><strong>${id} — ${name}</strong><br>${description}</figcaption></figure>`,
+    )
+    .join("")}</div>`;
+  document.querySelector("footer")!.before(gallery);
+}

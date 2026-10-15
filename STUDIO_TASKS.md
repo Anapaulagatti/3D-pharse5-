@@ -1,3 +1,19 @@
+# GWANGHWAMUN-REVIEW-001 — three plaza concepts / visual approval pending
+
+Latest: docs/current/GWANGHWAMUN_REVIEW.md. CHARACTER B/Juni provisional; A/Bori and C/Nari retained. PLAZA B is recommended, NOT yet selected by the user.
+
+- COMPLETE: preserve baseline6ff; recovery/before-gwanghwamun-world-20261015 pushed and peeled before art work. Current town remains active;204 protected files unchanged, controller update/UI template unchanged.
+- COMPLETE: verify official Forge pin/tools/skills/architectural facts; host route only, no paid/provider generation.
+- COMPLETE: original distinct A/Royal Stone Promenade, B/Ginkgo Commons, C/Hanji Lantern Court concepts, real source prompts/refinement/provenance retained.
+- COMPLETE: limited B layered proof from12generated props,8extracted terrain variants, separate sources/palette/JSON/layers and real Forge Tiled/.tsx exports. Zero differencing pixels;10reachable map targets; exact33solid rectangles reused in Phaser.
+- COMPLETE: real native/detail/scale/mobile/occlusion/evening Phaser screenshots and33s actual recording; labelled world-review-board. Juni uses4existing STATIC directions, not a full motion set.
+- COMPLETE: source/type/lint/format/8unit/build/9browser checks; actual reduced-motion, CDP touch and WebGL-unavailable Canvas. Exact extracted ZIP HTTP verified,3frames byte-identical to inspected engine evidence; previous town4guests loads.
+- CHECKPOINT: final exact source SHA, independent clean-checkout/CI result and recoverability verification recorded in annotated checkpoint/gwanghwamun-concepts-20261015 after verification. Read the actual tag and run, not a predicted status.
+- **PENDING USER REVIEW:** choose/revise/approve the PLAZA direction and scale/detail quality. Juni remains provisional. Hard tile transitions/straight rill are openly shown, not hidden as finished production polish.
+- **STOP:** no full action/NPC production, future districts, town deletion, repository cleanup, main promotion, paid APIs or public game/Pages release.
+
+## Earlier record — historical; latest authority above supersedes conflicts
+
 # CHARACTER-REBOOT-001 — three concepts, visual selection pending
 
 Latest authority: docs/current/CHARACTER_REBOOT.md. Prior player/NPC artwork REJECTED; environment/gameplay/infrastructure preserved.

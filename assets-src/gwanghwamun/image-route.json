@@ -1,0 +1,162 @@
+{
+  "status": "OUTPUTS_CREATED_PENDING_VISUAL_APPROVAL",
+  "host_calls": 10,
+  "provider_api_calls": 0,
+  "paid_routes": "disabled FORGE_MAX_PAID_REQUESTS=0; no provider API or CLI generation invoked",
+  "model_and_cost": "Not exposed by host tool; not invented",
+  "assets": [
+    {
+      "id": "A-initial",
+      "route": "host image_gen",
+      "output": "concepts/references/A-initial-camera.png",
+      "sha256": "324a5e9dba218de6a1fd0de839f35a9088928a933ecad5c10e7917000054fe82",
+      "size": [
+        1536,
+        1024
+      ],
+      "prompt": "concepts/A.prompt.txt",
+      "prompt_sha256": "f63c68c25c8c5a4ca9b36b144322c063bfd247b5db505f537a1836561433cd33",
+      "references": [
+        "assets-src/character-reboot/B/master-front/master_rgba.png"
+      ]
+    },
+    {
+      "id": "B",
+      "route": "host image_gen",
+      "output": "concepts/B.png",
+      "sha256": "ecc80ced06b50b3663813ae42c435f7cc0894fd0c165e7dc3785f10dd528e9b0",
+      "size": [
+        1536,
+        1024
+      ],
+      "prompt": "concepts/B.prompt.txt",
+      "prompt_sha256": "80e0f42d7c0bbd55eab306d6231669ba1f01eba3af823ca142b00f25faeddaa5",
+      "references": [
+        "assets-src/character-reboot/B/master-front/master_rgba.png"
+      ]
+    },
+    {
+      "id": "C",
+      "route": "host image_gen",
+      "output": "concepts/C.png",
+      "sha256": "4d2ebc014ccd2968e9941a989ddca69b63e32756d744f9b364826fdeb712ffdb",
+      "size": [
+        1536,
+        1024
+      ],
+      "prompt": "concepts/C.prompt.txt",
+      "prompt_sha256": "38dd701e8b453c615ca39c1cd19de5de28ca62f4c38756f95d8657e0f9d5f675",
+      "references": [
+        "assets-src/character-reboot/B/master-front/master_rgba.png"
+      ]
+    },
+    {
+      "id": "A-camera-edit",
+      "route": "host image_gen",
+      "output": "concepts/A.png",
+      "sha256": "44bdd429e172bfcdd80d2e7203acba1b175e97669557ed622e498b2293604715",
+      "size": [
+        1536,
+        1024
+      ],
+      "prompt": "concepts/A-camera-edit.prompt.txt",
+      "prompt_sha256": "7f6e1d14066d574ebb9c32e7abf3fd15ab82736d8f47aa41797c23b667153848",
+      "references": [
+        "assets-src/gwanghwamun/concepts/references/A-initial-camera.png"
+      ]
+    },
+    {
+      "id": "gate",
+      "route": "host image_gen",
+      "output": "raw/gate.png",
+      "sha256": "0eff662d78c863e4f74f532268834cf65adfb33ae38665a47825873581e33533",
+      "size": [
+        1254,
+        1254
+      ],
+      "prompt": "gate-master-prompt/prompt.txt",
+      "prompt_sha256": "11ebaa7383b556eeb880b791468be5da5dc8a0b94fd7b8f51b0be21e09935267",
+      "references": [
+        "assets-src/gwanghwamun/concepts/B.png"
+      ]
+    },
+    {
+      "id": "architecture",
+      "route": "host image_gen",
+      "output": "raw/architecture.png",
+      "sha256": "eba824d737a5728762233a35b8717ea6ba33553daae65c7962f4ae2c5868c8ad",
+      "size": [
+        1774,
+        887
+      ],
+      "prompt": "raw/architecture.prompt.txt",
+      "prompt_sha256": "d4c52ebd9094cc88ff936a04d01e0ab57a4163ec22a66e8b6476961245886447",
+      "references": [
+        "assets-src/gwanghwamun/concepts/B.png",
+        "assets-src/gwanghwamun/raw/gate.png"
+      ]
+    },
+    {
+      "id": "tall-props",
+      "route": "host image_gen",
+      "output": "raw/tall-props.png",
+      "sha256": "0a7bf9b10f71c71805924286283d0b82e018f7593c53ec421640f073624bcb48",
+      "size": [
+        1881,
+        836
+      ],
+      "prompt": "raw/tall-props.prompt.txt",
+      "prompt_sha256": "c41e853f10b5c238e4ea8f5200eca8063f5cdb35be54888bb94e06de60009596",
+      "references": [
+        "assets-src/gwanghwamun/concepts/B.png",
+        "assets-src/gwanghwamun/raw/gate.png"
+      ]
+    },
+    {
+      "id": "furniture",
+      "route": "host image_gen",
+      "output": "raw/furniture.png",
+      "sha256": "8c8c024e54d5af791e624a34b59d5ce069c84beb7a48c71c4b6075784154da75",
+      "size": [
+        1254,
+        1254
+      ],
+      "prompt": "raw/furniture.prompt.txt",
+      "prompt_sha256": "97fb18dfb9bc39f05c343053fdd6bff6cf3a2a7e7a1197b7986d203af76191c2",
+      "references": [
+        "assets-src/gwanghwamun/concepts/B.png",
+        "assets-src/gwanghwamun/raw/gate.png"
+      ]
+    },
+    {
+      "id": "terrain",
+      "route": "host image_gen",
+      "output": "raw/terrain.png",
+      "sha256": "93367d8297a8bc9b4b6b74ecee6af18ae464ddbe676473b5ab5e45c8a8396c80",
+      "size": [
+        1254,
+        1254
+      ],
+      "prompt": "raw/terrain.prompt.txt",
+      "prompt_sha256": "5fe395a04e9802d314fca4746c6092177f2a4271d8423cd596571154940dcb1f",
+      "references": [
+        "assets-src/gwanghwamun/concepts/B.png"
+      ]
+    },
+    {
+      "id": "stonework",
+      "route": "host image_gen",
+      "output": "raw/stonework.png",
+      "sha256": "51da52b99ae2f5b9d4a3967f2ab976528ec901852008b7c9160f2265de08ff72",
+      "size": [
+        1774,
+        887
+      ],
+      "prompt": "raw/stonework.prompt.txt",
+      "prompt_sha256": "02567643028f4257470ecdada7602da616d817308c13b655e415fd8e6015ae7c",
+      "references": [
+        "assets-src/gwanghwamun/raw/gate.png"
+      ]
+    }
+  ]
+}
