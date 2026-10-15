@@ -19,3 +19,7 @@ Toolchain unchanged, no new packages. Node24+/exactlock/Pillow12.3/Chromium/ffmp
 ## Single-image avatar review follow-up
 
 User requested one collage. quality-reports/chibi-v1/avatar-review-board.png (1600×1300) is the complete at-a-glance review; tools/avatar-review-board.py reproduces it from19existing actual Phaser screenshot/decoded-video crops. Character pixels retain native3× display; only the small scene inset uses exact2:1 NEAREST reduction. Source paths/hashes/crops in avatar-review-board.sources.json. Actual composedPNG visually inspected for complete sprites, labels and every requested section. No runtime/source art/ZIP changes; prior verified build/CI e272ac9 still applies to unchanged application. Stop for avatar approval.
+
+## Current mission — ANIMATION-HISTORY-CLEANUP
+
+Latest docs/current/MISSION.md provisionally accepts current art. GateA: remote3b62e9b verified; immutable2D/3D recovery tags pushed and fresh HTTPS clone/read-hash tests passed5948/2738files. Forge5skills inspected, video route no-route, ffmpeg alpha roundtrip passes. No billable generation. GateB authored animation preserving accepted master underway; NPC validation then cleanup follows. Main/public boundary must be checked; no game publication authorized.

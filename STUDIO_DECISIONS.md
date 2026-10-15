@@ -18,3 +18,7 @@ Player-only rebuild; world direction is temporarily retained, not newly approved
 Final review: actual engine crops show4directions/4moods/4wardrobe combinations, no substituted source sprites. Final video334frames/40.049s at original timestamps. Source80cea09 has successful remoteCI38708659482. Runtime-only ZIP815700bytes verified from actual extraction/HTTP desktop/mobile; previous ZIP preserved. Pause/reducedmotion/fallback and original tests retained; new rendered-pixel facial test distinguishes four moods in the same static crop. Physical-phoneFPS/Windows GUI launch unmeasured. Stop for visual approval; current public website unchanged.
 
 Single-board follow-up: compose existing actual renderer evidence, keep avatar pixels unchanged, exact2:1 NEAREST only for small gameplay inset. Use one explicitly labelled static collage for at-a-glance review; existing MP4 remains movement proof. No art regeneration, gameplay expansion or publication.
+
+## Current mission — ANIMATION-HISTORY-CLEANUP
+
+Latest docs/current/MISSION.md provisionally accepts current art. GateA: remote3b62e9b verified; immutable2D/3D recovery tags pushed and fresh HTTPS clone/read-hash tests passed5948/2738files. Forge5skills inspected, video route no-route, ffmpeg alpha roundtrip passes. No billable generation. GateB authored animation preserving accepted master underway; NPC validation then cleanup follows. Main/public boundary must be checked; no game publication authorized.

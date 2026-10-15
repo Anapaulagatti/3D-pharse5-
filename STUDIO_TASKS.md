@@ -12,3 +12,7 @@ Milestone **CHARACTER-CHIBI-001 — Avatar-only style override**. Authoritative 
 - PENDING: user visual approval — READY_FOR_USER_REVIEW. STOP after avatar review package. No environment reset, mass production, Gate3, website publication or separate production-app change.
 
 - COMPLETE follow-up: one1600×1300 avatar-review-board.png combines old/new, front/back/left/right, idle/walk/run/emote,2hair/2outfits/4expressions and a small actual Phaser scene. Visually inspected; no runtime or art changes.
+
+## Current mission — ANIMATION-HISTORY-CLEANUP
+
+Latest docs/current/MISSION.md provisionally accepts current art. GateA: remote3b62e9b verified; immutable2D/3D recovery tags pushed and fresh HTTPS clone/read-hash tests passed5948/2738files. Forge5skills inspected, video route no-route, ffmpeg alpha roundtrip passes. No billable generation. GateB authored animation preserving accepted master underway; NPC validation then cleanup follows. Main/public boundary must be checked; no game publication authorized.
