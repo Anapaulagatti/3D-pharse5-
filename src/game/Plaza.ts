@@ -133,7 +133,7 @@ export class Plaza extends Phaser.Scene {
       const colors = [0xe8ae72, 0xb5d2b7, 0xe58d89];
       for (let i = 0; i < 14; i++) {
         const x = 280 + i * 30,
-          y = 278 + i * 1.5;
+          y = Math.round(278 + i * 1.5);
         string.fillStyle(colors[i % 3]);
         string.fillTriangle(x, y, x + 10, y, x + 5, y + 12);
       }
@@ -152,7 +152,7 @@ export class Plaza extends Phaser.Scene {
     }
     for (const dr of ["down", "left", "right", "up"])
       for (const [action, n, fps] of [
-        ["idle", 4, 4],
+        ["idle", 4, 10],
         ["walk", 8, 12],
         ["run", 8, 18],
         ["wave", 6, 9],
@@ -163,7 +163,7 @@ export class Plaza extends Phaser.Scene {
             key: "avatar",
             frame: `${action === "run" ? "walk" : action}-${dr}-${i}`,
             ...(action === "idle"
-              ? { duration: [1800, 120, 350, 1100][i] }
+              ? { duration: [1700, 20, 250, 1000][i] }
               : {}),
           })),
           frameRate: fps,
@@ -302,8 +302,7 @@ export class Plaza extends Phaser.Scene {
       this.wave();
       window.dispatchEvent(
         new CustomEvent("town-dialog", {
-          detail:
-            "Mira · Trưởng bưu cục\nChào người đưa thư mới! Có ai đó đã làm biến mất tên trên những lá thư…\n우체국 — Bưu điện. Hẹn gặp bạn trong “Chuyến giao thư đầu tiên” sau khi duyệt mỹ thuật.",
+          detail: `Mira · Người giữ phố\nChào bạn! ${this.layout.mood}\nVai nhân vật: ${this.layout.role}.\n우체국 — Bưu điện. Chuyến phiêu lưu đầu tiên sẽ chờ sau khi chọn hướng hình ảnh.`,
         }),
       );
     } else

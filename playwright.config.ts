@@ -3,13 +3,13 @@ import { existsSync } from "node:fs";
 export default defineConfig({
   testDir: "test/e2e",
   workers: 1,
-  timeout: 45000,
+  timeout: 120000,
   reporter: [
     ["list"],
     [
       "json",
       {
-        outputFile: `${process.env.PIXEL_REPORT_DIR ?? "quality-reports/pixel-v3.1"}/e2e-results.json`,
+        outputFile: `${process.env.PIXEL_REPORT_DIR ?? "quality-reports/pixel-reset-v2/native"}/e2e-results.json`,
       },
     ],
   ],

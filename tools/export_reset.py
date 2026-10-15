@@ -6,11 +6,11 @@ from pathlib import Path
 from PIL import Image,ImageDraw
 import json,math,hashlib,random,os
 from collections import deque
-R=Path(__file__).resolve().parents[1];S=R/'assets-src/reset-v2';O=R/'public/assets/reset-v2';O.mkdir(parents=True,exist_ok=True)
+R=Path(__file__).resolve().parents[1];S=R/'assets-src/reset-v2';O=R/'public-reset/assets/reset-v2';O.mkdir(parents=True,exist_ok=True)
 THEMES={
-'A':{'name':'Moonletter Garden','vi':'Thư quán ven hồ','role':'Arin · Người đưa thư','mood':'Một góc hanok yên tĩnh, hiên gỗ bên hồ, thư tay và vườn mơ.','source':'object-master.png','rects':[(0,0,615,492),(615,0,1045,492),(1045,0,1536,506),(0,492,615,1024),(615,492,995,1024),(995,506,1536,1024)],'widths':[256,132,144,152,88,148],'spawn':[448,426],'npc':[404,391],'hero':[448,336],'follow':132,'colors':{'soil':'b6b394','shade':'969d83','grass':'8eaa82','grass2':'a2b58a','stone':'cabda6','edge':'a69e8b','light':'e0d3b7','wood':'9a7458','accent':'8eaaa0','dark':'445a55'}},
-'B':{'name':'Ginkgo Commons','vi':'Quảng trường Ngân Hạnh','role':'Seoha · Học viên thư quán','mood':'Học viện seowon hai tầng, sân đá có trục gặp gỡ và đài phun sách.','source':'object-master-korean.png','rects':[(0,0,780,530),(775,0,1260,580),(1260,0,1536,590),(0,535,624,1024),(575,530,1090,1024),(1090,585,1536,1024)],'widths':[288,144,88,168,124,144],'spawn':[470,426],'npc':[426,392],'hero':[470,326],'follow':132,'colors':{'soil':'9ca58d','shade':'778d83','grass':'7c9985','grass2':'9fae92','stone':'cfccbc','edge':'a5ada7','light':'e7e2d1','wood':'a18b66','accent':'6d8e94','dark':'425961'}},
-'C':{'name':'Hanji Afterhours','vi':'Phố xưởng Hanji','role':'Jun · Người biểu diễn','mood':'Phố xưởng lệch tầng, sân khấu nhỏ và quầy lễ hội rực ánh đèn.','source':'object-master.png','rects':[(0,0,656,544),(660,0,1100,548),(1105,0,1536,550),(0,555,565,1024),(575,565,1020,1024),(1025,555,1536,1024)],'widths':[256,144,124,168,140,128],'spawn':[438,420],'npc':[394,392],'hero':[420,340],'follow':132,'colors':{'soil':'b49b8b','shade':'8e8c89','grass':'879c8b','grass2':'9daf91','stone':'bc9c8e','edge':'8b8585','light':'d7b8a1','wood':'a17059','accent':'668a8d','dark':'3e555f'}}}
+'A':{'name':'Moonletter Garden','vi':'Thư quán ven hồ','role':'Arin · Người đưa thư','mood':'Một góc hanok yên tĩnh, hiên gỗ bên hồ, thư tay và vườn mơ.','source':'object-master.png','rects':[(0,0,615,492),(615,0,1045,492),(1045,0,1536,506),(0,492,615,1024),(615,492,995,1024),(995,506,1536,1024)],'widths':[256,132,144,152,88,148],'spawn':[448,426],'npc':[404,391],'hero':[448,336],'follow':132,'colors':{'soil':'b6b394','shade':'969d83','grass':'8eaa82','grass2':'92ac84','stone':'cabda6','edge':'a69e8b','light':'e0d3b7','wood':'9a7458','accent':'8eaaa0','dark':'445a55'}},
+'B':{'name':'Ginkgo Commons','vi':'Quảng trường Ngân Hạnh','role':'Seoha · Học viên thư quán','mood':'Học viện seowon hai tầng, sân đá có trục gặp gỡ và đài phun sách.','source':'object-master-korean.png','rects':[(0,0,780,530),(775,0,1260,580),(1260,0,1536,590),(0,535,624,1024),(575,530,1090,1024),(1090,585,1536,1024)],'widths':[288,144,88,168,124,144],'spawn':[470,426],'npc':[426,392],'hero':[470,326],'follow':138,'colors':{'soil':'9ca58d','shade':'778d83','grass':'7c9985','grass2':'829d88','stone':'c7c5b4','edge':'a5a89b','light':'d9d4c0','wood':'a18b66','accent':'6d8e94','dark':'425961'}},
+'C':{'name':'Hanji Afterhours','vi':'Phố xưởng Hanji','role':'Jun · Người biểu diễn','mood':'Phố xưởng lệch tầng, sân khấu nhỏ và quầy lễ hội rực ánh đèn.','source':'object-master.png','rects':[(0,0,656,544),(660,0,1100,548),(1105,0,1536,550),(0,555,565,1024),(575,565,1020,1024),(1025,555,1536,1024)],'widths':[256,144,124,168,140,128],'spawn':[438,420],'npc':[394,392],'hero':[420,340],'follow':136,'colors':{'soil':'b49b8b','shade':'8e8c89','grass':'879c8b','grass2':'8c9f8d','stone':'bc9c8e','edge':'8b8585','light':'d7b8a1','wood':'a17059','accent':'668a8d','dark':'3e555f'}}}
 NAMES=['house','tree1','tree2','feature','kiosk','decor']
 # Native48x64 hero system. Each role has its own silhouette/outfit, not recolours.
 P={'ink':'253241','edge':'414350','hair':'34313e','hairHi':'625163','skin':'efbb91','skinHi':'ffdfb4','skinSh':'bc8270','cheek':'e69586','white':'fff0cd','cream':'d8c8a5','shadow':'746e69','jade':'73a69a','jadeHi':'acd0b6','jadeSh':'456f72','coral':'ce706a','coralHi':'efab8d','coralSh':'914d5b','navy':'3a5069','navyHi':'647b91','navySh':'29394e','gold':'d9ab61','goldHi':'f7db91','goldSh':'9c7849','purple':'876a97','purpleHi':'bc91b1','purpleSh':'614f79','teal':'568c96','tealHi':'8bc2bf','tealSh':'38636e','shoe':'614a46','shoeHi':'b18b70','paper':'f9e2b6','paperSh':'baa38b','rose':'df8799','metal':'a1bdc1'}
@@ -74,12 +74,13 @@ def character(style,dr,action,f):
   if style=='B':
    for x in ([29] if side else [17,30]):a.d.rectangle((x-4,cy-1,x+4,cy+7),outline=a.c('goldSh'))
    if not side:a.r((22,cy+2,25,cy+2),'goldSh')
+ hbob=bob+1
  # Headwear gives independent large readable silhouettes.
- if style=='A':a.el((26,0+bob,37,8+bob),'hair');a.r((28,1+bob,34,2+bob),'hairHi');a.poly([(29,5+bob),(38,2+bob),(40,8+bob),(32,9+bob)],'paper');a.l([(32,5+bob),(37,5+bob)],'gold')
- elif style=='B':a.poly([(5,6+bob),(12,1+bob),(32,0+bob),(42,4+bob),(43,9+bob),(35,12+bob),(9,11+bob)],'navySh');a.poly([(7,6+bob),(14,3+bob),(30,2+bob),(39,5+bob),(36,8+bob),(10,9+bob)],'navy');a.l([(13,4+bob),(29,3+bob)],'navyHi',2);a.r((30,7+bob,34,9+bob),'gold')
+ if style=='A':a.el((26,0+hbob,37,8+hbob),'hair');a.r((28,1+hbob,34,2+hbob),'hairHi');a.poly([(29,5+hbob),(38,2+hbob),(40,8+hbob),(32,9+hbob)],'paper');a.l([(32,5+hbob),(37,5+hbob)],'gold')
+ elif style=='B':a.poly([(5,6+hbob),(12,1+hbob),(32,0+hbob),(42,4+hbob),(43,9+hbob),(35,12+hbob),(9,11+hbob)],'navySh');a.poly([(7,6+hbob),(14,3+hbob),(30,2+hbob),(39,5+hbob),(36,8+hbob),(10,9+hbob)],'navy');a.l([(13,4+hbob),(29,3+hbob)],'navyHi',2);a.r((30,7+hbob,34,9+hbob),'gold')
  else:
-  a.poly([(33,5+bob),(39,0+bob),(45,2+bob),(47,9+bob),(44,18+bob+phase//2),(39,15+bob),(40,8+bob)],'hair');a.l([(40,3+bob),(44,6+bob),(43,12+bob)],'hairHi');a.l([(7,15+bob),(8,7+bob),(17,3+bob),(29,4+bob),(38,10+bob)],'metal',2)
-  for x in ([10,36] if not side else [14]):a.r((x-3,14+bob,x+3,24+bob),'ink');a.r((x-2,15+bob,x+2,22+bob),'gold');a.r((x-1,16+bob,x,20+bob),'tealHi')
+  a.poly([(33,5+hbob),(39,0+hbob),(45,2+hbob),(47,9+hbob),(44,18+hbob+phase//2),(39,15+hbob),(40,8+hbob)],'hair');a.l([(40,3+hbob),(44,6+hbob),(43,12+hbob)],'hairHi');a.l([(7,15+hbob),(8,7+hbob),(17,3+hbob),(29,4+hbob),(38,10+hbob)],'metal',2)
+  for x in ([10,36] if not side else [14]):a.r((x-3,14+hbob,x+3,24+hbob),'ink');a.r((x-2,15+hbob,x+2,22+hbob),'gold');a.r((x-1,16+hbob,x,20+hbob),'tealHi')
  if dr=='left':return a.im.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
  return a.im
 
@@ -120,6 +121,12 @@ def tiles(style,c):
    else:
     for j in range(3):
      xx=x+rng.randrange(3,28);yy=y+rng.randrange(3,28);a.r((xx,yy,xx+2,yy+1),'shade')
+ # Restrained stone grain/chips, not screen-wide particle noise.
+ rng=random.Random(902+ord(style));pix=a.im.load()
+ for yy in range(0,64):
+  for xx in range(0,256):
+   if rng.random()<.035 and pix[xx,yy][:3]==tuple(bytes.fromhex(c['stone'])):
+    base=tuple(bytes.fromhex(c['stone']));d=-7 if (xx+yy)%2 else 5;pix[xx,yy]=tuple(max(0,min(255,v+d)) for v in base)+(255,)
  return a.im
 
 def small(kind,style):
@@ -130,9 +137,20 @@ def small(kind,style):
   for yy in (15,22):a.poly([(5,yy),(50,yy-6),(51,yy-1),(6,yy+5)],wood);a.l([(7,yy),(48,yy-5)],light)
   a.r((5,17,8,37),'ink');a.r((50,10,53,33),'ink')
  elif kind in ('planter','shrub'):
-  a.poly([(12,38),(43,33),(53,39),(49,55),(23,60),(14,53)],'ink');a.poly([(14,40),(45,36),(49,42),(45,53),(24,57),(17,51)],accent);a.l([(17,42),(25,46),(45,42)],'jadeHi');a.el((11,32,53,44),'cream')
-  for x,y,r in [(24,29,10),(36,24,12),(43,31,9),(23,19,8)]:a.el((x-r,y-r,x+r,y+r),'jadeSh');a.el((x-r+2,y-r,x+r-2,y+r-4),'jade');a.l([(x-4,y-4),(x,y-6),(x+4,y-4)],'jadeHi',2)
-  for x,y in [(24,18),(34,23),(44,28),(20,31)]:a.el((x-2,y-2,x+2,y+2),'paper');a.r((x,y,x,y),'gold')
+  # Smaller coherent planter: substantial front/right planes, rim thickness,
+  # varied small leaf clusters and tiny flowers rather than three balloon dots.
+  a.poly([(21,39),(39,35),(48,40),(46,54),(31,59),(22,54)],'ink')
+  a.poly([(23,42),(32,47),(32,56),(25,52)],'goldSh' if style!='B' else 'navySh')
+  a.poly([(32,47),(46,41),(44,52),(32,56)],'shoe' if style!='B' else 'navy')
+  for y in (46,50,54):a.l([(33,y),(43,y-3)],'shoeHi' if style!='B' else 'navyHi')
+  a.poly([(20,38),(39,33),(49,39),(31,46)],'cream');a.poly([(24,38),(39,35),(45,39),(31,43)],'jadeSh');a.l([(23,40),(31,45),(47,39)],'gold' if style!='B' else 'paper')
+  rng=random.Random(46+ord(style))
+  for j in range(35):
+   x=rng.randrange(21,45);y=rng.randrange(21,40);r=rng.randrange(2,5)
+   a.poly([(x-r,y),(x-1,y-r),(x+r,y-1),(x+1,y+r)],'jadeSh');a.l([(x-r+1,y),(x-1,y-r+1),(x+1,y-1)],'jade')
+   if j%3==0:a.l([(x-1,y-r+1),(x+1,y-r+1)],'jadeHi')
+  for x,y in [(24,24),(35,22),(41,32),(29,34),(37,37)]:
+   a.r((x-2,y,x+2,y+1),'paper');a.r((x,y-2,x+1,y+2),'paper');a.r((x,y,x,y),'gold')
  elif kind=='crate':
   a.poly([(6,23),(40,16),(56,26),(20,35)],'gold');a.poly([(20,35),(56,26),(56,53),(20,61)],'shoe');a.poly([(6,23),(20,35),(20,61),(6,49)],'goldSh')
   for y in (34,42,50):a.l([(22,y+2),(54,y-5)],'goldSh')

@@ -7,8 +7,8 @@
     "node": ">=24.0.0"
   },
   "scripts": {
-    "assets": "python3 tools/export_art.py",
-    "assets:check": "python3 tools/check_art.py",
+    "assets": "python3 tools/export_reset.py",
+    "assets:check": "python3 tools/check_art.py && python3 tools/check_reset.py",
     "dev": "vite --host 127.0.0.1 --port 4200",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",

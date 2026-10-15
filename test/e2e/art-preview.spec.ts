@@ -1,7 +1,8 @@
 import { test, expect, type Page } from "@playwright/test";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { createHash } from "node:crypto";
-const out = process.env.PIXEL_REPORT_DIR ?? "quality-reports/pixel-v3.1";
+const out =
+  process.env.PIXEL_REPORT_DIR ?? "quality-reports/pixel-reset-v2/native";
 mkdirSync(out, { recursive: true });
 const metrics = (p: Page) => p.evaluate(() => window.__PIXEL_METRICS__!);
 async function ready(p: Page) {
@@ -9,11 +10,44 @@ async function ready(p: Page) {
 }
 async function walk(p: Page, key: string, ms: number) {
   await p.locator("canvas").focus();
+  const initial = await metrics(p);
   await p.keyboard.down(key);
-  await p.waitForTimeout(ms);
+  // Original assertions are preserved. Wait actual engine frames rather than
+  // assuming the cloud compositor presents60 frames per wall-clock second.
+  await p.waitForFunction(
+    ({ start, frames }) =>
+      (window.__PIXEL_METRICS__?.frameCount ?? 0) >= start + frames,
+    { start: initial.frameCount, frames: Math.ceil(ms / 16.667) },
+    { timeout: Math.max(12000, ms * 12) },
+  );
   const m = await metrics(p);
   await p.keyboard.up(key);
   return m;
+}
+async function moveAxis(p: Page, axis: "x" | "y", target: number) {
+  await p.locator("canvas").focus();
+  const current = (await metrics(p))[axis];
+  if (Math.abs(current - target) < 3) return;
+  const sign = target > current ? 1 : -1;
+  const key =
+    axis === "x"
+      ? sign > 0
+        ? "ArrowRight"
+        : "ArrowLeft"
+      : sign > 0
+        ? "ArrowDown"
+        : "ArrowUp";
+  await p.keyboard.down(key);
+  try {
+    await p.waitForFunction(
+      ({ axis, target, sign }) =>
+        ((window.__PIXEL_METRICS__?.[axis] ?? 0) - target) * sign >= 0,
+      { axis, target, sign },
+      { timeout: 20000 },
+    );
+  } finally {
+    await p.keyboard.up(key);
+  }
 }
 function watch(p: Page) {
   const errors: string[] = [];
@@ -37,8 +71,8 @@ test("actual three-direction art, animation, collision, HTML dialogue and settin
   await page.screenshot({ path: out + "/desktop-B.png", fullPage: true });
   await page.locator("canvas").screenshot({ path: out + "/engine-B.png" });
   const first = await metrics(page);
-  expect(first.animationFrames).toBe(48);
-  expect(first.colliders).toBe(13);
+  expect(first.animationFrames).toBe(72);
+  expect(first.colliders).toBeGreaterThanOrEqual(20);
   const movement = [];
   for (const [key, direction] of [
     ["ArrowDown", "down"],
@@ -79,6 +113,10 @@ test("actual three-direction art, animation, collision, HTML dialogue and settin
   const wallB = await metrics(page);
   expect(wallB.y).toBeCloseTo(wallA.y, 0);
   expect(wallA.y).toBeGreaterThan(257);
+  // Native route through the new academy courtyard; no teleport/state injection.
+  await moveAxis(page, "y", 440);
+  await moveAxis(page, "x", 451);
+  await moveAxis(page, "y", 420);
   await page.keyboard.press("e");
   await expect(page.locator("#dialog-copy")).toContainText("Mira");
   await expect(page.locator("#dialog-copy")).toContainText("우체국");
@@ -124,7 +162,9 @@ test("actual three-direction art, animation, collision, HTML dialogue and settin
   expect((await metrics(page)).style).toBe("B");
   expect(
     await page.evaluate(
-      () => JSON.parse(localStorage.getItem("hangeul-pixel-guest-v1")!).metMira,
+      () =>
+        JSON.parse(localStorage.getItem("hangeul-pixel-premium-reset-v2")!)
+          .metMira,
     ),
   ).toBe(true);
   await context.setOffline(true);

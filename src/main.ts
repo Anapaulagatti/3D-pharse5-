@@ -2,6 +2,7 @@ import Phaser from "phaser";
 import { Plaza, controls, type ArtStyle } from "./game/Plaza";
 import { decodeGuest, Style } from "./domains/state";
 import "./style.css";
+import worlds from "../assets-src/reset-v2/worlds.json";
 const guest = decodeGuest(safeRead());
 function safeRead() {
   try {
@@ -27,7 +28,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 <header><a class="brand" href="${base}"><span class="stamp" aria-hidden="true">✉</span><span>KOREAN ARENA<small>Hangeul Pixel Town</small></span></a><span class="edition">ART RESET · GATE 2</span><button id="pause" aria-pressed="false">Tạm dừng</button></header>
 <main><div class="intro"><p class="eyebrow">BA KHU PHỐ · BA VAI NHÂN VẬT</p><h1>Một nơi bạn muốn <em>ở lại.</em></h1><p>Dạo phố ở tầm nhìn gần, gặp Mira và so sánh ba hướng mỹ thuật mới.</p></div>
 <div class="play-layout"><section class="stage-wrap" aria-label="Bản đồ tương tác"><div class="world-caption"><span>✦ Bản duyệt Gate 2 · Reset</span><span id="mode-label">Chơi cục bộ · Không có người chơi online</span></div><div id="stage"><p id="loading" role="status">Đang mở cánh cửa phố…</p></div><div class="game-bar"><button id="focus">Khám phá</button><span>WASD / ↑↓←→ · Shift chạy · E trò chuyện</span><button id="wave">Biểu cảm</button><button id="interact">Trò chuyện</button></div><div class="touch-pad" aria-label="Điều khiển cảm ứng"><button data-x="0" data-y="-1" aria-label="Đi lên">↑</button><div><button data-x="-1" data-y="0" aria-label="Sang trái">←</button><button data-x="0" data-y="1" aria-label="Đi xuống">↓</button><button data-x="1" data-y="0" aria-label="Sang phải">→</button></div></div></section>
-<aside><p class="eyebrow">BẢN DUYỆT MỸ THUẬT</p><h2>Những lá thư<br>không còn tên.</h2><p>Mira đang đợi bên bưu điện. Có chuyện gì vừa xảy ra ở thị trấn này?</p><p class="quest-step"><span>01</span>Đến gần Mira và nhấn E.</p><p class="note">Đây là bản thử hình ảnh và điều khiển. Nhiệm vụ học, trang phục và chơi cùng bạn bè sẽ được làm ở các gate sau.</p><label for="direction">Hướng hình ảnh</label><select id="direction"><option value="A">A · Thư quán ven hồ</option><option value="B">B · Quảng trường Ngân Hạnh</option><option value="C">C · Phố xưởng Hanji</option></select><label for="zoom">Zoom pixel nguyên</label><select id="zoom"><option value="1">1× · Toàn cảnh bản đồ</option><option value="2" selected>2× · Tầm chơi nhân vật</option><option value="3">3× · Cận cảnh nhân vật</option></select><button id="night" aria-pressed="false">Ánh chiều dịu</button><label class="check"><input id="motion" type="checkbox">Giảm chuyển động</label><p id="offline" role="status"></p><output id="render-status">Đang tải…</output></aside></div>
+<aside><p class="eyebrow">BẢN DUYỆT MỸ THUẬT</p><h2 id="review-title">Ba nơi để ở lại.</h2><p id="review-mood"></p><p id="review-role" class="quest-step"></p><p>Di chuyển để xem chiều sâu; Space để xem biểu cảm. Nhấn E khi đến gần Mira.</p><p class="note">Đây là bản thử hình ảnh và điều khiển. Nhiệm vụ học, trang phục và chơi cùng bạn bè sẽ được làm ở các gate sau.</p><label for="direction">Hướng hình ảnh</label><select id="direction"><option value="A">A · Thư quán ven hồ</option><option value="B">B · Quảng trường Ngân Hạnh</option><option value="C">C · Phố xưởng Hanji</option></select><label for="zoom">Zoom pixel nguyên</label><select id="zoom"><option value="1">1× · Toàn cảnh bản đồ</option><option value="2" selected>2× · Tầm chơi nhân vật</option><option value="3">3× · Cận cảnh nhân vật</option></select><button id="night" aria-pressed="false">Ánh chiều dịu</button><label class="check"><input id="motion" type="checkbox">Giảm chuyển động</label><p id="offline" role="status"></p><output id="render-status">Đang tải…</output></aside></div>
 <div id="dialog" class="dialog" hidden><p id="dialog-copy" role="status"></p><button id="close-dialog">Đóng lời nhắn</button></div>
 <section class="directions"><p class="eyebrow">BA THIẾT KẾ · BA BỐ CỤC RIÊNG</p><h2>Bạn muốn sống ở khu phố nào?</h2><p>Mỗi hướng có kiến trúc, cây, đường đi và nhân vật riêng. Đây là chính asset đang chạy trong Phaser; cả ba đều chờ duyệt.</p><div class="art-grid">${(["A", "B", "C"] as const).map((s, i) => `<article><div class="sheet-scroll"><img src="${base}assets/reset-v2/direction-${s}.png" width="448" height="448" alt="Nguồn pixel hướng ${s}: nhà hanok, cây hoa, quầy hàng và bốn hướng nhân vật"></div><h3>${s} · ${["Moonletter Garden", "Ginkgo Commons", "Hanji Afterhours"][i]}</h3><p>${["Thư quán hanok và người đưa thư áo choàng.", "Học viện seowon, sân đá và học viên đeo kính.", "Phố xưởng lệch tầng, sân khấu và người biểu diễn."][i]}</p><button data-style="${s}">Thử hướng ${s}</button></article>`).join("")}</div></section>
 <footer>Pixel gốc · Không quảng cáo · Không thu thập tài khoản · Chưa thay website công khai</footer></main>`;
@@ -49,6 +50,9 @@ function hasWebGL() {
 }
 function start(style: ArtStyle) {
   window.__PIXEL_METRICS__ = undefined;
+  document.querySelector("#review-title")!.textContent = worlds[style].vi;
+  document.querySelector("#review-mood")!.textContent = worlds[style].mood;
+  document.querySelector("#review-role")!.textContent = worlds[style].role;
   document.querySelector("#render-status")!.textContent = "Đang tải…";
   if (game) {
     observer.disconnect();
