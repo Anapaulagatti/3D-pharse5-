@@ -57,27 +57,5 @@ await p.waitForFunction(() => !window.__PIXEL_METRICS__.moving);
 await p.locator("canvas").screenshot({
   path: "quality-reports/unified-v4/render/house-detail-gameplay.png",
 });
-await axis("x", 440);
-await axis("y", 463);
-await axis("x", 205);
-await p.waitForFunction(() => !window.__PIXEL_METRICS__.moving);
-await p.locator("canvas").screenshot({
-  path: "quality-reports/unified-v4/render/tree-detail-gameplay.png",
-});
-writeFileSync(
-  "quality-reports/unified-v4/render/details.json",
-  JSON.stringify(
-    {
-      method:
-        "Actual native keyboard navigation and natural blink retained with Pause UI. No injected camera/player poses.",
-      blink,
-      final: await p.evaluate(() => window.__PIXEL_METRICS__),
-      errors,
-    },
-    null,
-    2,
-  ),
-);
-await b.close();
-if (errors.length) throw Error(errors.join("\n"));
-console.log("Native navigation house/tree detail and natural blink captured.");
+writeFileSync("quality-reports/unified-v4/render/details.json",JSON.stringify({method:"House: actual native keyboard navigation. Natural blink retained with Pause UI. Tree detail: separately cropped from the actual2x gameplay canvas without resampling, explicitly labelled. No injected player/camera poses.",blink,house:await p.evaluate(()=>window.__PIXEL_METRICS__),errors},null,2));
+await b.close();if(errors.length)throw Error(errors.join("\n"));console.log("Native house detail and natural blink captured; tree detail is actual2x canvas crop.");
