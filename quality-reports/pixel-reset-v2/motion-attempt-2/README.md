@@ -1,0 +1,1 @@
+Preserved32.13s/412actual-frame gesture capture. Subsequent inspection found blink duration20ms because Phaser4 uses absolute frame duration, not additive Phaser3 semantics. Current candidate uses120ms and new exact capture. Source/gesture forms otherwise identical. Not final current-timing proof.

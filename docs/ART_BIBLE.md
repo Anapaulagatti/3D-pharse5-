@@ -1,3 +1,5 @@
+> Historical Gate2 baseline. User rejected its art. Current art pass: docs/PIXEL_RESET_ART_BIBLE.md; tool versions remain unchanged.
+
 # Pixel style proof — selection pending
 
 32×32 world tile. 48×64 character canvas; roughly49px visible height, foot anchor bottom centre; 16×10 grounded collision footprint. House224×208 with~30px door compared with~24px-wide character. Perspective: orthogonal top-down 3/4 baked art; no3D renderer/imported GLB.

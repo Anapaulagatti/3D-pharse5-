@@ -163,7 +163,7 @@ export class Plaza extends Phaser.Scene {
             key: "avatar",
             frame: `${action === "run" ? "walk" : action}-${dr}-${i}`,
             ...(action === "idle"
-              ? { duration: [1700, 20, 250, 1000][i] }
+              ? { duration: [1800, 120, 350, 1100][i] }
               : {}),
           })),
           frameRate: fps,

@@ -1,3 +1,5 @@
+> Historical Gate2 baseline. User rejected its art. Current art pass: docs/PIXEL_RESET_ART_BIBLE.md; tool versions remain unchanged.
+
 # Installation matrix
 
 `checkpoint_sha` identifies source/evidence checkpoint, not a package version. Later media/build/clean-clone results are in VERIFICATION_SUMMARY.json. Distinguish optional native executables from the verified permitted headless contracts.

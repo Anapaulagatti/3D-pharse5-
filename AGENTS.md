@@ -9,3 +9,5 @@ Use existing checkout; do not create worktrees unless explicitly asked. Pin depe
 Fresh startup: inspect existing packages; npm ci only when missing/invalid; npm run assets:check; npm run typecheck; npm test; npm run build; npm run dev. Project skills on disk may not appear in this session inventory; distinguish installation from runtime discovery. No agents/delegation requested.
 
 Latest user review REJECTS prior pixel A/B/C. Current authorized task PIXEL-ART-RESET-002 only: three distinct new characters+environments, dimensional art/readable gameplay proof and comparisons. Preserve engine/toolchain/history/archive, no full production/Gate3 or publication. Read docs/reviews/pixel-reset-v2 before continuing.
+
+Reset-v2 active pipeline: tools/export_reset.py -> public-reset/assets/reset-v2, worlds in assets-src/reset-v2/worlds.json; tools/check_reset.py plus retained legacy checks. Preserve rejected baseline assets/reports/ZIP, do not run old capture/package helpers against new app. Current review artifacts use quality-reports/pixel-reset-v2 and downloads/pixel-reset-v2 only. Actual controls use72frames/style/default2x; STOP after this new visual review pass.

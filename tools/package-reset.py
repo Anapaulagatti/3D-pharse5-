@@ -10,7 +10,7 @@ for p in files:
  assert p.suffix in approved_suffixes,p
  if p.suffix in {'.html','.js','.css','.json','.txt'}:
   t=p.read_text();assert 'BEGIN PRIVATE KEY' not in t and 'ghp_' not in t and 'sk-proj-' not in t,p
-stage=R/'.cache/reset-portable-review';stage.mkdir(parents=True,exist_ok=True);root=stage/'Hangeul-Pixel-Reset-Gate2';root.mkdir(exist_ok=True);shutil.copytree(dist,root/'3D-pharse5-',dirs_exist_ok=True)
+stage=R/'.cache/reset-portable-review'/hashlib.sha256((dist/'index.html').read_bytes()).hexdigest()[:12];stage.mkdir(parents=True,exist_ok=True);root=stage/'Hangeul-Pixel-Reset-Gate2';root.mkdir(exist_ok=True);shutil.copytree(dist,root/'3D-pharse5-',dirs_exist_ok=True)
 launcher='''"""Run locally: python3 start.py (Windows: py start.py)."""
 from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 from functools import partial
@@ -30,7 +30,11 @@ except KeyboardInterrupt:server.server_close()
 with zipfile.ZipFile(dest,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
  for f in sorted(root.rglob('*')):
   if f.is_file():z.write(f,f.relative_to(stage))
-extract=Path('/tmp/pixel-reset-extracted-review');extract.mkdir(exist_ok=True)
+extract=Path('/tmp/pixel-reset-extracted-review')
+if extract.exists():
+ import uuid
+ extract.rename(Path('/tmp/pixel-reset-extracted-review-'+uuid.uuid4().hex[:8]))
+extract.mkdir(exist_ok=True)
 with zipfile.ZipFile(dest) as z:
  assert all(not Path(n).is_absolute() and '..' not in Path(n).parts for n in z.namelist());assert z.testzip() is None;z.extractall(extract)
 rows=[{'path':str(p.relative_to(dist)),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in sorted(files)]
