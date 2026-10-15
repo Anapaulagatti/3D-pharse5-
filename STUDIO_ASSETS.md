@@ -8,4 +8,4 @@
 - docs/review:onlylatestrelevantreviewboard,town/mobileimages,actualbeforeafterMP4,oneplayableZIP/packagefilemanifest/verification. Board distinguishesactualPhaser andregisteredsourceviews. Rawcaptures/QA/pastfailedtakes in.cacheexcludedfromGit.
 - Historyviaimmutabletags:3b62e9bprecleanup2D5948files,f1f13f2full3D2738files(bothfreshremoteclonerecoveryverified),bd241a9newNPCprecleanuptag. Priorart/video/ZIP/Blendersourcesrecoverablewithoutactive-treeclutter. docs/RECOVERY.md.
 
-Latestreviewstillawaitsuserapproval. Finalcapture/cleanclone/CI/checkpointmetadataarecompletedunderGateEbeforefinalhandoff; no publicwebsite release.
+Latest review is complete and awaits user approval. Actual before/after video: 40.28 seconds, SHA256 0764d2ca844659ff927c1f78ce4c3797817cfaf4498cf6adb472c81165ddbb6d. Playable ZIP: 1,068,411 bytes, SHA256 1045c9f3400fe0b0a2120cf3370ca5e49b86087e03673cbca2366207c12e2d52. Fresh-clone production files match every ZIP manifest hash. Exact extracted HTTP desktop/mobile verification passed. No website release; physical phone performance and Windows GUI launch are untested.

@@ -1,5 +1,5 @@
 {
-  "status": "PACKAGED_PENDING_HTTP_BROWSER_VERIFICATION",
+  "status": "PASS_EXACT_EXTRACTED_HTTP_BROWSER_DESKTOP_MOBILE",
   "zip": "docs/review/playable-review.zip",
   "zip_bytes": 1068411,
   "zip_sha256": "1045c9f3400fe0b0a2120cf3370ca5e49b86087e03673cbca2366207c12e2d52",
@@ -257,5 +257,37 @@
     }
   ],
   "extract_root": "/workspace/3D-pharse5-/.cache/extracted/1045c9f3400f/Korean-Arena-Review",
-  "security_scan": "dist only; suffix allowlist; no private-key/provider-token markers,3D,rejectedsource or third-party artwork; original/Phaser/Zod notices included."
+  "security_scan": "dist only; suffix allowlist; no private-key/provider-token markers,3D,rejectedsource or third-party artwork; original/Phaser/Zod notices included.",
+  "http_browser_verification": {
+    "status": "PASS",
+    "devices": [
+      {
+        "name": "desktop",
+        "dpr": 1,
+        "errors": [],
+        "failures": [],
+        "crisp": {
+          "nativeWidth": 940,
+          "cssWidth": 940,
+          "nativeHeight": 640,
+          "cssHeight": 640,
+          "imageRendering": "pixelated"
+        }
+      },
+      {
+        "name": "mobile",
+        "dpr": 2,
+        "errors": [],
+        "failures": [],
+        "crisp": {
+          "nativeWidth": 364,
+          "cssWidth": 364,
+          "nativeHeight": 416,
+          "cssHeight": 416,
+          "imageRendering": "pixelated"
+        }
+      }
+    ],
+    "limits": "Actual extracted HTTP/browser checks; local desktop Python GUI launch not claimed tested on Windows."
+  }
 }

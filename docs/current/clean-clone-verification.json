@@ -1,13 +1,82 @@
 {
-  "status": "PENDING_REMOTE_CLEAN_CLONE",
-  "required": [
+  "status": "PASS",
+  "commit": "3a22e62de62abd598f0ad0d24b95ddbb9f1fd98c",
+  "method": "New depth-one HTTPS clone from origin; npm ci; independent CI=1 production server owned by this clone.",
+  "commands_passed": [
     "npm ci",
-    "typecheck",
-    "lint",
-    "format:check",
-    "8unit",
-    "build/sourceQA",
-    "5nativebrowser",
-    "actual sprites/controls/NPC/customization/mobile/reduced/fallback/no404errors"
+    "npm run typecheck",
+    "npm run lint",
+    "npm run format:check",
+    "npm test",
+    "npm run build",
+    "CI=1 PIXEL_REPORT_DIR=.cache/final-clean-browser npm run test:e2e"
+  ],
+  "unit_tests_passed": 8,
+  "browser_stats": {
+    "startTime": "2026-10-15T10:30:44.848Z",
+    "duration": 30532.407,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "browser_cases": [
+    {
+      "name": "unified plaza native movement, collision, layered outfits, distinct run and social emotes",
+      "ok": true,
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 15543
+        }
+      ]
+    },
+    {
+      "name": "OS reduced motion, actual touch, mobile layout and DPR",
+      "ok": true,
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4464
+        }
+      ]
+    },
+    {
+      "name": "genuine WebGL-unavailable Canvas fallback",
+      "ok": true,
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1514
+        }
+      ]
+    },
+    {
+      "name": "new chibi hero renders four visibly different moods at the same pixel crop",
+      "ok": true,
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2365
+        }
+      ]
+    },
+    {
+      "name": "four historical guests greet, teach a word and visibly move without pretending to be online players",
+      "ok": true,
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5459
+        }
+      ]
+    }
+  ],
+  "tracked_status_clean": true,
+  "build_every_file_matches_review_zip_manifest": true,
+  "failure_history": "Prior 02291be run failed timing assertions (frame count != simulation time, endpoint patrol snapshot). Fixed only browser assertions at this commit; no runtime/art changes.",
+  "limits": [
+    "Emulated mobile, not physical-device performance certification.",
+    "User visual approval pending."
   ]
 }
