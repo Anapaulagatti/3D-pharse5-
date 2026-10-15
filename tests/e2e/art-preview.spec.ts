@@ -9,8 +9,21 @@ async function ready(p: Page) {
 }
 async function walk(p: Page, key: string, ms: number) {
   await p.locator("canvas").focus();
-  const initial = await metrics(p);
+  const before = await metrics(p);
   await p.keyboard.down(key);
+  // Start the observation budget after the game has received this input,
+  // excluding variable browser/CDP dispatch latency on the hosted runner.
+  await p.waitForFunction(
+    ({ frame, direction }) => {
+      const m = window.__PIXEL_METRICS__!;
+      return m.frameCount > frame && m.moving && m.direction === direction;
+    },
+    {
+      frame: before.frameCount,
+      direction: key.replace("Arrow", "").toLowerCase(),
+    },
+  );
+  const initial = await metrics(p);
   // Wait elapsed simulation time, not a frame count: high-refresh and software
   // renderers can advance a different amount of game time per presented frame.
   await p.waitForFunction(

@@ -1,3 +1,5 @@
+Second CI note: the original walk helper also counted browser input-dispatch latency in its350ms budget. The same-duration observation now begins after the game receives the direction; all thresholds unchanged. See CI-HISTORY.md and final tag.
+
 Latest verification note: first remote CI exposed an existing mobile-test deceleration timing race; only its wait is corrected, strict precision and runtime movement unchanged. See docs/gwanghwamun/CI-HISTORY.md and the final verified tag for actual final outcomes.
 
 # Current handoff — Gwanghwamun concepts / recommended B playable proof
