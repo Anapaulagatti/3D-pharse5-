@@ -10,3 +10,5 @@ Milestone **CHARACTER-CHIBI-001 — Avatar-only style override**. Authoritative 
 - COMPLETE: exact static ZIP desktop/mobile HTTP verified,4native browser tests pass27.4s; source80cea09 independently matched remote with GitHub CI38708659482 SUCCESS.
 - COMPLETE: review evidence/package/four STUDIO handoff records saved; final recovery tag identifies final checkpoint.
 - PENDING: user visual approval — READY_FOR_USER_REVIEW. STOP after avatar review package. No environment reset, mass production, Gate3, website publication or separate production-app change.
+
+- COMPLETE follow-up: one1600×1300 avatar-review-board.png combines old/new, front/back/left/right, idle/walk/run/emote,2hair/2outfits/4expressions and a small actual Phaser scene. Visually inspected; no runtime or art changes.

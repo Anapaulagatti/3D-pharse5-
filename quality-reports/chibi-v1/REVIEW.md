@@ -4,6 +4,8 @@ Status: READY_FOR_USER_VISUAL_REVIEW, not visually approved. The entire latest o
 
 ## View the result
 
+Start with [avatar-review-board.png](avatar-review-board.png): one1600×1300 image includes old/new, four directions, idle/walk/run/emote,2hair/2outfits/4expressions and actual town inset. All19crop sources/hashes are recorded in avatar-review-board.sources.json; no new artwork or source-sheet substitutions.
+
 - render/gameplay-2x.png: actual Phaser town, new hero at normal gameplay scale.
 - OLD_VS_NEW_ACTUAL.png: same native3× camera crop from previous and new actual Phaser screenshots; no resampling or sprite insertion.
 - ACTUAL_FOUR_DIRECTIONS.png: real keyboard direction changes, then reduced-motion idle, native3× crops.
