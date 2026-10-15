@@ -9,6 +9,12 @@ for i,r in enumerate(f):
 subprocess.run(['ffmpeg','-y','-loglevel','error','-f','concat','-safe','0','-i',str(d/'original-timing.ffconcat'),'-fps_mode','vfr','-vf','pad=ceil(iw/2)*2:ceil(ih/2)*2','-c:v','libx264','-pix_fmt','yuv420p','-movflags','+faststart',str(q/'premium-pixel-reset-motion.mp4')],check=True)
 for k in 'ABC':
  for action in ['idle','walk-down','emote']:
-  seq=[x for x in f if x['label']==k+'-'+action];assert seq,(k,action);r=seq[min(2,len(seq)-1)]
+  seq=[x for x in f if x['label']==k+'-'+action];assert seq,(k,action);r=seq[min(len(seq)-1,int(len(seq)*(.38 if action=='emote' else .4)))]
   subprocess.run(['ffmpeg','-y','-loglevel','error','-ss',str(r['at']),'-i',str(q/'premium-pixel-reset-motion.mp4'),'-frames:v','1',str(q/f'video-{k}-{action}.png')],check=True)
 print('Encoded original-timing motion and decoded9review frames; visual inspection pending.')
+
+for k in 'ABC':
+ seq=[x for x in f if x['label']==k+'-idle']
+ for j,part in enumerate([.78,.82,.86]):
+  r=seq[min(len(seq)-1,int(len(seq)*part))]
+  subprocess.run(['ffmpeg','-y','-loglevel','error','-ss',str(r['at']),'-i',str(q/'premium-pixel-reset-motion.mp4'),'-frames:v','1',str(q/f'video-{k}-idle-life-{j}.png')],check=True)

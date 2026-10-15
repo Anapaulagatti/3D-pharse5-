@@ -1,0 +1,1 @@
+Preserved first52.26s/410native-frame capture. Human visual review rejected weak/occluded scholar and performer gesture silhouettes; refine emote overlay and courtyard curbs, then capture new exact candidate. Not final current-artifact evidence.

@@ -111,6 +111,7 @@ for (const style of ["A", "B", "C"]) {
     });
   }
   phase = style + "-emote";
+  await page.waitForFunction(() => !window.__PIXEL_METRICS__?.moving);
   await page.keyboard.press("Space");
   const f = await page.evaluate(() => window.__PIXEL_METRICS__.frameCount);
   await page.waitForFunction(

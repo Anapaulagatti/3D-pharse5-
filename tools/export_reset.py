@@ -81,6 +81,23 @@ def character(style,dr,action,f):
  else:
   a.poly([(33,5+hbob),(39,0+hbob),(45,2+hbob),(47,9+hbob),(44,18+hbob+phase//2),(39,15+hbob),(40,8+hbob)],'hair');a.l([(40,3+hbob),(44,6+hbob),(43,12+hbob)],'hairHi');a.l([(7,15+hbob),(8,7+hbob),(17,3+hbob),(29,4+hbob),(38,10+hbob)],'metal',2)
   for x in ([10,36] if not side else [14]):a.r((x-3,14+hbob,x+3,24+hbob),'ink');a.r((x-2,15+hbob,x+2,22+hbob),'gold');a.r((x-1,16+hbob,x,20+hbob),'tealHi')
+ # Foreground emote silhouettes remain visible beyond the large chibi head.
+ if wave:
+  if style=='A':
+   yy=[44,36,23,16,23,36][f%6]
+   a.l([(35,38),(43,yy+7)],'ink',5);a.l([(35,37),(43,yy+6)],'jade',3)
+   a.r((40,yy+4,44,yy+8),'skin');a.r((35,yy-2,47,yy+5),'ink');a.r((36,yy-1,46,yy+4),'paper');a.l([(36,yy-1),(41,yy+2),(46,yy-1)],'coralSh')
+  elif style=='B':
+   yy=[40,30,10,2,10,30][f%6];xx=12
+   for sx,ex in [(10,xx+3),(37,xx+22)]:
+    a.l([(sx,36),(ex,yy+14)],'ink',6);a.l([(sx,35),(ex,yy+13)],'cream',4);a.r((ex-2,yy+12,ex+2,yy+16),'skin')
+   a.poly([(xx-1,yy),(xx+12,yy+2),(xx+25,yy),(xx+25,yy+15),(xx+12,yy+17),(xx-1,yy+15)],'navySh')
+   a.poly([(xx,yy+1),(xx+11,yy+3),(xx+11,yy+14),(xx,yy+12)],'white');a.poly([(xx+13,yy+3),(xx+24,yy+1),(xx+24,yy+12),(xx+13,yy+14)],'paper');a.l([(xx+12,yy+3),(xx+12,yy+15)],'goldSh')
+   for dy in (5,8,11):a.l([(xx+3,yy+dy),(xx+8,yy+dy+1)],'paperSh');a.l([(xx+16,yy+dy+1),(xx+21,yy+dy)],'paperSh')
+  else:
+   yy=[44,32,18,10,18,32][f%6]
+   for sx,ex in [(11,5),(37,43)]:
+    a.l([(sx,36),(ex,yy+4)],'ink',6);a.l([(sx,35),(ex,yy+3)],'purpleHi',4);a.r((ex-2,yy,ex+2,yy+4),'skin');a.r((ex-1,yy-6,ex+1,yy+1),'goldHi');a.r((ex,yy-6,ex,yy-2),'white')
  if dr=='left':return a.im.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
  return a.im
 
@@ -109,16 +126,27 @@ def tiles(style,c):
      for col in range(3):
       xx=x+col*14-(7 if row%2 else 0);yy=y+row*8;a.r((max(x,xx),yy+1,min(x+31,xx+12),yy+6),'stone');a.l([(max(x,xx),yy+1),(min(x+31,xx+11),yy+1)],'light')
   elif n<16:
-   a.r((x,y,x+31,y+31),'stone');a.r((x,y,x+31,y+5),'edge');a.l([(x,y+1),(x+31,y+1)],'light');a.l([(x,y+6),(x+31,y+6)],'shade')
+   sides={12:'N',13:'E',14:'S',15:'W'}[n]
+   if sides=='N':a.r((x,y,x+31,y+5),'stone');a.l([(x,y+1),(x+31,y+1)],'light');a.l([(x,y+6),(x+31,y+6)],'shade',2)
+   elif sides=='S':a.r((x,y+25,x+31,y+30),'stone');a.l([(x,y+25),(x+31,y+25)],'light');a.l([(x,y+31),(x+31,y+31)],'shade')
+   elif sides=='E':a.r((x+26,y,x+30,y+31),'stone');a.l([(x+26,y),(x+26,y+31)],'light');a.l([(x+31,y),(x+31,y+31)],'shade')
+   else:a.r((x,y,x+5,y+31),'stone');a.l([(x+1,y),(x+1,y+31)],'light');a.l([(x+6,y),(x+6,y+31)],'shade')
   elif n<20:
    a.r((x,y,x+31,y+31),'wood')
    for yy in range(y,y+32,8):a.l([(x,yy),(x+31,yy)],'shade');a.l([(x,yy+1),(x+31,yy+1)],'light')
   elif n<24:
    a.r((x,y,x+31,y+31),'accent');a.l([(x+2,y+11),(x+13,y+11)],'light');a.l([(x+18,y+25),(x+28,y+25)],'light');a.l([(x,y),(x+31,y)],'dark')
   else:
-   a.r((x,y,x+31,y+31),'soil')
+   if n==24:
+    a.r((x,y,x+31,y+31),'soil')
    if n==24:a.poly([(x+16,y+3),(x+29,y+16),(x+16,y+29),(x+3,y+16)],'accent');a.poly([(x+16,y+8),(x+24,y+16),(x+16,y+24),(x+8,y+16)],'stone')
+   elif 25<=n<=28:
+    north=n in (25,26);east=n in (26,27)
+    yy=y if north else y+25;xx=x+26 if east else x
+    a.r((x,yy,x+31,yy+5),'stone');a.l([(x,yy),(x+31,yy)],'light');a.l([(x,min(y+31,yy+6)),(x+31,min(y+31,yy+6))],'shade')
+    a.r((xx,y,xx+5,y+31),'stone');a.l([(xx,y),(xx,y+31)],'light');a.l([(min(x+31,xx+5),y),(min(x+31,xx+5),y+31)],'shade')
    else:
+    a.r((x,y,x+31,y+31),'soil')
     for j in range(3):
      xx=x+rng.randrange(3,28);yy=y+rng.randrange(3,28);a.r((xx,yy,xx+2,yy+1),'shade')
  # Restrained stone grain/chips, not screen-wide particle noise.
@@ -205,6 +233,14 @@ def world(k,t,meta):
    if k=='A' and y==21:n=21+(x%3)
    if k=='A' and y==21 and 12<=x<=16:n=17+(x%3)
    ground.append(n);border.append(13 if (k=='A' and y==20 and not 12<=x<=16) else 0)
+ # Raised stone edging makes the ground plane legible without new physics.
+ def road(xx,yy):return 0<=xx<w and 0<=yy<h and (5<=ground[yy*w+xx]<=11 or ground[yy*w+xx]==25)
+ for yy in range(h):
+  for xx in range(w):
+   if not road(xx,yy):continue
+   ns=not road(xx,yy-1);es=not road(xx+1,yy);ss=not road(xx,yy+1);ws=not road(xx-1,yy)
+   edge=26 if ns and ws else 27 if ns and es else 28 if ss and es else 29 if ss and ws else 13 if ns else 14 if es else 15 if ss else 16 if ws else 0
+   border[yy*w+xx]=edge
  hero=t['hero'];props=[{'kind':'house','x':hero[0],'y':hero[1],'id':'hero'}]
  specs={
  'A':[('tree1',244,330),('tree2',672,350),('feature',230,458),('kiosk',620,354),('decor',614,492),('tree1',214,625),('tree2',786,572),('bench',356,526),('bench',520,580),('sign',380,370),('lamp',319,390),('lamp',555,393)],

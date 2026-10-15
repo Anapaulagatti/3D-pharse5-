@@ -46,9 +46,19 @@ for (const s of ["A", "B", "C"]) {
   await page.waitForTimeout(180);
   await page.locator("canvas").screenshot({ path: `${out}/${s}-walk.png` });
   await page.keyboard.up("ArrowDown");
-  await page.keyboard.press("Space");
-  await page.waitForTimeout(160);
+  await page.waitForFunction(() => !window.__PIXEL_METRICS__?.moving);
+  await page.getByRole("button", { name: "Biểu cảm", exact: true }).click();
+  await page.waitForFunction(
+    () => {
+      const f = window.__PIXEL_METRICS__?.frame ?? "";
+      return f.startsWith("wave-down-") && Number(f.split("-").at(-1)) >= 2;
+    },
+    null,
+    { timeout: 15000 },
+  );
+  await page.getByRole("button", { name: "Tạm dừng", exact: true }).click();
   await page.locator("canvas").screenshot({ path: `${out}/${s}-emote.png` });
+  await page.getByRole("button", { name: "Tiếp tục", exact: true }).click();
   await page.locator("#zoom").selectOption("1");
   await page.waitForTimeout(120);
   await page.locator("canvas").screenshot({ path: `${out}/${s}-overview.png` });
