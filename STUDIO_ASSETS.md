@@ -174,3 +174,6 @@ Concept art is not a production texture/mesh/rig/animation/prototype or actual v
 - Actual final candidate files now exist: showcase-v0.6/index.html/build-info and standard HTTP launchers/README; downloads/v0.6 prototype view/static ZIPs+manifest. Three embedded verified assets: two native GLBs +234,829B real v0.6 day poster with source provenance. New character10608tri1,483,828B, world38421tri1,633,388B. Prior approved concept/PDF/v0.5 files untouched. Native final package QA/video incomplete.
 
 - capture-attempt-1/ retains99actual compositor frames/timestamps/errors, not a successful final video. Source/GLBs unchanged, runtime readiness/gait fix pending new exact artifact. All previous approved art/deployed v0.5 intact.
+
+## PIXEL-ARCHIVE-000 — new request supersedes v0.6
+Authoritative scope: docs/reviews/pixel-v3.1/USER_REQUEST.txt. Preserve all unfinished v0.6 work and native pass-2 evidence; pass-2 ran against the older candidate and is not final current-artifact verification. No v0.6 release is claimed. Archive branch/tag + remote proof and restore check required before deleting. Public v0.5 remains unchanged. Next action: remote-verifiable full 3D archive, then Gates 1/2 only.

@@ -1,0 +1,752 @@
+# KOREAN ARENA — PIXEL SOCIAL LEARNING RPG
+## MASTER REBUILD PROMPT v3.1 — CODEX APP / DESKTOP
+
+> **AUTHORITATIVE NEW DIRECTION.** This document supersedes the previous 3D Studio master prompts, the v0.6 chibi-3D pivot, and earlier chapter-first pixel proposals **within the standalone Studio repository only**. It does not supersede or modify the separate main Korean Arena web application or its Claude development phases.
+>
+> **Target repository:** `Anapaulagatti/3D-pharse5-` (verify the actual `git remote -v` before running any destructive command). This repository is a dedicated art/game studio, **not the main Korean Arena repository**.
+>
+> **User authorization:** Completely migrate this dedicated repository away from the obsolete 3D implementation into a top-down, original, premium-quality pixel-art Korean-learning social RPG. You may remove obsolete 3D files and packages **AFTER** creating and remotely verifying recoverable checkpoints. Install all practical 2D toolchain dependencies. Build real runnable code and source assets, not just planning documents.
+
+---
+
+# 00 — OPERATING CONTRACT: READ THIS FIRST
+
+You are acting as the Principal Pixel Game Director, Senior Phaser/TypeScript Engineer, Pixel Art Lead, Gameplay Systems Designer, Learning Experience Architect, Multiplayer/Cloud Engineer, Economy Designer, and QA Lead.
+
+**Product title:** Korean Arena — *Hangeul Pixel Town* (working game name).
+
+**One-sentence vision:** A beautiful, crisp, lively, Korean-inspired top-down pixel-art online town where people create chibi avatars, explore, help NPCs, meet friends, cooperate, compete in fair Korean-language minigames, and improve from absolute-beginner Hangul to TOPIK/EPS-TOPIK through genuinely enjoyable play.
+
+**Critical design philosophy:** Make a fun, responsive game in which Korean knowledge enables meaningful actions. DO NOT build a worksheet that makes players walk to NPCs between multiple-choice questions.
+
+**Business philosophy:** Korean learning and core gameplay are free. Voluntary, clearly disclosed rewarded ads MAY eventually contribute to hosting and server expansion. They are not compulsory, not a means of turning the game into a blockchain MMO, and never a requirement to learn, pass an exam, access a social feature, or rank fairly. An optional static QR donation may coexist, but there are no paid subscriptions, premium lessons, purchases of power, crypto, NFTs, token speculation, or gambling mechanics.
+
+**Scope:** Work exclusively inside the verified dedicated Studio repo. DO NOT edit the separate main Korean Arena Next.js/Supabase repo, its Phase 3/4/5 work, its blueprint, production database, schema, or deployment. Produce a documented optional integration contract for later. Never claim that integration happened when it did not.
+
+**Execution:** You have permission to inspect, install, implement, refactor, delete obsolete files, run tests, produce artwork, and checkpoint in this dedicated repository. Avoid asking repetitive permission for ordinary repo work. The hard stops are: (1) preflight cannot verify a recoverable remote archive, (2) selection of the FINAL visual art direction after showing actual pixel assets, (3) public deployment of the replacement site, (4) production ad-provider activation / cloud account billing / real user data changes.
+
+---
+
+# 01 — SAFETY-FIRST FULL 3D REMOVAL, NOT A PARALLEL UNFINISHED DEMO
+
+The user has explicitly authorized **rebuilding the Studio repo**. Do not keep the 3D Vite app as a second, confusing default implementation. The **new default app must be the pixel game**.
+
+But `rm -rf` without recovery is unacceptable. Execute an auditable sequence:
+
+1. `pwd`, `git status --short`, `git remote -v`, `git branch --show-current`, `git rev-parse HEAD`, inspect active work and recent commits. Confirm the remote is exactly the intended dedicated repository. If not, STOP without deleting.
+2. Audit uncommitted changes and concurrent Codex tasks. Reconcile or save ALL source/model/asset/report changes. Do not overwrite an active worktree or delete uncommitted work.
+3. Create a pre-migration branch and annotated tag with unique names such as `archive/3d-final-before-pixel-v3` and `checkpoint/3d-before-pixel-v3-YYYYMMDD`; if names exist, choose unique, non-destructive names. Commit pending work appropriately. Push and independently verify `origin` contains the exact SHA, branch, and tag. Save evidence to `docs/migration/3d-archive-proof.md` and a machine-readable JSON record.
+4. Verify all important tracked Blender `.blend`, GLB, textures, app sources, v0.5 release artifacts, v0.6 concept/prototype assets, manifests, and evidence are present at that verified archive SHA. If Git LFS is in use, verify relevant LFS objects are actually remote-available. Untracked precious work must be added to the checkpoint or otherwise verifiably backed up. Do not confuse Git history with an independently tested restore; perform a read-only restoreability check (fresh worktree or equivalent) when feasible.
+5. Create a new working branch `rebuild/pixel-social-rpg-v3` (or reuse an explicitly established equivalent branch). Retain old public v0.5 website until the user approves the new deployment.
+6. Create a deletion manifest grouping: 3D-only build files, Three/R3F/Drei dependencies, Blender generators, GLBs, 3D-only asset pipelines, old standalone 3D HTML bundles, archived visual-review outputs. Distinguish retained Git history from current working-tree paths. Preserve general-purpose QA, licensing, content provenance, useful tooling, and checkpoint policy when applicable.
+7. Remove obsolete 3D source/build/dependencies from the **new branch working tree**, after the remote archive passes verification. Do not rewrite Git history, force-push over the archive, remove the only backup, or commit secrets. Purging very large binaries from Git history is OUT OF SCOPE without separate approval.
+8. Replace the README, package scripts, active developer instructions, and default GitHub Actions build flow to describe the pixel game accurately. Prevent existing 3D Pages workflow from accidentally republishing outdated content. Keep old deploy artifact immutable until replacement is reviewed.
+9. Verify new fresh clone can run `npm ci`, `npm run dev`, `npm run typecheck`, `npm test`, and `npm run build` (adapt commands to actual setup), with no imported runtime GLB/Three/R3F/Drei/Blender dependency.
+10. Save a `MIGRATION_REPORT.md`: files removed, dependencies removed, tool versions, archived SHA/tag, rollback commands, clean installation result, public deployment status, any blocked steps.
+
+**If remote proof fails, DO NOT DELETE.** Report the blocker and stop. Never claim the old 3D world was archived or removed unless verified.
+
+---
+
+# 02 — RESEARCH, INSTALL AND VERIFY THE 2D GAME TOOLCHAIN
+
+Do real environment detection (`node --version`, package manager availability, OS, executables, existing lockfile, connectivity). Prefer **current compatible stable releases**, pin exact resolved versions in the lockfile, and record the toolchain in `docs/TOOLCHAIN.md`. Do not blindly install a pre-release or install three alternative engines at once.
+
+## Mandatory runtime/dev dependencies
+
+- **Phaser** (use currently stable Phaser 4 if compatible with required features; use a stable Phaser 3 release only if concrete compatibility blockers require it; document the choice).
+- **TypeScript** in strict mode.
+- **Vite** for standalone development/build; set GitHub Pages subpath correctly using Vite's `base` when a public deployment is later authorized.
+- **Vitest** for deterministic gameplay/content/economy tests.
+- **Playwright** for real browser flows, screenshots, video capture, mobile viewport, keyboard/touch, offline, accessibility and runtime-error inspection.
+- **ESLint** and a formatter (Prettier or configured alternative).
+- **Zod** or equivalent runtime schema validation for untrusted game/network/content payloads.
+- **Tiled JSON-compatible tilemap loader** and tiled collision/objects data exporter. Phaser can load Tiled maps; no duplicate map engine needed.
+- **Atlas/tileset packing** and source-to-production asset verification scripts (prefer a small reproducible custom packing script over paid SaaS).
+- Lightweight asset compression and metadata/provenance helpers.
+- Optional **Dexie/IndexedDB** for offline cache and local progress queue, only if the project truly needs it.
+
+## Authoring tools
+
+- **Tiled Map Editor**: install locally/headlessly if supported; verify executable and licensing. Otherwise generate/validate Tiled-compatible JSON programmatically and document a reproducible local installation method. Do not pretend a desktop GUI was successfully installed when unavailable in cloud Codex.
+- **LibreSprite**: install CLI or native application if supported and verify that `.ase`/`.aseprite`-compatible spritesheets or an open PNG/JSON frame workflow exports correctly. If unavailable, produce editable indexed-color source PNG/layer specifications and matching reproducible export scripts; log limitation honestly.
+- **Agent Sprite Forge** (`https://github.com/0x0funky/agent-sprite-forge`): **optional**; inspect current license and environment compatibility first, and use only for useful sprite production. Avoid any paid-provider dependency or external generation charge without authorization. It generates 2D sprite workflows, NOT true 3D.
+- Optional approved tools: `sharp`, `pngjs`, `spritesheet-js`-style atlas utilities, `ffmpeg` for local capture if already available and licensed. Avoid unnecessary frameworks and transitive bloat.
+
+Use the official Phaser TS/Vite project template as a reference, not a reason to overwrite verified user files without migration checks. Official docs: `https://docs.phaser.io/phaser/getting-started/project-templates` and repository `https://github.com/phaserjs/template-vite-ts`.
+
+Verify tool **actually executes**: build/launch a Phaser scene, load a PNG atlas, load a Tiled JSON map, play a sprite animation, perform collision and open the game in a real browser. An installed package without a working runtime does not count.
+
+For social backend preparation use the existing architectural direction of **Supabase Auth/Postgres** and **Cloudflare Workers + Durable Objects WebSocket Hibernation** if appropriate. These are integration targets, not permission to create billable resources, alter main project schemas, or deploy network services without authorization. Provide local mock adapters and runnable multiplayer test service before requesting cloud credentials.
+
+---
+
+# 02A — MANDATORY CODEX SKILL / REPOSITORY INSTALLATION AUDIT (v3.1 UPGRADE)
+
+**This section extends §02 and is binding.** v3.0 listed useful tools but did not prescribe a complete discover/install/verify cycle for Codex skills. Distinguish five different states in every report: REFERENCED, DOWNLOADED, INSTALLED, DISCOVERABLE_IN_THIS_CODEX_SESSION, and FUNCTIONALLY_VERIFIED. Never infer one from another.
+
+## A. Official source and install matrix
+
+Install only the minimum useful toolchain; verify current upstream version, platform support, licenses and release integrity before using or vendoring anything.
+
+| Role | Verified upstream | Policy |
+| --- | --- | --- |
+| Runtime + TS/Vite scaffolding | https://github.com/phaserjs/phaser and https://github.com/phaserjs/template-vite-ts | Phaser npm dependency and template reference. Do not blindly clone template over user files. Audit template telemetry (`log.js`); disable optional telemetry if adopted. Confirm chosen stable major actually works with tilemap, Arcade Physics and animation APIs. |
+| Tilemap authoring | https://github.com/mapeditor/tiled | Prefer official binary/package for target OS. No full Tiled source checkout/build if executable available. Validate exported Tiled JSON and layered collisions. |
+| Pixel sprite editor | https://github.com/LibreSprite/LibreSprite | Prefer verified release. GPL program is an authoring tool; do not copy GPL source into proprietary game runtime or treat the app license as sprite asset provenance. If no GUI supported in cloud, use reproducible indexed PNG + sprite atlas scripts and report no GUI. |
+| Agent Sprite Forge | https://github.com/0x0funky/agent-sprite-forge | OPTIONAL skill source for image/sprite/map workflow. Inspect its actual current README, skills, requirements, licenses and per-provider routes first. Clone **one pinned commit** into tooling cache outside the production bundle, then install only usable skills. No provider API keys, video calls or billable routes without user authorization. |
+| Test tools | https://playwright.dev/ and https://vitest.dev/ | Install project packages via npm, verify browsers are actually installed and run one visual assertion. Not Codex skills by themselves. |
+| 2D scripts | npm `sharp` or `pngjs`, Python Pillow/numpy as needed | Install only when used in actual atlas or image QA pipeline. ffmpeg only if required by local video evidence. |
+| Reusable skill format | https://developers.openai.com/plugins/concepts/skills | Skills are directories with `SKILL.md`, scripts/references and verified discovery. Treat instructions as skills, not as npm dependencies. |
+
+**Do NOT install an entire marketplace, hundreds of skills, multiple competing engines or paid content packs.** Do not run arbitrary shell scripts from GitHub blindly; read the scripts and their dependencies before execution.
+
+## B. Detect the actual Codex skill runtime
+
+1. Detect running environment: Codex desktop on Windows/macOS/Linux, Codex cloud, CLI, container, repository skills vs user-wide skills. Run only the appropriate shell commands for that environment. Do not assume desktop skill installs propagate automatically to cloud tasks or to teammates.
+2. Check built-in skill inventory and supported skill installation API/`$skill-installer`. Check `CODEX_HOME`, relevant user-skill folders and project skills. Older environments may use `~/.codex/skills`; newer agent setups may use `.agents/skills`. **Do not assume either directory is discoverable; inspect actual runtime behavior and configuration**. Avoid duplicate conflicting skill copies.
+3. Install project-specific skills into a supported project-local discovery directory when feasible so they survive remote GitHub restores, **after** licensing review and only as small `SKILL.md` + useful scripts/references. If a Codex session restart is required to discover newly installed skills, do so and explicitly retest. If restart is unavailable, record it as BLOCKED rather than claiming skill activation.
+4. After installation, verify each skill is discoverable by Codex and can complete a small genuine test using only local/non-billable operations. A path existing on disk without invocation evidence is merely INSTALLED, not VERIFIED.
+5. Record skill name, version/commit, original upstream, license, discovered path, local/cloud scope, input/output contract, dependencies, invocation test, results, and whether the skill is needed for the current milestone in `docs/SKILL_REGISTRY.md`.
+
+## C. Agent Sprite Forge: selective skill setup
+
+If upstream is accessible, inspect the actual list of folders under `skills/` and their SKILL.md files. Current known workflow names include:
+
+- `generate2dsprite`: sprite masters, character/props/FX frames, atlases and metadata.
+- `generate2dmap`: map/tile/prop generation and Tiled-compatible exports.
+- `video2dsprite`: video/frame-based animation extraction **only if** already-licensed video input or non-billable supported pipeline is available; don't assume video generation in Codex.
+- `generate2dmedia`: generation-provider routing/receipts; **do not enable external paid provider calls** automatically.
+
+Do not install a skill just because it is advertised. Select only useful, free-and-runnable workflows for the current Gate 1/2. Preserve upstream folder relative paths/scripts where skills call each other. Use a pinned SHA and separately log provenance of *generated artwork*, including any model/API license. Prefer original manual/code-driven pixel production if forge output is blurry or inconsistent.
+
+**Minimal tests (where supported):** generate a 4-direction 32/48px-scale original placeholder avatar with consistent identity; verify transparency/pixel-grid/palette; export valid frames and JSON atlas; generate a tiny layered Korean-inspired map with collision and Tiled JSON; load both in actual Phaser; capture screenshots at 1× and integer zoom. Actual artwork quality review remains a separate approval gate.
+
+## D. Create small project-local skills only when useful
+
+Do not assume these custom skills already exist. Author and validate only the ones Codex will actually reuse:
+
+1. `pixel-art-qa`: checks integer scaling, limited palette, clean silhouettes, pixel-grid alignment, frames, atlas bleed and transparent edges; produces a visual/contact-sheet report.
+2. `phaser-tilemap-integration`: exports/validates Tiled JSON, objects, layers, collision, depth sorting and interactivity; uses a real Phaser scene for smoke testing.
+3. `korean-game-content-qa`: uses a documented Korean grammar/vocabulary/answer-key reviewer process, Vietnamese-first guidance, Hangul/NFC normalization, no false TOPIK affiliation and independent data validation; does not pretend an AI-only review is expert-certified.
+4. `social-game-safety`: validates chat/report/block/rate limiting, privacy, consent and demo-vs-real network labeling; marks real moderation as NOT DEPLOYABLE until verified.
+5. `rewarded-ads-integrity`: tests optionality, no pay-to-win, no points/multiplier in mastery or ranked modes, idempotent server-confirmed reward receipts, failed-ad fallback and provider-policy gates without serving production ads.
+
+Each skill directory requires a valid `SKILL.md` with name, description, triggers, inputs, scripts, tests and outputs. Keep runtime app imports independent from skill files. A short, tested skill is better than an unverified instruction dump.
+
+## E. Installation matrix and completion gate
+
+Create `docs/INSTALLATION_MATRIX.md`, including one row per tool or skill:
+
+`tool_id | source | pinned_version_or_SHA | license | mandatory_for_gate | installed (yes/no) | executable/discovered (yes/no) | test_command_or_invocation | actual_result | limitations | checkpoint_sha`
+
+**Gate 1 cannot be marked DONE unless:**
+
+- Node, package manager, Phaser, TypeScript, Vite, lint, unit tests, headless browser test, spritesheet exporter and Tiled JSON validation are actually working in the current environment.
+- At least one *repeatable* pixel/sprite editing workflow works (LibreSprite, verified headless export, or editable indexed PNG script); a GUI installation is optional if impossible in cloud.
+- At least one real sprite animation and a layered collidable tilemap run in a production-compatible Phaser scene.
+- Skills chosen for Gate 1/2 are discoverable and have a real smoke test; others are explicitly SKIPPED/DEFERRED with reasons.
+- Remote checkpoint includes source config, lockfile, scripts, records and generated reproducible test assets; NEVER commit provider secrets or a huge cloned tooling repository.
+- A clean-clone installation and build/test is completed where supported.
+
+**Gate 1 does not require:** paid image/video APIs, real Supabase/Cloudflare production accounts, real ad inventory, SDKs tied to billing, shipping all 35 minigames, running live moderation, or a full multiplayer MMO. Those remain later gates with separate authorization.
+
+## F. Environment-specific note for Codex desktop/app
+
+Codex is not a package manager that automatically has all game-development tools just because a master prompt names them. Install dependencies in the actual authorized workspace; determine if native desktop applications are available on the host versus the isolated task runtime. Do not write “Tiled installed”, “LibreSprite installed” or “sprite skill works” unless the specific executable/skill was tested in the current environment. For unavailable GUIs, preserve Windows/macOS/Linux local installation instructions and complete the equivalent headless asset contract so gameplay production is not blocked.
+
+---
+
+# 03 — THE GAME WE ARE REALLY BUILDING
+
+**Genre:** Top-down 2D social-adventure RPG + cozy town restoration + Korean learning minigames + opt-in PvP/co-op.
+
+**Camera:** Orthogonal top-down or top-down 3/4 (NOT free-camera 3D; not a mechanically demanding isometric 3D conversion).
+
+**Online feel:** Shared, room-based social town. Real players can see each other walking in real time in the future authenticated network release. Local demo has an honest simulated-room mode clearly labeled **DEMO PLAYERS**, never fake real presence.
+
+**First impression target:** In under 30 seconds the player sees a lively Korean-inspired pixel town, an adorable animated avatar, a clear action to explore, an NPC in motion, ambient life, and one intriguing story prompt. No wall of text, mandatory account creation, or long tutorial.
+
+**The player's fantasy:** "I arrived in a mysterious Korean town, made friends, learned to read its language, solved problems, helped the town come alive, unlocked delightful things, and became increasingly fluent in Korean."
+
+**Product pillars:**
+1. **Play comes first:** responsive movement, discovery, comedy, micro-events, interactions.
+2. **Language is useful:** Hangul, vocabulary, listening, grammar and reading directly affect actions.
+3. **A living place:** interactive Korean-inspired landmarks, characters, visual restoration and daily variations.
+4. **Togetherness:** cooperative tasks, emotes, friends, lively plaza, fair matches.
+5. **Real learning:** beginner-friendly pedagogy, original validated items, mastery/SRS and standalone exam fidelity.
+6. **Free and ethical:** no paywalls, no engagement punishment, no predatory advertising.
+
+No crypto, NFTs, staking, real-money trading, NFT farm economy, tokens convertible to money, loot-box gambling, or speculative MMO economics — even if a visual reference game uses them.
+
+---
+
+# 04 — PIXEL ART QUALITY BIBLE: PREMIUM, CRISP, COHERENT
+
+Treat `pixels.xyz`, classic cozy pixel town RPGs, and high-quality modern pixel adventures as **quality benchmarks** for rich environments, readable characters and visual animation. **Do not copy any sprite, map, costume, UI panel, character likeness, name treatment, animation frames or game economy.** Generate original art with Korean cultural research and documented source rights.
+
+## Authoring system to choose and document
+
+- Choose ONE primary tile unit (recommend 32×32 world tiles); choose consistent player sprite canvas/proportions (for example 32×48, 48×64, or 48×48 based on tested readability), and explain proportions relative to doors/NPCs. Avoid independently mixing 16/24/32/48 px visual scales without intentional design.
+- Choose a coherent palette with restrained ramps: cream, jade/celadon mint, Korean roof navy, soft coral, honey yellow, night blue, floral accents. Test contrast and visual hierarchy; no random neon palette mashup.
+- Pixel geometry: intentional clusters, readable silhouette at 1×, consistent outline and highlight language, no blurry resampling, no inconsistent pseudo-pixels, no generative watercolor compressed into squares.
+- Texture sampling: nearest-neighbor, integer scaling when possible, pixel-aligned camera or justified subpixel movement strategy, correct device pixel ratio handling. Avoid shimmering seams, tileset bleeding and atlas padding artifacts. Validate 1×, 2×, 3×, desktop and phone.
+- Lighting: attractive baked palette shading + affordable dynamic overlays; daylight/evening/night/weather optional and performant. Avoid expensive screen-space filters that blur pixel art.
+- Environment depth: layered foreground occlusion, roof silhouettes, stairways, lanterns, blossoms, market stalls, Korean street signs, reflected water motifs; avoid visually flat empty squares.
+- Animation polish: character gait visible at game zoom, 4- or 8-direction source decisions, 4–8+ authored frames per walk/run where warranted, blinking, emotions, sit/wave/dance, dust/flower reactions and lively NPC cycles. More frames are NOT inherently better than excellent timing.
+- HUD/UI: pixel decorative frame is optional; Korean educational text, long passages, listening captions, inputs and TOPIK exam questions MUST use scalable crisp HTML/SVG/non-pixel Unicode Korean font. Never pixelate `ㅓ/ㅏ/ㅗ/ㅜ` and similar easily confused Hangul shapes in high-stakes learning UI.
+- Artists must provide editable source, atlas PNG, frame metadata, animation timing, tilemap layers, palette data and provenance. Never claim an uneditable downscaled concept is production pixel art.
+
+## Landmark-inspired original town design
+
+Create stylized zones inspired by **Gyeongbokgung palace architecture, Bukchon Hanok Village, Myeongdong markets, Hongdae youth streets, Cheonggyecheon stream, N Seoul Tower vistas, Seoul Metro, Jeju coastal landscape, and Busan Gamcheon color**. Make original layouts and signage; research culturally appropriate details, do not trace protected art photographs or game maps. Real place names are contextual inspiration, not license to reuse source images or brands.
+
+**World visual zones** (design modularly; do not implement every zone in the first milestone):
+- Letter Plaza / Central Plaza — social spawn, avatar customization, board, events, friends, portals.
+- Hanok Post Office / Bukchon Lane — first courier missions, Hangul discovery.
+- Myeongdong Market — food orders, numerals, vocabulary, shopping.
+- Seoul Subway — listening for stops/directions, route puzzles.
+- Gyeongbok Palace Gate — Korean history/story clues, grammar and syntax puzzles.
+- Hongdae Culture Alley — emotes, co-op rhythm, casual social minigames.
+- Cheonggyecheon Stream — relaxing fishing/vocab missions, seasonal events.
+- TOPIK Academy — full formal reading/listening/writing practice with HTML test UI.
+- EPS Workshop — workplace language, safety scenarios.
+- Jeju/Busan event maps — future seasonal story arcs.
+
+Render an intentionally small *premium* initial neighborhood before creating a huge dull map.
+
+---
+
+# 05 — PROGRESSION WITHOUT BORING COURSE CHAPTERS
+
+**DO NOT** name the main story as a consecutive textbook syllabus ('Chapter 1: Vowels, Chapter 2: Consonants...'). Korean learning progression exists underneath narrative stories, not as the entertainment itself.
+
+### Three independent progression tracks
+
+A. **Adventure progression**: story mysteries, friendships with NPCs, repairs, decoration, discoveries, world events. These track quests, not academic exam levels.
+
+B. **Language mastery**: an explicit beginner-to-advanced graph by Hangul decoding, vocabulary, listening, grammar, speaking/writing when available, SRS needs and TOPIK/EPS readiness. Real assessments override gimmick XP.
+
+C. **Social/cosmetic progression**: avatar outfits, titles, emotes, home decorations, seasonal collectibles, optional team achievements. It has NO power advantage in language score, exam result or ranked PvP.
+
+**Direct access:** players can choose entry skill: absolute beginner, already know Hangul, TOPIK I prep, TOPIK II prep, EPS-TOPIK prep, casual conversation. Diagnostic is optional/skippable and revocable. Advanced users can reach practice exams immediately, regardless of story unlock or account level.
+
+**Narrative arcs**, nonlinear after onboarding:
+- **The Missing Letters**: someone has rearranged signboards across town; deciphering messages reveals who is doing it and why.
+- **Courier Guild**: deliver letters and parcels; routes and NPC personalities develop into escalating puzzles.
+- **Lantern Restoration Festival**: restore districts; player action changes lighting, storefronts and NPC behavior.
+- **The Market Mystery**: collect recipes, assist food stalls, decode invoices and bargaining dialogues.
+- **The Last Train to Seoul**: solve listening clues and timetable puzzles against escalating deadlines (not exam time pressure for beginners).
+- **The Festival of Voices**: optional cooperative performances, phrase exchanges and listening challenges.
+- **Palace Archives**: language/history side mysteries, not rote quiz sheets.
+- **The Great Learning Games**: seasonal opt-in friendly tournaments and fair ranked learning PvP.
+
+No arc should require mandatory daily streaks or viewing ads to finish. Discovery, humor, surprising NPC reactions, collectibles and world-state change matter more than pure XP payouts.
+
+---
+
+# 06 — COMPLETE GAMEPLAY LOOP DESIGN
+
+## Moment-to-moment (5–30 seconds)
+
+Move → observe clue / motion / player → interact / pick up / dash / emote → immediate tactile/audio/visual response → new clue or world reaction. Smooth collision, fast dialogue, optional skip, full keyboard/touch parity.
+
+## Micro-loop (45–120 seconds)
+
+Choose mini-objective → perform meaningful action (e.g. route following, sound discrimination, assemble Hangul blocks, sort parcel) → receive immediate correctness feedback + explanation in Vietnamese if needed → visible effect on scene → tiny reward / new clue. Repeat concepts in different mechanics rather than repeating the same multiple-choice question.
+
+## Quest loop (4–8 minutes)
+
+Discover an NPC with a problem → explore and collect information → complete 2–3 different challenges → resolve by action rather than clicking 'submit quiz' → see NPC/environment change → get cosmetic coin and story clue → choose an optional branch. Quest can be resumed after interruption.
+
+## Session loop (10–18 minutes)
+
+Enter town with a 1-line recap → optional personal mission → 1 main quest + 1 short minigame or friend activity → 1 adaptive 'memory echo' review integrated into action → celebrate with visual change/unlock → decide next lead. Never force long daily chores.
+
+## Daily loop (optional, not obligation)
+
+Small changing town notice → choose among solo, co-op, social or exam paths → up to several refreshed goals from mastery needs and personal preference → optional friends' activity → claim baseline rewards → leave satisfied. Missing a day never deletes progress or imposes a punitive streak reset.
+
+## Weekly / seasonal loop
+
+One modest story event; rotating mini-game rule, map decoration, community town restoration bar, accessible for late joiners; player-owned cosmetic rewards can be earned through normal play without ads. Don't create unsustainable content treadmill or misleading scarcity.
+
+## Multiplayer loop
+
+Spawn in player-visible plaza → wave/chat safely → group invitation / quick queue → cooperative 3–6 minute mission OR 1v1 quiz skill match → celebrate and optionally add friend → join next activity. Solo alternatives always exist.
+
+## First-time user funnel
+
+1. Play a guest local tutorial without registration.
+2. Select avatar look, controls and Korean entry level.
+3. Move within 5 seconds, interact within 20, succeed at first scaffolded activity within ~90 seconds.
+4. Meet one memorable NPC and uncover mystery within 3 minutes.
+5. Complete a satisfying 8–12 minute mission with at least three DISTINCT gameplay actions and one visible change to the town.
+6. Invite account save/sign-in only at a naturally optional point; do not block the first fun action behind data collection.
+
+## Critical anti-boredom heuristics
+
+- Vary verb classes: navigate, listen, match, assemble, time, route, sort, coordinate, craft, discover, decorate. No more than two identical learning interactions in a row in the flagship quest.
+- Every major quest has at least one surprise / choice / emotional NPC moment and one visible outcome.
+- Adapt to mistakes with helpful hints and alternate tasks, never humiliation or predatory frustration.
+- SRS content resurfaces in **different contexts**, not always the same flashcard screen.
+- Offer calm exploration and an explicit 'Study Now / Exam Now' button at any time.
+- Choice of challenge controls difficulty; quick-time penalties are never the only method to learn.
+
+---
+
+# 07 — FIRST 12-MINUTE PLAYABLE VERTICAL SLICE: THE FIRST DELIVERY
+
+**This mission is the design and implementation benchmark. It must be REAL and playable before large-scale production.**
+
+### 00:00–01:00 — Arrival
+
+Camera presents a charming, active plaza with moving original NPCs, fluttering hanji flags, market chatter option and delightful pixel assets. Player selects a chibi look and begins walking immediately. NPC Mira the postmaster's mailbox sparks when letters vanish. Korean voice/subtitle sample optional; Vietnamese accessibility text available.
+
+### 01:00–02:30 — The missing name
+
+Player follows a fluttering paper clue and interacts with three objects. A lost sign contains `ㅁ` + `ㅜ` + `ㄹ` → `물` only after prerequisite readiness; absolute beginners first learn relevant graphemes via a 20–30 second visual interaction, not assumed literacy. Provide audio playback, romanization only as an optional scaffold (not permanent replacement for reading).
+
+### 02:30–04:00 — Letter assembly game
+
+User drags/jumps onto the correct Hangul blocks to repair a sign, with an interactive rack that snaps jamo into an authentic Korean syllable block. Errors preview valid form and invite correction. Restored sign animates and illuminates a nearby lamp. This should feel like a physical toy, not a quiz dialog.
+
+### 04:00–06:00 — The courier route
+
+User travels along a lively lane and chooses among three delivery spots. Recognize short Korean names and context icons; route signs are navigational clues. A mischievous NPC offers a decoy; user can inspect signs and request hints. Success delivers the parcel with an animated exchange.
+
+### 06:00–08:00 — Listening twist
+
+The recipient explains that another parcel went missing. User hears a short original line (with replay and adjustable speed where appropriate) and follows one of two routes. An alternative text-based accessibility mode must allow progress without audio. Avoid copyrighted media/TTS services requiring payment.
+
+### 08:00–10:00 — Team/solo restore
+
+Player reconnects two paper lanterns through a spatial arrangement puzzle where Korean words are keys. A demo companion assists in solo mode. Real co-op becomes available when authenticated rooms are safely implemented. User makes a meaningful final physical interaction, not only a multiple-choice answer.
+
+### 10:00–12:00 — Payoff and hook
+
+Town lanterns light up; NPCs change their lines and walk paths; new shortcut opens; player receives baseline cosmetic coins and an original wearable accessory. A mysterious postcard reveals the next zone, but finishing is optional. A brief 1–2-item natural retrieval task registers mastery without dominating the ending.
+
+**Gate acceptance:** 3 distinct mechanics minimum, actual original pixel assets, real animated sprites, crisp map, one authored original Korean learning set verified by a knowledgeable reviewer, functional movement/collision/dialogues, persistent local quest state, full browser build/test, no ad requirement, accessible HTML Hangul, original sound optional.
+
+---
+
+# 08 — MINIGAME CATALOG: IMPLEMENT A FEW EXCELLENT ONES FIRST
+
+Every minigame has a real mechanic, Korean skill, beginner affordance, clear fail/learn/retry path, variant generation and social feasibility. Create a machine-readable `MINIGAME_CATALOG` describing ID, theme, skill, mechanic, solo/co-op/PvP support, duration, accessibility, validation, content prerequisites and progression hooks.
+
+## Hangul & phonics (beginner)
+
+**MG01 Sign Fixer:** Physically arrange jamo into syllable blocks to repair storefront signs; previews block shape and audio. Difficulty: vowels → C+V → C+V+C → similar characters.
+
+**MG02 Letter Lanterns:** Lanterns light in a spoken sound sequence; click matching glyph lanterns; replay accessible. No unsafe high-speed pressure for absolute beginners.
+
+**MG03 Syllable Bridge:** Choose the correct tiles to cross a little bridge; errors respawn safely and show rule; forgiving timing.
+
+**MG04 Delivery Label Detective:** Sort parcels by correctly reading authentic Korean syllables and short names.
+
+**MG05 Batchim Workshop:** Assemble final consonants into correct parcels/locks; phonological explanations when needed, not arbitrary 'guess correct' answers.
+
+**MG06 Rhythm of Jamo:** Tap on-beat glyphs to recorded pronunciations; non-rhythm alternative to support disabilities.
+
+**MG07 Lost Letter Hunt:** Explore scene, spot missing Hangul in contextual signs; no tiny unreadable fonts.
+
+## Vocabulary and Korean daily life
+
+**MG08 Market Rush:** Physically fulfill food stall orders using Korean item names and numbers, choosing item/quantity, progressively more complex and optional calm mode.
+
+**MG09 Café Combo:** Hear/read short orders, assemble trays, differentiate sizes/counters; no punitive speed trap.
+
+**MG10 Courier Routes:** Read route signs to select an efficient route, navigate obstacles, deliver to Korean-named NPC.
+
+**MG11 Inventory Sort:** Drag actual world objects into categories described by Korean labels, with noun counters/verbs at harder tiers.
+
+**MG12 Jeju Fishing:** Fish item silhouettes based on learned vocabulary and audio; add depth through limited lure selection without gambling or exploitative loot.
+
+**MG13 Recipe Craft:** Follow a simple Korean recipe, arrange verbs/actions and quantities, observe dish animation.
+
+**MG14 Hidden Object Postcards:** Find items named in Korean in illustrated location scenes, choose difficulty/time-free modes.
+
+## Listening, conversation and navigation
+
+**MG15 Subway Signal:** Hear a station/direction announcement, physically route a train at switches; transcripts and replay available after attempt.
+
+**MG16 Taxi Navigator:** Guide a driver through landmarks using Korean left/right/stop phrasing; spatial navigation rather than answers-in-a-box.
+
+**MG17 Dialogue Detective:** Watch two NPCs converse with original voice/text; infer intent then perform an in-world action.
+
+**MG18 Sound Shop:** Match ambient/voice cues to correct shop/item; audio optional fallback for deaf users.
+
+**MG19 Restaurant Roleplay:** Select a natural response using sentence components; visual NPC reaction branches, no forced free-speaking recording.
+
+**MG20 Festival Chorus:** Cooperative rhythm/listening phrase game with captions, reduced-motion and non-rhythm alternatives.
+
+## Grammar, reading, advanced proficiency
+
+**MG21 Sentence Machine:** Physically place sentence blocks on conveyor slots, inflection/order marked semantically; reflect Korean SOV structure.
+
+**MG22 Particle Repair Crew:** Repair pipes/connections by choosing contextually correct Korean particles; show why alternatives fail.
+
+**MG23 Newsroom Rush:** Assemble correct headline summary from short original Korean snippets, suited to higher levels.
+
+**MG24 Palace Archive Mystery:** Investigate notes, read original dialogs, link evidence, infer meaning without speed scoring.
+
+**MG25 TOPIK Skill Sprint:** Clearly labeled unofficial original item practice with accurately modeled section formats; not a substitute for full mock exams.
+
+## EPS / workplace safety
+
+**MG26 Safe Workshop:** Recognize original illustrated Korean hazard signs and choose safe equipment/procedure; errors are teachable simulations, not real workplace certifications.
+
+**MG27 Factory Dispatch:** Listen to shift and quantity instructions, coordinate an assembly line safely and accurately.
+
+**MG28 Equipment Checklist:** Read workplace notices, inspect items, put procedural steps in correct order.
+
+## Social, party and competitive learning
+
+**MG29 Word Chain Relay:** Alternating verified Korean vocabulary words, server-authoritative dictionary/form checking, turn windows, no generated invalid word acceptance.
+
+**MG30 Matching Dash:** Two-player matched proficiency teams collect correct labels on map, accessibility alternative to reflex-only scoring.
+
+**MG31 Listening Duel:** Same licensed/original audio for both players, standardized replay/time rules, network latency fairness, no paid/advertised aids.
+
+**MG32 Syllable Builders Co-op:** One player gathers graphemes while other assembles contextual terms; solo AI/helper version available.
+
+**MG33 Festival Cleanup:** Social collaborative world task where Korean clues guide collecting/sorting; earns cooperative cosmetic rewards.
+
+**MG34 Treasure Map Clues:** Multistep party puzzle requiring reading and listening; scalable solo mode with NPC companion.
+
+**MG35 Quiz Arena:** 1v1/2v2 original questions appropriate for skill tiers. Includes transparent skill and reaction components and separate unranked practice. Never imply an official TOPIK score.
+
+**Sequencing rule:** First implement MG01 + MG10 + MG15 or equivalent high-quality trio during vertical slice. Next prioritize MG08, MG21, MG29, MG32. Others remain catalogued and staged, not falsely listed as completed.
+
+---
+
+# 09 — LEARNING ENGINE AND EDUCATIONAL QUALITY
+
+Learning progression is not just an XP bar. Build a domain-correct learning engine:
+
+- Absolute zero onboarding: show what a Korean syllable block is; teach vowels/consonants with original audio or validated pronunciations; avoid testing unknown jamo without instruction.
+- Skill taxonomy: grapheme recognition, syllable decoding, pronunciation/listening, vocabulary recognition/production, grammar, reading, speaking/writing where supported, cultural contexts, TOPIK readiness, EPS terminology.
+- Map minigame attempts to skill outcomes: content ID, item ID, correct/incorrect, response/hint use, attempt context, language-level estimate, elapsed timing only when pedagogically needed, and error category. Never equate game coin with mastery.
+- Use spaced repetition via an existing validated SRS implementation or compatible FSRS schedule; integrate revision into *varied* game tasks and expose ordinary review UI. Never penalize missed-day streaks.
+- Adapt difficulty using robust evidence and prerequisites, not a single lucky game result; maintain Vietnamese explanations, Korean audio replays and accessible non-timed study variants.
+- Every accepted question has original authored/approved content, provenance (`OFFICIAL_PUBLIC`, `OFFICIAL_REFERENCE`, `DERIVED`, `ORIGINAL`, `USER_CREATED` when appropriate), difficulty calibration, unambiguous answer key, explanations, and licensing review. Do not scrape or reproduce copyrighted TOPIK exams as unlimited content.
+- "Unlimited practice" must mean **large/replenishable validated original item inventory** via approved templates, deterministic seeds, duplicate controls, content QA and safe generation, not endless low-quality hallucinations.
+- Preserve ability to practice TOPIK Basic, TOPIK I, TOPIK II, TOPIK Speaking and EPS-TOPIK on the **main Korean Arena platform**. In the studio prototype, provide clear UI entry points and a documented integration contract; do not claim full exam features if not implemented.
+- Full TOPIK mock interface must use a suitable clean HTML exam layout: reading/listening with real question numbering, optional verified writing/speaking workflow when appropriate, exam conditions, official format references that are current and publicly available. Learning/exam features must remain fully accessible without any ads or story progress gates.
+- Score evaluation for games is not an official score or certification; clearly label it as practice.
+
+Define typed content schemas, validation tests, sample Korean/Vietnamese QA fixtures and fallback on unavailable content. If content cannot be reliably authored, generate only safe beginner samples and mark advanced inventory as pending, not invented.
+
+---
+
+# 10 — AVATAR CREATOR, OUTFITS, EMOTES, PERSONAL SPACE
+
+## Avatar editor
+
+- Original chibi pixel character, readable at normal gameplay zoom.
+- Choose appearance safely: skin tones, hair shape/colors, face/eyes, outfit palettes, shoes, accessories and Korean-inspired traditional/modern attire without stereotypes or stolen IP.
+- Layered sprite composition / precompiled atlases: body, hair back/front, torso top, lower body, accessories, facial expression, held item. Every variation uses same animation anchor points and readable collision footprint.
+- Four-direction idle, walk and run at launch; 8 directions optional only after budget/performance measurement. Wave, laugh, cheer, thinking, bow, dance, sit emotes appropriately animated.
+- Pixel-perfect preview and wardrobe UI; useful defaults so first play does not require lengthy configuration.
+- Every cosmetic has a transparent earn path via play. Ads optional cosmetic coin bonus does not gate fashion content.
+- Avatar data persisted server-side only after auth, schema validated, palette values whitelisted. Offline guest avatar is local with an explicit claim/save flow.
+- Avoid offensive customization, free-text public avatar items or plagiarized outfits.
+
+## Personal space and cosmetics
+
+- Tiny personal room or board, collectible nonfunctional furniture after core social/game works.
+- Currency: `Town Coins` (soft cosmetic currency only), no real-money value and no peer-to-peer trading initially.
+- Emote wheel, favorites, profile card, titles and unlock conditions.
+- Outfit combinations verified against atlas/layout clipping; mobile wardrobe usable.
+
+---
+
+# 11 — REAL-TIME SOCIAL TOWN ARCHITECTURE
+
+This must be a real multiplayer-capable design, not client-only animated avatars marketed as multiplayer.
+
+### Transport and instances
+
+- Recommend `Cloudflare Workers + Durable Objects` with WebSocket Hibernation for per-room presence/movement/chat, subject to verified product/account plan suitability and limits. A local WS-compatible development server must make the game runnable without any paid cloud services.
+- Supabase Auth/Postgres may own identity, friendships, account inventory/learning profile where later connected with the main application. Provide an `IdentityAdapter`, `PresenceTransport`, `FriendsRepository`, `ChatService`, `ProgressService` and `RewardLedger` abstraction; do not create real production tables in the separate main repo.
+- Room instance model (provisional 20–40 visible users per room, benchmark first, adapt to traffic). Multiple instances for one map with friend-join routing and geographically sensible sharding as needed. "Massive MMO" scale is NOT an MVP requirement.
+- Authoritative server validates movement bounds/speed, interactions, teleport transitions, inventory rewards and minigame scoring. Send minimal input/state snapshots at reasonable intervals, interpolate remote avatars and tolerate short disconnects gracefully. Avoid broadcasting player state to everyone globally.
+- Social presence is transient; persist only required identity/friend/inventory/learning data. Avoid per-frame database writes. Use sensible idle hibernation and cost caps.
+- Reconnect/session validation and duplicate-session handling; chat/presence rate limits; no trusting client-sent XP/currency/quiz answer keys.
+- The demo stage may show simulated local avatars with prominent 'DEMO PLAYER' markers, but MUST NOT imply real concurrent users until WebSocket/network checks prove it.
+
+### Multiplayer acceptance tests
+
+Use two real browser contexts or separate clients: sign in as separate demo users, enter same room, move simultaneously, verify interpolation/position and visibility, emote, exit/rejoin, disconnect/reconnect, change rooms, rate-limit spam, negative auth test. Record RTT/load/memory/message volume. Tests may run against a locally controlled test server; live credentials/deployment require separate user approval.
+
+### Friends and chat
+
+- Public proximity chat, optional friends-only group chat, friend requests/accept/decline/remove/block, private room invitations, emote wheel, quick preset Korean phrases with Vietnamese translations.
+- **Never ship unmoderated public chat.** Require filters for Korean/Vietnamese/English variants, Unicode normalization, rate limiting, spam control, report/block/mute, escalation/admin review, moderation audit minimization, abuse retention policy and anti-doxxing design.
+- For minors/unknown ages, use age-appropriate safety defaults; initially prefer preset phrases and emotes rather than unrestricted DM until robust safety/age/privacy handling is implemented. Do not collect date of birth unnecessarily.
+- Users must be able to mute chat entirely and study without interacting socially. Prevent harassment, private info leaks, malicious links and off-platform scam directions.
+- Account deletion, export/privacy settings and data minimization specified before real production identity rollout.
+
+---
+
+# 12 — CO-OP, PVP AND FAIR COMPETITIVE RULES
+
+## Co-op
+
+- 2–4 player synchronized missions such as sign repair, parcel relay, shared word matching, railway switches and festival preparation; solo completion path always supported.
+- Each player's task is meaningful. Avoid one skilled player solving everything while others wait.
+- Shared rewards cosmetic; contribution and friendly catch-up balanced.
+
+## PvP
+
+- 1v1 queue first; 2v2 after reliable room, scoring and moderation.
+- Match players by language proficiency and competitive rating; novices protected, optional practice unranked.
+- Question sets equivalent in measured difficulty, authoritative server validates answers, precommitted question selection, no client-only answer trust.
+- Separate `rankRating`, `TownCoins`, `learningMastery` and `accountXP`; **ads may alter only cosmetic soft coin payouts, never rank, mastery, study XP that gates content, per-round clock, answer hints, attempts or cooldowns**.
+- Normalize latency-sensitive interactions, provide untimed/low-pressure alternatives, limit reflex-only competition and prevent biased question distribution.
+- Server-side anti-cheat and plausible movement/timing audits with privacy safeguards; fair reconnect/forfeit rules, no exploitative streak and no advantage from faster payments.
+- Reward repeated participation fairly rather than allowing high-level players to farm beginners.
+
+---
+
+# 13 — OPTIONAL REWARDED ADS FOR SERVER SUSTAINABILITY
+
+**User's explicit intent:** Voluntary advertisements exist **only as a possible future revenue stream to help pay hosting, bandwidth, moderation and server expansion**, while keeping learning free. They are NOT an MMO monetization economy, not a paywall and not a coercive retention mechanism.
+
+This is a **phased, provider-compliant integration**, not automatic activation.
+
+### Allowed reward examples
+
+- Upon completing a quest, player first receives the full normal reward. A clearly optional button may offer a rewarded video for **one additional cosmetic Town Coin bonus**, such as doubling *that quest's cosmetic coins only*.
+- Limited extra cosmetic event token / nonfunctional decorative token / avatar accessory crafting material.
+- The player may immediately decline or simply ignore the button. The game remains enjoyable and balanced with ZERO ads watched.
+- No ads in an exam attempt, live PvP match, explanation, emergency reporting flow, or first-time Hangul tutorial.
+- Players may permanently turn off rewarded-ad suggestions in settings, separately from any legally required consent controls.
+
+### Not allowed
+
+- No mandatory ads, automatic full-screen ads or unconsented rewarded ad starts.
+- No bonus to TOPIK scores, ranked PvP, learning mastery, main story access, answer correctness, SRS schedule, tutoring hints or exam time.
+- No deception ('watch or lose your reward'), no pressure countdown, fake scarcity, shame language, addiction loops, ad farming/bots or inflated promises that ads will cover all infrastructure costs.
+- No ad personalization/behavioral targeting without suitable lawful basis, consent and age-sensitive safeguards. Default ads OFF for users subject to protections that cannot currently be satisfied.
+- No granting server currency purely because client JS says a video played.
+
+### Implementation contract
+
+Define interfaces such as:
+
+```
+interface RewardedAdAdapter {
+  isAvailable(context: AdContext): Promise<boolean>;
+  requestOptIn(context: AdContext): Promise<RewardedAdOutcome>;
+}
+interface CosmeticRewardService {
+  claimBaseReward(questCompletionId: string): Promise<RewardReceipt>;
+  claimOptionalAdBonus(questCompletionId: string, proof: ProviderEvidence): Promise<RewardReceipt>;
+}
+```
+
+A development-only `MockRewardedAdAdapter` may demonstrate unavailable/declined/completed/error outcomes, **clearly tagged DEMO / NO REVENUE**. Disable production rewards until a real eligible provider, approved placement, terms review, and appropriate provider-supported evidence/anti-fraud design exist. Some providers expose only browser events; check official verification mechanisms instead of falsely claiming server-to-server proof. Require idempotent atomic reward receipts, duplicate prevention, provider policy compliance, caps and abuse detection. Avoid ad-blocker crashes and preserve normal rewards when no inventory exists.
+
+Research legitimate web rewarded formats such as official Google Ad Manager rewarded inventory; **do not confuse AdSense's Offerwall access-for-ad product with the desired in-game optional cosmetic bonus mechanic**. Use provider-specific implementation only after eligibility is confirmed. Google Ad Manager web rewarded events include `rewardedSlotReady`, `rewardedSlotGranted`, and `rewardedSlotClosed`; reward is based on provider events/approved verification, not assuming playback or closing equals success. See `https://support.google.com/admanager/answer/9116812` and verify current policies.
+
+Before activation perform privacy/consent, age handling, geography, vendor eligibility and disclosure review. Never turn on real ads or add production credentials without explicit user authorization. Record ad opt-in, display, completion and reward ledger separately using privacy-minimized telemetry. Provide a basic cost dashboard estimating hosting/bandwidth/moderation and **do not project ad revenue as guaranteed**.
+
+### Monetization acceptance tests
+
+- Decline ad → full baseline reward and uninterrupted play.
+- No inventory/provider error/ad blocked → same baseline reward, no deadlock.
+- Completed approved ad → exactly one bonus cosmetic reward.
+- Duplicate/replay proof → cannot grant twice.
+- Client-manipulated payload → rejected.
+- Protected/minor mode or ads-disabled setting → no ad presented.
+- Rank/learning mastery/TOPIK access remains unchanged across all ad outcomes.
+
+---
+
+# 14 — GAME ECONOMY THAT REMAINS FUN WITHOUT ADS
+
+- Default quest reward must be meaningful without ads; never deliberately underpay baseline quests to manufacture demand for videos.
+- Cosmetic Town Coins can purchase original outfits/emotes/house decor; transparent nonrandom prices and earn paths.
+- Spending coins should have no bearing on access to learning, stage completion, answer probability, PvP strength or server slots.
+- Finite optional ad bonuses, rate limits, server-ledger auditability; no artificial infinite economic generation.
+- Reward diversity: story reveals, useful shortcuts, restoration, NPC relationship dialogue, cosmetic finds and social celebrations, not only numerical currency.
+- No monetized lootboxes, paid gacha, tradable NFTs, betting, cash-out, real-money goods, or pay-to-win.
+- A static optional donation QR may appear on an About/Support page, not interrupt gameplay and never confer score or learning privilege.
+
+---
+
+# 15 — UI/UX AND ACCESSIBILITY
+
+Responsive desktop/mobile: keyboard and touch/D-pad; configurable movement and interact controls; virtual joystick with safe zones; optional click-to-move only if tested. Crisp game canvas, safe viewport scaling and letterboxing; UI panels separate from world rendering.
+
+Core UI: start/play, profile/avatar, map, active quest, interact prompt, chat/emote, friends, party, minigame queue, simple store, settings, learning notebook, mastery map, SRS review, TOPIK/EPS exam entry, support/donation, optional ads setting. Avoid overwhelming first-time screen; progressive disclosure and a clear main action.
+
+Language: Vietnamese-first, optional English and Korean; proper Korean typography, screenreader labels, line breaks, input IME, contrast, font scaling, subtitles, alternative to listening-only interactions, reduced motion and low effects. Do not mix pixel fonts into graded Korean copy. Graceful offline/reconnect / network not available state.
+
+User choice: solo-only mode, chat muted mode, noncompetitive progression, calm minigame mode and study-now shortcuts must all exist.
+
+---
+
+# 16 — REPOSITORY STRUCTURE AND CODE CONTRACTS
+
+A suggested structure (adjust to actual repo without unnecessary monorepo complexity):
+
+```
+/
+  package.json
+  package-lock.json
+  index.html
+  vite.config.ts
+  src/
+    main.ts
+    game/
+      config.ts
+      scenes/{Boot,Preload,ArrivalPlaza,MinigameHub}.ts
+      entities/{Player,Npc,InteractiveProp}.ts
+      systems/{Input,Camera,Collision,Animation,Quest,WorldState}.ts
+      minigames/{SignFixer,CourierRoute,SubwaySignal}/
+      assets/{manifest,atlas,animations}.ts
+    ui/{GameShell,AvatarCreator,Dialog,QuestLog,LearningOverlay,Chat,Settings}/
+    domains/
+      avatar/
+      progression/
+      content/
+      quests/
+      economy/
+      social/
+      pvp/
+      ads/
+    adapters/{local,network,supabase,cloudflare}/
+    shared/{types,schemas,events}.ts
+  assets-src/{sprites,tilesets,maps,characters,ui,audio,palettes}/
+  public/assets/{atlas,tilesets,tilemaps,audio}/
+  tools/{atlas-export,tiled-check,palette-check,license-audit}/
+  test/{unit,e2e,visual,network,content}/
+  docs/{ART_BIBLE,GAME_DESIGN,GAMEPLAY_LOOPS,MINIGAME_CATALOG,LEARNING_CONTRACT,
+        MULTIPLAYER,MODERATION,ECONOMY,REWARDED_ADS,DEPLOYMENT,MIGRATION_REPORT}/
+  STUDIO_TASKS.md
+  STUDIO_PROGRESS.md
+  STUDIO_DECISIONS.md
+  STUDIO_ASSETS.md
+```
+
+Define typed events (`QUEST_STARTED`, `WORLD_INTERACTION`, `CHALLENGE_SOLVED`, `MASTERY_UPDATED`, `COIN_REWARDED`, `ROOM_PLAYER_JOINED`, `CHAT_MESSAGE_REJECTED`, `AD_OPT_IN`, `AD_BONUS_GRANTED`) with versioned schemas and explicit command/event separation.
+
+Model sample canonical schemas and tests: PlayerAvatar, AvatarCosmeticItem, WorldMapZone, TownRoom, QuestGraph, QuestNode, LanguageSkill, QuestionVariant, AttemptResult, MasteryRecord, ChallengeResult, FriendRequest, PresenceSnapshot, ModerationAction, PvPMatch, RewardReceipt, AdProof.
+
+Use local adapters before cloud integration; determinism and separation between player input, authoritative decisions and rendering are mandatory. No hard-coded cloud credentials. Document the API contract for eventual integration into the main Korean Arena app, including Auth, lesson routing, mastery sync, multiplayer presence, item grants and UI embedding. Keep both repositories independent until the main app owner intentionally integrates them.
+
+---
+
+# 17 — NONNEGOTIABLE TESTING, INSTRUMENTATION AND VISUAL QA
+
+## Automated
+
+- Clean install/typecheck/lint/unit tests/prod build; verify no residual active 3D imports.
+- Tilemap schema, collisions, front/back layers, sprite atlas frames, transparent edge handling, palette consistency, original asset provenance, licensing and Korean text validation.
+- Keyboard + touch movement, NPC interact, dialogue, quest state restore, changing scenes, mini-game success/failure/hints, mastery outputs, accessible reading/listening fallbacks, guest/offline mode.
+- Two-browser local multiplayer when backend ready, emote/chat/friend/message rejection, reconnect and moderation negative tests.
+- Economy/ad idempotence, ads-disabled/blocked/unavailable/declined paths, no paid advantage and no inaccessible education.
+- Browser console/network errors, phone and desktop viewport, different DPR, reduced motion, alt-font Korean Unicode/IME, tab visibility, low hardware fallback.
+
+## Actual visual evidence
+
+Save *real rendered game* PNG or video, not concept art pretending to be proof: first 30-second first impression, four-direction avatar movement, multiple outfits, responsive plaza, interactions, Korean sign repair, courier delivery, day/night, mobile controls, minigame completion, town-restoration payoff, clean HTML Hangul learning overlay, offline fallback, and social two-client demo when implemented. Compare the 2D output against the selected approved 2D pixel-art sheet to prevent the recurring concept-versus-production gap.
+
+## Benchmarks
+
+Measure on comparable environment: production JS transfer size, texture/atlas size, total download size, frame time/FPS where measured, memory where available, draw calls/render batches as supported by Phaser, NPC count, websocket messages/second, simulated room load and cloud requests estimate. Set provisional budgets, enforce only after measuring, and never claim a mobile FPS based solely on cloud software render.
+
+## Honest status labels
+
+Every feature is `NOT_STARTED`, `IN_PROGRESS`, `VERIFIED_LOCAL`, `VERIFIED_REMOTE`, or `BLOCKED`. Do not label "real-time multiplayer" complete based on a UI mock; do not claim revenue-capable ads when only a mock exists; do not claim a working EPS exam when it is a future link.
+
+---
+
+# 18 — REALISTIC DEVELOPMENT GATES AND HANDOFFS
+
+**Important: code and art are separate expensive risks.** Progress after each gate, keep small releases and actual review checkpoints.
+
+### GATE 0 — SAFE ARCHIVE AND REPO AUDIT [EXECUTE NOW]
+
+Verify remote archive; record exact old 3D SHA/tag/restore instructions, preserve user work; make a clean migration branch; build deletion manifest and report. Hard stop on failed remote backup.
+
+### GATE 1 — FULL 2D TOOLCHAIN MIGRATION [EXECUTE NOW]
+
+Remove current-branch obsolete 3D runtime/deps/build/assets after Gate 0; install Phaser/TS/Vite/tests/map/atlas pipeline; set default root entry to runnable 2D; verify clean build; checkpoint to GitHub. No active 3D components in app. Public website remains unchanged until review.
+
+### GATE 2 — PIXEL ART STYLE PROOF [EXECUTE NOW]
+
+Create three genuinely polished original pixel-art visual directions (character, house, plaza, Korean streets, palette) and compare source quality; choose a recommended candidate. Create **actual in-engine pixel assets** for one chibi, one house, one tiny map and a sprite walk cycle, not concept painting alone. Show side-by-side approved art sheet vs actual Phaser rendering at gameplay zoom; save editable source and screenshots. **STOP FOR USER VISUAL APPROVAL before mass-producing sprites and whole town.** Continue only after explicit selection. If a user has explicitly preapproved a style from this gate, document that approval accurately.
+
+### GATE 3 — FIRST DELIVERY: FUN VERTICAL SLICE [AFTER ART APPROVAL]
+
+Build one excellent, playable 8–12 minute arrival/courier quest; walk/run/emote; NPC, sign repair, route delivery, listening or accessible equivalent, world restoration, baseline rewards and quest persistence. At least three distinct gameplay mechanics; no giant content dump; human visual/gameplay review.
+
+### GATE 4 — AVATAR & SOCIAL LOCAL PROTOTYPE
+
+Complete layered wardrobe, emotes, cosmetics, guest profiles, clearly labeled local demo players, basic room/party/chat UX with safe preset phrases. Do not falsely call local simulation real multiplayer.
+
+### GATE 5 — REAL MULTIPLAYER SMALL-ROOM ALPHA
+
+Implement opt-in configured local WS authority first, then approved cloud if available. Show two real clients moving, interacting and messaging under privacy/moderation controls. Implement friendships and co-op mini-game. Add cost measurement and user caps before scaling.
+
+### GATE 6 — LEARNING DEPTH + MINIGAME PACK
+
+Ship a quality-selected minigame set, skill mappings, SRS integration contract, content QA pipeline, direct TOPIK/EPS shortcuts. Verify original correct Vietnamese/Korean educational content. Add advanced skill content gradually after validation.
+
+### GATE 7 — FAIR PVP AND SOCIAL PROGRESSION
+
+Ship server-authoritative skill-balanced 1v1, later team play, ranking separate from education masteries and soft coins; anti-cheat and moderation; no ad benefit in competition.
+
+### GATE 8 — ECONOMY AND OPTIONAL REWARDED ADS PREPARATION
+
+Ship cosmetic economy, stable normal rewards, `MockRewardedAdAdapter` with no ads/revenue, abuse-resistant ledger and failure tests. **STOP for provider/privacy/account approval before any live ad SDK or real ads.** Do not spend on paid ad SDK.
+
+### GATE 9 — ONLINE RELEASE AND SCALING
+
+After human approval: stage exact reviewed 2D build to GitHub Pages or approved deployment, verify subpath/assets/online actual page. Deploy authenticated backend only with authorized account configuration; watch errors and usage. Document scalable room capacity and infrastructure cost before increasing rooms. Maintain free access.
+
+**For this initial request:** Autonomously execute Gates 0, 1 and the complete preview/evidence portion of Gate 2. You may do enough small functional scaffolding for a runnable 2D scene, but must NOT launch expensive full sprite production, full world generation, production social backend, advertising, or the public replacement until relevant gates are approved. No extra permission needed for routine GitHub changes and installation inside the confirmed dedicated repo after Gate 0 succeeds.
+
+---
+
+# 19 — PERSISTENT CHECKPOINTS AND CREDIT INTERRUPTION RECOVERY
+
+Use or recreate the following files *in the active 2D project*:
+
+- `STUDIO_TASKS.md` — stable IDs `PIXEL-ARCHIVE-000`, `PIXEL-TOOLCHAIN-001`, `PIXEL-ART-002`, `PIXEL-FIRST-DELIVERY-003`, `PIXEL-AVATAR-004`, `PIXEL-SOCIAL-005`, `PIXEL-LEARNING-006`, `PIXEL-PVP-007`, `PIXEL-ADS-008`, `PIXEL-DEPLOY-009`; each with state, artifact, test/evidence.
+- `STUDIO_PROGRESS.md` — active milestone, last completed ID, last remote SHA, exact file paths, current blockers, **NEXT SESSION HANDOFF** with next command.
+- `STUDIO_DECISIONS.md` — style choice, Phaser version, room network design, ads eligibility assumptions, archived state, explicit approvals.
+- `STUDIO_ASSETS.md` — each source, derived atlas/map, license/provenance, SHA, status, game usage.
+- `docs/migration/3d-archive-proof.md` — exact old recovery refs and restore procedure.
+
+After every meaningful subtask: save code/source assets and tests → update all four files → commit/push → independently verify remote SHA → record a short next action. Check Git status and pending work before claiming checkpoint complete. Never rely solely on conversation context or unsaved cloud workspace. No force pushes or destructive history rewrites.
+
+### If credits/session end unexpectedly
+
+In a new session: verify `git remote`, branch, last SHA and remote refs; read four progress files and migration proof; inspect working tree; resume the next unfinished stable task. Never regenerate approved sprites, reinstall working dependencies, rerun expensive movie capture or wipe a current world merely because a session restarted. Report discrepancies honestly and repair them before continuing.
+
+---
+
+# 20 — REQUIRED OUTPUT AND ACCEPTANCE SUMMARY
+
+At each milestone report:
+
+1. **What actually changed**, which files and which removed legacy dependencies.
+2. **What is playable**, which features are only mocks/interfaces, and what remains unimplemented.
+3. **Actual visual proof** (PNG + if feasible short gameplay clip), source art and atlas files.
+4. **Tests/build results**, browser errors, basic perf/download metrics and known constraints.
+5. **Security and social safety status**, including whether free-text chat or real online ads are disabled.
+6. **Exact Git SHA**, verified remote archive and active checkpoint.
+7. **Next gate** and whether user visual/deployment/provider approval is needed.
+
+No hollow 'done' reports; assets must be genuinely attractive at normal game zoom, character animation noticeably fluid, first quest fun, Korean pedagogy sound, and online/ads claims grounded in actual integration evidence.
+
+**Absolute definition of success:** Someone can play freely, understand the Korean learning stakes, move through a delightful pixel town, connect safely with friends, choose study or PvP, and voluntarily support operating costs by watching an optional eligible rewarded ad — without any learning feature becoming paid or any competitive advantage being sold.
+
+## START NOW — EXACT FIRST ACTION
+
+Verify that your current checkout is the dedicated `Anapaulagatti/3D-pharse5-` repository, including any unfinished v0.6 3D work. Make a remotely verified full recovery checkpoint BEFORE deletion. Then migrate the active implementation to **Phaser + TypeScript + Vite** with verified build and asset pipeline. Produce a beautiful authentic pixel-art style proof and a small actually rendered 2D map/character. Checkpoint and stop at the art-approval gate. Do not leave the previous 3D app as the active default. Do not touch the main Korean Arena application. No live ads, backend charges, or public deployment without their separate approval.

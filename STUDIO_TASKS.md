@@ -145,3 +145,6 @@ PUBLIC-RELEASE-005 COMPLETE: Actions38573493700/deployment7066939380 success; ca
 - PROTO-ASSETS-006 DONE for scoped prototype: actual accepted-render images inspected, skin/waist corrected,10608tri chibi +38421tri world, raw3,117,216B, Validator0/0. Production typecheck/Vite + standalone46012a84 PASS. Native exact-static gameplay currently in progress (walk/run/air/closed-door/entry observed), no final play/access/media pass claimed.
 
 - Exact-static native run passed movement/jump/entry/emotes/pause; selector ambiguity was harness-only. Real capture then exposed one pre-effect animation frame with empty action map; guard unbound setup/cleanup frames and retain strict missing-clip errors once bound. Actual glTF durations include one extra exported frame; derive gait speed from clip duration/stride. Rebuild and repeat affected native proof required.
+
+## PIXEL-ARCHIVE-000 — new request supersedes v0.6
+Authoritative scope: docs/reviews/pixel-v3.1/USER_REQUEST.txt. Preserve all unfinished v0.6 work and native pass-2 evidence; pass-2 ran against the older candidate and is not final current-artifact verification. No v0.6 release is claimed. Archive branch/tag + remote proof and restore check required before deleting. Public v0.5 remains unchanged. Next action: remote-verifiable full 3D archive, then Gates 1/2 only.
