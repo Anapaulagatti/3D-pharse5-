@@ -185,14 +185,17 @@ for idx,key in enumerate(NAMES):
  for sign in [-1,1]:
   fx=16+sign*4+(stride if side and sign==1 else -stride if side else 0);fy=43+(sign*stride//2 if not side else (-3 if run and i%4==2 else 0))
   rect(d,(fx-2,32+dy,fx+2,min(45,fy)),'roof0');rect(d,(fx-3,min(44,fy),fx+3,min(46,fy+2)),'deep');line(d,[(fx-2,min(44,fy)),(fx+2,min(44,fy))],'roof2')
- # Face silhouette has the same pixel density as architecture.
- poly(d,[(hx-6,hy-5),(hx+5,hy-5),(hx+8,hy-1),(hx+8,hy+8),(hx+4,hy+12),(hx-4,hy+12),(hx-8,hy+8),(hx-8,hy-1)],'ink');rect(d,(hx-6,hy-3,hx+6,hy+7),'skin1');rect(d,(hx-4,hy+8,hx+4,hy+10),'skin1');rect(d,(hx-5,hy-2,hx+3,hy+6),'skin2')
+ # Readable original chibi face: large eyes, clear cheeks and jaw, shared32x48 registration.
+ poly(d,[(hx-8,hy-7),(hx+7,hy-7),(hx+11,hy-2),(hx+11,hy+8),(hx+6,hy+13),(hx-6,hy+13),(hx-11,hy+8),(hx-11,hy-2)],'ink')
+ rect(d,(hx-9,hy-5,hx+9,hy+8),'skin1');rect(d,(hx-7,hy+9,hx+7,hy+11),'skin1');rect(d,(hx-8,hy-4,hx+5,hy+7),'skin2')
  if dr!='up':
-  eyes=[hx-3,hx+4] if dr=='down' else [hx-4] if dr=='left' else [hx+4]
+  eyes=[hx-5,hx+4] if dr=='down' else [hx-6] if dr=='left' else [hx+4]
   for x in eyes:
-   if a=='idle' and i==1:line(d,[(x-1,hy+3),(x+1,hy+3)],'ink')
-   else:rect(d,(x,hy+1,x+1,hy+4),'ink');rect(d,(x,hy+1,x,hy+1),'white')
-  rect(d,(hx-1 if dr=='down' else hx-4 if dr=='left' else hx+4,hy+7,hx+1 if dr=='down' else hx-3 if dr=='left' else hx+5,hy+7),'skin0')
+   if a=='idle' and i==1:line(d,[(x-1,hy+6),(x+3,hy+6)],'ink')
+   else:
+    rect(d,(x-1,hy+3,x+3,hy+8),'white');rect(d,(x,hy+3,x+2,hy+7),'jade0');rect(d,(x+1,hy+4,x+2,hy+7),'ink');rect(d,(x,hy+3,x+1,hy+4),'white');rect(d,(x,hy+7,x+1,hy+8),'jade1')
+  rect(d,(hx-8,hy+9,hx-6,hy+9),'skin0');rect(d,(hx+6,hy+9,hx+8,hy+9),'skin0')
+  line(d,[(hx-1 if dr=='down' else hx-5 if dr=='left' else hx+5,hy+11),(hx+1 if dr=='down' else hx-3 if dr=='left' else hx+7,hy+11)],'coral0')
  # Hands/arms and clothing: actual per-pose anatomy rather than a recolour atlas.
  left=(8,30+dy+stride//2);right=(24,30+dy-stride//2)
  if a=='wave':right=(26,20+dy-[0,2,6,4,6,0][i])
@@ -206,12 +209,14 @@ for idx,key in enumerate(NAMES):
   if outfit==0:poly(dd,[(11+lean,23+dy),(16+lean,27+dy),(22+lean,23+dy),(21+lean,26+dy),(16+lean,30+dy)],'coral1');rect(dd,(18+lean,27+dy,20+lean,34+dy),'coral0')
   else:rect(dd,(15+lean,24+dy,17+lean,36+dy),'cream1');poly(dd,[(11+lean,24+dy),(15+lean,25+dy),(13+lean,29+dy)],'cream2');rect(dd,(19+lean,29+dy,21+lean,32+dy),'gold')
  for h in [0,1]:
-  dd=ds[f'hair{h}'];poly(dd,[(hx-9,hy),(hx-8,hy-5),(hx-4,hy-8),(hx+4,hy-8),(hx+8,hy-5),(hx+9,hy+2),(hx+6,hy+1),(hx+5,hy-2),(hx-3,hy-1),(hx-7,hy+3)],'hair0');line(dd,[(hx-6,hy-5),(hx-2,hy-6),(hx+4,hy-5)],'hair2',2)
+  dd=ds[f'hair{h}'];poly(dd,[(hx-12,hy),(hx-11,hy-6),(hx-6,hy-10),(hx+4,hy-10),(hx+10,hy-7),(hx+12,hy-2),(hx+11,hy+3),(hx+7,hy+1),(hx+5,hy-2),(hx-1,hy),(hx-7,hy+2),(hx-10,hy+5)],'hair0')
+  line(dd,[(hx-8,hy-6),(hx-3,hy-8),(hx+4,hy-7),(hx+7,hy-5)],'hair2',2)
   if h==0:
-   for xx,yy in [(-6,-2),(-2,-3),(3,-2)]:poly(dd,[(hx+xx,hy+yy),(hx+xx+4,hy+yy),(hx+xx+1,hy+yy+4)],'hair1')
+   for xx,yy in [(-8,-2),(-3,-3),(3,-4)]:poly(dd,[(hx+xx,hy+yy),(hx+xx+5,hy+yy-1),(hx+xx+2,hy+yy+4)],'hair1')
+   rect(dd,(hx+6,hy-6,hx+8,hy-4),'cream2');rect(dd,(hx+7,hy-7,hx+8,hy-6),'gold')
   else:
-   rect(dd,(hx-9,hy,hx-7,hy+11),'hair0');rect(dd,(hx+7,hy,hx+9,hy+11),'hair0');rect(dd,(hx+7,hy-6,hx+11,hy-2),'hair1');rect(dd,(hx+8,hy-6,hx+10,hy-5),'coral1')
-  if dr=='up':rect(dd,(hx-7,hy-2,hx+7,hy+8),'hair0');line(dd,[(hx-4,hy-2),(hx-4,hy+6)],'hair1');rect(dd,(hx-5,hy+9,hx+5,hy+11),'hair1')
+   rect(dd,(hx-12,hy-1,hx-10,hy+12),'hair0');rect(dd,(hx+10,hy-1,hx+12,hy+12),'hair0');rect(dd,(hx+8,hy-8,hx+12,hy-4),'hair1');rect(dd,(hx+9,hy-8,hx+11,hy-7),'coral1');line(dd,[(hx-11,hy+2),(hx-11,hy+10)],'hair1')
+  if dr=='up':rect(dd,(hx-9,hy-3,hx+9,hy+10),'hair0');line(dd,[(hx-5,hy-3),(hx-5,hy+7)],'hair1',2);rect(dd,(hx-6,hy+10,hx+6,hy+13),'hair1')
  dd=ds['satchel'];line(dd,[(10+lean,24+dy),(23,35+dy)],'wood0',2);rect(dd,(21,32+dy,28,39+dy),'wood0');rect(dd,(22,33+dy,27,37+dy),'wood2');rect(dd,(24,34+dy,25,35+dy),'gold')
  x=(idx%14)*36+2;y=(idx//14)*52+2;frames[key]={'frame':{'x':x,'y':y,'w':32,'h':48},'rotated':False,'trimmed':False,'spriteSourceSize':{'x':0,'y':0,'w':32,'h':48},'sourceSize':{'w':32,'h':48}}
  for k,im in ims.items():
@@ -232,7 +237,7 @@ def add(kind,x,y,w,h,label='',collide=True):objects.append({'id':len(objects)+1,
 # Buildings stand on separate garden plots with walkable doors and social-facing entrances.
 add('hanok',504,280,160,28,'Nhà văn hóa');add('courier',330,414,128,28,'Trạm thư');add('cafe',694,414,128,28,'Café Dal');add('academy',797,666,128,28,'TOPIK · Chưa mở')
 add('fountain',512,470,64,25,'Giếng thư')
-for k,x,y,label in [('board',410,427,'Bảng chuyện'),('puzzle',615,427,'Ghép âm · Gate 3'),('outfit',233,586,'Góc trang phục'),('portal',655,663,'PvP · Chưa mở'),('stall',340,650,'Quầy chợ')]:add(k,x,y,40 if k!='stall' else 54,14,label)
+for k,x,y,label in [('board',410,427,'Bảng chuyện'),('puzzle',615,427,'Ghép âm · Gate 3'),('outfit',233,586,'Góc trang phục'),('portal',655,663,'PvP · Chưa mở'),('stall',614,621,'Quầy chợ')]:add(k,x,y,40 if k!='stall' else 54,14,label)
 for x,y in [(135,268),(310,241),(686,245),(903,282),(115,504),(890,511),(148,685),(457,708),(598,724),(927,708),(73,371)]:add('tree' if x%3 else 'pine',x,y,24,16)
 for x,y in [(376,268),(643,274),(95,607)]:add('plum',x,y,24,16)
 for x,y in [(390,482),(631,482),(400,588),(601,588)]:add('bench',x,y,42,12)
@@ -242,7 +247,11 @@ for x,y in [(266,448),(282,463),(305,448)]:add('parcel',x,y,24,14)
 for x,y in [(732,454),(755,492)]:add('table',x,y,40,16)
 for x,y in [(696,468),(784,465),(704,510)]:add('planter',x,y,26,12)
 for x,y in [(315,218),(285,246),(881,265),(917,230),(101,483),(125,451),(879,547),(900,571),(121,702)]:add('tree' if x%2 else 'pine',x,y,24,16)
+for x,y in [(326,494),(701,496)]:add('tree',x,y,24,16)
+add('hanok',310,696,160,28,'Nhà học Hanji')
 for x,y in [(317,527),(705,542),(402,315),(622,315)]:add('gardenbed',x,y,54,20)
+for x,y in [(250,296),(766,296),(340,202),(667,202),(744,719)]:add('wall',x,y,108,12)
+for x,y in [(276,450),(728,447),(565,311),(274,713)]:add('jars',x,y,24,14)
 collisions=[{'id':i+1,'name':p['kind'],'type':'solid','x':p['x']-p['width']/2,'y':p['y']-p['height'],'width':p['width'],'height':p['height'],'rotation':0,'visible':True} for i,p in enumerate(objects) if p['collide']]
 # Water is bounded, while board/plaza/café/courier all remain reachable around footprints.
 collisions.append({'id':len(collisions)+1,'name':'pond','type':'solid','x':64,'y':544,'width':160,'height':128,'rotation':0,'visible':True})

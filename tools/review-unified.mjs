@@ -45,6 +45,13 @@ for (const hair of ["0", "1"])
         window.__PIXEL_METRICS__.outfit === Number(o),
       { h: hair, o: outfit },
     );
+    const renderFrame = await page.evaluate(
+      () => window.__PIXEL_METRICS__.frameCount,
+    );
+    await page.waitForFunction(
+      (n) => window.__PIXEL_METRICS__.frameCount > n + 3,
+      renderFrame,
+    );
     await page
       .locator("canvas")
       .screenshot({ path: `${out}/outfit-h${hair}-o${outfit}.png` });

@@ -70,7 +70,7 @@ test("unified plaza native movement, collision, layered outfits, distinct run an
   const first = await metrics(page);
   expect(first.style).toBe("unified");
   expect(first.animationFrames).toBe(152);
-  expect(first.colliders).toBe(65);
+  expect(first.colliders).toBe(77);
   await page.locator("canvas").focus();
   await page.keyboard.press("e");
   await expect(page.locator("#dialog-copy")).toContainText("Mira");

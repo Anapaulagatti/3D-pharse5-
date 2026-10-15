@@ -58,8 +58,8 @@ await p.locator("canvas").screenshot({
   path: "quality-reports/unified-v4/render/house-detail-gameplay.png",
 });
 await axis("x", 440);
-await axis("y", 498);
-await axis("x", 156);
+await axis("y", 463);
+await axis("x", 205);
 await p.waitForFunction(() => !window.__PIXEL_METRICS__.moving);
 await p.locator("canvas").screenshot({
   path: "quality-reports/unified-v4/render/tree-detail-gameplay.png",

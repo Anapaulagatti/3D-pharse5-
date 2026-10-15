@@ -6,7 +6,7 @@ ONE original unified pixel social-town art proof, V4 Gate2. All prior A/B/C reje
 
 Node24+, exact npm lock; existing packages first. `bash tools/setup.sh` verifies prerequisites, source/asset QA, types/lint/format/unit/build/browser checks without regenerating art. `npm run dev` from this root starts development; production `npm run build` then `npm run preview`. Base `/3D-pharse5-/`. Cloud loopback is internal, not a public preview link.
 
-WASD/arrows walk, Shift runs, E talks near Mira, Space waves. UI and touch buttons provide alternatives. Try clothes/hair/accessory,1×/2×/3×, pause/reduced motion. HTML dialogue uses readable Korean/system fonts. Source art is native integer raster, no copied game pixels or downscaled illustrated backgrounds. See PIXEL_ART_BIBLE.md and assets-src/unified-v4/manifest.json.
+WASD/arrows walk, Shift runs, E talks near Mira, Space waves. UI and touch buttons provide alternatives. Try clothes/hair/accessory,1×/2×/3×, pause/reduced motion. HTML dialogue uses readable Korean/system fonts. Source is original native image_gen pixel objects plus code-raster layered chibi/ground; source atlas/crops/palette/native exports preserved. No copied game pixels or whole-scene illustrated background. See PIXEL_ART_BIBLE.md and assets-src/unified-v4/manifest.json.
 
 ## Review and approval
 

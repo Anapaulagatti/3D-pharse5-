@@ -54,6 +54,11 @@ export class Plaza extends Phaser.Scene {
   private style = "unified";
   private layout: World;
   private layers: Phaser.GameObjects.Sprite[] = [];
+  private neighbors: {
+    body: Phaser.GameObjects.Sprite;
+    layers: Phaser.GameObjects.Sprite[];
+    dr: string;
+  }[] = [];
   private npcLayers: Phaser.GameObjects.Sprite[] = [];
   private player!: Phaser.Physics.Arcade.Sprite;
   private npc!: Phaser.GameObjects.Sprite;
@@ -74,6 +79,8 @@ export class Plaza extends Phaser.Scene {
   preload() {
     const base = import.meta.env.BASE_URL + "assets/unified-v4/";
     for (const kind of [
+      "wall",
+      "jars",
       "gardenbed",
       "parcel",
       "table",
@@ -135,7 +142,8 @@ export class Plaza extends Phaser.Scene {
           p.y - 2,
           p.width + 6,
           Math.max(4, p.height / 3),
-          0x536457,
+          0x423c35,
+          0.18,
         )
         .setDepth(-50);
       const image = this.add
@@ -213,6 +221,32 @@ export class Plaza extends Phaser.Scene {
       })
       .setOrigin(0.5, 1)
       .setDepth(900);
+    for (const [x, y, name, hair, outfit, dr] of [
+      [618, 529, "Hana", 1, 0, "left"],
+      [420, 589, "Do-yun", 0, 1, "right"],
+    ] as const) {
+      const body = this.add
+        .sprite(x, y, "body", `idle-${dr}-0`)
+        .setOrigin(0.5, 1)
+        .setDepth(y);
+      const layers = [`outfit${outfit}`, `hair${hair}`].map((key, i) =>
+        this.add
+          .sprite(x, y, key, `idle-${dr}-0`)
+          .setOrigin(0.5, 1)
+          .setDepth(y + (i + 1) * 0.01),
+      );
+      this.neighbors.push({ body, layers, dr });
+      this.add
+        .text(x, y - 53, `${name} · demo NPC`, {
+          fontFamily: "system-ui",
+          fontSize: "8px",
+          color: "#f4e6ba",
+          backgroundColor: "#303945",
+          padding: { x: 3, y: 2 },
+        })
+        .setOrigin(0.5, 1)
+        .setDepth(900);
+    }
     this.overlay = this.add
       .rectangle(
         this.layout.width / 2,
@@ -421,6 +455,16 @@ export class Plaza extends Phaser.Scene {
         .setPosition(Math.round(this.npc.x), Math.round(this.npc.y))
         .setDepth(this.npc.y + (i + 1) * 0.01)
         .setFrame(this.npc.frame.name);
+    for (const n of this.neighbors) {
+      if (blocked || controls.reduced) {
+        n.body.anims.pause();
+        if (controls.reduced && !blocked) n.body.setFrame(`idle-${n.dr}-0`);
+      } else {
+        n.body.anims.play(`idle-${n.dr}`, true);
+        n.body.anims.resume();
+      }
+      for (const l of n.layers) l.setFrame(n.body.frame.name);
+    }
     window.__PIXEL_METRICS__ = {
       ready: true,
       style: this.style,

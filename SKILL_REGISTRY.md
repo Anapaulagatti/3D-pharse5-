@@ -7,4 +7,4 @@
 | Forge generate2dsprite/generate2dmap/video2dsprite/codeart2d | NOT ACTIVATED | Existing source cache inspected by file discovery only; no claimed smoke tests. Native pipeline used directly, not through Forge. |
 | Other document/spreadsheet skills | DISCOVERED ON DISK; UNRELATED | Not invoked for this game milestone |
 
-Active V4 artwork is code-drawn native raster, no image model, no copied reference pixels. This is recorded openly in source provenance. No skill installation is required to execute the retained Phaser/export/test workflow. Do not silently invoke a paid provider. The optional Forge integration is deferred rather than described as functional.
+Current reference refinement uses the available native image_gen tool for one original pixel-object atlas, plus code-raster avatars/ground. No external paid API route or copied reference pixels. Earlier all-code candidate preserved. This is recorded openly in source provenance. No skill installation is required to execute the retained Phaser/export/test workflow. Do not silently invoke a paid provider. The optional Forge integration is deferred rather than described as functional.

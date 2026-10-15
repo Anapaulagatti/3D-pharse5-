@@ -1,21 +1,10 @@
-# Living Pixel Seoul — unified V4 tasks
+# Living Pixel Seoul — reference-refined V4 / TASKS
 
-Milestone **UNIFIED-PIXEL-V4-GATE2**. Current task **WAIT_FOR_USER_VISUAL_APPROVAL**. All earlier minimalist/painterly A/B/C rejected. No art selection or public replacement approved.
+Gate2 source and actual rendered screenshots verified; final refreshed motion/package/handoff in progress. User's latest hanok-courtyard image governs quality. Keep ONE original town and STOP for visual approval before Gate3/public release.
 
-| Gate/task | Result | Evidence |
-| --- | --- | --- |
-|0: authoritative V4 read/audit | COMPLETE | docs/reviews/unified-v4/master and AUDIT.md |
-|0: remote3D recovery | PASS | Fresh HTTPS clone2738hashes, gate0-recovery.json |
-|0: previous pixel archive | VERIFIED |2554327/tag preserved;1923oldfiles byte-match |
-|1: retained toolkit/headless pipeline | PASS | INSTALLATION_MATRIX.md; SKILL_REGISTRY.md;03473c4checkpoint |
-|1: obsolete active3D cleanup | ALREADY COMPLETE; NO NEW DELETIONS | Exact lock and frozenv0.5 retained |
-|2: ONE native pixel kit and Central Plaza | PLAYABLE_REVIEW_READY |64props/65colliders, modular architecture/trees/roads, all10landmarks reachable |
-|2: layered avatar/outfits/animations | VERIFIED_RENDER |152frames/layer,6layers,2hair/2outfits/satchel,4-way distinct run and social emotes |
-|2: native screenshots/gameplay video/comparisons | COMPLETE | quality-reports/unified-v4/REVIEW.md |
-|2: build/types/lint/format/5unit/3browser/assetQA | PASS | Source CI00139ca/run38681323177 and local native reports |
-|2: exact portable HTTP package | PASS | downloads/unified-v4; extracted desktop/mobile checks |
-|User visual approval | **PENDING — STOP** | Beauty/cohesion/readability are the user's decision |
-|3: First Delivery, Sign Repair, Courier Rush | BLOCKED UNTIL APPROVAL | Roadmap/design only |
-|4–6: cosmetics/social/backend/PvP/ads/content/device/publication | NOT IMPLEMENTED | Separate gates/approvals; no real player/ad claims |
-
-Next action: read new visual feedback. Do not resume old A/B/C, mass produce assets, expand gameplay or publish. Keep current publicv0.5 and separate Korean Arena production untouched. Full authoritative spec archived at docs/reviews/unified-v4/KOREAN_ARENA_PIXEL_UNIFIED_MASTER_V4.md.35game backlog and full roadmap recorded.
+- Initial all-code V4 archived locally94117b0; old rejectedpixel2554327, remote3D f1f13f2 and2738file recovery preserved. Prior source00139ca CI passed. New refinements are not yet the final remote checkpoint.
+- Current original source: native image_gen nine-object pixel atlas with source hash/crops/NEAREST/native128colour export, code-raster warm ground and expressive large-eyed32×48chibi. No copied user pixels/map, no complete-scene backdrop, no all-hand-pixel claim.
+- One map:76props/77colliders;11landmark approaches reachable;5hanok/café/courier buildings, layered trees, walls/onggi/notice screens, warm courtyard and3labelled demoNPCs. No live users.152frames×6avatar layers;2hair/2outfits/accessory; true separate4way run.
+- Production build/type/lint/sourceQA,5unit and3native browser flows PASS (current22.4s). Actual current2x/1x/idle/outfits/mobile screenshots inspected; outfit helper now waits compositor frames after selectors. Need refreshed movie/details/exact ZIP.
+- Roadmap/35minigame backlog remain design-only. No learning quest, backend/PvP/ad SDK/publishing implemented. Old websitev0.5 untouched. Exact lock unchanged.
+- Transient automatic approval review usage failure affected optional dev startup; later current preview/browser actions were approved. Preview restarted after discovering old process no longer listening. No remaining approval block claimed.
