@@ -27,6 +27,7 @@ for p in derived['parts']:
     assert pixels.tobytes()==whole.crop(tuple(box)).tobytes()
     reconstructed.paste(pixels,(box[0],box[1]))
 assert whole.tobytes()==reconstructed.tobytes(),'Approved workshop pixels changed'
+for row in j(S/'placements.json')['props']:assert not Path(row['image']).is_absolute() and (S/row['image']).is_file()
 solids=b['collision']['solids']
 for building in original['buildings']:
     if building['id'] in ['academy','workshop','museum']:

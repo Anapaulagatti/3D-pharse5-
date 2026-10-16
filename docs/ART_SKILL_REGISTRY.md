@@ -1,3 +1,9 @@
+# STOP — compact Living Seoul visual/gameplay review pending
+
+Read docs/world-refinement/REVIEW.md, verification.json, FORGE.md, PERFORMANCE.md and actual immutable checkpoint/living-seoul-refinement-verified-20261016 AFTER verification. Root12unit+21browser/202fileHTTPZIP/real45.21FPSVFRvideo PASS; old483files/Juni144frames/main/Pages preserved. Final exact SHA/CI/clean-clone facts belong in tag after observation, not assumed. Both queued tasks complete locally; STOP before full modern district/newNPCs/main merge/publication/paid routes/cleanup/delegation/reset/force/worktree. Setup never generates. Current review entry refinement-review.html; portable instructions in REVIEW.md.
+
+## Previous authorized work and history
+
 # Living Seoul world refinement — current user-authorized scope
 
 Stage B polish verified97c7d6b/CI38891178821/independent clone and HTTP package complete. Latest authority docs/current/LIVING_SEOUL_WORLD_REFINEMENT.md now authorizes compact layout/palace/ONE modern corner/performance, not full modern/NPC production. Actual map/sprite/media SKILL.md re-read at5324342 before this task; previous successful Forge/Juni reports consulted. New source/runtime live separately in world-refinement/refinement-review, preserve all old art/entries/Juni144frames. Profile before optimizations, measure normal-speed trips, genuine>=30fps capture, then verified checkpoint and STOP. No paid API/main/publication/delegation. Setup never generates.

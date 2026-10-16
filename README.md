@@ -1,3 +1,13 @@
+# Current review: compact Living Seoul
+
+Stage B final polish is completed at `checkpoint/stage-b-final-polish-verified-20261016`. The next user-authorized review adds a meaningful palace court/main hall, compact Academy/workshop/museum routes and one modern book-and-tea corner, preserving the old town and Juni144frames. It is **not publicly released** and does not replace main.
+
+Run `bash tools/setup.sh` for offline asset integrity, types/lint/format/unit/build/browser checks (never generates artwork). Run `npm run dev`, open the printed local server under `/3D-pharse5-/refinement-review.html`; software-GPU machines can add `?renderer=canvas`. Cloud localhost is not a public preview URL. For a no-Node review, use `docs/world-refinement/playable-review.zip`, extract the entire folder and run `python3 start.py` (Windows `py start.py`). Open the printed HTTP URL, never file:// or the HTML source viewer.
+
+See [review and evidence](docs/world-refinement/REVIEW.md), [actual Forge route](docs/world-refinement/FORGE.md), [walking times](docs/world-refinement/TRAVEL.md) and [performance](docs/world-refinement/PERFORMANCE.md). Final verified source/CI/clean-clone identity belongs in the immutable checkpoint tag after observation. Stop for visual/gameplay approval before broader modern districts or remaining NPCs. No paid APIs, main merge or deployment.
+
+## Retained history
+
 Current candidate: [Stage B final terrain/courtyard polish](docs/stage-b-polish/REVIEW.md). Accepted architecture and Juni are preserved; native before/after and a separate portable local review are provided. Stage C/D and public deployment require later approval.
 
 # Korean Arena — Living Pixel Seoul

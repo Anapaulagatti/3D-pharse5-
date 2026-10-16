@@ -36,7 +36,7 @@ for (const [entry, phase, places] of [
     "refinement-review.html",
     "after",
     [
-      ["palace", 1152, 380],
+      ["palace", 1152, 320],
       ["academy", 544, 1280],
       ["workshop", 1776, 1212],
       ["museum", 1952, 1736],

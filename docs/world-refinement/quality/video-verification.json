@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "method": "Decode original MediaRecorder timestamps and all frames; H264 VFR transcode with no -r/fps filter, same actual frame count, relative PTS preserved within2ms. Requested capture60 is not encoded FPS. Real keyboard/mouse continuous route, QA hook absent. DOM dialogs separately captured.",
+  "original": {
+    "sha256": "1fa04c9f4c2de8dbe4f7ae0399be548010203bdf10b32d14ef888263ffa8471b",
+    "bytes": 64089659,
+    "stream": {
+      "codec_name": "vp9",
+      "width": 1024,
+      "height": 768
+    },
+    "decodedFrames": 4342,
+    "firstPTS": 0.0,
+    "lastPTS": 96.021,
+    "durationSeconds": 96.03800000000001,
+    "actualAverageFPS": 45.211270538745076,
+    "ptsStrictlyIncreasing": true,
+    "frameGapMs": {
+      "median": 17.000000000010118,
+      "p95": 42.99999999999926,
+      "max": 127.00000000000244
+    },
+    "command": [
+      "ffprobe",
+      "-v",
+      "error",
+      "-select_streams",
+      "v:0",
+      "-show_frames",
+      "-show_entries",
+      "frame=best_effort_timestamp_time:stream=codec_name,width,height",
+      "-of",
+      "json",
+      "/workspace/3D-pharse5-/docs/world-refinement/quality/gameplay-original.webm"
+    ]
+  },
+  "encoded": {
+    "sha256": "c223d58c93c464b05e853a1faa3323daa12e26aa41644f6a67d5078432f8d3a9",
+    "bytes": 32580649,
+    "stream": {
+      "codec_name": "h264",
+      "width": 1024,
+      "height": 768
+    },
+    "decodedFrames": 4342,
+    "firstPTS": 0.0,
+    "lastPTS": 96.021,
+    "durationSeconds": 96.03800000000001,
+    "actualAverageFPS": 45.211270538745076,
+    "ptsStrictlyIncreasing": true,
+    "frameGapMs": {
+      "median": 17.000000000010118,
+      "p95": 42.99999999999926,
+      "max": 127.00000000000244
+    },
+    "command": [
+      "ffprobe",
+      "-v",
+      "error",
+      "-select_streams",
+      "v:0",
+      "-show_frames",
+      "-show_entries",
+      "frame=best_effort_timestamp_time:stream=codec_name,width,height",
+      "-of",
+      "json",
+      "/workspace/3D-pharse5-/docs/world-refinement/quality/gameplay-walkthrough.mp4"
+    ]
+  },
+  "encodeCommand": [
+    "ffmpeg",
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-i",
+    "/workspace/3D-pharse5-/docs/world-refinement/quality/gameplay-original.webm",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "fast",
+    "-crf",
+    "22",
+    "-fps_mode",
+    "vfr",
+    "-an",
+    "-movflags",
+    "+faststart",
+    "-y",
+    "/workspace/3D-pharse5-/docs/world-refinement/quality/gameplay-walkthrough.mp4"
+  ],
+  "maxRelativeTimestampErrorSeconds": 0.0,
+  "measuredRuntimeFPSDuringCapture": 56.420990692528804,
+  "runtimeRafMs": {
+    "p50": 16.69999999999709,
+    "p95": 16.80000000000291,
+    "p99": 33.400000000001455
+  }
+}

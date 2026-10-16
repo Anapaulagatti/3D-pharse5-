@@ -114,7 +114,7 @@ export class RefinedTown extends JuniScene {
         ]
       : [
           [1152, 816, "광화문 · Vào cung · E"],
-          [1152, 360, "궁궐 · Đại điện · E"],
+          [1152, 328, "궁궐 · Đại điện · E"],
           [1456, 394, "한지 · Trưng bày · E"],
           [544, 1144, "배움터 · Phòng đọc · E"],
           [944, 1408, "↔ Lối vườn Học viện"],
@@ -227,7 +227,7 @@ export class RefinedTown extends JuniScene {
       );
       return;
     }
-    if (this.near(1152, 352, 100)) {
+    if (this.near(1152, 320, 100)) {
       this.say(
         "궁궐 · Cung điện. 마당 · Sân. 문 · Cửa. Đại điện, cổng và vườn tạo chuỗi không gian lấy cảm hứng Gyeongbokgung và Changdeokgung; đây không phải bản tái dựng lịch sử.",
       );

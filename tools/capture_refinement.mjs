@@ -114,7 +114,7 @@ try {
     "Outer and inner gate to royal hall",
     [
       [1152, 500],
-      [1152, 380],
+      [1152, 320],
     ],
     false,
   );
@@ -129,7 +129,9 @@ try {
   await travel("Academy east garden shortcut", [
     [1152, 1328],
     [944, 1392],
-    [544, 1392],
+    [768, 1392],
+    [768, 1344],
+    [544, 1344],
     [544, 1152],
   ]);
   await interact();
@@ -156,7 +158,9 @@ try {
   await interact();
   await p.waitForFunction(() => window.__SEOUL__?.area === "outdoor");
   await travel("Workshop service entrance", [
-    [544, 1392],
+    [544, 1344],
+    [768, 1344],
+    [768, 1392],
     [944, 1392],
     [1152, 1328],
     [1376, 1344],

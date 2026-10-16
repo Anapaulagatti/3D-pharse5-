@@ -50,9 +50,9 @@ for x0,x1 in [(400,970),(1334,1904)]:
 solid(400,416,720,32,'Inner wall west return, includes inner gate side pier')
 solid(1184,416,720,32,'Inner wall east return, includes inner gate side pier')
 place('rf-inner-gate',1152,448,'Distinct single-tier open inner gate, not duplicated monumental gate')
-place('rf-royal-hall',1152,352,'Original seven-bay royal exhibition main hall, visible beyond inner gate')
-solid(880,192,544,144,'Royal hall wall/body only; eaves and terrace not whole-image collider')
-for x in [848,1424]:solid(x,320,32,32,'Royal terrace side balustrade base')
+place('rf-royal-hall',1152,320,'Original seven-bay royal exhibition main hall, visible beyond inner gate')
+solid(880,160,544,144,'Royal hall wall/body only; eaves and terrace not whole-image collider')
+for x in [848,1424]:solid(x,288,32,32,'Royal terrace side balustrade base')
 place('rf-exhibit',1456,352,'Royal courtyard: hanji book/printing/textile cultural interpretation',foot=(84,24))
 for x in [752,1584]:place('rf-banner',x,336,'Original royal-inspired banner, not a claimed historical flag',foot=(86,18))
 for x in [768,1536]:place('rf-stone-lantern',x,496,'Korean seokdeung-inspired garden lantern, original interpretation',foot=(36,24))
@@ -106,7 +106,7 @@ write(S/'derived-architecture.json',{'method':'Disjoint ownership crops from exi
 # Front stairs are walkable floor: sort by wall/base line, not stair image bottom.
 for o in B['objects']:
  if o['prop']in ['rf-royal-hall','rf-prod-hall','rf-prod-study','rf-prod-library','rf-prod-museum','rf-cafe']:
-  o['sortY']={'rf-royal-hall':336,'rf-prod-hall':1088,'rf-prod-study':1376,'rf-prod-library':1312,'rf-prod-museum':1664,'rf-cafe':1824}[o['prop']]
+  o['sortY']={'rf-royal-hall':304,'rf-prod-hall':1088,'rf-prod-study':1376,'rf-prod-library':1312,'rf-prod-museum':1664,'rf-cafe':1824}[o['prop']]
 
 # Purposeful facade planting, service storage and resting places; paths never prop scatter.
 for prop,positions,why,foot in [
@@ -127,7 +127,7 @@ for i,(x,y,why) in enumerate([
  prop='rf-prod-ginkgo'if i%3==0 else'rf-prod-tree';place(prop,x,y,why,foot=(24,16))
 # No continuation pretending a finished future district. Existing full plan remains a reference.
 solid(32,H-2,W-64,2,'Southern review edge; full modern district needs later approval')
-for name,x,y,ax,ay in [('gateway',1152,768,1152,832),('outer-court',1152,496,1152,496),('inner-gate',1152,448,1152,480),('royal-hall',1152,352,1152,384),('royal-exhibit',1456,384,1456,404),('royal-west-garden',640,512,640,544),('academy',544,1120,544,1152),('academy-front',544,1456,544,1520),('academy-side',944,1392,976,1392),('workshop',1632,1472,1632,1536),('workshop-service',1480,1264,1440,1264),('armillary',2144,1174,2144,1232),('museum',1984,1696,1984,1808),('modern-cafe',512,1840,512,1872),('sejong',1344,1208,1344,1248),('garden-route',1120,1664,1120,1664)]:anchor(name,x,y,ax,ay)
+for name,x,y,ax,ay in [('gateway',1152,768,1152,832),('outer-court',1152,496,1152,496),('inner-gate',1152,448,1152,480),('royal-hall',1152,320,1152,352),('royal-exhibit',1456,384,1456,404),('royal-west-garden',640,512,640,544),('academy',544,1120,544,1152),('academy-front',544,1456,544,1520),('academy-side',944,1392,976,1392),('workshop',1632,1472,1632,1536),('workshop-service',1480,1264,1440,1264),('armillary',2144,1174,2144,1232),('museum',1984,1696,1984,1808),('modern-cafe',512,1840,512,1872),('sejong',1344,1208,1344,1248),('garden-route',1120,1664,1120,1664)]:anchor(name,x,y,ax,ay)
 B['portals']=[{'id':'academy-door','circle':[544,1120,16],'to':'refined-reading-room:start','entranceByFrom':{'refined-reading-room':[544,1152]},'latch':True,'reciprocal':True}]
 # Existing generated surfaces + user-authorized compact semantic layout, not new painted art.
 material=Image.new('L',(W,H),0);d=ImageDraw.Draw(material)
@@ -191,7 +191,7 @@ for data in [ground,edging]:
  for row,line in enumerate(data):
   for col,idx in enumerate(line):
    if idx>=0:base.alpha_composite(unique[idx],(col*32,row*32))
-base.save(S/'layers/base.png');placements={'props':[{'id':o['id'],'image':str((S/B['props'][o['prop']]['image']).resolve()),'x':o['x'],'y':o['y'],'anchorPx':o['anchor_px'],'sortY':o['sortY']}for o in B['objects']]};write(S/'placements.json',placements)
+base.save(S/'layers/base.png');placements={'props':[{'id':o['id'],'image':B['props'][o['prop']]['image'],'x':o['x'],'y':o['y'],'anchorPx':o['anchor_px'],'sortY':o['sortY']}for o in B['objects']]};write(S/'placements.json',placements)
 out=S/'composed'
 if out.exists():shutil.move(out,C/f'previous-composed-{len(json.loads((S/"commands.json").read_text()))}')
 out.mkdir();run(M/'compose_layered_preview.py','--base',S/'layers/base.png','--placements',S/'placements.json','--output',out/'preview.png','--report',out/'composition.json','--bundle',S/'outdoor-bundle.json','--debug-overlay',out/'collision-overlay.png','--audit-out',out/'audit.json')

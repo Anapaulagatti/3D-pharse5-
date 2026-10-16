@@ -7212,10 +7212,4 @@
    <property name="material" value="existing-generated-RGB-compact-semantic-alpha"/>
   </properties>
  </tile>
- <tile id="1201">
-  <properties>
-   <property name="walkable" type="bool" value="true"/>
-   <property name="material" value="existing-generated-RGB-compact-semantic-alpha"/>
-  </properties>
- </tile>
 </tileset>

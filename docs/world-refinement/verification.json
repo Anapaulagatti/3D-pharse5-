@@ -1,0 +1,219 @@
+{
+  "schema": "korean-arena.world-refinement.verification.v1",
+  "status": "ROOT_SOURCE_RUNTIME_EXACT_PORTABLE_AND_REAL_VIDEO_VERIFIED_VISUAL_APPROVAL_PENDING",
+  "baseline": "97c7d6bac5510ed09643a476756bc21b686b53de",
+  "branch": "rebuild/pixel-social-rpg-v3",
+  "recovery": "recovery/before-world-refinement-20261016",
+  "intermediateCheckpoint": {
+    "sha": "041d3caf74ee3c5f3f7909a0e28298fab75ebbf0",
+    "CI": 38898955451,
+    "conclusion": "success"
+  },
+  "expectedVerifiedTag": "checkpoint/living-seoul-refinement-verified-20261016",
+  "remoteAndIndependentClone": "Final exact source/remote/CI/independent clone observations are recorded in the immutable verified tag AFTER observation, never inferred here.",
+  "checks": {
+    "rootSetupExit": 0,
+    "unitTests": 12,
+    "browserStats": {
+      "startTime": "2026-10-16T12:32:47.204Z",
+      "duration": 193784.463,
+      "expected": 21,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "protectedFiles": 483,
+    "newHostImages": 5,
+    "newNativeProps": 11,
+    "newNPCs": 0,
+    "approvedJuniFrames": 144,
+    "world": [
+      2304,
+      1920
+    ],
+    "oldWorld": [
+      4096,
+      1728
+    ],
+    "areaReduction": 0.375,
+    "normalWalk": 60,
+    "run": 100,
+    "placements": 147,
+    "staticSolids": 124,
+    "publicPathSamples": 2931,
+    "originalPalaceSegments": 7,
+    "workshopRGBAReconstructionDifferences": 0,
+    "sourceScreenshotErrors": [],
+    "officialForgeRoutes": 33,
+    "officialForgeAssets": {
+      "total": 44,
+      "loaded": 44,
+      "failed": []
+    },
+    "exactOcclusionReferencePixels": "PASS actual browser screenshot equality and unchanged cached source-read count",
+    "mobileTouchReducedPauseZoom": "PASS actual CDP touch and browser state",
+    "paidProviderRequests": 0,
+    "distFilesMatchExactZip": 202
+  },
+  "portable": {
+    "status": "VERIFIED_EXACT_ZIP_OVER_HTTP",
+    "zip": "docs/world-refinement/playable-review.zip",
+    "zip_bytes": 14394033,
+    "zip_sha256": "da964cb73e36cb824f2bd927742719b81399c64cf7ab22e9c4a817285ba14c51",
+    "httpVerification": {
+      "launcherExecuted": true,
+      "port": 4202,
+      "results": [
+        {
+          "device": "desktop Canvas",
+          "sourceAndExactZipPixelHash": "feabcab2effbbfcefe33fa53d1a1775eff7b59d86dad1b03e323ab9d43deb44a",
+          "equal": true
+        },
+        {
+          "device": "emulated mobile Canvas",
+          "sourceAndExactZipPixelHash": "bf608545af3dde7964a85683da860db33ab25f7a999f85ebb47903331220e6dd",
+          "equal": true
+        }
+      ],
+      "roomLessonAndReturn": true,
+      "originalGameGuests": 4,
+      "originalProductionWorld": [
+        4096,
+        1728
+      ],
+      "errors": []
+    }
+  },
+  "video": {
+    "status": "PASS",
+    "actualFrames": 4342,
+    "durationSeconds": 96.03800000000001,
+    "encodedActualAverageFPS": 45.211270538745076,
+    "runtimeFPSDuringCapture": 56.420990692528804,
+    "sourceAndMP4FrameCountsEqual": true,
+    "maxRelativeTimestampErrorSeconds": 0.0,
+    "actualBrowserPlayback": {
+      "status": "PASS",
+      "readyState": 4,
+      "width": 1024,
+      "height": 768,
+      "duration": 96.022,
+      "playedSeconds": 2.023139,
+      "error": null,
+      "quality": {
+        "totalVideoFrames": 93,
+        "droppedVideoFrames": 2
+      },
+      "errors": []
+    },
+    "normalQAPlacementHookAbsent": true
+  },
+  "performance": {
+    "before": [
+      {
+        "name": "desktop-WebGL",
+        "measuredPhaserFPS": 21.60631798539911,
+        "rafFrameMs": {
+          "p50": 50,
+          "p95": 83.20000000000073,
+          "p99": 83.40000000000055
+        }
+      },
+      {
+        "name": "desktop-Canvas",
+        "measuredPhaserFPS": 60.13410660595675,
+        "rafFrameMs": {
+          "p50": 16.699999999999818,
+          "p95": 16.799999999999272,
+          "p99": 16.800000000000182
+        }
+      },
+      {
+        "name": "mobile-Canvas",
+        "measuredPhaserFPS": 60.129686484839524,
+        "rafFrameMs": {
+          "p50": 16.699999999999818,
+          "p95": 16.799999999999272,
+          "p99": 16.800000000000182
+        }
+      }
+    ],
+    "after": [
+      {
+        "name": "desktop-WebGL",
+        "measuredPhaserFPS": 19.78063779877005,
+        "rafFrameMs": {
+          "p50": 50,
+          "p95": 83.29999999999927,
+          "p99": 99.89999999999964
+        }
+      },
+      {
+        "name": "desktop-Canvas",
+        "measuredPhaserFPS": 59.41115275184769,
+        "rafFrameMs": {
+          "p50": 16.699999999999818,
+          "p95": 16.799999999999272,
+          "p99": 16.80000000000109
+        }
+      },
+      {
+        "name": "mobile-Canvas",
+        "measuredPhaserFPS": 60.145010640065856,
+        "rafFrameMs": {
+          "p50": 16.699999999999818,
+          "p95": 16.799999999999727,
+          "p99": 16.800000000000182
+        }
+      }
+    ],
+    "reference": [
+      {
+        "name": "desktop-WebGL",
+        "measuredPhaserFPS": 19.674872728168843,
+        "rafFrameMs": {
+          "p50": 50,
+          "p95": 83.30000000000018,
+          "p99": 83.40000000000146
+        }
+      },
+      {
+        "name": "desktop-Canvas",
+        "measuredPhaserFPS": 60.09660623549338,
+        "rafFrameMs": {
+          "p50": 16.699999999999818,
+          "p95": 16.799999999999272,
+          "p99": 16.80000000000109
+        }
+      },
+      {
+        "name": "mobile-Canvas",
+        "measuredPhaserFPS": 59.98624519217954,
+        "rafFrameMs": {
+          "p50": 16.699999999999818,
+          "p95": 16.799999999999272,
+          "p99": 16.800000000000182
+        }
+      }
+    ]
+  },
+  "publicPreservation": {
+    "method": "Read-only GitHub API main reference and public Pages GET; no settings/workflow/deploy writes.",
+    "main": "33360ed1989e4db9fc3fc4e3686ca385e0b00908",
+    "expectedMain": "33360ed1989e4db9fc3fc4e3686ca385e0b00908",
+    "mainUnchanged": true,
+    "publicURL": "https://anapaulagatti.github.io/3D-pharse5-/",
+    "httpStatus": 200,
+    "htmlSha256": "082c661b5da2b4c8e66e81b2f52405ef460947bfeff27e2fd6fe771b2e3c716f",
+    "expectedHTMLSha256": "082c661b5da2b4c8e66e81b2f52405ef460947bfeff27e2fd6fe771b2e3c716f",
+    "publicHTMLUnchanged": true
+  },
+  "limits": [
+    "VISUAL/GAMEPLAY APPROVAL PENDING; no main merge/public release/full-modern/NPC expansion",
+    "Software-GPU WebGL remains about20FPS; practical default Canvas≈59FPS here, not a universal speedup or physical-phone claim",
+    "Video45.21FPSaverage VFR, not constant60; runtime during recording56.42FPS is separate",
+    "Inherited Juni tiny side-idle/wave warnings remain; no seamless/Wang certification",
+    "DOM dialogs outside canvas video are supplied in separate actual interface screenshots",
+    "Initial route/capture/format/composition failures retained; no weakened thresholds"
+  ]
+}

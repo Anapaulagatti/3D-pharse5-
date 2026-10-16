@@ -197,6 +197,17 @@ test("mobile real touch, reduced-motion and settled pause remain usable", async 
   await page.waitForFunction(() => window.__SEOUL__?.ready);
   expect(await page.evaluate(() => !!window.__SEOUL_TEST__)).toBe(false);
   await expect(page.locator("#motion")).toBeChecked();
+  const width = await page.evaluate(() => window.__SEOUL__!.view[2]);
+  await page.locator("#zoom").selectOption("2");
+  await page.waitForFunction(
+    (w) => Math.abs(window.__SEOUL__!.view[2] - w / 2) < 1,
+    width,
+  );
+  await page.locator("#zoom").selectOption("1");
+  await page.waitForFunction(
+    (w) => Math.abs(window.__SEOUL__!.view[2] - w) < 1,
+    width,
+  );
   const clock = await page.evaluate(() => window.__SEOUL__!.ambientClock);
   const right = page.locator('[data-x="1"]');
   await right.scrollIntoViewIfNeeded();
