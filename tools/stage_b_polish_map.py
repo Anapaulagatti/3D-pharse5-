@@ -51,13 +51,14 @@ def decorate(bundle,place,solid):
         rows.append(dict(prop=name,x=x,y=y,footprint=[x-w/2,y-h,w,h],purpose=purpose))
     (P/'placements.json').write_text(json.dumps(rows,indent=2)+'\n')
 
-def terrain_layers(material,old_tiles,register):
+def terrain_layers(material,old_tiles,register,output_root=None):
     """Texture-backed binary material boundaries; no blur, no invented RGB.
 
     Signed-distance coverage is editable map geometry. Small irregular clusters
     come from the actual generated earth image, at a fixed 2px grid. Stone paths
     retain their full approved clear width, with worn joints and earth shoulders.
     """
+    target=output_root or P
     a=np.array(material);h,w=a.shape;yy,xx=np.indices((h,w),dtype=np.int32)
     def repeat(im):
         q=np.array(im.convert('RGBA'));return q[yy%q.shape[0],xx%q.shape[1]]
@@ -103,8 +104,8 @@ def terrain_layers(material,old_tiles,register):
         join=mask&(inner<3+cluster*1.2)&(~worn)
         out[join]=earth[join]
     out[:,:,3]=255
-    Image.fromarray(out).save(P/'terrain-composite.png')
-    Image.fromarray((apron|worn|fringe).astype('uint8')*255).save(P/'transition-coverage.png')
+    Image.fromarray(out).save(target/'terrain-composite.png')
+    Image.fromarray((apron|worn|fringe).astype('uint8')*255).save(target/'transition-coverage.png')
     # Keep layer ordering/runtime unchanged; generated material is composed into
     # ordinary reusable 32px cells (no background plate in Phaser).
     ground=[];edging=[]
@@ -121,5 +122,5 @@ def terrain_layers(material,old_tiles,register):
                 ed.append(register(Image.fromarray(rgb)))
         ground.append(gr);edging.append(ed)
     report={'method':'Generated-RGB material composite and binary clustered edge masks; no code-painted texture, no alpha blur','apronPixels':int(apron.sum()),'transitionPixels':int((apron|worn|fringe).sum()),'maxApronPx':26,'roadDataAndBuildingCoordinatesChanged':False,'seamlessWangCertified':False,'sourceTileSize':128,'runtimeTileSize':32,'sourceSha256':sha(P/'raw/terrain.png'),'vergeSha256':sha(P/'raw/verge.png')}
-    (P/'terrain-report.json').write_text(json.dumps(report,indent=2)+'\n')
+    (target/'terrain-report.json').write_text(json.dumps(report,indent=2)+'\n')
     return ground,edging

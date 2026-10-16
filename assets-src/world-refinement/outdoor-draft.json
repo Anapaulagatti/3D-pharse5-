@@ -1,0 +1,5116 @@
+{
+  "schema": "generate2dmap.map_bundle.v2",
+  "id": "refined-seoul",
+  "name": "Living Seoul — Palace, Scholars & Book Lane",
+  "world": {
+    "width": 2304,
+    "height": 1920,
+    "unit": "px"
+  },
+  "tile_size": [
+    32,
+    32
+  ],
+  "tilesets": [
+    {
+      "id": "town",
+      "manifest": "tileset.json"
+    }
+  ],
+  "layers": [
+    {
+      "name": "Ground",
+      "kind": "tiles",
+      "data": "layers/ground.json",
+      "tileset": "town"
+    },
+    {
+      "name": "Edging",
+      "kind": "tiles",
+      "data": "layers/edging.json",
+      "tileset": "town"
+    },
+    {
+      "name": "Props",
+      "kind": "objects"
+    }
+  ],
+  "props": {
+    "rf-prod-tree": {
+      "image": "../seoul-production/../../assets-src/gwanghwamun/props/tree.png",
+      "sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "anchor_px": [
+        94,
+        195
+      ],
+      "size": [
+        189,
+        196
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 14,
+        "offset": [
+          0,
+          -7.0
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "status": "accepted"
+    },
+    "rf-prod-ginkgo": {
+      "image": "../seoul-production/../../assets-src/gwanghwamun/props/ginkgo.png",
+      "sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "anchor_px": [
+        102,
+        213
+      ],
+      "size": [
+        204,
+        214
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 22,
+        "depth": 12,
+        "offset": [
+          0,
+          -6.0
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "status": "accepted"
+    },
+    "rf-prod-lantern": {
+      "image": "../seoul-production/../../assets-src/gwanghwamun/props/lantern.png",
+      "sha256": "dfe4dc19f4b77a23fffe7715d63d1ecd2ee2d65b4afc674e861df11d453f526c",
+      "anchor_px": [
+        26,
+        91
+      ],
+      "size": [
+        52,
+        92
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 16,
+        "depth": 10,
+        "offset": [
+          0,
+          -5.0
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "status": "accepted"
+    },
+    "rf-prod-bench": {
+      "image": "../seoul-production/../../assets-src/gwanghwamun/props/bench.png",
+      "sha256": "111ec597f59aa232bf8ddb38658b693480c7261282c60f86bec65a7b1133359a",
+      "anchor_px": [
+        37,
+        51
+      ],
+      "size": [
+        75,
+        52
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 66,
+        "depth": 16,
+        "offset": [
+          0,
+          -8.0
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "status": "accepted"
+    },
+    "rf-prod-jars": {
+      "image": "../seoul-production/../../assets-src/gwanghwamun/props/jars.png",
+      "sha256": "7e80af2dab5040ada3a6244c533bb0b4fcff2a27d180f604e0974b5548f15f85",
+      "anchor_px": [
+        32,
+        52
+      ],
+      "size": [
+        65,
+        53
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 52,
+        "depth": 20,
+        "offset": [
+          0,
+          -10.0
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "status": "accepted"
+    },
+    "rf-prod-planter": {
+      "image": "../seoul-production/../../assets-src/gwanghwamun/props/planter.png",
+      "sha256": "35caea815680e4b8ce01fe6afe22a56b1daee0778bc3f47ba3eb756d7fd29c1f",
+      "anchor_px": [
+        28,
+        43
+      ],
+      "size": [
+        56,
+        44
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 62,
+        "depth": 17,
+        "offset": [
+          0,
+          -8.5
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "status": "accepted"
+    },
+    "rf-prod-sejong": {
+      "image": "../seoul-production/../../assets-src/gwanghwamun/props/sejong.png",
+      "sha256": "4e4e6770ac0fb5e6c5e7552cf1d380f2f9c49644b506621aca7e40dcf5a93857",
+      "anchor_px": [
+        61,
+        135
+      ],
+      "size": [
+        123,
+        136
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 76,
+        "depth": 35,
+        "offset": [
+          0,
+          -17.5
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "status": "accepted"
+    },
+    "rf-prod-gate": {
+      "image": "../seoul-production/../../assets-src/seoul-production/props/prod-gate.png",
+      "sha256": "ca0643ec60e5cca9817f5f5db206352e1e66fe17f5a50e218a1d85c9f9840952",
+      "anchor_px": [
+        234,
+        332
+      ],
+      "size": [
+        468,
+        334
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-prod-hall": {
+      "image": "../seoul-production/../../assets-src/seoul-production/props/prod-hall.png",
+      "sha256": "a5c9e3ba7fa3508cccaf4278aa9acd5de54d5a0f0e92539e4b08d60a841d6b9c",
+      "anchor_px": [
+        321,
+        234
+      ],
+      "size": [
+        643,
+        236
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-prod-study": {
+      "image": "../seoul-production/../../assets-src/seoul-production/props/prod-study.png",
+      "sha256": "629d99d65da6c00c973b055f40864f3cb5bf973a7ccaf623ab295007fcaf75cc",
+      "anchor_px": [
+        90,
+        407
+      ],
+      "size": [
+        180,
+        409
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-prod-library": {
+      "image": "../seoul-production/../../assets-src/seoul-production/props/prod-library.png",
+      "sha256": "b5350bb53ab2d106f1c750a348caab424d83d4102885bfb8fb3c67b91ad624ca",
+      "anchor_px": [
+        90,
+        374
+      ],
+      "size": [
+        180,
+        376
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-prod-workshop": {
+      "image": "../seoul-production/../../assets-src/seoul-production/props/prod-workshop.png",
+      "sha256": "4c6a28375066cae29c98d5a8fd14be12a65404b9ad4ceb6fa6d1495d2d78f1a8",
+      "anchor_px": [
+        246,
+        416
+      ],
+      "size": [
+        492,
+        418
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-prod-museum": {
+      "image": "../seoul-production/../../assets-src/seoul-production/props/prod-museum.png",
+      "sha256": "d1f47fdf0c32e32bd0745e43c36b2bde68871d3a68edb1ffeebe8f198aac89b5",
+      "anchor_px": [
+        294,
+        240
+      ],
+      "size": [
+        588,
+        242
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-prod-wall": {
+      "image": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+      "sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "anchor_px": [
+        82,
+        54
+      ],
+      "size": [
+        164,
+        56
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-prod-wall-ns": {
+      "image": "../seoul-production/../../assets-src/seoul-production/props/prod-wall-ns.png",
+      "sha256": "459e7062d2a6177adfd0dc129c4773593b40d0a80c0de2e72aea88901f7a00fc",
+      "anchor_px": [
+        26,
+        196
+      ],
+      "size": [
+        52,
+        198
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-prod-service": {
+      "image": "../seoul-production/../../assets-src/seoul-production/props/prod-service.png",
+      "sha256": "7cbc3c4dbbd8dbe4526003f61ec1dab14def3d2145d82c80a447c1a5bddae739",
+      "anchor_px": [
+        66,
+        118
+      ],
+      "size": [
+        132,
+        120
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-prod-court-gate": {
+      "image": "../seoul-production/../../assets-src/seoul-production/props/prod-court-gate.png",
+      "sha256": "80c5b24b270b681907bdd7f728ef8479cfd39c3ba7662e7647feda180aa75da8",
+      "anchor_px": [
+        74,
+        101
+      ],
+      "size": [
+        148,
+        103
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-prod-doors": {
+      "image": "../seoul-production/../../assets-src/seoul-production/props/prod-doors.png",
+      "sha256": "0771ab66d59ac087cb195635b6f87f0361b5fb833fd6c4d0033a107bf7d1b2d6",
+      "anchor_px": [
+        46,
+        103
+      ],
+      "size": [
+        92,
+        105
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-prod-low-wall": {
+      "image": "../seoul-production/../../assets-src/seoul-production/props/prod-low-wall.png",
+      "sha256": "1c68d439c27e86026d614613c8b615b9e7104215601611f27a8de319912b89d5",
+      "anchor_px": [
+        83,
+        60
+      ],
+      "size": [
+        166,
+        62
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-prod-armillary": {
+      "image": "../seoul-production/../../assets-src/seoul-production/props/prod-armillary.png",
+      "sha256": "2aad306a661f7db4b6b29aa81097d8b04db305e956850a2dee980752ccb643bf",
+      "anchor_px": [
+        50,
+        111
+      ],
+      "size": [
+        100,
+        113
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-prod-sundial": {
+      "image": "../seoul-production/../../assets-src/seoul-production/props/prod-sundial.png",
+      "sha256": "a7fe454380eea9ba79f2afe25c9dde8e413bce62a897f139bb62fb66739da696",
+      "anchor_px": [
+        46,
+        89
+      ],
+      "size": [
+        92,
+        91
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-prod-clock": {
+      "image": "../seoul-production/../../assets-src/seoul-production/props/prod-clock.png",
+      "sha256": "2b0807d8353e51a4171977c1535d4399d271c130f265fac065ced255a26857e9",
+      "anchor_px": [
+        57,
+        138
+      ],
+      "size": [
+        114,
+        140
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-prod-strategy": {
+      "image": "../seoul-production/../../assets-src/seoul-production/props/prod-strategy.png",
+      "sha256": "f5dcafe0644bcc6a54bc407f4e42300660d5fa143b98be995f0c532ecd1c2bc8",
+      "anchor_px": [
+        62,
+        70
+      ],
+      "size": [
+        125,
+        72
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-prod-ship": {
+      "image": "../seoul-production/../../assets-src/seoul-production/props/prod-ship.png",
+      "sha256": "8c77706262a3e8d7b1c12bef316d9566a8b81617091e1d51441e3b93a6edefd4",
+      "anchor_px": [
+        62,
+        127
+      ],
+      "size": [
+        125,
+        129
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-prod-writing": {
+      "image": "../seoul-production/../../assets-src/seoul-production/props/prod-writing.png",
+      "sha256": "4d0faced9ab8d0a4f5677f95c2af4c876250f89de30d09e69d056a4d7f1a8564",
+      "anchor_px": [
+        52,
+        92
+      ],
+      "size": [
+        104,
+        94
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-polish-folio": {
+      "image": "../seoul-production/../../assets-src/stage-b-polish/props/polish-folio.png",
+      "sha256": "4315e28ab55fc497f6c94ff61ab181af31af4ef90f1d6daf8a4cac094e646f23",
+      "anchor_px": [
+        50,
+        79
+      ],
+      "size": [
+        100,
+        81
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-polish-bamboo": {
+      "image": "../seoul-production/../../assets-src/stage-b-polish/props/polish-bamboo.png",
+      "sha256": "a0b8a4ab2576431187df7a6102f6ce661a34925f2267efd73d87bf014fe03fa2",
+      "anchor_px": [
+        34,
+        71
+      ],
+      "size": [
+        68,
+        73
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-polish-tools": {
+      "image": "../seoul-production/../../assets-src/stage-b-polish/props/polish-tools.png",
+      "sha256": "da5b4117fdc3f88e2b79304eeef2d5e86b08f0b65e474f03cd36a194d1d786cf",
+      "anchor_px": [
+        46,
+        69
+      ],
+      "size": [
+        92,
+        71
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-polish-chart": {
+      "image": "../seoul-production/../../assets-src/stage-b-polish/props/polish-chart.png",
+      "sha256": "3c23ff59b8fbb3814d970a82ffd60e297be7863a6b5a0b49eb3fa67cdc0ba4e8",
+      "anchor_px": [
+        52,
+        80
+      ],
+      "size": [
+        104,
+        82
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-polish-stele": {
+      "image": "../seoul-production/../../assets-src/stage-b-polish/props/polish-stele.png",
+      "sha256": "1bc236260705796156947df5e3521abf71dfdb338f088bd4a3bf041b33bc66bf",
+      "anchor_px": [
+        36,
+        87
+      ],
+      "size": [
+        72,
+        89
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-polish-flowers": {
+      "image": "../seoul-production/../../assets-src/stage-b-polish/props/polish-flowers.png",
+      "sha256": "44309376cabcf76885d28eeb03960fe9517657fed23b0a2ce59ffc97e12a11b8",
+      "anchor_px": [
+        34,
+        69
+      ],
+      "size": [
+        68,
+        71
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-royal-hall": {
+      "image": "props/rf-royal-hall.png",
+      "sha256": "4f15a37e2a72137e693edeeb9e03bc14736f500d3aff9584e198dbbb09391123",
+      "size": [
+        643,
+        253
+      ],
+      "anchor_px": [
+        321,
+        251
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-inner-gate": {
+      "image": "props/rf-inner-gate.png",
+      "sha256": "f2ab658880c697d084a0019648f21a4526c1789e5697128fc6c0eb74f80b7c0b",
+      "size": [
+        244,
+        127
+      ],
+      "anchor_px": [
+        122,
+        125
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-cafe": {
+      "image": "props/rf-cafe.png",
+      "sha256": "a9f64b4f61293c6a89dbdd554167990a4099f54b88a08dfd81ba3e6041c93eb2",
+      "size": [
+        365,
+        272
+      ],
+      "anchor_px": [
+        182,
+        270
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-banner": {
+      "image": "props/rf-banner.png",
+      "sha256": "58248c33983c1281b80fa70809f2c82ab50b3a68a2c8fb1e201fe47014134f0b",
+      "size": [
+        124,
+        101
+      ],
+      "anchor_px": [
+        62,
+        99
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-stone-lantern": {
+      "image": "props/rf-stone-lantern.png",
+      "sha256": "571d9e96d3a7bfe3d7da9c3cc02c57289f8726e5158805b244012526739edaf8",
+      "size": [
+        68,
+        134
+      ],
+      "anchor_px": [
+        34,
+        132
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-exhibit": {
+      "image": "props/rf-exhibit.png",
+      "sha256": "8f8a14487d8de4ed455a435b84e5bb7672877c1bf84b6491789debc9a7698b6c",
+      "size": [
+        116,
+        64
+      ],
+      "anchor_px": [
+        58,
+        62
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-cafe-seating": {
+      "image": "props/rf-cafe-seating.png",
+      "sha256": "42b0aa11146065b84147df8cbeca9cf519f49b6b41435a37ab2b646eac38abfe",
+      "size": [
+        108,
+        68
+      ],
+      "anchor_px": [
+        54,
+        66
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-scholar-wall": {
+      "image": "props/rf-scholar-wall.png",
+      "sha256": "19b9b3ca416d68aef3d714c6e12f2bfed18be92aff2e92e75261cbdb64219429",
+      "size": [
+        147,
+        50
+      ],
+      "anchor_px": [
+        73,
+        48
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-scholar-return": {
+      "image": "props/rf-scholar-return.png",
+      "sha256": "dcff5f9f3eb6f2d109e95f02fbacd1813c1da433f4aa4a4dc414891297d7d07c",
+      "size": [
+        58,
+        180
+      ],
+      "anchor_px": [
+        18,
+        178
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-work-rail": {
+      "image": "props/rf-work-rail.png",
+      "sha256": "c3b321486bc804091433df07e95bef3e77cf722215c5cae6d8671db6942ecb1d",
+      "size": [
+        148,
+        50
+      ],
+      "anchor_px": [
+        74,
+        48
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-work-return": {
+      "image": "props/rf-work-return.png",
+      "sha256": "54a4d5200dd06d573f2976dc678812ae900ee6873976e5205cac2e70f94f8656",
+      "size": [
+        60,
+        164
+      ],
+      "anchor_px": [
+        21,
+        162
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-workshop-main": {
+      "image": "props/rf-workshop-main.png",
+      "sha256": "60eaaaffc5b3aef3d72214779b093d5a7ce5a9553a1ba53192b49aaa4458bb6c",
+      "anchor_px": [
+        164,
+        209
+      ],
+      "size": [
+        328,
+        211
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "rf-workshop-wing": {
+      "image": "props/rf-workshop-wing.png",
+      "sha256": "e6e5527fb191d0349a45638a596f26ba70b5b6f8f773a96357dda4997384cd47",
+      "anchor_px": [
+        84,
+        415
+      ],
+      "size": [
+        168,
+        417
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 24,
+        "depth": 16,
+        "offset": [
+          0,
+          -8
+        ],
+        "basis": "world_px"
+      },
+      "solid": false,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    }
+  },
+  "objects": [
+    {
+      "id": "refined-1",
+      "prop": "rf-prod-hall",
+      "x": 544,
+      "y": 1110,
+      "sortY": 1088,
+      "scale": 1,
+      "anchor_px": [
+        321,
+        234
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-hall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Approved prod-hall at original native scale; compact functional frontage"
+    },
+    {
+      "id": "refined-2",
+      "prop": "rf-prod-study",
+      "x": 256,
+      "y": 1392,
+      "sortY": 1376,
+      "scale": 1,
+      "anchor_px": [
+        90,
+        407
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-study.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Approved prod-study at original native scale; compact functional frontage"
+    },
+    {
+      "id": "refined-3",
+      "prop": "rf-prod-library",
+      "x": 832,
+      "y": 1328,
+      "sortY": 1312,
+      "scale": 1,
+      "anchor_px": [
+        90,
+        374
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-library.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Approved prod-library at original native scale; compact functional frontage"
+    },
+    {
+      "id": "refined-4",
+      "prop": "rf-prod-museum",
+      "x": 1952,
+      "y": 1688,
+      "sortY": 1664,
+      "scale": 1,
+      "anchor_px": [
+        294,
+        240
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-museum.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Approved prod-museum at original native scale; compact functional frontage"
+    },
+    {
+      "id": "refined-5",
+      "prop": "rf-prod-sejong",
+      "x": 1344,
+      "y": 1184,
+      "sortY": 1184,
+      "scale": 1,
+      "anchor_px": [
+        61,
+        135
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/sejong.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Approved prod-sejong at original native scale; compact functional frontage"
+    },
+    {
+      "id": "refined-6",
+      "prop": "rf-prod-gate",
+      "x": 1152,
+      "y": 758,
+      "sortY": 758,
+      "scale": 1,
+      "anchor_px": [
+        234,
+        332
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-gate.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Approved prod-gate at original native scale; compact functional frontage"
+    },
+    {
+      "id": "refined-7",
+      "prop": "rf-prod-wall",
+      "x": 454,
+      "y": 80,
+      "sortY": 80,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace north-return"
+    },
+    {
+      "id": "refined-8",
+      "prop": "rf-prod-wall",
+      "x": 593,
+      "y": 80,
+      "sortY": 80,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace north-return"
+    },
+    {
+      "id": "refined-9",
+      "prop": "rf-prod-wall",
+      "x": 733,
+      "y": 80,
+      "sortY": 80,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace north-return"
+    },
+    {
+      "id": "refined-10",
+      "prop": "rf-prod-wall",
+      "x": 873,
+      "y": 80,
+      "sortY": 80,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace north-return"
+    },
+    {
+      "id": "refined-11",
+      "prop": "rf-prod-wall",
+      "x": 1012,
+      "y": 80,
+      "sortY": 80,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace north-return"
+    },
+    {
+      "id": "refined-12",
+      "prop": "rf-prod-wall",
+      "x": 1152,
+      "y": 80,
+      "sortY": 80,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace north-return"
+    },
+    {
+      "id": "refined-13",
+      "prop": "rf-prod-wall",
+      "x": 1292,
+      "y": 80,
+      "sortY": 80,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace north-return"
+    },
+    {
+      "id": "refined-14",
+      "prop": "rf-prod-wall",
+      "x": 1431,
+      "y": 80,
+      "sortY": 80,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace north-return"
+    },
+    {
+      "id": "refined-15",
+      "prop": "rf-prod-wall",
+      "x": 1571,
+      "y": 80,
+      "sortY": 80,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace north-return"
+    },
+    {
+      "id": "refined-16",
+      "prop": "rf-prod-wall",
+      "x": 1711,
+      "y": 80,
+      "sortY": 80,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace north-return"
+    },
+    {
+      "id": "refined-17",
+      "prop": "rf-prod-wall",
+      "x": 1850,
+      "y": 80,
+      "sortY": 80,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace north-return"
+    },
+    {
+      "id": "refined-18",
+      "prop": "rf-prod-wall-ns",
+      "x": 384,
+      "y": 200,
+      "sortY": 200,
+      "scale": 1,
+      "anchor_px": [
+        26,
+        196
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall-ns.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace west-upper-return"
+    },
+    {
+      "id": "refined-19",
+      "prop": "rf-prod-wall-ns",
+      "x": 384,
+      "y": 336,
+      "sortY": 336,
+      "scale": 1,
+      "anchor_px": [
+        26,
+        196
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall-ns.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace west-upper-return"
+    },
+    {
+      "id": "refined-20",
+      "prop": "rf-prod-wall-ns",
+      "x": 384,
+      "y": 568,
+      "sortY": 568,
+      "scale": 1,
+      "anchor_px": [
+        26,
+        196
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall-ns.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace west-lower-return"
+    },
+    {
+      "id": "refined-21",
+      "prop": "rf-prod-wall-ns",
+      "x": 384,
+      "y": 704,
+      "sortY": 704,
+      "scale": 1,
+      "anchor_px": [
+        26,
+        196
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall-ns.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace west-lower-return"
+    },
+    {
+      "id": "refined-22",
+      "prop": "rf-prod-wall-ns",
+      "x": 1920,
+      "y": 200,
+      "sortY": 200,
+      "scale": 1,
+      "anchor_px": [
+        26,
+        196
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall-ns.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace east-upper-return"
+    },
+    {
+      "id": "refined-23",
+      "prop": "rf-prod-wall-ns",
+      "x": 1920,
+      "y": 336,
+      "sortY": 336,
+      "scale": 1,
+      "anchor_px": [
+        26,
+        196
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall-ns.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace east-upper-return"
+    },
+    {
+      "id": "refined-24",
+      "prop": "rf-prod-wall-ns",
+      "x": 1920,
+      "y": 568,
+      "sortY": 568,
+      "scale": 1,
+      "anchor_px": [
+        26,
+        196
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall-ns.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace east-lower-return"
+    },
+    {
+      "id": "refined-25",
+      "prop": "rf-prod-wall-ns",
+      "x": 1920,
+      "y": 704,
+      "sortY": 704,
+      "scale": 1,
+      "anchor_px": [
+        26,
+        196
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall-ns.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace east-lower-return"
+    },
+    {
+      "id": "refined-26",
+      "prop": "rf-prod-wall",
+      "x": 456,
+      "y": 720,
+      "sortY": 720,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace front-west"
+    },
+    {
+      "id": "refined-27",
+      "prop": "rf-prod-wall",
+      "x": 600,
+      "y": 720,
+      "sortY": 720,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace front-west"
+    },
+    {
+      "id": "refined-28",
+      "prop": "rf-prod-wall",
+      "x": 744,
+      "y": 720,
+      "sortY": 720,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace front-west"
+    },
+    {
+      "id": "refined-29",
+      "prop": "rf-prod-wall",
+      "x": 888,
+      "y": 720,
+      "sortY": 720,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace front-west"
+    },
+    {
+      "id": "refined-30",
+      "prop": "rf-prod-wall",
+      "x": 1416,
+      "y": 720,
+      "sortY": 720,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace front-east"
+    },
+    {
+      "id": "refined-31",
+      "prop": "rf-prod-wall",
+      "x": 1560,
+      "y": 720,
+      "sortY": 720,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace front-east"
+    },
+    {
+      "id": "refined-32",
+      "prop": "rf-prod-wall",
+      "x": 1704,
+      "y": 720,
+      "sortY": 720,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace front-east"
+    },
+    {
+      "id": "refined-33",
+      "prop": "rf-prod-wall",
+      "x": 1848,
+      "y": 720,
+      "sortY": 720,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original palace front-east"
+    },
+    {
+      "id": "refined-34",
+      "prop": "rf-prod-service",
+      "x": 384,
+      "y": 448,
+      "sortY": 448,
+      "scale": 1,
+      "anchor_px": [
+        66,
+        118
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-service.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original closed side service gate"
+    },
+    {
+      "id": "refined-35",
+      "prop": "rf-prod-service",
+      "x": 1920,
+      "y": 448,
+      "sortY": 448,
+      "scale": 1,
+      "anchor_px": [
+        66,
+        118
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-service.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original closed side service gate"
+    },
+    {
+      "id": "refined-36",
+      "prop": "rf-prod-wall",
+      "x": 471,
+      "y": 448,
+      "sortY": 448,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Inner palace garden cross-wall return"
+    },
+    {
+      "id": "refined-37",
+      "prop": "rf-prod-wall",
+      "x": 614,
+      "y": 448,
+      "sortY": 448,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Inner palace garden cross-wall return"
+    },
+    {
+      "id": "refined-38",
+      "prop": "rf-prod-wall",
+      "x": 756,
+      "y": 448,
+      "sortY": 448,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Inner palace garden cross-wall return"
+    },
+    {
+      "id": "refined-39",
+      "prop": "rf-prod-wall",
+      "x": 899,
+      "y": 448,
+      "sortY": 448,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Inner palace garden cross-wall return"
+    },
+    {
+      "id": "refined-40",
+      "prop": "rf-prod-wall",
+      "x": 1405,
+      "y": 448,
+      "sortY": 448,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Inner palace garden cross-wall return"
+    },
+    {
+      "id": "refined-41",
+      "prop": "rf-prod-wall",
+      "x": 1548,
+      "y": 448,
+      "sortY": 448,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Inner palace garden cross-wall return"
+    },
+    {
+      "id": "refined-42",
+      "prop": "rf-prod-wall",
+      "x": 1690,
+      "y": 448,
+      "sortY": 448,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Inner palace garden cross-wall return"
+    },
+    {
+      "id": "refined-43",
+      "prop": "rf-prod-wall",
+      "x": 1833,
+      "y": 448,
+      "sortY": 448,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        54
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Inner palace garden cross-wall return"
+    },
+    {
+      "id": "refined-44",
+      "prop": "rf-inner-gate",
+      "x": 1152,
+      "y": 448,
+      "sortY": 448,
+      "scale": 1,
+      "anchor_px": [
+        122,
+        125
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-inner-gate.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Distinct single-tier open inner gate, not duplicated monumental gate"
+    },
+    {
+      "id": "refined-45",
+      "prop": "rf-royal-hall",
+      "x": 1152,
+      "y": 352,
+      "sortY": 336,
+      "scale": 1,
+      "anchor_px": [
+        321,
+        251
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-royal-hall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original seven-bay royal exhibition main hall, visible beyond inner gate"
+    },
+    {
+      "id": "refined-46",
+      "prop": "rf-exhibit",
+      "x": 1456,
+      "y": 352,
+      "sortY": 352,
+      "scale": 1,
+      "anchor_px": [
+        58,
+        62
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-exhibit.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Royal courtyard: hanji book/printing/textile cultural interpretation"
+    },
+    {
+      "id": "refined-47",
+      "prop": "rf-banner",
+      "x": 752,
+      "y": 336,
+      "sortY": 336,
+      "scale": 1,
+      "anchor_px": [
+        62,
+        99
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-banner.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original royal-inspired banner, not a claimed historical flag"
+    },
+    {
+      "id": "refined-48",
+      "prop": "rf-banner",
+      "x": 1584,
+      "y": 336,
+      "sortY": 336,
+      "scale": 1,
+      "anchor_px": [
+        62,
+        99
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-banner.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Original royal-inspired banner, not a claimed historical flag"
+    },
+    {
+      "id": "refined-49",
+      "prop": "rf-stone-lantern",
+      "x": 768,
+      "y": 496,
+      "sortY": 496,
+      "scale": 1,
+      "anchor_px": [
+        34,
+        132
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-stone-lantern.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Korean seokdeung-inspired garden lantern, original interpretation"
+    },
+    {
+      "id": "refined-50",
+      "prop": "rf-stone-lantern",
+      "x": 1536,
+      "y": 496,
+      "sortY": 496,
+      "scale": 1,
+      "anchor_px": [
+        34,
+        132
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-stone-lantern.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Korean seokdeung-inspired garden lantern, original interpretation"
+    },
+    {
+      "id": "refined-51",
+      "prop": "rf-prod-low-wall",
+      "x": 352,
+      "y": 1472,
+      "sortY": 1472,
+      "scale": 1,
+      "anchor_px": [
+        83,
+        60
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-low-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Accepted academy front edge"
+    },
+    {
+      "id": "refined-52",
+      "prop": "rf-prod-low-wall",
+      "x": 736,
+      "y": 1472,
+      "sortY": 1472,
+      "scale": 1,
+      "anchor_px": [
+        83,
+        60
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-low-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Accepted academy front edge"
+    },
+    {
+      "id": "refined-53",
+      "prop": "rf-prod-court-gate",
+      "x": 544,
+      "y": 1472,
+      "sortY": 1472,
+      "scale": 1,
+      "anchor_px": [
+        74,
+        101
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-court-gate.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Accepted academy south entrance"
+    },
+    {
+      "id": "refined-54",
+      "prop": "rf-scholar-return",
+      "x": 152,
+      "y": 1200,
+      "sortY": 1200,
+      "scale": 1,
+      "anchor_px": [
+        18,
+        178
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-scholar-return.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Academy low scholar-garden return; east shortcut below1328"
+    },
+    {
+      "id": "refined-55",
+      "prop": "rf-scholar-return",
+      "x": 152,
+      "y": 1328,
+      "sortY": 1328,
+      "scale": 1,
+      "anchor_px": [
+        18,
+        178
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-scholar-return.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Academy low scholar-garden return; east shortcut below1328"
+    },
+    {
+      "id": "refined-56",
+      "prop": "rf-scholar-return",
+      "x": 944,
+      "y": 1200,
+      "sortY": 1200,
+      "scale": 1,
+      "anchor_px": [
+        18,
+        178
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-scholar-return.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Academy low scholar-garden return; east shortcut below1328"
+    },
+    {
+      "id": "refined-57",
+      "prop": "rf-scholar-return",
+      "x": 944,
+      "y": 1328,
+      "sortY": 1328,
+      "scale": 1,
+      "anchor_px": [
+        18,
+        178
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-scholar-return.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Academy low scholar-garden return; east shortcut below1328"
+    },
+    {
+      "id": "refined-58",
+      "prop": "rf-scholar-return",
+      "x": 152,
+      "y": 1456,
+      "sortY": 1456,
+      "scale": 1,
+      "anchor_px": [
+        18,
+        178
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-scholar-return.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Academy west garden privacy return"
+    },
+    {
+      "id": "refined-59",
+      "prop": "rf-scholar-wall",
+      "x": 224,
+      "y": 1008,
+      "sortY": 1008,
+      "scale": 1,
+      "anchor_px": [
+        73,
+        48
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-scholar-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Short scholar-garden return beside actual hall mass"
+    },
+    {
+      "id": "refined-60",
+      "prop": "rf-scholar-wall",
+      "x": 864,
+      "y": 1008,
+      "sortY": 1008,
+      "scale": 1,
+      "anchor_px": [
+        73,
+        48
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-scholar-wall.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Short scholar-garden return beside actual hall mass"
+    },
+    {
+      "id": "refined-61",
+      "prop": "rf-prod-writing",
+      "x": 424,
+      "y": 1320,
+      "sortY": 1320,
+      "scale": 1,
+      "anchor_px": [
+        52,
+        92
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-writing.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Academy original primer/brush rack"
+    },
+    {
+      "id": "refined-62",
+      "prop": "rf-polish-folio",
+      "x": 696,
+      "y": 1260,
+      "sortY": 1260,
+      "scale": 1,
+      "anchor_px": [
+        50,
+        79
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/stage-b-polish/props/polish-folio.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Academy peer study station"
+    },
+    {
+      "id": "refined-63",
+      "prop": "rf-polish-bamboo",
+      "x": 352,
+      "y": 1400,
+      "sortY": 1400,
+      "scale": 1,
+      "anchor_px": [
+        34,
+        71
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/stage-b-polish/props/polish-bamboo.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Academy quiet side garden"
+    },
+    {
+      "id": "refined-64",
+      "prop": "rf-polish-flowers",
+      "x": 720,
+      "y": 1400,
+      "sortY": 1400,
+      "scale": 1,
+      "anchor_px": [
+        34,
+        69
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/stage-b-polish/props/polish-flowers.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Academy reading-bench chrysanthemum"
+    },
+    {
+      "id": "refined-65",
+      "prop": "rf-prod-armillary",
+      "x": 2144,
+      "y": 1174,
+      "sortY": 1174,
+      "scale": 1,
+      "anchor_px": [
+        50,
+        111
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-armillary.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Workshop observation platform celestial sphere"
+    },
+    {
+      "id": "refined-66",
+      "prop": "rf-prod-sundial",
+      "x": 1576,
+      "y": 1340,
+      "sortY": 1340,
+      "scale": 1,
+      "anchor_px": [
+        46,
+        89
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-sundial.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Workshop hemispherical-sundial exhibit"
+    },
+    {
+      "id": "refined-67",
+      "prop": "rf-prod-clock",
+      "x": 1984,
+      "y": 1392,
+      "sortY": 1392,
+      "scale": 1,
+      "anchor_px": [
+        57,
+        138
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-clock.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Workshop water-clock interpretation"
+    },
+    {
+      "id": "refined-68",
+      "prop": "rf-polish-tools",
+      "x": 1564,
+      "y": 1156,
+      "sortY": 1156,
+      "scale": 1,
+      "anchor_px": [
+        46,
+        69
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/stage-b-polish/props/polish-tools.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Workshop service measuring tools"
+    },
+    {
+      "id": "refined-69",
+      "prop": "rf-polish-chart",
+      "x": 2056,
+      "y": 1300,
+      "sortY": 1300,
+      "scale": 1,
+      "anchor_px": [
+        52,
+        80
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/stage-b-polish/props/polish-chart.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Workshop observation star chart"
+    },
+    {
+      "id": "refined-70",
+      "prop": "rf-polish-bamboo",
+      "x": 1536,
+      "y": 1360,
+      "sortY": 1360,
+      "scale": 1,
+      "anchor_px": [
+        34,
+        71
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/stage-b-polish/props/polish-bamboo.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Workshop contained service planting"
+    },
+    {
+      "id": "refined-71",
+      "prop": "rf-prod-strategy",
+      "x": 1840,
+      "y": 1772,
+      "sortY": 1772,
+      "scale": 1,
+      "anchor_px": [
+        62,
+        70
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-strategy.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Museum open naval-strategy table"
+    },
+    {
+      "id": "refined-72",
+      "prop": "rf-prod-ship",
+      "x": 2144,
+      "y": 1828,
+      "sortY": 1828,
+      "scale": 1,
+      "anchor_px": [
+        62,
+        127
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/seoul-production/props/prod-ship.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Museum miniature turtle-ship exhibit"
+    },
+    {
+      "id": "refined-73",
+      "prop": "rf-polish-stele",
+      "x": 2256,
+      "y": 1768,
+      "sortY": 1768,
+      "scale": 1,
+      "anchor_px": [
+        36,
+        87
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/stage-b-polish/props/polish-stele.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Museum original naval-emblem interpretation"
+    },
+    {
+      "id": "refined-74",
+      "prop": "rf-polish-flowers",
+      "x": 1696,
+      "y": 1896,
+      "sortY": 1896,
+      "scale": 1,
+      "anchor_px": [
+        34,
+        69
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/stage-b-polish/props/polish-flowers.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Museum cobalt chrysanthemum"
+    },
+    {
+      "id": "refined-75",
+      "prop": "rf-work-rail",
+      "x": 1504,
+      "y": 1440,
+      "sortY": 1440,
+      "scale": 1,
+      "anchor_px": [
+        74,
+        48
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-work-rail.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Low workshop equipment rail; public entrance1584..1680 stays clear"
+    },
+    {
+      "id": "refined-76",
+      "prop": "rf-work-rail",
+      "x": 1776,
+      "y": 1440,
+      "sortY": 1440,
+      "scale": 1,
+      "anchor_px": [
+        74,
+        48
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-work-rail.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Low workshop equipment rail; public entrance1584..1680 stays clear"
+    },
+    {
+      "id": "refined-77",
+      "prop": "rf-work-rail",
+      "x": 1920,
+      "y": 1440,
+      "sortY": 1440,
+      "scale": 1,
+      "anchor_px": [
+        74,
+        48
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-work-rail.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Low workshop equipment rail; public entrance1584..1680 stays clear"
+    },
+    {
+      "id": "refined-78",
+      "prop": "rf-work-rail",
+      "x": 2064,
+      "y": 1440,
+      "sortY": 1440,
+      "scale": 1,
+      "anchor_px": [
+        74,
+        48
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-work-rail.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Low workshop equipment rail; public entrance1584..1680 stays clear"
+    },
+    {
+      "id": "refined-79",
+      "prop": "rf-work-rail",
+      "x": 2200,
+      "y": 1440,
+      "sortY": 1440,
+      "scale": 1,
+      "anchor_px": [
+        74,
+        48
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-work-rail.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Low workshop equipment rail; public entrance1584..1680 stays clear"
+    },
+    {
+      "id": "refined-80",
+      "prop": "rf-work-return",
+      "x": 1480,
+      "y": 1184,
+      "sortY": 1184,
+      "scale": 1,
+      "anchor_px": [
+        21,
+        162
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-work-return.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Workshop timber return; west service gate1184..1312 stays open"
+    },
+    {
+      "id": "refined-81",
+      "prop": "rf-work-return",
+      "x": 1480,
+      "y": 1440,
+      "sortY": 1440,
+      "scale": 1,
+      "anchor_px": [
+        21,
+        162
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-work-return.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Workshop timber return; west service gate1184..1312 stays open"
+    },
+    {
+      "id": "refined-82",
+      "prop": "rf-work-return",
+      "x": 2224,
+      "y": 1328,
+      "sortY": 1328,
+      "scale": 1,
+      "anchor_px": [
+        21,
+        162
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-work-return.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Workshop timber return; west service gate1184..1312 stays open"
+    },
+    {
+      "id": "refined-83",
+      "prop": "rf-work-return",
+      "x": 2224,
+      "y": 1440,
+      "sortY": 1440,
+      "scale": 1,
+      "anchor_px": [
+        21,
+        162
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-work-return.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Workshop timber return; west service gate1184..1312 stays open"
+    },
+    {
+      "id": "refined-84",
+      "prop": "rf-cafe",
+      "x": 512,
+      "y": 1840,
+      "sortY": 1824,
+      "scale": 1,
+      "anchor_px": [
+        182,
+        270
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-cafe.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Modern Korean book-and-tea frontage at cultural transition"
+    },
+    {
+      "id": "refined-85",
+      "prop": "rf-cafe-seating",
+      "x": 752,
+      "y": 1664,
+      "sortY": 1664,
+      "scale": 1,
+      "anchor_px": [
+        54,
+        66
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-cafe-seating.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Open modern book-cafe social seating, no enclosing fence"
+    },
+    {
+      "id": "refined-86",
+      "prop": "rf-workshop-main",
+      "x": 1694,
+      "y": 995,
+      "sortY": 992,
+      "scale": 1,
+      "anchor_px": [
+        164,
+        209
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-workshop-main.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Pixel-exact approved workshop ownership slice; independent hall/wing depth"
+    },
+    {
+      "id": "refined-87",
+      "prop": "rf-workshop-wing",
+      "x": 1938,
+      "y": 1202,
+      "sortY": 1184,
+      "scale": 1,
+      "anchor_px": [
+        84,
+        415
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/rf-workshop-wing.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Pixel-exact approved workshop ownership slice; independent hall/wing depth"
+    },
+    {
+      "id": "refined-88",
+      "prop": "rf-prod-planter",
+      "x": 384,
+      "y": 1148,
+      "sortY": 1148,
+      "scale": 1,
+      "anchor_px": [
+        28,
+        43
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/planter.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Landmark entry planting outside clear approach"
+    },
+    {
+      "id": "refined-89",
+      "prop": "rf-prod-planter",
+      "x": 704,
+      "y": 1148,
+      "sortY": 1148,
+      "scale": 1,
+      "anchor_px": [
+        28,
+        43
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/planter.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Landmark entry planting outside clear approach"
+    },
+    {
+      "id": "refined-90",
+      "prop": "rf-prod-planter",
+      "x": 1664,
+      "y": 1056,
+      "sortY": 1056,
+      "scale": 1,
+      "anchor_px": [
+        28,
+        43
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/planter.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Landmark entry planting outside clear approach"
+    },
+    {
+      "id": "refined-91",
+      "prop": "rf-prod-planter",
+      "x": 1792,
+      "y": 1056,
+      "sortY": 1056,
+      "scale": 1,
+      "anchor_px": [
+        28,
+        43
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/planter.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Landmark entry planting outside clear approach"
+    },
+    {
+      "id": "refined-92",
+      "prop": "rf-prod-planter",
+      "x": 1768,
+      "y": 1712,
+      "sortY": 1712,
+      "scale": 1,
+      "anchor_px": [
+        28,
+        43
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/planter.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Landmark entry planting outside clear approach"
+    },
+    {
+      "id": "refined-93",
+      "prop": "rf-prod-planter",
+      "x": 2096,
+      "y": 1712,
+      "sortY": 1712,
+      "scale": 1,
+      "anchor_px": [
+        28,
+        43
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/planter.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Landmark entry planting outside clear approach"
+    },
+    {
+      "id": "refined-94",
+      "prop": "rf-prod-planter",
+      "x": 1024,
+      "y": 1200,
+      "sortY": 1200,
+      "scale": 1,
+      "anchor_px": [
+        28,
+        43
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/planter.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Landmark entry planting outside clear approach"
+    },
+    {
+      "id": "refined-95",
+      "prop": "rf-prod-planter",
+      "x": 1408,
+      "y": 1200,
+      "sortY": 1200,
+      "scale": 1,
+      "anchor_px": [
+        28,
+        43
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/planter.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Landmark entry planting outside clear approach"
+    },
+    {
+      "id": "refined-96",
+      "prop": "rf-prod-bench",
+      "x": 640,
+      "y": 1384,
+      "sortY": 1384,
+      "scale": 1,
+      "anchor_px": [
+        37,
+        51
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/bench.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Purposeful reading / cultural / garden rest"
+    },
+    {
+      "id": "refined-97",
+      "prop": "rf-prod-bench",
+      "x": 960,
+      "y": 1216,
+      "sortY": 1216,
+      "scale": 1,
+      "anchor_px": [
+        37,
+        51
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/bench.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Purposeful reading / cultural / garden rest"
+    },
+    {
+      "id": "refined-98",
+      "prop": "rf-prod-bench",
+      "x": 1456,
+      "y": 1216,
+      "sortY": 1216,
+      "scale": 1,
+      "anchor_px": [
+        37,
+        51
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/bench.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Purposeful reading / cultural / garden rest"
+    },
+    {
+      "id": "refined-99",
+      "prop": "rf-prod-bench",
+      "x": 1536,
+      "y": 1408,
+      "sortY": 1408,
+      "scale": 1,
+      "anchor_px": [
+        37,
+        51
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/bench.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Purposeful reading / cultural / garden rest"
+    },
+    {
+      "id": "refined-100",
+      "prop": "rf-prod-bench",
+      "x": 2208,
+      "y": 1856,
+      "sortY": 1856,
+      "scale": 1,
+      "anchor_px": [
+        37,
+        51
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/bench.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Purposeful reading / cultural / garden rest"
+    },
+    {
+      "id": "refined-101",
+      "prop": "rf-prod-bench",
+      "x": 832,
+      "y": 592,
+      "sortY": 592,
+      "scale": 1,
+      "anchor_px": [
+        37,
+        51
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/bench.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Purposeful reading / cultural / garden rest"
+    },
+    {
+      "id": "refined-102",
+      "prop": "rf-prod-bench",
+      "x": 1536,
+      "y": 576,
+      "sortY": 576,
+      "scale": 1,
+      "anchor_px": [
+        37,
+        51
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/bench.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Purposeful reading / cultural / garden rest"
+    },
+    {
+      "id": "refined-103",
+      "prop": "rf-prod-bench",
+      "x": 944,
+      "y": 1712,
+      "sortY": 1712,
+      "scale": 1,
+      "anchor_px": [
+        37,
+        51
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/bench.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Purposeful reading / cultural / garden rest"
+    },
+    {
+      "id": "refined-104",
+      "prop": "rf-prod-jars",
+      "x": 976,
+      "y": 1240,
+      "sortY": 1240,
+      "scale": 1,
+      "anchor_px": [
+        32,
+        52
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/jars.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Service-side onggi storage, not a public gateway"
+    },
+    {
+      "id": "refined-105",
+      "prop": "rf-prod-jars",
+      "x": 1424,
+      "y": 1120,
+      "sortY": 1120,
+      "scale": 1,
+      "anchor_px": [
+        32,
+        52
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/jars.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Service-side onggi storage, not a public gateway"
+    },
+    {
+      "id": "refined-106",
+      "prop": "rf-prod-jars",
+      "x": 2224,
+      "y": 1688,
+      "sortY": 1688,
+      "scale": 1,
+      "anchor_px": [
+        32,
+        52
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/jars.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Service-side onggi storage, not a public gateway"
+    },
+    {
+      "id": "refined-107",
+      "prop": "rf-prod-lantern",
+      "x": 464,
+      "y": 1584,
+      "sortY": 1584,
+      "scale": 1,
+      "anchor_px": [
+        26,
+        91
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/lantern.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Gateways, frontage and turning-point guidance"
+    },
+    {
+      "id": "refined-108",
+      "prop": "rf-prod-lantern",
+      "x": 624,
+      "y": 1584,
+      "sortY": 1584,
+      "scale": 1,
+      "anchor_px": [
+        26,
+        91
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/lantern.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Gateways, frontage and turning-point guidance"
+    },
+    {
+      "id": "refined-109",
+      "prop": "rf-prod-lantern",
+      "x": 880,
+      "y": 864,
+      "sortY": 864,
+      "scale": 1,
+      "anchor_px": [
+        26,
+        91
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/lantern.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Gateways, frontage and turning-point guidance"
+    },
+    {
+      "id": "refined-110",
+      "prop": "rf-prod-lantern",
+      "x": 1424,
+      "y": 864,
+      "sortY": 864,
+      "scale": 1,
+      "anchor_px": [
+        26,
+        91
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/lantern.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Gateways, frontage and turning-point guidance"
+    },
+    {
+      "id": "refined-111",
+      "prop": "rf-prod-lantern",
+      "x": 1568,
+      "y": 1400,
+      "sortY": 1400,
+      "scale": 1,
+      "anchor_px": [
+        26,
+        91
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/lantern.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Gateways, frontage and turning-point guidance"
+    },
+    {
+      "id": "refined-112",
+      "prop": "rf-prod-lantern",
+      "x": 1696,
+      "y": 1504,
+      "sortY": 1504,
+      "scale": 1,
+      "anchor_px": [
+        26,
+        91
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/lantern.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Gateways, frontage and turning-point guidance"
+    },
+    {
+      "id": "refined-113",
+      "prop": "rf-prod-lantern",
+      "x": 1712,
+      "y": 1768,
+      "sortY": 1768,
+      "scale": 1,
+      "anchor_px": [
+        26,
+        91
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/lantern.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Gateways, frontage and turning-point guidance"
+    },
+    {
+      "id": "refined-114",
+      "prop": "rf-prod-lantern",
+      "x": 2264,
+      "y": 1840,
+      "sortY": 1840,
+      "scale": 1,
+      "anchor_px": [
+        26,
+        91
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/lantern.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Gateways, frontage and turning-point guidance"
+    },
+    {
+      "id": "refined-115",
+      "prop": "rf-prod-lantern",
+      "x": 1040,
+      "y": 1248,
+      "sortY": 1248,
+      "scale": 1,
+      "anchor_px": [
+        26,
+        91
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/lantern.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Gateways, frontage and turning-point guidance"
+    },
+    {
+      "id": "refined-116",
+      "prop": "rf-prod-lantern",
+      "x": 1280,
+      "y": 1568,
+      "sortY": 1568,
+      "scale": 1,
+      "anchor_px": [
+        26,
+        91
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/lantern.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Gateways, frontage and turning-point guidance"
+    },
+    {
+      "id": "refined-117",
+      "prop": "rf-polish-flowers",
+      "x": 920,
+      "y": 816,
+      "sortY": 816,
+      "scale": 1,
+      "anchor_px": [
+        34,
+        69
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/stage-b-polish/props/polish-flowers.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Ceremonial / cultural threshold flowers"
+    },
+    {
+      "id": "refined-118",
+      "prop": "rf-polish-flowers",
+      "x": 1384,
+      "y": 816,
+      "sortY": 816,
+      "scale": 1,
+      "anchor_px": [
+        34,
+        69
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/stage-b-polish/props/polish-flowers.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Ceremonial / cultural threshold flowers"
+    },
+    {
+      "id": "refined-119",
+      "prop": "rf-polish-flowers",
+      "x": 288,
+      "y": 1840,
+      "sortY": 1840,
+      "scale": 1,
+      "anchor_px": [
+        34,
+        69
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/stage-b-polish/props/polish-flowers.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Ceremonial / cultural threshold flowers"
+    },
+    {
+      "id": "refined-120",
+      "prop": "rf-polish-flowers",
+      "x": 1072,
+      "y": 1584,
+      "sortY": 1584,
+      "scale": 1,
+      "anchor_px": [
+        34,
+        69
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/stage-b-polish/props/polish-flowers.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Ceremonial / cultural threshold flowers"
+    },
+    {
+      "id": "refined-121",
+      "prop": "rf-polish-bamboo",
+      "x": 512,
+      "y": 352,
+      "sortY": 352,
+      "scale": 1,
+      "anchor_px": [
+        34,
+        71
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/stage-b-polish/props/polish-bamboo.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Contained royal-garden / modern transition planting"
+    },
+    {
+      "id": "refined-122",
+      "prop": "rf-polish-bamboo",
+      "x": 1792,
+      "y": 352,
+      "sortY": 352,
+      "scale": 1,
+      "anchor_px": [
+        34,
+        71
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/stage-b-polish/props/polish-bamboo.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Contained royal-garden / modern transition planting"
+    },
+    {
+      "id": "refined-123",
+      "prop": "rf-polish-bamboo",
+      "x": 832,
+      "y": 1776,
+      "sortY": 1776,
+      "scale": 1,
+      "anchor_px": [
+        34,
+        71
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/stage-b-polish/props/polish-bamboo.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Contained royal-garden / modern transition planting"
+    },
+    {
+      "id": "refined-124",
+      "prop": "rf-prod-ginkgo",
+      "x": 512,
+      "y": 288,
+      "sortY": 288,
+      "scale": 1,
+      "anchor_px": [
+        102,
+        213
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/ginkgo.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Royal west garden"
+    },
+    {
+      "id": "refined-125",
+      "prop": "rf-prod-tree",
+      "x": 704,
+      "y": 272,
+      "sortY": 272,
+      "scale": 1,
+      "anchor_px": [
+        94,
+        195
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/tree.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Royal west garden"
+    },
+    {
+      "id": "refined-126",
+      "prop": "rf-prod-tree",
+      "x": 1760,
+      "y": 272,
+      "sortY": 272,
+      "scale": 1,
+      "anchor_px": [
+        94,
+        195
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/tree.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Royal east garden"
+    },
+    {
+      "id": "refined-127",
+      "prop": "rf-prod-ginkgo",
+      "x": 1840,
+      "y": 560,
+      "sortY": 560,
+      "scale": 1,
+      "anchor_px": [
+        102,
+        213
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/ginkgo.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Royal garden east return"
+    },
+    {
+      "id": "refined-128",
+      "prop": "rf-prod-tree",
+      "x": 528,
+      "y": 576,
+      "sortY": 576,
+      "scale": 1,
+      "anchor_px": [
+        94,
+        195
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/tree.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Royal west outer garden"
+    },
+    {
+      "id": "refined-129",
+      "prop": "rf-prod-tree",
+      "x": 192,
+      "y": 800,
+      "sortY": 800,
+      "scale": 1,
+      "anchor_px": [
+        94,
+        195
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/tree.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Academy north street garden"
+    },
+    {
+      "id": "refined-130",
+      "prop": "rf-prod-ginkgo",
+      "x": 112,
+      "y": 1072,
+      "sortY": 1072,
+      "scale": 1,
+      "anchor_px": [
+        102,
+        213
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/ginkgo.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Academy west garden"
+    },
+    {
+      "id": "refined-131",
+      "prop": "rf-prod-tree",
+      "x": 272,
+      "y": 1600,
+      "sortY": 1600,
+      "scale": 1,
+      "anchor_px": [
+        94,
+        195
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/tree.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Academy-to-book-lane shade"
+    },
+    {
+      "id": "refined-132",
+      "prop": "rf-prod-tree",
+      "x": 112,
+      "y": 1504,
+      "sortY": 1504,
+      "scale": 1,
+      "anchor_px": [
+        94,
+        195
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/tree.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Academy lane edge"
+    },
+    {
+      "id": "refined-133",
+      "prop": "rf-prod-ginkgo",
+      "x": 1008,
+      "y": 1136,
+      "sortY": 1136,
+      "scale": 1,
+      "anchor_px": [
+        102,
+        213
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/ginkgo.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Academy east garden"
+    },
+    {
+      "id": "refined-134",
+      "prop": "rf-prod-tree",
+      "x": 2064,
+      "y": 832,
+      "sortY": 832,
+      "scale": 1,
+      "anchor_px": [
+        94,
+        195
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/tree.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Workshop rear garden"
+    },
+    {
+      "id": "refined-135",
+      "prop": "rf-prod-tree",
+      "x": 2192,
+      "y": 1056,
+      "sortY": 1056,
+      "scale": 1,
+      "anchor_px": [
+        94,
+        195
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/tree.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Observation platform backdrop"
+    },
+    {
+      "id": "refined-136",
+      "prop": "rf-prod-ginkgo",
+      "x": 1472,
+      "y": 944,
+      "sortY": 944,
+      "scale": 1,
+      "anchor_px": [
+        102,
+        213
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/ginkgo.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Workshop western edge"
+    },
+    {
+      "id": "refined-137",
+      "prop": "rf-prod-tree",
+      "x": 1440,
+      "y": 1584,
+      "sortY": 1584,
+      "scale": 1,
+      "anchor_px": [
+        94,
+        195
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/tree.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Cultural garden beside history lane"
+    },
+    {
+      "id": "refined-138",
+      "prop": "rf-prod-tree",
+      "x": 992,
+      "y": 736,
+      "sortY": 736,
+      "scale": 1,
+      "anchor_px": [
+        94,
+        195
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/tree.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Gateway west garden"
+    },
+    {
+      "id": "refined-139",
+      "prop": "rf-prod-ginkgo",
+      "x": 1488,
+      "y": 768,
+      "sortY": 768,
+      "scale": 1,
+      "anchor_px": [
+        102,
+        213
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/ginkgo.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Gateway east garden"
+    },
+    {
+      "id": "refined-140",
+      "prop": "rf-prod-tree",
+      "x": 800,
+      "y": 864,
+      "sortY": 864,
+      "scale": 1,
+      "anchor_px": [
+        94,
+        195
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/tree.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Hanok-to-palace garden path"
+    },
+    {
+      "id": "refined-141",
+      "prop": "rf-prod-tree",
+      "x": 1424,
+      "y": 1088,
+      "sortY": 1088,
+      "scale": 1,
+      "anchor_px": [
+        94,
+        195
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/tree.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Plaza east cultural pocket"
+    },
+    {
+      "id": "refined-142",
+      "prop": "rf-prod-ginkgo",
+      "x": 960,
+      "y": 1632,
+      "sortY": 1632,
+      "scale": 1,
+      "anchor_px": [
+        102,
+        213
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/ginkgo.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Cultural transition shade"
+    },
+    {
+      "id": "refined-143",
+      "prop": "rf-prod-tree",
+      "x": 1280,
+      "y": 1824,
+      "sortY": 1824,
+      "scale": 1,
+      "anchor_px": [
+        94,
+        195
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/tree.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Cultural transition garden"
+    },
+    {
+      "id": "refined-144",
+      "prop": "rf-prod-tree",
+      "x": 1504,
+      "y": 1856,
+      "sortY": 1856,
+      "scale": 1,
+      "anchor_px": [
+        94,
+        195
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/tree.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "History-lane shade"
+    },
+    {
+      "id": "refined-145",
+      "prop": "rf-prod-ginkgo",
+      "x": 128,
+      "y": 1808,
+      "sortY": 1808,
+      "scale": 1,
+      "anchor_px": [
+        102,
+        213
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/ginkgo.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Modern corner green edge"
+    },
+    {
+      "id": "refined-146",
+      "prop": "rf-prod-tree",
+      "x": 2176,
+      "y": 512,
+      "sortY": 512,
+      "scale": 1,
+      "anchor_px": [
+        94,
+        195
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/tree.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Northern east green edge"
+    },
+    {
+      "id": "refined-147",
+      "prop": "rf-prod-tree",
+      "x": 96,
+      "y": 528,
+      "sortY": 528,
+      "scale": 1,
+      "anchor_px": [
+        94,
+        195
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../seoul-production/../../assets-src/gwanghwamun/props/tree.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Northern west green edge"
+    }
+  ],
+  "collision": {
+    "actorRadius": 8,
+    "ySquash": 0.5,
+    "walkRegions": [
+      {
+        "polygon": [
+          [
+            32,
+            32
+          ],
+          [
+            2272,
+            32
+          ],
+          [
+            2272,
+            1888
+          ],
+          [
+            32,
+            1888
+          ]
+        ]
+      }
+    ],
+    "solids": [
+      {
+        "shape": "rect",
+        "x": 256,
+        "y": 928,
+        "w": 576,
+        "h": 160,
+        "reason": "A01:lecture-hall original native mass, whole-compound translation"
+      },
+      {
+        "shape": "rect",
+        "x": 192,
+        "y": 1088,
+        "w": 128,
+        "h": 288,
+        "reason": "A01:west-study original native mass, whole-compound translation"
+      },
+      {
+        "shape": "rect",
+        "x": 768,
+        "y": 1088,
+        "w": 128,
+        "h": 224,
+        "reason": "A01:east-library original native mass, whole-compound translation"
+      },
+      {
+        "shape": "rect",
+        "x": 1568,
+        "y": 832,
+        "w": 384,
+        "h": 160,
+        "reason": "H01:workshop original native mass, whole-compound translation"
+      },
+      {
+        "shape": "rect",
+        "x": 1856,
+        "y": 992,
+        "w": 128,
+        "h": 192,
+        "reason": "H01:east-tool-wing original native mass, whole-compound translation"
+      },
+      {
+        "shape": "rect",
+        "x": 1760,
+        "y": 1472,
+        "w": 448,
+        "h": 192,
+        "reason": "H02:exhibit-hall original native mass, whole-compound translation"
+      },
+      {
+        "shape": "rect",
+        "x": 1696,
+        "y": 1536,
+        "w": 64,
+        "h": 128,
+        "reason": "H02:west-vestibule original native mass, whole-compound translation"
+      },
+      {
+        "shape": "rect",
+        "x": 1304,
+        "y": 1088,
+        "w": 80,
+        "h": 96,
+        "reason": "Original Sejong monument base translated, ceremonial centreline clear"
+      },
+      {
+        "shape": "rect",
+        "x": 960,
+        "y": 544,
+        "w": 152,
+        "h": 192,
+        "reason": "Gateway west podium; original80pxcentre pass"
+      },
+      {
+        "shape": "rect",
+        "x": 1192,
+        "y": 544,
+        "w": 152,
+        "h": 192,
+        "reason": "Gateway east podium; original80pxcentre pass"
+      },
+      {
+        "shape": "rect",
+        "x": 384,
+        "y": 48,
+        "w": 1536,
+        "h": 32,
+        "reason": "Original palace north-return"
+      },
+      {
+        "shape": "rect",
+        "x": 368,
+        "y": 64,
+        "w": 32,
+        "h": 272,
+        "reason": "Original palace west-upper-return"
+      },
+      {
+        "shape": "rect",
+        "x": 368,
+        "y": 432,
+        "w": 32,
+        "h": 272,
+        "reason": "Original palace west-lower-return"
+      },
+      {
+        "shape": "rect",
+        "x": 1904,
+        "y": 64,
+        "w": 32,
+        "h": 272,
+        "reason": "Original palace east-upper-return"
+      },
+      {
+        "shape": "rect",
+        "x": 1904,
+        "y": 432,
+        "w": 32,
+        "h": 272,
+        "reason": "Original palace east-lower-return"
+      },
+      {
+        "shape": "rect",
+        "x": 384,
+        "y": 688,
+        "w": 576,
+        "h": 32,
+        "reason": "Original palace front-west"
+      },
+      {
+        "shape": "rect",
+        "x": 1344,
+        "y": 688,
+        "w": 576,
+        "h": 32,
+        "reason": "Original palace front-east"
+      },
+      {
+        "shape": "rect",
+        "x": 352,
+        "y": 336,
+        "w": 64,
+        "h": 96,
+        "reason": "Original closed side service threshold"
+      },
+      {
+        "shape": "rect",
+        "x": 1888,
+        "y": 336,
+        "w": 64,
+        "h": 96,
+        "reason": "Original closed side service threshold"
+      },
+      {
+        "shape": "rect",
+        "x": 400,
+        "y": 416,
+        "w": 720,
+        "h": 32,
+        "reason": "Inner wall west return, includes inner gate side pier"
+      },
+      {
+        "shape": "rect",
+        "x": 1184,
+        "y": 416,
+        "w": 720,
+        "h": 32,
+        "reason": "Inner wall east return, includes inner gate side pier"
+      },
+      {
+        "shape": "rect",
+        "x": 880,
+        "y": 192,
+        "w": 544,
+        "h": 144,
+        "reason": "Royal hall wall/body only; eaves and terrace not whole-image collider"
+      },
+      {
+        "shape": "rect",
+        "x": 848,
+        "y": 320,
+        "w": 32,
+        "h": 32,
+        "reason": "Royal terrace side balustrade base"
+      },
+      {
+        "shape": "rect",
+        "x": 1424,
+        "y": 320,
+        "w": 32,
+        "h": 32,
+        "reason": "Royal terrace side balustrade base"
+      },
+      {
+        "shape": "rect",
+        "x": 1414.0,
+        "y": 328,
+        "w": 84,
+        "h": 24,
+        "reason": "Royal courtyard: hanji book/printing/textile cultural interpretation"
+      },
+      {
+        "shape": "rect",
+        "x": 709.0,
+        "y": 318,
+        "w": 86,
+        "h": 18,
+        "reason": "Original royal-inspired banner, not a claimed historical flag"
+      },
+      {
+        "shape": "rect",
+        "x": 1541.0,
+        "y": 318,
+        "w": 86,
+        "h": 18,
+        "reason": "Original royal-inspired banner, not a claimed historical flag"
+      },
+      {
+        "shape": "rect",
+        "x": 750.0,
+        "y": 472,
+        "w": 36,
+        "h": 24,
+        "reason": "Korean seokdeung-inspired garden lantern, original interpretation"
+      },
+      {
+        "shape": "rect",
+        "x": 1518.0,
+        "y": 472,
+        "w": 36,
+        "h": 24,
+        "reason": "Korean seokdeung-inspired garden lantern, original interpretation"
+      },
+      {
+        "shape": "rect",
+        "x": 272,
+        "y": 1456,
+        "w": 160,
+        "h": 16,
+        "reason": "Academy original front wall translated; centre opening kept"
+      },
+      {
+        "shape": "rect",
+        "x": 688,
+        "y": 1456,
+        "w": 160,
+        "h": 16,
+        "reason": "Academy original front wall translated; centre opening kept"
+      },
+      {
+        "shape": "rect",
+        "x": 146,
+        "y": 1072,
+        "w": 32,
+        "h": 128,
+        "reason": "Scholar garden wall foot, not roof/cap bounding box"
+      },
+      {
+        "shape": "rect",
+        "x": 146,
+        "y": 1200,
+        "w": 32,
+        "h": 128,
+        "reason": "Scholar garden wall foot, not roof/cap bounding box"
+      },
+      {
+        "shape": "rect",
+        "x": 938,
+        "y": 1072,
+        "w": 32,
+        "h": 128,
+        "reason": "Scholar garden wall foot, not roof/cap bounding box"
+      },
+      {
+        "shape": "rect",
+        "x": 938,
+        "y": 1200,
+        "w": 32,
+        "h": 128,
+        "reason": "Scholar garden wall foot, not roof/cap bounding box"
+      },
+      {
+        "shape": "rect",
+        "x": 146,
+        "y": 1328,
+        "w": 32,
+        "h": 128,
+        "reason": "Academy west wall base"
+      },
+      {
+        "shape": "rect",
+        "x": 156,
+        "y": 996,
+        "w": 136,
+        "h": 12,
+        "reason": "Low scholar wall foot"
+      },
+      {
+        "shape": "rect",
+        "x": 796,
+        "y": 996,
+        "w": 136,
+        "h": 12,
+        "reason": "Low scholar wall foot"
+      },
+      {
+        "shape": "rect",
+        "x": 390.0,
+        "y": 1292,
+        "w": 68,
+        "h": 28,
+        "reason": "Academy original primer/brush rack"
+      },
+      {
+        "shape": "rect",
+        "x": 661.0,
+        "y": 1236,
+        "w": 70,
+        "h": 24,
+        "reason": "Academy peer study station"
+      },
+      {
+        "shape": "rect",
+        "x": 334.0,
+        "y": 1382,
+        "w": 36,
+        "h": 18,
+        "reason": "Academy quiet side garden"
+      },
+      {
+        "shape": "rect",
+        "x": 704.0,
+        "y": 1384,
+        "w": 32,
+        "h": 16,
+        "reason": "Academy reading-bench chrysanthemum"
+      },
+      {
+        "shape": "rect",
+        "x": 2112.0,
+        "y": 1138,
+        "w": 64,
+        "h": 36,
+        "reason": "Workshop observation platform celestial sphere"
+      },
+      {
+        "shape": "rect",
+        "x": 1546.0,
+        "y": 1308,
+        "w": 60,
+        "h": 32,
+        "reason": "Workshop hemispherical-sundial exhibit"
+      },
+      {
+        "shape": "rect",
+        "x": 1950.0,
+        "y": 1360,
+        "w": 68,
+        "h": 32,
+        "reason": "Workshop water-clock interpretation"
+      },
+      {
+        "shape": "rect",
+        "x": 1532.0,
+        "y": 1134,
+        "w": 64,
+        "h": 22,
+        "reason": "Workshop service measuring tools"
+      },
+      {
+        "shape": "rect",
+        "x": 2021.0,
+        "y": 1276,
+        "w": 70,
+        "h": 24,
+        "reason": "Workshop observation star chart"
+      },
+      {
+        "shape": "rect",
+        "x": 1518.0,
+        "y": 1342,
+        "w": 36,
+        "h": 18,
+        "reason": "Workshop contained service planting"
+      },
+      {
+        "shape": "rect",
+        "x": 1798.0,
+        "y": 1740,
+        "w": 84,
+        "h": 32,
+        "reason": "Museum open naval-strategy table"
+      },
+      {
+        "shape": "rect",
+        "x": 2104.0,
+        "y": 1796,
+        "w": 80,
+        "h": 32,
+        "reason": "Museum miniature turtle-ship exhibit"
+      },
+      {
+        "shape": "rect",
+        "x": 2237.0,
+        "y": 1746,
+        "w": 38,
+        "h": 22,
+        "reason": "Museum original naval-emblem interpretation"
+      },
+      {
+        "shape": "rect",
+        "x": 1680.0,
+        "y": 1880,
+        "w": 32,
+        "h": 16,
+        "reason": "Museum cobalt chrysanthemum"
+      },
+      {
+        "shape": "rect",
+        "x": 1436,
+        "y": 1428,
+        "w": 136,
+        "h": 12,
+        "reason": "Workshop timber rail foot"
+      },
+      {
+        "shape": "rect",
+        "x": 1708,
+        "y": 1428,
+        "w": 136,
+        "h": 12,
+        "reason": "Workshop timber rail foot"
+      },
+      {
+        "shape": "rect",
+        "x": 1852,
+        "y": 1428,
+        "w": 136,
+        "h": 12,
+        "reason": "Workshop timber rail foot"
+      },
+      {
+        "shape": "rect",
+        "x": 1996,
+        "y": 1428,
+        "w": 136,
+        "h": 12,
+        "reason": "Workshop timber rail foot"
+      },
+      {
+        "shape": "rect",
+        "x": 2132,
+        "y": 1428,
+        "w": 136,
+        "h": 12,
+        "reason": "Workshop timber rail foot"
+      },
+      {
+        "shape": "rect",
+        "x": 1474,
+        "y": 1072,
+        "w": 32,
+        "h": 112,
+        "reason": "Workshop return base"
+      },
+      {
+        "shape": "rect",
+        "x": 1474,
+        "y": 1328,
+        "w": 32,
+        "h": 112,
+        "reason": "Workshop return base"
+      },
+      {
+        "shape": "rect",
+        "x": 2218,
+        "y": 1216,
+        "w": 32,
+        "h": 112,
+        "reason": "Workshop return base"
+      },
+      {
+        "shape": "rect",
+        "x": 2218,
+        "y": 1328,
+        "w": 32,
+        "h": 112,
+        "reason": "Workshop return base"
+      },
+      {
+        "shape": "rect",
+        "x": 352,
+        "y": 1680,
+        "w": 320,
+        "h": 144,
+        "reason": "Modern cafe actual facade mass, roof/awning are occluders"
+      },
+      {
+        "shape": "rect",
+        "x": 715.0,
+        "y": 1644,
+        "w": 74,
+        "h": 20,
+        "reason": "Open modern book-cafe social seating, no enclosing fence"
+      },
+      {
+        "shape": "rect",
+        "x": 369.0,
+        "y": 1134,
+        "w": 30,
+        "h": 14,
+        "reason": "Landmark entry planting outside clear approach"
+      },
+      {
+        "shape": "rect",
+        "x": 689.0,
+        "y": 1134,
+        "w": 30,
+        "h": 14,
+        "reason": "Landmark entry planting outside clear approach"
+      },
+      {
+        "shape": "rect",
+        "x": 1649.0,
+        "y": 1042,
+        "w": 30,
+        "h": 14,
+        "reason": "Landmark entry planting outside clear approach"
+      },
+      {
+        "shape": "rect",
+        "x": 1777.0,
+        "y": 1042,
+        "w": 30,
+        "h": 14,
+        "reason": "Landmark entry planting outside clear approach"
+      },
+      {
+        "shape": "rect",
+        "x": 1753.0,
+        "y": 1698,
+        "w": 30,
+        "h": 14,
+        "reason": "Landmark entry planting outside clear approach"
+      },
+      {
+        "shape": "rect",
+        "x": 2081.0,
+        "y": 1698,
+        "w": 30,
+        "h": 14,
+        "reason": "Landmark entry planting outside clear approach"
+      },
+      {
+        "shape": "rect",
+        "x": 1009.0,
+        "y": 1186,
+        "w": 30,
+        "h": 14,
+        "reason": "Landmark entry planting outside clear approach"
+      },
+      {
+        "shape": "rect",
+        "x": 1393.0,
+        "y": 1186,
+        "w": 30,
+        "h": 14,
+        "reason": "Landmark entry planting outside clear approach"
+      },
+      {
+        "shape": "rect",
+        "x": 613.0,
+        "y": 1372,
+        "w": 54,
+        "h": 12,
+        "reason": "Purposeful reading / cultural / garden rest"
+      },
+      {
+        "shape": "rect",
+        "x": 933.0,
+        "y": 1204,
+        "w": 54,
+        "h": 12,
+        "reason": "Purposeful reading / cultural / garden rest"
+      },
+      {
+        "shape": "rect",
+        "x": 1429.0,
+        "y": 1204,
+        "w": 54,
+        "h": 12,
+        "reason": "Purposeful reading / cultural / garden rest"
+      },
+      {
+        "shape": "rect",
+        "x": 1509.0,
+        "y": 1396,
+        "w": 54,
+        "h": 12,
+        "reason": "Purposeful reading / cultural / garden rest"
+      },
+      {
+        "shape": "rect",
+        "x": 2181.0,
+        "y": 1844,
+        "w": 54,
+        "h": 12,
+        "reason": "Purposeful reading / cultural / garden rest"
+      },
+      {
+        "shape": "rect",
+        "x": 805.0,
+        "y": 580,
+        "w": 54,
+        "h": 12,
+        "reason": "Purposeful reading / cultural / garden rest"
+      },
+      {
+        "shape": "rect",
+        "x": 1509.0,
+        "y": 564,
+        "w": 54,
+        "h": 12,
+        "reason": "Purposeful reading / cultural / garden rest"
+      },
+      {
+        "shape": "rect",
+        "x": 917.0,
+        "y": 1700,
+        "w": 54,
+        "h": 12,
+        "reason": "Purposeful reading / cultural / garden rest"
+      },
+      {
+        "shape": "rect",
+        "x": 956.0,
+        "y": 1220,
+        "w": 40,
+        "h": 20,
+        "reason": "Service-side onggi storage, not a public gateway"
+      },
+      {
+        "shape": "rect",
+        "x": 1404.0,
+        "y": 1100,
+        "w": 40,
+        "h": 20,
+        "reason": "Service-side onggi storage, not a public gateway"
+      },
+      {
+        "shape": "rect",
+        "x": 2204.0,
+        "y": 1668,
+        "w": 40,
+        "h": 20,
+        "reason": "Service-side onggi storage, not a public gateway"
+      },
+      {
+        "shape": "rect",
+        "x": 456.0,
+        "y": 1572,
+        "w": 16,
+        "h": 12,
+        "reason": "Gateways, frontage and turning-point guidance"
+      },
+      {
+        "shape": "rect",
+        "x": 616.0,
+        "y": 1572,
+        "w": 16,
+        "h": 12,
+        "reason": "Gateways, frontage and turning-point guidance"
+      },
+      {
+        "shape": "rect",
+        "x": 872.0,
+        "y": 852,
+        "w": 16,
+        "h": 12,
+        "reason": "Gateways, frontage and turning-point guidance"
+      },
+      {
+        "shape": "rect",
+        "x": 1416.0,
+        "y": 852,
+        "w": 16,
+        "h": 12,
+        "reason": "Gateways, frontage and turning-point guidance"
+      },
+      {
+        "shape": "rect",
+        "x": 1560.0,
+        "y": 1388,
+        "w": 16,
+        "h": 12,
+        "reason": "Gateways, frontage and turning-point guidance"
+      },
+      {
+        "shape": "rect",
+        "x": 1688.0,
+        "y": 1492,
+        "w": 16,
+        "h": 12,
+        "reason": "Gateways, frontage and turning-point guidance"
+      },
+      {
+        "shape": "rect",
+        "x": 1704.0,
+        "y": 1756,
+        "w": 16,
+        "h": 12,
+        "reason": "Gateways, frontage and turning-point guidance"
+      },
+      {
+        "shape": "rect",
+        "x": 2256.0,
+        "y": 1828,
+        "w": 16,
+        "h": 12,
+        "reason": "Gateways, frontage and turning-point guidance"
+      },
+      {
+        "shape": "rect",
+        "x": 1032.0,
+        "y": 1236,
+        "w": 16,
+        "h": 12,
+        "reason": "Gateways, frontage and turning-point guidance"
+      },
+      {
+        "shape": "rect",
+        "x": 1272.0,
+        "y": 1556,
+        "w": 16,
+        "h": 12,
+        "reason": "Gateways, frontage and turning-point guidance"
+      },
+      {
+        "shape": "rect",
+        "x": 904.0,
+        "y": 800,
+        "w": 32,
+        "h": 16,
+        "reason": "Ceremonial / cultural threshold flowers"
+      },
+      {
+        "shape": "rect",
+        "x": 1368.0,
+        "y": 800,
+        "w": 32,
+        "h": 16,
+        "reason": "Ceremonial / cultural threshold flowers"
+      },
+      {
+        "shape": "rect",
+        "x": 272.0,
+        "y": 1824,
+        "w": 32,
+        "h": 16,
+        "reason": "Ceremonial / cultural threshold flowers"
+      },
+      {
+        "shape": "rect",
+        "x": 1056.0,
+        "y": 1568,
+        "w": 32,
+        "h": 16,
+        "reason": "Ceremonial / cultural threshold flowers"
+      },
+      {
+        "shape": "rect",
+        "x": 494.0,
+        "y": 334,
+        "w": 36,
+        "h": 18,
+        "reason": "Contained royal-garden / modern transition planting"
+      },
+      {
+        "shape": "rect",
+        "x": 1774.0,
+        "y": 334,
+        "w": 36,
+        "h": 18,
+        "reason": "Contained royal-garden / modern transition planting"
+      },
+      {
+        "shape": "rect",
+        "x": 814.0,
+        "y": 1758,
+        "w": 36,
+        "h": 18,
+        "reason": "Contained royal-garden / modern transition planting"
+      },
+      {
+        "shape": "rect",
+        "x": 500.0,
+        "y": 272,
+        "w": 24,
+        "h": 16,
+        "reason": "Royal west garden"
+      },
+      {
+        "shape": "rect",
+        "x": 692.0,
+        "y": 256,
+        "w": 24,
+        "h": 16,
+        "reason": "Royal west garden"
+      },
+      {
+        "shape": "rect",
+        "x": 1748.0,
+        "y": 256,
+        "w": 24,
+        "h": 16,
+        "reason": "Royal east garden"
+      },
+      {
+        "shape": "rect",
+        "x": 1828.0,
+        "y": 544,
+        "w": 24,
+        "h": 16,
+        "reason": "Royal garden east return"
+      },
+      {
+        "shape": "rect",
+        "x": 516.0,
+        "y": 560,
+        "w": 24,
+        "h": 16,
+        "reason": "Royal west outer garden"
+      },
+      {
+        "shape": "rect",
+        "x": 180.0,
+        "y": 784,
+        "w": 24,
+        "h": 16,
+        "reason": "Academy north street garden"
+      },
+      {
+        "shape": "rect",
+        "x": 100.0,
+        "y": 1056,
+        "w": 24,
+        "h": 16,
+        "reason": "Academy west garden"
+      },
+      {
+        "shape": "rect",
+        "x": 260.0,
+        "y": 1584,
+        "w": 24,
+        "h": 16,
+        "reason": "Academy-to-book-lane shade"
+      },
+      {
+        "shape": "rect",
+        "x": 100.0,
+        "y": 1488,
+        "w": 24,
+        "h": 16,
+        "reason": "Academy lane edge"
+      },
+      {
+        "shape": "rect",
+        "x": 996.0,
+        "y": 1120,
+        "w": 24,
+        "h": 16,
+        "reason": "Academy east garden"
+      },
+      {
+        "shape": "rect",
+        "x": 2052.0,
+        "y": 816,
+        "w": 24,
+        "h": 16,
+        "reason": "Workshop rear garden"
+      },
+      {
+        "shape": "rect",
+        "x": 2180.0,
+        "y": 1040,
+        "w": 24,
+        "h": 16,
+        "reason": "Observation platform backdrop"
+      },
+      {
+        "shape": "rect",
+        "x": 1460.0,
+        "y": 928,
+        "w": 24,
+        "h": 16,
+        "reason": "Workshop western edge"
+      },
+      {
+        "shape": "rect",
+        "x": 1428.0,
+        "y": 1568,
+        "w": 24,
+        "h": 16,
+        "reason": "Cultural garden beside history lane"
+      },
+      {
+        "shape": "rect",
+        "x": 980.0,
+        "y": 720,
+        "w": 24,
+        "h": 16,
+        "reason": "Gateway west garden"
+      },
+      {
+        "shape": "rect",
+        "x": 1476.0,
+        "y": 752,
+        "w": 24,
+        "h": 16,
+        "reason": "Gateway east garden"
+      },
+      {
+        "shape": "rect",
+        "x": 788.0,
+        "y": 848,
+        "w": 24,
+        "h": 16,
+        "reason": "Hanok-to-palace garden path"
+      },
+      {
+        "shape": "rect",
+        "x": 1412.0,
+        "y": 1072,
+        "w": 24,
+        "h": 16,
+        "reason": "Plaza east cultural pocket"
+      },
+      {
+        "shape": "rect",
+        "x": 948.0,
+        "y": 1616,
+        "w": 24,
+        "h": 16,
+        "reason": "Cultural transition shade"
+      },
+      {
+        "shape": "rect",
+        "x": 1268.0,
+        "y": 1808,
+        "w": 24,
+        "h": 16,
+        "reason": "Cultural transition garden"
+      },
+      {
+        "shape": "rect",
+        "x": 1492.0,
+        "y": 1840,
+        "w": 24,
+        "h": 16,
+        "reason": "History-lane shade"
+      },
+      {
+        "shape": "rect",
+        "x": 116.0,
+        "y": 1792,
+        "w": 24,
+        "h": 16,
+        "reason": "Modern corner green edge"
+      },
+      {
+        "shape": "rect",
+        "x": 2164.0,
+        "y": 496,
+        "w": 24,
+        "h": 16,
+        "reason": "Northern east green edge"
+      },
+      {
+        "shape": "rect",
+        "x": 84.0,
+        "y": 512,
+        "w": 24,
+        "h": 16,
+        "reason": "Northern west green edge"
+      },
+      {
+        "shape": "rect",
+        "x": 32,
+        "y": 1918,
+        "w": 2240,
+        "h": 2,
+        "reason": "Southern review edge; full modern district needs later approval"
+      }
+    ],
+    "rects": []
+  },
+  "nav": {
+    "cell": 4
+  },
+  "spawns": [
+    {
+      "id": "start",
+      "x": 1152,
+      "y": 832,
+      "facing": "north"
+    },
+    {
+      "id": "academy-return",
+      "x": 544,
+      "y": 1152,
+      "facing": "south"
+    }
+  ],
+  "anchors": {
+    "gateway": {
+      "point": [
+        1152,
+        768
+      ],
+      "approach": [
+        1152,
+        832
+      ]
+    },
+    "outer-court": {
+      "point": [
+        1152,
+        496
+      ],
+      "approach": [
+        1152,
+        496
+      ]
+    },
+    "inner-gate": {
+      "point": [
+        1152,
+        448
+      ],
+      "approach": [
+        1152,
+        480
+      ]
+    },
+    "royal-hall": {
+      "point": [
+        1152,
+        352
+      ],
+      "approach": [
+        1152,
+        384
+      ]
+    },
+    "royal-exhibit": {
+      "point": [
+        1456,
+        384
+      ],
+      "approach": [
+        1456,
+        404
+      ]
+    },
+    "royal-west-garden": {
+      "point": [
+        640,
+        512
+      ],
+      "approach": [
+        640,
+        544
+      ]
+    },
+    "academy": {
+      "point": [
+        544,
+        1120
+      ],
+      "approach": [
+        544,
+        1152
+      ]
+    },
+    "academy-front": {
+      "point": [
+        544,
+        1456
+      ],
+      "approach": [
+        544,
+        1520
+      ]
+    },
+    "academy-side": {
+      "point": [
+        944,
+        1392
+      ],
+      "approach": [
+        976,
+        1392
+      ]
+    },
+    "workshop": {
+      "point": [
+        1632,
+        1472
+      ],
+      "approach": [
+        1632,
+        1536
+      ]
+    },
+    "workshop-service": {
+      "point": [
+        1480,
+        1264
+      ],
+      "approach": [
+        1440,
+        1264
+      ]
+    },
+    "armillary": {
+      "point": [
+        2144,
+        1174
+      ],
+      "approach": [
+        2144,
+        1232
+      ]
+    },
+    "museum": {
+      "point": [
+        1984,
+        1696
+      ],
+      "approach": [
+        1984,
+        1808
+      ]
+    },
+    "modern-cafe": {
+      "point": [
+        512,
+        1840
+      ],
+      "approach": [
+        512,
+        1872
+      ]
+    },
+    "sejong": {
+      "point": [
+        1344,
+        1208
+      ],
+      "approach": [
+        1344,
+        1248
+      ]
+    },
+    "garden-route": {
+      "point": [
+        1120,
+        1664
+      ],
+      "approach": [
+        1120,
+        1664
+      ]
+    }
+  },
+  "interactions": [
+    {
+      "id": "gateway",
+      "x": 1152,
+      "y": 768,
+      "reach": 96
+    },
+    {
+      "id": "outer-court",
+      "x": 1152,
+      "y": 496,
+      "reach": 96
+    },
+    {
+      "id": "inner-gate",
+      "x": 1152,
+      "y": 448,
+      "reach": 96
+    },
+    {
+      "id": "royal-hall",
+      "x": 1152,
+      "y": 352,
+      "reach": 96
+    },
+    {
+      "id": "royal-exhibit",
+      "x": 1456,
+      "y": 384,
+      "reach": 96
+    },
+    {
+      "id": "royal-west-garden",
+      "x": 640,
+      "y": 512,
+      "reach": 96
+    },
+    {
+      "id": "academy",
+      "x": 544,
+      "y": 1120,
+      "reach": 96
+    },
+    {
+      "id": "academy-front",
+      "x": 544,
+      "y": 1456,
+      "reach": 96
+    },
+    {
+      "id": "academy-side",
+      "x": 944,
+      "y": 1392,
+      "reach": 96
+    },
+    {
+      "id": "workshop",
+      "x": 1632,
+      "y": 1472,
+      "reach": 96
+    },
+    {
+      "id": "workshop-service",
+      "x": 1480,
+      "y": 1264,
+      "reach": 96
+    },
+    {
+      "id": "armillary",
+      "x": 2144,
+      "y": 1174,
+      "reach": 96
+    },
+    {
+      "id": "museum",
+      "x": 1984,
+      "y": 1696,
+      "reach": 96
+    },
+    {
+      "id": "modern-cafe",
+      "x": 512,
+      "y": 1840,
+      "reach": 96
+    },
+    {
+      "id": "sejong",
+      "x": 1344,
+      "y": 1208,
+      "reach": 96
+    },
+    {
+      "id": "garden-route",
+      "x": 1120,
+      "y": 1664,
+      "reach": 96
+    }
+  ],
+  "portals": [
+    {
+      "id": "academy-door",
+      "circle": [
+        544,
+        1120,
+        16
+      ],
+      "to": "refined-reading-room:start",
+      "entranceByFrom": {
+        "refined-reading-room": [
+          544,
+          1152
+        ]
+      },
+      "latch": true,
+      "reciprocal": true
+    }
+  ],
+  "camera": {
+    "tiltDeg": 50,
+    "pixelToWorld": 1,
+    "bounds": [
+      0,
+      0,
+      2304,
+      1920
+    ]
+  },
+  "art_source": "host_image"
+}

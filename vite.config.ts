@@ -13,6 +13,7 @@ export default defineConfig({
         plazaReview: "plaza-review.html",
         districtReview: "district-review.html",
         productionReview: "production-review.html",
+        refinementReview: "refinement-review.html",
       },
     },
   },

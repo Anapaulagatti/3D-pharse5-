@@ -1,3 +1,7 @@
+# Living Seoul world refinement — current user-authorized scope
+
+Stage B polish verified97c7d6b/CI38891178821/independent clone and HTTP package complete. Latest authority docs/current/LIVING_SEOUL_WORLD_REFINEMENT.md now authorizes compact layout/palace/ONE modern corner/performance, not full modern/NPC production. Actual map/sprite/media SKILL.md re-read at5324342 before this task; previous successful Forge/Juni reports consulted. New source/runtime live separately in world-refinement/refinement-review, preserve all old art/entries/Juni144frames. Profile before optimizations, measure normal-speed trips, genuine>=30fps capture, then verified checkpoint and STOP. No paid API/main/publication/delegation. Setup never generates.
+
 # Stage B final polish — current authorized scope
 
 User accepted architecture baseline; limited terrain/courtyard polish only, then STOP before Stage C/D. Read docs/current/STAGE_B_FINAL_POLISH.md and docs/stage-b-polish/FORGE.md. Actual upstream map/sprite/media skills re-read at5324342;3host images, real strict terrain/prop extraction, single-prop area finishing and existing192palette apply; real bundle/nav/Tiled/composition. No new animation/video synthesis/paid provider. Original18architecture images,136placements, Juni144frames and src frozen. Raw initial contrast/cache failures and same9edge-canopy bounds WARN retained. Setup never generates; no main/publication.

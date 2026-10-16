@@ -1,0 +1,548 @@
+{
+  "schema": "generate2dmap.tiled_export.v1",
+  "status": "pass",
+  "method": "TMJ and TSX written from the bundle, read back with the built-in reader (TSX via ElementTree) and re-rendered (tile layers, image layers, prop tile objects in draw order); the re-render must equal render_map(bundle) pixel for pixel (preview.png)",
+  "notProven": [
+    "Tiled GUI not verified: opening the map, wang/terrain brushes and the mixed blob wangset in the editor",
+    "Phaser or another engine rendering map.embedded.tmj the same way",
+    "runtime depth sorting by the sortY property (Tiled's own topdown order sorts by image bottom)"
+  ],
+  "checks": [
+    {
+      "id": "tsx_well_formed",
+      "status": "pass",
+      "value": [],
+      "threshold": []
+    },
+    {
+      "id": "rerender_map_tmj",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "rerender_map_embedded_tmj",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../outdoor-bundle.json",
+      "sha256": "28c63d73d3861ddc00d53da469734c54f52f2d75f231209fec219570f668e202",
+      "bytes": 126002
+    },
+    {
+      "path": "../tileset.json",
+      "sha256": "4abf8c2a924c0d971e2426fb80ac2f424c1a85e42f82850a2602415b8d093622",
+      "bytes": 189220
+    },
+    {
+      "path": "../tiles.png",
+      "sha256": "ef5545ce62f5a63b1d93dc4bc8446a8d6804671e25847bba5c80857e244d07be",
+      "bytes": 2091210
+    },
+    {
+      "path": "../layers/ground.json",
+      "sha256": "337b7b2bcefa98be950668a796847bd68c8f6e85a311a4094a073f9d7330ccd0",
+      "bytes": 30723
+    },
+    {
+      "path": "../layers/edging.json",
+      "sha256": "4c4badb010e14244729c25088112a3b148385c3ca65fb62b1662f6a18924236a",
+      "bytes": 36988
+    },
+    {
+      "path": "../../gwanghwamun/props/tree.png",
+      "sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "bytes": 40364
+    },
+    {
+      "path": "../../gwanghwamun/props/ginkgo.png",
+      "sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "bytes": 48819
+    },
+    {
+      "path": "../../gwanghwamun/props/lantern.png",
+      "sha256": "dfe4dc19f4b77a23fffe7715d63d1ecd2ee2d65b4afc674e861df11d453f526c",
+      "bytes": 6021
+    },
+    {
+      "path": "../../gwanghwamun/props/bench.png",
+      "sha256": "111ec597f59aa232bf8ddb38658b693480c7261282c60f86bec65a7b1133359a",
+      "bytes": 5110
+    },
+    {
+      "path": "../../gwanghwamun/props/jars.png",
+      "sha256": "7e80af2dab5040ada3a6244c533bb0b4fcff2a27d180f604e0974b5548f15f85",
+      "bytes": 5204
+    },
+    {
+      "path": "../../gwanghwamun/props/planter.png",
+      "sha256": "35caea815680e4b8ce01fe6afe22a56b1daee0778bc3f47ba3eb756d7fd29c1f",
+      "bytes": 4245
+    },
+    {
+      "path": "../../gwanghwamun/props/sejong.png",
+      "sha256": "4e4e6770ac0fb5e6c5e7552cf1d380f2f9c49644b506621aca7e40dcf5a93857",
+      "bytes": 18657
+    },
+    {
+      "path": "../../seoul-production/props/prod-gate.png",
+      "sha256": "ca0643ec60e5cca9817f5f5db206352e1e66fe17f5a50e218a1d85c9f9840952",
+      "bytes": 223268
+    },
+    {
+      "path": "../../seoul-production/props/prod-hall.png",
+      "sha256": "a5c9e3ba7fa3508cccaf4278aa9acd5de54d5a0f0e92539e4b08d60a841d6b9c",
+      "bytes": 201579
+    },
+    {
+      "path": "../../seoul-production/props/prod-study.png",
+      "sha256": "629d99d65da6c00c973b055f40864f3cb5bf973a7ccaf623ab295007fcaf75cc",
+      "bytes": 125786
+    },
+    {
+      "path": "../../seoul-production/props/prod-library.png",
+      "sha256": "b5350bb53ab2d106f1c750a348caab424d83d4102885bfb8fb3c67b91ad624ca",
+      "bytes": 114269
+    },
+    {
+      "path": "../../seoul-production/props/prod-workshop.png",
+      "sha256": "4c6a28375066cae29c98d5a8fd14be12a65404b9ad4ceb6fa6d1495d2d78f1a8",
+      "bytes": 225576
+    },
+    {
+      "path": "../../seoul-production/props/prod-museum.png",
+      "sha256": "d1f47fdf0c32e32bd0745e43c36b2bde68871d3a68edb1ffeebe8f198aac89b5",
+      "bytes": 207512
+    },
+    {
+      "path": "../../seoul-production/props/prod-wall.png",
+      "sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "bytes": 13080
+    },
+    {
+      "path": "../../seoul-production/props/prod-wall-ns.png",
+      "sha256": "459e7062d2a6177adfd0dc129c4773593b40d0a80c0de2e72aea88901f7a00fc",
+      "bytes": 16149
+    },
+    {
+      "path": "../../seoul-production/props/prod-service.png",
+      "sha256": "7cbc3c4dbbd8dbe4526003f61ec1dab14def3d2145d82c80a447c1a5bddae739",
+      "bytes": 23391
+    },
+    {
+      "path": "../../seoul-production/props/prod-court-gate.png",
+      "sha256": "80c5b24b270b681907bdd7f728ef8479cfd39c3ba7662e7647feda180aa75da8",
+      "bytes": 19947
+    },
+    {
+      "path": "../../seoul-production/props/prod-doors.png",
+      "sha256": "0771ab66d59ac087cb195635b6f87f0361b5fb833fd6c4d0033a107bf7d1b2d6",
+      "bytes": 10442
+    },
+    {
+      "path": "../../seoul-production/props/prod-low-wall.png",
+      "sha256": "1c68d439c27e86026d614613c8b615b9e7104215601611f27a8de319912b89d5",
+      "bytes": 12446
+    },
+    {
+      "path": "../../seoul-production/props/prod-armillary.png",
+      "sha256": "2aad306a661f7db4b6b29aa81097d8b04db305e956850a2dee980752ccb643bf",
+      "bytes": 19104
+    },
+    {
+      "path": "../../seoul-production/props/prod-sundial.png",
+      "sha256": "a7fe454380eea9ba79f2afe25c9dde8e413bce62a897f139bb62fb66739da696",
+      "bytes": 15013
+    },
+    {
+      "path": "../../seoul-production/props/prod-clock.png",
+      "sha256": "2b0807d8353e51a4171977c1535d4399d271c130f265fac065ced255a26857e9",
+      "bytes": 22557
+    },
+    {
+      "path": "../../seoul-production/props/prod-strategy.png",
+      "sha256": "f5dcafe0644bcc6a54bc407f4e42300660d5fa143b98be995f0c532ecd1c2bc8",
+      "bytes": 12813
+    },
+    {
+      "path": "../../seoul-production/props/prod-ship.png",
+      "sha256": "8c77706262a3e8d7b1c12bef316d9566a8b81617091e1d51441e3b93a6edefd4",
+      "bytes": 20603
+    },
+    {
+      "path": "../../seoul-production/props/prod-writing.png",
+      "sha256": "4d0faced9ab8d0a4f5677f95c2af4c876250f89de30d09e69d056a4d7f1a8564",
+      "bytes": 14113
+    },
+    {
+      "path": "../../stage-b-polish/props/polish-folio.png",
+      "sha256": "4315e28ab55fc497f6c94ff61ab181af31af4ef90f1d6daf8a4cac094e646f23",
+      "bytes": 10744
+    },
+    {
+      "path": "../../stage-b-polish/props/polish-bamboo.png",
+      "sha256": "a0b8a4ab2576431187df7a6102f6ce661a34925f2267efd73d87bf014fe03fa2",
+      "bytes": 7208
+    },
+    {
+      "path": "../../stage-b-polish/props/polish-tools.png",
+      "sha256": "da5b4117fdc3f88e2b79304eeef2d5e86b08f0b65e474f03cd36a194d1d786cf",
+      "bytes": 8977
+    },
+    {
+      "path": "../../stage-b-polish/props/polish-chart.png",
+      "sha256": "3c23ff59b8fbb3814d970a82ffd60e297be7863a6b5a0b49eb3fa67cdc0ba4e8",
+      "bytes": 11052
+    },
+    {
+      "path": "../../stage-b-polish/props/polish-stele.png",
+      "sha256": "1bc236260705796156947df5e3521abf71dfdb338f088bd4a3bf041b33bc66bf",
+      "bytes": 8566
+    },
+    {
+      "path": "../../stage-b-polish/props/polish-flowers.png",
+      "sha256": "44309376cabcf76885d28eeb03960fe9517657fed23b0a2ce59ffc97e12a11b8",
+      "bytes": 8162
+    },
+    {
+      "path": "../props/rf-royal-hall.png",
+      "sha256": "4f15a37e2a72137e693edeeb9e03bc14736f500d3aff9584e198dbbb09391123",
+      "bytes": 231941
+    },
+    {
+      "path": "../props/rf-inner-gate.png",
+      "sha256": "f2ab658880c697d084a0019648f21a4526c1789e5697128fc6c0eb74f80b7c0b",
+      "bytes": 39740
+    },
+    {
+      "path": "../props/rf-cafe.png",
+      "sha256": "a9f64b4f61293c6a89dbdd554167990a4099f54b88a08dfd81ba3e6041c93eb2",
+      "bytes": 132478
+    },
+    {
+      "path": "../props/rf-banner.png",
+      "sha256": "58248c33983c1281b80fa70809f2c82ab50b3a68a2c8fb1e201fe47014134f0b",
+      "bytes": 15449
+    },
+    {
+      "path": "../props/rf-stone-lantern.png",
+      "sha256": "571d9e96d3a7bfe3d7da9c3cc02c57289f8726e5158805b244012526739edaf8",
+      "bytes": 13810
+    },
+    {
+      "path": "../props/rf-exhibit.png",
+      "sha256": "8f8a14487d8de4ed455a435b84e5bb7672877c1bf84b6491789debc9a7698b6c",
+      "bytes": 11252
+    },
+    {
+      "path": "../props/rf-cafe-seating.png",
+      "sha256": "42b0aa11146065b84147df8cbeca9cf519f49b6b41435a37ab2b646eac38abfe",
+      "bytes": 9475
+    },
+    {
+      "path": "../props/rf-scholar-wall.png",
+      "sha256": "19b9b3ca416d68aef3d714c6e12f2bfed18be92aff2e92e75261cbdb64219429",
+      "bytes": 10734
+    },
+    {
+      "path": "../props/rf-scholar-return.png",
+      "sha256": "dcff5f9f3eb6f2d109e95f02fbacd1813c1da433f4aa4a4dc414891297d7d07c",
+      "bytes": 14600
+    },
+    {
+      "path": "../props/rf-work-rail.png",
+      "sha256": "c3b321486bc804091433df07e95bef3e77cf722215c5cae6d8671db6942ecb1d",
+      "bytes": 5381
+    },
+    {
+      "path": "../props/rf-work-return.png",
+      "sha256": "54a4d5200dd06d573f2976dc678812ae900ee6873976e5205cac2e70f94f8656",
+      "bytes": 9886
+    },
+    {
+      "path": "../props/rf-workshop-main.png",
+      "sha256": "60eaaaffc5b3aef3d72214779b093d5a7ce5a9553a1ba53192b49aaa4458bb6c",
+      "bytes": 112045
+    },
+    {
+      "path": "../props/rf-workshop-wing.png",
+      "sha256": "e6e5527fb191d0349a45638a596f26ba70b5b6f8f773a96357dda4997384cd47",
+      "bytes": 112007
+    }
+  ],
+  "outputs": [
+    {
+      "path": "images/bench.png",
+      "sha256": "111ec597f59aa232bf8ddb38658b693480c7261282c60f86bec65a7b1133359a",
+      "bytes": 5110
+    },
+    {
+      "path": "images/ginkgo.png",
+      "sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "bytes": 48819
+    },
+    {
+      "path": "images/jars.png",
+      "sha256": "7e80af2dab5040ada3a6244c533bb0b4fcff2a27d180f604e0974b5548f15f85",
+      "bytes": 5204
+    },
+    {
+      "path": "images/lantern.png",
+      "sha256": "dfe4dc19f4b77a23fffe7715d63d1ecd2ee2d65b4afc674e861df11d453f526c",
+      "bytes": 6021
+    },
+    {
+      "path": "images/planter.png",
+      "sha256": "35caea815680e4b8ce01fe6afe22a56b1daee0778bc3f47ba3eb756d7fd29c1f",
+      "bytes": 4245
+    },
+    {
+      "path": "images/polish-bamboo.png",
+      "sha256": "a0b8a4ab2576431187df7a6102f6ce661a34925f2267efd73d87bf014fe03fa2",
+      "bytes": 7208
+    },
+    {
+      "path": "images/polish-chart.png",
+      "sha256": "3c23ff59b8fbb3814d970a82ffd60e297be7863a6b5a0b49eb3fa67cdc0ba4e8",
+      "bytes": 11052
+    },
+    {
+      "path": "images/polish-flowers.png",
+      "sha256": "44309376cabcf76885d28eeb03960fe9517657fed23b0a2ce59ffc97e12a11b8",
+      "bytes": 8162
+    },
+    {
+      "path": "images/polish-folio.png",
+      "sha256": "4315e28ab55fc497f6c94ff61ab181af31af4ef90f1d6daf8a4cac094e646f23",
+      "bytes": 10744
+    },
+    {
+      "path": "images/polish-stele.png",
+      "sha256": "1bc236260705796156947df5e3521abf71dfdb338f088bd4a3bf041b33bc66bf",
+      "bytes": 8566
+    },
+    {
+      "path": "images/polish-tools.png",
+      "sha256": "da5b4117fdc3f88e2b79304eeef2d5e86b08f0b65e474f03cd36a194d1d786cf",
+      "bytes": 8977
+    },
+    {
+      "path": "images/prod-armillary.png",
+      "sha256": "2aad306a661f7db4b6b29aa81097d8b04db305e956850a2dee980752ccb643bf",
+      "bytes": 19104
+    },
+    {
+      "path": "images/prod-clock.png",
+      "sha256": "2b0807d8353e51a4171977c1535d4399d271c130f265fac065ced255a26857e9",
+      "bytes": 22557
+    },
+    {
+      "path": "images/prod-court-gate.png",
+      "sha256": "80c5b24b270b681907bdd7f728ef8479cfd39c3ba7662e7647feda180aa75da8",
+      "bytes": 19947
+    },
+    {
+      "path": "images/prod-gate.png",
+      "sha256": "ca0643ec60e5cca9817f5f5db206352e1e66fe17f5a50e218a1d85c9f9840952",
+      "bytes": 223268
+    },
+    {
+      "path": "images/prod-hall.png",
+      "sha256": "a5c9e3ba7fa3508cccaf4278aa9acd5de54d5a0f0e92539e4b08d60a841d6b9c",
+      "bytes": 201579
+    },
+    {
+      "path": "images/prod-library.png",
+      "sha256": "b5350bb53ab2d106f1c750a348caab424d83d4102885bfb8fb3c67b91ad624ca",
+      "bytes": 114269
+    },
+    {
+      "path": "images/prod-low-wall.png",
+      "sha256": "1c68d439c27e86026d614613c8b615b9e7104215601611f27a8de319912b89d5",
+      "bytes": 12446
+    },
+    {
+      "path": "images/prod-museum.png",
+      "sha256": "d1f47fdf0c32e32bd0745e43c36b2bde68871d3a68edb1ffeebe8f198aac89b5",
+      "bytes": 207512
+    },
+    {
+      "path": "images/prod-service.png",
+      "sha256": "7cbc3c4dbbd8dbe4526003f61ec1dab14def3d2145d82c80a447c1a5bddae739",
+      "bytes": 23391
+    },
+    {
+      "path": "images/prod-ship.png",
+      "sha256": "8c77706262a3e8d7b1c12bef316d9566a8b81617091e1d51441e3b93a6edefd4",
+      "bytes": 20603
+    },
+    {
+      "path": "images/prod-strategy.png",
+      "sha256": "f5dcafe0644bcc6a54bc407f4e42300660d5fa143b98be995f0c532ecd1c2bc8",
+      "bytes": 12813
+    },
+    {
+      "path": "images/prod-study.png",
+      "sha256": "629d99d65da6c00c973b055f40864f3cb5bf973a7ccaf623ab295007fcaf75cc",
+      "bytes": 125786
+    },
+    {
+      "path": "images/prod-sundial.png",
+      "sha256": "a7fe454380eea9ba79f2afe25c9dde8e413bce62a897f139bb62fb66739da696",
+      "bytes": 15013
+    },
+    {
+      "path": "images/prod-wall-ns.png",
+      "sha256": "459e7062d2a6177adfd0dc129c4773593b40d0a80c0de2e72aea88901f7a00fc",
+      "bytes": 16149
+    },
+    {
+      "path": "images/prod-wall.png",
+      "sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "bytes": 13080
+    },
+    {
+      "path": "images/prod-writing.png",
+      "sha256": "4d0faced9ab8d0a4f5677f95c2af4c876250f89de30d09e69d056a4d7f1a8564",
+      "bytes": 14113
+    },
+    {
+      "path": "images/rf-banner.png",
+      "sha256": "58248c33983c1281b80fa70809f2c82ab50b3a68a2c8fb1e201fe47014134f0b",
+      "bytes": 15449
+    },
+    {
+      "path": "images/rf-cafe-seating.png",
+      "sha256": "42b0aa11146065b84147df8cbeca9cf519f49b6b41435a37ab2b646eac38abfe",
+      "bytes": 9475
+    },
+    {
+      "path": "images/rf-cafe.png",
+      "sha256": "a9f64b4f61293c6a89dbdd554167990a4099f54b88a08dfd81ba3e6041c93eb2",
+      "bytes": 132478
+    },
+    {
+      "path": "images/rf-exhibit.png",
+      "sha256": "8f8a14487d8de4ed455a435b84e5bb7672877c1bf84b6491789debc9a7698b6c",
+      "bytes": 11252
+    },
+    {
+      "path": "images/rf-inner-gate.png",
+      "sha256": "f2ab658880c697d084a0019648f21a4526c1789e5697128fc6c0eb74f80b7c0b",
+      "bytes": 39740
+    },
+    {
+      "path": "images/rf-royal-hall.png",
+      "sha256": "4f15a37e2a72137e693edeeb9e03bc14736f500d3aff9584e198dbbb09391123",
+      "bytes": 231941
+    },
+    {
+      "path": "images/rf-scholar-return.png",
+      "sha256": "dcff5f9f3eb6f2d109e95f02fbacd1813c1da433f4aa4a4dc414891297d7d07c",
+      "bytes": 14600
+    },
+    {
+      "path": "images/rf-scholar-wall.png",
+      "sha256": "19b9b3ca416d68aef3d714c6e12f2bfed18be92aff2e92e75261cbdb64219429",
+      "bytes": 10734
+    },
+    {
+      "path": "images/rf-stone-lantern.png",
+      "sha256": "571d9e96d3a7bfe3d7da9c3cc02c57289f8726e5158805b244012526739edaf8",
+      "bytes": 13810
+    },
+    {
+      "path": "images/rf-work-rail.png",
+      "sha256": "c3b321486bc804091433df07e95bef3e77cf722215c5cae6d8671db6942ecb1d",
+      "bytes": 5381
+    },
+    {
+      "path": "images/rf-work-return.png",
+      "sha256": "54a4d5200dd06d573f2976dc678812ae900ee6873976e5205cac2e70f94f8656",
+      "bytes": 9886
+    },
+    {
+      "path": "images/rf-workshop-main.png",
+      "sha256": "60eaaaffc5b3aef3d72214779b093d5a7ce5a9553a1ba53192b49aaa4458bb6c",
+      "bytes": 112045
+    },
+    {
+      "path": "images/rf-workshop-wing.png",
+      "sha256": "e6e5527fb191d0349a45638a596f26ba70b5b6f8f773a96357dda4997384cd47",
+      "bytes": 112007
+    },
+    {
+      "path": "images/sejong.png",
+      "sha256": "4e4e6770ac0fb5e6c5e7552cf1d380f2f9c49644b506621aca7e40dcf5a93857",
+      "bytes": 18657
+    },
+    {
+      "path": "images/tiles.png",
+      "sha256": "ef5545ce62f5a63b1d93dc4bc8446a8d6804671e25847bba5c80857e244d07be",
+      "bytes": 2091210
+    },
+    {
+      "path": "images/tree.png",
+      "sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "bytes": 40364
+    },
+    {
+      "path": "map.embedded.tmj",
+      "sha256": "75b7e279545af11b5cd02b569497c49b66c71d7289179b1a56259b66b5d1c030",
+      "bytes": 863098
+    },
+    {
+      "path": "map.tmj",
+      "sha256": "c92932d6ca7752e55d203eff902f60f78845554e0b0fd8c3d2f0c68b15eac449",
+      "bytes": 357217
+    },
+    {
+      "path": "preview.png",
+      "sha256": "8cf8aa7cb4199d3594465994ef500a351cff8085fb838c6d35b028d5299dba59",
+      "bytes": 5144567
+    },
+    {
+      "path": "props.tsx",
+      "sha256": "3271f614b8f158d88950c2f040b127cedaa1b4a6302dde92ddecd1702e90d44a",
+      "bytes": 25069
+    },
+    {
+      "path": "town.tsx",
+      "sha256": "062eb8dbfd4eece59f51e4240be8fbf07cbd43394f70955ba01d3a922af34f4d",
+      "bytes": 238567
+    }
+  ],
+  "tool": {
+    "name": "export_tiled.py",
+    "version": "0.4.0"
+  },
+  "tiled": {
+    "format": "1.10",
+    "app": "1.11.0",
+    "tilesets": [
+      {
+        "file": "town.tsx",
+        "name": "town",
+        "firstgid": 1,
+        "tilecount": 1216
+      },
+      {
+        "file": "props.tsx",
+        "name": "props",
+        "firstgid": 1217,
+        "tilecount": 42
+      }
+    ],
+    "layers": [
+      "Ground",
+      "Edging",
+      "Props",
+      "collision",
+      "interactions"
+    ]
+  }
+}

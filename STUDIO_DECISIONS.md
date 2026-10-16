@@ -1,3 +1,13 @@
+# LIVING-SEOUL-REFINEMENT-001 — source checkpoint / verification in progress
+
+Stage B polish completed and independently verified at97c7d6b / checkpoint/stage-b-final-polish-verified-20261016. New user authority docs/current/LIVING_SEOUL_WORLD_REFINEMENT.md read completely; recovery/before-world-refinement-20261016 pushed/peeled to97c7d6b before work. Separate2304×1920refinement-review preserves483old files, all144Juni frames, controller/UI logic/old review entries, original masterplan and lock. Same native building scale and normal60/run100 speeds; whole compound translations documented in compact-layout.json.
+
+Five actual host image calls,11new native192paletteprops: royal hall, distinct inner gate, book-tea cafe, cultural details and low scholar/timber boundaries. Actual pinned Forge extraction/finish/palette/mapbundle/nav/Tiled/composition executed. Existing L-workshop split into two disjoint depth-sorting crops with exact full RGBA reconstruction, no artwork changes. Original seven palace outer segments preserved by translation; old closed inner reserve becomes reachable court/main hall,64pxinner passage.147placements/124statics,2724public-path-clearance samples PASS and linked-room nav PASS. Five new actual Phaser browser flows PASS: gate/inner/hall, academy shortcut/wall/oldlesson/return, service/museum/cafe, exact opaque-cue pixel parity and unchanged cached reads, mobileCDPtouch/reduced/pause.
+
+CPU profile identified eager per-frame canvas getImageData; new isolated cached masks/spatial candidates retain exact reference cue pixels. Forced Swiftshader desktop remains GPU-limited; default Canvas is near60FPS in preliminary measurements. Raw before/after/reference profiles retained; final capture/travel/portable/fullsetup/independent Git checks still IN PROGRESS, not claimed finished. No paid routes/main merge/public deployment/newNPC/fullmodern/cleanup/delegation. Final STOP for user visual/gameplay approval.
+
+## Previous verified history
+
 # STAGE-B-POLISH-001 — native art and playable review verified locally
 
 Latest docs/current/STAGE_B_FINAL_POLISH.md accepts architecture baseline; limited terrain/courtyard polish complete. THREEactual host-image sources -> sixsmall192paletteprops at10purposeful off-route placements, sixcourtyardmaterials+foursoil/turfvergevariants; actual Forge extraction/finish/palette/bundle/nav/Tiled/compose. Academy earth/study walk, workshop grit/observation platform, museum silver-stone terrace, original formal gateway granite and modest ceramic/folio/tool/chart/naval details. Grounded step aprons and narrow interwoven verge masks; no code-painted replacement art.

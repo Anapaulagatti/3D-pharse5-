@@ -1,0 +1,421 @@
+{
+  "schema": "generate2dmap.prop_pack.v2",
+  "tool": {
+    "name": "extract_prop_pack",
+    "version": "0.4.0"
+  },
+  "input": "../../raw/court.png",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_sha256": "683ad3dbbccf7c5293ff52d6498af0406ec327855d58ddf566c24623cfad6b09",
+  "source_mode": "RGB",
+  "layout_mode": "explicit_boxes",
+  "boxes_file": "../../boxes/court.json",
+  "labels_file": null,
+  "background_mode": "chroma_key",
+  "rows": null,
+  "cols": null,
+  "threshold": 100,
+  "edge_threshold": 150,
+  "despill_radius": 3,
+  "despill": {
+    "mode": "edge",
+    "applied": "edge",
+    "radius": 3,
+    "margin": 12,
+    "changed_px": 10908
+  },
+  "hygiene": {
+    "mode": "both",
+    "floor": 4,
+    "solid_min": 32,
+    "attach_radius": 2,
+    "connectivity": 8,
+    "floor_px": 0,
+    "detached_px": 0,
+    "detached_components": 0,
+    "max_removed_alpha": 0
+  },
+  "alpha_floor": 4,
+  "alpha_floor_pixels_removed": 0,
+  "trim_border": 0,
+  "edge_clean_depth": 0,
+  "component_mode": "all",
+  "component_padding": 8,
+  "min_component_area": 1,
+  "edge_touch_margin": 0,
+  "geometry": {
+    "connectivity": 8,
+    "alpha_geometry_threshold": 16,
+    "anchor_mode": "stance",
+    "support_band_fraction": 0.25,
+    "anchor_rounding": "whole pixels, half-up",
+    "grid_rounding": null,
+    "keep_canvas": false,
+    "world_scale": null
+  },
+  "accepted": [
+    {
+      "index": 0,
+      "label": "rf-banner",
+      "display_name": "rf-banner",
+      "status": "accepted",
+      "image": "rf-banner/prop.png",
+      "sha256": "d2f81111d3331862a31fb1a20838042f13e2819b6b496440f68932032f284be3",
+      "output_size": [
+        497,
+        404
+      ],
+      "grid": null,
+      "cell_box": [
+        0,
+        0,
+        670,
+        700
+      ],
+      "source_box": [
+        0,
+        0,
+        670,
+        700
+      ],
+      "source_rect": [
+        135,
+        217,
+        632,
+        621
+      ],
+      "trim_offset": [
+        135,
+        217
+      ],
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "anchor_px": [
+        249,
+        396
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        143,
+        225,
+        624,
+        613
+      ],
+      "padded_crop_bbox": [
+        135,
+        217,
+        632,
+        621
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 113100,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    },
+    {
+      "index": 1,
+      "label": "rf-stone-lantern",
+      "display_name": "rf-stone-lantern",
+      "status": "accepted",
+      "image": "rf-stone-lantern/prop.png",
+      "sha256": "d3867ea6b9e22940f92bcb0e918edf3499109dcf9cdd0532d9ede941850199de",
+      "output_size": [
+        243,
+        478
+      ],
+      "grid": null,
+      "cell_box": [
+        670,
+        0,
+        1254,
+        700
+      ],
+      "source_box": [
+        670,
+        0,
+        1254,
+        700
+      ],
+      "source_rect": [
+        789,
+        182,
+        1032,
+        660
+      ],
+      "trim_offset": [
+        119,
+        182
+      ],
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "anchor_px": [
+        122,
+        470
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        127,
+        190,
+        354,
+        652
+      ],
+      "padded_crop_bbox": [
+        119,
+        182,
+        362,
+        660
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 66646,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    },
+    {
+      "index": 2,
+      "label": "rf-exhibit",
+      "display_name": "rf-exhibit",
+      "status": "accepted",
+      "image": "rf-exhibit/prop.png",
+      "sha256": "a2c0bf89bc8794ff0ead2ff55b8ae75917d782a56709bc4ed2b4263bf7755f9b",
+      "output_size": [
+        539,
+        298
+      ],
+      "grid": null,
+      "cell_box": [
+        0,
+        700,
+        650,
+        1254
+      ],
+      "source_box": [
+        0,
+        700,
+        650,
+        1254
+      ],
+      "source_rect": [
+        97,
+        784,
+        636,
+        1082
+      ],
+      "trim_offset": [
+        97,
+        84
+      ],
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "anchor_px": [
+        270,
+        290
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        105,
+        92,
+        628,
+        374
+      ],
+      "padded_crop_bbox": [
+        97,
+        84,
+        636,
+        382
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 115025,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    },
+    {
+      "index": 3,
+      "label": "rf-cafe-seating",
+      "display_name": "rf-cafe-seating",
+      "status": "accepted",
+      "image": "rf-cafe-seating/prop.png",
+      "sha256": "c52662ee4431566d6875f0d0fa48d33d0f96a828650bbb5ff755a252d195a2d9",
+      "output_size": [
+        489,
+        306
+      ],
+      "grid": null,
+      "cell_box": [
+        650,
+        700,
+        1254,
+        1254
+      ],
+      "source_box": [
+        650,
+        700,
+        1254,
+        1254
+      ],
+      "source_rect": [
+        680,
+        771,
+        1169,
+        1077
+      ],
+      "trim_offset": [
+        30,
+        71
+      ],
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "anchor_px": [
+        244,
+        298
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        38,
+        79,
+        511,
+        369
+      ],
+      "padded_crop_bbox": [
+        30,
+        71,
+        519,
+        377
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 74090,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    }
+  ],
+  "rejected": [],
+  "edge_touch_props": [],
+  "warnings": [],
+  "qa": {
+    "status": "pass",
+    "method": "legacy #FF00FF key (100/150) and edge despill radius 3; alpha hygiene both; 8-connected components (all); checks measured on the published pixels",
+    "notProven": [
+      "that each label names the art in its cell or box",
+      "that a prop is complete: clipping is detected only where art meets the cell edge",
+      "keyed-edge quality beyond the edge fringe count",
+      "that anchors and suggested footprints match gameplay contact (both are measured from alpha)",
+      "runtime placement, collision or occlusion"
+    ],
+    "checks": [
+      {
+        "id": "accepted",
+        "status": "pass",
+        "value": 4,
+        "threshold": ">= 1"
+      },
+      {
+        "id": "edge_touch",
+        "status": "pass",
+        "value": [],
+        "threshold": 0
+      },
+      {
+        "id": "dropped_area",
+        "status": "pass",
+        "value": {},
+        "threshold": 0.01
+      },
+      {
+        "id": "strategy_aspect",
+        "status": "skipped",
+        "value": null,
+        "threshold": 1.6
+      },
+      {
+        "id": "edge_fringe",
+        "status": "pass",
+        "value": 0.0,
+        "threshold": 0.02
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../../raw/court.png",
+        "sha256": "683ad3dbbccf7c5293ff52d6498af0406ec327855d58ddf566c24623cfad6b09",
+        "bytes": 1662287
+      },
+      {
+        "path": "../../boxes/court.json",
+        "sha256": "54ebb245b3d77ca3f67d4382b38eba8d9ef8016ec04f55b760b2502a5c9c872f",
+        "bytes": 634
+      }
+    ],
+    "outputs": [
+      {
+        "path": "rf-banner/prop.png",
+        "sha256": "d2f81111d3331862a31fb1a20838042f13e2819b6b496440f68932032f284be3",
+        "bytes": 237610
+      },
+      {
+        "path": "rf-stone-lantern/prop.png",
+        "sha256": "d3867ea6b9e22940f92bcb0e918edf3499109dcf9cdd0532d9ede941850199de",
+        "bytes": 158697
+      },
+      {
+        "path": "rf-exhibit/prop.png",
+        "sha256": "a2c0bf89bc8794ff0ead2ff55b8ae75917d782a56709bc4ed2b4263bf7755f9b",
+        "bytes": 230724
+      },
+      {
+        "path": "rf-cafe-seating/prop.png",
+        "sha256": "c52662ee4431566d6875f0d0fa48d33d0f96a828650bbb5ff755a252d195a2d9",
+        "bytes": 174992
+      }
+    ],
+    "tool": {
+      "name": "extract_prop_pack",
+      "version": "0.4.0"
+    }
+  }
+}
