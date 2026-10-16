@@ -1,3 +1,11 @@
+# Current authority — District expansion & mandatory skill registry (2026-10-16)
+
+User has now accepted Juni/B's current animated look and the Gwanghwamun layout as the working baseline, and requests expansion into a connected, Seoul-inspired Korean neighborhood with 4 historical guests and meaningful buildings/learning activities. Earlier STOP-before-NPC/district and USER-APPROVAL-PENDING instructions below are historical and SUPERSEDED for that scope. Do not treat this as authorization to publish the game, modify the separate Korean Arena learning app, or use paid providers.
+
+**EVERY NEW ART/MAP/ANIMATION/NPC TASK MUST FIRST READ `docs/ART_SKILL_REGISTRY.md`, inspect the applicable upstream skill SKILL.md files, and consult `docs/gwanghwamun/FORGE.md` + `docs/juni-animation/TOOLCHAIN.md` before implementing.** Record what was actually executed; no API spending, no random prop placement, no wholesale approved-art regeneration. Preserve current branch, recovery tags and original game during incremental, tested changes. Update four STUDIO records at every checkpoint. New district prompt/plan from the user defines production scope; registry defines the mandatory toolchain contract.
+
+---
+
 # Latest authority — Juni animation + Gwanghwamun placement review
 
 Read docs/current/JUNI_ANIMATION_WORLD_POLISH.md and docs/juni-animation/REVIEW.md/TOOLCHAIN.md. User explicitly authorized genuine Juni animation and placement polish; older animation hold is superseded for THIS task. Selected Juni design kept; A/Bori/C/Nari remain future styles. No new NPCs/districts, learning-app edits, cleanup, main promotion or public game/Pages deployment, no paid/provider calls or delegation.
