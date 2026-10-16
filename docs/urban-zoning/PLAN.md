@@ -1,52 +1,52 @@
-# URBAN-PLAN-001 — quy hoạch khu phố để duyệt
+# URBAN-PLAN-002 — masterplan tinh chỉnh để duyệt
 
-**Trạng thái: CHỜ DUYỆT PHÂN KHU. Chưa dựng bản đồ cuối, chưa tạo artwork/NPC mới.** Yêu cầu đầy đủ: [URBAN_LOGIC_RESET.md](../current/URBAN_LOGIC_RESET.md). [Sơ đồ PNG](district-zoning-plan.png), [SVG chỉnh sửa được](district-zoning-plan.svg), [tọa độ nguồn](zoning-plan.json).
+**Bạn đã chấp nhận sơ bộ ý tưởng phân khu4096×3072. Bản tinh chỉnh này đang chờ duyệt; chưa được phép sản xuất công trình cuối hoặc dựng lại map chơi được.** Yêu cầu mới đầy đủ: [URBAN_PLANNING_REFINEMENT.md](../current/URBAN_PLANNING_REFINEMENT.md).
 
-## Vì sao cần thay đổi
+- [Masterplan PNG](district-zoning-plan.png) / [SVG có nhóm chỉnh sửa](district-zoning-plan.svg) / [JSON nguồn](zoning-plan.json).
+- [15 khối nền/mái/cửa/sân cùng tỉ lệ](building-footprints.png) / [SVG chi tiết](building-footprints.svg) / [lịch công trình](BUILDING_SCHEDULE.md).
+- [Tham khảo lịch sử thực đã đọc](HISTORICAL_REFERENCES.md) / [góc khám phá & đất sử dụng](DISCOVERY_DENSITY.md) / [quy tắc bố trí](placement-rules.md).
 
-Bản chơi hiện tại có quảng trường, cầu, đường sách và học viện nối nhau, nhưng chỉ là dải 2048×768: phần lớn khám phá đi theo một chiều. Quy hoạch trước chia khu tương lai theo ô mở rộng, chưa giải quyết toàn bộ quan hệ mặt tiền–đường–sân, dòng nước và ranh tường. Biên sân/đất còn cứng; mương thẳng chưa tạo thành hệ thống cảnh quan. Việc từng đạo cụ có đường tiếp cận không chứng minh cả khu phố có logic đô thị. Đây là lý do sửa cấu trúc trước khi thêm trang trí.
+## Đã sửa theo tám điểm review
 
-Game và toàn bộ pixel assets hiện tại được giữ ở `recovery/before-urban-zoning-20261016` → `d5701fc251913e28ad9cea6ae3404a88a553adbd`. Không đóng băng mọi vị trí cũ cho bản tương lai: sau khi duyệt quy hoạch, có thể sắp lại chúng trong bản đồ ứng viên riêng, giữ bản gốc khôi phục được.
+| Điểm | Quy hoạch tinh chỉnh |
+| --- | --- |
+| Cung và tường | Khu cung riêng x1280–2816,y64–704: tường phía bắc, hai tường hồi, mặt tường trước nối đúng cổng chính, hai cổng phục vụ, cổng trong và hai sân. Nhà dân/chợ nằm ngoài; không có tường thành bao phố ở. |
+| Phố và ngõ | Giữ đại lộ nghi lễ thẳng tại x2048. Thay đường ngang và vòng chữ nhật bằng phố men sân học viện, sân xưởng/bảo tàng, ngõ theo bếp/hiên/ranh đất, đường vườn theo bờ và cây. Có vòng phụ chợ, phố danh nhân và sân hội họa. |
+| Công trình đa dạng | Thể hiện khối cánh nhà thực trong JSON/PNG thay cho15rectangle đơn giản. Học viện sân U, xưởng L + bệ dụng cụ, nhà sử liệu dài + tiền sảnh lệch, cửa hàng sâu có hốc đọc, kho giấy giật cấp, trà hiên mở, xưởng nghề, đình có bệ không mái, nhà U/L/hai nếp/giếng chung. |
+| Phối cảnh | Chính diện chủ yếu đông–tây, hướng nam; mái chính nằm ngang và cánh hồi vuông góc. Đường có thể uốn nhưng không xoay cả ngôi nhà theo đường. Giữ top-down/3⁄4 nhẹ, không kim cương isometric. Sơ đồ mái không chứng minh artwork cuối có chiều sâu. |
+| Nước | Một dòng liên tục từ mép tây sang đông, hồ bờ bất quy tắc thông với dòng, bờ24px mỗi bên. Cầu tây ở(1472,2352), cầu đông(2720,2352); mỗi cầu96×160px nối đoạn tiếp cận thẳng và phủ cả bờ. |
+| Mật độ | 22điểm tiếp cận/khám phá dự kiến, bảy khoảnh xanh có chức năng, sân học/sân nghề/sân ở riêng. Cửa, hốc đọc, sân nghề, hiên trà, bờ hồ và ngã rẽ tạo nhịp; không mở thêm đất chỉ để kéo dài thời gian đi. |
+| Tham khảo | KHS/Gyeongbokgung: cổng chính và đại lộ Yukjo; UNESCO/Changdeokgung: thứ bậc sân và thích ứng địa hình; Seowon: học–sân–cảnh quan; Hahoe/Yangdong: cụm nhà/sân/ngõ/nước. Mỗi công trình gắn mã nguồn và cách chuyển hóa riêng. |
+| Skill bền vững | Đọc AGENTS/registry và skill Forge thực tại pin5324342; giữ nguyên Juni144frames và workflow đã chứng minh. Vòng này chỉ vẽ sơ đồ quy hoạch/kiểm hình học, không gọi pipeline sinh art hay nhận đã export map/nav/Tiled mới. |
 
-## Cấu trúc đề xuất
+## Cung thành: giới hạn rõ, quan hệ bên trong rõ
 
-Một khu phố hư cấu **4096×3072 px**, không phải mô phỏng địa lý Seoul hay bản sao một game khác. Giữ Juni cao80px, tile32px, foot body16×8, walk60/run100. Không tăng tốc hay thu nhỏ avatar để làm thế giới có vẻ lớn. Camera theo người chơi, 3/4 nhẹ, zoom nguyên; sơ đồ nhìn toàn khu chỉ dùng để quy hoạch.
+Đường bao gồm các đoạn tường **và các khoảng cổng có tên**, tạo một vòng kín duy nhất. Tường hồi phía tây/đông chạy trở lại tường bắc; tường trước nối hai bên cổng chính. Hai cổng phụ phục vụ khu cung, không biến thành lối xuyên ngõ dân cư. Lối ngoài tường phía tây đến điểm xem cổng phục vụ, không tự đưa người chơi vào cung. Sảnh bắc/cổng trong/hai sân chỉ là bối cảnh đặt chỗ để hiểu thứ bậc, **không phải một cung điện chơi được mới**.
 
-| Phân khu | Công năng và hình thái | Quan hệ đường / người dùng |
-| --- | --- | --- |
-| Cổng và ranh cung thành phía bắc | Cổng nghi lễ ba gian, tường đá liên tục, sân trước | Kết thúc trục thị giác; phía trong cung chưa mở, không giả làm lối ra chơi được |
-| Quảng trường trung tâm | Không gian gặp gỡ thoáng, tượng Sejong lệch khỏi đường đi chính | Điểm đến ở phía nam; nhìn thấy cổng phía bắc và hai lựa chọn sang học viện/phố danh nhân |
-| Học viện phía tây bắc | Giảng đường năm gian, hiên và sân học yên tĩnh | Cửa quay nam, lối tiếp cận riêng từ đường ngang; Sejong ở sân, bài học trong phòng đọc |
-| Phố danh nhân phía đông | Xưởng thiên văn của Jang và nhà sử liệu/hiên chiến lược của Yi | Hai hình khối/công năng khác nhau; nối quảng trường và ngõ hanok; không dựng cảng giả cho bảo tàng |
-| Phố sách và văn hóa phía tây | Hiệu sách, văn phòng phẩm, trà quán, xưởng thủ công | Hai mặt phố có ngõ nối; hàng hóa nằm ở hiên/hốc mặt tiền, có sân dịch vụ phía sau |
-| Vườn và mặt nước ở giữa phía nam | Đình nghỉ mở, hồ mở rộng từ suối, bờ trồng cây và lối dạo | Nơi nghỉ khỏi chợ; hai cầu nối vòng khám phá, không đặt nhà chắn lối bờ nước |
-| Ngõ hanok phía đông | Nhà sân U nhỏ, nhà góc L, nhà vườn và nhà mái thấp | Nhà nhỏ hơn công trình công cộng, dùng ngõ chung; sân riêng không trở thành đường xuyên nhà |
-| Sân hội họa phía tây nam | Hanok thấp, sân vẽ ngoài trời, cây vườn | Saimdang thuộc sân xưởng, nối ngõ phía nam và cầu tây |
+Cổng chính quay nam ra sân trước và đại lộ. Điểm đến gặp gỡ lệch khỏi tim trục. Tượng Sejong lệch trục; Sejong giáo dục thuộc sân học viện, không phải tượng thứ hai. Khu cung trong và cổng phụ ở trạng thái đóng/dự trữ. Nhà ở dùng ranh sân dân dụng thấp khi cần, không dùng tường phòng thủ. Đây là khu phố hư cấu, không tái dựng Gyeongbokgung theo tỉ lệ hoặc gộp các di tích thành một lịch sử thật.
 
-Hình chữ nhật trên sơ đồ là **đặt chỗ khối nền**, chưa phải mái hoàn thiện/collider. Mỗi nhà có mã, hình thái, cửa và điểm tiếp cận trong JSON; nhà nhỏ không phải bản thu nhỏ đổi màu của giảng đường. Giữ mái nằm ngang, mặt trước rõ, hiên và bậc có chiều sâu; không nghiêng chéo kiểu isometric. Dùng tham khảo hanok/cổng cung/giảng đường Hàn Quốc để nghiên cứu cấu tạo, không tuyên bố tái dựng lịch sử chính xác hoặc trộn các danh nhân khác thời thành người đương thời.
+## Phố có lý do, không là ô lưới trang trí
 
-## Mạng đường, ranh giới và mặt nước
+Đại lộ160px là tuyến duy nhất cần thẳng trang trọng. Phố chính112px né sân công trình; nhánh80–96px theo ranh khu đất; ngõ/vườn64px. JSON lưu `reason` cho từng tuyến. Lối chợ vòng qua cánh bếp và kho, không cắt qua quầy. Ngõ hanok đổi hướng theo sân U và bếp nhà L; lối nhà vườn men hai nếp nhà khác nhau. Đường hồ đi vòng đình rồi nối lại vòng hai cầu.
 
-Trục chính rộng160px từ cổng xuống quảng trường. Đường ngang128px nối học viện với phố danh nhân. Hai nhánh96px tại x1376 và x2720 đi xuống hai cầu, nối đường trở về phía nam y2816. Ngõ64px và đường vườn nhỏ hơn làm các lựa chọn phụ, không thay thế đường chính. Chiều rộng tính là khoảng đi bộ **sau khi** trừ bậc, biển, cây, bàn ghế; công đoạn art phải giữ được khoảng trống này.
+Vòng khám phá nét vàng: quảng trường → phố xưởng/bảo tàng → cầu đông → đường vườn phía nam → cầu tây → phố sách/học viện → quảng trường. Có nhánh lựa chọn sang ngõ nhà, sân hội họa, hiên trà, đình hồ; ba vòng phụ tránh việc tất cả điểm đến là ngõ cụt. Các đoạn đổi hướng đi kèm thay đổi mặt tiền/sân/địa hình, không lượn ngẫu nhiên. Chiều rộng là khoảng phải giữ thông sau này; đạo cụ/người nói chuyện không chiếm tim tuyến.
 
-Tường cung thành chạy liên tục từ mép tây đến cổng và từ cổng đến mép đông ở y448. Cổng là chỗ ngắt có chủ đích; phía bắc là vùng đóng/dự trữ. Không rải các đoạn tường trang trí giữa sân hay gọi đây là thành bao quanh toàn khu phố.
+## Kiến trúc và nước theo cùng một thế giới
 
-Suối đi từ mép tây sang mép đông, đổi hướng nhẹ theo vườn và mở thành hồ ở giữa. Dành64px lòng nước và24px bờ mỗi bên. **Chỉ hai điểm vượt tại (1376,2304) và (2720,2304)**; cầu dài144px phủ cả bờ, deck rộng96px nối đúng đường. Nước không cụt sau nhà, không tự cắt ngang đường khi thiếu cầu. Đường vườn phía bắc hồ đi vòng đình, không xuyên qua khối đình. Đầu vào/ra tại mép thế giới thể hiện dòng tiếp tục, không giả thành sông có nguồn đã được mô phỏng.
+Từng `masses[]` trong JSON là một cánh/khối nền riêng, có kiểu mái, hướng sống mái, số gian mặt trước. Rectangle bao ngoài chỉ giúp đặt chỗ, **không được dùng làm collider** khiến sân U/L bị lấp. Mỗi nhà có cửa ngoài, điểm tiếp cận, sân và chức năng; học viện/nhà U có thêm cửa phía trong sân. Hình mái là sơ đồ định hướng, chưa có texture hoặc final sprite. Thang tỉ lệ giữ Juni80px, tile32px, foot16×8, walk60/run100; sau duyệt phải kiểm cửa, hiên, mái và bóng ở camera1× trước khi chấp nhận art.
 
-Ghế ở hốc nghỉ nhìn ra sân/hồ; đèn theo ngã rẽ, cửa và đầu cầu; chum ở sân phục vụ nhà/trà quán; biển ở mép mặt tiền; hàng chợ ở vịnh bán hàng. Cây lớn nằm rìa sân/vườn; giữ tầm nhìn vào cửa, không dùng tán che lỗi đặt chỗ. Quy tắc chi tiết: [placement-rules.md](placement-rules.md).
+Suối vẫn là một dòng liên tục, chỉ rộng thành hồ ở vườn. Mặt phố chợ dùng mép đá thấp; bờ vườn chuyển sang đất, cây bờ và bậc đá; nhà ở lùi sau bờ cây. Những dải vật liệu nối nhau theo vùng sử dụng, không tô một đường viền cứng duy nhất. Hai điểm qua nước đã được kiểm sơ bộ: deck phủ64px dòng + hai bờ24px + dư tiếp cận, tuyến tới cầu thẳng theo trục cầu, không có đường lội thứ ba hoặc đường bị cắt bởi bờ.
 
-## Cảm giác khám phá
+## Mật độ và nhịp khám phá
 
-Từ điểm đến quảng trường, người chơi có thể rẽ sang học viện hoặc phố danh nhân. Vòng dài: quảng trường → xưởng/bảo tàng → cầu đông → ngõ phía nam → sân hội họa → cầu tây → phố sách → học viện → quảng trường. Các góc khám phá có lý do: hiên đọc sách, sân dụng cụ thiên văn, vịnh trà, sân vẽ và mép hồ. Không đặt nhiệm vụ bắt quay lại trên một hành lang duy nhất.
+Diện tích4096×3072 được giữ, không phình thêm. Có15khối kiến trúc/landmark, nhiều cánh phụ, sân riêng và22góc dùng được theo kế hoạch; vườn học viện, sân vật liệu xưởng, vườn bếp, sân hậu cửa hàng, vườn thảo mộc và bờ suối có chức năng cụ thể. Giữ chỗ mở đúng vai trò: quảng trường xã hội, sân học, sân trình diễn, đình nhìn nước. Số điểm không phải bằng chứng game đã thú vị; sau duyệt phải đi thật để đo nhịp nhìn–đi–dừng và sửa đoạn trống.
 
-Trục cổng–đường ngang dài864px, ước tính14.4s đi bộ. Vòng hai cầu dài5504px, khoảng91.7s đi/55.0s chạy **chưa tính dừng**. Đây là tính toán trên tim đường, chưa đo nhịp chơi trong game; sau duyệt phải kiểm tra quãng đi có thú vị, không nhồi khoảng trống để tăng thời gian.
+Các NPC chỉ là vị trí quy hoạch gắn công trình: Sejong/học viện, Jang/xưởng thiên văn, Yi/nhà sử liệu, Saimdang/sân hội họa. Không sản xuất hoặc thay nhân vật tại vòng này; không dùng artwork khách cũ bị từ chối để giả là NPC mới. Chương trình chợ, nhà ở và học tập là thiết kế RPG nguyên gốc, không khẳng định chúng đã tồn tại trong di tích tham khảo.
 
-Bốn vị trí NPC chỉ là ký hiệu quy hoạch; không dùng lại hình khách lịch sử đã bị từ chối để giả là hoàn tất. Sejong thuộc sân học viện; Jang thuộc sân xưởng; Yi thuộc hiên sử liệu; Saimdang thuộc sân hội họa. Giữ đối thoại/quest hiện tại; chỉ mở rộng khi đã duyệt phần tương ứng.
+## Kiểm chứng và phạm vi còn chờ
 
-## Kiểm chứng và bước tiếp theo
+Kiểm tra hình học lưới8px: **41/41điểm tiếp cận nối được,37.022/37.022ô đi bộ cùng thành phần,0khối công trình chồng nhau,0đường lấn nhà/bờ ngoài cầu,0tường cung trong khu chợ/ở**. Chuỗi tường+cổng là một vòng kín; hai cầu đúng dòng/tuyến. Đây là kiểm quy hoạch bảo thủ với bán kính8px, **không phải Forge nav/collision cuối hoặc Phaser của map đề xuất**. Lần thử đầu phát hiện năm đoạn lấn góc nhà và một bệ thiên văn cô lập; đã sửa vị trí/lối nối, không nới ngưỡng. [Báo cáo](planning-check.json), [sơ đồ khoảng đi](planning-clearance.png), raw lần đầu trong `history/`.
 
-Kiểm tra vùng đi bộ sơ bộ trên lưới16px:19điểm tiếp cận công trình/NPC đều nối được,0khối nền chồng nhau, không đặt NPC trong khối nhà. Đây **không phải** Forge nav hay kiểm chứng collision cuối. Sơ đồ được mở và xem trực tiếp; chưa có ảnh Phaser của bản đồ đề xuất, vì chưa được phép lắp bản đồ trước duyệt.
+Bản chơi2048×768+phòng đọc, Juni/tài sản/source/tests/toolchain giữ nguyên; recovery trước chỉnh `recovery/before-urban-refinement-20261016`→ec520e3. Main và Pages không thay đổi. Phần đo khoảng đi bộ là ước tính trên tim đường trong báo cáo, không phải gameplay capture. Sau khi duyệt mới dùng workflow Forge thực để sinh/chiết art, layered map/nav/Tiled và tích hợp một ứng viên Phaser riêng, rồi kiểm movement/collision/occlusion/mobile và quay thực tế.
 
-Sau khi bạn duyệt phân khu: (1) chốt hình khối/mặt tiền và phong cách tại tỉ lệ Juni; (2) dùng pipeline Forge thực để tạo/chiết props và terrain nguồn, layered bundle, collision/Tiled; (3) lắp bản ứng viên riêng, duyệt một vòng đi bộ hoàn chỉnh; (4) kiểm tra collision, occlusion, cửa, touch/mobile, reduced motion, chụp và quay Phaser; (5) chỉ sau duyệt hình ảnh/gameplay và clean-clone mới chuẩn bị PR vào main. Không merge hay deploy khi chưa có lệnh riêng.
-
-**Cần quyết định lúc này:** duyệt hoặc sửa cấu trúc phân khu, vòng hai cầu, ranh cung thành và quan hệ cửa–sân–đường trên sơ đồ. Không yêu cầu duyệt artwork chưa được tạo.
+**Dừng để bạn duyệt masterplan tinh chỉnh. Không sinh buildings cuối, dựng lại playable map, làm PR/merge main hoặc deploy trước khi đủ các quyết định tương ứng.** Quy trình main tương lai trong [PROMOTION.md](PROMOTION.md) vẫn có hiệu lực.

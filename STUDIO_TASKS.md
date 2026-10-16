@@ -1,3 +1,19 @@
+# URBAN-PLAN-002 — refined masterplan / awaiting review
+
+- COMPLETE: record user's provisional acceptance of overall zoning and eight refinement requirements; final artwork/map production remains UNAUTHORIZED until this revision is approved.
+- COMPLETE: remote recovery before changes recovery/before-urban-refinement-20261016 ->ec520e3; current Juni/source/runtime/old assets/branches/tags preserved.
+- COMPLETE: northern palace compound with connected wall returns, main/side gates, inner gate/courts reserved as nonplayable context; no fortress walls in residential or market plots.
+- COMPLETE: retain straight civic avenue, replace rectangular street loop with organic court/plot/bank-driven roads and shorter market/history/art loops; two purposeful aligned bridges and continuous natural stream/pond.
+- COMPLETE:15different multi-mass footprints/roof arrangements/facades/courts/entrances, editable JSON/SVG/PNG and same-scale board;22functional discovery points, seven landscape/service parcels.
+- COMPLETE: read and record four content-verified official palace/academy/Joseon-village sources; per-building translations and non-reconstruction limits. Rejected404/misdirected Bukchon URLs not used as evidence.
+- COMPLETE PLANNING CHECK:41targets/37022walk cells connected,0mass overlaps,0roads intruding masses/banks outside decks,closed palace boundary,0wall overlap with homes/market,2valid crossings. First5route-corner intrusions+isolated platform corrected geometrically; raw failure retained.
+- VERIFICATION: local/source/production/regression/clean-clone/CI outcomes recorded only after observed; inspect actual final checkpoint/urban-refinement-review-20261016.
+- STOP: present refined masterplan for user approval. No final buildings/tiles/NPCs or playable-map rebuild; no main promotion, publication or paid routes.
+
+Local regression observed EXIT0:12unit/12browser,0skip/0unexpected/0flaky,offline assets/type/lint/format/production PASS.694protected files byte-equal to ec520e3. Exact final source/CI/clean-clone evidence belongs in the actual immutable checkpoint/urban-refinement-review-20261016 after observation.
+
+## Historical checkpoint record
+
 # URBAN-PLAN-001 — zoning proposal / approval pending
 
 - COMPLETE: full latest request archived in docs/current/URBAN_LOGIC_RESET.md; actual registry/map+sprite skills read; no generation/provider calls.

@@ -2,13 +2,13 @@
 
 Original Korean-inspired pixel-town art review, built with **Phaser4.2.1, TypeScript and Vite**. Juni/B and the existing Gwanghwamun artwork are the accepted working baseline; Bori/A and Nari/C remain future avatar styles. The latest connected first slice has not received district visual approval. Multiplayer, full TOPIK quests, fair PvP and voluntary rewarded ads remain roadmap items, not delivered services.
 
-## Current gate: review district zoning
+## Current gate: review the refined masterplan
 
-The latest request prioritizes believable Korean urban planning over assembling more props. Review the [new zoning proposal](docs/urban-zoning/PLAN.md), [placement rules](docs/urban-zoning/placement-rules.md) and [future main-promotion policy](docs/urban-zoning/PROMOTION.md).
+The user provisionally accepts the overall zoning and requires a final urban-planning refinement before map production. Review the [new zoning proposal](docs/urban-zoning/PLAN.md), [placement rules](docs/urban-zoning/placement-rules.md) and [future main-promotion policy](docs/urban-zoning/PROMOTION.md).
 
 ![Proposed district zoning — schematic, not gameplay](docs/urban-zoning/district-zoning-plan.png)
 
-The proposed4096×3072quarter is **not built or approved**. Approval of zoning is required before final map art/assembly. Current runtime remains2048×768outdoor plus one768×576Academy reading room. Historical NPC positions on the diagram are planned, not newly animated characters.
+The overall4096×3072zoning is **provisionally accepted**; the refined masterplan is **awaiting approval and not built**. Review the [distinct footprint/roof board](docs/urban-zoning/building-footprints.png), [historical references](docs/urban-zoning/HISTORICAL_REFERENCES.md) and [functional discoveries](docs/urban-zoning/DISCOVERY_DENSITY.md). Final map art/assembly is still gated on approval. Current runtime remains2048×768outdoor plus one768×576Academy reading room. Historical NPC positions on the diagram are planned, not newly animated characters.
 
 ## Play the retained first-slice review
 

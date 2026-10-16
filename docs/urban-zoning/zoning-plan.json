@@ -1,8 +1,8 @@
 {
-  "schema": "korean-arena.urban-zoning.v1",
-  "status": "AWAITING_USER_ZONING_APPROVAL",
-  "authority": "../current/URBAN_LOGIC_RESET.md",
-  "baseline": "d5701fc251913e28ad9cea6ae3404a88a553adbd",
+  "schema": "korean-arena.urban-zoning.v2",
+  "status": "OVERALL_ZONING_PROVISIONALLY_ACCEPTED_REFINEMENT_AWAITING_APPROVAL",
+  "authority": "../current/URBAN_PLANNING_REFINEMENT.md",
+  "baseline": "ec520e328437296a77e71e11752e74c1eb738e71",
   "stableMain": "33360ed1989e4db9fc3fc4e3686ca385e0b00908",
   "world": [
     4096,
@@ -30,251 +30,820 @@
   "camera": "light 3/4 top-down; no isometric skew; exploration follow at integer zoom, never whole-world fit during gameplay",
   "zones": [
     {
-      "id": "landmark",
-      "label": "01 · CỔNG & RANH GIỚI CUNG THÀNH",
-      "bounds": [
-        0,
-        128,
-        4096,
-        416
+      "id": "palace",
+      "label": "01 · CUNG & CỔNG",
+      "polygon": [
+        [
+          1280,
+          64
+        ],
+        [
+          2816,
+          64
+        ],
+        [
+          2816,
+          800
+        ],
+        [
+          1280,
+          800
+        ]
       ],
-      "color": "#d9c8a5",
-      "purpose": "Civic gateway; northern palace reserve is closed, not a second district",
-      "state": "PROPOSED"
+      "labelAt": [
+        1320,
+        96
+      ],
+      "color": "#dbcfb8",
+      "state": "PROPOSED_REFINEMENT"
     },
     {
       "id": "academy",
-      "label": "02 · HỌC VIỆN HANGUL",
-      "bounds": [
-        128,
-        576,
-        1152,
-        736
+      "label": "02 · HỌC VIỆN",
+      "polygon": [
+        [
+          128,
+          256
+        ],
+        [
+          1056,
+          256
+        ],
+        [
+          1184,
+          512
+        ],
+        [
+          1120,
+          1088
+        ],
+        [
+          928,
+          1280
+        ],
+        [
+          256,
+          1312
+        ],
+        [
+          128,
+          1120
+        ]
       ],
-      "color": "#c9dbc7",
-      "purpose": "Quiet learning courtyard, Sejong and existing reading-room activity",
-      "state": "PROPOSED"
+      "labelAt": [
+        160,
+        288
+      ],
+      "color": "#cadac8",
+      "state": "PROPOSED_REFINEMENT"
     },
     {
       "id": "plaza",
-      "label": "03 · QUẢNG TRƯỜNG TRUNG TÂM",
-      "bounds": [
-        1472,
-        576,
-        1152,
-        736
+      "label": "03 · QUẢNG TRƯỜNG",
+      "polygon": [
+        [
+          1472,
+          800
+        ],
+        [
+          2624,
+          800
+        ],
+        [
+          2688,
+          1120
+        ],
+        [
+          2496,
+          1408
+        ],
+        [
+          1600,
+          1408
+        ],
+        [
+          1408,
+          1120
+        ]
       ],
-      "color": "#e6d7b6",
-      "purpose": "Open meeting space, separated monument, clear civic axis",
-      "state": "PROPOSED"
+      "labelAt": [
+        1488,
+        848
+      ],
+      "color": "#e6d8b8",
+      "state": "PROPOSED_REFINEMENT"
     },
     {
       "id": "history",
       "label": "04 · PHỐ DANH NHÂN",
-      "bounds": [
-        2816,
-        576,
-        1152,
-        992
+      "polygon": [
+        [
+          2976,
+          256
+        ],
+        [
+          3968,
+          256
+        ],
+        [
+          3968,
+          1552
+        ],
+        [
+          3520,
+          1568
+        ],
+        [
+          3008,
+          1632
+        ],
+        [
+          2816,
+          1488
+        ],
+        [
+          2896,
+          1120
+        ],
+        [
+          2976,
+          896
+        ]
       ],
-      "color": "#c9d5df",
-      "purpose": "Jang workshop / observatory and Yi history / strategy terrace",
-      "state": "PROPOSED"
+      "labelAt": [
+        3008,
+        288
+      ],
+      "color": "#cbd7df",
+      "state": "PROPOSED_REFINEMENT"
     },
     {
       "id": "market",
-      "label": "05 · PHỐ SÁCH & VĂN HÓA",
-      "bounds": [
-        128,
-        1504,
-        1152,
-        736
+      "label": "05 · SÁCH & VĂN HÓA",
+      "polygon": [
+        [
+          128,
+          1440
+        ],
+        [
+          1056,
+          1376
+        ],
+        [
+          1248,
+          1568
+        ],
+        [
+          1376,
+          1984
+        ],
+        [
+          1152,
+          2160
+        ],
+        [
+          768,
+          2176
+        ],
+        [
+          256,
+          2080
+        ],
+        [
+          128,
+          1856
+        ]
       ],
-      "color": "#e6c9b7",
-      "purpose": "Bookshop, stationery, tea house and craft frontage; two linked lanes",
-      "state": "PROPOSED"
+      "labelAt": [
+        160,
+        1448
+      ],
+      "color": "#e3c7b6",
+      "state": "PROPOSED_REFINEMENT"
     },
     {
       "id": "garden",
-      "label": "06 · VƯỜN & MẶT NƯỚC",
-      "bounds": [
-        1472,
-        1664,
-        1152,
-        1120
+      "label": "06 · VƯỜN & HỒ",
+      "polygon": [
+        [
+          1600,
+          1568
+        ],
+        [
+          2368,
+          1600
+        ],
+        [
+          2688,
+          1888
+        ],
+        [
+          2608,
+          2208
+        ],
+        [
+          2592,
+          2592
+        ],
+        [
+          2368,
+          2816
+        ],
+        [
+          1920,
+          2912
+        ],
+        [
+          1504,
+          2688
+        ],
+        [
+          1536,
+          2208
+        ],
+        [
+          1472,
+          1856
+        ]
       ],
-      "color": "#bdd2bc",
-      "purpose": "Pavilion, connected stream / pond and a quiet shaded loop",
-      "state": "PROPOSED"
+      "labelAt": [
+        1648,
+        1600
+      ],
+      "color": "#bdd0b9",
+      "state": "PROPOSED_REFINEMENT"
     },
     {
       "id": "homes-north",
       "label": "07 · NGÕ HANOK",
-      "bounds": [
-        2816,
-        1760,
-        1152,
-        480
+      "polygon": [
+        [
+          2928,
+          1648
+        ],
+        [
+          3904,
+          1600
+        ],
+        [
+          4000,
+          2048
+        ],
+        [
+          3872,
+          2208
+        ],
+        [
+          3408,
+          2160
+        ],
+        [
+          3008,
+          2192
+        ],
+        [
+          2880,
+          2048
+        ],
+        [
+          2832,
+          1824
+        ]
       ],
-      "color": "#dbd3c2",
-      "purpose": "Small residential compounds; household privacy, no through-building route",
-      "state": "PROPOSED"
+      "labelAt": [
+        3104,
+        1608
+      ],
+      "color": "#dbd3bf",
+      "state": "PROPOSED_REFINEMENT"
     },
     {
       "id": "art",
       "label": "08 · SÂN HỘI HỌA",
-      "bounds": [
-        128,
-        2448,
-        1152,
-        496
+      "polygon": [
+        [
+          160,
+          2416
+        ],
+        [
+          1088,
+          2448
+        ],
+        [
+          1280,
+          2656
+        ],
+        [
+          1216,
+          2896
+        ],
+        [
+          864,
+          2992
+        ],
+        [
+          256,
+          2944
+        ],
+        [
+          128,
+          2688
+        ]
       ],
-      "color": "#d8c9d9",
-      "purpose": "Saimdang studio, outdoor painting court and garden access",
-      "state": "PROPOSED"
+      "labelAt": [
+        176,
+        2424
+      ],
+      "color": "#d8cad9",
+      "state": "PROPOSED_REFINEMENT"
     },
     {
       "id": "homes-south",
       "label": "09 · NHÀ VƯỜN",
-      "bounds": [
-        2816,
-        2448,
-        1152,
-        496
+      "polygon": [
+        [
+          2848,
+          2432
+        ],
+        [
+          3424,
+          2400
+        ],
+        [
+          3904,
+          2464
+        ],
+        [
+          4000,
+          2816
+        ],
+        [
+          3776,
+          2992
+        ],
+        [
+          2976,
+          2976
+        ],
+        [
+          2720,
+          2784
+        ]
       ],
-      "color": "#dbd3c2",
-      "purpose": "Distinct small homes connected to the southern return walk",
-      "state": "PROPOSED"
+      "labelAt": [
+        2880,
+        2408
+      ],
+      "color": "#dbd3bf",
+      "state": "PROPOSED_REFINEMENT"
     }
   ],
   "buildings": [
     {
       "id": "gate",
       "code": "G01",
-      "label": "Cổng nghi lễ",
-      "zone": "landmark",
+      "label": "Cổng chính",
+      "zone": "palace",
+      "masses": [
+        {
+          "id": "three-bay-gate",
+          "bounds": [
+            1856,
+            544,
+            384,
+            192
+          ],
+          "roof": "two-tier paljak-inspired",
+          "facadeBays": 3,
+          "ridgeDirection": "east-west"
+        }
+      ],
       "groundReservation": [
-        1824,
-        256,
-        448,
+        1856,
+        544,
+        384,
         192
       ],
       "door": [
         2048,
-        480
+        768
       ],
       "approach": [
         2048,
-        544
+        832
       ],
-      "massing": "three-bay ceremonial gate",
-      "scaleClass": "civic",
-      "npc": null,
-      "state": "PROPOSED_NOT_GENERATED"
+      "courtyard": [
+        [
+          1824,
+          768
+        ],
+        [
+          2272,
+          768
+        ],
+        [
+          2272,
+          896
+        ],
+        [
+          1824,
+          896
+        ]
+      ],
+      "facade": "South-facing three-bay gate on masonry podium; side wall junctions, closed leaves",
+      "roofArrangement": "One double-tier east-west gate roof; not a residential roof",
+      "references": [
+        "R1",
+        "R2"
+      ],
+      "function": "Ceremonial palace threshold; forecourt view only, palace entry closed",
+      "state": "PLANNING_ONLY_NOT_PRODUCED",
+      "entranceWidth": 64,
+      "doorFacing": "south",
+      "drawLabel": null
     },
     {
       "id": "academy",
       "code": "A01",
-      "label": "Giảng đường",
+      "label": "Học viện Hangul",
       "zone": "academy",
+      "masses": [
+        {
+          "id": "lecture-hall",
+          "bounds": [
+            384,
+            608,
+            576,
+            160
+          ],
+          "roof": "paljak-inspired",
+          "facadeBays": 5,
+          "ridgeDirection": "east-west"
+        },
+        {
+          "id": "west-study",
+          "bounds": [
+            320,
+            768,
+            128,
+            288
+          ],
+          "roof": "matbae",
+          "facadeBays": 3,
+          "ridgeDirection": "north-south"
+        },
+        {
+          "id": "east-library",
+          "bounds": [
+            896,
+            768,
+            128,
+            224
+          ],
+          "roof": "matbae",
+          "facadeBays": 2,
+          "ridgeDirection": "north-south"
+        }
+      ],
       "groundReservation": [
-        384,
-        672,
-        576,
-        288
+        320,
+        608,
+        704,
+        448
       ],
       "door": [
         672,
-        992
+        1136
       ],
       "approach": [
         672,
-        1088
+        1200
       ],
-      "massing": "five-bay hall, raised porch",
-      "scaleClass": "educational",
-      "npc": "sejong",
-      "state": "PROPOSED_NOT_GENERATED"
+      "courtyard": [
+        [
+          448,
+          800
+        ],
+        [
+          896,
+          800
+        ],
+        [
+          896,
+          1088
+        ],
+        [
+          944,
+          1088
+        ],
+        [
+          944,
+          1248
+        ],
+        [
+          448,
+          1248
+        ]
+      ],
+      "facade": "Five-bay lecture facade plus recessed study/library wings; open south court",
+      "roofArrangement": "Broad horizontal main ridge; two short perpendicular wing roofs enclosing a U court",
+      "references": [
+        "R1",
+        "R3"
+      ],
+      "function": "Quiet Hangul learning / reading court; preserves existing lesson as future integration target",
+      "state": "PLANNING_ONLY_NOT_PRODUCED",
+      "entranceWidth": 64,
+      "doorFacing": "south",
+      "drawLabel": null,
+      "innerDoor": [
+        672,
+        800
+      ]
     },
     {
       "id": "monument",
       "code": "P01",
       "label": "Mốc Sejong",
       "zone": "plaza",
+      "masses": [
+        {
+          "id": "low-plinth",
+          "bounds": [
+            2240,
+            1088,
+            80,
+            96
+          ],
+          "roof": "no roof",
+          "facadeBays": 0,
+          "ridgeDirection": "north-south"
+        }
+      ],
       "groundReservation": [
-        2272,
-        800,
-        64,
-        64
+        2240,
+        1088,
+        80,
+        96
       ],
       "door": null,
       "approach": [
-        2304,
-        960
+        2280,
+        1248
       ],
-      "massing": "seated sculpture on low plinth; not a second NPC",
-      "scaleClass": "civic",
-      "npc": null,
-      "state": "PROPOSED_NOT_GENERATED"
+      "courtyard": [
+        [
+          2208,
+          1200
+        ],
+        [
+          2368,
+          1200
+        ],
+        [
+          2368,
+          1312
+        ],
+        [
+          2208,
+          1312
+        ]
+      ],
+      "facade": "Seated bronze scholar on a low plinth, outside ceremonial centerline",
+      "roofArrangement": "No building roof; open view and readable silhouette",
+      "references": [
+        "R1"
+      ],
+      "function": "Public orientation landmark, distinct from the educational Sejong guest",
+      "state": "PLANNING_ONLY_NOT_PRODUCED",
+      "entranceWidth": 64,
+      "doorFacing": "south",
+      "drawLabel": null
     },
     {
       "id": "workshop",
       "code": "H01",
       "label": "Xưởng thiên văn",
       "zone": "history",
+      "masses": [
+        {
+          "id": "workshop",
+          "bounds": [
+            3104,
+            480,
+            384,
+            160
+          ],
+          "roof": "matbae",
+          "facadeBays": 4,
+          "ridgeDirection": "east-west"
+        },
+        {
+          "id": "east-tool-wing",
+          "bounds": [
+            3392,
+            640,
+            128,
+            192
+          ],
+          "roof": "matbae",
+          "facadeBays": 2,
+          "ridgeDirection": "north-south"
+        }
+      ],
       "groundReservation": [
-        3008,
-        672,
+        3104,
         480,
-        256
+        416,
+        352
       ],
       "door": [
-        3248,
-        960
+        3168,
+        1120
       ],
       "approach": [
-        3248,
-        1056
+        3168,
+        1184
       ],
-      "massing": "asymmetric workshop plus instrument terrace",
-      "scaleClass": "educational",
-      "npc": "jang",
-      "state": "PROPOSED_NOT_GENERATED"
+      "courtyard": [
+        [
+          3040,
+          672
+        ],
+        [
+          3392,
+          672
+        ],
+        [
+          3392,
+          880
+        ],
+        [
+          3744,
+          880
+        ],
+        [
+          3744,
+          1088
+        ],
+        [
+          3040,
+          1088
+        ]
+      ],
+      "facade": "Asymmetric work bays with tool storage on east, demonstration court and open instrument platform",
+      "roofArrangement": "L footprint: horizontal workshop ridge, lower north-south tool wing; separate uncovered instrument platform",
+      "references": [
+        "R1",
+        "R3"
+      ],
+      "function": "Jang Yeong-sil invention / number learning; educational workshop, not a claimed reconstruction",
+      "state": "PLANNING_ONLY_NOT_PRODUCED",
+      "entranceWidth": 64,
+      "doorFacing": "south",
+      "drawLabel": null,
+      "innerDoor": [
+        3232,
+        672
+      ],
+      "platforms": [
+        {
+          "id": "instrument-platform",
+          "bounds": [
+            3600,
+            688,
+            160,
+            144
+          ],
+          "role": "walkable instrument demonstration platform, not another solid building"
+        },
+        {
+          "id": "instrument-platform-apron",
+          "bounds": [
+            3600,
+            832,
+            160,
+            80
+          ],
+          "role": "public apron joining platform to demonstration courtyard"
+        }
+      ]
     },
     {
       "id": "museum",
       "code": "H02",
       "label": "Nhà sử liệu",
       "zone": "history",
+      "masses": [
+        {
+          "id": "exhibit-hall",
+          "bounds": [
+            3328,
+            1056,
+            448,
+            192
+          ],
+          "roof": "ujingak-inspired",
+          "facadeBays": 6,
+          "ridgeDirection": "east-west"
+        },
+        {
+          "id": "west-vestibule",
+          "bounds": [
+            3264,
+            1120,
+            64,
+            128
+          ],
+          "roof": "matbae",
+          "facadeBays": 1,
+          "ridgeDirection": "north-south"
+        }
+      ],
       "groundReservation": [
-        3328,
-        1120,
-        480,
-        224
+        3264,
+        1056,
+        512,
+        192
       ],
       "door": [
-        3568,
-        1376
+        3552,
+        1280
       ],
       "approach": [
-        3568,
-        1472
+        3552,
+        1392
       ],
-      "massing": "long exhibition facade plus strategy deck",
-      "scaleClass": "civic",
-      "npc": "yi",
-      "state": "PROPOSED_NOT_GENERATED"
+      "courtyard": [
+        [
+          3328,
+          1280
+        ],
+        [
+          3840,
+          1280
+        ],
+        [
+          3840,
+          1440
+        ],
+        [
+          3600,
+          1504
+        ],
+        [
+          3344,
+          1408
+        ]
+      ],
+      "facade": "Six-bay long display facade, offset west vestibule and front strategy terrace",
+      "roofArrangement": "Low long hipped roof with small separate vestibule ridge, not academy-U or workshop-L",
+      "references": [
+        "R1",
+        "R2"
+      ],
+      "function": "Yi Sun-sin naval history and strategy pavilion; no invented waterfront harbor",
+      "state": "PLANNING_ONLY_NOT_PRODUCED",
+      "entranceWidth": 64,
+      "doorFacing": "south",
+      "drawLabel": null
     },
     {
       "id": "bookshop",
       "code": "M01",
       "label": "Hiệu sách",
       "zone": "market",
+      "masses": [
+        {
+          "id": "deep-bookshop",
+          "bounds": [
+            288,
+            1536,
+            256,
+            224
+          ],
+          "roof": "matbae",
+          "facadeBays": 2,
+          "ridgeDirection": "east-west"
+        },
+        {
+          "id": "reading-nook",
+          "bounds": [
+            544,
+            1632,
+            96,
+            128
+          ],
+          "roof": "lean-to",
+          "facadeBays": 1,
+          "ridgeDirection": "north-south"
+        }
+      ],
       "groundReservation": [
-        256,
-        1568,
-        320,
-        192
+        288,
+        1536,
+        352,
+        224
       ],
       "door": [
         416,
@@ -282,228 +851,770 @@
       ],
       "approach": [
         416,
-        1856
+        1872
       ],
-      "massing": "narrow deep shop, recessed book frontage",
-      "scaleClass": "market",
-      "npc": null,
-      "state": "PROPOSED_NOT_GENERATED"
+      "courtyard": [
+        [
+          288,
+          1792
+        ],
+        [
+          640,
+          1792
+        ],
+        [
+          640,
+          1920
+        ],
+        [
+          288,
+          1920
+        ]
+      ],
+      "facade": "Narrow deep shop with two display bays and recessed side reading nook",
+      "roofArrangement": "Deep gable plus short low nook roof; frontage follows the bending book lane",
+      "references": [
+        "R4"
+      ],
+      "function": "Book browsing, reading discovery and future vocabulary hooks",
+      "state": "PLANNING_ONLY_NOT_PRODUCED",
+      "entranceWidth": 64,
+      "doorFacing": "south",
+      "drawLabel": null
     },
     {
       "id": "stationery",
       "code": "M02",
-      "label": "Văn phòng phẩm",
+      "label": "Giấy & bút",
       "zone": "market",
+      "masses": [
+        {
+          "id": "paper-shop",
+          "bounds": [
+            768,
+            1504,
+            224,
+            160
+          ],
+          "roof": "matbae",
+          "facadeBays": 3,
+          "ridgeDirection": "east-west"
+        },
+        {
+          "id": "dry-store",
+          "bounds": [
+            992,
+            1568,
+            96,
+            160
+          ],
+          "roof": "matbae",
+          "facadeBays": 1,
+          "ridgeDirection": "north-south"
+        }
+      ],
       "groundReservation": [
         768,
-        1568,
-        256,
-        192
+        1504,
+        320,
+        224
       ],
       "door": [
-        896,
-        1792
+        864,
+        1696
       ],
       "approach": [
-        896,
-        1856
+        864,
+        1792
       ],
-      "massing": "compact corner shop, side storage wing",
-      "scaleClass": "market",
-      "npc": null,
-      "state": "PROPOSED_NOT_GENERATED"
+      "courtyard": [
+        [
+          768,
+          1696
+        ],
+        [
+          960,
+          1696
+        ],
+        [
+          960,
+          1760
+        ],
+        [
+          1088,
+          1760
+        ],
+        [
+          1088,
+          1824
+        ],
+        [
+          768,
+          1856
+        ]
+      ],
+      "facade": "Three shallow paper-display bays, stepped east dry-store and protected loading nook",
+      "roofArrangement": "Two offset gable roofs of different depth; no duplicate of the bookshop footprint",
+      "references": [
+        "R4"
+      ],
+      "function": "Stationery, hanji paper and writing-tool discovery",
+      "state": "PLANNING_ONLY_NOT_PRODUCED",
+      "entranceWidth": 64,
+      "doorFacing": "south",
+      "drawLabel": null
     },
     {
       "id": "teahouse",
       "code": "M03",
       "label": "Trà quán",
       "zone": "market",
+      "masses": [
+        {
+          "id": "tea-room",
+          "bounds": [
+            384,
+            1936,
+            320,
+            112
+          ],
+          "roof": "paljak-inspired",
+          "facadeBays": 4,
+          "ridgeDirection": "east-west"
+        },
+        {
+          "id": "west-kitchen",
+          "bounds": [
+            288,
+            1936,
+            96,
+            160
+          ],
+          "roof": "matbae",
+          "facadeBays": 1,
+          "ridgeDirection": "north-south"
+        }
+      ],
       "groundReservation": [
-        256,
-        1952,
-        384,
-        192
+        288,
+        1936,
+        416,
+        160
       ],
       "door": [
-        448,
-        2176
+        544,
+        2080
       ],
       "approach": [
-        448,
-        2208
+        576,
+        2112
       ],
-      "massing": "low open veranda, intimate tea court",
-      "scaleClass": "market",
-      "npc": null,
-      "state": "PROPOSED_NOT_GENERATED"
+      "courtyard": [
+        [
+          384,
+          2080
+        ],
+        [
+          704,
+          2080
+        ],
+        [
+          736,
+          2112
+        ],
+        [
+          704,
+          2144
+        ],
+        [
+          448,
+          2144
+        ]
+      ],
+      "facade": "Low open four-bay maru veranda, side kitchen and small bank-facing tea court",
+      "roofArrangement": "Shallow main roof with separate kitchen return; outward-facing veranda, not a big civic hall",
+      "references": [
+        "R2",
+        "R4"
+      ],
+      "function": "Tea rest, small social groups and a shaded view toward the stream",
+      "state": "PLANNING_ONLY_NOT_PRODUCED",
+      "entranceWidth": 64,
+      "doorFacing": "south",
+      "drawLabel": null
     },
     {
       "id": "craft",
       "code": "M04",
       "label": "Xưởng thủ công",
       "zone": "market",
+      "masses": [
+        {
+          "id": "open-work-bay",
+          "bounds": [
+            864,
+            1920,
+            256,
+            128
+          ],
+          "roof": "matbae",
+          "facadeBays": 3,
+          "ridgeDirection": "east-west"
+        },
+        {
+          "id": "tool-store",
+          "bounds": [
+            1120,
+            1872,
+            96,
+            176
+          ],
+          "roof": "matbae",
+          "facadeBays": 1,
+          "ridgeDirection": "north-south"
+        }
+      ],
       "groundReservation": [
-        800,
-        1952,
-        320,
-        192
+        864,
+        1872,
+        352,
+        176
       ],
       "door": [
-        960,
-        2176
+        992,
+        2080
       ],
       "approach": [
-        960,
-        2208
+        992,
+        2112
       ],
-      "massing": "open-sided timber work bay, drying court",
-      "scaleClass": "market",
-      "npc": null,
-      "state": "PROPOSED_NOT_GENERATED"
+      "courtyard": [
+        [
+          864,
+          2080
+        ],
+        [
+          1216,
+          2080
+        ],
+        [
+          1216,
+          2176
+        ],
+        [
+          864,
+          2176
+        ]
+      ],
+      "facade": "Three open work bays with tall east tool store; drying court distinct from sales frontage",
+      "roofArrangement": "Stepped two-height roof with open work side, not another shallow paper shop",
+      "references": [
+        "R3",
+        "R4"
+      ],
+      "function": "Craft demonstration, original small-item vocabulary and drying-rack discovery",
+      "state": "PLANNING_ONLY_NOT_PRODUCED",
+      "entranceWidth": 64,
+      "doorFacing": "south",
+      "drawLabel": null
     },
     {
       "id": "pavilion",
       "code": "V01",
-      "label": "Đình nghỉ",
+      "label": "Đình ven hồ",
       "zone": "garden",
+      "masses": [
+        {
+          "id": "open-pavilion",
+          "bounds": [
+            1920,
+            1920,
+            320,
+            128
+          ],
+          "roof": "ujingak-inspired",
+          "facadeBays": 3,
+          "ridgeDirection": "east-west"
+        },
+        {
+          "id": "south-platform",
+          "bounds": [
+            1984,
+            2048,
+            192,
+            64
+          ],
+          "roof": "unroofed platform",
+          "facadeBays": 0,
+          "ridgeDirection": "east-west"
+        }
+      ],
       "groundReservation": [
-        1888,
-        1952,
+        1920,
+        1920,
         320,
         192
       ],
       "door": [
-        2048,
-        2176
+        2080,
+        2144
       ],
       "approach": [
-        2048,
-        2208
+        2080,
+        2176
       ],
-      "massing": "open pavilion, no shop facade or cloned hall",
-      "scaleClass": "ceremonial",
-      "npc": null,
-      "state": "PROPOSED_NOT_GENERATED"
+      "courtyard": [
+        [
+          1936,
+          2144
+        ],
+        [
+          2240,
+          2144
+        ],
+        [
+          2272,
+          2192
+        ],
+        [
+          2176,
+          2224
+        ],
+        [
+          1968,
+          2208
+        ]
+      ],
+      "facade": "Open-sided pavilion with broad view, low terrace and no shop windows",
+      "roofArrangement": "Single compact hipped roof; south platform remains uncovered, lower than all halls",
+      "references": [
+        "R2",
+        "R3"
+      ],
+      "function": "Quiet gathering and framed pond view; pavilion floor/collider to be art-reviewed later",
+      "state": "PLANNING_ONLY_NOT_PRODUCED",
+      "entranceWidth": 64,
+      "doorFacing": "south",
+      "drawLabel": null
     },
     {
       "id": "home-a",
       "code": "R01",
-      "label": "Nhà sân nhỏ",
+      "label": "Nhà sân U",
       "zone": "homes-north",
+      "masses": [
+        {
+          "id": "north-room",
+          "bounds": [
+            2928,
+            1728,
+            320,
+            112
+          ],
+          "roof": "matbae",
+          "facadeBays": 3,
+          "ridgeDirection": "east-west"
+        },
+        {
+          "id": "west-room",
+          "bounds": [
+            2928,
+            1840,
+            96,
+            144
+          ],
+          "roof": "matbae",
+          "facadeBays": 1,
+          "ridgeDirection": "north-south"
+        },
+        {
+          "id": "east-room",
+          "bounds": [
+            3152,
+            1840,
+            96,
+            112
+          ],
+          "roof": "matbae",
+          "facadeBays": 1,
+          "ridgeDirection": "north-south"
+        }
+      ],
       "groundReservation": [
-        2912,
-        1856,
+        2928,
+        1728,
         320,
-        192
+        256
       ],
       "door": [
-        3072,
-        2080
+        3088,
+        2016
       ],
       "approach": [
-        3072,
-        2144
+        3088,
+        2112
       ],
-      "massing": "compact U-court home",
-      "scaleClass": "residential",
-      "npc": null,
-      "state": "PROPOSED_NOT_GENERATED"
+      "courtyard": [
+        [
+          3024,
+          1872
+        ],
+        [
+          3152,
+          1872
+        ],
+        [
+          3152,
+          2064
+        ],
+        [
+          3024,
+          2064
+        ]
+      ],
+      "facade": "Small inward-looking U house, asymmetrical room lengths and recessed courtyard entry",
+      "roofArrangement": "Three modest gables enclosing a small court, well below academy scale",
+      "references": [
+        "R4"
+      ],
+      "function": "Residential quiet court; no public route through private rooms",
+      "state": "PLANNING_ONLY_NOT_PRODUCED",
+      "entranceWidth": 64,
+      "doorFacing": "south",
+      "drawLabel": null,
+      "innerDoor": [
+        3088,
+        1872
+      ]
     },
     {
       "id": "home-b",
       "code": "R02",
-      "label": "Nhà góc ngõ",
+      "label": "Nhà góc L",
       "zone": "homes-north",
+      "masses": [
+        {
+          "id": "main-home",
+          "bounds": [
+            3472,
+            1664,
+            384,
+            128
+          ],
+          "roof": "paljak-inspired",
+          "facadeBays": 4,
+          "ridgeDirection": "east-west"
+        },
+        {
+          "id": "east-kitchen",
+          "bounds": [
+            3728,
+            1792,
+            128,
+            224
+          ],
+          "roof": "matbae",
+          "facadeBays": 2,
+          "ridgeDirection": "north-south"
+        }
+      ],
       "groundReservation": [
-        3488,
-        1824,
-        352,
-        224
+        3472,
+        1664,
+        384,
+        352
       ],
       "door": [
-        3664,
-        2080
+        3568,
+        2064
       ],
       "approach": [
-        3664,
-        2144
+        3568,
+        2128
       ],
-      "massing": "L-court home with side kitchen",
-      "scaleClass": "residential",
-      "npc": null,
-      "state": "PROPOSED_NOT_GENERATED"
+      "courtyard": [
+        [
+          3472,
+          1824
+        ],
+        [
+          3728,
+          1824
+        ],
+        [
+          3728,
+          2064
+        ],
+        [
+          3472,
+          2064
+        ]
+      ],
+      "facade": "Long horizontal house and east kitchen return, sheltered west garden entry",
+      "roofArrangement": "Unequal L roof: broad hip/gable main roof and narrow lower kitchen roof",
+      "references": [
+        "R4"
+      ],
+      "function": "Residential family courtyard with working kitchen garden",
+      "state": "PLANNING_ONLY_NOT_PRODUCED",
+      "entranceWidth": 64,
+      "doorFacing": "south",
+      "drawLabel": null
     },
     {
       "id": "art-studio",
       "code": "S01",
       "label": "Xưởng hội họa",
       "zone": "art",
+      "masses": [
+        {
+          "id": "painting-studio",
+          "bounds": [
+            384,
+            2496,
+            320,
+            144
+          ],
+          "roof": "matbae",
+          "facadeBays": 4,
+          "ridgeDirection": "east-west"
+        },
+        {
+          "id": "east-gallery",
+          "bounds": [
+            704,
+            2496,
+            192,
+            96
+          ],
+          "roof": "lean-to",
+          "facadeBays": 2,
+          "ridgeDirection": "east-west"
+        },
+        {
+          "id": "west-wet-room",
+          "bounds": [
+            384,
+            2640,
+            112,
+            128
+          ],
+          "roof": "matbae",
+          "facadeBays": 1,
+          "ridgeDirection": "north-south"
+        }
+      ],
       "groundReservation": [
-        448,
+        384,
         2496,
-        448,
-        224
+        512,
+        272
       ],
       "door": [
-        672,
-        2752
+        640,
+        2672
       ],
       "approach": [
-        672,
-        2816
+        640,
+        2784
       ],
-      "massing": "low artist hanok with north garden / east painting court",
-      "scaleClass": "educational",
-      "npc": "saimdang",
-      "state": "PROPOSED_NOT_GENERATED"
+      "courtyard": [
+        [
+          512,
+          2672
+        ],
+        [
+          896,
+          2672
+        ],
+        [
+          992,
+          2752
+        ],
+        [
+          944,
+          2864
+        ],
+        [
+          512,
+          2864
+        ]
+      ],
+      "facade": "Long low studio, stepped east display gallery, west washing room; outdoor painting court",
+      "roofArrangement": "Three different-height roof parts around an off-center art court; mostly horizontal display facade",
+      "references": [
+        "R3",
+        "R4"
+      ],
+      "function": "Saimdang art / color / nature vocabulary, drying and painting discoveries",
+      "state": "PLANNING_ONLY_NOT_PRODUCED",
+      "entranceWidth": 64,
+      "doorFacing": "south",
+      "drawLabel": null
     },
     {
       "id": "home-c",
       "code": "R03",
-      "label": "Nhà vườn",
+      "label": "Nhà hai nếp",
       "zone": "homes-south",
+      "masses": [
+        {
+          "id": "front-home",
+          "bounds": [
+            2992,
+            2464,
+            320,
+            112
+          ],
+          "roof": "matbae",
+          "facadeBays": 3,
+          "ridgeDirection": "east-west"
+        },
+        {
+          "id": "garden-suite",
+          "bounds": [
+            3168,
+            2656,
+            208,
+            112
+          ],
+          "roof": "matbae",
+          "facadeBays": 2,
+          "ridgeDirection": "east-west"
+        },
+        {
+          "id": "covered-walk",
+          "bounds": [
+            3248,
+            2576,
+            64,
+            80
+          ],
+          "roof": "covered link",
+          "facadeBays": 1,
+          "ridgeDirection": "north-south"
+        }
+      ],
       "groundReservation": [
-        2944,
-        2528,
-        352,
-        224
+        2992,
+        2464,
+        384,
+        304
       ],
       "door": [
-        3120,
+        3056,
         2784
       ],
       "approach": [
-        3120,
-        2816
+        3024,
+        2848
       ],
-      "massing": "garden home with short return wing",
-      "scaleClass": "residential",
-      "npc": null,
-      "state": "PROPOSED_NOT_GENERATED"
+      "courtyard": [
+        [
+          2992,
+          2608
+        ],
+        [
+          3168,
+          2608
+        ],
+        [
+          3168,
+          2816
+        ],
+        [
+          2992,
+          2816
+        ]
+      ],
+      "facade": "Two offset small pavilions with a narrow covered connector; west shared garden entry",
+      "roofArrangement": "Separated east-west ridges linked at one end; zigzag compound distinct from U and L houses",
+      "references": [
+        "R4"
+      ],
+      "function": "Garden residence and shared herb tending, not a shop",
+      "state": "PLANNING_ONLY_NOT_PRODUCED",
+      "entranceWidth": 64,
+      "doorFacing": "south",
+      "drawLabel": null
     },
     {
       "id": "home-d",
       "code": "R04",
-      "label": "Nhà mái thấp",
+      "label": "Nhà giếng chung",
       "zone": "homes-south",
+      "masses": [
+        {
+          "id": "deep-home",
+          "bounds": [
+            3552,
+            2496,
+            240,
+            192
+          ],
+          "roof": "matbae",
+          "facadeBays": 2,
+          "ridgeDirection": "east-west"
+        },
+        {
+          "id": "porch",
+          "bounds": [
+            3552,
+            2688,
+            240,
+            64
+          ],
+          "roof": "lean-to veranda",
+          "facadeBays": 2,
+          "ridgeDirection": "east-west"
+        }
+      ],
       "groundReservation": [
-        3520,
-        2528,
-        320,
-        192
+        3552,
+        2496,
+        240,
+        256
       ],
       "door": [
-        3680,
-        2752
+        3672,
+        2784
       ],
       "approach": [
-        3680,
-        2816
+        3648,
+        2880
       ],
-      "massing": "small detached house and shared well court",
-      "scaleClass": "residential",
-      "npc": null,
-      "state": "PROPOSED_NOT_GENERATED"
+      "courtyard": [
+        [
+          3552,
+          2784
+        ],
+        [
+          3776,
+          2784
+        ],
+        [
+          3904,
+          2720
+        ],
+        [
+          3904,
+          2912
+        ],
+        [
+          3552,
+          2912
+        ]
+      ],
+      "facade": "Deep two-bay house with long low front porch and east shared-well apron",
+      "roofArrangement": "One deep gable plus shallow veranda roof, no side-wing clone",
+      "references": [
+        "R4"
+      ],
+      "function": "Small dwelling with shared-well discovery off the lane",
+      "state": "PLANNING_ONLY_NOT_PRODUCED",
+      "entranceWidth": 64,
+      "doorFacing": "south",
+      "drawLabel": null
     }
   ],
   "roads": [
@@ -514,28 +1625,106 @@
       "points": [
         [
           2048,
-          544
+          832
         ],
         [
           2048,
-          1408
+          1424
         ]
-      ]
+      ],
+      "reason": "Straight processional avenue; preserve formal alignment"
     },
     {
-      "id": "cross-street",
+      "id": "academy-street",
       "class": "primary",
-      "clearWidth": 128,
+      "clearWidth": 112,
       "points": [
         [
-          128,
+          672,
+          1200
+        ],
+        [
+          960,
+          1248
+        ],
+        [
+          1312,
+          1280
+        ],
+        [
+          1600,
           1408
         ],
         [
-          3968,
-          1408
+          1856,
+          1424
+        ],
+        [
+          2048,
+          1424
         ]
-      ]
+      ],
+      "reason": "Bends around academy enclosure and civic forecourt"
+    },
+    {
+      "id": "history-street",
+      "class": "primary",
+      "clearWidth": 112,
+      "points": [
+        [
+          2048,
+          1424
+        ],
+        [
+          2432,
+          1424
+        ],
+        [
+          2688,
+          1312
+        ],
+        [
+          2880,
+          1216
+        ],
+        [
+          3184,
+          1280
+        ],
+        [
+          3520,
+          1456
+        ],
+        [
+          3888,
+          1504
+        ]
+      ],
+      "reason": "Follows workshop and museum court edges, not rectangular blocks"
+    },
+    {
+      "id": "history-return",
+      "class": "secondary",
+      "clearWidth": 80,
+      "points": [
+        [
+          3520,
+          1456
+        ],
+        [
+          3248,
+          1568
+        ],
+        [
+          3008,
+          1600
+        ],
+        [
+          2816,
+          1552
+        ]
+      ],
+      "reason": "Second route below museum, joining residential approach"
     },
     {
       "id": "west-loop",
@@ -543,14 +1732,43 @@
       "clearWidth": 96,
       "points": [
         [
-          1376,
-          1408
+          1312,
+          1280
         ],
         [
           1376,
-          2816
+          1536
+        ],
+        [
+          1280,
+          1728
+        ],
+        [
+          1408,
+          1952
+        ],
+        [
+          1472,
+          2176
+        ],
+        [
+          1472,
+          2288
+        ],
+        [
+          1472,
+          2448
+        ],
+        [
+          1568,
+          2608
+        ],
+        [
+          1792,
+          2768
         ]
-      ]
+      ],
+      "reason": "Follows market plot edges then aligns straight at west bridge"
     },
     {
       "id": "east-loop",
@@ -558,59 +1776,95 @@
       "clearWidth": 96,
       "points": [
         [
-          2720,
-          1056
+          2688,
+          1312
+        ],
+        [
+          2816,
+          1552
+        ],
+        [
+          2768,
+          1792
+        ],
+        [
+          2848,
+          2016
+        ],
+        [
+          2768,
+          2176
         ],
         [
           2720,
-          2816
+          2288
+        ],
+        [
+          2720,
+          2448
+        ],
+        [
+          2608,
+          2640
+        ],
+        [
+          2368,
+          2704
         ]
-      ]
+      ],
+      "reason": "Hanok frontage and bank terrain produce gentle bends; straight bridge throat"
     },
     {
       "id": "south-return",
       "class": "secondary",
-      "clearWidth": 96,
+      "clearWidth": 80,
       "points": [
         [
-          128,
-          2816
+          1792,
+          2768
         ],
         [
-          3968,
-          2816
-        ]
-      ]
-    },
-    {
-      "id": "academy-approach",
-      "class": "secondary",
-      "clearWidth": 96,
-      "points": [
-        [
-          672,
-          1088
+          2112,
+          2800
         ],
         [
-          672,
-          1408
+          2368,
+          2704
         ]
-      ]
+      ],
+      "reason": "Garden edge joins bridges without making a rectangular loop"
     },
     {
-      "id": "workshop-front",
+      "id": "workshop-approach",
       "class": "secondary",
       "clearWidth": 80,
       "points": [
         [
-          2720,
-          1056
+          3184,
+          1280
         ],
         [
-          3776,
-          1056
+          3168,
+          1184
         ]
-      ]
+      ],
+      "reason": "Short forecourt approach; public road does not cross tool yard"
+    },
+    {
+      "id": "museum-approach",
+      "class": "local",
+      "clearWidth": 64,
+      "points": [
+        [
+          3520,
+          1456
+        ],
+        [
+          3552,
+          1392
+        ]
+      ],
+      "reason": "Strategy terrace entry off history street"
     },
     {
       "id": "book-lane",
@@ -622,97 +1876,311 @@
           1856
         ],
         [
-          1376,
+          256,
           1856
+        ],
+        [
+          544,
+          1872
+        ],
+        [
+          864,
+          1824
+        ],
+        [
+          1152,
+          1808
+        ],
+        [
+          1280,
+          1728
         ]
-      ]
+      ],
+      "reason": "Shop setbacks set the bend; no uniform straight retail strip"
     },
     {
       "id": "tea-lane",
-      "class": "secondary",
-      "clearWidth": 64,
-      "points": [
-        [
-          128,
-          2208
-        ],
-        [
-          1376,
-          2208
-        ]
-      ]
-    },
-    {
-      "id": "market-link",
-      "class": "secondary",
-      "clearWidth": 64,
-      "points": [
-        [
-          1152,
-          1856
-        ],
-        [
-          1152,
-          2208
-        ]
-      ]
-    },
-    {
-      "id": "garden-upper",
-      "class": "garden",
-      "clearWidth": 64,
-      "points": [
-        [
-          1376,
-          1664
-        ],
-        [
-          2720,
-          1664
-        ]
-      ]
-    },
-    {
-      "id": "pavilion-path",
-      "class": "garden",
-      "clearWidth": 64,
-      "points": [
-        [
-          2048,
-          1664
-        ],
-        [
-          2048,
-          1856
-        ],
-        [
-          2304,
-          1856
-        ],
-        [
-          2304,
-          2208
-        ],
-        [
-          2048,
-          2208
-        ]
-      ]
-    },
-    {
-      "id": "north-hanok-alley",
       "class": "local",
       "clearWidth": 64,
       "points": [
         [
-          2720,
+          544,
+          2112
+        ],
+        [
+          832,
+          2128
+        ],
+        [
+          1152,
           2144
         ],
         [
-          3968,
+          1280,
+          2112
+        ],
+        [
+          1408,
+          1952
+        ]
+      ],
+      "reason": "Bank-facing short lane serves tea/craft, stays north of protected bank"
+    },
+    {
+      "id": "market-passage",
+      "class": "local",
+      "clearWidth": 64,
+      "points": [
+        [
+          544,
+          1872
+        ],
+        [
+          704,
+          1856
+        ],
+        [
+          768,
+          1968
+        ],
+        [
+          736,
+          2080
+        ],
+        [
+          832,
+          2128
+        ]
+      ],
+      "reason": "Passage between kitchen wing and craft bay, small secondary market loop"
+    },
+    {
+      "id": "garden-rim",
+      "class": "garden",
+      "clearWidth": 64,
+      "points": [
+        [
+          1408,
+          1952
+        ],
+        [
+          1600,
+          1792
+        ],
+        [
+          1888,
+          1760
+        ],
+        [
+          2240,
+          1792
+        ],
+        [
+          2432,
+          1952
+        ],
+        [
+          2608,
+          2048
+        ],
+        [
+          2848,
+          2016
+        ]
+      ],
+      "reason": "Path follows tree groups and pavilion sightlines, not courtyard grid"
+    },
+    {
+      "id": "pavilion-walk",
+      "class": "garden",
+      "clearWidth": 64,
+      "points": [
+        [
+          1888,
+          1760
+        ],
+        [
+          1760,
+          1920
+        ],
+        [
+          1808,
+          2128
+        ],
+        [
+          2080,
+          2176
+        ]
+      ],
+      "reason": "Approach skirts pavilion west side and turns to terrace"
+    },
+    {
+      "id": "pond-overlook",
+      "class": "garden",
+      "clearWidth": 64,
+      "points": [
+        [
+          2432,
+          1952
+        ],
+        [
+          2496,
+          2144
+        ],
+        [
+          2528,
+          2256
+        ],
+        [
+          2768,
+          2176
+        ]
+      ],
+      "reason": "Northern bank walk, joins east loop without crossing water"
+    },
+    {
+      "id": "hanok-alley",
+      "class": "local",
+      "clearWidth": 64,
+      "points": [
+        [
+          2848,
+          2016
+        ],
+        [
+          3072,
+          2112
+        ],
+        [
+          3408,
+          2096
+        ],
+        [
+          3696,
+          2144
+        ],
+        [
+          3904,
           2144
         ]
-      ]
+      ],
+      "reason": "Uneven residential setbacks; entrances face a shared lane"
+    },
+    {
+      "id": "art-lane",
+      "class": "local",
+      "clearWidth": 64,
+      "points": [
+        [
+          1472,
+          2448
+        ],
+        [
+          1248,
+          2528
+        ],
+        [
+          1056,
+          2672
+        ],
+        [
+          960,
+          2816
+        ],
+        [
+          640,
+          2784
+        ],
+        [
+          288,
+          2832
+        ]
+      ],
+      "reason": "Follows atelier garden and terrace; west end is an intentional discovery corner"
+    },
+    {
+      "id": "art-return",
+      "class": "local",
+      "clearWidth": 64,
+      "points": [
+        [
+          1056,
+          2672
+        ],
+        [
+          1216,
+          2816
+        ],
+        [
+          1472,
+          2864
+        ],
+        [
+          1792,
+          2768
+        ]
+      ],
+      "reason": "Second path reconnects art court to southern garden return"
+    },
+    {
+      "id": "garden-homes-alley",
+      "class": "local",
+      "clearWidth": 64,
+      "points": [
+        [
+          2608,
+          2640
+        ],
+        [
+          2816,
+          2784
+        ],
+        [
+          3056,
+          2864
+        ],
+        [
+          3360,
+          2832
+        ],
+        [
+          3648,
+          2880
+        ],
+        [
+          3904,
+          2784
+        ]
+      ],
+      "reason": "Unequal residential courts establish soft bends, no forced world-border road"
+    },
+    {
+      "id": "west-palace-outside",
+      "class": "local",
+      "clearWidth": 64,
+      "points": [
+        [
+          960,
+          1248
+        ],
+        [
+          1120,
+          1056
+        ],
+        [
+          1184,
+          784
+        ],
+        [
+          1168,
+          560
+        ],
+        [
+          1200,
+          400
+        ]
+      ],
+      "reason": "Outer palace-side lane; ends before closed west service gate"
     }
   ],
   "water": {
@@ -720,73 +2188,147 @@
     "centerline": [
       [
         0,
-        2336
+        2160
       ],
       [
-        768,
-        2336
+        384,
+        2176
       ],
       [
-        1024,
+        672,
+        2240
+      ],
+      [
+        1056,
         2304
       ],
       [
-        1440,
-        2304
+        1312,
+        2352
       ],
       [
-        1696,
-        2368
+        1600,
+        2352
       ],
       [
-        2336,
-        2368
+        1824,
+        2416
       ],
       [
-        2592,
-        2304
+        2048,
+        2432
+      ],
+      [
+        2272,
+        2416
+      ],
+      [
+        2464,
+        2384
+      ],
+      [
+        2624,
+        2352
       ],
       [
         2816,
-        2304
+        2352
       ],
       [
         3072,
-        2336
+        2304
+      ],
+      [
+        3424,
+        2256
+      ],
+      [
+        3712,
+        2304
       ],
       [
         4096,
-        2336
+        2352
       ]
     ],
     "clearWidth": 64,
     "bankReserveEachSide": 24,
-    "flow": "west to east; visible world-edge inlet and outlet",
-    "pondBounds": [
-      1856,
-      2272,
-      384,
-      192
+    "pondPolygon": [
+      [
+        1792,
+        2352
+      ],
+      [
+        1888,
+        2272
+      ],
+      [
+        2080,
+        2256
+      ],
+      [
+        2272,
+        2320
+      ],
+      [
+        2336,
+        2416
+      ],
+      [
+        2240,
+        2528
+      ],
+      [
+        2048,
+        2560
+      ],
+      [
+        1856,
+        2496
+      ],
+      [
+        1792,
+        2416
+      ]
     ],
+    "flow": "West world-edge inlet to east world-edge outlet; continuous stream widens into pond, no isolated decorative rectangle",
     "crossingsOnly": [
       "west-bridge",
       "east-bridge"
     ],
-    "state": "PROPOSED_NOT_IMPLEMENTED"
+    "bankTreatment": [
+      {
+        "reach": "market",
+        "type": "low stone retaining edge below frontages; planted setback to tea court"
+      },
+      {
+        "reach": "garden",
+        "type": "earth/stone shelves, reeds and gradual material transitions; pond irregular shoreline"
+      },
+      {
+        "reach": "bridge",
+        "type": "stone abutments align both banks and perpendicular deck; no path below water"
+      },
+      {
+        "reach": "residential",
+        "type": "vegetated bank and shallow grading toward gardens, no arbitrary quay"
+      }
+    ],
+    "state": "PLANNING_ONLY"
   },
   "bridges": [
     {
       "id": "west-bridge",
       "road": "west-loop",
       "bounds": [
-        1328,
-        2232,
+        1424,
+        2272,
         96,
-        144
+        160
       ],
       "crossing": [
-        1376,
-        2304
+        1472,
+        2352
       ]
     },
     {
@@ -794,172 +2336,1327 @@
       "road": "east-loop",
       "bounds": [
         2672,
-        2232,
+        2272,
         96,
-        144
+        160
       ],
       "crossing": [
         2720,
-        2304
+        2352
       ]
     }
   ],
-  "wall": {
-    "purpose": "Continuous palace boundary north of the public quarter, NOT arbitrary city-wall fragments",
-    "segments": [
-      [
-        [
-          0,
-          448
-        ],
-        [
-          1824,
-          448
-        ]
-      ],
-      [
-        [
-          2272,
-          448
-        ],
-        [
-          4096,
-          448
-        ]
-      ]
-    ],
-    "thickness": 32,
-    "gateSpan": [
-      1824,
-      2272
-    ],
-    "closedNorthReserve": [
-      0,
-      0,
-      4096,
-      224
-    ],
-    "gateAccess": "Forecourt open; passage north stays closed / future, not a false exit"
-  },
   "npcs": [
     {
       "id": "sejong",
       "building": "academy",
       "point": [
-        864,
-        1152
+        832,
+        1008
       ],
-      "role": "Hangul introduction and reading court"
+      "role": "Hangul / quiet teaching court"
     },
     {
       "id": "jang",
       "building": "workshop",
       "point": [
-        3680,
+        3664,
         992
       ],
-      "role": "Invention / astronomy and number learning"
+      "role": "Instrument demonstration / numbers"
     },
     {
       "id": "yi",
       "building": "museum",
       "point": [
         3776,
-        1504
+        1344
       ],
-      "role": "Naval history / strategy, no invented harbor"
+      "role": "Naval history / terrace maps"
     },
     {
       "id": "saimdang",
       "building": "art-studio",
       "point": [
-        960,
+        880,
         2752
       ],
-      "role": "Painting / nature / color vocabulary"
+      "role": "Art / colors / nature"
     }
   ],
   "spawn": [
     1920,
-    1216
+    1328
   ],
-  "arrival": "Central Plaza, looking north toward the civic gate, outside all doorway triggers",
+  "arrival": "Central social bay, not on ceremonial centerline or a door trigger",
   "futureSockets": [
     {
       "id": "west-market",
       "point": [
         128,
-        1408
+        1856
       ],
       "state": "CLOSED_UNTIL_APPROVED"
     },
     {
       "id": "east-history",
       "point": [
-        3968,
-        1408
+        3888,
+        1504
       ],
       "state": "CLOSED_UNTIL_APPROVED"
     },
     {
       "id": "south-neighborhood",
       "point": [
-        2720,
-        2944
+        3904,
+        2784
       ],
       "state": "CLOSED_UNTIL_APPROVED"
     }
   ],
-  "reviewGate": "APPROVE_ZONING_BEFORE_ART_OR_FINAL_MAP_ASSEMBLY",
-  "estimatedTravelNote": "Civic axis 864px =14.4s walk/8.6s run. Bridge circuit 5504px =91.7s walk/55.0s run before stops. Estimates from proposed centerlines, not measured gameplay.",
+  "reviewGate": "PRESENT_REFINED_MASTERPLAN_AND_STOP_FOR_EXPLICIT_APPROVAL_BEFORE_FINAL_ART_OR_MAP_PRODUCTION",
+  "estimatedTravelNote": "See planning-check.json for recalculated centerline estimates at unchanged walk60/run100. No gameplay timing measurement of proposed map.",
   "sourceArtCallsThisGate": 0,
   "paidCalls": 0,
   "runtimeChangesThisGate": false,
   "courts": [
     {
-      "id": "academy-court",
-      "bounds": [
-        256,
-        992,
-        896,
-        256
-      ]
+      "id": "gate-court",
+      "polygon": [
+        [
+          1824,
+          768
+        ],
+        [
+          2272,
+          768
+        ],
+        [
+          2272,
+          896
+        ],
+        [
+          1824,
+          896
+        ]
+      ],
+      "belongsTo": "gate"
     },
     {
-      "id": "plaza-open-floor",
-      "bounds": [
-        1536,
-        928,
-        1024,
-        320
-      ]
+      "id": "academy-court",
+      "polygon": [
+        [
+          448,
+          800
+        ],
+        [
+          896,
+          800
+        ],
+        [
+          896,
+          1088
+        ],
+        [
+          944,
+          1088
+        ],
+        [
+          944,
+          1248
+        ],
+        [
+          448,
+          1248
+        ]
+      ],
+      "belongsTo": "academy"
+    },
+    {
+      "id": "monument-court",
+      "polygon": [
+        [
+          2208,
+          1200
+        ],
+        [
+          2368,
+          1200
+        ],
+        [
+          2368,
+          1312
+        ],
+        [
+          2208,
+          1312
+        ]
+      ],
+      "belongsTo": "monument"
     },
     {
       "id": "workshop-court",
-      "bounds": [
-        2880,
-        960,
-        960,
-        176
-      ]
+      "polygon": [
+        [
+          3040,
+          672
+        ],
+        [
+          3392,
+          672
+        ],
+        [
+          3392,
+          880
+        ],
+        [
+          3744,
+          880
+        ],
+        [
+          3744,
+          1088
+        ],
+        [
+          3040,
+          1088
+        ]
+      ],
+      "belongsTo": "workshop"
     },
     {
-      "id": "museum-terrace",
-      "bounds": [
-        3264,
-        1376,
-        640,
-        160
-      ]
+      "id": "museum-court",
+      "polygon": [
+        [
+          3328,
+          1280
+        ],
+        [
+          3840,
+          1280
+        ],
+        [
+          3840,
+          1440
+        ],
+        [
+          3600,
+          1504
+        ],
+        [
+          3344,
+          1408
+        ]
+      ],
+      "belongsTo": "museum"
     },
     {
-      "id": "art-court",
-      "bounds": [
-        256,
-        2752,
-        896,
-        128
-      ]
+      "id": "bookshop-court",
+      "polygon": [
+        [
+          288,
+          1792
+        ],
+        [
+          640,
+          1792
+        ],
+        [
+          640,
+          1920
+        ],
+        [
+          288,
+          1920
+        ]
+      ],
+      "belongsTo": "bookshop"
+    },
+    {
+      "id": "stationery-court",
+      "polygon": [
+        [
+          768,
+          1696
+        ],
+        [
+          960,
+          1696
+        ],
+        [
+          960,
+          1760
+        ],
+        [
+          1088,
+          1760
+        ],
+        [
+          1088,
+          1824
+        ],
+        [
+          768,
+          1856
+        ]
+      ],
+      "belongsTo": "stationery"
+    },
+    {
+      "id": "teahouse-court",
+      "polygon": [
+        [
+          384,
+          2080
+        ],
+        [
+          704,
+          2080
+        ],
+        [
+          736,
+          2112
+        ],
+        [
+          704,
+          2144
+        ],
+        [
+          448,
+          2144
+        ]
+      ],
+      "belongsTo": "teahouse"
+    },
+    {
+      "id": "craft-court",
+      "polygon": [
+        [
+          864,
+          2080
+        ],
+        [
+          1216,
+          2080
+        ],
+        [
+          1216,
+          2176
+        ],
+        [
+          864,
+          2176
+        ]
+      ],
+      "belongsTo": "craft"
+    },
+    {
+      "id": "pavilion-court",
+      "polygon": [
+        [
+          1936,
+          2144
+        ],
+        [
+          2240,
+          2144
+        ],
+        [
+          2272,
+          2192
+        ],
+        [
+          2176,
+          2224
+        ],
+        [
+          1968,
+          2208
+        ]
+      ],
+      "belongsTo": "pavilion"
+    },
+    {
+      "id": "home-a-court",
+      "polygon": [
+        [
+          3024,
+          1872
+        ],
+        [
+          3152,
+          1872
+        ],
+        [
+          3152,
+          2064
+        ],
+        [
+          3024,
+          2064
+        ]
+      ],
+      "belongsTo": "home-a"
+    },
+    {
+      "id": "home-b-court",
+      "polygon": [
+        [
+          3472,
+          1824
+        ],
+        [
+          3728,
+          1824
+        ],
+        [
+          3728,
+          2064
+        ],
+        [
+          3472,
+          2064
+        ]
+      ],
+      "belongsTo": "home-b"
+    },
+    {
+      "id": "art-studio-court",
+      "polygon": [
+        [
+          512,
+          2672
+        ],
+        [
+          896,
+          2672
+        ],
+        [
+          992,
+          2752
+        ],
+        [
+          944,
+          2864
+        ],
+        [
+          512,
+          2864
+        ]
+      ],
+      "belongsTo": "art-studio"
+    },
+    {
+      "id": "home-c-court",
+      "polygon": [
+        [
+          2992,
+          2608
+        ],
+        [
+          3168,
+          2608
+        ],
+        [
+          3168,
+          2816
+        ],
+        [
+          2992,
+          2816
+        ]
+      ],
+      "belongsTo": "home-c"
+    },
+    {
+      "id": "home-d-court",
+      "polygon": [
+        [
+          3552,
+          2784
+        ],
+        [
+          3776,
+          2784
+        ],
+        [
+          3904,
+          2720
+        ],
+        [
+          3904,
+          2912
+        ],
+        [
+          3552,
+          2912
+        ]
+      ],
+      "belongsTo": "home-d"
+    },
+    {
+      "id": "plaza-open-floor",
+      "polygon": [
+        [
+          1536,
+          960
+        ],
+        [
+          2496,
+          960
+        ],
+        [
+          2560,
+          1248
+        ],
+        [
+          2432,
+          1424
+        ],
+        [
+          1600,
+          1424
+        ],
+        [
+          1472,
+          1184
+        ]
+      ],
+      "belongsTo": "plaza"
     }
-  ]
+  ],
+  "revision": 2,
+  "palace": {
+    "bounds": [
+      1280,
+      64,
+      1536,
+      640
+    ],
+    "interiorMode": "RESERVED_CONTEXT_CLOSED_TO_PLAY",
+    "name": "Fictional palace forecourt, inspired by Gwanghwamun hierarchy, not scaled Gyeongbokgung",
+    "wallThickness": 32,
+    "segments": [
+      {
+        "id": "north-return",
+        "points": [
+          [
+            1280,
+            64
+          ],
+          [
+            2816,
+            64
+          ]
+        ]
+      },
+      {
+        "id": "west-upper-return",
+        "points": [
+          [
+            1280,
+            64
+          ],
+          [
+            1280,
+            336
+          ]
+        ]
+      },
+      {
+        "id": "west-lower-return",
+        "points": [
+          [
+            1280,
+            432
+          ],
+          [
+            1280,
+            704
+          ]
+        ]
+      },
+      {
+        "id": "east-upper-return",
+        "points": [
+          [
+            2816,
+            64
+          ],
+          [
+            2816,
+            336
+          ]
+        ]
+      },
+      {
+        "id": "east-lower-return",
+        "points": [
+          [
+            2816,
+            432
+          ],
+          [
+            2816,
+            704
+          ]
+        ]
+      },
+      {
+        "id": "front-west",
+        "points": [
+          [
+            1280,
+            704
+          ],
+          [
+            1856,
+            704
+          ]
+        ]
+      },
+      {
+        "id": "front-east",
+        "points": [
+          [
+            2240,
+            704
+          ],
+          [
+            2816,
+            704
+          ]
+        ]
+      }
+    ],
+    "gates": [
+      {
+        "id": "main-gate",
+        "building": "gate",
+        "boundaryLine": [
+          [
+            1856,
+            704
+          ],
+          [
+            2240,
+            704
+          ]
+        ],
+        "state": "CLOSED_VIEWABLE_FROM_PUBLIC_FORECOURT",
+        "approach": [
+          2048,
+          832
+        ]
+      },
+      {
+        "id": "west-service-gate",
+        "bounds": [
+          1248,
+          336,
+          64,
+          96
+        ],
+        "boundaryLine": [
+          [
+            1280,
+            336
+          ],
+          [
+            1280,
+            432
+          ]
+        ],
+        "state": "CLOSED_SERVICE_RESERVE",
+        "approach": [
+          1200,
+          400
+        ]
+      },
+      {
+        "id": "east-service-gate",
+        "bounds": [
+          2784,
+          336,
+          64,
+          96
+        ],
+        "boundaryLine": [
+          [
+            2816,
+            336
+          ],
+          [
+            2816,
+            432
+          ]
+        ],
+        "state": "CLOSED_SERVICE_RESERVE",
+        "approach": null
+      }
+    ],
+    "contextMasses": [
+      {
+        "id": "rear-hall",
+        "bounds": [
+          1856,
+          128,
+          384,
+          128
+        ],
+        "label": "SẢNH BẮC · CHỈ ĐẶT CHỖ"
+      },
+      {
+        "id": "inner-gate",
+        "bounds": [
+          1984,
+          368,
+          128,
+          64
+        ],
+        "label": "CỔNG TRONG"
+      }
+    ],
+    "contextCourts": [
+      {
+        "id": "inner-court",
+        "bounds": [
+          1792,
+          272,
+          512,
+          80
+        ]
+      },
+      {
+        "id": "outer-court",
+        "bounds": [
+          1760,
+          448,
+          576,
+          80
+        ]
+      }
+    ],
+    "contextAxis": [
+      [
+        2048,
+        256
+      ],
+      [
+        2048,
+        544
+      ]
+    ],
+    "references": [
+      "R1",
+      "R2"
+    ],
+    "publicQuarterRule": "Palace enclosure only. No fortress walls around market/residences; house plot edges are low domestic boundaries with entrances, not city defenses."
+  },
+  "landscapeParcels": [
+    {
+      "id": "academy-orchard",
+      "label": "Vườn học viện",
+      "polygon": [
+        [
+          192,
+          64
+        ],
+        [
+          1088,
+          64
+        ],
+        [
+          1152,
+          224
+        ],
+        [
+          1056,
+          480
+        ],
+        [
+          192,
+          480
+        ]
+      ],
+      "purpose": "fruit / teaching plants; quiet backdrop, not blank north-west terrain"
+    },
+    {
+      "id": "workshop-yard",
+      "label": "Sân vật liệu",
+      "polygon": [
+        [
+          3008,
+          48
+        ],
+        [
+          3936,
+          48
+        ],
+        [
+          3936,
+          224
+        ],
+        [
+          3008,
+          224
+        ]
+      ],
+      "purpose": "materials and instrument service plots behind workshop; not decorative scattered props"
+    },
+    {
+      "id": "west-kitchen-gardens",
+      "label": "Vườn rau bếp",
+      "polygon": [
+        [
+          64,
+          800
+        ],
+        [
+          256,
+          800
+        ],
+        [
+          256,
+          1280
+        ],
+        [
+          64,
+          1408
+        ]
+      ],
+      "purpose": "kitchen gardens serving academy and market"
+    },
+    {
+      "id": "market-rear-yards",
+      "label": "Sân hậu cửa hàng",
+      "polygon": [
+        [
+          160,
+          1376
+        ],
+        [
+          832,
+          1328
+        ],
+        [
+          1120,
+          1408
+        ],
+        [
+          1120,
+          1488
+        ],
+        [
+          160,
+          1504
+        ]
+      ],
+      "purpose": "storage/service frontage buffers; no public circulation through stores"
+    },
+    {
+      "id": "south-herbs",
+      "label": "Vườn thảo mộc",
+      "polygon": [
+        [
+          1504,
+          2912
+        ],
+        [
+          2176,
+          2880
+        ],
+        [
+          2496,
+          2800
+        ],
+        [
+          2656,
+          2944
+        ],
+        [
+          2464,
+          3040
+        ],
+        [
+          1536,
+          3040
+        ]
+      ],
+      "purpose": "shared herb beds reached from south return, soft world-edge landscape"
+    },
+    {
+      "id": "east-home-gardens",
+      "label": "Vườn sau nhà",
+      "polygon": [
+        [
+          3968,
+          1712
+        ],
+        [
+          4064,
+          1712
+        ],
+        [
+          4064,
+          2976
+        ],
+        [
+          4000,
+          2976
+        ],
+        [
+          4000,
+          2208
+        ],
+        [
+          3968,
+          2112
+        ]
+      ],
+      "purpose": "small orchard edge outside household frontage; not fortress perimeter"
+    },
+    {
+      "id": "west-bank-garden",
+      "label": "Vườn bờ tây",
+      "polygon": [
+        [
+          128,
+          2240
+        ],
+        [
+          512,
+          2304
+        ],
+        [
+          768,
+          2368
+        ],
+        [
+          1056,
+          2384
+        ],
+        [
+          1184,
+          2464
+        ],
+        [
+          1056,
+          2528
+        ],
+        [
+          192,
+          2368
+        ]
+      ],
+      "purpose": "planted stream-to-art transition, short views and no hidden river crossing"
+    }
+  ],
+  "discoveries": [
+    {
+      "id": "D01",
+      "label": "Cổng & trục nhìn",
+      "point": [
+        2048,
+        864
+      ],
+      "function": "gate forecourt",
+      "route": "civic-axis",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D02",
+      "label": "Sân gặp gỡ",
+      "point": [
+        1888,
+        1328
+      ],
+      "function": "clear social bay, off centerline",
+      "route": "academy-street",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D03",
+      "label": "Bảng chỉ dẫn",
+      "point": [
+        2496,
+        1360
+      ],
+      "function": "junction wayfinding bay",
+      "route": "history-street",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D04",
+      "label": "Sân dụng cụ",
+      "point": [
+        3168,
+        1184
+      ],
+      "function": "workshop demo",
+      "route": "workshop-approach",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D05",
+      "label": "Hiên chiến lược",
+      "point": [
+        3552,
+        1392
+      ],
+      "function": "history terrace",
+      "route": "museum-approach",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D06",
+      "label": "Ngõ hai sân",
+      "point": [
+        3008,
+        1616
+      ],
+      "function": "household sign / garden overlook",
+      "route": "history-return",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D07",
+      "label": "Cổng sân hanok",
+      "point": [
+        3088,
+        2112
+      ],
+      "function": "readable private entry",
+      "route": "hanok-alley",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D08",
+      "label": "Đầu cầu đông",
+      "point": [
+        2720,
+        2224
+      ],
+      "function": "bridge approach landing",
+      "route": "east-loop",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D09",
+      "label": "Mép hồ",
+      "point": [
+        2528,
+        2256
+      ],
+      "function": "reeds / water observation bay",
+      "route": "pond-overlook",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D10",
+      "label": "Vườn nhà chung",
+      "point": [
+        3056,
+        2864
+      ],
+      "function": "shared herb garden frontage",
+      "route": "garden-homes-alley",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D11",
+      "label": "Giếng ngõ",
+      "point": [
+        3888,
+        2744
+      ],
+      "function": "shared well apron, no solid object on path",
+      "route": "garden-homes-alley",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D12",
+      "label": "Vườn thảo mộc",
+      "point": [
+        2112,
+        2800
+      ],
+      "function": "garden rest off return walk",
+      "route": "south-return",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D13",
+      "label": "Sân vẽ",
+      "point": [
+        880,
+        2752
+      ],
+      "function": "painting court",
+      "route": "art-lane",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D14",
+      "label": "Hiên thư viện",
+      "point": [
+        672,
+        1200
+      ],
+      "function": "academy threshold",
+      "route": "academy-street",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D15",
+      "label": "Đầu cầu tây",
+      "point": [
+        1472,
+        2224
+      ],
+      "function": "bridge approach landing",
+      "route": "west-loop",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D16",
+      "label": "Hiên trà",
+      "point": [
+        576,
+        2112
+      ],
+      "function": "tea court / bank view",
+      "route": "tea-lane",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D17",
+      "label": "Phơi giấy thủ công",
+      "point": [
+        992,
+        2112
+      ],
+      "function": "workcourt dry racks kept outside lane",
+      "route": "tea-lane",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D18",
+      "label": "Góc đọc sách",
+      "point": [
+        416,
+        1872
+      ],
+      "function": "recessed bookshop court",
+      "route": "book-lane",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D19",
+      "label": "Giấy & bút",
+      "point": [
+        864,
+        1792
+      ],
+      "function": "stationery frontage",
+      "route": "book-lane",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D20",
+      "label": "Cổng phục vụ cung",
+      "point": [
+        1200,
+        400
+      ],
+      "function": "view closed service gate from exterior",
+      "route": "west-palace-outside",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D21",
+      "label": "Đình nhìn hồ",
+      "point": [
+        2080,
+        2176
+      ],
+      "function": "pavilion terrace",
+      "route": "pavilion-walk",
+      "state": "PLANNING_ONLY"
+    },
+    {
+      "id": "D22",
+      "label": "Góc vườn ginkgo",
+      "point": [
+        1600,
+        1792
+      ],
+      "function": "shaded seating recess outside path",
+      "route": "garden-rim",
+      "state": "PLANNING_ONLY"
+    }
+  ],
+  "explorationRoutes": [
+    {
+      "id": "civic-spine",
+      "label": "Formal ceremonial axis",
+      "points": [
+        [
+          2048,
+          832
+        ],
+        [
+          2048,
+          1424
+        ]
+      ],
+      "width": 160,
+      "state": "PROPOSED"
+    },
+    {
+      "id": "main-neighborhood-loop",
+      "label": "Main discovery loop",
+      "points": [
+        [
+          2048,
+          1424
+        ],
+        [
+          2432,
+          1424
+        ],
+        [
+          2688,
+          1312
+        ],
+        [
+          2880,
+          1216
+        ],
+        [
+          3184,
+          1280
+        ],
+        [
+          3520,
+          1456
+        ],
+        [
+          3248,
+          1568
+        ],
+        [
+          3008,
+          1600
+        ],
+        [
+          2816,
+          1552
+        ],
+        [
+          2768,
+          1792
+        ],
+        [
+          2848,
+          2016
+        ],
+        [
+          2768,
+          2176
+        ],
+        [
+          2720,
+          2288
+        ],
+        [
+          2720,
+          2448
+        ],
+        [
+          2608,
+          2640
+        ],
+        [
+          2368,
+          2704
+        ],
+        [
+          2112,
+          2800
+        ],
+        [
+          1792,
+          2768
+        ],
+        [
+          1568,
+          2608
+        ],
+        [
+          1472,
+          2448
+        ],
+        [
+          1472,
+          2288
+        ],
+        [
+          1472,
+          2176
+        ],
+        [
+          1408,
+          1952
+        ],
+        [
+          1280,
+          1728
+        ],
+        [
+          1376,
+          1536
+        ],
+        [
+          1312,
+          1280
+        ],
+        [
+          1600,
+          1408
+        ],
+        [
+          1856,
+          1424
+        ],
+        [
+          2048,
+          1424
+        ]
+      ],
+      "state": "PROPOSED_NOT_WALKED_IN_ENGINE"
+    }
+  ],
+  "perspectiveContract": {
+    "camera": "orthographic top-down / light 3/4; no isometric tile diamonds",
+    "facades": "principal facades east-west / south-facing; road bends do not rotate buildings",
+    "roofAxes": "main ridge horizontal, short return wings perpendicular; no arbitrary 45 degree building rotation",
+    "doorReadability": "plan doorway clearance64px; future visible door height88–96px against80px Juni; verify at camera1x before art approval",
+    "depth": "separate roof/eave/front-wall/platform/trunk/canopy layers after approval; diagram is footprint/roof arrangement only"
+  },
+  "densityContract": {
+    "rule": "Functional plots and off-route discoveries, not uniform filler or blank traversal",
+    "discoveryCount": 22,
+    "explorationRhythm": "Target identifiable frontage, junction, courtyard or landscape change every roughly240–440px on primary discovery routes; measure below and refine after real gameplay.",
+    "doNotClaim": "Density and route distance are planning metrics, not a guarantee of fun or physical-device performance.",
+    "openSpaces": [
+      "social plaza and sightline",
+      "academy court",
+      "instrument demonstration court",
+      "pavilion pond view"
+    ],
+    "budget": "Use reused geometry/tiles and layered reusable props after approval; do not expand world to add empty time."
+  },
+  "referencesFile": "references.json"
 }

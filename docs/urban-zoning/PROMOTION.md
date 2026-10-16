@@ -1,3 +1,9 @@
+# Current refinement gate
+
+The overall zoning has provisional user acceptance. The user requires approval of the refined masterplan before final buildings/map production; this is not completed-district visual approval or merge/publication permission. Read URBAN_PLANNING_REFINEMENT.md and PLAN.md first. Main/Pages stay unchanged. The future promotion sequence below remains in force and must be rerun against current refs after production/review gates.
+
+## Previous audit / retained promotion policy
+
 # Future main promotion — prepared policy, no PR/merge/deploy now
 
 The latest user request explicitly makes district visual approval, gameplay tests and clean-clone verification prerequisites to preparing a PR targeting main. The current action is the zoning proposal only. There is no approval of the new district and no publication authorization. Therefore **no PR is opened yet**, no merge, no main push, no Pages settings write and no deployment run.

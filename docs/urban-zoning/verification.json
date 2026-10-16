@@ -1,53 +1,69 @@
 {
-  "status": "ZONING_REVIEW_READY_NOT_APPROVED",
-  "observedAtUTC": "2026-10-16T02:38:51.478350+00:00",
-  "baseline": "d5701fc251913e28ad9cea6ae3404a88a553adbd",
-  "diagram": {
-    "visuallyInspected": true,
-    "kind": "planning schematic; not a Phaser render",
+  "status": "REFINED_MASTERPLAN_READY_FOR_USER_APPROVAL_NOT_PRODUCTION_APPROVAL",
+  "authority": "../current/URBAN_PLANNING_REFINEMENT.md",
+  "observedAtUTC": "2026-10-16T05:43:58.438751+00:00",
+  "baseline": "ec520e328437296a77e71e11752e74c1eb738e71",
+  "userAcceptance": "Overall zoning concept PROVISIONALLY accepted; refined masterplan/final art/map production approval still pending",
+  "visualInspection": {
+    "finalMasterplanAndFootprintBoardActuallyOpened": true,
+    "kind": "schematic diagrams, NOT final pixel buildings or Phaser map screenshots",
     "files": {
-      "district-zoning-plan.png": "081fa040b571eb46d29c4ee345d2bae28d6507aeaa8225cae35fccf5b767fc41",
-      "district-zoning-plan.svg": "6125ab68f6425e7b0c424f9a4e7c2303741d83db9772c383b88ab660e59b0297",
-      "zoning-plan.json": "9b6db3aa184b003257c9b7d7f7afe64a50a98ec9aa03587d37bcb8079c534948"
+      "district-zoning-plan.png": "75321cce2b5fd1181e03903cb4444267283f82100c01c8c052fa8537e5025980",
+      "district-zoning-plan.svg": "900ca758906a2d53131b6e8f235a6df61c2a0612f95fe1b16df3765edcb9e82c",
+      "building-footprints.png": "1e9d8923a72669c571f8e8f1c22e885bd2b1e1f71b6541aa4d5fcf99ca50d4fc",
+      "building-footprints.svg": "2231e6264773ed7edcdf60e8c5b78cdd9053f1f6c05bd7c68124cdb89434dbb7",
+      "zoning-plan.json": "0d99794d0eb0362a25e43111fd5c612bdf9a39a1fd2bb9185d94981ddc026169",
+      "references.json": "b00189f93699250c4d77ec40f32e8737a65b52d3e54936bf95e458e5a10b3d7e"
     },
-    "planningTargets": 19,
-    "buildingReservationOverlaps": 0,
-    "npcInsideBuildingReservations": 0,
-    "all9636SampledWalkCellsConnected": true
+    "svgXMLValidUniqueGroups": {
+      "district-zoning-plan.svg": 72,
+      "building-footprints.svg": 30
+    }
+  },
+  "planning": {
+    "reachableTargets": 41,
+    "walkCells": 37022,
+    "connectedCells": 37022,
+    "roadIntrusions": 0,
+    "buildingOverlaps": 0,
+    "closedPalaceRing": true,
+    "wallsInMarketOrHomes": 0,
+    "validBridges": 2,
+    "finalRuntimeNavigationOrCollisionProven": false
+  },
+  "research": {
+    "contentVerifiedOfficialSources": 4,
+    "all15BuildingsMappedToSources": true,
+    "rejectedBukchonLookups": 2,
+    "noExternalImagesOrMapAssetsCopied": true
   },
   "preservation": {
-    "protectedFilesByteEqualToBaseline": 694,
-    "runtimeSourceTestsAssetsLockWorkflowsChanged": false,
-    "baselineMainDeletions": 0
+    "protectedSourceRuntimeAssetTestConfigFilesUnchanged": 694,
+    "main": "33360ed1989e4db9fc3fc4e3686ca385e0b00908",
+    "publicHTMLSHA256": "082c661b5da2b4c8e66e81b2f52405ef460947bfeff27e2fd6fe771b2e3c716f",
+    "noRuntimeRebuildOrFinalBuildingGeneration": true
   },
   "localSetup": {
     "command": "CI=true bash tools/setup.sh",
     "exitCode": 0,
-    "logSha256": "1a74b1ac0ef87c5ae0d98f60fa4078bb4fed7dbed076c2e4ca704a46d8ab9e98",
-    "offlineAssets": "PASS",
-    "types": "PASS",
-    "lint": "PASS",
-    "format": "PASS",
-    "unitTests": {
-      "passed": 12
-    },
-    "productionBuild": "PASS",
+    "logSha256": "8e71483cb457e48cf7504a5fdb65e1f07fa7609ae79fc0f9bce607a78bc8c716",
+    "offlineAssetsTypesLintFormatProduction": "PASS",
+    "unitPassed": 12,
     "browser": {
-      "startTime": "2026-10-16T02:36:01.304Z",
-      "duration": 101856.772,
+      "startTime": "2026-10-16T03:28:32.208Z",
+      "duration": 105262.10100000001,
       "expected": 12,
       "skipped": 0,
       "unexpected": 0,
       "flaky": 0
     }
   },
-  "tools": "TOOLCHAIN.md; diagnostic only, no image/API/provider calls",
-  "finalExactSHA_CI_cleanClone_remoteTag": "Recorded after independent observation in annotated checkpoint/urban-zoning-review-20261016; inspect actual tag. Not asserted by this pre-commit document.",
-  "approvalRequired": "User must approve zoning before new final-map art/assembly; later completed district visual/gameplay/clean-clone approval precedes main PR; merge needs separate explicit authorization.",
-  "noPRMergeOrDeployment": true,
+  "finalExactSHA_CI_cleanClone_remoteTag": "Recorded after independent observation in actual annotated checkpoint/urban-refinement-review-20261016, not asserted in this pre-commit report.",
+  "noPaidAPIsPRMergeOrDeployment": true,
   "limits": [
-    "Proposed 4096x3072 map is NOT implemented or rendered in Phaser.",
-    "Planning check is approximate; final Forge nav/Tiled/collision/roof-alpha/mobile-gameplay checks remain unrun until zoning approval.",
-    "Existing asset QA warnings/failures are retained; no all-art-QA-pass or physical-phone-FPS claim."
+    "Proposed map is unbuilt; no new engine screenshot or gameplay capture is claimed.",
+    "Final visual art/depth, roof/canopy/collision/Tiled/Phaser/mobile validation awaits masterplan approval and production authorization.",
+    "Planning metrics do not establish playability/fun, faithful historical reconstruction or measured physical-device performance.",
+    "Historical raw extraction, room-marker and Juni weak-motion reports are retained; not all art QA passed."
   ]
 }

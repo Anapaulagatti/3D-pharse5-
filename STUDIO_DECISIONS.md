@@ -1,3 +1,16 @@
+# URBAN-PLAN-002 — refinement decisions
+
+1. Provisional acceptance of overall zoning supersedes previous entirely-unaccepted language, but does not authorize production. Honor explicit final-masterplan approval gate; no final buildings or playable map changes.
+2. Replace infinite north wall with bounded palace compound, north/east/west returns and classified closed gates. Show context hierarchy without promising palace interior gameplay; ordinary households are outside fortress walls.
+3. Preserve straight formal avenue; all secondary bends reflect named plot/court/house-kitchen/stream-edge constraints. Keep building principal facades horizontal even on curving roads; no isometric house rotation.
+4. Use actual multi-mass geometric footprints and distinct roof/facade/court/entrance schedules, not repeated colored rectangles. Shared Korean architectural vocabulary is not a license to clone buildings. GroundReservation bounding boxes are not runtime colliders.
+5. Keep stream and pond connected with graded regional banks; exactly two aligned bridges maintain a discovery loop. Larger dimension is unchanged, not empty-world expansion. Seven functional landscape parcels/22discoveries are planning uses, not produced gameplay.
+6. Four actual official texts informed the plan; record factual observation vs original design adaptation and no faithful-reconstruction claim. One Bukchon404 and one wrong-content200 explicitly excluded from evidence.
+7. Fix five first-pass route intrusions and isolate-platform access by moving geometry/adding a real courtyard apron; preserve QA thresholds and raw failed report. Planning-space QA never claims runtime art/collision approval.
+8. Preserve Juni/current game and all recovery tags/main/public site. Reuse existing tooling, no new dependencies or generation/provider calls. Read mandatory registry/actual Forge skills; this task executes diagram/check tooling only. Production later follows actual Forge/Juni pipelines.
+
+## Historical decisions
+
 # URBAN-PLAN-001 — planning decisions
 
 1. Honor the explicit user gate: deliver zoning +placement logic first, then STOP. Do not manufacture a new playable map before that approval. No art or character generation this gate.

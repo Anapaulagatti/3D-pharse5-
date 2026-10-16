@@ -1,3 +1,13 @@
+# URBAN-PLAN-002 — refined planning inventory
+
+- docs/current/URBAN_PLANNING_REFINEMENT.md: complete latest request; provisional zoning acceptance and continued production gate.
+- docs/urban-zoning/zoning-plan.json v2: same4096×3072envelope,9zones,15multi-mass building/landmark footprints with roof/facade/entrance/courts,20road/path lines with reasons,palace wall returns+main/2side gates+reserved inner context,continuous stream/irregular pond/2bridges,4NPC planning points,22discoveries,7landscape/service parcels.
+- district-zoning-plan.png/.svg +building-footprints.png/.svg: editable planning render and same-scale architectural schedule, NOT sprites or in-engine screenshots. planning-clearance.png/planning-check.json are preliminary schematic geometry evidence.
+- PLAN.md,placement-rules.md,BUILDING_SCHEDULE.md,DISCOVERY_DENSITY.md,HISTORICAL_REFERENCES.md,references.json: original placement/function/perspective/landscape logic and four actual official references, no copied images/maps. First failed geometry report retained in history/.
+- tools/render_urban_zoning.py /check_urban_zoning.py only author/check planning diagrams; never map art/runtime bundles/colliders. Proven optional Forge/Juni tooling remains outside runtime. No new art/animations/NPCs/tiles/models/dependencies. Current source/game/Juni/assets/lock/test/old reviews retained byte-for-byte at recovery/before-urban-refinement-20261016 ->ec520e3.
+
+## Historical inventory
+
 # URBAN-PLAN-001 — planning inventory
 
 - docs/current/URBAN_LOGIC_RESET.md: complete verbatim latest user request, including zoning approval and safe main-promotion constraints.

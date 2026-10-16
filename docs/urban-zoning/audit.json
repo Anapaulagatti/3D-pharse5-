@@ -1,13 +1,12 @@
 {
   "status": "PASS",
-  "baseline": "d5701fc251913e28ad9cea6ae3404a88a553adbd",
+  "observedAtUTC": "2026-10-16T03:28:27.086369+00:00",
+  "baseline": "ec520e328437296a77e71e11752e74c1eb738e71",
   "stableMain": "33360ed1989e4db9fc3fc4e3686ca385e0b00908",
-  "developmentBranch": "rebuild/pixel-social-rpg-v3",
-  "mainIsAncestor": true,
-  "baselineMainDiff": {
-    "paths": 823,
-    "deletions": []
-  },
+  "remoteRefsBeforeCheckpoint": [
+    "33360ed1989e4db9fc3fc4e3686ca385e0b00908\trefs/heads/main",
+    "ec520e328437296a77e71e11752e74c1eb738e71\trefs/heads/rebuild/pixel-social-rpg-v3"
+  ],
   "protectedFilesCompared": 694,
   "changedProtectedFiles": [],
   "protectedFiles": [
@@ -2788,76 +2787,57 @@
       "gitBlob": "b7c00162ce693d9463ee133e4c2c43ff3032bf44"
     }
   ],
-  "tagRefs": [
-    "checkpoint/3d-before-pixel-v3-20261015 5f1ad310763caae543ddc3e5920b4be78e22f491",
-    "checkpoint/character-reboot-concepts-20261015 1275fb55f220ba0655ed8b876b7cfc9e687c706a",
-    "checkpoint/chibi-v1-review-20261015 82033f21ea6d0dc8eb1d8d4c2bc148dac34f3dc0",
-    "checkpoint/gwanghwamun-concepts-20261015 79563735f0b2e84f4d7a0c31e6a405260ace2401",
-    "checkpoint/juni-animation-polish-20261016 09c937edc682e9f9433a567580d1b74b0a12bd0b",
-    "checkpoint/living-seoul-first-slice-20261016 c9cd6c3fab602125f606a9aac2cb9eff9f3a98c4",
-    "checkpoint/pixel-animation-history-cleanup-20261015 b07b6fff85fbf01fb92e780b89ba28ffa9b9470c",
-    "checkpoint/pixel-art-reset-v2-review-20261015 f1f54ba4d962200ba1f0c96130e07ce04267e970",
-    "checkpoint/pixel-v3.1-art-review-20261015 162d75e5a4f37fc4d257ed8ac28ae93ceabb1d47",
-    "checkpoint/unified-v4-gate2-review-20261015 b26a7e98b5c988bccaeb9e0f8b080d36e0c2b037",
-    "checkpoint/v0.4-pre-reforge-005 9cc1381792b768f1e973d45b3421d24eb514c0d5",
-    "checkpoint/v0.5-public-verified 5578f5f4793e7823a30e172aaad738f57a5537ae",
-    "checkpoint/v0.6-concepts-review b23a4725953326e5ca80a2835399900252f784fa",
-    "recovery/before-character-reboot-20261015 26c1350ccee3265d740710a077af0b4366799e25",
-    "recovery/before-gwanghwamun-world-20261015 aeba93eabb9b559124e14624e00b32f31e9cffdc",
-    "recovery/before-juni-animation-20261016 4011d5bf9717208cb57ada37a8cfdb2ee8c08cd5",
-    "recovery/before-living-seoul-20261016 34bbe8ee5bfaa2edb3dcae1b4a026fadd53eb6a2",
-    "recovery/before-urban-zoning-20261016 583f71358d61f490a082f31b584eb4f723779aeb",
-    "recovery/historical-3d-20261015 2e694bc71dbd19ef6995c0d18c986b3e49bff35c",
-    "recovery/historical-guests-before-cleanup-20261015 62c3fc47876f33b63335f53530a14e755d242edc",
-    "recovery/pixel-before-anim-cleanup-20261015 7cf4a8cc72110dc7144722587269e9419a286716"
-  ],
-  "actions": {
-    "url": "https://api.github.com/repos/Anapaulagatti/3D-pharse5-/actions/workflows",
-    "status": 200,
-    "sha256": "069d7a3a6491d93f9bc5c8fa8131877e2b2bfab67d34efa7fa7cacd7823db38a",
-    "data": {
-      "total_count": 1,
-      "workflows": [
-        {
-          "id": 385009969,
-          "node_id": "W_kwDOVHGaHs4W8skx",
-          "name": "Verify pixel art review candidate",
-          "path": ".github/workflows/pixel-ci.yml",
-          "state": "active",
-          "created_at": "2026-10-15T09:02:33.000+07:00",
-          "updated_at": "2026-10-15T17:32:44.000+07:00",
-          "url": "https://api.github.com/repos/Anapaulagatti/3D-pharse5-/actions/workflows/385009969",
-          "html_url": "https://github.com/Anapaulagatti/3D-pharse5-/blob/main/.github/workflows/pixel-ci.yml",
-          "badge_url": "https://github.com/Anapaulagatti/3D-pharse5-/workflows/Verify%20pixel%20art%20review%20candidate/badge.svg"
-        }
-      ]
-    }
-  },
-  "pages": {
-    "url": "https://api.github.com/repos/Anapaulagatti/3D-pharse5-/pages",
-    "status": 200,
-    "sha256": "de0c1b41ff0e039642dbccf8fb3482858b73ab3ade63570344eb5ad6c6c70f59",
-    "data": {
+  "facts": {
+    "workflows": {
+      "url": "https://api.github.com/repos/Anapaulagatti/3D-pharse5-/actions/workflows",
+      "http": 200,
+      "sha256": "069d7a3a6491d93f9bc5c8fa8131877e2b2bfab67d34efa7fa7cacd7823db38a",
+      "data": {
+        "total_count": 1,
+        "workflows": [
+          {
+            "id": 385009969,
+            "node_id": "W_kwDOVHGaHs4W8skx",
+            "name": "Verify pixel art review candidate",
+            "path": ".github/workflows/pixel-ci.yml",
+            "state": "active",
+            "created_at": "2026-10-15T09:02:33.000+07:00",
+            "updated_at": "2026-10-15T17:32:44.000+07:00",
+            "url": "https://api.github.com/repos/Anapaulagatti/3D-pharse5-/actions/workflows/385009969",
+            "html_url": "https://github.com/Anapaulagatti/3D-pharse5-/blob/main/.github/workflows/pixel-ci.yml",
+            "badge_url": "https://github.com/Anapaulagatti/3D-pharse5-/workflows/Verify%20pixel%20art%20review%20candidate/badge.svg"
+          }
+        ]
+      }
+    },
+    "pages": {
       "url": "https://api.github.com/repos/Anapaulagatti/3D-pharse5-/pages",
-      "status": null,
-      "cname": null,
-      "custom_404": false,
-      "html_url": "https://anapaulagatti.github.io/3D-pharse5-/",
-      "build_type": "workflow",
-      "source": {
-        "branch": "main",
-        "path": "/"
-      },
-      "public": true,
-      "protected_domain_state": null,
-      "pending_domain_unverified_at": null,
-      "https_enforced": true
+      "http": 200,
+      "sha256": "de0c1b41ff0e039642dbccf8fb3482858b73ab3ade63570344eb5ad6c6c70f59",
+      "data": {
+        "url": "https://api.github.com/repos/Anapaulagatti/3D-pharse5-/pages",
+        "status": null,
+        "cname": null,
+        "custom_404": false,
+        "html_url": "https://anapaulagatti.github.io/3D-pharse5-/",
+        "build_type": "workflow",
+        "source": {
+          "branch": "main",
+          "path": "/"
+        },
+        "public": true,
+        "protected_domain_state": null,
+        "pending_domain_unverified_at": null,
+        "https_enforced": true
+      }
+    },
+    "public": {
+      "url": "https://anapaulagatti.github.io/3D-pharse5-/",
+      "http": 200,
+      "sha256": "082c661b5da2b4c8e66e81b2f52405ef460947bfeff27e2fd6fe771b2e3c716f"
     }
   },
-  "publicSite": {
-    "url": "https://anapaulagatti.github.io/3D-pharse5-/",
-    "status": 200,
-    "sha256": "082c661b5da2b4c8e66e81b2f52405ef460947bfeff27e2fd6fe771b2e3c716f"
-  },
-  "noPRMergeOrDeploymentPerformed": true
+  "recovery": "recovery/before-urban-refinement-20261016 -> ec520e3; independently pushed/peeled before edits",
+  "noPRMergeOrDeploymentPerformed": true,
+  "limits": "Branch status is pre-refinement-checkpoint observation; final source/CI/clone facts go in actual annotated checkpoint tag after verification."
 }

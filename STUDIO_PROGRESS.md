@@ -1,3 +1,15 @@
+# URBAN-PLAN-002 — current handoff / masterplan refinement review
+
+User provisionally accepts overall4096×3072zoning, NOT final map production. Latest docs/current/URBAN_PLANNING_REFINEMENT.md requires this refined masterplan presented for approval first. docs/urban-zoning/PLAN.md now shows a real palace-boundary concept (closed returns+classified gates+courts/context), formal avenue and organic plot-driven streets, distinct multi-wing footprint/roof/court/door plans, natural continuous stream/pond/two bridges and22purposeful discovery sites. Editable masterplan and same-scale footprint PNG/SVG/JSON are planning diagrams, NOT final artwork or a Phaser map. Official references KHS/Gyeongbokgung and UNESCO/Changdeokgung,Seowon,Hahoe-Yangdong were read; per-building inspiration and limits recorded. No false Bukchon source claims.
+
+Approximate8px-grid planning QA:41/41target access,37022/37022connectedcells,0overlaps/road intrusions,one closed palace ring,0wall overlap with homes/market,2valid bridges. First trial's five route intrusions/platform island corrected with geometry, no weakened checks. Raw failures/history retained. Final art/alpha/Forge nav/Tiled/actual proposed-map collision/playability UNRUN until authorized.
+
+Current2048×768+room, approved144Juni frames, all existing source/assets/tests/lock/CI and old entries remain unchanged. Recovery before this revision recovery/before-urban-refinement-20261016 ->ec520e3 pushed/peeled. Main and public site preserved; final source/test/CI/clean-clone evidence belongs in actual checkpoint tag after observation. Continue ONLY development branch; STOP for masterplan approval, no mass art/map production or publication.
+
+Local regression observed EXIT0:12unit/12browser,0skip/0unexpected/0flaky,offline assets/type/lint/format/production PASS.694protected files byte-equal to ec520e3. Exact final source/CI/clean-clone evidence belongs in the actual immutable checkpoint/urban-refinement-review-20261016 after observation.
+
+## Historical checkpoint record
+
 # URBAN-PLAN-001 — latest handoff
 
 Latest request docs/current/URBAN_LOGIC_RESET.md requires zoning approval before drawing/assembling final map. docs/urban-zoning/PLAN.md +PNG/SVG/JSON explain a fictional4096×3072quarter with civic gate/continuous northern wall, central meeting plaza, quiet academy, historical street, market frontages, garden/stream/pond, residential alleys and art court. Road hierarchy and two bridges form an exploration loop; individual entrances and NPC courtyards have clear functions. This is a SCHEMATIC ONLY, not artwork, Phaser proof or implemented runtime. Spatial check19approaches PASS but final art/nav/collision still unrun.
