@@ -98,29 +98,24 @@ for i,(x,y,purpose) in enumerate(positions):
 solid(32,H-48,W-64,16,'Review boundary; southern districts await Stage B approval')
 for id,x,y,ax,ay in [('gateway',2048,768,2048,832),('outer-court',2048,496,2048,496),('academy',672,800,672,832),('academy-front',672,1136,672,1200),('workshop',3168,1120,3168,1184),('armillary',3680,822,3680,880),('museum',3552,1280,3552,1392),('sejong-monument',2280,1208,2280,1248),('west-service',1200,400,1200,400),('history-return',3008,1600,3008,1600)]:anchor(id,x,y,ax,ay)
 B['portals']=[{'id':'academy-door','circle':[672,800,16],'to':'seoul-production-reading-room:start','entranceByFrom':{'seoul-production-reading-room':[672,832]},'latch':True,'reciprocal':True}]
-# Base tiles copied exactly from accepted generated texture sheet; masks keep their RGB values.
+# User-authorized targeted Stage B polish; architecture and approved geometry stay fixed.
+from stage_b_polish_map import courtyard_materials,decorate,terrain_layers
+courtyard_materials(material,Z)
+decorate(B,place,solid)
+# Base tiles copied from generated sources; semantic transition masks are data.
 source=Image.open(G/'tiles.png').convert('RGBA');tiles=[source.crop(((i%4)*32,(i//4)*32,(i%4+1)*32,(i//4+1)*32))for i in range(8)]
 unique=[];lookup={};ground=[];edging=[];a=np.array(material)
 def register(im):
  key=im.tobytes()
  if key not in lookup:lookup[key]=len(unique);unique.append(im)
  return lookup[key]
-for row in range(H//32):
- gr=[];ed=[]
- for col in range(W//32):
-  variation=(col*17+row*29+col*row)%2;gr.append(register(tiles[4+variation]));mask=a[row*32:(row+1)*32,col*32:(col+1)*32]
-  if not mask.any():ed.append(-1);continue
-  out=Image.new('RGBA',(32,32))
-  for val,index in [(1,variation),(2,2+variation)]:
-   rgb=tiles[index].copy();rgb.putalpha(Image.fromarray((mask==val).astype('uint8')*255));out.alpha_composite(rgb)
-  ed.append(register(out))
- ground.append(gr);edging.append(ed)
+ground,edging=terrain_layers(material,tiles,register)
 columns=16;atlas=Image.new('RGBA',(columns*32,math.ceil(len(unique)/columns)*32))
 for i,im in enumerate(unique):atlas.paste(im,((i%columns)*32,(i//columns)*32))
-atlas.save(S/'tiles.png');write(S/'tileset.json',{'schema':'generate2dmap.tileset.v1','image':'tiles.png','sha256':sha(S/'tiles.png'),'tile_size':[32,32],'columns':columns,'kind':'flat','materials':['grass','granite','earth'],'tiles':[{'index':i,'properties':{'material':'generated-terrain-with-approved-geometry-alpha','walkable':True}}for i in range(len(unique))],'seamless_verified':False,'art_source':'host_image','note':'Unchanged approved RGB; new authored semantic alpha variants, not procedural painted terrain.'})
+atlas.save(S/'tiles.png');write(S/'tileset.json',{'schema':'generate2dmap.tileset.v1','image':'tiles.png','sha256':sha(S/'tiles.png'),'tile_size':[32,32],'columns':columns,'kind':'flat','materials':['grass','ceremonial-granite','academy-earth','workshop-grit','museum-stone'],'tiles':[{'index':i,'properties':{'material':'generated-terrain-with-approved-geometry-alpha','walkable':True}}for i in range(len(unique))],'seamless_verified':False,'art_source':'host_image','note':'Original generated grass/granite plus targeted host-generated courtyard materials; binary clustered soil shoulders; no procedural painted texture. Seamless/Wang NOT certified.'})
 write(S/'layers/ground.json',ground);write(S/'layers/edging.json',edging);material.save(S/'layers/terrain-material-mask.png')
 write(S/'outdoor-draft.json',B)
-hashed=C/f'production-hashed-{sha(S/"outdoor-draft.json")[:12]}.json'
+hashed=C/f'production-hashed-{sha(S/"outdoor-draft.json")[:12]}-{sha(S/"tileset.json")[:12]}-{sha(S/"layers/edging.json")[:12]}.json'
 if not hashed.exists():run(M/'map_bundle.py','hash','--bundle',S/'outdoor-draft.json','--output',hashed)
 shutil.copyfile(hashed,S/'outdoor-bundle.json')
 run(M/'map_bundle.py','validate','--bundle',S/'outdoor-bundle.json','--report',C/f'validation-{len(json.loads((S/"commands.json").read_text()))}.json')

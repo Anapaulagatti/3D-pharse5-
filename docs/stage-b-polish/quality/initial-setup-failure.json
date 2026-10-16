@@ -1,0 +1,11 @@
+{
+  "unit": 12,
+  "browserPassed": 15,
+  "browserFailed": 1,
+  "failed": "mobile Canvas pause exact x equality",
+  "expected": 1947.3600833333335,
+  "actual": 1947.36155,
+  "sourceLogSha256": "0de99336b3071a5e8d4099ea6da43687e611b3f71f373dc2100bedf456a87559",
+  "diagnosis": "First paused metrics are emitted during scene update; Arcade post-update can still flush that last movement into sprite position. Test must sample after subsequent engine frames. Product controller remains unchanged; exact equality retained.",
+  "resolution": "Wait two further paused engine frames before recording frozen position, then test real touch cannot change it. Not a relaxed tolerance."
+}

@@ -150,6 +150,16 @@ test("mobile Canvas touch, reduced-motion and pause preserve usable world", asyn
   );
   await page.locator("#pause").click();
   await page.waitForFunction(() => window.__PIXEL_METRICS__?.paused);
+  // Scene metrics precede Arcade's post-update flush in the first paused frame.
+  const pauseFrame = await page.evaluate(
+    () => window.__PIXEL_METRICS__!.frameCount,
+  );
+  await page.waitForFunction(
+    (frame) =>
+      window.__PIXEL_METRICS__!.paused &&
+      window.__PIXEL_METRICS__!.frameCount >= frame + 2,
+    pauseFrame,
+  );
   const frozen = await page.evaluate(() => window.__SEOUL__!.x);
   await right.scrollIntoViewIfNeeded();
   const b2 = (await right.boundingBox())!;
@@ -162,4 +172,36 @@ test("mobile Canvas touch, reduced-motion and pause preserve usable world", asyn
   expect(
     await page.evaluate(() => document.documentElement.scrollWidth),
   ).toBeLessThanOrEqual(390);
+});
+
+test("courtyard additions have small real foot collisions and leave the Academy centre open", async ({
+  page,
+}) => {
+  await ready(page);
+  for (const [x, y] of [
+    [824, 940],
+    [3100, 804],
+    [3592, 948],
+    [3824, 1352],
+  ]) {
+    await place(page, x, y + 42);
+    await page.locator("canvas").focus();
+    await page.keyboard.down("ArrowUp");
+    try {
+      await page.waitForFunction(
+        ({ y }) => window.__SEOUL__!.y < y + 9,
+        { y },
+        { timeout: 10000 },
+      );
+      await page.waitForTimeout(350);
+      const actual = await page.evaluate(() => window.__SEOUL__!.y);
+      expect(actual).toBeGreaterThanOrEqual(y + 3);
+      expect(actual).toBeLessThan(y + 9);
+    } finally {
+      await page.keyboard.up("ArrowUp");
+    }
+  }
+  await place(page, 672, 1216);
+  await move(page, "ArrowUp", "y", 852);
+  expect(await page.evaluate(() => window.__SEOUL__!.y)).toBeLessThan(860);
 });

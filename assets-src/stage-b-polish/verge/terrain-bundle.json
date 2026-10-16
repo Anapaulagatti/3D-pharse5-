@@ -1,0 +1,304 @@
+{
+  "schema": "generate2dmap.terrain_tile_bundle.v2",
+  "source": {
+    "path": "../raw/verge.png",
+    "sha256": "6053a59532c7bda6452c2b78a8d89a628506b4cc66507dc7c8a613ad225a6d65",
+    "bytes": 2850667,
+    "size": [
+      1774,
+      887
+    ],
+    "mode": "RGB",
+    "bit_depth": 8,
+    "conversion": "RGB -> RGBA"
+  },
+  "prompt": {
+    "path": "../raw/verge.prompt.txt",
+    "sha256": "ad317024dcee37ac8095574f5359436f4c12d513ae2cf92c914c89155a00457f",
+    "bytes": 1527
+  },
+  "grid": {
+    "rows": 2,
+    "cols": 2,
+    "rounding": "nearest",
+    "source_cell_size": [
+      887,
+      443
+    ],
+    "output_tile_size": [
+      128,
+      128
+    ],
+    "source_cell_size_max": [
+      887,
+      444
+    ]
+  },
+  "tile": {
+    "shape": "square",
+    "layer": "base",
+    "footprint": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        128.0,
+        0.0
+      ],
+      [
+        128.0,
+        128.0
+      ],
+      [
+        0.0,
+        128.0
+      ]
+    ]
+  },
+  "terrains": {
+    "soil": {
+      "display_name": "soil",
+      "row": 0,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "soil-1.png",
+          "source_cell": [
+            0,
+            0
+          ],
+          "source_box": [
+            0,
+            0,
+            887,
+            444
+          ],
+          "crop_box": [
+            221,
+            0,
+            665,
+            444
+          ],
+          "resized": true,
+          "mean_luminance": 0.551228,
+          "contrast": 0.093313,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "6bad46ed09fb76e70ae34f1b4e678ce62a2246fe5a1a7ee802cfedc4e6ee89e5"
+        },
+        {
+          "path": "soil-2.png",
+          "source_cell": [
+            0,
+            1
+          ],
+          "source_box": [
+            887,
+            0,
+            1774,
+            444
+          ],
+          "crop_box": [
+            1108,
+            0,
+            1552,
+            444
+          ],
+          "resized": true,
+          "mean_luminance": 0.536991,
+          "contrast": 0.093061,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "765cc218e9b52f6c2ee2ec2a351c86b2b5c068f015bfaaaf1a5a0dcef93f049e"
+        }
+      ],
+      "variant_difference_min": 0.091911
+    },
+    "turf": {
+      "display_name": "turf",
+      "row": 1,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "turf-1.png",
+          "source_cell": [
+            1,
+            0
+          ],
+          "source_box": [
+            0,
+            444,
+            887,
+            887
+          ],
+          "crop_box": [
+            222,
+            444,
+            665,
+            887
+          ],
+          "resized": true,
+          "mean_luminance": 0.464011,
+          "contrast": 0.105233,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "022d28ee9bc7c934213dd7396df0a57f2e7a40bc627f58a973463e5d443fa90c"
+        },
+        {
+          "path": "turf-2.png",
+          "source_cell": [
+            1,
+            1
+          ],
+          "source_box": [
+            887,
+            444,
+            1774,
+            887
+          ],
+          "crop_box": [
+            1109,
+            444,
+            1552,
+            887
+          ],
+          "resized": true,
+          "mean_luminance": 0.478206,
+          "contrast": 0.104831,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "56750637d9fcc334ae7939fc97670707aadf262990c87adfeb6d167ba30217e9"
+        }
+      ],
+      "variant_difference_min": 0.098411
+    }
+  },
+  "processing": {
+    "background_mode": "opaque",
+    "background_mode_requested": "opaque",
+    "cell_shape": "crop-square",
+    "resampler": "lanczos",
+    "grid_rounding": "nearest",
+    "edge_policy": "isolated",
+    "wrap_aware_resize": false
+  },
+  "qc": {
+    "min_contrast": 0.035,
+    "min_variant_difference": 0.025,
+    "max_border_delta": 0.1,
+    "min_shape_coverage": 0.97,
+    "max_shape_spill": 0.03,
+    "max_seam_ratio": null,
+    "warnings": [],
+    "passed": true,
+    "seamless_verified": false
+  },
+  "qa": {
+    "status": "pass",
+    "method": "Grid slices of the atlas, background handled per --background-mode, resized to the tile size (Lanczos or nearest; wrap-aware for the seamless policy). Luminance contrast and mean thumbnail differences; drawn frames along opposite edges; footprint coverage and spill for iso/hex base tiles; for the seamless policy, premultiplied wrap and Wang-join steps normalised by the art's own steps near each edge.",
+    "notProven": [
+      "visual quality, style match and readability at game zoom",
+      "that each variant reads as the named terrain",
+      "seamlessness: no exact seam proof exists for image tiles (seamless_verified stays false)"
+    ],
+    "checks": [
+      {
+        "id": "contrast",
+        "status": "pass",
+        "value": 0.093061,
+        "threshold": 0.035
+      },
+      {
+        "id": "variant_difference",
+        "status": "pass",
+        "value": 0.091911,
+        "threshold": 0.025
+      },
+      {
+        "id": "border_frame",
+        "status": "pass",
+        "value": 0,
+        "threshold": 0.1
+      },
+      {
+        "id": "shape_coverage",
+        "status": "skipped",
+        "value": null,
+        "threshold": 0.97
+      },
+      {
+        "id": "shape_spill",
+        "status": "skipped",
+        "value": null,
+        "threshold": 0.03
+      },
+      {
+        "id": "wrap_seams",
+        "status": "skipped",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "id": "wang_seams",
+        "status": "skipped",
+        "value": null,
+        "threshold": null
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../raw/verge.png",
+        "sha256": "6053a59532c7bda6452c2b78a8d89a628506b4cc66507dc7c8a613ad225a6d65",
+        "bytes": 2850667
+      },
+      {
+        "path": "../raw/verge.prompt.txt",
+        "sha256": "ad317024dcee37ac8095574f5359436f4c12d513ae2cf92c914c89155a00457f",
+        "bytes": 1527
+      }
+    ],
+    "outputs": [
+      {
+        "path": "soil-1.png",
+        "sha256": "6bad46ed09fb76e70ae34f1b4e678ce62a2246fe5a1a7ee802cfedc4e6ee89e5",
+        "bytes": 44187
+      },
+      {
+        "path": "soil-2.png",
+        "sha256": "765cc218e9b52f6c2ee2ec2a351c86b2b5c068f015bfaaaf1a5a0dcef93f049e",
+        "bytes": 44284
+      },
+      {
+        "path": "turf-1.png",
+        "sha256": "022d28ee9bc7c934213dd7396df0a57f2e7a40bc627f58a973463e5d443fa90c",
+        "bytes": 45464
+      },
+      {
+        "path": "turf-2.png",
+        "sha256": "56750637d9fcc334ae7939fc97670707aadf262990c87adfeb6d167ba30217e9",
+        "bytes": 45363
+      }
+    ],
+    "tool": {
+      "name": "extract_terrain_tiles.py",
+      "version": "0.4.0"
+    }
+  }
+}

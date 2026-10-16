@@ -31,7 +31,7 @@ if not hashed.exists():run(F/'skills/generate2dmap/scripts/map_bundle.py','hash'
 shutil.copyfile(hashed,S/'room-bundle.json')
 # New production portal only: baseline room is never modified.
 draft=json.loads((S/'outdoor-draft.json').read_text());draft['portals'][0]['to']='seoul-production-reading-room:start';draft['portals'][0]['entranceByFrom']={'seoul-production-reading-room':[672,832]};write(S/'outdoor-draft.json',draft)
-hashed=C/f'linked-outdoor-hashed-{sha(S/"outdoor-draft.json")[:12]}.json'
+hashed=C/f'linked-outdoor-hashed-{sha(S/"outdoor-draft.json")[:12]}-{sha(S/"tileset.json")[:12]}-{sha(S/"layers/edging.json")[:12]}.json'
 if not hashed.exists():run(F/'skills/generate2dmap/scripts/map_bundle.py','hash','--bundle',S/'outdoor-draft.json','--output',hashed)
 shutil.copyfile(hashed,S/'outdoor-bundle.json')
 for name,other in [('outdoor','room'),('room','outdoor')]:

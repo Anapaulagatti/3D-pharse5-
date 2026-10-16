@@ -2,8 +2,9 @@ import { chromium } from "playwright";
 import fs from "node:fs/promises";
 import { spawn, execFileSync } from "node:child_process";
 import crypto from "node:crypto";
+const reviewDir = process.env.PIXEL_REVIEW_DIR ?? "docs/seoul-production";
 const manifest = JSON.parse(
-  await fs.readFile("docs/seoul-production/package.json", "utf8"),
+  await fs.readFile(`${reviewDir}/package.json`, "utf8"),
 );
 // Extract the tracked exact ZIP into THIS checkout; never depend on a previous workspace.
 const extractedRoot =
@@ -16,7 +17,7 @@ execFileSync("python3", [
   "import sys,zipfile,pathlib,json,hashlib; p=pathlib.Path(sys.argv[2]); z=zipfile.ZipFile(sys.argv[1]); assert z.testzip() is None; assert all(not pathlib.Path(n).is_absolute() and '..' not in pathlib.Path(n).parts for n in z.namelist()); z.extractall(p.parent); j=json.load(open(sys.argv[3])); assert all(hashlib.sha256((p/'3D-pharse5-'/r['path']).read_bytes()).hexdigest()==r['sha256'] for r in j['files'])",
   manifest.zip,
   extractedRoot,
-  "docs/seoul-production/package.json",
+  `${reviewDir}/package.json`,
 ]);
 const server = spawn(
   "python3",
@@ -124,7 +125,7 @@ try {
     errors,
   };
   await fs.writeFile(
-    "docs/seoul-production/package.json",
+    `${reviewDir}/package.json`,
     JSON.stringify(manifest, null, 2) + "\n",
   );
   console.log(

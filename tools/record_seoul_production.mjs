@@ -1,6 +1,6 @@
 import { chromium } from "playwright";
 import fs from "node:fs/promises";
-const out = "docs/seoul-production/quality";
+const out = process.env.PIXEL_REVIEW_QUALITY ?? "docs/seoul-production/quality";
 const b = await chromium.launch({
   executablePath: "/usr/bin/chromium",
   args: ["--no-sandbox"],

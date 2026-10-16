@@ -1,0 +1,340 @@
+{
+  "schema": "generate2dmap.terrain_tile_bundle.v2",
+  "source": {
+    "path": "../raw/terrain.png",
+    "sha256": "ef1c436c53c858abd76564ba724ef9be7ac9cac669adc7fd9f1f60177166b737",
+    "bytes": 3456130,
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGB",
+    "bit_depth": 8,
+    "conversion": "RGB -> RGBA"
+  },
+  "prompt": {
+    "path": "../raw/terrain.prompt.txt",
+    "sha256": "0b14cb907f96a4c6d625944c89452ddbd39bcb960e5f85517218289684bccd91",
+    "bytes": 1588
+  },
+  "grid": {
+    "rows": 3,
+    "cols": 2,
+    "rounding": "exact",
+    "source_cell_size": [
+      512,
+      512
+    ],
+    "output_tile_size": [
+      128,
+      128
+    ]
+  },
+  "tile": {
+    "shape": "square",
+    "layer": "base",
+    "footprint": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        128.0,
+        0.0
+      ],
+      [
+        128.0,
+        128.0
+      ],
+      [
+        0.0,
+        128.0
+      ]
+    ]
+  },
+  "terrains": {
+    "academy": {
+      "display_name": "academy",
+      "row": 0,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "academy-1.png",
+          "source_cell": [
+            0,
+            0
+          ],
+          "source_box": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "resized": true,
+          "mean_luminance": 0.745439,
+          "contrast": 0.042246,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "cb793be1910b8f2bade51093c57c1193d44e7ffe4fc6a2166717750aa172d9b9"
+        },
+        {
+          "path": "academy-2.png",
+          "source_cell": [
+            0,
+            1
+          ],
+          "source_box": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "resized": true,
+          "mean_luminance": 0.730162,
+          "contrast": 0.050094,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "c9e02b7d5191fdc7d907d4c126e27dd4f12094394bbfeb15f421b221a1910dc7"
+        }
+      ],
+      "variant_difference_min": 0.039586
+    },
+    "workshop": {
+      "display_name": "workshop",
+      "row": 1,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "workshop-1.png",
+          "source_cell": [
+            1,
+            0
+          ],
+          "source_box": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "resized": true,
+          "mean_luminance": 0.53942,
+          "contrast": 0.080124,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "902c90fa5ce56468245f4fb9e00424e189375da213e64400f58893562f3dedf5"
+        },
+        {
+          "path": "workshop-2.png",
+          "source_cell": [
+            1,
+            1
+          ],
+          "source_box": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "resized": true,
+          "mean_luminance": 0.472897,
+          "contrast": 0.086185,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "1930422889186a913cf65af32513926c13f26e9b9173afcf420b09e1cbb9a7a0"
+        }
+      ],
+      "variant_difference_min": 0.084952
+    },
+    "museum": {
+      "display_name": "museum",
+      "row": 2,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "museum-1.png",
+          "source_cell": [
+            2,
+            0
+          ],
+          "source_box": [
+            0,
+            1024,
+            512,
+            1536
+          ],
+          "resized": true,
+          "mean_luminance": 0.514507,
+          "contrast": 0.099294,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "0eb9de0ff59c62de5b148552a51d74e40cbfbcb1f38cb2990dc8b8561923b493"
+        },
+        {
+          "path": "museum-2.png",
+          "source_cell": [
+            2,
+            1
+          ],
+          "source_box": [
+            512,
+            1024,
+            1024,
+            1536
+          ],
+          "resized": true,
+          "mean_luminance": 0.452014,
+          "contrast": 0.091743,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "ebb2f60a03600118b34bb0652ecf0254b7356adcb7d8472a6c89a79c201e06f7"
+        }
+      ],
+      "variant_difference_min": 0.080293
+    }
+  },
+  "processing": {
+    "background_mode": "opaque",
+    "background_mode_requested": "opaque",
+    "cell_shape": "square",
+    "resampler": "lanczos",
+    "grid_rounding": "exact",
+    "edge_policy": "isolated",
+    "wrap_aware_resize": false
+  },
+  "qc": {
+    "min_contrast": 0.035,
+    "min_variant_difference": 0.025,
+    "max_border_delta": 0.1,
+    "min_shape_coverage": 0.97,
+    "max_shape_spill": 0.03,
+    "max_seam_ratio": null,
+    "warnings": [],
+    "passed": true,
+    "seamless_verified": false
+  },
+  "qa": {
+    "status": "pass",
+    "method": "Grid slices of the atlas, background handled per --background-mode, resized to the tile size (Lanczos or nearest; wrap-aware for the seamless policy). Luminance contrast and mean thumbnail differences; drawn frames along opposite edges; footprint coverage and spill for iso/hex base tiles; for the seamless policy, premultiplied wrap and Wang-join steps normalised by the art's own steps near each edge.",
+    "notProven": [
+      "visual quality, style match and readability at game zoom",
+      "that each variant reads as the named terrain",
+      "seamlessness: no exact seam proof exists for image tiles (seamless_verified stays false)"
+    ],
+    "checks": [
+      {
+        "id": "contrast",
+        "status": "pass",
+        "value": 0.042246,
+        "threshold": 0.035
+      },
+      {
+        "id": "variant_difference",
+        "status": "pass",
+        "value": 0.039586,
+        "threshold": 0.025
+      },
+      {
+        "id": "border_frame",
+        "status": "pass",
+        "value": 0,
+        "threshold": 0.1
+      },
+      {
+        "id": "shape_coverage",
+        "status": "skipped",
+        "value": null,
+        "threshold": 0.97
+      },
+      {
+        "id": "shape_spill",
+        "status": "skipped",
+        "value": null,
+        "threshold": 0.03
+      },
+      {
+        "id": "wrap_seams",
+        "status": "skipped",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "id": "wang_seams",
+        "status": "skipped",
+        "value": null,
+        "threshold": null
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../raw/terrain.png",
+        "sha256": "ef1c436c53c858abd76564ba724ef9be7ac9cac669adc7fd9f1f60177166b737",
+        "bytes": 3456130
+      },
+      {
+        "path": "../raw/terrain.prompt.txt",
+        "sha256": "0b14cb907f96a4c6d625944c89452ddbd39bcb960e5f85517218289684bccd91",
+        "bytes": 1588
+      }
+    ],
+    "outputs": [
+      {
+        "path": "academy-1.png",
+        "sha256": "cb793be1910b8f2bade51093c57c1193d44e7ffe4fc6a2166717750aa172d9b9",
+        "bytes": 39474
+      },
+      {
+        "path": "academy-2.png",
+        "sha256": "c9e02b7d5191fdc7d907d4c126e27dd4f12094394bbfeb15f421b221a1910dc7",
+        "bytes": 41058
+      },
+      {
+        "path": "workshop-1.png",
+        "sha256": "902c90fa5ce56468245f4fb9e00424e189375da213e64400f58893562f3dedf5",
+        "bytes": 45624
+      },
+      {
+        "path": "workshop-2.png",
+        "sha256": "1930422889186a913cf65af32513926c13f26e9b9173afcf420b09e1cbb9a7a0",
+        "bytes": 45917
+      },
+      {
+        "path": "museum-1.png",
+        "sha256": "0eb9de0ff59c62de5b148552a51d74e40cbfbcb1f38cb2990dc8b8561923b493",
+        "bytes": 41124
+      },
+      {
+        "path": "museum-2.png",
+        "sha256": "ebb2f60a03600118b34bb0652ecf0254b7356adcb7d8472a6c89a79c201e06f7",
+        "bytes": 40258
+      }
+    ],
+    "tool": {
+      "name": "extract_terrain_tiles.py",
+      "version": "0.4.0"
+    }
+  }
+}

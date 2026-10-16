@@ -1592,5 +1592,647 @@
     "exit": 0,
     "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation/nav-debug.png\", \"map\": \"seoul-production-reading-room\", \"cell\": 4, \"targets\": 5, \"unreachable\": 0, \"thinGaps\": 0}\n",
     "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/.cache/production/production-hashed-a154e50dc7e2.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/production/production-hashed-a154e50dc7e2.json\", \"metadata\": \"/workspace/3D-pharse5-/.cache/production/production-hashed-a154e50dc7e2.json\", \"files_hashed\": 180}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/production/validation-81.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"warn\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json\", \"id\": \"seoul-production-north\", \"version\": 2, \"errors\": 0, \"warnings\": 1, \"metadata\": \"/workspace/3D-pharse5-/.cache/production/validation-81.json\"}\n",
+    "stderr": "warning: $.nav.cell: nav.cell 8 differs from max(1, round(actorRadius/2)) = 4, which map_nav uses\n"
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--publish-on-fail",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/navigation"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/navigation\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/seoul-production/navigation/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/assets-src/seoul-production/navigation/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/assets-src/seoul-production/navigation/nav-debug.png\", \"map\": \"seoul-production-north\", \"cell\": 4, \"targets\": 21, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/export_tiled.py",
+      "export",
+      "--embedded-variant",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/tiled"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/tiled\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/seoul-production/tiled/export-report.json\", \"map\": \"/workspace/3D-pharse5-/assets-src/seoul-production/tiled/map.tmj\", \"embedded\": \"/workspace/3D-pharse5-/assets-src/seoul-production/tiled/map.embedded.tmj\", \"tilesets\": 2, \"layers\": [\"Ground\", \"Edging\", \"Props\", \"collision\", \"interactions\"], \"differingPixels\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/compose_layered_preview.py",
+      "--base",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/layers/base.png",
+      "--placements",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/placements.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/composed/preview.png",
+      "--report",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/composed/composition.json",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--debug-overlay",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/composed/collision-overlay.png",
+      "--audit-out",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/composed/audit.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/composed/preview.png\", \"report\": \"/workspace/3D-pharse5-/assets-src/seoul-production/composed/composition.json\", \"debug_overlay\": \"/workspace/3D-pharse5-/assets-src/seoul-production/composed/collision-overlay.png\", \"audit_out\": \"/workspace/3D-pharse5-/assets-src/seoul-production/composed/audit.json\", \"placed\": 146, \"warnings\": 0, \"audit_status\": \"warn\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/.cache/production/linked-outdoor-hashed-a154e50dc7e2.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/production/linked-outdoor-hashed-a154e50dc7e2.json\", \"metadata\": \"/workspace/3D-pharse5-/.cache/production/linked-outdoor-hashed-a154e50dc7e2.json\", \"files_hashed\": 180}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/production/linked-outdoor-validation-86.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"warn\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json\", \"id\": \"seoul-production-north\", \"version\": 2, \"errors\": 0, \"warnings\": 1, \"metadata\": \"/workspace/3D-pharse5-/.cache/production/linked-outdoor-validation-86.json\"}\n",
+    "stderr": "warning: $.nav.cell: nav.cell 8 differs from max(1, round(actorRadius/2)) = 4, which map_nav uses\n"
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/room-bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-linked-navigation",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-linked-navigation\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-linked-navigation/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-linked-navigation/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-linked-navigation/nav-debug.png\", \"map\": \"seoul-production-north\", \"cell\": 4, \"targets\": 21, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/room-bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/production/linked-room-validation-88.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-bundle.json\", \"id\": \"seoul-production-reading-room\", \"version\": 2, \"errors\": 0, \"warnings\": 0, \"metadata\": \"/workspace/3D-pharse5-/.cache/production/linked-room-validation-88.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/room-bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation/nav-debug.png\", \"map\": \"seoul-production-reading-room\", \"cell\": 4, \"targets\": 5, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/production/validation-90.json"
+    ],
+    "exit": 1,
+    "stdout": "",
+    "stderr": "error: $.tilesets[0].manifest: sha256 mismatch for ../../assets-src/seoul-production/tileset.json: recorded 91824702da1f23d28fce181998a1fb0ba8ca7d9ebfd31b74572ec231d7f68ef0, file has 47218bae42dcbad8ccb8651f30c298fc47407d309b3f1f2d8cbf53af899bb3b8\nerror: $.layers[1].data: sha256 mismatch for ../../assets-src/seoul-production/layers/edging.json: recorded c6ebc9669fe279ad1e72cd69e6c33c9db0713aea5cf83e57a5235d0d3fe291f0, file has 9597b9b8552ad84765a993fcefaa9f3270b5634bf882fbe501bdeac184e0c290\nwarning: $.nav.cell: nav.cell 8 differs from max(1, round(actorRadius/2)) = 4, which map_nav uses\nerror: map bundle has 2 error(s); report: /workspace/3D-pharse5-/.cache/production/validation-90.json\n"
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/.cache/production/production-hashed-a154e50dc7e2-47218bae42dc-9597b9b8552a.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/production/production-hashed-a154e50dc7e2-47218bae42dc-9597b9b8552a.json\", \"metadata\": \"/workspace/3D-pharse5-/.cache/production/production-hashed-a154e50dc7e2-47218bae42dc-9597b9b8552a.json\", \"files_hashed\": 180}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/production/validation-92.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"warn\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json\", \"id\": \"seoul-production-north\", \"version\": 2, \"errors\": 0, \"warnings\": 1, \"metadata\": \"/workspace/3D-pharse5-/.cache/production/validation-92.json\"}\n",
+    "stderr": "warning: $.nav.cell: nav.cell 8 differs from max(1, round(actorRadius/2)) = 4, which map_nav uses\n"
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--publish-on-fail",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/navigation"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/navigation\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/seoul-production/navigation/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/assets-src/seoul-production/navigation/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/assets-src/seoul-production/navigation/nav-debug.png\", \"map\": \"seoul-production-north\", \"cell\": 4, \"targets\": 21, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/export_tiled.py",
+      "export",
+      "--embedded-variant",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/tiled"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/tiled\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/seoul-production/tiled/export-report.json\", \"map\": \"/workspace/3D-pharse5-/assets-src/seoul-production/tiled/map.tmj\", \"embedded\": \"/workspace/3D-pharse5-/assets-src/seoul-production/tiled/map.embedded.tmj\", \"tilesets\": 2, \"layers\": [\"Ground\", \"Edging\", \"Props\", \"collision\", \"interactions\"], \"differingPixels\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/compose_layered_preview.py",
+      "--base",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/layers/base.png",
+      "--placements",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/placements.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/composed/preview.png",
+      "--report",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/composed/composition.json",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--debug-overlay",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/composed/collision-overlay.png",
+      "--audit-out",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/composed/audit.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/composed/preview.png\", \"report\": \"/workspace/3D-pharse5-/assets-src/seoul-production/composed/composition.json\", \"debug_overlay\": \"/workspace/3D-pharse5-/assets-src/seoul-production/composed/collision-overlay.png\", \"audit_out\": \"/workspace/3D-pharse5-/assets-src/seoul-production/composed/audit.json\", \"placed\": 146, \"warnings\": 0, \"audit_status\": \"warn\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/.cache/production/linked-outdoor-hashed-a154e50dc7e2-47218bae42dc-9597b9b8552a.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/production/linked-outdoor-hashed-a154e50dc7e2-47218bae42dc-9597b9b8552a.json\", \"metadata\": \"/workspace/3D-pharse5-/.cache/production/linked-outdoor-hashed-a154e50dc7e2-47218bae42dc-9597b9b8552a.json\", \"files_hashed\": 180}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/production/linked-outdoor-validation-97.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"warn\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json\", \"id\": \"seoul-production-north\", \"version\": 2, \"errors\": 0, \"warnings\": 1, \"metadata\": \"/workspace/3D-pharse5-/.cache/production/linked-outdoor-validation-97.json\"}\n",
+    "stderr": "warning: $.nav.cell: nav.cell 8 differs from max(1, round(actorRadius/2)) = 4, which map_nav uses\n"
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/room-bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-linked-navigation",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-linked-navigation\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-linked-navigation/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-linked-navigation/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-linked-navigation/nav-debug.png\", \"map\": \"seoul-production-north\", \"cell\": 4, \"targets\": 21, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/room-bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/production/linked-room-validation-99.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-bundle.json\", \"id\": \"seoul-production-reading-room\", \"version\": 2, \"errors\": 0, \"warnings\": 0, \"metadata\": \"/workspace/3D-pharse5-/.cache/production/linked-room-validation-99.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/room-bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation/nav-debug.png\", \"map\": \"seoul-production-reading-room\", \"cell\": 4, \"targets\": 5, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/.cache/production/production-hashed-a154e50dc7e2-3ef4a5ebce30-854073658516.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/production/production-hashed-a154e50dc7e2-3ef4a5ebce30-854073658516.json\", \"metadata\": \"/workspace/3D-pharse5-/.cache/production/production-hashed-a154e50dc7e2-3ef4a5ebce30-854073658516.json\", \"files_hashed\": 180}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/production/validation-102.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"warn\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json\", \"id\": \"seoul-production-north\", \"version\": 2, \"errors\": 0, \"warnings\": 1, \"metadata\": \"/workspace/3D-pharse5-/.cache/production/validation-102.json\"}\n",
+    "stderr": "warning: $.nav.cell: nav.cell 8 differs from max(1, round(actorRadius/2)) = 4, which map_nav uses\n"
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--publish-on-fail",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/navigation"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/navigation\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/seoul-production/navigation/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/assets-src/seoul-production/navigation/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/assets-src/seoul-production/navigation/nav-debug.png\", \"map\": \"seoul-production-north\", \"cell\": 4, \"targets\": 21, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/export_tiled.py",
+      "export",
+      "--embedded-variant",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/tiled"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/tiled\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/seoul-production/tiled/export-report.json\", \"map\": \"/workspace/3D-pharse5-/assets-src/seoul-production/tiled/map.tmj\", \"embedded\": \"/workspace/3D-pharse5-/assets-src/seoul-production/tiled/map.embedded.tmj\", \"tilesets\": 2, \"layers\": [\"Ground\", \"Edging\", \"Props\", \"collision\", \"interactions\"], \"differingPixels\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/compose_layered_preview.py",
+      "--base",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/layers/base.png",
+      "--placements",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/placements.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/composed/preview.png",
+      "--report",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/composed/composition.json",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--debug-overlay",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/composed/collision-overlay.png",
+      "--audit-out",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/composed/audit.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/composed/preview.png\", \"report\": \"/workspace/3D-pharse5-/assets-src/seoul-production/composed/composition.json\", \"debug_overlay\": \"/workspace/3D-pharse5-/assets-src/seoul-production/composed/collision-overlay.png\", \"audit_out\": \"/workspace/3D-pharse5-/assets-src/seoul-production/composed/audit.json\", \"placed\": 146, \"warnings\": 0, \"audit_status\": \"warn\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/.cache/production/linked-outdoor-hashed-a154e50dc7e2-3ef4a5ebce30-854073658516.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/production/linked-outdoor-hashed-a154e50dc7e2-3ef4a5ebce30-854073658516.json\", \"metadata\": \"/workspace/3D-pharse5-/.cache/production/linked-outdoor-hashed-a154e50dc7e2-3ef4a5ebce30-854073658516.json\", \"files_hashed\": 180}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/production/linked-outdoor-validation-107.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"warn\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json\", \"id\": \"seoul-production-north\", \"version\": 2, \"errors\": 0, \"warnings\": 1, \"metadata\": \"/workspace/3D-pharse5-/.cache/production/linked-outdoor-validation-107.json\"}\n",
+    "stderr": "warning: $.nav.cell: nav.cell 8 differs from max(1, round(actorRadius/2)) = 4, which map_nav uses\n"
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/room-bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-linked-navigation",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-linked-navigation\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-linked-navigation/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-linked-navigation/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-linked-navigation/nav-debug.png\", \"map\": \"seoul-production-north\", \"cell\": 4, \"targets\": 21, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/room-bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/production/linked-room-validation-109.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-bundle.json\", \"id\": \"seoul-production-reading-room\", \"version\": 2, \"errors\": 0, \"warnings\": 0, \"metadata\": \"/workspace/3D-pharse5-/.cache/production/linked-room-validation-109.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/room-bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation/nav-debug.png\", \"map\": \"seoul-production-reading-room\", \"cell\": 4, \"targets\": 5, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/.cache/production/production-hashed-a154e50dc7e2-1eaf053916dc-017ca5a293ce.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/production/production-hashed-a154e50dc7e2-1eaf053916dc-017ca5a293ce.json\", \"metadata\": \"/workspace/3D-pharse5-/.cache/production/production-hashed-a154e50dc7e2-1eaf053916dc-017ca5a293ce.json\", \"files_hashed\": 180}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/production/validation-112.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"warn\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json\", \"id\": \"seoul-production-north\", \"version\": 2, \"errors\": 0, \"warnings\": 1, \"metadata\": \"/workspace/3D-pharse5-/.cache/production/validation-112.json\"}\n",
+    "stderr": "warning: $.nav.cell: nav.cell 8 differs from max(1, round(actorRadius/2)) = 4, which map_nav uses\n"
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--publish-on-fail",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/navigation"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/navigation\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/seoul-production/navigation/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/assets-src/seoul-production/navigation/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/assets-src/seoul-production/navigation/nav-debug.png\", \"map\": \"seoul-production-north\", \"cell\": 4, \"targets\": 21, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/export_tiled.py",
+      "export",
+      "--embedded-variant",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/tiled"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/tiled\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/seoul-production/tiled/export-report.json\", \"map\": \"/workspace/3D-pharse5-/assets-src/seoul-production/tiled/map.tmj\", \"embedded\": \"/workspace/3D-pharse5-/assets-src/seoul-production/tiled/map.embedded.tmj\", \"tilesets\": 2, \"layers\": [\"Ground\", \"Edging\", \"Props\", \"collision\", \"interactions\"], \"differingPixels\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/compose_layered_preview.py",
+      "--base",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/layers/base.png",
+      "--placements",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/placements.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/composed/preview.png",
+      "--report",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/composed/composition.json",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--debug-overlay",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/composed/collision-overlay.png",
+      "--audit-out",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/composed/audit.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/composed/preview.png\", \"report\": \"/workspace/3D-pharse5-/assets-src/seoul-production/composed/composition.json\", \"debug_overlay\": \"/workspace/3D-pharse5-/assets-src/seoul-production/composed/collision-overlay.png\", \"audit_out\": \"/workspace/3D-pharse5-/assets-src/seoul-production/composed/audit.json\", \"placed\": 146, \"warnings\": 0, \"audit_status\": \"warn\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/.cache/production/linked-outdoor-hashed-a154e50dc7e2-1eaf053916dc-017ca5a293ce.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/production/linked-outdoor-hashed-a154e50dc7e2-1eaf053916dc-017ca5a293ce.json\", \"metadata\": \"/workspace/3D-pharse5-/.cache/production/linked-outdoor-hashed-a154e50dc7e2-1eaf053916dc-017ca5a293ce.json\", \"files_hashed\": 180}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/production/linked-outdoor-validation-117.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"warn\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json\", \"id\": \"seoul-production-north\", \"version\": 2, \"errors\": 0, \"warnings\": 1, \"metadata\": \"/workspace/3D-pharse5-/.cache/production/linked-outdoor-validation-117.json\"}\n",
+    "stderr": "warning: $.nav.cell: nav.cell 8 differs from max(1, round(actorRadius/2)) = 4, which map_nav uses\n"
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/room-bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-linked-navigation",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-linked-navigation\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-linked-navigation/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-linked-navigation/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-linked-navigation/nav-debug.png\", \"map\": \"seoul-production-north\", \"cell\": 4, \"targets\": 21, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/room-bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/production/linked-room-validation-119.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-bundle.json\", \"id\": \"seoul-production-reading-room\", \"version\": 2, \"errors\": 0, \"warnings\": 0, \"metadata\": \"/workspace/3D-pharse5-/.cache/production/linked-room-validation-119.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/room-bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/outdoor-bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/assets-src/seoul-production/room-linked-navigation/nav-debug.png\", \"map\": \"seoul-production-reading-room\", \"cell\": 4, \"targets\": 5, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
   }
 ]

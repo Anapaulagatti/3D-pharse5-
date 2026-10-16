@@ -1,3 +1,7 @@
+# Stage B final polish — current authorized scope
+
+User accepted architecture baseline; limited terrain/courtyard polish only, then STOP before Stage C/D. Read docs/current/STAGE_B_FINAL_POLISH.md and docs/stage-b-polish/FORGE.md. Actual upstream map/sprite/media skills re-read at5324342;3host images, real strict terrain/prop extraction, single-prop area finishing and existing192palette apply; real bundle/nav/Tiled/composition. No new animation/video synthesis/paid provider. Original18architecture images,136placements, Juni144frames and src frozen. Raw initial contrast/cache failures and same9edge-canopy bounds WARN retained. Setup never generates; no main/publication.
+
 # Living Seoul first Stage B review gate
 
 Current candidate complete for visual review; STOP before Stage C/D. Actual execution/provenance/commands and raw warnings in [production Forge report](seoul-production/FORGE.md); native/Phaser evidence,114.73sreal-input walkthrough and HTTP-testedZIP in [review guide](seoul-production/REVIEW.md). Forge5324342 unchanged; no provider/API billing/video-generation/newNPC route. Existing Juni144frames and old foundation preserved. Final verified Git facts belong in actual checkpoint/living-seoul-stage-b-verified-20261016, not inferred from a proposed tag name. Read upstream relevant SKILL.md again before next NEW art task, not merely registry/tool presence. Setup never generates.

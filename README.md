@@ -1,3 +1,5 @@
+Current candidate: [Stage B final terrain/courtyard polish](docs/stage-b-polish/REVIEW.md). Accepted architecture and Juni are preserved; native before/after and a separate portable local review are provided. Stage C/D and public deployment require later approval.
+
 # Korean Arena — Living Pixel Seoul
 
 Original Korean-inspired pixel-town art review, built with **Phaser4.2.1, TypeScript and Vite**. Juni/B and the existing Gwanghwamun artwork are the accepted working baseline; Bori/A and Nari/C remain future avatar styles. The latest connected first slice has not received district visual approval. Multiplayer, full TOPIK quests, fair PvP and voluntary rewarded ads remain roadmap items, not delivered services.

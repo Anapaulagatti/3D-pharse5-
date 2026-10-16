@@ -1,3 +1,5 @@
+Latest limited terrain/courtyard polish: [Stage B final polish review](../stage-b-polish/REVIEW.md). The evidence and ZIP below remain the recoverable pre-polish323b44b review, not the new polish package.
+
 # Living Seoul — Stage A + first playable Stage B
 
 User visual approval pending. Finished candidate area: northern4096×1728at ORIGINAL coordinates of the approved4096×3072masterplan. Palace gateway/boundary, plaza/Sejong sculpture, Academy campus, invention court and history terrace are playable. Remaining buildings, southern streets, stream/pond/two bridges and new NPC animation are not produced yet.

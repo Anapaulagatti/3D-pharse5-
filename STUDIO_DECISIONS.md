@@ -1,3 +1,23 @@
+# STAGE-B-POLISH-001 — native art and playable review verified locally
+
+Latest docs/current/STAGE_B_FINAL_POLISH.md accepts architecture baseline; limited terrain/courtyard polish complete. THREEactual host-image sources -> sixsmall192paletteprops at10purposeful off-route placements, sixcourtyardmaterials+foursoil/turfvergevariants; actual Forge extraction/finish/palette/bundle/nav/Tiled/compose. Academy earth/study walk, workshop grit/observation platform, museum silver-stone terrace, original formal gateway granite and modest ceramic/folio/tool/chart/naval details. Grounded step aprons and narrow interwoven verge masks; no code-painted replacement art.
+
+Original136placements/82solids,18accepted architecture/propPNG pixels, all src/UI/controller/Juni144frames/lock/masterplan unchanged;241additional protected files +prior544 checked. Root setup EXIT0:12unit+16browser,0skip/unexpected/flaky; actual new small-foot collision/open central Academy route, gate/room/lesson/return/mobileCDPtouch/Canvas/reduced/pause all checked. First15/16run exposed Arcade post-update pause sampling race; raw exact failure retained; wait two actual paused frames, exact equality retained, no product change. Official ForgeHTTP21routes/32assets/Ysort PASS. Same9edge-canopy bounds WARN and inherited Juni weak-motion limits retained.
+
+Matching true1x native before/after boards for4landmarks plus actual WebGL overview/evening/new-prop visibility and mobileCanvas/UI inspected. Portable docs/stage-b-polish/playable-review.zip9,962,538bytes SHA05dea0f1c365d71acac951f9312191bdb050780b87a15767f29a24b7c50bdb6e:150distfiles, exact extracted PythonHTTP desktop/mobileCanvas pixel-equal to source, room/lesson/return/old4guests checked with0errors. Extract whole Korean-Arena-Seoul-Production-Review, python3 start.py (Windows py start.py), printedHTTP /3D-pharse5-/production-review.html. No public loopback link claim.
+
+Before-work recovery recovery/before-stage-b-polish-20261016 ->323b44b pushed/peeled. Final exact source/remoteCI/independent clean-clone facts belong in immutable checkpoint/stage-b-final-polish-verified-20261016 AFTER actual observation. Main33360ed and public oldv0.5 HTML independently unchanged. No paid API/main merge/deploy/NPC/Stage C/D. Latest user has queued WORLD REFINEMENT after finishing this checkpoint; that separate authority will be recorded at the next task boundary, not silently mixed into this review. Setup never generates. See docs/stage-b-polish/REVIEW.md and verification.json.
+
+Actual continuous111.72s/2793frame25fps input recording inspected; no teleport/speedup, encodedFPS is not runtimeFPS. This is the Stage B recovery baseline; next user task separately requires genuine>=30fps capture/profiling.
+
+## Earlier local work — retained history
+
+# STAGE-B-POLISH-001 — validation in progress
+
+Latest user authority docs/current/STAGE_B_FINAL_POLISH.md accepts existing architecture and authorizes ONLY final terrain/courtyard/landmark polish. Original18architecture PNGs/136placements/82solids, all src/Juni144frames/lock/masterplan frozen;241additional protected files checked plus prior544. Threeactual host-image sources, sixsmall192paletteprops at10off-route placements, sixcourtyardmaterials+foursoil/turfvariants, real Forge extraction/finish/nav/Tiled/compose;4096×1728scope unchanged. No paid APIs/NPCs/Stage C/D/main/publication. Before-work recovery recovery/before-stage-b-polish-20261016 ->323b44b pushed/peeled. Matching native before/after captured; final build/browser/portable/clean-clone/CI/checkpoint verification still IN PROGRESS, not yet claimed. See docs/stage-b-polish. Stop for visual review after validation.
+
+## Prior checkpoint — retained history
+
 # LIVING-SEOUL-PRODUCTION-001 — Stage A + first Stage B READY FOR VISUAL REVIEW
 
 Stage A:14original architectural studies and native-scale identity board;10actual referenced host-image calls;18finished new props. First Stage B:4096×1728northern region at original approved4096×3072coordinates, gate/palace boundary/plaza, Academy U-campus, asymmetric workshop and long museum. Actual Phaser, existing Juni144frames and reading-room3letter-name activity retained; meaningful science/history exhibits, gate open/close and safe threshold, original entrances/organic streets/independent roof sorting/trunk collisions/culling/touch/reduced/pause.544protected source/runtime old files and exact dependency lock unchanged. Future southern buildings/water/bridges/newNPCs NOT produced.
