@@ -1,0 +1,14 @@
+# Quy tắc bố trí — áp dụng sau khi duyệt phân khu
+
+- Mỗi công trình phải có công năng, hạng quy mô, hình khối, mặt tiền, cửa thật và điểm đứng tương tác riêng; mã trong zoning-plan.json là danh mục đặt chỗ, không phải asset đã tạo.
+- Cổng cung lớn nhất theo vai trò nghi lễ; học viện rộng và trang trọng; xưởng thiên văn bất đối xứng có sân dụng cụ; nhà sử liệu có nhịp trưng bày dài; trà quán thấp có hiên; cửa hàng hẹp/sâu; nhà ở có sân U/L/vườn. Không dùng một sprite hanok thay màu cho mọi vai trò.
+- Mái nhìn từ trên, mặt tường trước nhìn 3/4 nhẹ, đường ngang song song thế giới; một hướng sáng và một mật độ pixel chung. Giữ Juni80px; nhà lớn được đọc bằng sân và cửa, không phóng mái che cả khu.
+- JSON groundReservation chỉ là khối nền dự kiến. Trước sản xuất phải thêm roof/canopy/step envelopes, kích thước nguồn thực, uniform scale, anchor chân, footprint theo hình và vùng tương tác. Không coi bản kiểm tra quy hoạch là collision/alpha QA.
+- Đường chính128–160px thông, nhánh80–96px, ngõ/vườn64px. Cửa có hành lang ít nhất64px; điểm đến phòng nằm ngoài trigger, không va chân bậc. Người khác đứng nói chuyện không khóa hành lang. Tạo thêm bậc/sân chỉ khi vẫn giữ đủ chiều rộng.
+- Cây ở viền sân/ven vườn, bóng theo một hướng; trunk collider khác canopy, occlusion theo alpha/Y-sort; tán cây không che cả cửa hay hướng rẽ ở camera1×. Giữ ít nhất64px mở quanh điểm tiếp cận cửa; gốc cây/đạo cụ không nằm trong đường thông.
+- Đèn ở hai đầu cầu, góc rẽ và cạnh cửa; không nằm giữa tim đường. Ghế ở vịnh nghỉ ngoài khoảng đường thông, có chỗ đứng phía trước, nhìn ra vườn/sân. Biển theo cửa hàng; giỏ sách, đồ thủ công dưới hiên; chum ở tường sân phục vụ, không rải giữa quảng trường.
+- Tường phía bắc phải nối mép thế giới–cổng–mép thế giới, không chặn cửa hàng bằng đoạn tường vô cớ. Tường sân nhà nếu bổ sung phải khép hoặc có cổng, không làm ngõ đi cụt không chủ đích.
+- Suối64px +24px bờ mỗi bên; có cửa dòng vào/ra mép bản đồ. Chỉ hai cầu trong đề xuất. Collider nước không chặn deck; chân cầu nối đường đủ rộng. Hồ thông dòng, không là vệt nước đặt trang trí giữa phố. Không đặt bench/tree vào đất bờ bảo vệ hoặc cửa dòng.
+- Đặt bốn NPC ở sân gắn công trình của họ, ngoài luồng đi và trigger phòng. Hình/icon trên sơ đồ chưa phải NPC runtime. Các danh nhân khác thời được giới thiệu là khách giáo dục hư cấu; không dựng cảnh giả lịch sử.
+- Main path và loop phải đi được bằng input thật, không teleport để chứng minh. Kiểm tra toàn tuyến lẫn ngõ phụ, đứng sau mái/cây, trước cửa, đầu cầu, mobile touch/Canvas, pause/reduced motion. Nhìn ở gameplay scale trước khi duyệt chi tiết phóng to.
+- Chỉ tạo assets sau duyệt phân khu, theo kỹ năng upstream generate2dmap/generate2dsprite đã đọc; ghi actual commands/route, cảnh báo và provenance. Không gọi provider trả phí. Trước khi thay runtime: giữ recovery tag và bản chơi cũ, đối chiếu nguồn/tile/solid/nav/Tiled, quay Phaser thực, clean-clone và CI.

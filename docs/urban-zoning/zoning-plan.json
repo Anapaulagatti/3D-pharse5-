@@ -1,0 +1,965 @@
+{
+  "schema": "korean-arena.urban-zoning.v1",
+  "status": "AWAITING_USER_ZONING_APPROVAL",
+  "authority": "../current/URBAN_LOGIC_RESET.md",
+  "baseline": "d5701fc251913e28ad9cea6ae3404a88a553adbd",
+  "stableMain": "33360ed1989e4db9fc3fc4e3686ca385e0b00908",
+  "world": [
+    4096,
+    3072
+  ],
+  "implementedWorldUnchanged": [
+    2048,
+    768
+  ],
+  "coordinateSystem": "world px, x east, y south; zoning data only, not a runtime map bundle",
+  "nativeTile": 32,
+  "juni": {
+    "bodyHeight": 80,
+    "footCollider": [
+      16,
+      8
+    ],
+    "walkSpeed": 60,
+    "runSpeed": 100
+  },
+  "viewport": [
+    1024,
+    768
+  ],
+  "camera": "light 3/4 top-down; no isometric skew; exploration follow at integer zoom, never whole-world fit during gameplay",
+  "zones": [
+    {
+      "id": "landmark",
+      "label": "01 · CỔNG & RANH GIỚI CUNG THÀNH",
+      "bounds": [
+        0,
+        128,
+        4096,
+        416
+      ],
+      "color": "#d9c8a5",
+      "purpose": "Civic gateway; northern palace reserve is closed, not a second district",
+      "state": "PROPOSED"
+    },
+    {
+      "id": "academy",
+      "label": "02 · HỌC VIỆN HANGUL",
+      "bounds": [
+        128,
+        576,
+        1152,
+        736
+      ],
+      "color": "#c9dbc7",
+      "purpose": "Quiet learning courtyard, Sejong and existing reading-room activity",
+      "state": "PROPOSED"
+    },
+    {
+      "id": "plaza",
+      "label": "03 · QUẢNG TRƯỜNG TRUNG TÂM",
+      "bounds": [
+        1472,
+        576,
+        1152,
+        736
+      ],
+      "color": "#e6d7b6",
+      "purpose": "Open meeting space, separated monument, clear civic axis",
+      "state": "PROPOSED"
+    },
+    {
+      "id": "history",
+      "label": "04 · PHỐ DANH NHÂN",
+      "bounds": [
+        2816,
+        576,
+        1152,
+        992
+      ],
+      "color": "#c9d5df",
+      "purpose": "Jang workshop / observatory and Yi history / strategy terrace",
+      "state": "PROPOSED"
+    },
+    {
+      "id": "market",
+      "label": "05 · PHỐ SÁCH & VĂN HÓA",
+      "bounds": [
+        128,
+        1504,
+        1152,
+        736
+      ],
+      "color": "#e6c9b7",
+      "purpose": "Bookshop, stationery, tea house and craft frontage; two linked lanes",
+      "state": "PROPOSED"
+    },
+    {
+      "id": "garden",
+      "label": "06 · VƯỜN & MẶT NƯỚC",
+      "bounds": [
+        1472,
+        1664,
+        1152,
+        1120
+      ],
+      "color": "#bdd2bc",
+      "purpose": "Pavilion, connected stream / pond and a quiet shaded loop",
+      "state": "PROPOSED"
+    },
+    {
+      "id": "homes-north",
+      "label": "07 · NGÕ HANOK",
+      "bounds": [
+        2816,
+        1760,
+        1152,
+        480
+      ],
+      "color": "#dbd3c2",
+      "purpose": "Small residential compounds; household privacy, no through-building route",
+      "state": "PROPOSED"
+    },
+    {
+      "id": "art",
+      "label": "08 · SÂN HỘI HỌA",
+      "bounds": [
+        128,
+        2448,
+        1152,
+        496
+      ],
+      "color": "#d8c9d9",
+      "purpose": "Saimdang studio, outdoor painting court and garden access",
+      "state": "PROPOSED"
+    },
+    {
+      "id": "homes-south",
+      "label": "09 · NHÀ VƯỜN",
+      "bounds": [
+        2816,
+        2448,
+        1152,
+        496
+      ],
+      "color": "#dbd3c2",
+      "purpose": "Distinct small homes connected to the southern return walk",
+      "state": "PROPOSED"
+    }
+  ],
+  "buildings": [
+    {
+      "id": "gate",
+      "code": "G01",
+      "label": "Cổng nghi lễ",
+      "zone": "landmark",
+      "groundReservation": [
+        1824,
+        256,
+        448,
+        192
+      ],
+      "door": [
+        2048,
+        480
+      ],
+      "approach": [
+        2048,
+        544
+      ],
+      "massing": "three-bay ceremonial gate",
+      "scaleClass": "civic",
+      "npc": null,
+      "state": "PROPOSED_NOT_GENERATED"
+    },
+    {
+      "id": "academy",
+      "code": "A01",
+      "label": "Giảng đường",
+      "zone": "academy",
+      "groundReservation": [
+        384,
+        672,
+        576,
+        288
+      ],
+      "door": [
+        672,
+        992
+      ],
+      "approach": [
+        672,
+        1088
+      ],
+      "massing": "five-bay hall, raised porch",
+      "scaleClass": "educational",
+      "npc": "sejong",
+      "state": "PROPOSED_NOT_GENERATED"
+    },
+    {
+      "id": "monument",
+      "code": "P01",
+      "label": "Mốc Sejong",
+      "zone": "plaza",
+      "groundReservation": [
+        2272,
+        800,
+        64,
+        64
+      ],
+      "door": null,
+      "approach": [
+        2304,
+        960
+      ],
+      "massing": "seated sculpture on low plinth; not a second NPC",
+      "scaleClass": "civic",
+      "npc": null,
+      "state": "PROPOSED_NOT_GENERATED"
+    },
+    {
+      "id": "workshop",
+      "code": "H01",
+      "label": "Xưởng thiên văn",
+      "zone": "history",
+      "groundReservation": [
+        3008,
+        672,
+        480,
+        256
+      ],
+      "door": [
+        3248,
+        960
+      ],
+      "approach": [
+        3248,
+        1056
+      ],
+      "massing": "asymmetric workshop plus instrument terrace",
+      "scaleClass": "educational",
+      "npc": "jang",
+      "state": "PROPOSED_NOT_GENERATED"
+    },
+    {
+      "id": "museum",
+      "code": "H02",
+      "label": "Nhà sử liệu",
+      "zone": "history",
+      "groundReservation": [
+        3328,
+        1120,
+        480,
+        224
+      ],
+      "door": [
+        3568,
+        1376
+      ],
+      "approach": [
+        3568,
+        1472
+      ],
+      "massing": "long exhibition facade plus strategy deck",
+      "scaleClass": "civic",
+      "npc": "yi",
+      "state": "PROPOSED_NOT_GENERATED"
+    },
+    {
+      "id": "bookshop",
+      "code": "M01",
+      "label": "Hiệu sách",
+      "zone": "market",
+      "groundReservation": [
+        256,
+        1568,
+        320,
+        192
+      ],
+      "door": [
+        416,
+        1792
+      ],
+      "approach": [
+        416,
+        1856
+      ],
+      "massing": "narrow deep shop, recessed book frontage",
+      "scaleClass": "market",
+      "npc": null,
+      "state": "PROPOSED_NOT_GENERATED"
+    },
+    {
+      "id": "stationery",
+      "code": "M02",
+      "label": "Văn phòng phẩm",
+      "zone": "market",
+      "groundReservation": [
+        768,
+        1568,
+        256,
+        192
+      ],
+      "door": [
+        896,
+        1792
+      ],
+      "approach": [
+        896,
+        1856
+      ],
+      "massing": "compact corner shop, side storage wing",
+      "scaleClass": "market",
+      "npc": null,
+      "state": "PROPOSED_NOT_GENERATED"
+    },
+    {
+      "id": "teahouse",
+      "code": "M03",
+      "label": "Trà quán",
+      "zone": "market",
+      "groundReservation": [
+        256,
+        1952,
+        384,
+        192
+      ],
+      "door": [
+        448,
+        2176
+      ],
+      "approach": [
+        448,
+        2208
+      ],
+      "massing": "low open veranda, intimate tea court",
+      "scaleClass": "market",
+      "npc": null,
+      "state": "PROPOSED_NOT_GENERATED"
+    },
+    {
+      "id": "craft",
+      "code": "M04",
+      "label": "Xưởng thủ công",
+      "zone": "market",
+      "groundReservation": [
+        800,
+        1952,
+        320,
+        192
+      ],
+      "door": [
+        960,
+        2176
+      ],
+      "approach": [
+        960,
+        2208
+      ],
+      "massing": "open-sided timber work bay, drying court",
+      "scaleClass": "market",
+      "npc": null,
+      "state": "PROPOSED_NOT_GENERATED"
+    },
+    {
+      "id": "pavilion",
+      "code": "V01",
+      "label": "Đình nghỉ",
+      "zone": "garden",
+      "groundReservation": [
+        1888,
+        1952,
+        320,
+        192
+      ],
+      "door": [
+        2048,
+        2176
+      ],
+      "approach": [
+        2048,
+        2208
+      ],
+      "massing": "open pavilion, no shop facade or cloned hall",
+      "scaleClass": "ceremonial",
+      "npc": null,
+      "state": "PROPOSED_NOT_GENERATED"
+    },
+    {
+      "id": "home-a",
+      "code": "R01",
+      "label": "Nhà sân nhỏ",
+      "zone": "homes-north",
+      "groundReservation": [
+        2912,
+        1856,
+        320,
+        192
+      ],
+      "door": [
+        3072,
+        2080
+      ],
+      "approach": [
+        3072,
+        2144
+      ],
+      "massing": "compact U-court home",
+      "scaleClass": "residential",
+      "npc": null,
+      "state": "PROPOSED_NOT_GENERATED"
+    },
+    {
+      "id": "home-b",
+      "code": "R02",
+      "label": "Nhà góc ngõ",
+      "zone": "homes-north",
+      "groundReservation": [
+        3488,
+        1824,
+        352,
+        224
+      ],
+      "door": [
+        3664,
+        2080
+      ],
+      "approach": [
+        3664,
+        2144
+      ],
+      "massing": "L-court home with side kitchen",
+      "scaleClass": "residential",
+      "npc": null,
+      "state": "PROPOSED_NOT_GENERATED"
+    },
+    {
+      "id": "art-studio",
+      "code": "S01",
+      "label": "Xưởng hội họa",
+      "zone": "art",
+      "groundReservation": [
+        448,
+        2496,
+        448,
+        224
+      ],
+      "door": [
+        672,
+        2752
+      ],
+      "approach": [
+        672,
+        2816
+      ],
+      "massing": "low artist hanok with north garden / east painting court",
+      "scaleClass": "educational",
+      "npc": "saimdang",
+      "state": "PROPOSED_NOT_GENERATED"
+    },
+    {
+      "id": "home-c",
+      "code": "R03",
+      "label": "Nhà vườn",
+      "zone": "homes-south",
+      "groundReservation": [
+        2944,
+        2528,
+        352,
+        224
+      ],
+      "door": [
+        3120,
+        2784
+      ],
+      "approach": [
+        3120,
+        2816
+      ],
+      "massing": "garden home with short return wing",
+      "scaleClass": "residential",
+      "npc": null,
+      "state": "PROPOSED_NOT_GENERATED"
+    },
+    {
+      "id": "home-d",
+      "code": "R04",
+      "label": "Nhà mái thấp",
+      "zone": "homes-south",
+      "groundReservation": [
+        3520,
+        2528,
+        320,
+        192
+      ],
+      "door": [
+        3680,
+        2752
+      ],
+      "approach": [
+        3680,
+        2816
+      ],
+      "massing": "small detached house and shared well court",
+      "scaleClass": "residential",
+      "npc": null,
+      "state": "PROPOSED_NOT_GENERATED"
+    }
+  ],
+  "roads": [
+    {
+      "id": "civic-axis",
+      "class": "primary",
+      "clearWidth": 160,
+      "points": [
+        [
+          2048,
+          544
+        ],
+        [
+          2048,
+          1408
+        ]
+      ]
+    },
+    {
+      "id": "cross-street",
+      "class": "primary",
+      "clearWidth": 128,
+      "points": [
+        [
+          128,
+          1408
+        ],
+        [
+          3968,
+          1408
+        ]
+      ]
+    },
+    {
+      "id": "west-loop",
+      "class": "secondary",
+      "clearWidth": 96,
+      "points": [
+        [
+          1376,
+          1408
+        ],
+        [
+          1376,
+          2816
+        ]
+      ]
+    },
+    {
+      "id": "east-loop",
+      "class": "secondary",
+      "clearWidth": 96,
+      "points": [
+        [
+          2720,
+          1056
+        ],
+        [
+          2720,
+          2816
+        ]
+      ]
+    },
+    {
+      "id": "south-return",
+      "class": "secondary",
+      "clearWidth": 96,
+      "points": [
+        [
+          128,
+          2816
+        ],
+        [
+          3968,
+          2816
+        ]
+      ]
+    },
+    {
+      "id": "academy-approach",
+      "class": "secondary",
+      "clearWidth": 96,
+      "points": [
+        [
+          672,
+          1088
+        ],
+        [
+          672,
+          1408
+        ]
+      ]
+    },
+    {
+      "id": "workshop-front",
+      "class": "secondary",
+      "clearWidth": 80,
+      "points": [
+        [
+          2720,
+          1056
+        ],
+        [
+          3776,
+          1056
+        ]
+      ]
+    },
+    {
+      "id": "book-lane",
+      "class": "secondary",
+      "clearWidth": 96,
+      "points": [
+        [
+          128,
+          1856
+        ],
+        [
+          1376,
+          1856
+        ]
+      ]
+    },
+    {
+      "id": "tea-lane",
+      "class": "secondary",
+      "clearWidth": 64,
+      "points": [
+        [
+          128,
+          2208
+        ],
+        [
+          1376,
+          2208
+        ]
+      ]
+    },
+    {
+      "id": "market-link",
+      "class": "secondary",
+      "clearWidth": 64,
+      "points": [
+        [
+          1152,
+          1856
+        ],
+        [
+          1152,
+          2208
+        ]
+      ]
+    },
+    {
+      "id": "garden-upper",
+      "class": "garden",
+      "clearWidth": 64,
+      "points": [
+        [
+          1376,
+          1664
+        ],
+        [
+          2720,
+          1664
+        ]
+      ]
+    },
+    {
+      "id": "pavilion-path",
+      "class": "garden",
+      "clearWidth": 64,
+      "points": [
+        [
+          2048,
+          1664
+        ],
+        [
+          2048,
+          1856
+        ],
+        [
+          2304,
+          1856
+        ],
+        [
+          2304,
+          2208
+        ],
+        [
+          2048,
+          2208
+        ]
+      ]
+    },
+    {
+      "id": "north-hanok-alley",
+      "class": "local",
+      "clearWidth": 64,
+      "points": [
+        [
+          2720,
+          2144
+        ],
+        [
+          3968,
+          2144
+        ]
+      ]
+    }
+  ],
+  "water": {
+    "id": "district-stream",
+    "centerline": [
+      [
+        0,
+        2336
+      ],
+      [
+        768,
+        2336
+      ],
+      [
+        1024,
+        2304
+      ],
+      [
+        1440,
+        2304
+      ],
+      [
+        1696,
+        2368
+      ],
+      [
+        2336,
+        2368
+      ],
+      [
+        2592,
+        2304
+      ],
+      [
+        2816,
+        2304
+      ],
+      [
+        3072,
+        2336
+      ],
+      [
+        4096,
+        2336
+      ]
+    ],
+    "clearWidth": 64,
+    "bankReserveEachSide": 24,
+    "flow": "west to east; visible world-edge inlet and outlet",
+    "pondBounds": [
+      1856,
+      2272,
+      384,
+      192
+    ],
+    "crossingsOnly": [
+      "west-bridge",
+      "east-bridge"
+    ],
+    "state": "PROPOSED_NOT_IMPLEMENTED"
+  },
+  "bridges": [
+    {
+      "id": "west-bridge",
+      "road": "west-loop",
+      "bounds": [
+        1328,
+        2232,
+        96,
+        144
+      ],
+      "crossing": [
+        1376,
+        2304
+      ]
+    },
+    {
+      "id": "east-bridge",
+      "road": "east-loop",
+      "bounds": [
+        2672,
+        2232,
+        96,
+        144
+      ],
+      "crossing": [
+        2720,
+        2304
+      ]
+    }
+  ],
+  "wall": {
+    "purpose": "Continuous palace boundary north of the public quarter, NOT arbitrary city-wall fragments",
+    "segments": [
+      [
+        [
+          0,
+          448
+        ],
+        [
+          1824,
+          448
+        ]
+      ],
+      [
+        [
+          2272,
+          448
+        ],
+        [
+          4096,
+          448
+        ]
+      ]
+    ],
+    "thickness": 32,
+    "gateSpan": [
+      1824,
+      2272
+    ],
+    "closedNorthReserve": [
+      0,
+      0,
+      4096,
+      224
+    ],
+    "gateAccess": "Forecourt open; passage north stays closed / future, not a false exit"
+  },
+  "npcs": [
+    {
+      "id": "sejong",
+      "building": "academy",
+      "point": [
+        864,
+        1152
+      ],
+      "role": "Hangul introduction and reading court"
+    },
+    {
+      "id": "jang",
+      "building": "workshop",
+      "point": [
+        3680,
+        992
+      ],
+      "role": "Invention / astronomy and number learning"
+    },
+    {
+      "id": "yi",
+      "building": "museum",
+      "point": [
+        3776,
+        1504
+      ],
+      "role": "Naval history / strategy, no invented harbor"
+    },
+    {
+      "id": "saimdang",
+      "building": "art-studio",
+      "point": [
+        960,
+        2752
+      ],
+      "role": "Painting / nature / color vocabulary"
+    }
+  ],
+  "spawn": [
+    1920,
+    1216
+  ],
+  "arrival": "Central Plaza, looking north toward the civic gate, outside all doorway triggers",
+  "futureSockets": [
+    {
+      "id": "west-market",
+      "point": [
+        128,
+        1408
+      ],
+      "state": "CLOSED_UNTIL_APPROVED"
+    },
+    {
+      "id": "east-history",
+      "point": [
+        3968,
+        1408
+      ],
+      "state": "CLOSED_UNTIL_APPROVED"
+    },
+    {
+      "id": "south-neighborhood",
+      "point": [
+        2720,
+        2944
+      ],
+      "state": "CLOSED_UNTIL_APPROVED"
+    }
+  ],
+  "reviewGate": "APPROVE_ZONING_BEFORE_ART_OR_FINAL_MAP_ASSEMBLY",
+  "estimatedTravelNote": "Civic axis 864px =14.4s walk/8.6s run. Bridge circuit 5504px =91.7s walk/55.0s run before stops. Estimates from proposed centerlines, not measured gameplay.",
+  "sourceArtCallsThisGate": 0,
+  "paidCalls": 0,
+  "runtimeChangesThisGate": false,
+  "courts": [
+    {
+      "id": "academy-court",
+      "bounds": [
+        256,
+        992,
+        896,
+        256
+      ]
+    },
+    {
+      "id": "plaza-open-floor",
+      "bounds": [
+        1536,
+        928,
+        1024,
+        320
+      ]
+    },
+    {
+      "id": "workshop-court",
+      "bounds": [
+        2880,
+        960,
+        960,
+        176
+      ]
+    },
+    {
+      "id": "museum-terrace",
+      "bounds": [
+        3264,
+        1376,
+        640,
+        160
+      ]
+    },
+    {
+      "id": "art-court",
+      "bounds": [
+        256,
+        2752,
+        896,
+        128
+      ]
+    }
+  ]
+}

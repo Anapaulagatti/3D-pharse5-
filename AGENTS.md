@@ -1,3 +1,11 @@
+# Latest authority — URBAN-PLAN-001 / zoning approval required
+
+Read docs/current/URBAN_LOGIC_RESET.md COMPLETELY, docs/urban-zoning/PLAN.md, placement-rules.md, zoning-plan.json and PROMOTION.md before further work. Latest user explicitly requires: "Before drawing or assembling the final map, first produce a district zoning plan and placement logic. Only after the zoning is approved should you build the final playable map." This supersedes the older expansion-first instructions below. Current gate: zoning proposal only; STOP for user zoning approval, not further art generation/map assembly/NPC production. Runtime2048×768+room, assets, tests, lock and approved Juni preserved at recovery/before-urban-zoning-20261016 ->d5701fc. Proposed4096×3072quarter is NOT implemented, NOT approved, NOT a real Phaser screenshot.
+
+Continue only rebuild/pixel-social-rpg-v3. Main stays33360ed; no PR until finished district visual/gameplay/clean-clone gates; no merge until explicit separate merge authorization; no Pages/publication. Current read-only Actions/Pages audit and future promotion checklist in PROMOTION.md. Preserve all tags, original entries, registry, infrastructure, unrelated app and source art. No paid APIs, delegation, cleanup/reset/force/worktree. Mandatory skill read contract below remains active; code-rendered diagram is planning only, not placeholder game art. Four STUDIO records carry current gate. Setup remains bash tools/setup.sh, assets only/no generation.
+
+## Historical checkpoint context (superseded where latest scope differs)
+
 # Current checkpoint — Living Seoul first playable expansion / review pending
 
 Latest user authority: docs/current/LIVING_SEOUL_DISTRICT.md. Mandatory read-first docs/ART_SKILL_REGISTRY.md, all four STUDIO records, docs/living-seoul/REVIEW.md +TOOLCHAIN.md and actual final checkpoint tag. A master plan and FIRST connected expansion completed; STOP for spatial/art visual review before remaining-area/NPC mass production. Current playground2048×768+one768×576Academy interior, not whole planned4096×2304neighborhood. Approved Juni144frames/oldplaza preserved; Bori/Nari retained. Other three buildings/newguests/activities PLANNED ONLY. No Pages/main promotion, paid APIs, cleanup, separate-app edits, delegation, force/reset/worktree.

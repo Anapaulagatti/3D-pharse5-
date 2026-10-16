@@ -1,0 +1,53 @@
+{
+  "status": "ZONING_REVIEW_READY_NOT_APPROVED",
+  "observedAtUTC": "2026-10-16T02:38:51.478350+00:00",
+  "baseline": "d5701fc251913e28ad9cea6ae3404a88a553adbd",
+  "diagram": {
+    "visuallyInspected": true,
+    "kind": "planning schematic; not a Phaser render",
+    "files": {
+      "district-zoning-plan.png": "081fa040b571eb46d29c4ee345d2bae28d6507aeaa8225cae35fccf5b767fc41",
+      "district-zoning-plan.svg": "6125ab68f6425e7b0c424f9a4e7c2303741d83db9772c383b88ab660e59b0297",
+      "zoning-plan.json": "9b6db3aa184b003257c9b7d7f7afe64a50a98ec9aa03587d37bcb8079c534948"
+    },
+    "planningTargets": 19,
+    "buildingReservationOverlaps": 0,
+    "npcInsideBuildingReservations": 0,
+    "all9636SampledWalkCellsConnected": true
+  },
+  "preservation": {
+    "protectedFilesByteEqualToBaseline": 694,
+    "runtimeSourceTestsAssetsLockWorkflowsChanged": false,
+    "baselineMainDeletions": 0
+  },
+  "localSetup": {
+    "command": "CI=true bash tools/setup.sh",
+    "exitCode": 0,
+    "logSha256": "1a74b1ac0ef87c5ae0d98f60fa4078bb4fed7dbed076c2e4ca704a46d8ab9e98",
+    "offlineAssets": "PASS",
+    "types": "PASS",
+    "lint": "PASS",
+    "format": "PASS",
+    "unitTests": {
+      "passed": 12
+    },
+    "productionBuild": "PASS",
+    "browser": {
+      "startTime": "2026-10-16T02:36:01.304Z",
+      "duration": 101856.772,
+      "expected": 12,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "tools": "TOOLCHAIN.md; diagnostic only, no image/API/provider calls",
+  "finalExactSHA_CI_cleanClone_remoteTag": "Recorded after independent observation in annotated checkpoint/urban-zoning-review-20261016; inspect actual tag. Not asserted by this pre-commit document.",
+  "approvalRequired": "User must approve zoning before new final-map art/assembly; later completed district visual/gameplay/clean-clone approval precedes main PR; merge needs separate explicit authorization.",
+  "noPRMergeOrDeployment": true,
+  "limits": [
+    "Proposed 4096x3072 map is NOT implemented or rendered in Phaser.",
+    "Planning check is approximate; final Forge nav/Tiled/collision/roof-alpha/mobile-gameplay checks remain unrun until zoning approval.",
+    "Existing asset QA warnings/failures are retained; no all-art-QA-pass or physical-phone-FPS claim."
+  ]
+}

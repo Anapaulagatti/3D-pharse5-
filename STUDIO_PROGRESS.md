@@ -1,3 +1,13 @@
+# URBAN-PLAN-001 — latest handoff
+
+Latest request docs/current/URBAN_LOGIC_RESET.md requires zoning approval before drawing/assembling final map. docs/urban-zoning/PLAN.md +PNG/SVG/JSON explain a fictional4096×3072quarter with civic gate/continuous northern wall, central meeting plaza, quiet academy, historical street, market frontages, garden/stream/pond, residential alleys and art court. Road hierarchy and two bridges form an exploration loop; individual entrances and NPC courtyards have clear functions. This is a SCHEMATIC ONLY, not artwork, Phaser proof or implemented runtime. Spatial check19approaches PASS but final art/nav/collision still unrun.
+
+Current2048×768district+Academy room/Juni144frames/UI/controller/source/assets remain unchanged and runnable; recovery/before-urban-zoning-20261016 ->d5701fc pushed and independently peeled. Newest README stops claiming character selection is pending. Main33360ed stays stable, Pages oldv0.5 HTML unchanged; read-only promotion audit and future PR checklist in docs/urban-zoning/PROMOTION.md. No paid/API/art generation, new NPCs, cleanup, PR/main merge or publication. Exact final test/CI/clean-clone/remote evidence is recorded only after observation. STOP for zoning approval. Earlier first-slice stop remains historical context, not authorization to build the proposed map.
+
+Local setup observed EXIT0:12unit +12browser (0skip/0unexpected/0flaky), offline assets/type/lint/format/production PASS. All694protected files byte-equal to d5701fc. Exact final remote/CI/independent clean-clone outcomes belong in actual immutable checkpoint/urban-zoning-review-20261016 after observation.
+
+## Historical checkpoint record
+
 # Living Seoul — first connected review slice
 
 Read latest docs/current/LIVING_SEOUL_DISTRICT.md, mandatory ART_SKILL_REGISTRY.md and docs/living-seoul/REVIEW.md/TOOLCHAIN.md. User accepts Juni/Gwanghwamun baseline and requests incremental larger district; final sentence gates first expansion review before remaining production. Master plan covers future neighborhood; actual outdoor extent2048×768, plus one768×576Academy reading room. Actual source/atlas/controller preserved, three original hostimage calls and real Forge processing, no new NPC/art-animation mass production. Stage A complete; B first slice complete; C/E partial; D deferred.

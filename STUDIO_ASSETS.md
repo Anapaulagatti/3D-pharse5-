@@ -1,3 +1,13 @@
+# URBAN-PLAN-001 — planning inventory
+
+- docs/current/URBAN_LOGIC_RESET.md: complete verbatim latest user request, including zoning approval and safe main-promotion constraints.
+- docs/urban-zoning/zoning-plan.json: editable4096×3072proposal,9functional zones/subzones,15distinct building/monument reservations, named road hierarchy, courtyard/door approaches, two bridges, continuous palace wall, stream/pond and4NPC planning positions.
+- district-zoning-plan.png +SVG: inspected schematic, NOT game artwork or actual Phaser output. tools/render_urban_zoning.py renders diagrams and checks approximate planned circulation only; never generates runtime assets/map bundles.
+- PLAN.md /placement-rules.md: rationale, cultural/architectural role differentiation, exploration/placement/scale rules. PROMOTION.md /audit.json /verification.json: actual source preservation, branch/workflow/Pages and verification evidence plus future gates.
+- New game art/animations/NPCs/tiles/runtime replacements:0. Existing assets-src, public, src, tests, Vite/Phaser/toolchain/lock and earlier review packages retained byte-for-byte. Recovery tag before proposal ->d5701fc. Historical3D tags retained; no cleanup or publication.
+
+## Historical inventory
+
 # Living Seoul — first-slice inventory
 
 - docs/living-seoul: master plan PNG/Markdown/machine-readable future footprint/entrance/NPC positions; actual native2048×768Phaser overview, court/interior/evening/mobile/activity/detail board;34.88s/872frameMP4 and decoded contact, honest pipeline/source/nav/runtime/performance/history reports; one exact6,253,697byte playable ZIP SHAe8cd41b5f3f8f76118a960ab4882f997df27e02761e22b2f1744b11eb3ac34ea, HTTP/browser verified. Future planned markers are not produced NPCs or buildings.

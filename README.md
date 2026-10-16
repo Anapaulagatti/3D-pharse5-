@@ -1,37 +1,36 @@
-# Current gate: choose a completely new character
-
-Previous player and NPC designs are **rejected**. New original A/B/C concepts, four directions and actual Phaser comparisons are ready in [the character reboot review](docs/character-reboot/REVIEW.md).
-
-![New A/B/C review](docs/character-reboot/avatar-review-board.png)
-
-[Download the separate character review](docs/character-reboot/playable-review.zip): extract Korean-Arena-Character-Review, run `python3 start.py` (Windows `py start.py`), open the printed HTTP URL. The review page offers four directions and 1×/2× camera scales, and links back to the intact existing game. These are **static design candidates**, not an approved animation set. No new NPCs or publication before your selection.
-
-Development: `npm run dev`; open the repository base plus `character-review.html`. Production build emits both that review and the existing game. Original gameplay/actors/world/UI sources and dependency lock are unchanged. See the new Forge execution/QA report for actual image routes, commands, warnings and limits. All four STUDIO records track this current gate.
-
-## Preserved game baseline — earlier review, character art now rejected
-
 # Korean Arena — Living Pixel Seoul
 
-An original, local-play pixel social-town review built with Phaser, TypeScript and Vite. Provisionally accepted chibi/town art, improved distance-driven animation, layered outfits and four fictional historical guest interpretations. Animation/NPC visual approval is pending. No online players, full quests, backend, ads or new public deployment.
+Original Korean-inspired pixel-town art review, built with **Phaser4.2.1, TypeScript and Vite**. Juni/B and the existing Gwanghwamun artwork are the accepted working baseline; Bori/A and Nari/C remain future avatar styles. The latest connected first slice has not received district visual approval. Multiplayer, full TOPIK quests, fair PvP and voluntary rewarded ads remain roadmap items, not delivered services.
 
-![Current review](docs/review/town.png)
+## Current gate: review district zoning
 
-- [Character/NPC review board](docs/review/avatar-review-board.png)
-- [Actual before/after Phaser animation video](docs/review/animation-review.mp4)
-- [Playable review ZIP](docs/review/playable-review.zip): extract, enter Korean-Arena-Review, run `python3 start.py` (Windows `py start.py`), open printed HTTP URL. Python3 required; Node not needed to view. Do not open HTML in a source viewer or through file://.
-- [Latest verified results](docs/review/verification.json), [cleanup report](CLEANUP_REPORT.md), [Git recovery](docs/RECOVERY.md), [Forge execution report](docs/SPRITE_FORGE_USAGE.md).
+The latest request prioritizes believable Korean urban planning over assembling more props. Review the [new zoning proposal](docs/urban-zoning/PLAN.md), [placement rules](docs/urban-zoning/placement-rules.md) and [future main-promotion policy](docs/urban-zoning/PROMOTION.md).
 
-## Development
+![Proposed district zoning — schematic, not gameplay](docs/urban-zoning/district-zoning-plan.png)
 
-Node24+, Python3.12/Pillow12.3.0. Reuse the exact lock. The Forge authoring pipeline additionally uses numpy2.3.5 and ffmpeg; all are installed in the current cloud environment. No API keys/services required.
+The proposed4096×3072quarter is **not built or approved**. Approval of zoning is required before final map art/assembly. Current runtime remains2048×768outdoor plus one768×576Academy reading room. Historical NPC positions on the diagram are planned, not newly animated characters.
+
+## Play the retained first-slice review
+
+[Actual Phaser review/evidence](docs/living-seoul/REVIEW.md) · [normal-speed gameplay MP4](docs/living-seoul/exploration-gameplay.mp4) · [download playable ZIP](docs/living-seoul/playable-review.zip).
+
+Extract **Korean-Arena-Living-Seoul-Review**, run `python3 start.py` (Windows:`py start.py`), open the printed HTTP URL ending `/3D-pharse5-/district-review.html`. Python3required; Node is not needed to view the package. Opening HTML in a source viewer or with file:// does not run the app correctly.
+
+WASD/arrows walk; Shift/Run runs; E/Explore enters the Academy, opens the reading activity or returns through the south doorway. Match three Hangul **letter names**, with retry/local progress and storage-denial fallback. Touch controls, zoom, evening, pause, OS reduced-motion and Canvas fallback remain. The preserved original town is available through the brand link / index.html; its rejected older character art is a recovery baseline. Older `plaza-review.html` and `character-review.html` remain available.
+
+The first-slice review has144Juni animation frames and one letter-name activity; no new historical NPC artwork was produced there. See [honest tool/QA limits](docs/living-seoul/TOOLCHAIN.md), including source extraction warnings, the room marker diagnostic failure and earlier Juni weak-motion warnings. Numeric tests are not artistic approval; mobile captures are emulated, not physical-phone FPS certification.
+
+## Develop and verify
+
+Node24+, Python3.12 and Pillow12.3.0. Keep the existing exact package lock. No API keys or backend required for setup/build/viewing.
 
 ```sh
-npm ci
+npm ci --ignore-scripts
+bash tools/setup.sh
 npm run dev
-# Existing Vite app, port4200, repository base /3D-pharse5-/
 ```
 
-WASD/arrows walk; Shift run; E talks to a nearby historical guest; Space waves. Buttons and mobile touch controls also work. Hair/outfit/bag and four expressions are selectable; optional evening tint, integer zoom, pause and operating-system reduced-motion support remain. Guest dialogues are original Vietnamese-first educational sketches with Korean words, not certified lessons.
+Dev uses4200, production `npm run preview` uses4201, base `/3D-pharse5-/`. The current connected review entry is `district-review.html`. Servers must restart after cloud snapshots. A cloud loopback address is not a public preview link.
 
 ```sh
 npm run assets:check
@@ -43,16 +42,8 @@ npm run build
 npm run test:e2e
 ```
 
-Playwright uses installed Chromium or `npx playwright install chromium`. `npm run preview` serves the production build on4201. `bash tools/setup.sh` validates the environment without regenerating art. `npm run assets:chibi` intentionally exports actors; `npm run assets` copies exact editable world PNG/Tiled source and exports actors. Generated per-frame authoring/QA/capture intermediates stay in ignored.cache, not Git.
+Use installed Chromium or Playwright's supported browser install. Setup validates retained assets and never generates artwork. Authoring is separate: read [AGENTS.md](AGENTS.md), [mandatory skill registry](docs/ART_SKILL_REGISTRY.md), all four STUDIO records and the actual upstream skills before any map/art/animation work. Optional pinned Forge/Creator caches stay outside the application; no paid provider route is authorized.
 
-## Current source
+`src/` retains engine/controller/UI; `assets-src/` contains editable source/provenance and layered map data; `public/assets` and `public/review` contain the retained runtime/review assets. Current evidence lives in `docs/living-seoul`; the new proposal lives in `docs/urban-zoning`. Preserve all source, history and [recovery tags](docs/RECOVERY.md).
 
-- src: input, fixed-registration/distance-driven animation, scene, local NPCs, accessible HTML UI/content.
-- assets-src/actors: editable native PNG atlases/master frames, metadata and palette; tools/avatar_art.py and guest_art.py are original native pixel geometry, no image model.
-- assets-src/world: accepted native world source/placement/Tiledmap and original source atlas/provenance. World bytes are preserved, not regenerated for this milestone.
-- public/assets: the one runtime asset tree. public/licenses retains original/Phaser/Zod MIT notices.
-- tests, tools, docs/current and docs/review: current checks, authoring, handoff and one latest review package.
-
-Historical3D, rejected2D and superseded evidence are in immutable recovery tags; no force-push/history rewrite. Full-history Git download remains large; a shallow clone of the current tip excludes obsolete active-tree files. See docs/RECOVERY.md.
-
-Only read-only verification CI is present. GitHub Pages remains the separately deployed oldv0.5 artifact until a new release is explicitly approved. Do not publish this review build automatically. Future design-only learning/minigame/social roadmap: docs/PRODUCT_ROADMAP.md and MINIGAMES.csv.
+`main` stays stable; development continues on **rebuild/pixel-social-rpg-v3**. Prepare a main PR only after completed district visual approval, gameplay tests and clean-clone verification; merge requires separate explicit authorization. CI verifies only. GitHub Pages remains the separately deployed oldv0.5 site; no new game deployment is authorized.

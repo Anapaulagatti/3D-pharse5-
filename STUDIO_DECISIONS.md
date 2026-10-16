@@ -1,3 +1,15 @@
+# URBAN-PLAN-001 — planning decisions
+
+1. Honor the explicit user gate: deliver zoning +placement logic first, then STOP. Do not manufacture a new playable map before that approval. No art or character generation this gate.
+2. Replace the proposed linear expansion pattern with a two-bridge neighborhood loop and functional frontages/courts. Expand PLANNING envelope4096×3072; actual runtime stays2048×768. Keep avatar/controller scale and infrastructure.
+3. North wall is a continuous palace boundary with a meaningful ceremonial gate, not random fortress fragments. Stream has world-edge inlet/outlet, protected banks, widened garden pond and exactly two route crossings. No false navigable north exit.
+4. Distinct building shape/costume-scale roles are requirements, not generated deliverables. Four NPCs are architecture-bound planning points; do not reuse rejected sprites as claimed redesigned guests.
+5. Existing source art/review town stays recoverable. Future approved layout may rearrange assets in a separate candidate without losing baseline. Diagram/data validation is not Forge execution or real Phaser verification.
+6. Latest stable main remains untouched. Refresh actual refs before auditing; stale origin/main was detected and corrected with explicit fetch refspec. No baseline deletions in actual main comparison. PR preparation waits for finished-district visual/gameplay/clean-clone gates; merge and publication require explicit respective authorizations.
+7. Update README/AGENTS/registry/four records to current facts, preserve earlier evidence and warnings. No dependency/test/gameplay changes. Current verification results must be observed before recording them.
+
+## Historical decisions
+
 # Living Seoul — first slice decisions
 
 1. Execute master plan +FIRST connected expansion per latest request's final review gate. Whole4096×2304planning envelope is not an implemented empty world; only2048×768outdoor +768×576Academy interior is playable. Other buildings/NPCs/activities are explicitly planned.

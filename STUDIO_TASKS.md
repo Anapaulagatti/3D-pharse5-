@@ -1,3 +1,17 @@
+# URBAN-PLAN-001 — zoning proposal / approval pending
+
+- COMPLETE: full latest request archived in docs/current/URBAN_LOGIC_RESET.md; actual registry/map+sprite skills read; no generation/provider calls.
+- COMPLETE: recovery/before-urban-zoning-20261016 pushed/peeled to d5701fc before edits; stable main independently verified33360ed.
+- COMPLETE: proposed4096×3072functional quarter, distinct massing/courtyards/doors, hierarchical streets, two-bridge loop, continuous palace boundary, through-flow stream/pond, four architecture-bound NPC planning positions. Editable JSON/SVG/PNG and placement rules in docs/urban-zoning.
+- COMPLETE: preliminary planning-space connectivity19targets,0overlapping ground reservations/0NPCs inside building masses. Not runtime nav/collision proof. Diagram visually inspected.
+- COMPLETE: stale README corrected to accepted Juni/retained artwork, existing first-slice review and pending zoning. Future promotion audit/checklist prepared; no deleted baseline assets, main ancestor at audit time, registry/AGENTS retained, no publishing workflow.
+- VERIFICATION: actual local/clean-clone/remote CI results belong in verification.json and the immutable checkpoint tag after observation; no anticipated success.
+- PENDING REQUIRED USER DECISION: approve/revise zoning BEFORE new final map art/assembly. Later visual/playability/clean-clone gates precede a main PR; separate authorization precedes merge. No map expansion, art/NPC production, cleanup, main merge or deployment in this gate.
+
+Local setup observed EXIT0:12unit +12browser (0skip/0unexpected/0flaky), offline assets/type/lint/format/production PASS. All694protected files byte-equal to d5701fc. Exact final remote/CI/independent clean-clone outcomes belong in actual immutable checkpoint/urban-zoning-review-20261016 after observation.
+
+## Historical checkpoint record
+
 # LIVING-SEOUL-001 — first connected slice ready for visual review
 
 - COMPLETE A: master district plan, named footprint/entrance/NPC planning positions, road sockets; recovery tag before work5b0eaba and plan checkpointd987a4a pushed/verified. Plan CI38830636718success.
