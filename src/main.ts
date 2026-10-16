@@ -4,7 +4,13 @@ import "./style.css";
 import { decodeAvatarPreferences } from "./domains/state";
 import { Gwanghwamun } from "./review/Gwanghwamun";
 import "./review/plaza.css";
+import { LivingSeoul } from "./review/LivingSeoul";
+import { setupDistrictUI } from "./review/districtUI";
 const plazaReview = location.pathname.endsWith("/plaza-review.html");
+const districtReview = location.pathname.endsWith("/district-review.html");
+const artReview = plazaReview || districtReview;
+const overview =
+  districtReview && new URLSearchParams(location.search).has("overview");
 const base = import.meta.env.BASE_URL;
 try {
   Object.assign(
@@ -43,26 +49,31 @@ const game = new Phaser.Game({
       ? Phaser.CANVAS
       : Phaser.AUTO,
   parent: stage,
-  width: Math.min(1024, stage.clientWidth),
-  height: Math.min(plazaReview ? 768 : 640, stage.clientHeight),
+  width: Math.min(overview ? 2048 : 1024, stage.clientWidth),
+  height: Math.min(artReview ? 768 : 640, stage.clientHeight),
   backgroundColor: "#79935f",
   pixelArt: true,
   roundPixels: true,
   antialias: false,
   antialiasGL: false,
   physics: { default: "arcade", arcade: { debug: false } },
-  scene: [plazaReview ? new Gwanghwamun() : new Plaza()],
+  scene: districtReview
+    ? [new LivingSeoul(), new LivingSeoul(true)]
+    : [plazaReview ? new Gwanghwamun() : new Plaza()],
   audio: { noAudio: true },
   banner: false,
 });
 const observer = new ResizeObserver(() =>
   game.scale.resize(
-    Math.min(1024, stage.clientWidth),
-    Math.min(plazaReview ? 768 : 640, stage.clientHeight),
+    Math.min(overview ? 2048 : 1024, stage.clientWidth),
+    Math.min(artReview ? 768 : 640, stage.clientHeight),
   ),
 );
 observer.observe(stage);
-const scene = () => game.scene.getScene("plaza") as Plaza;
+const scene = () =>
+  (districtReview
+    ? game.scene.getScenes(true)[0]
+    : game.scene.getScene("plaza")) as Plaza;
 for (const b of document.querySelectorAll<HTMLButtonElement>("[data-guest]"))
   b.onclick = () => scene().interactGuest(b.dataset.guest!);
 document
@@ -185,7 +196,7 @@ function network() {
 window.addEventListener("online", network);
 window.addEventListener("offline", network);
 network();
-if (plazaReview) {
+if (artReview) {
   document.body.classList.add("plaza-review");
   controls.zoom = 1;
   document.querySelector<HTMLSelectElement>("#zoom")!.value = "1";
@@ -244,3 +255,4 @@ if (plazaReview) {
     .join("")}</div>`;
   document.querySelector("footer")!.before(gallery);
 }
+if (districtReview) setupDistrictUI(overview);

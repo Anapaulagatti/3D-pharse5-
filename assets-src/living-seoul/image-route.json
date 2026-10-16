@@ -1,0 +1,31 @@
+{
+  "route": "host_image: image_gen",
+  "model": null,
+  "estimateUsd": null,
+  "paid_api_requests": 0,
+  "video_generation": 0,
+  "calls": [
+    {
+      "source": "raw/academy.png",
+      "prompt": "academy-prompt.txt",
+      "reference": "../gwanghwamun/props/hall.png"
+    },
+    {
+      "source": "raw/reading-kit.png",
+      "prompt": "kit-prompt.txt",
+      "reference": "raw/academy.png"
+    },
+    {
+      "source": "raw/room.png",
+      "prompt": "room-prompt.txt",
+      "reference": "raw/academy.png"
+    }
+  ],
+  "art_source": "host_image",
+  "hashes": {
+    "raw/academy.png": "b51f0bcf7e8673a87e6b9e7fe306dbfa4a64bb75bd5019f62cf47ed9ee31d09b",
+    "raw/reading-kit.png": "331a41effb985f23f0049d8600f3f3351a43a380fbace2385cf6888b2086f92f",
+    "raw/room.png": "e4b8730de1779e0e4593a27dd72848f99485bb3b4458fc3c858973401acb6235"
+  },
+  "note": "Returned model/cost unexposed. Exactly three actual image calls; original host outputs retained. No code-drawn game art."
+}

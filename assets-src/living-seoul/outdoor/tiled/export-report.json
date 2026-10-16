@@ -1,0 +1,278 @@
+{
+  "schema": "generate2dmap.tiled_export.v1",
+  "status": "pass",
+  "method": "TMJ and TSX written from the bundle, read back with the built-in reader (TSX via ElementTree) and re-rendered (tile layers, image layers, prop tile objects in draw order); the re-render must equal render_map(bundle) pixel for pixel (preview.png)",
+  "notProven": [
+    "Tiled GUI not verified: opening the map, wang/terrain brushes and the mixed blob wangset in the editor",
+    "Phaser or another engine rendering map.embedded.tmj the same way",
+    "runtime depth sorting by the sortY property (Tiled's own topdown order sorts by image bottom)"
+  ],
+  "checks": [
+    {
+      "id": "tsx_well_formed",
+      "status": "pass",
+      "value": [],
+      "threshold": []
+    },
+    {
+      "id": "rerender_map_tmj",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "rerender_map_embedded_tmj",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../outdoor-bundle.json",
+      "sha256": "86b85457f9d718af9fd9b6894097abeca6b50a62b3f1a47a7333580d72776635",
+      "bytes": 41640
+    },
+    {
+      "path": "../../../gwanghwamun/tileset.json",
+      "sha256": "71da0320451ba3434e07abba4bcbe966e7175cd898f6c3d605299698b8a4ac31",
+      "bytes": 1294
+    },
+    {
+      "path": "../../../gwanghwamun/tiles.png",
+      "sha256": "c77bb3af9dec29324bd3d7d72c539f0fe8fba9daf3034d12e66215e0524a6200",
+      "bytes": 20404
+    },
+    {
+      "path": "../ground.json",
+      "sha256": "265449d13c23cc9d156938b8ac7523adda694caef432eaf1795a053e1d199d16",
+      "bytes": 10947
+    },
+    {
+      "path": "../edging.json",
+      "sha256": "bba87365c7a083df16b48a7745290cd4b02cf0cd5b607aca6c2c6cf0b905ec6a",
+      "bytes": 12483
+    },
+    {
+      "path": "../../../gwanghwamun/props/gate.png",
+      "sha256": "d5ff69f7b4335f6661c19c00d2cd904e11e77c54bf68883d06b5e1c8a30a36f4",
+      "bytes": 191823
+    },
+    {
+      "path": "../../../gwanghwamun/props/pavilion.png",
+      "sha256": "96b0dfc21d18e20c6b3f6a709c5d87b8c453ee6953fe82f497d71b40caf62512",
+      "bytes": 54792
+    },
+    {
+      "path": "../../../gwanghwamun/props/hall.png",
+      "sha256": "aecb387c730fc658e2c570b71879e99325659253c182135e21a3b487d89a0b1b",
+      "bytes": 72435
+    },
+    {
+      "path": "../../../gwanghwamun/props/ginkgo.png",
+      "sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "bytes": 48819
+    },
+    {
+      "path": "../../../gwanghwamun/props/tree.png",
+      "sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "bytes": 40364
+    },
+    {
+      "path": "../../../gwanghwamun/props/sejong.png",
+      "sha256": "4e4e6770ac0fb5e6c5e7552cf1d380f2f9c49644b506621aca7e40dcf5a93857",
+      "bytes": 18657
+    },
+    {
+      "path": "../../../gwanghwamun/props/bench.png",
+      "sha256": "111ec597f59aa232bf8ddb38658b693480c7261282c60f86bec65a7b1133359a",
+      "bytes": 5110
+    },
+    {
+      "path": "../../../gwanghwamun/props/lantern.png",
+      "sha256": "dfe4dc19f4b77a23fffe7715d63d1ecd2ee2d65b4afc674e861df11d453f526c",
+      "bytes": 6021
+    },
+    {
+      "path": "../../../gwanghwamun/props/jars.png",
+      "sha256": "7e80af2dab5040ada3a6244c533bb0b4fcff2a27d180f604e0974b5548f15f85",
+      "bytes": 5204
+    },
+    {
+      "path": "../../../gwanghwamun/props/planter.png",
+      "sha256": "35caea815680e4b8ce01fe6afe22a56b1daee0778bc3f47ba3eb756d7fd29c1f",
+      "bytes": 4245
+    },
+    {
+      "path": "../../../gwanghwamun/props/bridge.png",
+      "sha256": "b3778f0eae255beb62d93c3b5087297a3d685f95c7d03d691025d10ab3cb105e",
+      "bytes": 8536
+    },
+    {
+      "path": "../../../gwanghwamun/props/wall.png",
+      "sha256": "e9509fb878d092a26a45f70dd48aaeb71e915fbaed650be5d060ae988af2a05f",
+      "bytes": 10909
+    },
+    {
+      "path": "../../props/academy.png",
+      "sha256": "29827522f24e202076a90384a8cc112fc60410be989b06da15f3d282bd4ca7df",
+      "bytes": 154615
+    },
+    {
+      "path": "../../props/kiosk.png",
+      "sha256": "d3933b53a6dd9fc6e5499f5c0d6194230ba6f51e0a8776cecb00b966bc1784f1",
+      "bytes": 28907
+    },
+    {
+      "path": "../../props/desk.png",
+      "sha256": "0a5cca95b4164cfc740ae41cab13fb3714eaba83d97b8cb11ed547a4de55c146",
+      "bytes": 6694
+    },
+    {
+      "path": "../../props/shelf.png",
+      "sha256": "a32bd5efaa17dd6293001235091fa2d85d5055ba99da7749e0521878394f0fef",
+      "bytes": 20737
+    },
+    {
+      "path": "../../props/sign.png",
+      "sha256": "edae14c8c161a11a8ee13dbc2efe6b4efca9842773dc4fdc5c53bea973b7b550",
+      "bytes": 11350
+    }
+  ],
+  "outputs": [
+    {
+      "path": "images/academy.png",
+      "sha256": "29827522f24e202076a90384a8cc112fc60410be989b06da15f3d282bd4ca7df",
+      "bytes": 154615
+    },
+    {
+      "path": "images/bench.png",
+      "sha256": "111ec597f59aa232bf8ddb38658b693480c7261282c60f86bec65a7b1133359a",
+      "bytes": 5110
+    },
+    {
+      "path": "images/bridge.png",
+      "sha256": "b3778f0eae255beb62d93c3b5087297a3d685f95c7d03d691025d10ab3cb105e",
+      "bytes": 8536
+    },
+    {
+      "path": "images/gate.png",
+      "sha256": "d5ff69f7b4335f6661c19c00d2cd904e11e77c54bf68883d06b5e1c8a30a36f4",
+      "bytes": 191823
+    },
+    {
+      "path": "images/ginkgo.png",
+      "sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "bytes": 48819
+    },
+    {
+      "path": "images/hall.png",
+      "sha256": "aecb387c730fc658e2c570b71879e99325659253c182135e21a3b487d89a0b1b",
+      "bytes": 72435
+    },
+    {
+      "path": "images/jars.png",
+      "sha256": "7e80af2dab5040ada3a6244c533bb0b4fcff2a27d180f604e0974b5548f15f85",
+      "bytes": 5204
+    },
+    {
+      "path": "images/kiosk.png",
+      "sha256": "d3933b53a6dd9fc6e5499f5c0d6194230ba6f51e0a8776cecb00b966bc1784f1",
+      "bytes": 28907
+    },
+    {
+      "path": "images/lantern.png",
+      "sha256": "dfe4dc19f4b77a23fffe7715d63d1ecd2ee2d65b4afc674e861df11d453f526c",
+      "bytes": 6021
+    },
+    {
+      "path": "images/pavilion.png",
+      "sha256": "96b0dfc21d18e20c6b3f6a709c5d87b8c453ee6953fe82f497d71b40caf62512",
+      "bytes": 54792
+    },
+    {
+      "path": "images/planter.png",
+      "sha256": "35caea815680e4b8ce01fe6afe22a56b1daee0778bc3f47ba3eb756d7fd29c1f",
+      "bytes": 4245
+    },
+    {
+      "path": "images/sejong.png",
+      "sha256": "4e4e6770ac0fb5e6c5e7552cf1d380f2f9c49644b506621aca7e40dcf5a93857",
+      "bytes": 18657
+    },
+    {
+      "path": "images/sign.png",
+      "sha256": "edae14c8c161a11a8ee13dbc2efe6b4efca9842773dc4fdc5c53bea973b7b550",
+      "bytes": 11350
+    },
+    {
+      "path": "images/tiles.png",
+      "sha256": "c77bb3af9dec29324bd3d7d72c539f0fe8fba9daf3034d12e66215e0524a6200",
+      "bytes": 20404
+    },
+    {
+      "path": "images/tree.png",
+      "sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "bytes": 40364
+    },
+    {
+      "path": "images/wall.png",
+      "sha256": "e9509fb878d092a26a45f70dd48aaeb71e915fbaed650be5d060ae988af2a05f",
+      "bytes": 10909
+    },
+    {
+      "path": "map.embedded.tmj",
+      "sha256": "d11631fd439306f8683a3e36898e44fc372babe9202f7f4bbed378cf54319a06",
+      "bytes": 172155
+    },
+    {
+      "path": "map.tmj",
+      "sha256": "c8b1506ebf3d73ab7213f6ee5bc33ba4f1df2addd05b032e65dc010d66b9a8af",
+      "bytes": 147460
+    },
+    {
+      "path": "preview.png",
+      "sha256": "3d617d76f4998c52af46d16eb48c7f9afb86a8bd79068ceaab6f0b0894ede2d8",
+      "bytes": 1836349
+    },
+    {
+      "path": "props.tsx",
+      "sha256": "90324ba64f8a896c36444417b6a4d8f299f34685f57b0cf5fb961393249410d3",
+      "bytes": 8244
+    },
+    {
+      "path": "town.tsx",
+      "sha256": "8c8c421e84b7378b914fe5283e2e28cfbbe09b6f81482a6d8375b7d5f2b4da78",
+      "bytes": 1685
+    }
+  ],
+  "tool": {
+    "name": "export_tiled.py",
+    "version": "0.4.0"
+  },
+  "tiled": {
+    "format": "1.10",
+    "app": "1.11.0",
+    "tilesets": [
+      {
+        "file": "town.tsx",
+        "name": "town",
+        "firstgid": 1,
+        "tilecount": 8
+      },
+      {
+        "file": "props.tsx",
+        "name": "props",
+        "firstgid": 9,
+        "tilecount": 15
+      }
+    ],
+    "layers": [
+      "Ground",
+      "Edging",
+      "Props",
+      "collision",
+      "interactions"
+    ]
+  }
+}

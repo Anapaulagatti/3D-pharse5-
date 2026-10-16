@@ -8,6 +8,17 @@ import bundle from "../../assets-src/gwanghwamun/map-bundle.json";
 import anchors from "../../public/review/gwanghwamun/anchors.json";
 
 type View = JuniView;
+export type ReviewWorld = {
+  layout: typeof layout;
+  bundle: {
+    objects: { sortY: number; prop: string; x: number; y: number }[];
+    props: Record<string, { anchor_px: number[]; size: number[] }>;
+  };
+  anchors: Record<string, number[]>;
+  assetRoot: string;
+  key?: string;
+  ambience?: boolean;
+};
 declare global {
   interface Window {
     __PLAZA_REVIEW__?: {
@@ -31,22 +42,23 @@ declare global {
 // visibility and UI remain the existing Plaza controller's implementation.
 export class Gwanghwamun extends Plaza {
   private juniMotion = new JuniMotion();
-  private lastPosition = { x: 512, y: 600 };
+  protected lastPosition = { x: 512, y: 600 };
   private juni!: Phaser.GameObjects.Sprite;
   private cue!: Phaser.GameObjects.Image;
   private cueTexture!: Phaser.Textures.CanvasTexture;
   private mask = document.createElement("canvas");
   private leaves: Phaser.GameObjects.Image[] = [];
-  private water!: Phaser.GameObjects.TileSprite;
+  private water?: Phaser.GameObjects.TileSprite;
   private lamps: Phaser.GameObjects.Image[] = [];
   private clock = 0;
   private cueKey = "";
   private covered = 0;
-  constructor() {
+  constructor(private review?: ReviewWorld) {
     super({
-      layout,
-      assetRoot: "review/gwanghwamun/",
-      anchors,
+      key: review?.key,
+      layout: review?.layout ?? layout,
+      assetRoot: review?.assetRoot ?? "review/gwanghwamun/",
+      anchors: review?.anchors ?? anchors,
       guests: false,
       ambience: false,
     });
@@ -63,7 +75,12 @@ export class Gwanghwamun extends Plaza {
     this.load.image("leaf-review", `${base}review/gwanghwamun/leaf.png`);
   }
   create() {
+    this.leaves = [];
+    this.lamps = [];
+    this.cueKey = "";
+    this.juniMotion = new JuniMotion();
     super.create();
+    this.lastPosition = { x: this.player.x, y: this.player.y };
     // Centre the existing16x8 foot collider on Juni's recorded root; default game unchanged.
     this.player.body?.setOffset(16, 60);
     this.juni = this.add
@@ -71,19 +88,19 @@ export class Gwanghwamun extends Plaza {
       .setOrigin(0.5, 100 / 112);
     this.mask.width = 96;
     this.mask.height = 112;
-    this.cueTexture = this.textures.createCanvas(
-      "juni-occlusion-cue",
-      96,
-      112,
-    )!;
+    const cueTextureKey = `juni-occlusion-cue-${this.sys.settings.key}`;
+    if (this.textures.exists(cueTextureKey))
+      this.textures.remove(cueTextureKey);
+    this.cueTexture = this.textures.createCanvas(cueTextureKey, 96, 112)!;
     this.cue = this.add
-      .image(this.player.x, this.player.y, "juni-occlusion-cue")
+      .image(this.player.x, this.player.y, cueTextureKey)
       .setOrigin(0.5, 100 / 112)
       .setDepth(9000)
       .setAlpha(0.48);
-    this.water = this.add
-      .tileSprite(704, 576, 64, 320, "water-review")
-      .setDepth(-80);
+    if (this.review?.ambience !== false)
+      this.water = this.add
+        .tileSprite(704, 576, 64, 320, "water-review")
+        .setDepth(-80);
     // Keep the walkable deck below Juni instead of sorting by its south edge.
     this.children.list.forEach((o) => {
       if (o instanceof Phaser.GameObjects.Image && o.texture.key === "bridge")
@@ -91,7 +108,7 @@ export class Gwanghwamun extends Plaza {
       if (o instanceof Phaser.GameObjects.Image && o.texture.key === "lantern")
         this.lamps.push(o);
     });
-    for (let i = 0; i < 6; i++)
+    for (let i = 0; i < (this.review?.ambience === false ? 0 : 6); i++)
       this.leaves.push(
         this.add
           .image(130 + i * 139, 200 + i * 65, "leaf-review")
@@ -131,7 +148,7 @@ export class Gwanghwamun extends Plaza {
     );
   }
   override interact() {
-    const nearest = layout.objects
+    const nearest = (this.review?.layout ?? layout).objects
       .map((o) => ({
         o,
         d: Phaser.Math.Distance.Between(this.player.x, this.player.y, o.x, o.y),
@@ -162,9 +179,10 @@ export class Gwanghwamun extends Plaza {
     mask.clearRect(0, 0, 96, 112);
     const left = x - 48,
       top = y - 100;
-    for (const o of bundle.objects) {
+    const map = this.review?.bundle ?? bundle;
+    for (const o of map.objects) {
       if (o.sortY <= y || o.prop === "bridge") continue;
-      const p = bundle.props[o.prop as keyof typeof bundle.props];
+      const p = (map.props as ReviewWorld["bundle"]["props"])[o.prop];
       const ox = o.x - p.anchor_px[0] - left,
         oy = o.y - p.anchor_px[1] - top;
       if (ox >= 96 || oy >= 112 || ox + p.size[0] <= 0 || oy + p.size[1] <= 0)
@@ -236,7 +254,7 @@ export class Gwanghwamun extends Plaza {
     this.updateCue(frame);
     if (!m.paused && !controls.reduced) {
       this.clock += Math.min(delta, 50);
-      this.water.tilePositionY = Math.floor(this.clock / 230);
+      if (this.water) this.water.tilePositionY = Math.floor(this.clock / 230);
       this.leaves.forEach((leaf, i) =>
         leaf.setPosition(
           Math.round(90 + i * 144 + Math.sin(this.clock / 2100 + i) * 12),

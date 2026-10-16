@@ -1,0 +1,300 @@
+{
+  "schema": "korean-arena.district-plan.v1",
+  "authority": "../current/LIVING_SEOUL_DISTRICT.md",
+  "planningEnvelope": [
+    4096,
+    2304
+  ],
+  "implementedOutdoor": [
+    2048,
+    768
+  ],
+  "nativeTile": [
+    32,
+    32
+  ],
+  "juniBodyHeight": 80,
+  "footCollider": [
+    16,
+    8
+  ],
+  "walkSpeed": 60,
+  "runSpeed": 100,
+  "coordinates": "world px, x east/y south; future positions provisional until original art/collision review",
+  "zones": [
+    {
+      "id": "plaza",
+      "bounds": [
+        0,
+        0,
+        1024,
+        768
+      ],
+      "state": "preserved",
+      "anchor": [
+        512,
+        600
+      ]
+    },
+    {
+      "id": "academy",
+      "bounds": [
+        1024,
+        0,
+        1024,
+        768
+      ],
+      "state": "first-playable-slice",
+      "buildingFootprint": [
+        1316,
+        335,
+        440,
+        75
+      ],
+      "entrance": [
+        1536,
+        434
+      ],
+      "arrival": [
+        1536,
+        475
+      ],
+      "interior": [
+        768,
+        576
+      ],
+      "npc": {
+        "name": "King Sejong",
+        "plannedPoint": [
+          1456,
+          470
+        ],
+        "state": "NOT_PRODUCED"
+      },
+      "activity": "3Hangul letter names: ㄱ/giyeok, ㄴ/nieun, ㅁ/mieum"
+    },
+    {
+      "id": "invention",
+      "bounds": [
+        2048,
+        0,
+        1024,
+        768
+      ],
+      "state": "PLANNED_ONLY",
+      "buildingFootprint": [
+        2336,
+        180,
+        440,
+        220
+      ],
+      "entrance": [
+        2560,
+        460
+      ],
+      "npc": {
+        "name": "Jang Yeong-sil",
+        "plannedPoint": [
+          2460,
+          490
+        ],
+        "state": "NOT_PRODUCED"
+      },
+      "activity": "numbers/object vocabulary (future)"
+    },
+    {
+      "id": "art-garden",
+      "bounds": [
+        0,
+        768,
+        1024,
+        768
+      ],
+      "state": "PLANNED_ONLY",
+      "buildingFootprint": [
+        280,
+        900,
+        300,
+        190
+      ],
+      "entrance": [
+        430,
+        1120
+      ],
+      "npc": {
+        "name": "Shin Saimdang",
+        "plannedPoint": [
+          510,
+          1140
+        ],
+        "state": "NOT_PRODUCED"
+      },
+      "activity": "colors/nature/art vocabulary (future)"
+    },
+    {
+      "id": "market-homes",
+      "bounds": [
+        1024,
+        768,
+        2048,
+        768
+      ],
+      "state": "PLANNED_ONLY",
+      "entrances": [
+        [
+          1328,
+          1040
+        ],
+        [
+          1920,
+          1170
+        ],
+        [
+          2544,
+          1280
+        ]
+      ],
+      "purpose": "book/food market, original cafes, hanok homes and resting corners, no random standalone stalls"
+    },
+    {
+      "id": "museum",
+      "bounds": [
+        3072,
+        768,
+        1024,
+        768
+      ],
+      "state": "PLANNED_ONLY",
+      "buildingFootprint": [
+        3270,
+        870,
+        500,
+        260
+      ],
+      "entrance": [
+        3504,
+        1180
+      ],
+      "npc": {
+        "name": "Yi Sun-sin",
+        "plannedPoint": [
+          3392,
+          1216
+        ],
+        "state": "NOT_PRODUCED"
+      },
+      "activity": "simple Korean directions/dialogue (future)"
+    },
+    {
+      "id": "park",
+      "bounds": [
+        1024,
+        1536,
+        2048,
+        768
+      ],
+      "state": "PLANNED_ONLY",
+      "purpose": "seasonal garden/social loop via market, not a second generated district now"
+    }
+  ],
+  "connections": [
+    {
+      "a": "plaza",
+      "b": "academy",
+      "edgeSocket": [
+        1024,
+        608
+      ],
+      "width": 96,
+      "state": "OPEN"
+    },
+    {
+      "a": "academy",
+      "b": "invention",
+      "edgeSocket": [
+        2048,
+        540
+      ],
+      "width": 96,
+      "state": "PLANNED_NOT_OPEN"
+    },
+    {
+      "a": "plaza",
+      "b": "art-garden",
+      "edgeSocket": [
+        640,
+        768
+      ],
+      "width": 64,
+      "state": "PLANNED_NOT_OPEN"
+    },
+    {
+      "a": "academy",
+      "b": "market-homes",
+      "edgeSocket": [
+        1504,
+        768
+      ],
+      "width": 96,
+      "state": "PLANNED_NOT_OPEN"
+    },
+    {
+      "a": "art-garden",
+      "b": "market-homes",
+      "edgeSocket": [
+        1024,
+        1120
+      ],
+      "width": 64,
+      "state": "PLANNED_NOT_OPEN"
+    },
+    {
+      "a": "market-homes",
+      "b": "invention",
+      "edgeSocket": [
+        2496,
+        768
+      ],
+      "width": 64,
+      "state": "PLANNED_NOT_OPEN"
+    },
+    {
+      "a": "market-homes",
+      "b": "museum",
+      "edgeSocket": [
+        3072,
+        1200
+      ],
+      "width": 96,
+      "state": "PLANNED_NOT_OPEN"
+    },
+    {
+      "a": "market-homes",
+      "b": "park",
+      "edgeSocket": [
+        1664,
+        1536
+      ],
+      "width": 96,
+      "state": "PLANNED_NOT_OPEN"
+    },
+    {
+      "a": "market-homes",
+      "b": "park",
+      "edgeSocket": [
+        2784,
+        1536
+      ],
+      "width": 64,
+      "state": "PLANNED_NOT_OPEN"
+    }
+  ],
+  "socialPrinciples": [
+    "Bending main streets with distinct secondary alleys",
+    "Buildings have named purpose, reachable entrances and courtyard approaches",
+    "Resting furniture at gardens/entrances, jars at timber walls, goods at kiosks",
+    "No Pixels.xyz map/art/system copying; only broad exploration inspiration",
+    "Historical guests are educational figures from different eras"
+  ],
+  "reviewGate": "FIRST_SLICE_REVIEW_BEFORE_REMAINING_AREA_OR_NPC_MASS_PRODUCTION"
+}

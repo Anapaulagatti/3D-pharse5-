@@ -1,6 +1,9 @@
-# Living Seoul — plan checkpoint
+# Living Seoul — first-slice inventory
 
-New docs/current/LIVING_SEOUL_DISTRICT.md (verbatim user instructions), docs/living-seoul/PLAN.md, master-district-plan.png (labelled planning diagram, not generated game artwork), forge-doctor.json. Approved existing assets retained unchanged; new art pending.
+- docs/living-seoul: master plan PNG/Markdown/machine-readable future footprint/entrance/NPC positions; actual native2048×768Phaser overview, court/interior/evening/mobile/activity/detail board;34.88s/872frameMP4 and decoded contact, honest pipeline/source/nav/runtime/performance/history reports; one exact6,253,697byte playable ZIP SHAe8cd41b5f3f8f76118a960ab4882f997df27e02761e22b2f1744b11eb3ac34ea, HTTP/browser verified. Future planned markers are not produced NPCs or buildings.
+- assets-src/living-seoul:3actual original hostimage sources/prompts/provenance; Academy +4readingprops real Forge extraction/native96palette, full QA; generated room plate128colors/recipe; editable outdoor/room bundles, tile layers, world layout, linked nav, Tiled.tmj/.tsx/PNG exports and command logs. Outdoor63placements (32old+31new),64solids; room3props/3solids+4boundaryrects. Sources remain editable, not baked concept map substitute.
+- public/review/living-seoul/outdoor +room: separate runtime atlas/props/Tiled data and lazy-loaded room image; district-review.html actual Phaser entry. Previous game/plaza/character entries remain. Original accepted world/actors/Juni/A-B-C/oldPlaza sources preserved;438protectedfiles compared directly to Gitbaseline.
+- New avatar animation/NPC assets0. Juni144frames and complete editable sources untouched; Bori/Nari distinct future styles preserved. No cleanup/newdistrict massproduction/3D deletion/paid service/external art copying/public deployment.
 
 ## Previous checkpoint record
 

@@ -1,6 +1,15 @@
-# LIVING-SEOUL-001 — A verified plan; first expansion in progress
+# LIVING-SEOUL-001 — first connected slice ready for visual review
 
-A: approved-baseline recovery tag pushed/peeled at5b0eaba; mandatory skills read, planning diagram and PLAN.md saved. Baseline asset checks PASS. B/C-partial/E-partial next:2048x768 outdoor, Academy reading room, local letter activity. D/remaining areas deferred until first review. No Pages/paid routes.
+- COMPLETE A: master district plan, named footprint/entrance/NPC planning positions, road sockets; recovery tag before work5b0eaba and plan checkpointd987a4a pushed/verified. Plan CI38830636718success.
+- COMPLETE B FIRST SLICE:2048×768outdoor with original west1024×768tiles/32placements preserved; book alley, Academy court, kiosk/rest garden.63outdoor props, five original new prop assets/three host image calls. Real Forge sources/nav/Tiled retained.
+- COMPLETE C PARTIAL: Academy ONLY;768×576lazy-loaded reading room, reciprocal explicit E entrance/exit. Other three landmark buildings/interiors remain PLANNED.
+- DEFER D: no new historical NPC production or replacement; all approved144Juni frames retained. Old rejected guests remain only in recoverable old game.
+- COMPLETE E PARTIAL: follow camera, map position/goal guidance, one3letter-name matching activity with retry/local save/private-storage fallback. Other learning activities/quests remain PLANNED.
+- VERIFIED LOCAL:438baseline files +original movement update/UI template unchanged; offline source/nav/hash/alpha/solid checks,12unit,12browser, type/lint/format/build PASS. Full test thresholds unchanged; browser-local key release fixes instrumentation overshoot.
+- EVIDENCE: real native/enlarged/overview/evening/mobile/lesson PNGs,34.88s/872frame actual fixed-viewport MP4, exact6,253,697byte ZIP independently extracted/HTTP-tested desktop+mobileCanvas and genuine movement/reciprocal entry/oldtown. No console/404errors.
+- KNOWN QA: raw extraction18unowned source pixels WARN; official room marker keyboard FAIL on portal-reset displacement while5/5routes/assets/Ysort pass. Raw strict pre-existing Juni idle-right/wave warnings retained. Not allartQApass/physicalphoneFPS.
+- FINAL CHECKPOINT: independently observed remoteSHA/sourceCI/clean-clone status recorded in annotated checkpoint/living-seoul-first-slice-20261016 AFTER verification, not predicted in this document.
+- STOP FOR USER REVIEW of first slice. No remaining-area/NPC mass production, cleanup, separate-app edits, main promotion or Pages/game publication.
 
 ## Previous checkpoint record
 

@@ -1,0 +1,53 @@
+
+> hangeul-pixel-town@3.1.0 test:e2e
+> playwright test
+
+
+Running 12 tests using 1 worker
+
+(node:10116) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/e2e/art-preview.spec.ts:76:1 › unified plaza native movement, collision, layered outfits, distinct run and social emotes (17.1s)
+  ✓   2 tests/e2e/art-preview.spec.ts:221:1 › OS reduced motion, actual touch, mobile layout and DPR (4.7s)
+  ✓   3 tests/e2e/art-preview.spec.ts:317:1 › genuine WebGL-unavailable Canvas fallback (1.5s)
+  ✓   4 tests/e2e/art-preview.spec.ts:354:1 › new chibi hero renders four visibly different moods at the same pixel crop (2.7s)
+  ✓   5 tests/e2e/art-preview.spec.ts:398:1 › four historical guests greet, teach a word and visibly move without pretending to be online players (5.8s)
+  ✓   6 tests/e2e/character-review.spec.ts:3:1 › three new static concepts render in the existing Phaser town at exact integer scales (1.6s)
+  ✓   7 tests/e2e/character-review.spec.ts:57:1 › mobile static concept proof retains separate silhouettes with reduced motion and Canvas fallback (776ms)
+  ✘   8 tests/e2e/juni-animation.spec.ts:3:1 › Juni renders eight real gait frames per direction, transitions and social gestures in the actual district (22.1s)
+(node:10683) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 tests/e2e/living-seoul.spec.ts:25:1 › first district is genuinely connected, interior loads on entry, letter activity saves and reciprocal return works (26.1s)
+  ✓  10 tests/e2e/living-seoul.spec.ts:103:1 › district preserves mobile Canvas touch and reduced-motion, and survives unavailable local storage (2.0s)
+  ✓  11 tests/e2e/plaza-review.spec.ts:26:1 › new layered district retains the controller: water blocks, bridge passes, Juni occludes without canopy fading (14.6s)
+  ✓  12 tests/e2e/plaza-review.spec.ts:78:1 › mobile Canvas fallback preserves touch movement, reduced-motion and pause freeze the environment (2.8s)
+
+
+  1) tests/e2e/juni-animation.spec.ts:3:1 › Juni renders eight real gait frames per direction, transitions and social gestures in the actual district
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 8
+    Received: 5
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      66 |             { timeout: 5000 },
+      67 |           )
+    > 68 |           .toBe(8);
+         |            ^
+      69 |       } finally {
+      70 |         await page.keyboard.up(key);
+      71 |       }
+        at /workspace/3D-pharse5-/tests/e2e/juni-animation.spec.ts:68:12
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/juni-animation-Juni-render-8f3af-ures-in-the-actual-district/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/juni-animation-Juni-render-8f3af-ures-in-the-actual-district/error-context.md
+
+  1 failed
+    tests/e2e/juni-animation.spec.ts:3:1 › Juni renders eight real gait frames per direction, transitions and social gestures in the actual district
+  11 passed (1.7m)

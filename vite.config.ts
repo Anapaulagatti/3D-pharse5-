@@ -11,6 +11,7 @@ export default defineConfig({
         game: "index.html",
         characterReview: "character-review.html",
         plazaReview: "plaza-review.html",
+        districtReview: "district-review.html",
       },
     },
   },

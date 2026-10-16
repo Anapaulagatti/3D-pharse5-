@@ -1,0 +1,149 @@
+{
+  "schema": "generate2dmap.tiled_export.v1",
+  "status": "pass",
+  "method": "TMJ and TSX written from the bundle, read back with the built-in reader (TSX via ElementTree) and re-rendered (tile layers, image layers, prop tile objects in draw order); the re-render must equal render_map(bundle) pixel for pixel (preview.png)",
+  "notProven": [
+    "Tiled GUI not verified: opening the map, wang/terrain brushes and the mixed blob wangset in the editor",
+    "Phaser or another engine rendering map.embedded.tmj the same way",
+    "runtime depth sorting by the sortY property (Tiled's own topdown order sorts by image bottom)"
+  ],
+  "checks": [
+    {
+      "id": "tsx_well_formed",
+      "status": "pass",
+      "value": [],
+      "threshold": []
+    },
+    {
+      "id": "rerender_map_tmj",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "rerender_map_embedded_tmj",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../room-bundle.json",
+      "sha256": "b3c0cfb739cd192f3a3fccb240b56a2eb1ec4a8ed40de4c1185d30430b54b4bc",
+      "bytes": 4300
+    },
+    {
+      "path": "../../../gwanghwamun/tileset.json",
+      "sha256": "71da0320451ba3434e07abba4bcbe966e7175cd898f6c3d605299698b8a4ac31",
+      "bytes": 1294
+    },
+    {
+      "path": "../../../gwanghwamun/tiles.png",
+      "sha256": "c77bb3af9dec29324bd3d7d72c539f0fe8fba9daf3034d12e66215e0524a6200",
+      "bytes": 20404
+    },
+    {
+      "path": "../../room-base.png",
+      "sha256": "bbf9c3a3fce01a813448bed50cc2e38308c44f32de550fee2563e09a79cf771f",
+      "bytes": 497089
+    },
+    {
+      "path": "../ground.json",
+      "sha256": "0825e402213f07e902b726854a9f9f82f6dfabdd90c2a14f9c5fd8a48c0b4bc9",
+      "bytes": 3603
+    },
+    {
+      "path": "../edging.json",
+      "sha256": "0825e402213f07e902b726854a9f9f82f6dfabdd90c2a14f9c5fd8a48c0b4bc9",
+      "bytes": 3603
+    },
+    {
+      "path": "../../props/desk.png",
+      "sha256": "0a5cca95b4164cfc740ae41cab13fb3714eaba83d97b8cb11ed547a4de55c146",
+      "bytes": 6694
+    },
+    {
+      "path": "../../props/shelf.png",
+      "sha256": "a32bd5efaa17dd6293001235091fa2d85d5055ba99da7749e0521878394f0fef",
+      "bytes": 20737
+    }
+  ],
+  "outputs": [
+    {
+      "path": "images/desk.png",
+      "sha256": "0a5cca95b4164cfc740ae41cab13fb3714eaba83d97b8cb11ed547a4de55c146",
+      "bytes": 6694
+    },
+    {
+      "path": "images/room-base.png",
+      "sha256": "bbf9c3a3fce01a813448bed50cc2e38308c44f32de550fee2563e09a79cf771f",
+      "bytes": 497089
+    },
+    {
+      "path": "images/shelf.png",
+      "sha256": "a32bd5efaa17dd6293001235091fa2d85d5055ba99da7749e0521878394f0fef",
+      "bytes": 20737
+    },
+    {
+      "path": "images/tiles.png",
+      "sha256": "c77bb3af9dec29324bd3d7d72c539f0fe8fba9daf3034d12e66215e0524a6200",
+      "bytes": 20404
+    },
+    {
+      "path": "map.embedded.tmj",
+      "sha256": "b283eff186581512354431c93302ea6e4514d64a2fc585f84e0b3316c7ba4ded",
+      "bytes": 28281
+    },
+    {
+      "path": "map.tmj",
+      "sha256": "955abbf2ffebf1b8d0f03b3f04adfa09ac4d6f04f33d3fa4f12720ae7deef7fe",
+      "bytes": 21521
+    },
+    {
+      "path": "preview.png",
+      "sha256": "02a7ca45a40dc00a94a2dfbffc958eeb3dce0b1971d2198d4688ab5bfe5f49c0",
+      "bytes": 494771
+    },
+    {
+      "path": "props.tsx",
+      "sha256": "b32919807927e6a92a696c3c9286c061c55c9b4c7d3d171984bf0c16b2a8d535",
+      "bytes": 1419
+    },
+    {
+      "path": "town.tsx",
+      "sha256": "8c8c421e84b7378b914fe5283e2e28cfbbe09b6f81482a6d8375b7d5f2b4da78",
+      "bytes": 1685
+    }
+  ],
+  "tool": {
+    "name": "export_tiled.py",
+    "version": "0.4.0"
+  },
+  "tiled": {
+    "format": "1.10",
+    "app": "1.11.0",
+    "tilesets": [
+      {
+        "file": "town.tsx",
+        "name": "town",
+        "firstgid": 1,
+        "tilecount": 8
+      },
+      {
+        "file": "props.tsx",
+        "name": "props",
+        "firstgid": 9,
+        "tilecount": 2
+      }
+    ],
+    "layers": [
+      "RoomBase",
+      "Ground",
+      "Edging",
+      "Props",
+      "collision",
+      "interactions"
+    ]
+  }
+}

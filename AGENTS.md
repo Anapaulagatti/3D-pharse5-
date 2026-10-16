@@ -1,6 +1,12 @@
-# Current first gate — Living Seoul expansion
+# Current checkpoint — Living Seoul first playable expansion / review pending
 
-Read docs/current/LIVING_SEOUL_DISTRICT.md and docs/living-seoul/PLAN.md. Master district plan then FIRST connected playable expansion; produce real evidence before remaining-area/NPC mass production. Keep mandatory skill registry read-first requirement below persistent. Preserve approved Juni/plaza, separate learning app and history. No paid APIs, Pages release, cleanup or delegation.
+Latest user authority: docs/current/LIVING_SEOUL_DISTRICT.md. Mandatory read-first docs/ART_SKILL_REGISTRY.md, all four STUDIO records, docs/living-seoul/REVIEW.md +TOOLCHAIN.md and actual final checkpoint tag. A master plan and FIRST connected expansion completed; STOP for spatial/art visual review before remaining-area/NPC mass production. Current playground2048×768+one768×576Academy interior, not whole planned4096×2304neighborhood. Approved Juni144frames/oldplaza preserved; Bori/Nari retained. Other three buildings/newguests/activities PLANNED ONLY. No Pages/main promotion, paid APIs, cleanup, separate-app edits, delegation, force/reset/worktree.
+
+EVERY relevant art/map/animation/NPC task MUST read applicable upstream SKILL.md before production. Reuse actual Forge/Creator workflows in registry, record actual execution/warnings; never call provider keys authorization. User direction overrides conflicting historical stop instructions only within its scope. Current scope stops after first review package, not automatic continuation of all planned areas.
+
+Local12unit/12browser/type/lint/format/build/source/nav PASS; exact extracted ZIP desktop+mobileCanvas rendered pixels equal source, real entry/exit/oldtown verified. Raw18unownedpixel WARN, room marker keyboard portal-reset FAIL and pre-existing Juni right-idle/wave warnings retained; not all artQApass. Final verified remote/CI/clean clone result belongs in immutable checkpoint/living-seoul-first-slice-20261016 AFTER observation. Source-only checkpoints, environment settings and website publishing are separate.
+
+Setup bash tools/setup.sh checks stored assets only; never regenerate. New entry district-review.html, __DISTRICT__.ready; original index/plaza-review/character-review intact. See current REVIEW for ZIP/HTTP instructions and TOOLCHAIN for authoring/capture; no cloudlocalhost public link. Restart services after snapshots. Preserve exact npm lock and all recovery tags.
 
 # Current authority — District expansion & mandatory skill registry (2026-10-16)
 

@@ -1,6 +1,12 @@
-# Living Seoul — first-slice decisions
+# Living Seoul — first slice decisions
 
-Preserve exact existing plaza/Juni sources. Plan whole neighborhood but build only first eastward2048x768 connected slice plus one lazy-loaded Academy interior/letter-name activity now. Do not confuse future map markers with completed NPCs. Actual host imagegen, real Forge extract/finish/nav/Tiled; no paid providers. Separate district-review entry preserves all earlier playable entries.
+1. Execute master plan +FIRST connected expansion per latest request's final review gate. Whole4096×2304planning envelope is not an implemented empty world; only2048×768outdoor +768×576Academy interior is playable. Other buildings/NPCs/activities are explicitly planned.
+2. Approved art remains original. Reuse old32placements/terrain and Juni144frames exactly; new generation limited to original Academy/4propkit/room architecture. Five native96color props,128color generated room plate, real Forge source/alpha/nav/Tiled. No generic code-drawn replacement map or fake new historical guests.
+3. Reuse Plaza update byte-identically, add optional scene/map key; Gwanghwamun accepts configured layout/bundle. Original entries/UI survive; new district entry extends existing controller and adds explicit accessible E room transitions, follow/culling/minimap/local lesson. No deep engine rebuild or dependency change.
+4. Final selected positions corrected after actual renders and navigation tests; no random obstruction or collider weakening. Reciprocal data uses dedicated outside-trigger return spawn. Runtime activates via E near door, not automatic crossing. Both map bundles/link fingerprints validated.
+5. Keep QA distinctions:18tiny highres auto-box pixels WARN; room diagnostic reset makes one keyboard displacement FAIL while routes5/5/actual engine traversal PASS. Existing Juni sideidle/wave source warnings unchanged. Numeric integrity != artistic approval. Hard32pxterrain edges/straight rill and physical-device performance remain review limits.
+6. Test helper releases keys in browser at observed coordinate/eighth frame, preserving all original assertions/timeouts/real sample requirements; avoids Node-polling overshoot into obstacles. No game pose/position/physics injection. Separate fixed-viewport recorder avoids screenshot viewport artifacts; finalMP4 retains real time.
+7. Exact extracted static ZIP tested against source desktop/mobileCanvas, genuine entry/exit and oldtown. Verified source checkpoint only on development branch; no main/Pages action. Stop for first-slice visual review before remaining area/NPC production.
 
 ## Previous checkpoint record
 

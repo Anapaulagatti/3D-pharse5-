@@ -8,6 +8,7 @@ import {
 import world from "../../assets-src/world/world.json";
 type World = typeof world;
 type PlazaOptions = {
+  key?: string;
   layout?: World;
   assetRoot?: string;
   anchors?: Record<string, number[]>;
@@ -86,7 +87,7 @@ export class Plaza extends Phaser.Scene {
   private active = true;
   private overlay!: Phaser.GameObjects.Rectangle;
   constructor(private options: PlazaOptions = {}) {
-    super("plaza");
+    super(options.key ?? "plaza");
     this.layout = options.layout ?? world;
   }
   preload() {
@@ -146,7 +147,10 @@ export class Plaza extends Phaser.Scene {
         `${guestBase}atlas.json`,
       );
     }
-    this.load.tilemapTiledJSON("plaza", `${base}plaza.json`);
+    this.load.tilemapTiledJSON(
+      this.options.key ?? "plaza",
+      `${base}plaza.json`,
+    );
     this.load.on("loaderror", (file: Phaser.Loader.File) =>
       window.dispatchEvent(
         new CustomEvent("game-error", {
@@ -156,7 +160,7 @@ export class Plaza extends Phaser.Scene {
     );
   }
   create() {
-    const map = this.make.tilemap({ key: "plaza" });
+    const map = this.make.tilemap({ key: this.options.key ?? "plaza" });
     const tiles = map.addTilesetImage("town", "tiles", 32, 32, 0, 0);
     if (!tiles) throw Error("Tiled tileset missing");
     map.createLayer("Ground", tiles, 0, 0)?.setDepth(-100);

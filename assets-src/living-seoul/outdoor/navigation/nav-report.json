@@ -1,0 +1,573 @@
+{
+  "schema": "generate2dmap.nav_report.v1",
+  "status": "pass",
+  "method": "plan Appendix C validity (centre + 8 footprint samples against walk regions, solids, object footprints scaled once, tile collision and material classes) on a grid of cell max(1, round(r/2)) px; 4-neighbour moves open when segmentClear holds between node centres (samples every cell/2, plus the exact thin-gap centre path and one_way direction); BFS from every spawn and portal arrival to every interaction, exit, anchor slot and approach point",
+  "notProven": [
+    "that the collision data matches the painted art",
+    "positions closer than one grid cell to a blocker (the grid samples cell centres)",
+    "runtime movement code: map-runtime.mjs parity is tested during integration",
+    "links to maps not passed with --link"
+  ],
+  "checks": [
+    {
+      "id": "starts_valid",
+      "status": "pass",
+      "value": {
+        "starts": 3,
+        "blocked": []
+      },
+      "threshold": {
+        "blocked": 0
+      }
+    },
+    {
+      "id": "targets_reachable",
+      "status": "pass",
+      "value": {
+        "reachable": 19,
+        "total": 19,
+        "unreachable": []
+      },
+      "threshold": {
+        "unreachable": 0
+      }
+    },
+    {
+      "id": "portals_inside_world",
+      "status": "pass",
+      "value": {
+        "outside": []
+      },
+      "threshold": {
+        "outside": 0
+      }
+    },
+    {
+      "id": "arrivals_outside_triggers",
+      "status": "pass",
+      "value": {
+        "problems": 0
+      },
+      "threshold": {
+        "problems": 0
+      }
+    },
+    {
+      "id": "reciprocal_links",
+      "status": "skipped",
+      "value": {
+        "links": [],
+        "notChecked": [
+          "academy-reading-room"
+        ]
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "thin_gaps",
+      "status": "pass",
+      "value": 0,
+      "threshold": "reported: moves the thin-gap rule closed although every footprint sample was valid"
+    },
+    {
+      "id": "unreachable_walkable_area",
+      "status": "pass",
+      "value": {
+        "pockets": 0,
+        "cells": 0
+      },
+      "threshold": "reported"
+    },
+    {
+      "id": "blocked_rects_union",
+      "status": "pass",
+      "value": {
+        "rects": 212,
+        "blockedCells": 26611
+      },
+      "threshold": "union == blocked cells"
+    },
+    {
+      "id": "footprints_scaled_once",
+      "status": "pass",
+      "value": {
+        "objectSolids": 62
+      },
+      "threshold": "object footprint x scale, never inflated by the actor radius"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../outdoor-bundle.json",
+      "sha256": "86b85457f9d718af9fd9b6894097abeca6b50a62b3f1a47a7333580d72776635",
+      "bytes": 41640
+    },
+    {
+      "path": "../../../gwanghwamun/tileset.json",
+      "sha256": "71da0320451ba3434e07abba4bcbe966e7175cd898f6c3d605299698b8a4ac31",
+      "bytes": 1294
+    },
+    {
+      "path": "../../../gwanghwamun/tiles.png",
+      "sha256": "c77bb3af9dec29324bd3d7d72c539f0fe8fba9daf3034d12e66215e0524a6200",
+      "bytes": 20404
+    },
+    {
+      "path": "../ground.json",
+      "sha256": "265449d13c23cc9d156938b8ac7523adda694caef432eaf1795a053e1d199d16",
+      "bytes": 10947
+    },
+    {
+      "path": "../edging.json",
+      "sha256": "bba87365c7a083df16b48a7745290cd4b02cf0cd5b607aca6c2c6cf0b905ec6a",
+      "bytes": 12483
+    },
+    {
+      "path": "../../../gwanghwamun/props/gate.png",
+      "sha256": "d5ff69f7b4335f6661c19c00d2cd904e11e77c54bf68883d06b5e1c8a30a36f4",
+      "bytes": 191823
+    },
+    {
+      "path": "../../../gwanghwamun/props/pavilion.png",
+      "sha256": "96b0dfc21d18e20c6b3f6a709c5d87b8c453ee6953fe82f497d71b40caf62512",
+      "bytes": 54792
+    },
+    {
+      "path": "../../../gwanghwamun/props/hall.png",
+      "sha256": "aecb387c730fc658e2c570b71879e99325659253c182135e21a3b487d89a0b1b",
+      "bytes": 72435
+    },
+    {
+      "path": "../../../gwanghwamun/props/ginkgo.png",
+      "sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "bytes": 48819
+    },
+    {
+      "path": "../../../gwanghwamun/props/tree.png",
+      "sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "bytes": 40364
+    },
+    {
+      "path": "../../../gwanghwamun/props/sejong.png",
+      "sha256": "4e4e6770ac0fb5e6c5e7552cf1d380f2f9c49644b506621aca7e40dcf5a93857",
+      "bytes": 18657
+    },
+    {
+      "path": "../../../gwanghwamun/props/bench.png",
+      "sha256": "111ec597f59aa232bf8ddb38658b693480c7261282c60f86bec65a7b1133359a",
+      "bytes": 5110
+    },
+    {
+      "path": "../../../gwanghwamun/props/lantern.png",
+      "sha256": "dfe4dc19f4b77a23fffe7715d63d1ecd2ee2d65b4afc674e861df11d453f526c",
+      "bytes": 6021
+    },
+    {
+      "path": "../../../gwanghwamun/props/jars.png",
+      "sha256": "7e80af2dab5040ada3a6244c533bb0b4fcff2a27d180f604e0974b5548f15f85",
+      "bytes": 5204
+    },
+    {
+      "path": "../../../gwanghwamun/props/planter.png",
+      "sha256": "35caea815680e4b8ce01fe6afe22a56b1daee0778bc3f47ba3eb756d7fd29c1f",
+      "bytes": 4245
+    },
+    {
+      "path": "../../../gwanghwamun/props/bridge.png",
+      "sha256": "b3778f0eae255beb62d93c3b5087297a3d685f95c7d03d691025d10ab3cb105e",
+      "bytes": 8536
+    },
+    {
+      "path": "../../../gwanghwamun/props/wall.png",
+      "sha256": "e9509fb878d092a26a45f70dd48aaeb71e915fbaed650be5d060ae988af2a05f",
+      "bytes": 10909
+    },
+    {
+      "path": "../../props/academy.png",
+      "sha256": "29827522f24e202076a90384a8cc112fc60410be989b06da15f3d282bd4ca7df",
+      "bytes": 154615
+    },
+    {
+      "path": "../../props/kiosk.png",
+      "sha256": "d3933b53a6dd9fc6e5499f5c0d6194230ba6f51e0a8776cecb00b966bc1784f1",
+      "bytes": 28907
+    },
+    {
+      "path": "../../props/desk.png",
+      "sha256": "0a5cca95b4164cfc740ae41cab13fb3714eaba83d97b8cb11ed547a4de55c146",
+      "bytes": 6694
+    },
+    {
+      "path": "../../props/shelf.png",
+      "sha256": "a32bd5efaa17dd6293001235091fa2d85d5055ba99da7749e0521878394f0fef",
+      "bytes": 20737
+    },
+    {
+      "path": "../../props/sign.png",
+      "sha256": "edae14c8c161a11a8ee13dbc2efe6b4efca9842773dc4fdc5c53bea973b7b550",
+      "bytes": 11350
+    }
+  ],
+  "outputs": [
+    {
+      "path": "nav-grid.json",
+      "sha256": "e351925ca9148d01b562f9c7b0d5c9eb16fe7298675531c89d13868372e74f29",
+      "bytes": 212267
+    },
+    {
+      "path": "nav-debug.png",
+      "sha256": "f8d5895c814bcf893540a82f62483ca9d425d11578b39b99763b4de6a8fb19ce",
+      "bytes": 1681397
+    }
+  ],
+  "tool": {
+    "name": "map_nav.py",
+    "version": "0.4.0"
+  },
+  "map": "living-seoul-first-slice",
+  "cell": 4,
+  "starts": [
+    {
+      "kind": "spawn",
+      "id": "start",
+      "point": [
+        512.0,
+        600.0
+      ],
+      "reachable": true,
+      "steps": 0,
+      "node": [
+        510.0,
+        598.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "spawn",
+      "id": "academy-return",
+      "point": [
+        1536.0,
+        475.0
+      ],
+      "reachable": true,
+      "steps": 0,
+      "node": [
+        1534.0,
+        474.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "arrival",
+      "id": "academy-door<-academy-reading-room",
+      "point": [
+        1536.0,
+        475.0
+      ],
+      "reachable": true,
+      "steps": 0,
+      "node": [
+        1534.0,
+        474.0
+      ],
+      "reason": null
+    }
+  ],
+  "targets": [
+    {
+      "kind": "interaction",
+      "id": "gate",
+      "point": [
+        512.0,
+        355.0
+      ],
+      "reachable": true,
+      "steps": 38,
+      "node": [
+        506.0,
+        442.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "interaction",
+      "id": "sejong",
+      "point": [
+        354.0,
+        490.0
+      ],
+      "reachable": true,
+      "steps": 33,
+      "node": [
+        430.0,
+        538.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "interaction",
+      "id": "pavilion",
+      "point": [
+        165.0,
+        448.0
+      ],
+      "reachable": true,
+      "steps": 90,
+      "node": [
+        230.0,
+        510.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "interaction",
+      "id": "hall",
+      "point": [
+        862.0,
+        430.0
+      ],
+      "reachable": true,
+      "steps": 95,
+      "node": [
+        794.0,
+        486.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "interaction",
+      "id": "bridge",
+      "point": [
+        704.0,
+        610.0
+      ],
+      "reachable": true,
+      "steps": 23,
+      "node": [
+        614.0,
+        610.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "interaction",
+      "id": "book-alley",
+      "point": [
+        1100.0,
+        608.0
+      ],
+      "reachable": true,
+      "steps": 108,
+      "node": [
+        1150.0,
+        534.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "interaction",
+      "id": "academy",
+      "point": [
+        1536.0,
+        434.0
+      ],
+      "reachable": true,
+      "steps": 0,
+      "node": [
+        1530.0,
+        466.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "interaction",
+      "id": "library",
+      "point": [
+        1850.0,
+        552.0
+      ],
+      "reachable": true,
+      "steps": 63,
+      "node": [
+        1794.0,
+        482.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "interaction",
+      "id": "garden",
+      "point": [
+        1720.0,
+        624.0
+      ],
+      "reachable": true,
+      "steps": 48,
+      "node": [
+        1670.0,
+        550.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "approach",
+      "id": "gate/approach[0]",
+      "point": [
+        512.0,
+        390.0
+      ],
+      "reachable": true,
+      "steps": 49,
+      "node": [
+        506.0,
+        398.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "approach",
+      "id": "sejong/approach[0]",
+      "point": [
+        354.0,
+        520.0
+      ],
+      "reachable": true,
+      "steps": 52,
+      "node": [
+        362.0,
+        530.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "approach",
+      "id": "pavilion/approach[0]",
+      "point": [
+        165.0,
+        492.0
+      ],
+      "reachable": true,
+      "steps": 106,
+      "node": [
+        174.0,
+        502.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "approach",
+      "id": "hall/approach[0]",
+      "point": [
+        862.0,
+        480.0
+      ],
+      "reachable": true,
+      "steps": 109,
+      "node": [
+        854.0,
+        490.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "approach",
+      "id": "bridge/approach[0]",
+      "point": [
+        640.0,
+        610.0
+      ],
+      "reachable": true,
+      "steps": 28,
+      "node": [
+        634.0,
+        602.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "approach",
+      "id": "book-alley/approach[0]",
+      "point": [
+        1100.0,
+        608.0
+      ],
+      "reachable": true,
+      "steps": 135,
+      "node": [
+        1110.0,
+        602.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "approach",
+      "id": "academy/approach[0]",
+      "point": [
+        1536.0,
+        475.0
+      ],
+      "reachable": true,
+      "steps": 0,
+      "node": [
+        1530.0,
+        466.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "approach",
+      "id": "library/approach[0]",
+      "point": [
+        1850.0,
+        570.0
+      ],
+      "reachable": true,
+      "steps": 94,
+      "node": [
+        1842.0,
+        562.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "approach",
+      "id": "garden/approach[0]",
+      "point": [
+        1720.0,
+        624.0
+      ],
+      "reachable": true,
+      "steps": 76,
+      "node": [
+        1714.0,
+        618.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "exit",
+      "id": "academy-door",
+      "point": [
+        1536.0,
+        434.0
+      ],
+      "reachable": true,
+      "steps": 5,
+      "node": [
+        1530.0,
+        446.0
+      ],
+      "reason": null
+    }
+  ],
+  "links": [],
+  "thinGaps": [],
+  "unreachablePockets": [],
+  "bundleNav": {
+    "cell": 4,
+    "grid": "nav-grid.json"
+  },
+  "problems": []
+}

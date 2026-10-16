@@ -1,6 +1,14 @@
-# Living Seoul — current authorized first expansion
+# Living Seoul — first connected review slice
 
-Read docs/current/LIVING_SEOUL_DISTRICT.md, docs/living-seoul/PLAN.md and mandatory registry first. User accepts Juni/Gwanghwamun baseline. Follow incremental first connected expansion review; older stop rules superseded only for this task. Recovery recovery/before-living-seoul-20261016 ->5b0eabacb28e0cd74e0519b9e69bc9fc75e14a83 independently pushed/peeled. Master plan complete; artwork/runtime not yet produced at this checkpoint.
+Read latest docs/current/LIVING_SEOUL_DISTRICT.md, mandatory ART_SKILL_REGISTRY.md and docs/living-seoul/REVIEW.md/TOOLCHAIN.md. User accepts Juni/Gwanghwamun baseline and requests incremental larger district; final sentence gates first expansion review before remaining production. Master plan covers future neighborhood; actual outdoor extent2048×768, plus one768×576Academy reading room. Actual source/atlas/controller preserved, three original hostimage calls and real Forge processing, no new NPC/art-animation mass production. Stage A complete; B first slice complete; C/E partial; D deferred.
+
+Current real Phaser route: preserved plaza/bridge → book alley → Academy doorway E → reading desk E →3letter-name matching → local save → E exit. Camera follows, room PNG lazy-loaded, props viewport-culled; opaque cue respects actual occluder pixels. Existing controls/pause/OSpreference/touch/Canvas retained. Exact ZIP launcher desktop/mobileCanvas pixels match source, actual entry/exit and original town4guests verified. Internal localhost is not a public user preview.
+
+Local12unit/12browser/type/lint/format/production/asset/nav checks PASS; raw source QA warns18tiny unowned pixels; room Forge marker keyboard diagnostic fails when walking through resetting portal, while5/5routes/Ysort/assets and actual Phaser entry/exit pass. Pre-existing right-idle/small-wave warnings unchanged, not silently approved. Short stationary softwareFPS only, no phone/60FPS guarantee. Real34.88sMP4 +native/mobile/detail/activity/overview/board inspected; exact review ZIP SHAe8cd41b5f3f8f76118a960ab4882f997df27e02761e22b2f1744b11eb3ac34ea.
+
+Recovery recovery/before-living-seoul-20261016 ->5b0eabacb28e0cd74e0519b9e69bc9fc75e14a83 pushed/peeled before work; plan d987a4a pushed/sourceCI success. Final precise source SHA/remoteCI/clean clone proof belong in actual immutable checkpoint/living-seoul-first-slice-20261016 only after observed success. Main remains33360ed, old PagesSHA082c661b5da2b4c8e66e81b2f52405ef460947bfeff27e2fd6fe771b2e3c716f; no deployment. Stop at first review gate.
+
+Setup bash tools/setup.sh validates stored assets, never regenerates. Optional Forge external cache pinned5324342 needed only for future authorized authoring; never paid/API routes. Dev4200, production4201/base/3D-pharse5-/district-review.html, readiness __DISTRICT__.ready and original metrics. Restart processes after snapshot; package Python launcher for user review, not cloud loopback. No worktree/reset/force/delegation/unknown changes overwritten.
 
 ## Previous checkpoint record
 

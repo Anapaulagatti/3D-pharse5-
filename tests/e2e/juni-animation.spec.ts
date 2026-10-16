@@ -17,10 +17,43 @@ test("Juni renders eight real gait frames per direction, transitions and social 
   await page.evaluate(() => {
     const log: { action: string; frame: string; direction: string }[] = [];
     (window as unknown as { juniSamples: typeof log }).juniSamples = log;
+    const host = window as unknown as {
+      juniBrake?: { action: string; view: string; key: string };
+    };
     function sample() {
       const r = window.__PLAZA_REVIEW__;
       if (r)
         log.push({ action: r.action, frame: r.frame, direction: r.direction });
+
+      const brake = host.juniBrake;
+      if (
+        brake &&
+        new Set(
+          log
+            .filter(
+              (s) => s.action === brake.action && s.direction === brake.view,
+            )
+            .map((s) => s.frame),
+        ).size === 8
+      ) {
+        const keyCode = (
+          {
+            ArrowRight: 39,
+            ArrowUp: 38,
+            ArrowLeft: 37,
+            ArrowDown: 40,
+          } as Record<string, number>
+        )[brake.key];
+        window.dispatchEvent(
+          new KeyboardEvent("keyup", {
+            key: brake.key,
+            code: brake.key,
+            keyCode,
+            bubbles: true,
+          }),
+        );
+        delete host.juniBrake;
+      }
       requestAnimationFrame(sample);
     }
     requestAnimationFrame(sample);
@@ -37,6 +70,19 @@ test("Juni renders eight real gait frames per direction, transitions and social 
       ["ArrowDown", "front"],
     ]) {
       await page.locator("canvas").focus();
+
+      // Stop at eight actual observed frames before a Node polling round-trip
+      // carries this short route into a wall. Original8frame/5000ms gate unchanged.
+      await page.evaluate(
+        ({ action, view, key }) => {
+          (
+            window as unknown as {
+              juniBrake: { action: string; view: string; key: string };
+            }
+          ).juniBrake = { action, view, key };
+        },
+        { action: run ? "run" : "walk", view, key },
+      );
       await page.keyboard.down(key);
       try {
         await expect

@@ -10,11 +10,44 @@ async function axis(
   await page.locator("canvas").focus();
   await page.keyboard.down(key);
   try {
-    await page.waitForFunction(
-      ({ field, target, positive }) => {
-        const value = window.__PIXEL_METRICS__![field];
-        return positive ? value >= target : value <= target;
-      },
+    // Browser-local key release avoids a Node/CDP polling overshoot at the44px bridge.
+    // Only a keyboard event: no position, velocity, collider or assertion mutation.
+    await page.evaluate(
+      ({ field, target, positive }) =>
+        new Promise<void>((resolve, reject) => {
+          const start = performance.now();
+          const tick = () => {
+            const value = window.__PIXEL_METRICS__![field];
+            if (positive ? value >= target : value <= target) {
+              const key =
+                field === "x"
+                  ? positive
+                    ? "ArrowRight"
+                    : "ArrowLeft"
+                  : positive
+                    ? "ArrowDown"
+                    : "ArrowUp";
+              const keyCode = {
+                ArrowRight: 39,
+                ArrowLeft: 37,
+                ArrowDown: 40,
+                ArrowUp: 38,
+              }[key];
+              window.dispatchEvent(
+                new KeyboardEvent("keyup", {
+                  key,
+                  code: key,
+                  keyCode,
+                  bubbles: true,
+                }),
+              );
+              resolve();
+            } else if (performance.now() - start > 20000)
+              reject(Error(`Actual movement did not reach ${field}=${target}`));
+            else requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }),
       { field, target, positive },
     );
   } finally {

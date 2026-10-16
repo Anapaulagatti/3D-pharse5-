@@ -1,3 +1,9 @@
+# Living Seoul first connected slice — current provenance
+
+Three original host image_gen outputs grounded only in original Gwanghwamun art: Academy, reading prop kit and roofless room. Sources/prompts/hashes in assets-src/living-seoul. Actual Forge extraction/area finish/96color palette/bundle/nav/Tiled; generated room plate area-reduced and128color-quantized, no copied game textures or code-drawn substitute map. Eight approved generated terrain tiles, approved Juni144frames and original plaza preserved. Broad neighborhood exploration inspiration only; no Pixels.xyz artwork/map/NFT/system content copied. Existing MIT project/Phaser/Zod notices retained. No audio, paid provider, third-party art pack, external font or tool source redistributed. Future historical characters/districts remain planned. See docs/living-seoul/TOOLCHAIN.md and actual QA; no all-artwork-approved claim.
+
+## Earlier provenance at its original checkpoint
+
 # Gwanghwamun review provenance — latest environment milestone
 
 assets-src/gwanghwamun contains original host image_gen concepts, isolated Korean architecture/foliage/furniture source packs and generated material textures. Actual Sprite Forge extraction, area finishing, shared96-color prop palette and layered-map/Tiled processing are recorded in docs/gwanghwamun. Ground is assembled from generated textures; Python writes map/collision data and crops/resamples existing pixels, not substitute code-drawn map artwork. The previous town/source and all three character designs remain unchanged. B/Juni is provisionally selected; A/Bori and C/Nari remain future styles. Plaza B is only recommended, not approved.
