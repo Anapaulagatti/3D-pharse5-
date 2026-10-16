@@ -2,6 +2,7 @@
 import { chromium } from "playwright";
 import fs from "node:fs/promises";
 import os from "node:os";
+import { createHash } from "node:crypto";
 const phase = process.env.PROFILE_PHASE ?? "before";
 const base =
   process.env.PIXEL_CAPTURE_URL ?? "http://127.0.0.1:4201/3D-pharse5-/";
@@ -138,6 +139,15 @@ await fs.writeFile(
     {
       phase,
       entry,
+      bundleSha256: createHash("sha256")
+        .update(
+          await fs.readFile(
+            entry === "refinement-review.html"
+              ? "assets-src/world-refinement/outdoor-bundle.json"
+              : "assets-src/seoul-production/outdoor-bundle.json",
+          ),
+        )
+        .digest("hex"),
       hardware: {
         cpu: os.cpus()[0].model,
         logicalCPUs: os.cpus().length,

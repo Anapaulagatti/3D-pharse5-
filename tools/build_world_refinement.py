@@ -47,6 +47,7 @@ for x in [384,1920]:place('rf-prod-service',x,448,'Original closed side service 
 for x0,x1 in [(400,970),(1334,1904)]:
  n=math.ceil((x1-x0)/148)
  for i in range(n):place('rf-prod-wall',round(x0+(i+.5)*(x1-x0)/n),448,'Inner palace garden cross-wall return')
+for x in [1008,1296]:place('rf-prod-wall',x,448,'Inner-gate wall join: retained native wall meets the240pxgate facade, no painted collision gaps')
 solid(400,416,720,32,'Inner wall west return, includes inner gate side pier')
 solid(1184,416,720,32,'Inner wall east return, includes inner gate side pier')
 place('rf-inner-gate',1152,448,'Distinct single-tier open inner gate, not duplicated monumental gate')

@@ -36,7 +36,7 @@ await p.evaluate(() => {
   const chunks = [];
   const rec = new MediaRecorder(stream, {
     mimeType: mime,
-    videoBitsPerSecond: 6000000,
+    videoBitsPerSecond: 4000000,
   });
   window.__CAPTURE__ = {
     rec,

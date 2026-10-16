@@ -6,8 +6,23 @@ async function ready(page: Page, suffix = "") {
   await page.waitForFunction(() => window.__SEOUL__?.ready);
 }
 async function place(page: Page, x: number, y: number) {
-  await page.evaluate(([x, y]) => window.__SEOUL_TEST__!.place(x, y), [x, y]);
-  await page.waitForTimeout(120);
+  const frame = await page.evaluate(
+    ([x, y]) => {
+      const frame = window.__REFINEMENT__!.frameCount;
+      window.__SEOUL_TEST__!.place(x, y);
+      return frame;
+    },
+    [x, y],
+  );
+  // QA placement, camera worldView, culling and cue invalidation settle on successive ticks.
+  // Four actual engine frames preserve exact assertions on slow software GPU hosts.
+  await page.waitForFunction(
+    ({ x, y, frame }) =>
+      window.__SEOUL__!.x === x &&
+      window.__SEOUL__!.y === y &&
+      window.__REFINEMENT__!.frameCount >= frame + 4,
+    { x, y, frame },
+  );
 }
 async function move(
   page: Page,

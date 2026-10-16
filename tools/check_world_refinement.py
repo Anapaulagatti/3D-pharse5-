@@ -28,6 +28,14 @@ for p in derived['parts']:
     reconstructed.paste(pixels,(box[0],box[1]))
 assert whole.tobytes()==reconstructed.tobytes(),'Approved workshop pixels changed'
 for row in j(S/'placements.json')['props']:assert not Path(row['image']).is_absolute() and (S/row['image']).is_file()
+# Closed inner-wall feet must actually be painted, including the two gate joins.
+# Inspect source alpha at the structural wall row; ignore only the intended64pxpassage.
+wall_images=[]
+for o in b['objects']:
+    if 'cross-wall' in o['purpose'] or 'Inner-gate wall join:' in o['purpose'] or o['prop']=='rf-inner-gate':
+        p=b['props'][o['prop']];im=Image.open(S/p['image']).convert('RGBA');wall_images.append((o['x']-p['anchor_px'][0],o['y']-p['anchor_px'][1],im))
+for x in list(range(400,1120))+list(range(1184,1904)):
+    assert any(0<=x-left<im.width and 0<=432-top<im.height and im.getpixel((x-left,432-top))[3]>127 for left,top,im in wall_images),f'Invisible inner wall at{x},432'
 solids=b['collision']['solids']
 for building in original['buildings']:
     if building['id'] in ['academy','workshop','museum']:

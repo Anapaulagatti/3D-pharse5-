@@ -2,23 +2,23 @@
   "status": "PASS",
   "method": "Decode original MediaRecorder timestamps and all frames; H264 VFR transcode with no -r/fps filter, same actual frame count, relative PTS preserved within2ms. Requested capture60 is not encoded FPS. Real keyboard/mouse continuous route, QA hook absent. DOM dialogs separately captured.",
   "original": {
-    "sha256": "1fa04c9f4c2de8dbe4f7ae0399be548010203bdf10b32d14ef888263ffa8471b",
-    "bytes": 64089659,
+    "sha256": "287187acce2f1f671c00dc535014e165a15005d883643424627d840da155fdee",
+    "bytes": 54118399,
     "stream": {
       "codec_name": "vp9",
       "width": 1024,
       "height": 768
     },
-    "decodedFrames": 4342,
+    "decodedFrames": 4677,
     "firstPTS": 0.0,
-    "lastPTS": 96.021,
-    "durationSeconds": 96.03800000000001,
-    "actualAverageFPS": 45.211270538745076,
+    "lastPTS": 94.844,
+    "durationSeconds": 94.86099999999999,
+    "actualAverageFPS": 49.30371807170492,
     "ptsStrictlyIncreasing": true,
     "frameGapMs": {
-      "median": 17.000000000010118,
-      "p95": 42.99999999999926,
-      "max": 127.00000000000244
+      "median": 17.000000000003013,
+      "p95": 34.99999999999659,
+      "max": 98.00000000000608
     },
     "command": [
       "ffprobe",
@@ -35,23 +35,23 @@
     ]
   },
   "encoded": {
-    "sha256": "c223d58c93c464b05e853a1faa3323daa12e26aa41644f6a67d5078432f8d3a9",
-    "bytes": 32580649,
+    "sha256": "01a0e4e166a12cf66cfb09c590f0041a85c198dc310a7ceacb63363f2a54e1bb",
+    "bytes": 39593692,
     "stream": {
       "codec_name": "h264",
       "width": 1024,
       "height": 768
     },
-    "decodedFrames": 4342,
+    "decodedFrames": 4677,
     "firstPTS": 0.0,
-    "lastPTS": 96.021,
-    "durationSeconds": 96.03800000000001,
-    "actualAverageFPS": 45.211270538745076,
+    "lastPTS": 94.844,
+    "durationSeconds": 94.86099999999999,
+    "actualAverageFPS": 49.30371807170492,
     "ptsStrictlyIncreasing": true,
     "frameGapMs": {
-      "median": 17.000000000010118,
-      "p95": 42.99999999999926,
-      "max": 127.00000000000244
+      "median": 17.000000000003013,
+      "p95": 34.99999999999659,
+      "max": 98.00000000000608
     },
     "command": [
       "ffprobe",
@@ -82,6 +82,10 @@
     "22",
     "-fps_mode",
     "vfr",
+    "-enc_time_base",
+    "1:1000",
+    "-video_track_timescale",
+    "1000",
     "-an",
     "-movflags",
     "+faststart",
@@ -89,10 +93,10 @@
     "/workspace/3D-pharse5-/docs/world-refinement/quality/gameplay-walkthrough.mp4"
   ],
   "maxRelativeTimestampErrorSeconds": 0.0,
-  "measuredRuntimeFPSDuringCapture": 56.420990692528804,
+  "measuredRuntimeFPSDuringCapture": 58.48068426548179,
   "runtimeRafMs": {
     "p50": 16.69999999999709,
-    "p95": 16.80000000000291,
-    "p99": 33.400000000001455
+    "p95": 16.799999999995634,
+    "p99": 16.80000000000291
   }
 }

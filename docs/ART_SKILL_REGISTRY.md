@@ -1,3 +1,9 @@
+# STOP — final Living Seoul review awaits user approval
+
+Read docs/world-refinement/REVIEW.md, verification.json, FORGE.md/PERFORMANCE.md and actual checkpoint/living-seoul-refinement-verified-20261016 AFTER observation. Final149placements/124statics,1440painted closed-wall pixels, root12unit+21browser,202fileHTTP ZIP, genuine49.30FPSaverageVFR/4677frames/94.861s proof. Both queued tasks complete locally; exact final SHA/CI/independent-checkout facts belong in verified tag. Pre-wall8d7 is recoverable and passed independent checks, but latest joins and QA-frame synchronization supersede it. Stop before further modern/NPC art/main merge/deploy/paidAPI/cleanup/delegation/reset/force/worktree. Setup never generates; preserve old483files/Juni144frames/main/Pages. Finish checkpoint handoff only.
+
+## Historical authority and checkpoints
+
 # STOP — compact Living Seoul visual/gameplay review pending
 
 Read docs/world-refinement/REVIEW.md, verification.json, FORGE.md, PERFORMANCE.md and actual immutable checkpoint/living-seoul-refinement-verified-20261016 AFTER verification. Root12unit+21browser/202fileHTTPZIP/real45.21FPSVFRvideo PASS; old483files/Juni144frames/main/Pages preserved. Final exact SHA/CI/clean-clone facts belong in tag after observation, not assumed. Both queued tasks complete locally; STOP before full modern district/newNPCs/main merge/publication/paid routes/cleanup/delegation/reset/force/worktree. Setup never generates. Current review entry refinement-review.html; portable instructions in REVIEW.md.

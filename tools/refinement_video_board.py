@@ -1,6 +1,6 @@
 """Arrange real decoded frames as evidence, never synthesized game frames."""
 from pathlib import Path
-import hashlib,subprocess
+import hashlib,subprocess,json
 from PIL import Image,ImageDraw,ImageFont
 R=Path(__file__).resolve().parents[1]
 Q=R/'docs/world-refinement/quality'
@@ -9,7 +9,8 @@ C.mkdir(exist_ok=True)
 font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',16)
 board=Image.new('RGB',(1568,1020),'#172f2e')
 d=ImageDraw.Draw(board)
-d.text((16,10),'ACTUAL CONTINUOUS PHASER CAPTURE / 45.21fps VFR / no teleport or injected frames',font=font,fill='#fff0c8')
+fps=json.loads((Q/'video-verification.json').read_text())['original']['actualAverageFPS']
+d.text((16,10),f'ACTUAL CONTINUOUS PHASER CAPTURE / {fps:.2f}fps VFR / no teleport or injected frames',font=font,fill='#fff0c8')
 for i,t in enumerate([1,8,17,26,34,42,50,58,66,76,86,94]):
     p=C/f'{t}.png'
     if not p.exists():
