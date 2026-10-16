@@ -1,3 +1,11 @@
+# LIVING-SEOUL-PRODUCTION-001 — Stage A source checkpoint
+
+Architecture Art Bible COMPLETE for review:14original studies,18finished northern props,10actual host image calls including museum-volume correction; raw/prompts/editable pixels/shared192palette and actual Forge logs retained. Native identity board includes same approved80px Juni. Stage B runtime candidate already exercised locally (3new browser flows PASS and15actual screenshots), but runtime/portable-package/final regression verification is still IN PROGRESS and is NOT the claim of this art-only checkpoint. Main/Pages/old assets/Juni unchanged;544protected files checked. Composition bounds WARN for9edge-tree canopies retained. No artistic approval inferred.
+
+Read docs/seoul-production/PLAN.md, ARCHITECTURE.md and FORGE.md. Finish first northern4096×1728playable review/package/independent verification, then STOP before Stage C/D. No paid API/NPC mass production/publication.
+
+## Earlier record
+
 # LIVING-SEOUL-PRODUCTION-001 — IN PROGRESS
 
 Latest docs/current/BUILD_LIVING_SEOUL.md approves masterplan and authorizes Stage A +first playable Stage B. Read docs/seoul-production/PLAN.md. Recovery before production recovery/before-living-seoul-production-20261016 ->d5941b2 pushed/peeled before changes. No final production assets claimed yet. Preserve original game/Juni/source/history/main/Pages; original generated northern architecture/map/assets and real Forge/Phaser proof underway. STOP for Stage B visual approval before remaining-area/NPC mass production. No paid API/provider or website release.

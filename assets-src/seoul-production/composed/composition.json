@@ -1,0 +1,6455 @@
+{
+  "schema": "generate2dmap.compose_report.v2",
+  "tool": {
+    "name": "compose_layered_preview",
+    "version": "0.4.0"
+  },
+  "base": "../layers/base.png",
+  "base_sha256": "8d8400ce01bcae7883b17c3727a4d9603a02e997d75c2abfa3ed55a153adb442",
+  "placements": "../placements.json",
+  "placements_sha256": "c4f3d16fec3aea19c3299f6365ea9ba1bc54dfdb3594990eb3ab80aa50818f08",
+  "output": "preview.png",
+  "output_sha256": "68584868073197e3fa2debfec262eabbad24ee02a637b206f89f9dc2d2d7b949",
+  "canvas_size": [
+    4096,
+    1728
+  ],
+  "scale": 1.0,
+  "resampler": "lanczos",
+  "sort": "ground-line",
+  "anchor_policy": "manifest",
+  "compositing_order": [
+    {
+      "band": "base",
+      "draws": "the base image (scaled by --scale)"
+    },
+    {
+      "band": "background",
+      "draws": "placements on layer background",
+      "sorted_by": [
+        "sortY",
+        "x",
+        "id"
+      ]
+    },
+    {
+      "band": "world",
+      "draws": "props, objects, actors and every other layer",
+      "sorted_by": [
+        "sortY",
+        "x",
+        "id"
+      ]
+    },
+    {
+      "band": "foreground",
+      "draws": "the foreground list and layer foreground",
+      "sorted_by": [
+        "sortY",
+        "x",
+        "id"
+      ]
+    },
+    {
+      "band": "not baked",
+      "draws": "the debug overlay and plate pan are separate files"
+    }
+  ],
+  "prop_packs": [],
+  "pasted": [
+    {
+      "id": "production-8",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 0,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 1268,
+      "top": 26,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1350.0,
+        80.0
+      ],
+      "anchor_canvas": [
+        1350.0,
+        80.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1270,
+        28,
+        1430,
+        80
+      ],
+      "sortY": 80.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-9",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 1,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 1407,
+      "top": 26,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1489.0,
+        80.0
+      ],
+      "anchor_canvas": [
+        1489.0,
+        80.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1409,
+        28,
+        1569,
+        80
+      ],
+      "sortY": 80.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-10",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 2,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 1547,
+      "top": 26,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1629.0,
+        80.0
+      ],
+      "anchor_canvas": [
+        1629.0,
+        80.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1549,
+        28,
+        1709,
+        80
+      ],
+      "sortY": 80.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-11",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 3,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 1687,
+      "top": 26,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1769.0,
+        80.0
+      ],
+      "anchor_canvas": [
+        1769.0,
+        80.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1689,
+        28,
+        1849,
+        80
+      ],
+      "sortY": 80.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-12",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 4,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 1826,
+      "top": 26,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1908.0,
+        80.0
+      ],
+      "anchor_canvas": [
+        1908.0,
+        80.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1828,
+        28,
+        1988,
+        80
+      ],
+      "sortY": 80.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-13",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 5,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 1966,
+      "top": 26,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2048.0,
+        80.0
+      ],
+      "anchor_canvas": [
+        2048.0,
+        80.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1968,
+        28,
+        2128,
+        80
+      ],
+      "sortY": 80.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-14",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 6,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 2106,
+      "top": 26,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2188.0,
+        80.0
+      ],
+      "anchor_canvas": [
+        2188.0,
+        80.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2108,
+        28,
+        2268,
+        80
+      ],
+      "sortY": 80.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-15",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 7,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 2245,
+      "top": 26,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2327.0,
+        80.0
+      ],
+      "anchor_canvas": [
+        2327.0,
+        80.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2247,
+        28,
+        2407,
+        80
+      ],
+      "sortY": 80.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-16",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 8,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 2385,
+      "top": 26,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2467.0,
+        80.0
+      ],
+      "anchor_canvas": [
+        2467.0,
+        80.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2387,
+        28,
+        2547,
+        80
+      ],
+      "sortY": 80.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-17",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 9,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 2525,
+      "top": 26,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2607.0,
+        80.0
+      ],
+      "anchor_canvas": [
+        2607.0,
+        80.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2527,
+        28,
+        2687,
+        80
+      ],
+      "sortY": 80.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-18",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 10,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 2664,
+      "top": 26,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2746.0,
+        80.0
+      ],
+      "anchor_canvas": [
+        2746.0,
+        80.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2666,
+        28,
+        2826,
+        80
+      ],
+      "sortY": 80.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-100",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 11,
+      "image": "../../gwanghwamun/props/ginkgo.png",
+      "image_sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "left": 2930,
+      "top": -63,
+      "w": 204,
+      "h": 214,
+      "source_size": [
+        204,
+        214
+      ],
+      "anchorPx": [
+        102.0,
+        213.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3032.0,
+        150.0
+      ],
+      "anchor_canvas": [
+        3032.0,
+        150.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": true,
+      "visible_bounds": [
+        2932,
+        -61,
+        3132,
+        149
+      ],
+      "sortY": 150.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-102",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 12,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 3338,
+      "top": -45,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3432.0,
+        150.0
+      ],
+      "anchor_canvas": [
+        3432.0,
+        150.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": true,
+      "visible_bounds": [
+        3340,
+        -43,
+        3525,
+        149
+      ],
+      "sortY": 150.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-104",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 13,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 3762,
+      "top": -45,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3856.0,
+        150.0
+      ],
+      "anchor_canvas": [
+        3856.0,
+        150.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": true,
+      "visible_bounds": [
+        3764,
+        -43,
+        3949,
+        149
+      ],
+      "sortY": 150.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-101",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 14,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 3138,
+      "top": -25,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3232.0,
+        170.0
+      ],
+      "anchor_canvas": [
+        3232.0,
+        170.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": true,
+      "visible_bounds": [
+        3140,
+        -23,
+        3325,
+        169
+      ],
+      "sortY": 170.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-103",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 15,
+      "image": "../../gwanghwamun/props/ginkgo.png",
+      "image_sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "left": 3530,
+      "top": -43,
+      "w": 204,
+      "h": 214,
+      "source_size": [
+        204,
+        214
+      ],
+      "anchorPx": [
+        102.0,
+        213.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3632.0,
+        170.0
+      ],
+      "anchor_canvas": [
+        3632.0,
+        170.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": true,
+      "visible_bounds": [
+        3532,
+        -41,
+        3732,
+        169
+      ],
+      "sortY": 170.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-85",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 16,
+      "image": "../../gwanghwamun/props/ginkgo.png",
+      "image_sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "left": 58,
+      "top": -33,
+      "w": 204,
+      "h": 214,
+      "source_size": [
+        204,
+        214
+      ],
+      "anchorPx": [
+        102.0,
+        213.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        160.0,
+        180.0
+      ],
+      "anchor_canvas": [
+        160.0,
+        180.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": true,
+      "visible_bounds": [
+        60,
+        -31,
+        260,
+        179
+      ],
+      "sortY": 180.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-87",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 17,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 456,
+      "top": -15,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        550.0,
+        180.0
+      ],
+      "anchor_canvas": [
+        550.0,
+        180.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": true,
+      "visible_bounds": [
+        458,
+        -13,
+        643,
+        179
+      ],
+      "sortY": 180.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-89",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 18,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 876,
+      "top": -15,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        970.0,
+        180.0
+      ],
+      "anchor_canvas": [
+        970.0,
+        180.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": true,
+      "visible_bounds": [
+        878,
+        -13,
+        1063,
+        179
+      ],
+      "sortY": 180.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-19",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 19,
+      "image": "../props/prod-wall-ns.png",
+      "image_sha256": "459e7062d2a6177adfd0dc129c4773593b40d0a80c0de2e72aea88901f7a00fc",
+      "left": 1254,
+      "top": 4,
+      "w": 52,
+      "h": 198,
+      "source_size": [
+        52,
+        198
+      ],
+      "anchorPx": [
+        26.0,
+        196.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1280.0,
+        200.0
+      ],
+      "anchor_canvas": [
+        1280.0,
+        200.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1256,
+        6,
+        1304,
+        200
+      ],
+      "sortY": 200.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-23",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 20,
+      "image": "../props/prod-wall-ns.png",
+      "image_sha256": "459e7062d2a6177adfd0dc129c4773593b40d0a80c0de2e72aea88901f7a00fc",
+      "left": 2790,
+      "top": 4,
+      "w": 52,
+      "h": 198,
+      "source_size": [
+        52,
+        198
+      ],
+      "anchorPx": [
+        26.0,
+        196.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2816.0,
+        200.0
+      ],
+      "anchor_canvas": [
+        2816.0,
+        200.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2792,
+        6,
+        2840,
+        200
+      ],
+      "sortY": 200.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-86",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 21,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 256,
+      "top": 9,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        350.0,
+        204.0
+      ],
+      "anchor_canvas": [
+        350.0,
+        204.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        258,
+        11,
+        443,
+        203
+      ],
+      "sortY": 204.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-88",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 22,
+      "image": "../../gwanghwamun/props/ginkgo.png",
+      "image_sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "left": 658,
+      "top": -9,
+      "w": 204,
+      "h": 214,
+      "source_size": [
+        204,
+        214
+      ],
+      "anchorPx": [
+        102.0,
+        213.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        760.0,
+        204.0
+      ],
+      "anchor_canvas": [
+        760.0,
+        204.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": true,
+      "visible_bounds": [
+        660,
+        -7,
+        860,
+        203
+      ],
+      "sortY": 204.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-105",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 23,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 2962,
+      "top": 130,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3056.0,
+        325.0
+      ],
+      "anchor_canvas": [
+        3056.0,
+        325.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2964,
+        132,
+        3149,
+        324
+      ],
+      "sortY": 325.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-107",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 24,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 3362,
+      "top": 130,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3456.0,
+        325.0
+      ],
+      "anchor_canvas": [
+        3456.0,
+        325.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3364,
+        132,
+        3549,
+        324
+      ],
+      "sortY": 325.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-109",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 25,
+      "image": "../../gwanghwamun/props/ginkgo.png",
+      "image_sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "left": 3778,
+      "top": 112,
+      "w": 204,
+      "h": 214,
+      "source_size": [
+        204,
+        214
+      ],
+      "anchorPx": [
+        102.0,
+        213.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3880.0,
+        325.0
+      ],
+      "anchor_canvas": [
+        3880.0,
+        325.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3780,
+        114,
+        3980,
+        324
+      ],
+      "sortY": 325.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-20",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 26,
+      "image": "../props/prod-wall-ns.png",
+      "image_sha256": "459e7062d2a6177adfd0dc129c4773593b40d0a80c0de2e72aea88901f7a00fc",
+      "left": 1254,
+      "top": 140,
+      "w": 52,
+      "h": 198,
+      "source_size": [
+        52,
+        198
+      ],
+      "anchorPx": [
+        26.0,
+        196.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1280.0,
+        336.0
+      ],
+      "anchor_canvas": [
+        1280.0,
+        336.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1256,
+        142,
+        1304,
+        336
+      ],
+      "sortY": 336.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-24",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 27,
+      "image": "../props/prod-wall-ns.png",
+      "image_sha256": "459e7062d2a6177adfd0dc129c4773593b40d0a80c0de2e72aea88901f7a00fc",
+      "left": 2790,
+      "top": 140,
+      "w": 52,
+      "h": 198,
+      "source_size": [
+        52,
+        198
+      ],
+      "anchorPx": [
+        26.0,
+        196.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2816.0,
+        336.0
+      ],
+      "anchor_canvas": [
+        2816.0,
+        336.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2792,
+        142,
+        2840,
+        336
+      ],
+      "sortY": 336.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-90",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 28,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 106,
+      "top": 145,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        200.0,
+        340.0
+      ],
+      "anchor_canvas": [
+        200.0,
+        340.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        108,
+        147,
+        293,
+        339
+      ],
+      "sortY": 340.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-92",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 29,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 496,
+      "top": 145,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        590.0,
+        340.0
+      ],
+      "anchor_canvas": [
+        590.0,
+        340.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        498,
+        147,
+        683,
+        339
+      ],
+      "sortY": 340.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-94",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 30,
+      "image": "../../gwanghwamun/props/ginkgo.png",
+      "image_sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "left": 908,
+      "top": 127,
+      "w": 204,
+      "h": 214,
+      "source_size": [
+        204,
+        214
+      ],
+      "anchorPx": [
+        102.0,
+        213.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1010.0,
+        340.0
+      ],
+      "anchor_canvas": [
+        1010.0,
+        340.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        910,
+        129,
+        1110,
+        339
+      ],
+      "sortY": 340.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-106",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 31,
+      "image": "../../gwanghwamun/props/ginkgo.png",
+      "image_sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "left": 3154,
+      "top": 132,
+      "w": 204,
+      "h": 214,
+      "source_size": [
+        204,
+        214
+      ],
+      "anchorPx": [
+        102.0,
+        213.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3256.0,
+        345.0
+      ],
+      "anchor_canvas": [
+        3256.0,
+        345.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3156,
+        134,
+        3356,
+        344
+      ],
+      "sortY": 345.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-108",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 32,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 3562,
+      "top": 150,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3656.0,
+        345.0
+      ],
+      "anchor_canvas": [
+        3656.0,
+        345.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3564,
+        152,
+        3749,
+        344
+      ],
+      "sortY": 345.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-91",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 33,
+      "image": "../../gwanghwamun/props/ginkgo.png",
+      "image_sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "left": 288,
+      "top": 151,
+      "w": 204,
+      "h": 214,
+      "source_size": [
+        204,
+        214
+      ],
+      "anchorPx": [
+        102.0,
+        213.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        390.0,
+        364.0
+      ],
+      "anchor_canvas": [
+        390.0,
+        364.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        290,
+        153,
+        490,
+        363
+      ],
+      "sortY": 364.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-93",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 34,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 706,
+      "top": 169,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        800.0,
+        364.0
+      ],
+      "anchor_canvas": [
+        800.0,
+        364.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        708,
+        171,
+        893,
+        363
+      ],
+      "sortY": 364.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-35",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 35,
+      "image": "../props/prod-service.png",
+      "image_sha256": "7cbc3c4dbbd8dbe4526003f61ec1dab14def3d2145d82c80a447c1a5bddae739",
+      "left": 1214,
+      "top": 330,
+      "w": 132,
+      "h": 120,
+      "source_size": [
+        132,
+        120
+      ],
+      "anchorPx": [
+        66.0,
+        118.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1280.0,
+        448.0
+      ],
+      "anchor_canvas": [
+        1280.0,
+        448.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1216,
+        332,
+        1344,
+        448
+      ],
+      "sortY": 448.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-37",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 36,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 1278,
+      "top": 394,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1360.0,
+        448.0
+      ],
+      "anchor_canvas": [
+        1360.0,
+        448.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1280,
+        396,
+        1440,
+        448
+      ],
+      "sortY": 448.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-38",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 37,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 1426,
+      "top": 394,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1508.0,
+        448.0
+      ],
+      "anchor_canvas": [
+        1508.0,
+        448.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1428,
+        396,
+        1588,
+        448
+      ],
+      "sortY": 448.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-39",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 38,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 1574,
+      "top": 394,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1656.0,
+        448.0
+      ],
+      "anchor_canvas": [
+        1656.0,
+        448.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1576,
+        396,
+        1736,
+        448
+      ],
+      "sortY": 448.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-40",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 39,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 1722,
+      "top": 394,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1804.0,
+        448.0
+      ],
+      "anchor_canvas": [
+        1804.0,
+        448.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1724,
+        396,
+        1884,
+        448
+      ],
+      "sortY": 448.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-41",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 40,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 1870,
+      "top": 394,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1952.0,
+        448.0
+      ],
+      "anchor_canvas": [
+        1952.0,
+        448.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1872,
+        396,
+        2032,
+        448
+      ],
+      "sortY": 448.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-42",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 41,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 2018,
+      "top": 394,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2100.0,
+        448.0
+      ],
+      "anchor_canvas": [
+        2100.0,
+        448.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2020,
+        396,
+        2180,
+        448
+      ],
+      "sortY": 448.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-43",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 42,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 2166,
+      "top": 394,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2248.0,
+        448.0
+      ],
+      "anchor_canvas": [
+        2248.0,
+        448.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2168,
+        396,
+        2328,
+        448
+      ],
+      "sortY": 448.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-44",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 43,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 2314,
+      "top": 394,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2396.0,
+        448.0
+      ],
+      "anchor_canvas": [
+        2396.0,
+        448.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2316,
+        396,
+        2476,
+        448
+      ],
+      "sortY": 448.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-45",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 44,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 2462,
+      "top": 394,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2544.0,
+        448.0
+      ],
+      "anchor_canvas": [
+        2544.0,
+        448.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2464,
+        396,
+        2624,
+        448
+      ],
+      "sortY": 448.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-46",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 45,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 2610,
+      "top": 394,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2692.0,
+        448.0
+      ],
+      "anchor_canvas": [
+        2692.0,
+        448.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2612,
+        396,
+        2772,
+        448
+      ],
+      "sortY": 448.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-36",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 46,
+      "image": "../props/prod-service.png",
+      "image_sha256": "7cbc3c4dbbd8dbe4526003f61ec1dab14def3d2145d82c80a447c1a5bddae739",
+      "left": 2750,
+      "top": 330,
+      "w": 132,
+      "h": 120,
+      "source_size": [
+        132,
+        120
+      ],
+      "anchorPx": [
+        66.0,
+        118.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2816.0,
+        448.0
+      ],
+      "anchor_canvas": [
+        2816.0,
+        448.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2752,
+        332,
+        2880,
+        448
+      ],
+      "sortY": 448.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-95",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 47,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 66,
+      "top": 305,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        160.0,
+        500.0
+      ],
+      "anchor_canvas": [
+        160.0,
+        500.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        68,
+        307,
+        253,
+        499
+      ],
+      "sortY": 500.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-97",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 48,
+      "image": "../../gwanghwamun/props/ginkgo.png",
+      "image_sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "left": 448,
+      "top": 287,
+      "w": 204,
+      "h": 214,
+      "source_size": [
+        204,
+        214
+      ],
+      "anchorPx": [
+        102.0,
+        213.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        550.0,
+        500.0
+      ],
+      "anchor_canvas": [
+        550.0,
+        500.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        450,
+        289,
+        650,
+        499
+      ],
+      "sortY": 500.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-99",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 49,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 876,
+      "top": 305,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        970.0,
+        500.0
+      ],
+      "anchor_canvas": [
+        970.0,
+        500.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        878,
+        307,
+        1063,
+        499
+      ],
+      "sortY": 500.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-96",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 50,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 256,
+      "top": 329,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        350.0,
+        524.0
+      ],
+      "anchor_canvas": [
+        350.0,
+        524.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        258,
+        331,
+        443,
+        523
+      ],
+      "sortY": 524.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-98",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 51,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 666,
+      "top": 329,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        760.0,
+        524.0
+      ],
+      "anchor_canvas": [
+        760.0,
+        524.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        668,
+        331,
+        853,
+        523
+      ],
+      "sortY": 524.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-21",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 52,
+      "image": "../props/prod-wall-ns.png",
+      "image_sha256": "459e7062d2a6177adfd0dc129c4773593b40d0a80c0de2e72aea88901f7a00fc",
+      "left": 1254,
+      "top": 372,
+      "w": 52,
+      "h": 198,
+      "source_size": [
+        52,
+        198
+      ],
+      "anchorPx": [
+        26.0,
+        196.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1280.0,
+        568.0
+      ],
+      "anchor_canvas": [
+        1280.0,
+        568.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1256,
+        374,
+        1304,
+        568
+      ],
+      "sortY": 568.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-25",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 53,
+      "image": "../props/prod-wall-ns.png",
+      "image_sha256": "459e7062d2a6177adfd0dc129c4773593b40d0a80c0de2e72aea88901f7a00fc",
+      "left": 2790,
+      "top": 372,
+      "w": 52,
+      "h": 198,
+      "source_size": [
+        52,
+        198
+      ],
+      "anchorPx": [
+        26.0,
+        196.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2816.0,
+        568.0
+      ],
+      "anchor_canvas": [
+        2816.0,
+        568.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2792,
+        374,
+        2840,
+        568
+      ],
+      "sortY": 568.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-22",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 54,
+      "image": "../props/prod-wall-ns.png",
+      "image_sha256": "459e7062d2a6177adfd0dc129c4773593b40d0a80c0de2e72aea88901f7a00fc",
+      "left": 1254,
+      "top": 508,
+      "w": 52,
+      "h": 198,
+      "source_size": [
+        52,
+        198
+      ],
+      "anchorPx": [
+        26.0,
+        196.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1280.0,
+        704.0
+      ],
+      "anchor_canvas": [
+        1280.0,
+        704.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1256,
+        510,
+        1304,
+        704
+      ],
+      "sortY": 704.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-26",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 55,
+      "image": "../props/prod-wall-ns.png",
+      "image_sha256": "459e7062d2a6177adfd0dc129c4773593b40d0a80c0de2e72aea88901f7a00fc",
+      "left": 2790,
+      "top": 508,
+      "w": 52,
+      "h": 198,
+      "source_size": [
+        52,
+        198
+      ],
+      "anchorPx": [
+        26.0,
+        196.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2816.0,
+        704.0
+      ],
+      "anchor_canvas": [
+        2816.0,
+        704.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2792,
+        510,
+        2840,
+        704
+      ],
+      "sortY": 704.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-74",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 56,
+      "image": "../../gwanghwamun/props/planter.png",
+      "image_sha256": "35caea815680e4b8ce01fe6afe22a56b1daee0778bc3f47ba3eb756d7fd29c1f",
+      "left": 3172,
+      "top": 661,
+      "w": 56,
+      "h": 44,
+      "source_size": [
+        56,
+        44
+      ],
+      "anchorPx": [
+        28.0,
+        43.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3200.0,
+        704.0
+      ],
+      "anchor_canvas": [
+        3200.0,
+        704.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3174,
+        663,
+        3226,
+        703
+      ],
+      "sortY": 704.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-75",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 57,
+      "image": "../../gwanghwamun/props/planter.png",
+      "image_sha256": "35caea815680e4b8ce01fe6afe22a56b1daee0778bc3f47ba3eb756d7fd29c1f",
+      "left": 3300,
+      "top": 661,
+      "w": 56,
+      "h": 44,
+      "source_size": [
+        56,
+        44
+      ],
+      "anchorPx": [
+        28.0,
+        43.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3328.0,
+        704.0
+      ],
+      "anchor_canvas": [
+        3328.0,
+        704.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3302,
+        663,
+        3354,
+        703
+      ],
+      "sortY": 704.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-130",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 58,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 1026,
+      "top": 517,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1120.0,
+        712.0
+      ],
+      "anchor_canvas": [
+        1120.0,
+        712.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1028,
+        519,
+        1213,
+        711
+      ],
+      "sortY": 712.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-27",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 59,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 1270,
+      "top": 666,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1352.0,
+        720.0
+      ],
+      "anchor_canvas": [
+        1352.0,
+        720.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1272,
+        668,
+        1432,
+        720
+      ],
+      "sortY": 720.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-28",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 60,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 1414,
+      "top": 666,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1496.0,
+        720.0
+      ],
+      "anchor_canvas": [
+        1496.0,
+        720.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1416,
+        668,
+        1576,
+        720
+      ],
+      "sortY": 720.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-29",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 61,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 1558,
+      "top": 666,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1640.0,
+        720.0
+      ],
+      "anchor_canvas": [
+        1640.0,
+        720.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1560,
+        668,
+        1720,
+        720
+      ],
+      "sortY": 720.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-30",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 62,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 1702,
+      "top": 666,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1784.0,
+        720.0
+      ],
+      "anchor_canvas": [
+        1784.0,
+        720.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1704,
+        668,
+        1864,
+        720
+      ],
+      "sortY": 720.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-31",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 63,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 2230,
+      "top": 666,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2312.0,
+        720.0
+      ],
+      "anchor_canvas": [
+        2312.0,
+        720.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2232,
+        668,
+        2392,
+        720
+      ],
+      "sortY": 720.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-32",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 64,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 2374,
+      "top": 666,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2456.0,
+        720.0
+      ],
+      "anchor_canvas": [
+        2456.0,
+        720.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2376,
+        668,
+        2536,
+        720
+      ],
+      "sortY": 720.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-33",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 65,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 2518,
+      "top": 666,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2600.0,
+        720.0
+      ],
+      "anchor_canvas": [
+        2600.0,
+        720.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2520,
+        668,
+        2680,
+        720
+      ],
+      "sortY": 720.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-34",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 66,
+      "image": "../props/prod-wall.png",
+      "image_sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "left": 2662,
+      "top": 666,
+      "w": 164,
+      "h": 56,
+      "source_size": [
+        164,
+        56
+      ],
+      "anchorPx": [
+        82.0,
+        54.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2744.0,
+        720.0
+      ],
+      "anchor_canvas": [
+        2744.0,
+        720.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2664,
+        668,
+        2824,
+        720
+      ],
+      "sortY": 720.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-7",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 67,
+      "image": "../props/prod-gate.png",
+      "image_sha256": "ca0643ec60e5cca9817f5f5db206352e1e66fe17f5a50e218a1d85c9f9840952",
+      "left": 1814,
+      "top": 426,
+      "w": 468,
+      "h": 334,
+      "source_size": [
+        468,
+        334
+      ],
+      "anchorPx": [
+        234.0,
+        332.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2048.0,
+        758.0
+      ],
+      "anchor_canvas": [
+        2048.0,
+        758.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1816,
+        428,
+        2280,
+        758
+      ],
+      "sortY": 758.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-110",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 68,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 46,
+      "top": 565,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        140.0,
+        760.0
+      ],
+      "anchor_canvas": [
+        140.0,
+        760.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        48,
+        567,
+        233,
+        759
+      ],
+      "sortY": 760.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-80",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 69,
+      "image": "../../gwanghwamun/props/jars.png",
+      "image_sha256": "7e80af2dab5040ada3a6244c533bb0b4fcff2a27d180f604e0974b5548f15f85",
+      "left": 2968,
+      "top": 708,
+      "w": 65,
+      "h": 53,
+      "source_size": [
+        65,
+        53
+      ],
+      "anchorPx": [
+        32.0,
+        52.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3000.0,
+        760.0
+      ],
+      "anchor_canvas": [
+        3000.0,
+        760.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2970,
+        710,
+        3031,
+        759
+      ],
+      "sortY": 760.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-1",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 70,
+      "image": "../props/prod-hall.png",
+      "image_sha256": "a5c9e3ba7fa3508cccaf4278aa9acd5de54d5a0f0e92539e4b08d60a841d6b9c",
+      "left": 351,
+      "top": 556,
+      "w": 643,
+      "h": 236,
+      "source_size": [
+        643,
+        236
+      ],
+      "anchorPx": [
+        321.0,
+        234.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        672.0,
+        790.0
+      ],
+      "anchor_canvas": [
+        672.0,
+        790.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        353,
+        558,
+        992,
+        790
+      ],
+      "sortY": 790.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-81",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 71,
+      "image": "../../gwanghwamun/props/jars.png",
+      "image_sha256": "7e80af2dab5040ada3a6244c533bb0b4fcff2a27d180f604e0974b5548f15f85",
+      "left": 3000,
+      "top": 740,
+      "w": 65,
+      "h": 53,
+      "source_size": [
+        65,
+        53
+      ],
+      "anchorPx": [
+        32.0,
+        52.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3032.0,
+        792.0
+      ],
+      "anchor_canvas": [
+        3032.0,
+        792.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3002,
+        742,
+        3063,
+        791
+      ],
+      "sortY": 792.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-51",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 72,
+      "image": "../props/prod-armillary.png",
+      "image_sha256": "2aad306a661f7db4b6b29aa81097d8b04db305e956850a2dee980752ccb643bf",
+      "left": 3630,
+      "top": 711,
+      "w": 100,
+      "h": 113,
+      "source_size": [
+        100,
+        113
+      ],
+      "anchorPx": [
+        50.0,
+        111.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3680.0,
+        822.0
+      ],
+      "anchor_canvas": [
+        3680.0,
+        822.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3632,
+        713,
+        3728,
+        822
+      ],
+      "sortY": 822.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-72",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 73,
+      "image": "../../gwanghwamun/props/planter.png",
+      "image_sha256": "35caea815680e4b8ce01fe6afe22a56b1daee0778bc3f47ba3eb756d7fd29c1f",
+      "left": 484,
+      "top": 785,
+      "w": 56,
+      "h": 44,
+      "source_size": [
+        56,
+        44
+      ],
+      "anchorPx": [
+        28.0,
+        43.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        512.0,
+        828.0
+      ],
+      "anchor_canvas": [
+        512.0,
+        828.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        486,
+        787,
+        538,
+        827
+      ],
+      "sortY": 828.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-73",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 74,
+      "image": "../../gwanghwamun/props/planter.png",
+      "image_sha256": "35caea815680e4b8ce01fe6afe22a56b1daee0778bc3f47ba3eb756d7fd29c1f",
+      "left": 804,
+      "top": 785,
+      "w": 56,
+      "h": 44,
+      "source_size": [
+        56,
+        44
+      ],
+      "anchorPx": [
+        28.0,
+        43.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        832.0,
+        828.0
+      ],
+      "anchor_canvas": [
+        832.0,
+        828.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        806,
+        787,
+        858,
+        827
+      ],
+      "sortY": 828.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-4",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 75,
+      "image": "../props/prod-workshop.png",
+      "image_sha256": "4c6a28375066cae29c98d5a8fd14be12a65404b9ad4ceb6fa6d1495d2d78f1a8",
+      "left": 3066,
+      "top": 434,
+      "w": 492,
+      "h": 418,
+      "source_size": [
+        492,
+        418
+      ],
+      "anchorPx": [
+        246.0,
+        416.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3312.0,
+        850.0
+      ],
+      "anchor_canvas": [
+        3312.0,
+        850.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3068,
+        436,
+        3556,
+        850
+      ],
+      "sortY": 850.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-135",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 76,
+      "image": "../../gwanghwamun/props/ginkgo.png",
+      "image_sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "left": 2338,
+      "top": 643,
+      "w": 204,
+      "h": 214,
+      "source_size": [
+        204,
+        214
+      ],
+      "anchorPx": [
+        102.0,
+        213.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2440.0,
+        856.0
+      ],
+      "anchor_canvas": [
+        2440.0,
+        856.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2340,
+        645,
+        2540,
+        855
+      ],
+      "sortY": 856.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-134",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 77,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 1450,
+      "top": 669,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1544.0,
+        864.0
+      ],
+      "anchor_canvas": [
+        1544.0,
+        864.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1452,
+        671,
+        1637,
+        863
+      ],
+      "sortY": 864.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-58",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 78,
+      "image": "../../gwanghwamun/props/lantern.png",
+      "image_sha256": "dfe4dc19f4b77a23fffe7715d63d1ecd2ee2d65b4afc674e861df11d453f526c",
+      "left": 1750,
+      "top": 773,
+      "w": 52,
+      "h": 92,
+      "source_size": [
+        52,
+        92
+      ],
+      "anchorPx": [
+        26.0,
+        91.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1776.0,
+        864.0
+      ],
+      "anchor_canvas": [
+        1776.0,
+        864.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1752,
+        775,
+        1800,
+        863
+      ],
+      "sortY": 864.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-59",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 79,
+      "image": "../../gwanghwamun/props/lantern.png",
+      "image_sha256": "dfe4dc19f4b77a23fffe7715d63d1ecd2ee2d65b4afc674e861df11d453f526c",
+      "left": 2294,
+      "top": 773,
+      "w": 52,
+      "h": 92,
+      "source_size": [
+        52,
+        92
+      ],
+      "anchorPx": [
+        26.0,
+        91.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2320.0,
+        864.0
+      ],
+      "anchor_canvas": [
+        2320.0,
+        864.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2296,
+        775,
+        2344,
+        863
+      ],
+      "sortY": 864.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-136",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 80,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 2610,
+      "top": 717,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2704.0,
+        912.0
+      ],
+      "anchor_canvas": [
+        2704.0,
+        912.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2612,
+        719,
+        2797,
+        911
+      ],
+      "sortY": 912.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-128",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 81,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 2850,
+      "top": 717,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2944.0,
+        912.0
+      ],
+      "anchor_canvas": [
+        2944.0,
+        912.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2852,
+        719,
+        3037,
+        911
+      ],
+      "sortY": 912.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-131",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 82,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 1026,
+      "top": 725,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1120.0,
+        920.0
+      ],
+      "anchor_canvas": [
+        1120.0,
+        920.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1028,
+        727,
+        1213,
+        919
+      ],
+      "sortY": 920.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-127",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 83,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 3890,
+      "top": 749,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3984.0,
+        944.0
+      ],
+      "anchor_canvas": [
+        3984.0,
+        944.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3892,
+        751,
+        4077,
+        943
+      ],
+      "sortY": 944.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-111",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 84,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 86,
+      "top": 785,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        180.0,
+        980.0
+      ],
+      "anchor_canvas": [
+        180.0,
+        980.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        88,
+        787,
+        273,
+        979
+      ],
+      "sortY": 980.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-133",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 85,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 1346,
+      "top": 789,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1440.0,
+        984.0
+      ],
+      "anchor_canvas": [
+        1440.0,
+        984.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1348,
+        791,
+        1533,
+        983
+      ],
+      "sortY": 984.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-52",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 86,
+      "image": "../props/prod-sundial.png",
+      "image_sha256": "a7fe454380eea9ba79f2afe25c9dde8e413bce62a897f139bb62fb66739da696",
+      "left": 3066,
+      "top": 899,
+      "w": 92,
+      "h": 91,
+      "source_size": [
+        92,
+        91
+      ],
+      "anchorPx": [
+        46.0,
+        89.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3112.0,
+        988.0
+      ],
+      "anchor_canvas": [
+        3112.0,
+        988.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3068,
+        901,
+        3156,
+        988
+      ],
+      "sortY": 988.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-50",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 87,
+      "image": "../props/prod-writing.png",
+      "image_sha256": "4d0faced9ab8d0a4f5677f95c2af4c876250f89de30d09e69d056a4d7f1a8564",
+      "left": 500,
+      "top": 908,
+      "w": 104,
+      "h": 94,
+      "source_size": [
+        104,
+        94
+      ],
+      "anchorPx": [
+        52.0,
+        92.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        552.0,
+        1000.0
+      ],
+      "anchor_canvas": [
+        552.0,
+        1000.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        502,
+        910,
+        602,
+        1000
+      ],
+      "sortY": 1000.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-3",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 88,
+      "image": "../props/prod-library.png",
+      "image_sha256": "b5350bb53ab2d106f1c750a348caab424d83d4102885bfb8fb3c67b91ad624ca",
+      "left": 870,
+      "top": 634,
+      "w": 180,
+      "h": 376,
+      "source_size": [
+        180,
+        376
+      ],
+      "anchorPx": [
+        90.0,
+        374.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        960.0,
+        1008.0
+      ],
+      "anchor_canvas": [
+        960.0,
+        1008.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        872,
+        636,
+        1048,
+        1008
+      ],
+      "sortY": 1008.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-82",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 89,
+      "image": "../../gwanghwamun/props/jars.png",
+      "image_sha256": "7e80af2dab5040ada3a6244c533bb0b4fcff2a27d180f604e0974b5548f15f85",
+      "left": 1008,
+      "top": 988,
+      "w": 65,
+      "h": 53,
+      "source_size": [
+        65,
+        53
+      ],
+      "anchorPx": [
+        32.0,
+        52.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1040.0,
+        1040.0
+      ],
+      "anchor_canvas": [
+        1040.0,
+        1040.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1010,
+        990,
+        1071,
+        1039
+      ],
+      "sortY": 1040.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-53",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 90,
+      "image": "../props/prod-clock.png",
+      "image_sha256": "2b0807d8353e51a4171977c1535d4399d271c130f265fac065ced255a26857e9",
+      "left": 3463,
+      "top": 902,
+      "w": 114,
+      "h": 140,
+      "source_size": [
+        114,
+        140
+      ],
+      "anchorPx": [
+        57.0,
+        138.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3520.0,
+        1040.0
+      ],
+      "anchor_canvas": [
+        3520.0,
+        1040.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3465,
+        904,
+        3575,
+        1040
+      ],
+      "sortY": 1040.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-69",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 91,
+      "image": "../../gwanghwamun/props/bench.png",
+      "image_sha256": "111ec597f59aa232bf8ddb38658b693480c7261282c60f86bec65a7b1133359a",
+      "left": 3035,
+      "top": 1005,
+      "w": 75,
+      "h": 52,
+      "source_size": [
+        75,
+        52
+      ],
+      "anchorPx": [
+        37.0,
+        51.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3072.0,
+        1056.0
+      ],
+      "anchor_canvas": [
+        3072.0,
+        1056.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3037,
+        1007,
+        3108,
+        1055
+      ],
+      "sortY": 1056.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-68",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 92,
+      "image": "../../gwanghwamun/props/bench.png",
+      "image_sha256": "111ec597f59aa232bf8ddb38658b693480c7261282c60f86bec65a7b1133359a",
+      "left": 731,
+      "top": 1013,
+      "w": 75,
+      "h": 52,
+      "source_size": [
+        75,
+        52
+      ],
+      "anchorPx": [
+        37.0,
+        51.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        768.0,
+        1064.0
+      ],
+      "anchor_canvas": [
+        768.0,
+        1064.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        733,
+        1015,
+        804,
+        1063
+      ],
+      "sortY": 1064.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-2",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 93,
+      "image": "../props/prod-study.png",
+      "image_sha256": "629d99d65da6c00c973b055f40864f3cb5bf973a7ccaf623ab295007fcaf75cc",
+      "left": 294,
+      "top": 665,
+      "w": 180,
+      "h": 409,
+      "source_size": [
+        180,
+        409
+      ],
+      "anchorPx": [
+        90.0,
+        407.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        384.0,
+        1072.0
+      ],
+      "anchor_canvas": [
+        384.0,
+        1072.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        296,
+        667,
+        472,
+        1072
+      ],
+      "sortY": 1072.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-83",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 94,
+      "image": "../../gwanghwamun/props/jars.png",
+      "image_sha256": "7e80af2dab5040ada3a6244c533bb0b4fcff2a27d180f604e0974b5548f15f85",
+      "left": 1040,
+      "top": 1020,
+      "w": 65,
+      "h": 53,
+      "source_size": [
+        65,
+        53
+      ],
+      "anchorPx": [
+        32.0,
+        52.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1072.0,
+        1072.0
+      ],
+      "anchor_canvas": [
+        1072.0,
+        1072.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1042,
+        1022,
+        1103,
+        1071
+      ],
+      "sortY": 1072.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-132",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 95,
+      "image": "../../gwanghwamun/props/ginkgo.png",
+      "image_sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "left": 2506,
+      "top": 859,
+      "w": 204,
+      "h": 214,
+      "source_size": [
+        204,
+        214
+      ],
+      "anchorPx": [
+        102.0,
+        213.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2608.0,
+        1072.0
+      ],
+      "anchor_canvas": [
+        2608.0,
+        1072.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2508,
+        861,
+        2708,
+        1071
+      ],
+      "sortY": 1072.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-129",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 96,
+      "image": "../../gwanghwamun/props/ginkgo.png",
+      "image_sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "left": 2770,
+      "top": 859,
+      "w": 204,
+      "h": 214,
+      "source_size": [
+        204,
+        214
+      ],
+      "anchorPx": [
+        102.0,
+        213.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2872.0,
+        1072.0
+      ],
+      "anchor_canvas": [
+        2872.0,
+        1072.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2772,
+        861,
+        2972,
+        1071
+      ],
+      "sortY": 1072.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-66",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 97,
+      "image": "../../gwanghwamun/props/bench.png",
+      "image_sha256": "111ec597f59aa232bf8ddb38658b693480c7261282c60f86bec65a7b1133359a",
+      "left": 1515,
+      "top": 1053,
+      "w": 75,
+      "h": 52,
+      "source_size": [
+        75,
+        52
+      ],
+      "anchorPx": [
+        37.0,
+        51.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1552.0,
+        1104.0
+      ],
+      "anchor_canvas": [
+        1552.0,
+        1104.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1517,
+        1055,
+        1588,
+        1103
+      ],
+      "sortY": 1104.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-67",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 98,
+      "image": "../../gwanghwamun/props/bench.png",
+      "image_sha256": "111ec597f59aa232bf8ddb38658b693480c7261282c60f86bec65a7b1133359a",
+      "left": 2459,
+      "top": 1053,
+      "w": 75,
+      "h": 52,
+      "source_size": [
+        75,
+        52
+      ],
+      "anchorPx": [
+        37.0,
+        51.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2496.0,
+        1104.0
+      ],
+      "anchor_canvas": [
+        2496.0,
+        1104.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2461,
+        1055,
+        2532,
+        1103
+      ],
+      "sortY": 1104.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-47",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 99,
+      "image": "../props/prod-low-wall.png",
+      "image_sha256": "1c68d439c27e86026d614613c8b615b9e7104215601611f27a8de319912b89d5",
+      "left": 397,
+      "top": 1092,
+      "w": 166,
+      "h": 62,
+      "source_size": [
+        166,
+        62
+      ],
+      "anchorPx": [
+        83.0,
+        60.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        480.0,
+        1152.0
+      ],
+      "anchor_canvas": [
+        480.0,
+        1152.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        399,
+        1094,
+        561,
+        1152
+      ],
+      "sortY": 1152.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-49",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 100,
+      "image": "../props/prod-court-gate.png",
+      "image_sha256": "80c5b24b270b681907bdd7f728ef8479cfd39c3ba7662e7647feda180aa75da8",
+      "left": 598,
+      "top": 1051,
+      "w": 148,
+      "h": 103,
+      "source_size": [
+        148,
+        103
+      ],
+      "anchorPx": [
+        74.0,
+        101.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        672.0,
+        1152.0
+      ],
+      "anchor_canvas": [
+        672.0,
+        1152.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        600,
+        1053,
+        744,
+        1152
+      ],
+      "sortY": 1152.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-48",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 101,
+      "image": "../props/prod-low-wall.png",
+      "image_sha256": "1c68d439c27e86026d614613c8b615b9e7104215601611f27a8de319912b89d5",
+      "left": 781,
+      "top": 1092,
+      "w": 166,
+      "h": 62,
+      "source_size": [
+        166,
+        62
+      ],
+      "anchorPx": [
+        83.0,
+        60.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        864.0,
+        1152.0
+      ],
+      "anchor_canvas": [
+        864.0,
+        1152.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        783,
+        1094,
+        945,
+        1152
+      ],
+      "sortY": 1152.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-60",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 102,
+      "image": "../../gwanghwamun/props/lantern.png",
+      "image_sha256": "dfe4dc19f4b77a23fffe7715d63d1ecd2ee2d65b4afc674e861df11d453f526c",
+      "left": 3078,
+      "top": 1061,
+      "w": 52,
+      "h": 92,
+      "source_size": [
+        52,
+        92
+      ],
+      "anchorPx": [
+        26.0,
+        91.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3104.0,
+        1152.0
+      ],
+      "anchor_canvas": [
+        3104.0,
+        1152.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3080,
+        1063,
+        3128,
+        1151
+      ],
+      "sortY": 1152.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-61",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 103,
+      "image": "../../gwanghwamun/props/lantern.png",
+      "image_sha256": "dfe4dc19f4b77a23fffe7715d63d1ecd2ee2d65b4afc674e861df11d453f526c",
+      "left": 3206,
+      "top": 1061,
+      "w": 52,
+      "h": 92,
+      "source_size": [
+        52,
+        92
+      ],
+      "anchorPx": [
+        26.0,
+        91.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3232.0,
+        1152.0
+      ],
+      "anchor_canvas": [
+        3232.0,
+        1152.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3208,
+        1063,
+        3256,
+        1151
+      ],
+      "sortY": 1152.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-126",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 104,
+      "image": "../../gwanghwamun/props/ginkgo.png",
+      "image_sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "left": 3874,
+      "top": 939,
+      "w": 204,
+      "h": 214,
+      "source_size": [
+        204,
+        214
+      ],
+      "anchorPx": [
+        102.0,
+        213.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3976.0,
+        1152.0
+      ],
+      "anchor_canvas": [
+        3976.0,
+        1152.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3876,
+        941,
+        4076,
+        1151
+      ],
+      "sortY": 1152.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-56",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 105,
+      "image": "../../gwanghwamun/props/lantern.png",
+      "image_sha256": "dfe4dc19f4b77a23fffe7715d63d1ecd2ee2d65b4afc674e861df11d453f526c",
+      "left": 566,
+      "top": 1085,
+      "w": 52,
+      "h": 92,
+      "source_size": [
+        52,
+        92
+      ],
+      "anchorPx": [
+        26.0,
+        91.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        592.0,
+        1176.0
+      ],
+      "anchor_canvas": [
+        592.0,
+        1176.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        568,
+        1087,
+        616,
+        1175
+      ],
+      "sortY": 1176.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-57",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 106,
+      "image": "../../gwanghwamun/props/lantern.png",
+      "image_sha256": "dfe4dc19f4b77a23fffe7715d63d1ecd2ee2d65b4afc674e861df11d453f526c",
+      "left": 726,
+      "top": 1085,
+      "w": 52,
+      "h": 92,
+      "source_size": [
+        52,
+        92
+      ],
+      "anchorPx": [
+        26.0,
+        91.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        752.0,
+        1176.0
+      ],
+      "anchor_canvas": [
+        752.0,
+        1176.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        728,
+        1087,
+        776,
+        1175
+      ],
+      "sortY": 1176.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-6",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 107,
+      "image": "../../gwanghwamun/props/sejong.png",
+      "image_sha256": "4e4e6770ac0fb5e6c5e7552cf1d380f2f9c49644b506621aca7e40dcf5a93857",
+      "left": 2219,
+      "top": 1049,
+      "w": 123,
+      "h": 136,
+      "source_size": [
+        123,
+        136
+      ],
+      "anchorPx": [
+        61.0,
+        135.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2280.0,
+        1184.0
+      ],
+      "anchor_canvas": [
+        2280.0,
+        1184.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2221,
+        1051,
+        2340,
+        1183
+      ],
+      "sortY": 1184.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-112",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 108,
+      "image": "../../gwanghwamun/props/ginkgo.png",
+      "image_sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "left": 58,
+      "top": 987,
+      "w": 204,
+      "h": 214,
+      "source_size": [
+        204,
+        214
+      ],
+      "anchorPx": [
+        102.0,
+        213.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        160.0,
+        1200.0
+      ],
+      "anchor_canvas": [
+        160.0,
+        1200.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        60,
+        989,
+        260,
+        1199
+      ],
+      "sortY": 1200.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-78",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 109,
+      "image": "../../gwanghwamun/props/planter.png",
+      "image_sha256": "35caea815680e4b8ce01fe6afe22a56b1daee0778bc3f47ba3eb756d7fd29c1f",
+      "left": 1732,
+      "top": 1157,
+      "w": 56,
+      "h": 44,
+      "source_size": [
+        56,
+        44
+      ],
+      "anchorPx": [
+        28.0,
+        43.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1760.0,
+        1200.0
+      ],
+      "anchor_canvas": [
+        1760.0,
+        1200.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1734,
+        1159,
+        1786,
+        1199
+      ],
+      "sortY": 1200.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-79",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 110,
+      "image": "../../gwanghwamun/props/planter.png",
+      "image_sha256": "35caea815680e4b8ce01fe6afe22a56b1daee0778bc3f47ba3eb756d7fd29c1f",
+      "left": 2404,
+      "top": 1157,
+      "w": 56,
+      "h": 44,
+      "source_size": [
+        56,
+        44
+      ],
+      "anchorPx": [
+        28.0,
+        43.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2432.0,
+        1200.0
+      ],
+      "anchor_canvas": [
+        2432.0,
+        1200.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2406,
+        1159,
+        2458,
+        1199
+      ],
+      "sortY": 1200.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-84",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 111,
+      "image": "../../gwanghwamun/props/jars.png",
+      "image_sha256": "7e80af2dab5040ada3a6244c533bb0b4fcff2a27d180f604e0974b5548f15f85",
+      "left": 3848,
+      "top": 1164,
+      "w": 65,
+      "h": 53,
+      "source_size": [
+        65,
+        53
+      ],
+      "anchorPx": [
+        32.0,
+        52.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3880.0,
+        1216.0
+      ],
+      "anchor_canvas": [
+        3880.0,
+        1216.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3850,
+        1166,
+        3911,
+        1215
+      ],
+      "sortY": 1216.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-5",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 112,
+      "image": "../props/prod-museum.png",
+      "image_sha256": "d1f47fdf0c32e32bd0745e43c36b2bde68871d3a68edb1ffeebe8f198aac89b5",
+      "left": 3226,
+      "top": 1032,
+      "w": 588,
+      "h": 242,
+      "source_size": [
+        588,
+        242
+      ],
+      "anchorPx": [
+        294.0,
+        240.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3520.0,
+        1272.0
+      ],
+      "anchor_canvas": [
+        3520.0,
+        1272.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3228,
+        1034,
+        3812,
+        1272
+      ],
+      "sortY": 1272.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-76",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 113,
+      "image": "../../gwanghwamun/props/planter.png",
+      "image_sha256": "35caea815680e4b8ce01fe6afe22a56b1daee0778bc3f47ba3eb756d7fd29c1f",
+      "left": 3396,
+      "top": 1253,
+      "w": 56,
+      "h": 44,
+      "source_size": [
+        56,
+        44
+      ],
+      "anchorPx": [
+        28.0,
+        43.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3424.0,
+        1296.0
+      ],
+      "anchor_canvas": [
+        3424.0,
+        1296.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3398,
+        1255,
+        3450,
+        1295
+      ],
+      "sortY": 1296.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-77",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 114,
+      "image": "../../gwanghwamun/props/planter.png",
+      "image_sha256": "35caea815680e4b8ce01fe6afe22a56b1daee0778bc3f47ba3eb756d7fd29c1f",
+      "left": 3636,
+      "top": 1253,
+      "w": 56,
+      "h": 44,
+      "source_size": [
+        56,
+        44
+      ],
+      "anchorPx": [
+        28.0,
+        43.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3664.0,
+        1296.0
+      ],
+      "anchor_canvas": [
+        3664.0,
+        1296.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3638,
+        1255,
+        3690,
+        1295
+      ],
+      "sortY": 1296.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-64",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 115,
+      "image": "../../gwanghwamun/props/lantern.png",
+      "image_sha256": "dfe4dc19f4b77a23fffe7715d63d1ecd2ee2d65b4afc674e861df11d453f526c",
+      "left": 1430,
+      "top": 1245,
+      "w": 52,
+      "h": 92,
+      "source_size": [
+        52,
+        92
+      ],
+      "anchorPx": [
+        26.0,
+        91.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1456.0,
+        1336.0
+      ],
+      "anchor_canvas": [
+        1456.0,
+        1336.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1432,
+        1247,
+        1480,
+        1335
+      ],
+      "sortY": 1336.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-71",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 116,
+      "image": "../../gwanghwamun/props/bench.png",
+      "image_sha256": "111ec597f59aa232bf8ddb38658b693480c7261282c60f86bec65a7b1133359a",
+      "left": 1691,
+      "top": 1293,
+      "w": 75,
+      "h": 52,
+      "source_size": [
+        75,
+        52
+      ],
+      "anchorPx": [
+        37.0,
+        51.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1728.0,
+        1344.0
+      ],
+      "anchor_canvas": [
+        1728.0,
+        1344.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1693,
+        1295,
+        1764,
+        1343
+      ],
+      "sortY": 1344.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-62",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 117,
+      "image": "../../gwanghwamun/props/lantern.png",
+      "image_sha256": "dfe4dc19f4b77a23fffe7715d63d1ecd2ee2d65b4afc674e861df11d453f526c",
+      "left": 3254,
+      "top": 1261,
+      "w": 52,
+      "h": 92,
+      "source_size": [
+        52,
+        92
+      ],
+      "anchorPx": [
+        26.0,
+        91.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3280.0,
+        1352.0
+      ],
+      "anchor_canvas": [
+        3280.0,
+        1352.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3256,
+        1263,
+        3304,
+        1351
+      ],
+      "sortY": 1352.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-54",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 118,
+      "image": "../props/prod-strategy.png",
+      "image_sha256": "f5dcafe0644bcc6a54bc407f4e42300660d5fa143b98be995f0c532ecd1c2bc8",
+      "left": 3346,
+      "top": 1310,
+      "w": 125,
+      "h": 72,
+      "source_size": [
+        125,
+        72
+      ],
+      "anchorPx": [
+        62.0,
+        70.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3408.0,
+        1380.0
+      ],
+      "anchor_canvas": [
+        3408.0,
+        1380.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3348,
+        1312,
+        3469,
+        1380
+      ],
+      "sortY": 1380.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-70",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 119,
+      "image": "../../gwanghwamun/props/bench.png",
+      "image_sha256": "111ec597f59aa232bf8ddb38658b693480c7261282c60f86bec65a7b1133359a",
+      "left": 3875,
+      "top": 1333,
+      "w": 75,
+      "h": 52,
+      "source_size": [
+        75,
+        52
+      ],
+      "anchorPx": [
+        37.0,
+        51.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3912.0,
+        1384.0
+      ],
+      "anchor_canvas": [
+        3912.0,
+        1384.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3877,
+        1335,
+        3948,
+        1383
+      ],
+      "sortY": 1384.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-113",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 120,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 186,
+      "top": 1197,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        280.0,
+        1392.0
+      ],
+      "anchor_canvas": [
+        280.0,
+        1392.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        188,
+        1199,
+        373,
+        1391
+      ],
+      "sortY": 1392.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-55",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 121,
+      "image": "../props/prod-ship.png",
+      "image_sha256": "8c77706262a3e8d7b1c12bef316d9566a8b81617091e1d51441e3b93a6edefd4",
+      "left": 3650,
+      "top": 1285,
+      "w": 125,
+      "h": 129,
+      "source_size": [
+        125,
+        129
+      ],
+      "anchorPx": [
+        62.0,
+        127.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3712.0,
+        1412.0
+      ],
+      "anchor_canvas": [
+        3712.0,
+        1412.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3652,
+        1287,
+        3773,
+        1412
+      ],
+      "sortY": 1412.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-63",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 122,
+      "image": "../../gwanghwamun/props/lantern.png",
+      "image_sha256": "dfe4dc19f4b77a23fffe7715d63d1ecd2ee2d65b4afc674e861df11d453f526c",
+      "left": 3830,
+      "top": 1333,
+      "w": 52,
+      "h": 92,
+      "source_size": [
+        52,
+        92
+      ],
+      "anchorPx": [
+        26.0,
+        91.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3856.0,
+        1424.0
+      ],
+      "anchor_canvas": [
+        3856.0,
+        1424.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3832,
+        1335,
+        3880,
+        1423
+      ],
+      "sortY": 1424.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-115",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 123,
+      "image": "../../gwanghwamun/props/ginkgo.png",
+      "image_sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "left": 650,
+      "top": 1219,
+      "w": 204,
+      "h": 214,
+      "source_size": [
+        204,
+        214
+      ],
+      "anchorPx": [
+        102.0,
+        213.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        752.0,
+        1432.0
+      ],
+      "anchor_canvas": [
+        752.0,
+        1432.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        652,
+        1221,
+        852,
+        1431
+      ],
+      "sortY": 1432.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-114",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 124,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 418,
+      "top": 1261,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        512.0,
+        1456.0
+      ],
+      "anchor_canvas": [
+        512.0,
+        1456.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        420,
+        1263,
+        605,
+        1455
+      ],
+      "sortY": 1456.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-65",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 125,
+      "image": "../../gwanghwamun/props/lantern.png",
+      "image_sha256": "dfe4dc19f4b77a23fffe7715d63d1ecd2ee2d65b4afc674e861df11d453f526c",
+      "left": 2614,
+      "top": 1365,
+      "w": 52,
+      "h": 92,
+      "source_size": [
+        52,
+        92
+      ],
+      "anchorPx": [
+        26.0,
+        91.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2640.0,
+        1456.0
+      ],
+      "anchor_canvas": [
+        2640.0,
+        1456.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2616,
+        1367,
+        2664,
+        1455
+      ],
+      "sortY": 1456.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-124",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 126,
+      "image": "../../gwanghwamun/props/ginkgo.png",
+      "image_sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "left": 2898,
+      "top": 1259,
+      "w": 204,
+      "h": 214,
+      "source_size": [
+        204,
+        214
+      ],
+      "anchorPx": [
+        102.0,
+        213.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3000.0,
+        1472.0
+      ],
+      "anchor_canvas": [
+        3000.0,
+        1472.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2900,
+        1261,
+        3100,
+        1471
+      ],
+      "sortY": 1472.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-116",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 127,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 906,
+      "top": 1293,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1000.0,
+        1488.0
+      ],
+      "anchor_canvas": [
+        1000.0,
+        1488.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        908,
+        1295,
+        1093,
+        1487
+      ],
+      "sortY": 1488.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-119",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 128,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 1562,
+      "top": 1333,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1656.0,
+        1528.0
+      ],
+      "anchor_canvas": [
+        1656.0,
+        1528.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1564,
+        1335,
+        1749,
+        1527
+      ],
+      "sortY": 1528.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-122",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 129,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 2162,
+      "top": 1389,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2256.0,
+        1584.0
+      ],
+      "anchor_canvas": [
+        2256.0,
+        1584.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2164,
+        1391,
+        2349,
+        1583
+      ],
+      "sortY": 1584.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-120",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 130,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 1746,
+      "top": 1413,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1840.0,
+        1608.0
+      ],
+      "anchor_canvas": [
+        1840.0,
+        1608.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1748,
+        1415,
+        1933,
+        1607
+      ],
+      "sortY": 1608.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-123",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 131,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 2378,
+      "top": 1413,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2472.0,
+        1608.0
+      ],
+      "anchor_canvas": [
+        2472.0,
+        1608.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        2380,
+        1415,
+        2565,
+        1607
+      ],
+      "sortY": 1608.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-117",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 132,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 1018,
+      "top": 1445,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1112.0,
+        1640.0
+      ],
+      "anchor_canvas": [
+        1112.0,
+        1640.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1020,
+        1447,
+        1205,
+        1639
+      ],
+      "sortY": 1640.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-118",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 133,
+      "image": "../../gwanghwamun/props/ginkgo.png",
+      "image_sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "left": 1378,
+      "top": 1435,
+      "w": 204,
+      "h": 214,
+      "source_size": [
+        204,
+        214
+      ],
+      "anchorPx": [
+        102.0,
+        213.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1480.0,
+        1648.0
+      ],
+      "anchor_canvas": [
+        1480.0,
+        1648.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1380,
+        1437,
+        1580,
+        1647
+      ],
+      "sortY": 1648.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-121",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 134,
+      "image": "../../gwanghwamun/props/ginkgo.png",
+      "image_sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "left": 1938,
+      "top": 1435,
+      "w": 204,
+      "h": 214,
+      "source_size": [
+        204,
+        214
+      ],
+      "anchorPx": [
+        102.0,
+        213.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        2040.0,
+        1648.0
+      ],
+      "anchor_canvas": [
+        2040.0,
+        1648.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1940,
+        1437,
+        2140,
+        1647
+      ],
+      "sortY": 1648.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "production-125",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 135,
+      "image": "../../gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 3666,
+      "top": 1461,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        3760.0,
+        1656.0
+      ],
+      "anchor_canvas": [
+        3760.0,
+        1656.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        3668,
+        1463,
+        3853,
+        1655
+      ],
+      "sortY": 1656.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    }
+  ],
+  "warnings": [],
+  "audit_status": "warn"
+}

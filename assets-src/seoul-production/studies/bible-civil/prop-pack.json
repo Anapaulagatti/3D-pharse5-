@@ -1,0 +1,717 @@
+{
+  "schema": "generate2dmap.prop_pack.v2",
+  "tool": {
+    "name": "extract_prop_pack",
+    "version": "0.4.0"
+  },
+  "input": "../../raw/bible-civil.png",
+  "source_size": [
+    1536,
+    1024
+  ],
+  "source_sha256": "d978acc15e3b8e4a720de96abdfb39ddfa33da83c9b0f21711074191b1759e0f",
+  "source_mode": "RGB",
+  "layout_mode": "explicit_boxes",
+  "boxes_file": "../bible-civil-boxes.json",
+  "labels_file": null,
+  "background_mode": "chroma_key",
+  "rows": null,
+  "cols": null,
+  "threshold": 100,
+  "edge_threshold": 150,
+  "despill_radius": 3,
+  "despill": {
+    "mode": "edge",
+    "applied": "edge",
+    "radius": 3,
+    "margin": 12,
+    "changed_px": 23453
+  },
+  "hygiene": {
+    "mode": "both",
+    "floor": 4,
+    "solid_min": 32,
+    "attach_radius": 2,
+    "connectivity": 8,
+    "floor_px": 0,
+    "detached_px": 0,
+    "detached_components": 0,
+    "max_removed_alpha": 0
+  },
+  "alpha_floor": 4,
+  "alpha_floor_pixels_removed": 0,
+  "trim_border": 0,
+  "edge_clean_depth": 0,
+  "component_mode": "all",
+  "component_padding": 8,
+  "min_component_area": 1,
+  "edge_touch_margin": 0,
+  "geometry": {
+    "connectivity": 8,
+    "alpha_geometry_threshold": 16,
+    "anchor_mode": "stance",
+    "support_band_fraction": 0.25,
+    "anchor_rounding": "whole pixels, half-up",
+    "grid_rounding": null,
+    "keep_canvas": false,
+    "world_scale": null
+  },
+  "accepted": [
+    {
+      "index": 0,
+      "label": "bookshop-study",
+      "display_name": "bookshop-study",
+      "status": "accepted",
+      "image": "bookshop-study/prop.png",
+      "sha256": "5a454cdadf9c8eff464c9ee4d962d1fa02c4fb592f5e0f12bd4324f99c483f64",
+      "output_size": [
+        468,
+        308
+      ],
+      "grid": null,
+      "cell_box": [
+        3,
+        3,
+        508,
+        338
+      ],
+      "source_box": [
+        3,
+        3,
+        508,
+        338
+      ],
+      "source_rect": [
+        14,
+        22,
+        482,
+        330
+      ],
+      "trim_offset": [
+        11,
+        19
+      ],
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "anchor_px": [
+        246,
+        300
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 2,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        19,
+        27,
+        471,
+        319
+      ],
+      "padded_crop_bbox": [
+        11,
+        19,
+        479,
+        327
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 96187,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    },
+    {
+      "index": 1,
+      "label": "stationery-study",
+      "display_name": "stationery-study",
+      "status": "accepted",
+      "image": "stationery-study/prop.png",
+      "sha256": "95eafd2359632ccfeebe89cf50e273eca0293c49a74333a133ffa23f6ccc357a",
+      "output_size": [
+        505,
+        288
+      ],
+      "grid": null,
+      "cell_box": [
+        515,
+        3,
+        1020,
+        338
+      ],
+      "source_box": [
+        515,
+        3,
+        1020,
+        338
+      ],
+      "source_rect": [
+        515,
+        38,
+        1020,
+        326
+      ],
+      "trim_offset": [
+        0,
+        35
+      ],
+      "padding": [
+        6,
+        8,
+        6,
+        8
+      ],
+      "anchor_px": [
+        259,
+        280
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 2,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        6,
+        43,
+        499,
+        315
+      ],
+      "padded_crop_bbox": [
+        0,
+        35,
+        505,
+        323
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 104891,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    },
+    {
+      "index": 2,
+      "label": "teahouse-study",
+      "display_name": "teahouse-study",
+      "status": "accepted",
+      "image": "teahouse-study/prop.png",
+      "sha256": "8b71fcf3ba8fc42ad46d8a46b82a1dbed4ada858865a7a0a9e0f59ada0d00b2f",
+      "output_size": [
+        504,
+        279
+      ],
+      "grid": null,
+      "cell_box": [
+        1027,
+        3,
+        1533,
+        338
+      ],
+      "source_box": [
+        1027,
+        3,
+        1533,
+        338
+      ],
+      "source_rect": [
+        1027,
+        45,
+        1531,
+        324
+      ],
+      "trim_offset": [
+        0,
+        42
+      ],
+      "padding": [
+        5,
+        8,
+        8,
+        8
+      ],
+      "anchor_px": [
+        245,
+        271
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        5,
+        50,
+        496,
+        313
+      ],
+      "padded_crop_bbox": [
+        0,
+        42,
+        504,
+        321
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 97785,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    },
+    {
+      "index": 3,
+      "label": "craft-study",
+      "display_name": "craft-study",
+      "status": "accepted",
+      "image": "craft-study/prop.png",
+      "sha256": "e86d44ad38da7b5af6769b41c69346a5313d1caa1873b83243fbebc6a9657448",
+      "output_size": [
+        494,
+        319
+      ],
+      "grid": null,
+      "cell_box": [
+        3,
+        345,
+        508,
+        679
+      ],
+      "source_box": [
+        3,
+        345,
+        508,
+        679
+      ],
+      "source_rect": [
+        6,
+        345,
+        500,
+        664
+      ],
+      "trim_offset": [
+        3,
+        0
+      ],
+      "padding": [
+        8,
+        6,
+        8,
+        8
+      ],
+      "anchor_px": [
+        250,
+        311
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        11,
+        6,
+        489,
+        311
+      ],
+      "padded_crop_bbox": [
+        3,
+        0,
+        497,
+        319
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 104132,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    },
+    {
+      "index": 4,
+      "label": "home-u-study",
+      "display_name": "home-u-study",
+      "status": "accepted",
+      "image": "home-u-study/prop.png",
+      "sha256": "eadcf0654d85a86df66a3c8914d5bee1ebddbd1c87fd80fde009407d4393f908",
+      "output_size": [
+        505,
+        330
+      ],
+      "grid": null,
+      "cell_box": [
+        515,
+        345,
+        1020,
+        679
+      ],
+      "source_box": [
+        515,
+        345,
+        1020,
+        679
+      ],
+      "source_rect": [
+        515,
+        349,
+        1020,
+        679
+      ],
+      "trim_offset": [
+        0,
+        4
+      ],
+      "padding": [
+        4,
+        8,
+        7,
+        8
+      ],
+      "anchor_px": [
+        252,
+        322
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        4,
+        12,
+        498,
+        326
+      ],
+      "padded_crop_bbox": [
+        0,
+        4,
+        505,
+        334
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 106514,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    },
+    {
+      "index": 5,
+      "label": "home-l-study",
+      "display_name": "home-l-study",
+      "status": "accepted",
+      "image": "home-l-study/prop.png",
+      "sha256": "39e32f5f7cca89237bb923cebc940d51af2bcdd8e3acc47bc0b951c2df1cd57d",
+      "output_size": [
+        504,
+        331
+      ],
+      "grid": null,
+      "cell_box": [
+        1027,
+        345,
+        1533,
+        679
+      ],
+      "source_box": [
+        1027,
+        345,
+        1533,
+        679
+      ],
+      "source_rect": [
+        1027,
+        348,
+        1531,
+        679
+      ],
+      "trim_offset": [
+        0,
+        3
+      ],
+      "padding": [
+        6,
+        8,
+        8,
+        5
+      ],
+      "anchor_px": [
+        378,
+        326
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 2,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        6,
+        11,
+        496,
+        329
+      ],
+      "padded_crop_bbox": [
+        0,
+        3,
+        504,
+        334
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 106898,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    },
+    {
+      "index": 6,
+      "label": "home-two-study",
+      "display_name": "home-two-study",
+      "status": "accepted",
+      "image": "home-two-study/prop.png",
+      "sha256": "8b5a638a4c0f64c1d01ec57ab33ea461ce9479540db6a81a2da23c509179e28a",
+      "output_size": [
+        499,
+        266
+      ],
+      "grid": null,
+      "cell_box": [
+        3,
+        686,
+        508,
+        1021
+      ],
+      "source_box": [
+        3,
+        686,
+        508,
+        1021
+      ],
+      "source_rect": [
+        9,
+        709,
+        508,
+        975
+      ],
+      "trim_offset": [
+        6,
+        23
+      ],
+      "padding": [
+        8,
+        8,
+        4,
+        8
+      ],
+      "anchor_px": [
+        250,
+        258
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        14,
+        31,
+        501,
+        281
+      ],
+      "padded_crop_bbox": [
+        6,
+        23,
+        505,
+        289
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 80541,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    },
+    {
+      "index": 7,
+      "label": "home-well-study",
+      "display_name": "home-well-study",
+      "status": "accepted",
+      "image": "home-well-study/prop.png",
+      "sha256": "b992304dcaa49e015390179a1e4bc9b7e881c673a83f039ec5083d0f0a39fa03",
+      "output_size": [
+        495,
+        283
+      ],
+      "grid": null,
+      "cell_box": [
+        515,
+        686,
+        1020,
+        1021
+      ],
+      "source_box": [
+        515,
+        686,
+        1020,
+        1021
+      ],
+      "source_rect": [
+        525,
+        699,
+        1020,
+        982
+      ],
+      "trim_offset": [
+        10,
+        13
+      ],
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "anchor_px": [
+        248,
+        275
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        18,
+        21,
+        497,
+        288
+      ],
+      "padded_crop_bbox": [
+        10,
+        13,
+        505,
+        296
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 95305,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    }
+  ],
+  "rejected": [],
+  "edge_touch_props": [],
+  "warnings": [],
+  "qa": {
+    "status": "pass",
+    "method": "legacy #FF00FF key (100/150) and edge despill radius 3; alpha hygiene both; 8-connected components (all); checks measured on the published pixels",
+    "notProven": [
+      "that each label names the art in its cell or box",
+      "that a prop is complete: clipping is detected only where art meets the cell edge",
+      "keyed-edge quality beyond the edge fringe count",
+      "that anchors and suggested footprints match gameplay contact (both are measured from alpha)",
+      "runtime placement, collision or occlusion"
+    ],
+    "checks": [
+      {
+        "id": "accepted",
+        "status": "pass",
+        "value": 8,
+        "threshold": ">= 1"
+      },
+      {
+        "id": "edge_touch",
+        "status": "pass",
+        "value": [],
+        "threshold": 0
+      },
+      {
+        "id": "dropped_area",
+        "status": "pass",
+        "value": {},
+        "threshold": 0.01
+      },
+      {
+        "id": "strategy_aspect",
+        "status": "skipped",
+        "value": null,
+        "threshold": 1.6
+      },
+      {
+        "id": "edge_fringe",
+        "status": "pass",
+        "value": 0.0,
+        "threshold": 0.02
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../../raw/bible-civil.png",
+        "sha256": "d978acc15e3b8e4a720de96abdfb39ddfa33da83c9b0f21711074191b1759e0f",
+        "bytes": 2632915
+      },
+      {
+        "path": "../bible-civil-boxes.json",
+        "sha256": "0b4e4a6065892cc7e19771329aa2f97a63d0735a6dddf140855fb535ac3e137f",
+        "bytes": 1170
+      }
+    ],
+    "outputs": [
+      {
+        "path": "bookshop-study/prop.png",
+        "sha256": "5a454cdadf9c8eff464c9ee4d962d1fa02c4fb592f5e0f12bd4324f99c483f64",
+        "bytes": 244186
+      },
+      {
+        "path": "stationery-study/prop.png",
+        "sha256": "95eafd2359632ccfeebe89cf50e273eca0293c49a74333a133ffa23f6ccc357a",
+        "bytes": 266115
+      },
+      {
+        "path": "teahouse-study/prop.png",
+        "sha256": "8b71fcf3ba8fc42ad46d8a46b82a1dbed4ada858865a7a0a9e0f59ada0d00b2f",
+        "bytes": 250204
+      },
+      {
+        "path": "craft-study/prop.png",
+        "sha256": "e86d44ad38da7b5af6769b41c69346a5313d1caa1873b83243fbebc6a9657448",
+        "bytes": 275067
+      },
+      {
+        "path": "home-u-study/prop.png",
+        "sha256": "eadcf0654d85a86df66a3c8914d5bee1ebddbd1c87fd80fde009407d4393f908",
+        "bytes": 291271
+      },
+      {
+        "path": "home-l-study/prop.png",
+        "sha256": "39e32f5f7cca89237bb923cebc940d51af2bcdd8e3acc47bc0b951c2df1cd57d",
+        "bytes": 289351
+      },
+      {
+        "path": "home-two-study/prop.png",
+        "sha256": "8b5a638a4c0f64c1d01ec57ab33ea461ce9479540db6a81a2da23c509179e28a",
+        "bytes": 221675
+      },
+      {
+        "path": "home-well-study/prop.png",
+        "sha256": "b992304dcaa49e015390179a1e4bc9b7e881c673a83f039ec5083d0f0a39fa03",
+        "bytes": 244364
+      }
+    ],
+    "tool": {
+      "name": "extract_prop_pack",
+      "version": "0.4.0"
+    }
+  }
+}

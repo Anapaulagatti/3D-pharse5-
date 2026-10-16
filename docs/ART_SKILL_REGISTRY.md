@@ -1,3 +1,7 @@
+# Living Seoul Stage A actual execution
+
+See [production Forge report](seoul-production/FORGE.md): pinned Forge5324342,10host-image calls, actual extract/finish/palette/map hash/nav/Tiled/compose tools and unmodified HTTP marker verifier executed.14concept studies are not mass-produced future buildings;18finished props belong only to first northern Stage B. No paid APIs, no new actor/video/NPC generation. Read applicable upstream skills before any further art action. Existing Juni144frames retained. Runtime/package final gate still in progress.
+
 # Korean Arena — Mandatory Art & Animation Skill Registry
 _Last recorded: 2026-10-16. Scope: this standalone Phaser 2D pixel game only._
 

@@ -1,0 +1,3026 @@
+{
+  "schema": "generate2dmap.compose_audit.v1",
+  "status": "warn",
+  "method": "compose_layered_preview placement audit: actor feet by forge_nav rule N9 at the placement positions (with --bundle on the bundle's D2 blocking set in world pixels, else on the canvas, stage ground polygons and solid placement footprints, closed sets), prop feet as points in the walk area, solid footprints rasterised at pixel centres, occlusion from the draw-index owner map at alpha > 16.",
+  "notProven": [
+    "Feet are tested at the placement positions: actors with the forge_nav rules (centre and 8 footprint samples), on the bundle's blocking set with --bundle (D2), else on the canvas, stage ground polygons and solid placement footprints; props as points. Reachability between points is map_nav's job.",
+    "Overlaps are checked only between footprints from prop-pack manifests or placements; placements without a footprint are counted, not checked.",
+    "Occlusion is measured on the flattened preview at alpha > 16; runtime sorting, animation, camera, lighting and scale are not simulated.",
+    "The preview is not proof that the art reads well at gameplay scale; look at it."
+  ],
+  "checks": [
+    {
+      "id": "actor_feet_valid",
+      "status": "skipped",
+      "value": {
+        "checked": 0,
+        "invalid": [],
+        "actor_radius_px": 8.0,
+        "y_squash": 0.5,
+        "model": "bundle",
+        "collision": "forge_nav D2 blocking set of outdoor-bundle.json"
+      },
+      "threshold": "forge_nav rule N9: the foot and 8 footprint samples in the walk area and off every blocker (with --bundle the bundle's D2 blocking set, as map_nav.py judges it)"
+    },
+    {
+      "id": "actor_feet_off_placement_footprints",
+      "status": "skipped",
+      "value": {
+        "checked": 0,
+        "actors": []
+      },
+      "threshold": "placement footprints are compose-only (the bundle's blocking set decides validity, D2); an actor standing in one is reported so the prop can be added to the bundle"
+    },
+    {
+      "id": "feet_in_walk_area",
+      "status": "pass",
+      "value": {
+        "checked": 136,
+        "outside": [],
+        "walk_area": "outdoor-bundle.json collision.walkRegions"
+      },
+      "threshold": "foot inside a walk area"
+    },
+    {
+      "id": "bounds",
+      "status": "warn",
+      "value": {
+        "off_canvas": [],
+        "clipped": [
+          "production-100",
+          "production-102",
+          "production-104",
+          "production-101",
+          "production-103",
+          "production-85",
+          "production-87",
+          "production-89",
+          "production-88"
+        ],
+        "empty": []
+      },
+      "threshold": "visible pixels (alpha > 16) inside the canvas"
+    },
+    {
+      "id": "footprint_overlaps",
+      "status": "skipped",
+      "value": {
+        "pairs": [],
+        "checked": 0,
+        "without_footprint": 136
+      },
+      "threshold": "solid footprints do not overlap"
+    },
+    {
+      "id": "duplicate_placements",
+      "status": "pass",
+      "value": [],
+      "threshold": "no two placements of the same image at the same point"
+    },
+    {
+      "id": "actors_visible",
+      "status": "skipped",
+      "value": {
+        "hidden": []
+      },
+      "threshold": "no actor fully covered by later draws"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../layers/base.png",
+      "sha256": "8d8400ce01bcae7883b17c3727a4d9603a02e997d75c2abfa3ed55a153adb442",
+      "bytes": 695130
+    },
+    {
+      "path": "../placements.json",
+      "sha256": "c4f3d16fec3aea19c3299f6365ea9ba1bc54dfdb3594990eb3ab80aa50818f08",
+      "bytes": 31495
+    },
+    {
+      "path": "../props/prod-hall.png",
+      "sha256": "a5c9e3ba7fa3508cccaf4278aa9acd5de54d5a0f0e92539e4b08d60a841d6b9c",
+      "bytes": 201579
+    },
+    {
+      "path": "../props/prod-study.png",
+      "sha256": "629d99d65da6c00c973b055f40864f3cb5bf973a7ccaf623ab295007fcaf75cc",
+      "bytes": 125786
+    },
+    {
+      "path": "../props/prod-library.png",
+      "sha256": "b5350bb53ab2d106f1c750a348caab424d83d4102885bfb8fb3c67b91ad624ca",
+      "bytes": 114269
+    },
+    {
+      "path": "../props/prod-workshop.png",
+      "sha256": "4c6a28375066cae29c98d5a8fd14be12a65404b9ad4ceb6fa6d1495d2d78f1a8",
+      "bytes": 225576
+    },
+    {
+      "path": "../props/prod-museum.png",
+      "sha256": "d1f47fdf0c32e32bd0745e43c36b2bde68871d3a68edb1ffeebe8f198aac89b5",
+      "bytes": 207512
+    },
+    {
+      "path": "../../gwanghwamun/props/sejong.png",
+      "sha256": "4e4e6770ac0fb5e6c5e7552cf1d380f2f9c49644b506621aca7e40dcf5a93857",
+      "bytes": 18657
+    },
+    {
+      "path": "../props/prod-gate.png",
+      "sha256": "ca0643ec60e5cca9817f5f5db206352e1e66fe17f5a50e218a1d85c9f9840952",
+      "bytes": 223268
+    },
+    {
+      "path": "../props/prod-wall.png",
+      "sha256": "0b26d18ef3be5ef28082ce0251096beebc488b9788b2dceaacc8e507d1ab0d23",
+      "bytes": 13080
+    },
+    {
+      "path": "../props/prod-wall-ns.png",
+      "sha256": "459e7062d2a6177adfd0dc129c4773593b40d0a80c0de2e72aea88901f7a00fc",
+      "bytes": 16149
+    },
+    {
+      "path": "../props/prod-service.png",
+      "sha256": "7cbc3c4dbbd8dbe4526003f61ec1dab14def3d2145d82c80a447c1a5bddae739",
+      "bytes": 23391
+    },
+    {
+      "path": "../props/prod-low-wall.png",
+      "sha256": "1c68d439c27e86026d614613c8b615b9e7104215601611f27a8de319912b89d5",
+      "bytes": 12446
+    },
+    {
+      "path": "../props/prod-court-gate.png",
+      "sha256": "80c5b24b270b681907bdd7f728ef8479cfd39c3ba7662e7647feda180aa75da8",
+      "bytes": 19947
+    },
+    {
+      "path": "../props/prod-writing.png",
+      "sha256": "4d0faced9ab8d0a4f5677f95c2af4c876250f89de30d09e69d056a4d7f1a8564",
+      "bytes": 14113
+    },
+    {
+      "path": "../props/prod-armillary.png",
+      "sha256": "2aad306a661f7db4b6b29aa81097d8b04db305e956850a2dee980752ccb643bf",
+      "bytes": 19104
+    },
+    {
+      "path": "../props/prod-sundial.png",
+      "sha256": "a7fe454380eea9ba79f2afe25c9dde8e413bce62a897f139bb62fb66739da696",
+      "bytes": 15013
+    },
+    {
+      "path": "../props/prod-clock.png",
+      "sha256": "2b0807d8353e51a4171977c1535d4399d271c130f265fac065ced255a26857e9",
+      "bytes": 22557
+    },
+    {
+      "path": "../props/prod-strategy.png",
+      "sha256": "f5dcafe0644bcc6a54bc407f4e42300660d5fa143b98be995f0c532ecd1c2bc8",
+      "bytes": 12813
+    },
+    {
+      "path": "../props/prod-ship.png",
+      "sha256": "8c77706262a3e8d7b1c12bef316d9566a8b81617091e1d51441e3b93a6edefd4",
+      "bytes": 20603
+    },
+    {
+      "path": "../../gwanghwamun/props/lantern.png",
+      "sha256": "dfe4dc19f4b77a23fffe7715d63d1ecd2ee2d65b4afc674e861df11d453f526c",
+      "bytes": 6021
+    },
+    {
+      "path": "../../gwanghwamun/props/bench.png",
+      "sha256": "111ec597f59aa232bf8ddb38658b693480c7261282c60f86bec65a7b1133359a",
+      "bytes": 5110
+    },
+    {
+      "path": "../../gwanghwamun/props/planter.png",
+      "sha256": "35caea815680e4b8ce01fe6afe22a56b1daee0778bc3f47ba3eb756d7fd29c1f",
+      "bytes": 4245
+    },
+    {
+      "path": "../../gwanghwamun/props/jars.png",
+      "sha256": "7e80af2dab5040ada3a6244c533bb0b4fcff2a27d180f604e0974b5548f15f85",
+      "bytes": 5204
+    },
+    {
+      "path": "../../gwanghwamun/props/ginkgo.png",
+      "sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "bytes": 48819
+    },
+    {
+      "path": "../../gwanghwamun/props/tree.png",
+      "sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "bytes": 40364
+    },
+    {
+      "path": "../outdoor-bundle.json",
+      "sha256": "f661780c9ec8137bbc2c318ab1662612bcfaec2335df6b5c1af154195186532f",
+      "bytes": 100207
+    }
+  ],
+  "outputs": [
+    {
+      "path": "preview.png",
+      "sha256": "68584868073197e3fa2debfec262eabbad24ee02a637b206f89f9dc2d2d7b949",
+      "bytes": 4540198
+    }
+  ],
+  "tool": {
+    "name": "compose_layered_preview",
+    "version": "0.4.0"
+  },
+  "placements": [
+    {
+      "id": "production-8",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 0,
+      "foot": [
+        1350.0,
+        80.0
+      ],
+      "visible_bounds": [
+        1270,
+        28,
+        1430,
+        80
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.291734437379861,
+      "occluded_by": [
+        "production-19",
+        "production-9"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-9",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 1,
+      "foot": [
+        1489.0,
+        80.0
+      ],
+      "visible_bounds": [
+        1409,
+        28,
+        1569,
+        80
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.09906846074227414,
+      "occluded_by": [
+        "production-10"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-10",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 2,
+      "foot": [
+        1629.0,
+        80.0
+      ],
+      "visible_bounds": [
+        1549,
+        28,
+        1709,
+        80
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.09906846074227414,
+      "occluded_by": [
+        "production-11"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-11",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 3,
+      "foot": [
+        1769.0,
+        80.0
+      ],
+      "visible_bounds": [
+        1689,
+        28,
+        1849,
+        80
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.10631376608014195,
+      "occluded_by": [
+        "production-12"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-12",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 4,
+      "foot": [
+        1908.0,
+        80.0
+      ],
+      "visible_bounds": [
+        1828,
+        28,
+        1988,
+        80
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.09906846074227414,
+      "occluded_by": [
+        "production-13"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-13",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 5,
+      "foot": [
+        2048.0,
+        80.0
+      ],
+      "visible_bounds": [
+        1968,
+        28,
+        2128,
+        80
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.09906846074227414,
+      "occluded_by": [
+        "production-14"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-14",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 6,
+      "foot": [
+        2188.0,
+        80.0
+      ],
+      "visible_bounds": [
+        2108,
+        28,
+        2268,
+        80
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.10631376608014195,
+      "occluded_by": [
+        "production-15"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-15",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 7,
+      "foot": [
+        2327.0,
+        80.0
+      ],
+      "visible_bounds": [
+        2247,
+        28,
+        2407,
+        80
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.09906846074227414,
+      "occluded_by": [
+        "production-16"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-16",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 8,
+      "foot": [
+        2467.0,
+        80.0
+      ],
+      "visible_bounds": [
+        2387,
+        28,
+        2547,
+        80
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.09906846074227414,
+      "occluded_by": [
+        "production-17"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-17",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 9,
+      "foot": [
+        2607.0,
+        80.0
+      ],
+      "visible_bounds": [
+        2527,
+        28,
+        2687,
+        80
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.10631376608014195,
+      "occluded_by": [
+        "production-18"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-18",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 10,
+      "foot": [
+        2746.0,
+        80.0
+      ],
+      "visible_bounds": [
+        2666,
+        28,
+        2826,
+        80
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.18867366553304746,
+      "occluded_by": [
+        "production-23"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-100",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 11,
+      "foot": [
+        3032.0,
+        150.0
+      ],
+      "visible_bounds": [
+        2932,
+        -61,
+        3132,
+        149
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.018371854964710953,
+      "occluded_by": [
+        "production-105"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-102",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 12,
+      "foot": [
+        3432.0,
+        150.0
+      ],
+      "visible_bounds": [
+        3340,
+        -43,
+        3525,
+        149
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.01042287075640262,
+      "occluded_by": [
+        "production-107"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-104",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 13,
+      "foot": [
+        3856.0,
+        150.0
+      ],
+      "visible_bounds": [
+        3764,
+        -43,
+        3949,
+        149
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.028826682549136392,
+      "occluded_by": [
+        "production-109"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-101",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 14,
+      "foot": [
+        3232.0,
+        170.0
+      ],
+      "visible_bounds": [
+        3140,
+        -23,
+        3325,
+        169
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.025553033102792885,
+      "occluded_by": [
+        "production-106"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-103",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 15,
+      "foot": [
+        3632.0,
+        170.0
+      ],
+      "visible_bounds": [
+        3532,
+        -41,
+        3732,
+        169
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.016112266112266113,
+      "occluded_by": [
+        "production-108"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-85",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 16,
+      "foot": [
+        160.0,
+        180.0
+      ],
+      "visible_bounds": [
+        60,
+        -31,
+        260,
+        179
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.030710942723423222,
+      "occluded_by": [
+        "production-90"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-87",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 17,
+      "foot": [
+        550.0,
+        180.0
+      ],
+      "visible_bounds": [
+        458,
+        -13,
+        643,
+        179
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.016409266409266408,
+      "occluded_by": [
+        "production-92"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-89",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 18,
+      "foot": [
+        970.0,
+        180.0
+      ],
+      "visible_bounds": [
+        878,
+        -13,
+        1063,
+        179
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0406421459053038,
+      "occluded_by": [
+        "production-94"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-19",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 19,
+      "foot": [
+        1280.0,
+        200.0
+      ],
+      "visible_bounds": [
+        1256,
+        6,
+        1304,
+        200
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.23412285268089536,
+      "occluded_by": [
+        "production-20"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-23",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 20,
+      "foot": [
+        2816.0,
+        200.0
+      ],
+      "visible_bounds": [
+        2792,
+        6,
+        2840,
+        200
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.23412285268089536,
+      "occluded_by": [
+        "production-24"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-86",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 21,
+      "foot": [
+        350.0,
+        204.0
+      ],
+      "visible_bounds": [
+        258,
+        11,
+        443,
+        203
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.03980891719745223,
+      "occluded_by": [
+        "production-91"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-88",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 22,
+      "foot": [
+        760.0,
+        204.0
+      ],
+      "visible_bounds": [
+        660,
+        -7,
+        860,
+        203
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.028550118095553807,
+      "occluded_by": [
+        "production-93"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-105",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 23,
+      "foot": [
+        3056.0,
+        325.0
+      ],
+      "visible_bounds": [
+        2964,
+        132,
+        3149,
+        324
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-107",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 24,
+      "foot": [
+        3456.0,
+        325.0
+      ],
+      "visible_bounds": [
+        3364,
+        132,
+        3549,
+        324
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-109",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 25,
+      "foot": [
+        3880.0,
+        325.0
+      ],
+      "visible_bounds": [
+        3780,
+        114,
+        3980,
+        324
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-20",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 26,
+      "foot": [
+        1280.0,
+        336.0
+      ],
+      "visible_bounds": [
+        1256,
+        142,
+        1304,
+        336
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-24",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 27,
+      "foot": [
+        2816.0,
+        336.0
+      ],
+      "visible_bounds": [
+        2792,
+        142,
+        2840,
+        336
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-90",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 28,
+      "foot": [
+        200.0,
+        340.0
+      ],
+      "visible_bounds": [
+        108,
+        147,
+        293,
+        339
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.013385748407643313,
+      "occluded_by": [
+        "production-95"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-92",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 29,
+      "foot": [
+        590.0,
+        340.0
+      ],
+      "visible_bounds": [
+        498,
+        147,
+        683,
+        339
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.04443670382165605,
+      "occluded_by": [
+        "production-97"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-94",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 30,
+      "foot": [
+        1010.0,
+        340.0
+      ],
+      "visible_bounds": [
+        910,
+        129,
+        1110,
+        339
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.005162302800033039,
+      "occluded_by": [
+        "production-99"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-106",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 31,
+      "foot": [
+        3256.0,
+        345.0
+      ],
+      "visible_bounds": [
+        3156,
+        134,
+        3356,
+        344
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-108",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 32,
+      "foot": [
+        3656.0,
+        345.0
+      ],
+      "visible_bounds": [
+        3564,
+        152,
+        3749,
+        344
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-91",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 33,
+      "foot": [
+        390.0,
+        364.0
+      ],
+      "visible_bounds": [
+        290,
+        153,
+        490,
+        363
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.005162302800033039,
+      "occluded_by": [
+        "production-96"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-93",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 34,
+      "foot": [
+        800.0,
+        364.0
+      ],
+      "visible_bounds": [
+        708,
+        171,
+        893,
+        363
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.013385748407643313,
+      "occluded_by": [
+        "production-98"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-35",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 35,
+      "foot": [
+        1280.0,
+        448.0
+      ],
+      "visible_bounds": [
+        1216,
+        332,
+        1344,
+        448
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.33152173913043476,
+      "occluded_by": [
+        "production-21",
+        "production-37"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-37",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 36,
+      "foot": [
+        1360.0,
+        448.0
+      ],
+      "visible_bounds": [
+        1280,
+        396,
+        1440,
+        448
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.16087535117551383,
+      "occluded_by": [
+        "production-21",
+        "production-38"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-38",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 37,
+      "foot": [
+        1508.0,
+        448.0
+      ],
+      "visible_bounds": [
+        1428,
+        396,
+        1588,
+        448
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.04066242791660506,
+      "occluded_by": [
+        "production-39"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-39",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 38,
+      "foot": [
+        1656.0,
+        448.0
+      ],
+      "visible_bounds": [
+        1576,
+        396,
+        1736,
+        448
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.04066242791660506,
+      "occluded_by": [
+        "production-40"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-40",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 39,
+      "foot": [
+        1804.0,
+        448.0
+      ],
+      "visible_bounds": [
+        1724,
+        396,
+        1884,
+        448
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.04066242791660506,
+      "occluded_by": [
+        "production-41"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-41",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 40,
+      "foot": [
+        1952.0,
+        448.0
+      ],
+      "visible_bounds": [
+        1872,
+        396,
+        2032,
+        448
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.08428212331805411,
+      "occluded_by": [
+        "production-7",
+        "production-42"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-42",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 41,
+      "foot": [
+        2100.0,
+        448.0
+      ],
+      "visible_bounds": [
+        2020,
+        396,
+        2180,
+        448
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.08531716693774952,
+      "occluded_by": [
+        "production-7",
+        "production-43"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-43",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 42,
+      "foot": [
+        2248.0,
+        448.0
+      ],
+      "visible_bounds": [
+        2168,
+        396,
+        2328,
+        448
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.04066242791660506,
+      "occluded_by": [
+        "production-44"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-44",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 43,
+      "foot": [
+        2396.0,
+        448.0
+      ],
+      "visible_bounds": [
+        2316,
+        396,
+        2476,
+        448
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.04066242791660506,
+      "occluded_by": [
+        "production-45"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-45",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 44,
+      "foot": [
+        2544.0,
+        448.0
+      ],
+      "visible_bounds": [
+        2464,
+        396,
+        2624,
+        448
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.04066242791660506,
+      "occluded_by": [
+        "production-46"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-46",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 45,
+      "foot": [
+        2692.0,
+        448.0
+      ],
+      "visible_bounds": [
+        2612,
+        396,
+        2772,
+        448
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-36",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 46,
+      "foot": [
+        2816.0,
+        448.0
+      ],
+      "visible_bounds": [
+        2752,
+        332,
+        2880,
+        448
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.2234189723320158,
+      "occluded_by": [
+        "production-25"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-95",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 47,
+      "foot": [
+        160.0,
+        500.0
+      ],
+      "visible_bounds": [
+        68,
+        307,
+        253,
+        499
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-97",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 48,
+      "foot": [
+        550.0,
+        500.0
+      ],
+      "visible_bounds": [
+        450,
+        289,
+        650,
+        499
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-99",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 49,
+      "foot": [
+        970.0,
+        500.0
+      ],
+      "visible_bounds": [
+        878,
+        307,
+        1063,
+        499
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-96",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 50,
+      "foot": [
+        350.0,
+        524.0
+      ],
+      "visible_bounds": [
+        258,
+        331,
+        443,
+        523
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-98",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 51,
+      "foot": [
+        760.0,
+        524.0
+      ],
+      "visible_bounds": [
+        668,
+        331,
+        853,
+        523
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-21",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 52,
+      "foot": [
+        1280.0,
+        568.0
+      ],
+      "visible_bounds": [
+        1256,
+        374,
+        1304,
+        568
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.23412285268089536,
+      "occluded_by": [
+        "production-22"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-25",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 53,
+      "foot": [
+        2816.0,
+        568.0
+      ],
+      "visible_bounds": [
+        2792,
+        374,
+        2840,
+        568
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.23412285268089536,
+      "occluded_by": [
+        "production-26"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-22",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 54,
+      "foot": [
+        1280.0,
+        704.0
+      ],
+      "visible_bounds": [
+        1256,
+        510,
+        1304,
+        704
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.09747527329515877,
+      "occluded_by": [
+        "production-27"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-26",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 55,
+      "foot": [
+        2816.0,
+        704.0
+      ],
+      "visible_bounds": [
+        2792,
+        510,
+        2840,
+        704
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.09786569495054659,
+      "occluded_by": [
+        "production-34"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-74",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 56,
+      "foot": [
+        3200.0,
+        704.0
+      ],
+      "visible_bounds": [
+        3174,
+        663,
+        3226,
+        703
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-75",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 57,
+      "foot": [
+        3328.0,
+        704.0
+      ],
+      "visible_bounds": [
+        3302,
+        663,
+        3354,
+        703
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-130",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 58,
+      "foot": [
+        1120.0,
+        712.0
+      ],
+      "visible_bounds": [
+        1028,
+        519,
+        1213,
+        711
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-27",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 59,
+      "foot": [
+        1352.0,
+        720.0
+      ],
+      "visible_bounds": [
+        1272,
+        668,
+        1432,
+        720
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0692000591453497,
+      "occluded_by": [
+        "production-28"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-28",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 60,
+      "foot": [
+        1496.0,
+        720.0
+      ],
+      "visible_bounds": [
+        1416,
+        668,
+        1576,
+        720
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.5305337867810144,
+      "occluded_by": [
+        "production-134",
+        "production-29"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-29",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 61,
+      "foot": [
+        1640.0,
+        720.0
+      ],
+      "visible_bounds": [
+        1560,
+        668,
+        1720,
+        720
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.17507023510276504,
+      "occluded_by": [
+        "production-134",
+        "production-30"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-30",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 62,
+      "foot": [
+        1784.0,
+        720.0
+      ],
+      "visible_bounds": [
+        1704,
+        668,
+        1864,
+        720
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.11163684755286116,
+      "occluded_by": [
+        "production-7"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-31",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 63,
+      "foot": [
+        2312.0,
+        720.0
+      ],
+      "visible_bounds": [
+        2232,
+        668,
+        2392,
+        720
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.2309625905663167,
+      "occluded_by": [
+        "production-135",
+        "production-7",
+        "production-32"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-32",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 64,
+      "foot": [
+        2456.0,
+        720.0
+      ],
+      "visible_bounds": [
+        2376,
+        668,
+        2536,
+        720
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.90255803637439,
+      "occluded_by": [
+        "production-135",
+        "production-33"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-33",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 65,
+      "foot": [
+        2600.0,
+        720.0
+      ],
+      "visible_bounds": [
+        2520,
+        668,
+        2680,
+        720
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.08753511755138252,
+      "occluded_by": [
+        "production-34",
+        "production-135"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-34",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 66,
+      "foot": [
+        2744.0,
+        720.0
+      ],
+      "visible_bounds": [
+        2664,
+        668,
+        2824,
+        720
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-7",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 67,
+      "foot": [
+        2048.0,
+        758.0
+      ],
+      "visible_bounds": [
+        1816,
+        428,
+        2280,
+        758
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-110",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 68,
+      "foot": [
+        140.0,
+        760.0
+      ],
+      "visible_bounds": [
+        48,
+        567,
+        233,
+        759
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-80",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 69,
+      "foot": [
+        3000.0,
+        760.0
+      ],
+      "visible_bounds": [
+        2970,
+        710,
+        3031,
+        759
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.10329776915615907,
+      "occluded_by": [
+        "production-81",
+        "production-128"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-1",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 70,
+      "foot": [
+        672.0,
+        790.0
+      ],
+      "visible_bounds": [
+        353,
+        558,
+        992,
+        790
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.10555924084874695,
+      "occluded_by": [
+        "production-3",
+        "production-2"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-81",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 71,
+      "foot": [
+        3032.0,
+        792.0
+      ],
+      "visible_bounds": [
+        3002,
+        742,
+        3063,
+        791
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.01212415130940834,
+      "occluded_by": [
+        "production-128"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-51",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 72,
+      "foot": [
+        3680.0,
+        822.0
+      ],
+      "visible_bounds": [
+        3632,
+        713,
+        3728,
+        822
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-72",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 73,
+      "foot": [
+        512.0,
+        828.0
+      ],
+      "visible_bounds": [
+        486,
+        787,
+        538,
+        827
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-73",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 74,
+      "foot": [
+        832.0,
+        828.0
+      ],
+      "visible_bounds": [
+        806,
+        787,
+        858,
+        827
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-4",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 75,
+      "foot": [
+        3312.0,
+        850.0
+      ],
+      "visible_bounds": [
+        3068,
+        436,
+        3556,
+        850
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-135",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 76,
+      "foot": [
+        2440.0,
+        856.0
+      ],
+      "visible_bounds": [
+        2340,
+        645,
+        2540,
+        855
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-134",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 77,
+      "foot": [
+        1544.0,
+        864.0
+      ],
+      "visible_bounds": [
+        1452,
+        671,
+        1637,
+        863
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.003931130573248408,
+      "occluded_by": [
+        "production-133"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-58",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 78,
+      "foot": [
+        1776.0,
+        864.0
+      ],
+      "visible_bounds": [
+        1752,
+        775,
+        1800,
+        863
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-59",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 79,
+      "foot": [
+        2320.0,
+        864.0
+      ],
+      "visible_bounds": [
+        2296,
+        775,
+        2344,
+        863
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-136",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 80,
+      "foot": [
+        2704.0,
+        912.0
+      ],
+      "visible_bounds": [
+        2612,
+        719,
+        2797,
+        911
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.005075636942675159,
+      "occluded_by": [
+        "production-132"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-128",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 81,
+      "foot": [
+        2944.0,
+        912.0
+      ],
+      "visible_bounds": [
+        2852,
+        719,
+        3037,
+        911
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.026721735668789808,
+      "occluded_by": [
+        "production-129"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-131",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 82,
+      "foot": [
+        1120.0,
+        920.0
+      ],
+      "visible_bounds": [
+        1028,
+        727,
+        1213,
+        919
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.009902468152866242,
+      "occluded_by": [
+        "production-3"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-127",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 83,
+      "foot": [
+        3984.0,
+        944.0
+      ],
+      "visible_bounds": [
+        3892,
+        751,
+        4077,
+        943
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-111",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 84,
+      "foot": [
+        180.0,
+        980.0
+      ],
+      "visible_bounds": [
+        88,
+        787,
+        273,
+        979
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-133",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 85,
+      "foot": [
+        1440.0,
+        984.0
+      ],
+      "visible_bounds": [
+        1348,
+        791,
+        1533,
+        983
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-52",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 86,
+      "foot": [
+        3112.0,
+        988.0
+      ],
+      "visible_bounds": [
+        3068,
+        901,
+        3156,
+        988
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-50",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 87,
+      "foot": [
+        552.0,
+        1000.0
+      ],
+      "visible_bounds": [
+        502,
+        910,
+        602,
+        1000
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-3",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 88,
+      "foot": [
+        960.0,
+        1008.0
+      ],
+      "visible_bounds": [
+        872,
+        636,
+        1048,
+        1008
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0030732815393131885,
+      "occluded_by": [
+        "production-82"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-82",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 89,
+      "foot": [
+        1040.0,
+        1040.0
+      ],
+      "visible_bounds": [
+        1010,
+        990,
+        1071,
+        1039
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.07807953443258972,
+      "occluded_by": [
+        "production-83"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-53",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 90,
+      "foot": [
+        3520.0,
+        1040.0
+      ],
+      "visible_bounds": [
+        3465,
+        904,
+        3575,
+        1040
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-69",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 91,
+      "foot": [
+        3072.0,
+        1056.0
+      ],
+      "visible_bounds": [
+        3037,
+        1007,
+        3108,
+        1055
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-68",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 92,
+      "foot": [
+        768.0,
+        1064.0
+      ],
+      "visible_bounds": [
+        733,
+        1015,
+        804,
+        1063
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-2",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 93,
+      "foot": [
+        384.0,
+        1072.0
+      ],
+      "visible_bounds": [
+        296,
+        667,
+        472,
+        1072
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-83",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 94,
+      "foot": [
+        1072.0,
+        1072.0
+      ],
+      "visible_bounds": [
+        1042,
+        1022,
+        1103,
+        1071
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-132",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 95,
+      "foot": [
+        2608.0,
+        1072.0
+      ],
+      "visible_bounds": [
+        2508,
+        861,
+        2708,
+        1071
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-129",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 96,
+      "foot": [
+        2872.0,
+        1072.0
+      ],
+      "visible_bounds": [
+        2772,
+        861,
+        2972,
+        1071
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-66",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 97,
+      "foot": [
+        1552.0,
+        1104.0
+      ],
+      "visible_bounds": [
+        1517,
+        1055,
+        1588,
+        1103
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-67",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 98,
+      "foot": [
+        2496.0,
+        1104.0
+      ],
+      "visible_bounds": [
+        2461,
+        1055,
+        2532,
+        1103
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-47",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 99,
+      "foot": [
+        480.0,
+        1152.0
+      ],
+      "visible_bounds": [
+        399,
+        1094,
+        561,
+        1152
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-49",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 100,
+      "foot": [
+        672.0,
+        1152.0
+      ],
+      "visible_bounds": [
+        600,
+        1053,
+        744,
+        1152
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-48",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 101,
+      "foot": [
+        864.0,
+        1152.0
+      ],
+      "visible_bounds": [
+        783,
+        1094,
+        945,
+        1152
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-60",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 102,
+      "foot": [
+        3104.0,
+        1152.0
+      ],
+      "visible_bounds": [
+        3080,
+        1063,
+        3128,
+        1151
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-61",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 103,
+      "foot": [
+        3232.0,
+        1152.0
+      ],
+      "visible_bounds": [
+        3208,
+        1063,
+        3256,
+        1151
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.05897051474262868,
+      "occluded_by": [
+        "production-5"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-126",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 104,
+      "foot": [
+        3976.0,
+        1152.0
+      ],
+      "visible_bounds": [
+        3876,
+        941,
+        4076,
+        1151
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-56",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 105,
+      "foot": [
+        592.0,
+        1176.0
+      ],
+      "visible_bounds": [
+        568,
+        1087,
+        616,
+        1175
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-57",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 106,
+      "foot": [
+        752.0,
+        1176.0
+      ],
+      "visible_bounds": [
+        728,
+        1087,
+        776,
+        1175
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-6",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 107,
+      "foot": [
+        2280.0,
+        1184.0
+      ],
+      "visible_bounds": [
+        2221,
+        1051,
+        2340,
+        1183
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-112",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 108,
+      "foot": [
+        160.0,
+        1200.0
+      ],
+      "visible_bounds": [
+        60,
+        989,
+        260,
+        1199
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-78",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 109,
+      "foot": [
+        1760.0,
+        1200.0
+      ],
+      "visible_bounds": [
+        1734,
+        1159,
+        1786,
+        1199
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-79",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 110,
+      "foot": [
+        2432.0,
+        1200.0
+      ],
+      "visible_bounds": [
+        2406,
+        1159,
+        2458,
+        1199
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-84",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 111,
+      "foot": [
+        3880.0,
+        1216.0
+      ],
+      "visible_bounds": [
+        3850,
+        1166,
+        3911,
+        1215
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-5",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 112,
+      "foot": [
+        3520.0,
+        1272.0
+      ],
+      "visible_bounds": [
+        3228,
+        1034,
+        3812,
+        1272
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.004041621612039778,
+      "occluded_by": [
+        "production-77",
+        "production-76",
+        "production-62"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-76",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 113,
+      "foot": [
+        3424.0,
+        1296.0
+      ],
+      "visible_bounds": [
+        3398,
+        1255,
+        3450,
+        1295
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-77",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 114,
+      "foot": [
+        3664.0,
+        1296.0
+      ],
+      "visible_bounds": [
+        3638,
+        1255,
+        3690,
+        1295
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-64",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 115,
+      "foot": [
+        1456.0,
+        1336.0
+      ],
+      "visible_bounds": [
+        1432,
+        1247,
+        1480,
+        1335
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-71",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 116,
+      "foot": [
+        1728.0,
+        1344.0
+      ],
+      "visible_bounds": [
+        1693,
+        1295,
+        1764,
+        1343
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-62",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 117,
+      "foot": [
+        3280.0,
+        1352.0
+      ],
+      "visible_bounds": [
+        3256,
+        1263,
+        3304,
+        1351
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-54",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 118,
+      "foot": [
+        3408.0,
+        1380.0
+      ],
+      "visible_bounds": [
+        3348,
+        1312,
+        3469,
+        1380
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-70",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 119,
+      "foot": [
+        3912.0,
+        1384.0
+      ],
+      "visible_bounds": [
+        3877,
+        1335,
+        3948,
+        1383
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0014534883720930232,
+      "occluded_by": [
+        "production-63"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "production-113",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 120,
+      "foot": [
+        280.0,
+        1392.0
+      ],
+      "visible_bounds": [
+        188,
+        1199,
+        373,
+        1391
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-55",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 121,
+      "foot": [
+        3712.0,
+        1412.0
+      ],
+      "visible_bounds": [
+        3652,
+        1287,
+        3773,
+        1412
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-63",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 122,
+      "foot": [
+        3856.0,
+        1424.0
+      ],
+      "visible_bounds": [
+        3832,
+        1335,
+        3880,
+        1423
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-115",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 123,
+      "foot": [
+        752.0,
+        1432.0
+      ],
+      "visible_bounds": [
+        652,
+        1221,
+        852,
+        1431
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-114",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 124,
+      "foot": [
+        512.0,
+        1456.0
+      ],
+      "visible_bounds": [
+        420,
+        1263,
+        605,
+        1455
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-65",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 125,
+      "foot": [
+        2640.0,
+        1456.0
+      ],
+      "visible_bounds": [
+        2616,
+        1367,
+        2664,
+        1455
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-124",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 126,
+      "foot": [
+        3000.0,
+        1472.0
+      ],
+      "visible_bounds": [
+        2900,
+        1261,
+        3100,
+        1471
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-116",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 127,
+      "foot": [
+        1000.0,
+        1488.0
+      ],
+      "visible_bounds": [
+        908,
+        1295,
+        1093,
+        1487
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-119",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 128,
+      "foot": [
+        1656.0,
+        1528.0
+      ],
+      "visible_bounds": [
+        1564,
+        1335,
+        1749,
+        1527
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-122",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 129,
+      "foot": [
+        2256.0,
+        1584.0
+      ],
+      "visible_bounds": [
+        2164,
+        1391,
+        2349,
+        1583
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-120",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 130,
+      "foot": [
+        1840.0,
+        1608.0
+      ],
+      "visible_bounds": [
+        1748,
+        1415,
+        1933,
+        1607
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-123",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 131,
+      "foot": [
+        2472.0,
+        1608.0
+      ],
+      "visible_bounds": [
+        2380,
+        1415,
+        2565,
+        1607
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-117",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 132,
+      "foot": [
+        1112.0,
+        1640.0
+      ],
+      "visible_bounds": [
+        1020,
+        1447,
+        1205,
+        1639
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-118",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 133,
+      "foot": [
+        1480.0,
+        1648.0
+      ],
+      "visible_bounds": [
+        1380,
+        1437,
+        1580,
+        1647
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-121",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 134,
+      "foot": [
+        2040.0,
+        1648.0
+      ],
+      "visible_bounds": [
+        1940,
+        1437,
+        2140,
+        1647
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "production-125",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 135,
+      "foot": [
+        3760.0,
+        1656.0
+      ],
+      "visible_bounds": [
+        3668,
+        1463,
+        3853,
+        1655
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    }
+  ],
+  "overlaps": [],
+  "walk_area": "outdoor-bundle.json collision.walkRegions"
+}

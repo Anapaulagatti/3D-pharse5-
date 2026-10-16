@@ -1,0 +1,199 @@
+{
+  "schema": "generate2dmap.prop_pack.v2",
+  "tool": {
+    "name": "extract_prop_pack",
+    "version": "0.4.0"
+  },
+  "input": "../../raw/museum.png",
+  "source_size": [
+    2172,
+    724
+  ],
+  "source_sha256": "a3de58302f546a24570f7809ff04af4b35c1cbf0f96f408e8d9c8f6daac49e69",
+  "source_mode": "RGB",
+  "layout_mode": "explicit_boxes",
+  "boxes_file": "../../boxes/museum.json",
+  "labels_file": null,
+  "background_mode": "chroma_key",
+  "rows": null,
+  "cols": null,
+  "threshold": 100,
+  "edge_threshold": 150,
+  "despill_radius": 3,
+  "despill": {
+    "mode": "edge",
+    "applied": "edge",
+    "radius": 3,
+    "margin": 12,
+    "changed_px": 4744
+  },
+  "hygiene": {
+    "mode": "both",
+    "floor": 4,
+    "solid_min": 32,
+    "attach_radius": 2,
+    "connectivity": 8,
+    "floor_px": 0,
+    "detached_px": 0,
+    "detached_components": 0,
+    "max_removed_alpha": 0
+  },
+  "alpha_floor": 4,
+  "alpha_floor_pixels_removed": 0,
+  "trim_border": 0,
+  "edge_clean_depth": 0,
+  "component_mode": "all",
+  "component_padding": 8,
+  "min_component_area": 1,
+  "edge_touch_margin": 0,
+  "geometry": {
+    "connectivity": 8,
+    "alpha_geometry_threshold": 16,
+    "anchor_mode": "stance",
+    "support_band_fraction": 0.25,
+    "anchor_rounding": "whole pixels, half-up",
+    "grid_rounding": null,
+    "keep_canvas": false,
+    "world_scale": null
+  },
+  "accepted": [
+    {
+      "index": 0,
+      "label": "prod-museum",
+      "display_name": "prod-museum",
+      "status": "accepted",
+      "image": "prod-museum/prop.png",
+      "sha256": "9572df417f9809cebb04d9785ac2cf7a6fd0b6f69c2dad8fd9a551835f3adfc1",
+      "output_size": [
+        2096,
+        560
+      ],
+      "grid": null,
+      "cell_box": [
+        0,
+        0,
+        2172,
+        724
+      ],
+      "source_box": [
+        0,
+        0,
+        2172,
+        724
+      ],
+      "source_rect": [
+        43,
+        99,
+        2139,
+        659
+      ],
+      "trim_offset": [
+        43,
+        99
+      ],
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "anchor_px": [
+        1050,
+        552
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 3,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        51,
+        107,
+        2131,
+        651
+      ],
+      "padded_crop_bbox": [
+        43,
+        99,
+        2139,
+        659
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 907674,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    }
+  ],
+  "rejected": [],
+  "edge_touch_props": [],
+  "warnings": [],
+  "qa": {
+    "status": "pass",
+    "method": "legacy #FF00FF key (100/150) and edge despill radius 3; alpha hygiene both; 8-connected components (all); checks measured on the published pixels",
+    "notProven": [
+      "that each label names the art in its cell or box",
+      "that a prop is complete: clipping is detected only where art meets the cell edge",
+      "keyed-edge quality beyond the edge fringe count",
+      "that anchors and suggested footprints match gameplay contact (both are measured from alpha)",
+      "runtime placement, collision or occlusion"
+    ],
+    "checks": [
+      {
+        "id": "accepted",
+        "status": "pass",
+        "value": 1,
+        "threshold": ">= 1"
+      },
+      {
+        "id": "edge_touch",
+        "status": "pass",
+        "value": [],
+        "threshold": 0
+      },
+      {
+        "id": "dropped_area",
+        "status": "pass",
+        "value": {},
+        "threshold": 0.01
+      },
+      {
+        "id": "strategy_aspect",
+        "status": "skipped",
+        "value": null,
+        "threshold": 1.6
+      },
+      {
+        "id": "edge_fringe",
+        "status": "pass",
+        "value": 0.0,
+        "threshold": 0.02
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../../raw/museum.png",
+        "sha256": "a3de58302f546a24570f7809ff04af4b35c1cbf0f96f408e8d9c8f6daac49e69",
+        "bytes": 2293652
+      },
+      {
+        "path": "../../boxes/museum.json",
+        "sha256": "d0f0841f2a43a4acfbc57a398313adad656934c64556851357ccbc3ad9dc7f78",
+        "bytes": 166
+      }
+    ],
+    "outputs": [
+      {
+        "path": "prod-museum/prop.png",
+        "sha256": "9572df417f9809cebb04d9785ac2cf7a6fd0b6f69c2dad8fd9a551835f3adfc1",
+        "bytes": 1924703
+      }
+    ],
+    "tool": {
+      "name": "extract_prop_pack",
+      "version": "0.4.0"
+    }
+  }
+}

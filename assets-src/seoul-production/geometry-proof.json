@@ -1,0 +1,262 @@
+{
+  "masterplanSha256": "0d99794d0eb0362a25e43111fd5c612bdf9a39a1fd2bb9185d94981ddc026169",
+  "world": [
+    4096,
+    1728
+  ],
+  "fullApprovedWorld": [
+    4096,
+    3072
+  ],
+  "masses": [
+    {
+      "building": "gate",
+      "masses": [
+        {
+          "id": "three-bay-gate",
+          "bounds": [
+            1856,
+            544,
+            384,
+            192
+          ],
+          "roof": "two-tier paljak-inspired",
+          "facadeBays": 3,
+          "ridgeDirection": "east-west"
+        }
+      ]
+    },
+    {
+      "building": "academy",
+      "masses": [
+        {
+          "id": "lecture-hall",
+          "bounds": [
+            384,
+            608,
+            576,
+            160
+          ],
+          "roof": "paljak-inspired",
+          "facadeBays": 5,
+          "ridgeDirection": "east-west"
+        },
+        {
+          "id": "west-study",
+          "bounds": [
+            320,
+            768,
+            128,
+            288
+          ],
+          "roof": "matbae",
+          "facadeBays": 3,
+          "ridgeDirection": "north-south"
+        },
+        {
+          "id": "east-library",
+          "bounds": [
+            896,
+            768,
+            128,
+            224
+          ],
+          "roof": "matbae",
+          "facadeBays": 2,
+          "ridgeDirection": "north-south"
+        }
+      ]
+    },
+    {
+      "building": "workshop",
+      "masses": [
+        {
+          "id": "workshop",
+          "bounds": [
+            3104,
+            480,
+            384,
+            160
+          ],
+          "roof": "matbae",
+          "facadeBays": 4,
+          "ridgeDirection": "east-west"
+        },
+        {
+          "id": "east-tool-wing",
+          "bounds": [
+            3392,
+            640,
+            128,
+            192
+          ],
+          "roof": "matbae",
+          "facadeBays": 2,
+          "ridgeDirection": "north-south"
+        }
+      ]
+    },
+    {
+      "building": "museum",
+      "masses": [
+        {
+          "id": "exhibit-hall",
+          "bounds": [
+            3328,
+            1056,
+            448,
+            192
+          ],
+          "roof": "ujingak-inspired",
+          "facadeBays": 6,
+          "ridgeDirection": "east-west"
+        },
+        {
+          "id": "west-vestibule",
+          "bounds": [
+            3264,
+            1120,
+            64,
+            128
+          ],
+          "roof": "matbae",
+          "facadeBays": 1,
+          "ridgeDirection": "north-south"
+        }
+      ]
+    }
+  ],
+  "palaceWalls": [
+    {
+      "id": "north-return",
+      "points": [
+        [
+          1280,
+          64
+        ],
+        [
+          2816,
+          64
+        ]
+      ]
+    },
+    {
+      "id": "west-upper-return",
+      "points": [
+        [
+          1280,
+          64
+        ],
+        [
+          1280,
+          336
+        ]
+      ]
+    },
+    {
+      "id": "west-lower-return",
+      "points": [
+        [
+          1280,
+          432
+        ],
+        [
+          1280,
+          704
+        ]
+      ]
+    },
+    {
+      "id": "east-upper-return",
+      "points": [
+        [
+          2816,
+          64
+        ],
+        [
+          2816,
+          336
+        ]
+      ]
+    },
+    {
+      "id": "east-lower-return",
+      "points": [
+        [
+          2816,
+          432
+        ],
+        [
+          2816,
+          704
+        ]
+      ]
+    },
+    {
+      "id": "front-west",
+      "points": [
+        [
+          1280,
+          704
+        ],
+        [
+          1856,
+          704
+        ]
+      ]
+    },
+    {
+      "id": "front-east",
+      "points": [
+        [
+          2240,
+          704
+        ],
+        [
+          2816,
+          704
+        ]
+      ]
+    }
+  ],
+  "npcReservations": [
+    {
+      "id": "sejong",
+      "building": "academy",
+      "point": [
+        832,
+        1008
+      ],
+      "role": "Hangul / quiet teaching court"
+    },
+    {
+      "id": "jang",
+      "building": "workshop",
+      "point": [
+        3664,
+        992
+      ],
+      "role": "Instrument demonstration / numbers"
+    },
+    {
+      "id": "yi",
+      "building": "museum",
+      "point": [
+        3776,
+        1344
+      ],
+      "role": "Naval history / terrace maps"
+    },
+    {
+      "id": "saimdang",
+      "building": "art-studio",
+      "point": [
+        880,
+        2752
+      ],
+      "role": "Art / colors / nature"
+    }
+  ],
+  "firstSliceOnly": true,
+  "gatePolicy": "Runtime dynamic leaf opens only first outer court; reserved inner palace remains closed. Static navigation bundle represents gate OPEN; runtime tests separately prove closed/open."
+}

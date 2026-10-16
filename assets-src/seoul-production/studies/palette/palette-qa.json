@@ -1,0 +1,295 @@
+{
+  "status": "pass",
+  "method": "forge_palette.build_palette (weighted k-means++ in OKLab over unique colours, reserved colours fixed, coverage skipping) then forge_palette.fit_report of every input: OKLab dE of each pixel with alpha >= the threshold to its nearest palette colour",
+  "notProven": [
+    "Visual quality of the palette: look at swatches.png and an applied frame.",
+    "Colours of pixels below the alpha threshold were not sampled or measured.",
+    "No --max-delta-e gate was set."
+  ],
+  "checks": [
+    {
+      "id": "palette_colors",
+      "status": "pass",
+      "value": 192,
+      "threshold": 192
+    },
+    {
+      "id": "inputs_without_samples",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0,
+      "files": []
+    },
+    {
+      "id": "max_delta_e",
+      "status": "skipped",
+      "value": 0.159737,
+      "threshold": null
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../../.cache/production/study-native/academy-study.png",
+      "sha256": "e94d93cbe913051daa527b81bc4807b95cb8fb833642e41be8567b2099c34571",
+      "bytes": 215411
+    },
+    {
+      "path": "../../../../.cache/production/study-native/art-study.png",
+      "sha256": "772dc40505e6e8ede71dbaf8cdd9b14ff155d3aeb8fb9f324df63d26bfc2cbb0",
+      "bytes": 104353
+    },
+    {
+      "path": "../../../../.cache/production/study-native/bookshop-study.png",
+      "sha256": "0aafa7572ece75d622b1eba1bb96117c0868fc94acbc9474f51b3b3348d6e2d7",
+      "bytes": 53566
+    },
+    {
+      "path": "../../../../.cache/production/study-native/craft-study.png",
+      "sha256": "09d886d6d0345cdcc2ce9ceca03924b314266bc192696ba1de5a89d4e1c1e8d8",
+      "bytes": 54299
+    },
+    {
+      "path": "../../../../.cache/production/study-native/gate-study.png",
+      "sha256": "0cb70fe88dd4e38391c24be3f007386e9d0d23b40b1509572b5833ff28a42389",
+      "bytes": 102923
+    },
+    {
+      "path": "../../../../.cache/production/study-native/home-l-study.png",
+      "sha256": "f8aa3aa6ffa05184edb9f7cb1891e29328e6cbf1698256ab1f3106aa05fb1fb2",
+      "bytes": 76210
+    },
+    {
+      "path": "../../../../.cache/production/study-native/home-two-study.png",
+      "sha256": "0e2c839dd6d439d3bd350e71254ab8ce17e68a5ef455317eed5b9f7b356dfed7",
+      "bytes": 56352
+    },
+    {
+      "path": "../../../../.cache/production/study-native/home-u-study.png",
+      "sha256": "cd74999fee4208f1c272c2b7d9c80f4df22fa93e0b08ba64af6bdfe153efca1e",
+      "bytes": 49172
+    },
+    {
+      "path": "../../../../.cache/production/study-native/home-well-study.png",
+      "sha256": "ec970d0e2e23193ce4c86684ea21b8ca6fc2ee0235503ec04ac69ed4514978b7",
+      "bytes": 42310
+    },
+    {
+      "path": "../../../../.cache/production/study-native/museum-study.png",
+      "sha256": "7241989bf1f327ad7370b7db24c822201f2c9dc58aa1fee2f260b74dda169218",
+      "bytes": 108949
+    },
+    {
+      "path": "../../../../.cache/production/study-native/pavilion-study.png",
+      "sha256": "952dc560fbdc24c2222693cc4c015463f2acf8bc3fe4e4ac43c7c71b8b829e83",
+      "bytes": 57657
+    },
+    {
+      "path": "../../../../.cache/production/study-native/stationery-study.png",
+      "sha256": "ac23710eced02ad7fae7e0f79dc840938c1b360f16a11938e0ee32969b6b93f7",
+      "bytes": 46242
+    },
+    {
+      "path": "../../../../.cache/production/study-native/teahouse-study.png",
+      "sha256": "94b91080b50c6969107e07b921edcf6f43861993d7d6fc9f4a168039c3fe5cf2",
+      "bytes": 67582
+    },
+    {
+      "path": "../../../../.cache/production/study-native/workshop-study.png",
+      "sha256": "48cfd8d1e7a4cdb64b15bdad182c82665ee56e6613c1ba3bc05c6e777d7afe19",
+      "bytes": 123012
+    }
+  ],
+  "outputs": [
+    {
+      "path": "palette.json",
+      "sha256": "b668a4a2a24daecc8ffcbc09f2a328741f12a31c2bbcc7448457c6adcba89481",
+      "bytes": 7157
+    },
+    {
+      "path": "palette.gpl",
+      "sha256": "14d72c257e4fba1d0158ea427f144a76467b471987b3e5e69a46487a72b9f584",
+      "bytes": 3907
+    },
+    {
+      "path": "palette.hex",
+      "sha256": "4a4ff27a572154259ca095a97d40d633a53d4ff22db37430a9c0947f509205f2",
+      "bytes": 1344
+    },
+    {
+      "path": "swatches.png",
+      "sha256": "1cc50978a76652f38c79c210a65fbd1b952b354b123ee76be8fbaa2987572829",
+      "bytes": 2361
+    }
+  ],
+  "tool": {
+    "name": "palette_tool",
+    "version": "0.4.0"
+  },
+  "palette": {
+    "colors": 192,
+    "reserved": 0,
+    "transparent_index": 255,
+    "seed": 0
+  },
+  "fit": {
+    "../../../../.cache/production/study-native/academy-study.png": {
+      "measured_px": 77720,
+      "alpha_threshold": 128,
+      "off_palette_px": 77620,
+      "partial_alpha_px": 776,
+      "colors": 59607,
+      "palette_colors_used": 192,
+      "mean_delta_e": 0.013229,
+      "p95_delta_e": 0.025743,
+      "max_delta_e": 0.120797
+    },
+    "../../../../.cache/production/study-native/art-study.png": {
+      "measured_px": 37628,
+      "alpha_threshold": 128,
+      "off_palette_px": 37600,
+      "partial_alpha_px": 531,
+      "colors": 33240,
+      "palette_colors_used": 189,
+      "mean_delta_e": 0.013354,
+      "p95_delta_e": 0.025098,
+      "max_delta_e": 0.095986
+    },
+    "../../../../.cache/production/study-native/bookshop-study.png": {
+      "measured_px": 18817,
+      "alpha_threshold": 128,
+      "off_palette_px": 18800,
+      "partial_alpha_px": 404,
+      "colors": 17817,
+      "palette_colors_used": 184,
+      "mean_delta_e": 0.013118,
+      "p95_delta_e": 0.023771,
+      "max_delta_e": 0.108489
+    },
+    "../../../../.cache/production/study-native/craft-study.png": {
+      "measured_px": 18438,
+      "alpha_threshold": 128,
+      "off_palette_px": 18424,
+      "partial_alpha_px": 526,
+      "colors": 17485,
+      "palette_colors_used": 186,
+      "mean_delta_e": 0.013133,
+      "p95_delta_e": 0.023418,
+      "max_delta_e": 0.077924
+    },
+    "../../../../.cache/production/study-native/gate-study.png": {
+      "measured_px": 37434,
+      "alpha_threshold": 128,
+      "off_palette_px": 37397,
+      "partial_alpha_px": 697,
+      "colors": 30066,
+      "palette_colors_used": 185,
+      "mean_delta_e": 0.01248,
+      "p95_delta_e": 0.024551,
+      "max_delta_e": 0.081143
+    },
+    "../../../../.cache/production/study-native/home-l-study.png": {
+      "measured_px": 25819,
+      "alpha_threshold": 128,
+      "off_palette_px": 25796,
+      "partial_alpha_px": 481,
+      "colors": 23880,
+      "palette_colors_used": 187,
+      "mean_delta_e": 0.01377,
+      "p95_delta_e": 0.026063,
+      "max_delta_e": 0.064404
+    },
+    "../../../../.cache/production/study-native/home-two-study.png": {
+      "measured_px": 18420,
+      "alpha_threshold": 128,
+      "off_palette_px": 18410,
+      "partial_alpha_px": 667,
+      "colors": 17700,
+      "palette_colors_used": 192,
+      "mean_delta_e": 0.014981,
+      "p95_delta_e": 0.0301,
+      "max_delta_e": 0.127147
+    },
+    "../../../../.cache/production/study-native/home-u-study.png": {
+      "measured_px": 16071,
+      "alpha_threshold": 128,
+      "off_palette_px": 16061,
+      "partial_alpha_px": 578,
+      "colors": 14995,
+      "palette_colors_used": 185,
+      "mean_delta_e": 0.013036,
+      "p95_delta_e": 0.024401,
+      "max_delta_e": 0.069228
+    },
+    "../../../../.cache/production/study-native/home-well-study.png": {
+      "measured_px": 14269,
+      "alpha_threshold": 128,
+      "off_palette_px": 14256,
+      "partial_alpha_px": 648,
+      "colors": 13737,
+      "palette_colors_used": 187,
+      "mean_delta_e": 0.013512,
+      "p95_delta_e": 0.025449,
+      "max_delta_e": 0.070464
+    },
+    "../../../../.cache/production/study-native/museum-study.png": {
+      "measured_px": 41124,
+      "alpha_threshold": 128,
+      "off_palette_px": 41079,
+      "partial_alpha_px": 461,
+      "colors": 34435,
+      "palette_colors_used": 186,
+      "mean_delta_e": 0.012852,
+      "p95_delta_e": 0.022801,
+      "max_delta_e": 0.095986
+    },
+    "../../../../.cache/production/study-native/pavilion-study.png": {
+      "measured_px": 20364,
+      "alpha_threshold": 128,
+      "off_palette_px": 20342,
+      "partial_alpha_px": 970,
+      "colors": 18673,
+      "palette_colors_used": 186,
+      "mean_delta_e": 0.013321,
+      "p95_delta_e": 0.025444,
+      "max_delta_e": 0.095986
+    },
+    "../../../../.cache/production/study-native/stationery-study.png": {
+      "measured_px": 15951,
+      "alpha_threshold": 128,
+      "off_palette_px": 15938,
+      "partial_alpha_px": 520,
+      "colors": 15165,
+      "palette_colors_used": 184,
+      "mean_delta_e": 0.012832,
+      "p95_delta_e": 0.023352,
+      "max_delta_e": 0.055135
+    },
+    "../../../../.cache/production/study-native/teahouse-study.png": {
+      "measured_px": 23755,
+      "alpha_threshold": 128,
+      "off_palette_px": 23742,
+      "partial_alpha_px": 448,
+      "colors": 22443,
+      "palette_colors_used": 185,
+      "mean_delta_e": 0.013695,
+      "p95_delta_e": 0.024994,
+      "max_delta_e": 0.07174
+    },
+    "../../../../.cache/production/study-native/workshop-study.png": {
+      "measured_px": 43237,
+      "alpha_threshold": 128,
+      "off_palette_px": 43198,
+      "partial_alpha_px": 692,
+      "colors": 37330,
+      "palette_colors_used": 186,
+      "mean_delta_e": 0.013257,
+      "p95_delta_e": 0.023903,
+      "max_delta_e": 0.159737
+    }
+  },
+  "totals": {
+    "max_delta_e": 0.159737,
+    "worst_p95_delta_e": 0.0301,
+    "off_palette_px": 408663
+  }
+}

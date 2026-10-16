@@ -1,0 +1,359 @@
+{
+  "status": "pass",
+  "method": "forge_palette.build_palette (weighted k-means++ in OKLab over unique colours, reserved colours fixed, coverage skipping) then forge_palette.fit_report of every input: OKLab dE of each pixel with alpha >= the threshold to its nearest palette colour",
+  "notProven": [
+    "Visual quality of the palette: look at swatches.png and an applied frame.",
+    "Colours of pixels below the alpha threshold were not sampled or measured.",
+    "No --max-delta-e gate was set."
+  ],
+  "checks": [
+    {
+      "id": "palette_colors",
+      "status": "pass",
+      "value": 192,
+      "threshold": 192
+    },
+    {
+      "id": "inputs_without_samples",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0,
+      "files": []
+    },
+    {
+      "id": "max_delta_e",
+      "status": "skipped",
+      "value": 0.129117,
+      "threshold": null
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../.cache/production/production-native/prod-armillary.png",
+      "sha256": "acb500e4ba1699f63de101519ca8b12e3fa4915226be889797249f17b9faa16a",
+      "bytes": 23031
+    },
+    {
+      "path": "../../../.cache/production/production-native/prod-clock.png",
+      "sha256": "cf671e0a32eac843cf3e2553d13fcf097da0ffab7130b94a1d146e5033261953",
+      "bytes": 29817
+    },
+    {
+      "path": "../../../.cache/production/production-native/prod-court-gate.png",
+      "sha256": "d44c267b4b8111c21487ee2eeceb22668ba25ead01162f26dbde7e495ff9e908",
+      "bytes": 24131
+    },
+    {
+      "path": "../../../.cache/production/production-native/prod-doors.png",
+      "sha256": "a9ac1c11efb416c049aecde8cecb6b4c46a290e073efcec396a1bc4713b4f850",
+      "bytes": 17784
+    },
+    {
+      "path": "../../../.cache/production/production-native/prod-gate.png",
+      "sha256": "8360d89609c70bb47396137e5ee72e066924db74df741546e85a7b8603a6acc9",
+      "bytes": 305234
+    },
+    {
+      "path": "../../../.cache/production/production-native/prod-hall.png",
+      "sha256": "8b825cc3aadf2fa582067a91d98459affd35878a361d4bed33bb1a8b8ff59689",
+      "bytes": 276719
+    },
+    {
+      "path": "../../../.cache/production/production-native/prod-library.png",
+      "sha256": "8404ea3101fc65e97ea41238ac419cd0e0bb1625e385ec0f46e4684a4cf9a092",
+      "bytes": 141452
+    },
+    {
+      "path": "../../../.cache/production/production-native/prod-low-wall.png",
+      "sha256": "b9ba0a1fca45252fbb9faaed8414835510bcfb5f8e2353c8b0ac28330d7635bd",
+      "bytes": 19075
+    },
+    {
+      "path": "../../../.cache/production/production-native/prod-museum.png",
+      "sha256": "94a9efbf9b8d8ba9bf4ab2794aa21a8ca341f086b785e5e65074e3ee2f88823e",
+      "bytes": 277708
+    },
+    {
+      "path": "../../../.cache/production/production-native/prod-service.png",
+      "sha256": "257d9c54ac71f91c91b5652702380b581d4aa08657f8d52aec6a5cb5441fff1f",
+      "bytes": 29033
+    },
+    {
+      "path": "../../../.cache/production/production-native/prod-ship.png",
+      "sha256": "615790d7582f751ecb1a0d352eccfc0504eec37ca147faffc3936f94527d119b",
+      "bytes": 27601
+    },
+    {
+      "path": "../../../.cache/production/production-native/prod-strategy.png",
+      "sha256": "beca76e71c19c23eea21ebaf1b8f3b2d21be5b6aa6effa3435f2e53f3ca9b5d0",
+      "bytes": 16586
+    },
+    {
+      "path": "../../../.cache/production/production-native/prod-study.png",
+      "sha256": "8c7f3f515e6e6e0a27f9608391398a06da20a197b5eb45dff977708461be0c08",
+      "bytes": 154470
+    },
+    {
+      "path": "../../../.cache/production/production-native/prod-sundial.png",
+      "sha256": "83d0720dc35ee63214315f04c9ae594d2153d58d37846551a43ed2b78d0d15d3",
+      "bytes": 18859
+    },
+    {
+      "path": "../../../.cache/production/production-native/prod-wall-ns.png",
+      "sha256": "ad3948a796ddb235b593dce695c0f1371e694c4e3bb7f87b970fdca8ba2bd9fd",
+      "bytes": 21142
+    },
+    {
+      "path": "../../../.cache/production/production-native/prod-wall.png",
+      "sha256": "8b624c117730d7274b4e4cc2d4280b1607cfecf3db07ca3890b4a5d388fa5232",
+      "bytes": 18623
+    },
+    {
+      "path": "../../../.cache/production/production-native/prod-workshop.png",
+      "sha256": "dff579eec2213a91b5c186321baf2c8268faaad8e131ae378dda001d71ee3f02",
+      "bytes": 284171
+    },
+    {
+      "path": "../../../.cache/production/production-native/prod-writing.png",
+      "sha256": "1099580adef2c4a1ec0d6ee3b1562ab04136a1b0b2b53036698f6daa45b5f2ac",
+      "bytes": 18603
+    }
+  ],
+  "outputs": [
+    {
+      "path": "palette.json",
+      "sha256": "c7396827a753d51113d1dc05a12b54bd6e971bd7d39b5a128a87e26a944aab35",
+      "bytes": 7171
+    },
+    {
+      "path": "palette.gpl",
+      "sha256": "fe18e21db2f4d3adcde6a5d796f66bff8d60bfb82484ef5cf9e06ab4dc91ee20",
+      "bytes": 3921
+    },
+    {
+      "path": "palette.hex",
+      "sha256": "3dcd7ea21b1932adc9382ca0121205a4db7bf847baabd8de3c372c7f582a3354",
+      "bytes": 1344
+    },
+    {
+      "path": "swatches.png",
+      "sha256": "679f3eec5b2367c95eb4bd7d578157bf3e9b7cf837c7d8dae92647870886afe7",
+      "bytes": 2365
+    }
+  ],
+  "tool": {
+    "name": "palette_tool",
+    "version": "0.4.0"
+  },
+  "palette": {
+    "colors": 192,
+    "reserved": 0,
+    "transparent_index": 255,
+    "seed": 0
+  },
+  "fit": {
+    "../../../.cache/production/production-native/prod-armillary.png": {
+      "measured_px": 6938,
+      "alpha_threshold": 128,
+      "off_palette_px": 6930,
+      "partial_alpha_px": 717,
+      "colors": 6685,
+      "palette_colors_used": 152,
+      "mean_delta_e": 0.013774,
+      "p95_delta_e": 0.024458,
+      "max_delta_e": 0.08529
+    },
+    "../../../.cache/production/production-native/prod-clock.png": {
+      "measured_px": 11227,
+      "alpha_threshold": 128,
+      "off_palette_px": 11219,
+      "partial_alpha_px": 792,
+      "colors": 10637,
+      "palette_colors_used": 181,
+      "mean_delta_e": 0.015798,
+      "p95_delta_e": 0.032914,
+      "max_delta_e": 0.113283
+    },
+    "../../../.cache/production/production-native/prod-court-gate.png": {
+      "measured_px": 7870,
+      "alpha_threshold": 128,
+      "off_palette_px": 7868,
+      "partial_alpha_px": 470,
+      "colors": 7532,
+      "palette_colors_used": 183,
+      "mean_delta_e": 0.014374,
+      "p95_delta_e": 0.027987,
+      "max_delta_e": 0.071276
+    },
+    "../../../.cache/production/production-native/prod-doors.png": {
+      "measured_px": 8888,
+      "alpha_threshold": 128,
+      "off_palette_px": 8867,
+      "partial_alpha_px": 279,
+      "colors": 5377,
+      "palette_colors_used": 105,
+      "mean_delta_e": 0.009984,
+      "p95_delta_e": 0.019756,
+      "max_delta_e": 0.097349
+    },
+    "../../../.cache/production/production-native/prod-gate.png": {
+      "measured_px": 118626,
+      "alpha_threshold": 128,
+      "off_palette_px": 118564,
+      "partial_alpha_px": 1485,
+      "colors": 73258,
+      "palette_colors_used": 189,
+      "mean_delta_e": 0.013251,
+      "p95_delta_e": 0.025073,
+      "max_delta_e": 0.126551
+    },
+    "../../../.cache/production/production-native/prod-hall.png": {
+      "measured_px": 116077,
+      "alpha_threshold": 128,
+      "off_palette_px": 116011,
+      "partial_alpha_px": 1419,
+      "colors": 78953,
+      "palette_colors_used": 188,
+      "mean_delta_e": 0.014312,
+      "p95_delta_e": 0.026615,
+      "max_delta_e": 0.097349
+    },
+    "../../../.cache/production/production-native/prod-library.png": {
+      "measured_px": 52387,
+      "alpha_threshold": 128,
+      "off_palette_px": 52334,
+      "partial_alpha_px": 706,
+      "colors": 41048,
+      "palette_colors_used": 188,
+      "mean_delta_e": 0.013351,
+      "p95_delta_e": 0.025438,
+      "max_delta_e": 0.097349
+    },
+    "../../../.cache/production/production-native/prod-low-wall.png": {
+      "measured_px": 7711,
+      "alpha_threshold": 128,
+      "off_palette_px": 7701,
+      "partial_alpha_px": 269,
+      "colors": 6045,
+      "palette_colors_used": 131,
+      "mean_delta_e": 0.010448,
+      "p95_delta_e": 0.018642,
+      "max_delta_e": 0.034904
+    },
+    "../../../.cache/production/production-native/prod-museum.png": {
+      "measured_px": 112826,
+      "alpha_threshold": 128,
+      "off_palette_px": 112723,
+      "partial_alpha_px": 1401,
+      "colors": 68895,
+      "palette_colors_used": 188,
+      "mean_delta_e": 0.012812,
+      "p95_delta_e": 0.023147,
+      "max_delta_e": 0.068502
+    },
+    "../../../.cache/production/production-native/prod-service.png": {
+      "measured_px": 10120,
+      "alpha_threshold": 128,
+      "off_palette_px": 10112,
+      "partial_alpha_px": 433,
+      "colors": 9442,
+      "palette_colors_used": 187,
+      "mean_delta_e": 0.013214,
+      "p95_delta_e": 0.025544,
+      "max_delta_e": 0.072606
+    },
+    "../../../.cache/production/production-native/prod-ship.png": {
+      "measured_px": 9446,
+      "alpha_threshold": 128,
+      "off_palette_px": 9439,
+      "partial_alpha_px": 936,
+      "colors": 8548,
+      "palette_colors_used": 161,
+      "mean_delta_e": 0.01319,
+      "p95_delta_e": 0.022419,
+      "max_delta_e": 0.097349
+    },
+    "../../../.cache/production/production-native/prod-strategy.png": {
+      "measured_px": 6031,
+      "alpha_threshold": 128,
+      "off_palette_px": 6028,
+      "partial_alpha_px": 243,
+      "colors": 5600,
+      "palette_colors_used": 157,
+      "mean_delta_e": 0.014495,
+      "p95_delta_e": 0.027822,
+      "max_delta_e": 0.05426
+    },
+    "../../../.cache/production/production-native/prod-study.png": {
+      "measured_px": 56474,
+      "alpha_threshold": 128,
+      "off_palette_px": 56435,
+      "partial_alpha_px": 768,
+      "colors": 42906,
+      "palette_colors_used": 190,
+      "mean_delta_e": 0.012986,
+      "p95_delta_e": 0.0239,
+      "max_delta_e": 0.097349
+    },
+    "../../../.cache/production/production-native/prod-sundial.png": {
+      "measured_px": 6596,
+      "alpha_threshold": 128,
+      "off_palette_px": 6586,
+      "partial_alpha_px": 276,
+      "colors": 6152,
+      "palette_colors_used": 142,
+      "mean_delta_e": 0.012725,
+      "p95_delta_e": 0.021845,
+      "max_delta_e": 0.067086
+    },
+    "../../../.cache/production/production-native/prod-wall-ns.png": {
+      "measured_px": 7684,
+      "alpha_threshold": 128,
+      "off_palette_px": 7675,
+      "partial_alpha_px": 275,
+      "colors": 7143,
+      "palette_colors_used": 134,
+      "mean_delta_e": 0.012266,
+      "p95_delta_e": 0.020707,
+      "max_delta_e": 0.057836
+    },
+    "../../../.cache/production/production-native/prod-wall.png": {
+      "measured_px": 6763,
+      "alpha_threshold": 128,
+      "off_palette_px": 6751,
+      "partial_alpha_px": 356,
+      "colors": 5898,
+      "palette_colors_used": 152,
+      "mean_delta_e": 0.011104,
+      "p95_delta_e": 0.020856,
+      "max_delta_e": 0.047935
+    },
+    "../../../.cache/production/production-native/prod-workshop.png": {
+      "measured_px": 105875,
+      "alpha_threshold": 128,
+      "off_palette_px": 105800,
+      "partial_alpha_px": 1505,
+      "colors": 74327,
+      "palette_colors_used": 188,
+      "mean_delta_e": 0.013249,
+      "p95_delta_e": 0.023946,
+      "max_delta_e": 0.129117
+    },
+    "../../../.cache/production/production-native/prod-writing.png": {
+      "measured_px": 6604,
+      "alpha_threshold": 128,
+      "off_palette_px": 6597,
+      "partial_alpha_px": 584,
+      "colors": 6282,
+      "palette_colors_used": 189,
+      "mean_delta_e": 0.014689,
+      "p95_delta_e": 0.027435,
+      "max_delta_e": 0.064646
+    }
+  },
+  "totals": {
+    "max_delta_e": 0.129117,
+    "worst_p95_delta_e": 0.032914,
+    "off_palette_px": 657640
+  }
+}

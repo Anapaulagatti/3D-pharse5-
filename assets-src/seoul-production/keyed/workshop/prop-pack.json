@@ -1,0 +1,199 @@
+{
+  "schema": "generate2dmap.prop_pack.v2",
+  "tool": {
+    "name": "extract_prop_pack",
+    "version": "0.4.0"
+  },
+  "input": "../../raw/workshop.png",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_sha256": "45b0f44dfcf599cf964e2eaa30b5ff5877fc78c76b23ba1541231def5c94cb2d",
+  "source_mode": "RGB",
+  "layout_mode": "explicit_boxes",
+  "boxes_file": "../../boxes/workshop.json",
+  "labels_file": null,
+  "background_mode": "chroma_key",
+  "rows": null,
+  "cols": null,
+  "threshold": 100,
+  "edge_threshold": 150,
+  "despill_radius": 3,
+  "despill": {
+    "mode": "edge",
+    "applied": "edge",
+    "radius": 3,
+    "margin": 12,
+    "changed_px": 5361
+  },
+  "hygiene": {
+    "mode": "both",
+    "floor": 4,
+    "solid_min": 32,
+    "attach_radius": 2,
+    "connectivity": 8,
+    "floor_px": 0,
+    "detached_px": 0,
+    "detached_components": 0,
+    "max_removed_alpha": 0
+  },
+  "alpha_floor": 4,
+  "alpha_floor_pixels_removed": 0,
+  "trim_border": 0,
+  "edge_clean_depth": 0,
+  "component_mode": "all",
+  "component_padding": 8,
+  "min_component_area": 1,
+  "edge_touch_margin": 0,
+  "geometry": {
+    "connectivity": 8,
+    "alpha_geometry_threshold": 16,
+    "anchor_mode": "stance",
+    "support_band_fraction": 0.25,
+    "anchor_rounding": "whole pixels, half-up",
+    "grid_rounding": null,
+    "keep_canvas": false,
+    "world_scale": null
+  },
+  "accepted": [
+    {
+      "index": 0,
+      "label": "prod-workshop",
+      "display_name": "prod-workshop",
+      "status": "accepted",
+      "image": "prod-workshop/prop.png",
+      "sha256": "45febea19bb20b4a26e0e084c219a11395825cc4780919bb7e1a9a06cd4716a8",
+      "output_size": [
+        1241,
+        1054
+      ],
+      "grid": null,
+      "cell_box": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "source_box": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "source_rect": [
+        5,
+        89,
+        1246,
+        1143
+      ],
+      "trim_offset": [
+        5,
+        89
+      ],
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "anchor_px": [
+        1067,
+        1046
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        13,
+        97,
+        1238,
+        1135
+      ],
+      "padded_crop_bbox": [
+        5,
+        89,
+        1246,
+        1143
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 664311,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    }
+  ],
+  "rejected": [],
+  "edge_touch_props": [],
+  "warnings": [],
+  "qa": {
+    "status": "pass",
+    "method": "legacy #FF00FF key (100/150) and edge despill radius 3; alpha hygiene both; 8-connected components (all); checks measured on the published pixels",
+    "notProven": [
+      "that each label names the art in its cell or box",
+      "that a prop is complete: clipping is detected only where art meets the cell edge",
+      "keyed-edge quality beyond the edge fringe count",
+      "that anchors and suggested footprints match gameplay contact (both are measured from alpha)",
+      "runtime placement, collision or occlusion"
+    ],
+    "checks": [
+      {
+        "id": "accepted",
+        "status": "pass",
+        "value": 1,
+        "threshold": ">= 1"
+      },
+      {
+        "id": "edge_touch",
+        "status": "pass",
+        "value": [],
+        "threshold": 0
+      },
+      {
+        "id": "dropped_area",
+        "status": "pass",
+        "value": {},
+        "threshold": 0.01
+      },
+      {
+        "id": "strategy_aspect",
+        "status": "skipped",
+        "value": null,
+        "threshold": 1.6
+      },
+      {
+        "id": "edge_fringe",
+        "status": "pass",
+        "value": 0.0,
+        "threshold": 0.02
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../../raw/workshop.png",
+        "sha256": "45b0f44dfcf599cf964e2eaa30b5ff5877fc78c76b23ba1541231def5c94cb2d",
+        "bytes": 2179717
+      },
+      {
+        "path": "../../boxes/workshop.json",
+        "sha256": "8c260cac06daf6084aa2ea0db44fa28a6eed0e2a79c73ec0a461a01fbb4e3348",
+        "bytes": 169
+      }
+    ],
+    "outputs": [
+      {
+        "path": "prod-workshop/prop.png",
+        "sha256": "45febea19bb20b4a26e0e084c219a11395825cc4780919bb7e1a9a06cd4716a8",
+        "bytes": 1571738
+      }
+    ],
+    "tool": {
+      "name": "extract_prop_pack",
+      "version": "0.4.0"
+    }
+  }
+}

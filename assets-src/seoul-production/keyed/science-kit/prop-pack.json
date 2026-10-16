@@ -1,0 +1,569 @@
+{
+  "schema": "generate2dmap.prop_pack.v2",
+  "tool": {
+    "name": "extract_prop_pack",
+    "version": "0.4.0"
+  },
+  "input": "../../raw/science-kit.png",
+  "source_size": [
+    1536,
+    1024
+  ],
+  "source_sha256": "0e0e6363c48d0339482546bde20d43a09a32dcae21cec91b55d056d9d0159fd3",
+  "source_mode": "RGB",
+  "layout_mode": "explicit_boxes",
+  "boxes_file": "../../boxes/science-kit.json",
+  "labels_file": null,
+  "background_mode": "chroma_key",
+  "rows": null,
+  "cols": null,
+  "threshold": 100,
+  "edge_threshold": 150,
+  "despill_radius": 3,
+  "despill": {
+    "mode": "edge",
+    "applied": "edge",
+    "radius": 3,
+    "margin": 12,
+    "changed_px": 17791
+  },
+  "hygiene": {
+    "mode": "both",
+    "floor": 4,
+    "solid_min": 32,
+    "attach_radius": 2,
+    "connectivity": 8,
+    "floor_px": 0,
+    "detached_px": 0,
+    "detached_components": 0,
+    "max_removed_alpha": 0
+  },
+  "alpha_floor": 4,
+  "alpha_floor_pixels_removed": 0,
+  "trim_border": 0,
+  "edge_clean_depth": 0,
+  "component_mode": "all",
+  "component_padding": 8,
+  "min_component_area": 1,
+  "edge_touch_margin": 0,
+  "geometry": {
+    "connectivity": 8,
+    "alpha_geometry_threshold": 16,
+    "anchor_mode": "stance",
+    "support_band_fraction": 0.25,
+    "anchor_rounding": "whole pixels, half-up",
+    "grid_rounding": null,
+    "keep_canvas": false,
+    "world_scale": null
+  },
+  "accepted": [
+    {
+      "index": 0,
+      "label": "prod-armillary",
+      "display_name": "prod-armillary",
+      "status": "accepted",
+      "image": "prod-armillary/prop.png",
+      "sha256": "2f56aed8a530369d59c908f8c5430450c3a41bd3a4c0e1982e587bffa2e65803",
+      "output_size": [
+        446,
+        499
+      ],
+      "grid": null,
+      "cell_box": [
+        0,
+        0,
+        520,
+        533
+      ],
+      "source_box": [
+        0,
+        0,
+        520,
+        533
+      ],
+      "source_rect": [
+        66,
+        34,
+        512,
+        533
+      ],
+      "trim_offset": [
+        66,
+        34
+      ],
+      "padding": [
+        8,
+        8,
+        8,
+        2
+      ],
+      "anchor_px": [
+        223,
+        497
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        74,
+        42,
+        504,
+        531
+      ],
+      "padded_crop_bbox": [
+        66,
+        34,
+        512,
+        533
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 139142,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    },
+    {
+      "index": 1,
+      "label": "prod-sundial",
+      "display_name": "prod-sundial",
+      "status": "accepted",
+      "image": "prod-sundial/prop.png",
+      "sha256": "73850e3bbac8e466509e881a09a14a52b38e5ad1945e3cbdf0c7b6fd0b6fa6ea",
+      "output_size": [
+        382,
+        376
+      ],
+      "grid": null,
+      "cell_box": [
+        520,
+        0,
+        1030,
+        533
+      ],
+      "source_box": [
+        520,
+        0,
+        1030,
+        533
+      ],
+      "source_rect": [
+        609,
+        153,
+        991,
+        529
+      ],
+      "trim_offset": [
+        89,
+        153
+      ],
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "anchor_px": [
+        191,
+        368
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        97,
+        161,
+        463,
+        521
+      ],
+      "padded_crop_bbox": [
+        89,
+        153,
+        471,
+        529
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 112381,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    },
+    {
+      "index": 2,
+      "label": "prod-clock",
+      "display_name": "prod-clock",
+      "status": "accepted",
+      "image": "prod-clock/prop.png",
+      "sha256": "f900c5b9845aa630b68296881e13bef7b9dabc203a9019dacd4a09937878d955",
+      "output_size": [
+        411,
+        505
+      ],
+      "grid": null,
+      "cell_box": [
+        1030,
+        0,
+        1536,
+        533
+      ],
+      "source_box": [
+        1030,
+        0,
+        1536,
+        533
+      ],
+      "source_rect": [
+        1083,
+        24,
+        1494,
+        529
+      ],
+      "trim_offset": [
+        53,
+        24
+      ],
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "anchor_px": [
+        206,
+        497
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        61,
+        32,
+        456,
+        521
+      ],
+      "padded_crop_bbox": [
+        53,
+        24,
+        464,
+        529
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 144488,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    },
+    {
+      "index": 3,
+      "label": "prod-strategy",
+      "display_name": "prod-strategy",
+      "status": "accepted",
+      "image": "prod-strategy/prop.png",
+      "sha256": "73e2296604de979b4959f481146ddc39b8cb1b3297d7c3c7c9b2d0ebccc49680",
+      "output_size": [
+        547,
+        316
+      ],
+      "grid": null,
+      "cell_box": [
+        0,
+        533,
+        570,
+        1024
+      ],
+      "source_box": [
+        0,
+        533,
+        570,
+        1024
+      ],
+      "source_rect": [
+        23,
+        665,
+        570,
+        981
+      ],
+      "trim_offset": [
+        23,
+        132
+      ],
+      "padding": [
+        8,
+        8,
+        7,
+        8
+      ],
+      "anchor_px": [
+        275,
+        308
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        31,
+        140,
+        563,
+        440
+      ],
+      "padded_crop_bbox": [
+        23,
+        132,
+        570,
+        448
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 116984,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    },
+    {
+      "index": 4,
+      "label": "prod-ship",
+      "display_name": "prod-ship",
+      "status": "accepted",
+      "image": "prod-ship/prop.png",
+      "sha256": "af82c1bcafd8269c0ad799b31f4c6c9e31471daf89a5aaa7af3e223cdb5b08ad",
+      "output_size": [
+        442,
+        451
+      ],
+      "grid": null,
+      "cell_box": [
+        570,
+        533,
+        1040,
+        1024
+      ],
+      "source_box": [
+        570,
+        533,
+        1040,
+        1024
+      ],
+      "source_rect": [
+        581,
+        533,
+        1023,
+        984
+      ],
+      "trim_offset": [
+        11,
+        0
+      ],
+      "padding": [
+        8,
+        1,
+        8,
+        8
+      ],
+      "anchor_px": [
+        216,
+        443
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        19,
+        1,
+        445,
+        443
+      ],
+      "padded_crop_bbox": [
+        11,
+        0,
+        453,
+        451
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 117623,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    },
+    {
+      "index": 5,
+      "label": "prod-writing",
+      "display_name": "prod-writing",
+      "status": "accepted",
+      "image": "prod-writing/prop.png",
+      "sha256": "5b39caead83cf229afc83a44cc622a0890ad70850a9ece760bb902a51e234467",
+      "output_size": [
+        429,
+        388
+      ],
+      "grid": null,
+      "cell_box": [
+        1040,
+        533,
+        1536,
+        1024
+      ],
+      "source_box": [
+        1040,
+        533,
+        1536,
+        1024
+      ],
+      "source_rect": [
+        1076,
+        594,
+        1505,
+        982
+      ],
+      "trim_offset": [
+        36,
+        61
+      ],
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "anchor_px": [
+        215,
+        380
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        44,
+        69,
+        457,
+        441
+      ],
+      "padded_crop_bbox": [
+        36,
+        61,
+        465,
+        449
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 111506,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    }
+  ],
+  "rejected": [],
+  "edge_touch_props": [],
+  "warnings": [],
+  "qa": {
+    "status": "pass",
+    "method": "legacy #FF00FF key (100/150) and edge despill radius 3; alpha hygiene both; 8-connected components (all); checks measured on the published pixels",
+    "notProven": [
+      "that each label names the art in its cell or box",
+      "that a prop is complete: clipping is detected only where art meets the cell edge",
+      "keyed-edge quality beyond the edge fringe count",
+      "that anchors and suggested footprints match gameplay contact (both are measured from alpha)",
+      "runtime placement, collision or occlusion"
+    ],
+    "checks": [
+      {
+        "id": "accepted",
+        "status": "pass",
+        "value": 6,
+        "threshold": ">= 1"
+      },
+      {
+        "id": "edge_touch",
+        "status": "pass",
+        "value": [],
+        "threshold": 0
+      },
+      {
+        "id": "dropped_area",
+        "status": "pass",
+        "value": {},
+        "threshold": 0.01
+      },
+      {
+        "id": "strategy_aspect",
+        "status": "skipped",
+        "value": null,
+        "threshold": 1.6
+      },
+      {
+        "id": "edge_fringe",
+        "status": "pass",
+        "value": 0.0,
+        "threshold": 0.02
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../../raw/science-kit.png",
+        "sha256": "0e0e6363c48d0339482546bde20d43a09a32dcae21cec91b55d056d9d0159fd3",
+        "bytes": 2208499
+      },
+      {
+        "path": "../../boxes/science-kit.json",
+        "sha256": "d73872d0ab5b659819821f7a078db04b47fd5a7e1e95e096b2e8d8649a08a648",
+        "bytes": 742
+      }
+    ],
+    "outputs": [
+      {
+        "path": "prod-armillary/prop.png",
+        "sha256": "2f56aed8a530369d59c908f8c5430450c3a41bd3a4c0e1982e587bffa2e65803",
+        "bytes": 349141
+      },
+      {
+        "path": "prod-sundial/prop.png",
+        "sha256": "73850e3bbac8e466509e881a09a14a52b38e5ad1945e3cbdf0c7b6fd0b6fa6ea",
+        "bytes": 267947
+      },
+      {
+        "path": "prod-clock/prop.png",
+        "sha256": "f900c5b9845aa630b68296881e13bef7b9dabc203a9019dacd4a09937878d955",
+        "bytes": 302634
+      },
+      {
+        "path": "prod-strategy/prop.png",
+        "sha256": "73e2296604de979b4959f481146ddc39b8cb1b3297d7c3c7c9b2d0ebccc49680",
+        "bytes": 253202
+      },
+      {
+        "path": "prod-ship/prop.png",
+        "sha256": "af82c1bcafd8269c0ad799b31f4c6c9e31471daf89a5aaa7af3e223cdb5b08ad",
+        "bytes": 259686
+      },
+      {
+        "path": "prod-writing/prop.png",
+        "sha256": "5b39caead83cf229afc83a44cc622a0890ad70850a9ece760bb902a51e234467",
+        "bytes": 238504
+      }
+    ],
+    "tool": {
+      "name": "extract_prop_pack",
+      "version": "0.4.0"
+    }
+  }
+}
