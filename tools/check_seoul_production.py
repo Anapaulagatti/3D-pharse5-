@@ -8,6 +8,7 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 b=j(S/'outdoor-bundle.json');z=j(R/'docs/urban-zoning/zoning-plan.json');proof=j(S/'geometry-proof.json')
 assert b['world']['width']==4096 and b['world']['height']==1728 and z['world']==[4096,3072]
 assert proof['masterplanSha256']==sha(R/'docs/urban-zoning/zoning-plan.json')
+assert sha(S/j(S/'image-route.json')['approvedMasterplan'])==proof['masterplanSha256']
 for building in z['buildings']:
  if building['id'] in ['academy','workshop','museum']:
   for mass in building['masses']:

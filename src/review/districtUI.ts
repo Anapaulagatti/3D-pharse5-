@@ -103,7 +103,10 @@ export function setupDistrictUI(overview: boolean, production = false) {
       "cx",
       String(p.area === "room" ? (production ? 84 : 192) : p.x / 8),
     );
-    dot.setAttribute("cy", String(p.area === "room" ? 45 : p.y / 8));
+    dot.setAttribute(
+      "cy",
+      String(p.area === "room" ? (production ? 104 : 45) : p.y / 8),
+    );
     document.querySelector("#render-status")!.textContent =
       `${p.area === "room" ? "Phòng đọc768×576" : production ? "Khu bắc4096×1728" : "Khu ngoài2048×768"} · Phaser · Chơi cục bộ`;
   });

@@ -149,6 +149,7 @@ test("mobile Canvas touch, reduced-motion and pause preserve usable world", asyn
     x + 15,
   );
   await page.locator("#pause").click();
+  await page.waitForFunction(() => window.__PIXEL_METRICS__?.paused);
   const frozen = await page.evaluate(() => window.__SEOUL__!.x);
   await right.scrollIntoViewIfNeeded();
   const b2 = (await right.boundingBox())!;

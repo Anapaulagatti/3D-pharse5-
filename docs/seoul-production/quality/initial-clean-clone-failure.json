@@ -1,0 +1,11 @@
+{
+  "source": "55d961da277673c2c0292436d6b03764f0bf384e",
+  "initialCleanClone": "12unit PASS;14browser PASS/1FAIL",
+  "failedCheck": "mobile pause exact x freeze",
+  "expected": 1947.3587055555558,
+  "observed": 1947.3600388888892,
+  "threshold": "EXACT equality, unchanged",
+  "cause": "Test sampled state immediately after DOM pause click before engine paused-frame metrics; one fractional integration remained",
+  "fix": "Wait for actual __PIXEL_METRICS__.paused before snapshot; retain exact equality. Product pause/controller unchanged.",
+  "originalLogSha256": "6bd8afd4bfb175f165b4dd72c400c79cf68cf5d43e0db10ce4207174656a3f4d"
+}
