@@ -84,6 +84,13 @@ export class SeoulProduction extends Gwanghwamun {
         .setOrigin(0.5, 1)
         .setDepth(760)
         .setVisible(!gateOpen);
+      // Side arches are closed service leaves, matching their permanent podium collision.
+      for (const x of [1929, 2167])
+        this.add
+          .image(x, 743, "production-door")
+          .setOrigin(0.5, 1)
+          .setScale(0.72)
+          .setDepth(760);
       const zone = this.add.zone(2048, 640, 80, 192);
       this.physics.add.existing(zone, true);
       this.leafBody = zone.body as Phaser.Physics.Arcade.StaticBody;

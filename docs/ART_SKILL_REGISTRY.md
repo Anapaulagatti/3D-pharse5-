@@ -1,6 +1,6 @@
 # Living Seoul first Stage B review gate
 
-Current candidate complete for visual review; STOP before Stage C/D. Actual execution/provenance/commands and raw warnings in [production Forge report](seoul-production/FORGE.md); native/Phaser evidence,114sreal-input walkthrough and HTTP-testedZIP in [review guide](seoul-production/REVIEW.md). Forge5324342 unchanged; no provider/API billing/video-generation/newNPC route. Existing Juni144frames and old foundation preserved. Final verified Git facts belong in actual checkpoint/living-seoul-stage-b-verified-20261016, not inferred from a proposed tag name. Read upstream relevant SKILL.md again before next NEW art task, not merely registry/tool presence. Setup never generates.
+Current candidate complete for visual review; STOP before Stage C/D. Actual execution/provenance/commands and raw warnings in [production Forge report](seoul-production/FORGE.md); native/Phaser evidence,114.73sreal-input walkthrough and HTTP-testedZIP in [review guide](seoul-production/REVIEW.md). Forge5324342 unchanged; no provider/API billing/video-generation/newNPC route. Existing Juni144frames and old foundation preserved. Final verified Git facts belong in actual checkpoint/living-seoul-stage-b-verified-20261016, not inferred from a proposed tag name. Read upstream relevant SKILL.md again before next NEW art task, not merely registry/tool presence. Setup never generates.
 
 # Living Seoul Stage A actual execution
 

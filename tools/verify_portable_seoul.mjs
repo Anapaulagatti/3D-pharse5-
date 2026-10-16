@@ -47,7 +47,10 @@ try {
   for (const mobile of [false, true]) {
     const contexts = [];
     const hashes = [];
-    for (const origin of ["http://127.0.0.1:4201/3D-pharse5-/", root]) {
+    for (const origin of [
+      process.env.PIXEL_CAPTURE_URL ?? "http://127.0.0.1:4201/3D-pharse5-/",
+      root,
+    ]) {
       const context = await browser.newContext({
         viewport: mobile
           ? { width: 390, height: 844 }
