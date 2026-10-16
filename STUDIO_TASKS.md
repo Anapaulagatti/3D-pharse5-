@@ -1,3 +1,9 @@
+# LIVING-SEOUL-001 — A verified plan; first expansion in progress
+
+A: approved-baseline recovery tag pushed/peeled at5b0eaba; mandatory skills read, planning diagram and PLAN.md saved. Baseline asset checks PASS. B/C-partial/E-partial next:2048x768 outdoor, Academy reading room, local letter activity. D/remaining areas deferred until first review. No Pages/paid routes.
+
+## Previous checkpoint record
+
 # JUNI-ANIMATION-POLISH-001 — local work verified / visual review pending
 
 - COMPLETE: before-work3ed9429recovery tag created/pushed/peeled; original game/source/avatars/history retained.

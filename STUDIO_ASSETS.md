@@ -1,3 +1,9 @@
+# Living Seoul — plan checkpoint
+
+New docs/current/LIVING_SEOUL_DISTRICT.md (verbatim user instructions), docs/living-seoul/PLAN.md, master-district-plan.png (labelled planning diagram, not generated game artwork), forge-doctor.json. Approved existing assets retained unchanged; new art pending.
+
+## Previous checkpoint record
+
 # Current assets — Juni animation and revised plaza placements
 
 - assets-src/juni-animation:20accepted action/direction source strips from23actual hostimage calls,3prior idle references, exact prompts/runmanifest,144editable native PNGs,64-color approved-base palette, registration/root/matte/finish/clip/engine QA and actual commands.96x112/root48,100/body80;4way idle6/walk8/run8/start3/stop3,8turn orientations,3frontgestures8each;24clips. No code-drawn limbs/mirrors/video route.

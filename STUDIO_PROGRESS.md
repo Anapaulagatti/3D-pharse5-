@@ -1,3 +1,9 @@
+# Living Seoul — current authorized first expansion
+
+Read docs/current/LIVING_SEOUL_DISTRICT.md, docs/living-seoul/PLAN.md and mandatory registry first. User accepts Juni/Gwanghwamun baseline. Follow incremental first connected expansion review; older stop rules superseded only for this task. Recovery recovery/before-living-seoul-20261016 ->5b0eabacb28e0cd74e0519b9e69bc9fc75e14a83 independently pushed/peeled. Master plan complete; artwork/runtime not yet produced at this checkpoint.
+
+## Previous checkpoint record
+
 # Current handoff — Juni real animation + Gwanghwamun polish review
 
 Latest user implementation request completed locally; read docs/current/JUNI_ANIMATION_WORLD_POLISH.md and docs/juni-animation/REVIEW.md/TOOLCHAIN.md. Juni's chosen design preserved, Bori/Nari retained; no NPC/other-district production. Actual23hostimage calls (20initial +3targetedidle) and real local creator/Forge processing produce144frames/24clips,64shared colors/native80body/96x112/root48,100. All source PNG/prompts/metadata saved. No paid/provider/video-generation/mirroring/code-limb/bounce substitute. Existing controller/old game retained,257protectedfiles unchanged.

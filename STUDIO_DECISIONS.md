@@ -1,3 +1,9 @@
+# Living Seoul — first-slice decisions
+
+Preserve exact existing plaza/Juni sources. Plan whole neighborhood but build only first eastward2048x768 connected slice plus one lazy-loaded Academy interior/letter-name activity now. Do not confuse future map markers with completed NPCs. Actual host imagegen, real Forge extract/finish/nav/Tiled; no paid providers. Separate district-review entry preserves all earlier playable entries.
+
+## Previous checkpoint record
+
 # Latest decisions — genuine animation and deliberate composition
 
 1. User authorizes Juni action production/layout polish only; chosen identity preserved, A/Bori/C/Nari retained. No broader release/NPC/district/cleanup permission inferred.

@@ -1,3 +1,7 @@
+# Current first gate — Living Seoul expansion
+
+Read docs/current/LIVING_SEOUL_DISTRICT.md and docs/living-seoul/PLAN.md. Master district plan then FIRST connected playable expansion; produce real evidence before remaining-area/NPC mass production. Keep mandatory skill registry read-first requirement below persistent. Preserve approved Juni/plaza, separate learning app and history. No paid APIs, Pages release, cleanup or delegation.
+
 # Current authority — District expansion & mandatory skill registry (2026-10-16)
 
 User has now accepted Juni/B's current animated look and the Gwanghwamun layout as the working baseline, and requests expansion into a connected, Seoul-inspired Korean neighborhood with 4 historical guests and meaningful buildings/learning activities. Earlier STOP-before-NPC/district and USER-APPROVAL-PENDING instructions below are historical and SUPERSEDED for that scope. Do not treat this as authorization to publish the game, modify the separate Korean Arena learning app, or use paid providers.
