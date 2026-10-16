@@ -23,6 +23,11 @@ palette=set()
 for item in j(S/'props.json'):
  im=Image.open(S/item['image']).convert('RGBA');alpha=im.getchannel('A');hist=alpha.histogram();assert sum(hist[1:255])==0;assert sha(S/item['image'])==item['sha256'];assert alpha.crop((0,0,im.width,1)).getextrema()[1]==0 and alpha.crop((0,im.height-1,im.width,im.height)).getextrema()[1]==0 and alpha.crop((0,0,1,im.height)).getextrema()[1]==0 and alpha.crop((im.width-1,0,im.width,im.height)).getextrema()[1]==0;palette.update(rgb[:3]for count,rgb in im.getcolors(im.width*im.height) if rgb[3])
 assert len(palette)<=192
+for npc in z['npcs']:
+ x,y=npc['point']
+ if y<1728:
+  for r in b['collision']['solids']:
+   assert not (r['x']-8<=x<=r['x']+r['w']+8 and r['y']-4<=y<=r['y']+r['h']+4),(npc['id'],r)
 for row in j(S/'image-route.json')['actualImageCalls']:assert sha(S/row['source'])==row['sourceSha256']
 for name in ['outdoor','room']:
  report=j(S/f'{name}-linked-navigation/nav-report.json');assert report['status']=='pass';assert not any(c['status']=='fail'for c in report['checks'])

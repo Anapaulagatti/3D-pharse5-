@@ -5,12 +5,15 @@ import { decodeAvatarPreferences } from "./domains/state";
 import { Gwanghwamun } from "./review/Gwanghwamun";
 import "./review/plaza.css";
 import { LivingSeoul } from "./review/LivingSeoul";
+import { SeoulProduction } from "./review/SeoulProduction";
 import { setupDistrictUI } from "./review/districtUI";
 const plazaReview = location.pathname.endsWith("/plaza-review.html");
 const districtReview = location.pathname.endsWith("/district-review.html");
-const artReview = plazaReview || districtReview;
+const productionReview = location.pathname.endsWith("/production-review.html");
+const artReview = plazaReview || districtReview || productionReview;
 const overview =
-  districtReview && new URLSearchParams(location.search).has("overview");
+  (districtReview || productionReview) &&
+  new URLSearchParams(location.search).has("overview");
 const base = import.meta.env.BASE_URL;
 try {
   Object.assign(
@@ -50,28 +53,36 @@ const game = new Phaser.Game({
       : Phaser.AUTO,
   parent: stage,
   width: Math.min(overview ? 2048 : 1024, stage.clientWidth),
-  height: Math.min(artReview ? 768 : 640, stage.clientHeight),
+  height: Math.min(
+    productionReview && overview ? 864 : artReview ? 768 : 640,
+    stage.clientHeight,
+  ),
   backgroundColor: "#79935f",
   pixelArt: true,
   roundPixels: true,
   antialias: false,
   antialiasGL: false,
   physics: { default: "arcade", arcade: { debug: false } },
-  scene: districtReview
-    ? [new LivingSeoul(), new LivingSeoul(true)]
-    : [plazaReview ? new Gwanghwamun() : new Plaza()],
+  scene: productionReview
+    ? [new SeoulProduction(), new SeoulProduction(true)]
+    : districtReview
+      ? [new LivingSeoul(), new LivingSeoul(true)]
+      : [plazaReview ? new Gwanghwamun() : new Plaza()],
   audio: { noAudio: true },
   banner: false,
 });
 const observer = new ResizeObserver(() =>
   game.scale.resize(
     Math.min(overview ? 2048 : 1024, stage.clientWidth),
-    Math.min(artReview ? 768 : 640, stage.clientHeight),
+    Math.min(
+      productionReview && overview ? 864 : artReview ? 768 : 640,
+      stage.clientHeight,
+    ),
   ),
 );
 observer.observe(stage);
 const scene = () =>
-  (districtReview
+  (districtReview || productionReview
     ? game.scene.getScenes(true)[0]
     : game.scene.getScene("plaza")) as Plaza;
 for (const b of document.querySelectorAll<HTMLButtonElement>("[data-guest]"))
@@ -256,3 +267,5 @@ if (artReview) {
   document.querySelector("footer")!.before(gallery);
 }
 if (districtReview) setupDistrictUI(overview);
+
+if (productionReview) setupDistrictUI(overview, true);

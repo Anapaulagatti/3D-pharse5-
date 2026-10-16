@@ -6,7 +6,7 @@ import {
 } from "../domains/academy";
 import "./district.css";
 
-export function setupDistrictUI(overview: boolean) {
+export function setupDistrictUI(overview: boolean, production = false) {
   document.body.classList.add("district-review");
   if (overview) document.body.classList.add("district-overview");
   document.querySelector(".edition")!.textContent =
@@ -52,6 +52,34 @@ export function setupDistrictUI(overview: boolean) {
   document.querySelector("aside > p:not(.eyebrow)")!.after(navigation);
   document.querySelector("footer")!.textContent =
     "Artwork gốc · First connected slice · Bản duyệt cục bộ · Chưa tạo NPC mới / chưa mở phần còn lại";
+  if (production) {
+    document.body.classList.add("seoul-production");
+    document.querySelector(".edition")!.textContent =
+      "LIVING SEOUL · STAGE B REVIEW";
+    document.querySelector(".intro h1")!.textContent =
+      "Một cánh cổng. Những điều khám phá.";
+    document.querySelector(".intro .eyebrow")!.textContent =
+      "CỔNG CUNG ĐIỆN · HỌC VIỆN · KHOA HỌC · LỊCH SỬ";
+    document.querySelector(".intro > p:last-child")!.textContent =
+      "Theo Juni qua quảng trường, sân đọc và phố danh nhân. WASD/mũi tên, Shift chạy, E khám phá.";
+    document.querySelector("aside > h2")!.textContent =
+      "Hẹn nhau ở Seoul thu nhỏ";
+    document.querySelector("aside > p:not(.eyebrow)")!.textContent =
+      "Bắc: mở cổng để thăm sân ngoài. Tây: vào phòng đọc Học viện. Đông: xưởng phát minh và hiên bảo tàng. Theo các lối lát đá và đường đất để khám phá.";
+    document.querySelector(".world-caption span")!.textContent =
+      "광화문 · 배움 · 과학 · 역사";
+    document.querySelector(".directions > p:last-child")!.textContent =
+      "Phần bắc4096×1728 dùng đúng tọa độ bản quy hoạch4096×3072. Các khu phía nam, suối, cầu và NPC mới chờ duyệt Stage B. Đây là thế giới hư cấu lấy cảm hứng Hàn Quốc, không phải tái dựng lịch sử.";
+    document.querySelector("#district-mini")!.outerHTML =
+      '<svg id="district-mini" viewBox="0 0 512 216" role="img" aria-label="Khu bắc: học viện phía tây, cổng phía bắc, xưởng và bảo tàng phía đông"><image href="' +
+      import.meta.env.BASE_URL +
+      'review/seoul-production/minimap.png" width="512" height="216"/><circle id="map-player" r="3" fill="#ffe184" stroke="#253e3a"/></svg>';
+    document.querySelector("footer")!.textContent =
+      "Artwork gốc · Stage A + first Stage B · Chờ duyệt hình ảnh · Không xuất bản công khai";
+    if (notes[0])
+      notes[0].textContent =
+        "Giữ nguyên Juni144frame. Bori/Nari và bản phố cũ được bảo toàn; chưa tạo NPC mới.";
+  }
   let progress = parseAcademyProgress(null);
   try {
     progress = parseAcademyProgress(localStorage.getItem(progressKey));
@@ -71,10 +99,13 @@ export function setupDistrictUI(overview: boolean) {
     document.querySelector("#district-location")!.textContent = p.location;
     document.querySelector("#mode-label")!.textContent = p.location;
     const dot = document.querySelector("#map-player")!;
-    dot.setAttribute("cx", String(p.area === "room" ? 192 : p.x / 8));
+    dot.setAttribute(
+      "cx",
+      String(p.area === "room" ? (production ? 84 : 192) : p.x / 8),
+    );
     dot.setAttribute("cy", String(p.area === "room" ? 45 : p.y / 8));
     document.querySelector("#render-status")!.textContent =
-      `${p.area === "room" ? "Phòng đọc768×576" : "Khu ngoài2048×768"} · Phaser · Chơi cục bộ`;
+      `${p.area === "room" ? "Phòng đọc768×576" : production ? "Khu bắc4096×1728" : "Khu ngoài2048×768"} · Phaser · Chơi cục bộ`;
   });
   let lessonOpen = false,
     priorPaused = false,
