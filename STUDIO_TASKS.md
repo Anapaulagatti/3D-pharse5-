@@ -1,3 +1,9 @@
+# LIVING-SEOUL-PRODUCTION-001 — IN PROGRESS
+
+Latest docs/current/BUILD_LIVING_SEOUL.md approves masterplan and authorizes Stage A +first playable Stage B. Read docs/seoul-production/PLAN.md. Recovery before production recovery/before-living-seoul-production-20261016 ->d5941b2 pushed/peeled before changes. No final production assets claimed yet. Preserve original game/Juni/source/history/main/Pages; original generated northern architecture/map/assets and real Forge/Phaser proof underway. STOP for Stage B visual approval before remaining-area/NPC mass production. No paid API/provider or website release.
+
+## Previous checkpoint record
+
 # URBAN-PLAN-002 — refined masterplan / awaiting review
 
 - COMPLETE: record user's provisional acceptance of overall zoning and eight refinement requirements; final artwork/map production remains UNAUTHORIZED until this revision is approved.

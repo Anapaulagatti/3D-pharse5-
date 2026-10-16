@@ -43,3 +43,7 @@ Latest docs/current/URBAN_LOGIC_RESET.md overrides earlier expansion-first scope
 ## Latest scope — final urban refinement gate (2026-10-16)
 
 Latest docs/current/URBAN_PLANNING_REFINEMENT.md provisionally accepts overall zoning but still requires refined masterplan approval before final map/building production. Read actual generate2dmap and generate2dsprite skills at Forge5324342; preserve existing proven Juni144frame workflow. Current task executes schematic diagram/geometry checks and official-reference research only, with no generation/prop/terrain/nav/Tiled production claims. JSON v2 and masterplan/footprint boards are not game art. Keep paid routes disabled and source/main/Pages/recovery tags intact. After this revision is approved, use the real layered-map/prop/terrain/export and rendered Phaser QA workflows; do not treat provisional acceptance as authorization to mass-produce assets.
+
+## Latest production authority (2026-10-16)
+
+User APPROVES refined masterplan in docs/current/BUILD_LIVING_SEOUL.md. Execute Stage A architecture bible and FIRST playable Stage B using actual original host images/Forge extraction/finish/palette/map/nav/Tiled and existing Juni/Phaser workflow. Earlier planning-only holds superseded for this scope. First northern block4096×1728retains approved world coordinates; remaining southern buildings/NPC animation wait for visual approval. Record actual tool commands/outputs, provenance, all QA limits. No paid routes or automatic Pages/main publication.
