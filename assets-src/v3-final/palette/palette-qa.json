@@ -1,0 +1,727 @@
+{
+  "status": "pass",
+  "method": "forge_palette.build_palette (weighted k-means++ in OKLab over unique colours, reserved colours fixed, coverage skipping) then forge_palette.fit_report of every input: OKLab dE of each pixel with alpha >= the threshold to its nearest palette colour",
+  "notProven": [
+    "Visual quality of the palette: look at swatches.png and an applied frame.",
+    "Colours of pixels below the alpha threshold were not sampled or measured.",
+    "No --max-delta-e gate was set."
+  ],
+  "checks": [
+    {
+      "id": "palette_colors",
+      "status": "pass",
+      "value": 255,
+      "threshold": 255
+    },
+    {
+      "id": "inputs_without_samples",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0,
+      "files": []
+    },
+    {
+      "id": "max_delta_e",
+      "status": "skipped",
+      "value": 0.150469,
+      "threshold": null
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../.cache/v3-final/native-input/terrain-asphalt.png",
+      "sha256": "91142c37283eac8bc676081ad04754f48dc0908d66740000479f5a9e63486920",
+      "bytes": 48180
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/terrain-basalt.png",
+      "sha256": "2fd6da58b31838accde96f550d0c006e40445c55b584111519c2c1e3078928b9",
+      "bytes": 50386
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/terrain-concrete.png",
+      "sha256": "e93dd9e3c8141ca5f87091d7a4437835bba7efe542ce5265f16550058569aecf",
+      "bytes": 39844
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/terrain-deep-water.png",
+      "sha256": "5cc60b9e8e5f46f93a5c4ebf19ff1a89edce8f13ef0acc22d23c08a16f4b9a27",
+      "bytes": 40572
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/terrain-forest.png",
+      "sha256": "652535ffcb72eb586963186ca77135b24ff3435ad314887d4747b940c0491205",
+      "bytes": 50569
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/terrain-grass.png",
+      "sha256": "4a0d522b17ae594bd11023d39ad6b538150655abbe22efe1070101b921ffbed4",
+      "bytes": 49458
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/terrain-paver.png",
+      "sha256": "e16aeef295e0a65ec4f4c5a4f8c0a1a3e3a70a0cb30bc3198518c0a05847ff19",
+      "bytes": 37218
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/terrain-sand.png",
+      "sha256": "edd926d9c96baa27b15bc55cf278547373116203b190fa70669f989256a8c16e",
+      "bytes": 44848
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/terrain-shallow-water.png",
+      "sha256": "f7892fcb275980a4d3647ad6802aadd89d7310606e9b68aeee2f280dd9144096",
+      "bytes": 44662
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-basalt-discovery.png",
+      "sha256": "e3e15e504c619cb67a6f98340f8552b85e5b68bca83b534e2d05d1a062030948",
+      "bytes": 41414
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-bloom-entry.png",
+      "sha256": "ea54404f2aedb95f92ed7869f2b42ad18faf0153f57006997d301fe15dbe6097",
+      "bytes": 178136
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-bus-stop.png",
+      "sha256": "ee7de9a4ff2e69e43e282a2884c37e1b4dd81c4ba3bf30f8d4c22095320ef599",
+      "bytes": 59505
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-carousel.png",
+      "sha256": "4d8ef05df074e033610abe0204a208ab8d5f319d7c78af6bb8213f3e544db637",
+      "bytes": 216049
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-cliff-lookout.png",
+      "sha256": "4574ee76e989c221ad1001cac513e31a02c52578d9c67ef0bbcc81ec5253b534",
+      "bytes": 249399
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-coastal-cafe.png",
+      "sha256": "cba3bc06045ea42314690bf0493b20118d43ede2f85db6d88e768462934d2e16",
+      "bytes": 135072
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-coastal-rocks.png",
+      "sha256": "4c1b4642c1fe0cc53edbe3d5b8a321071d6e571e064c92b230236b31a6a54420",
+      "bytes": 113536
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-discovery-hall.png",
+      "sha256": "0d34c11c08f03667cae8d444109039bfbe198ed84ea48c4cfcb764b379862274",
+      "bytes": 184223
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-ferry-terminal.png",
+      "sha256": "4b8a3f17918f8cd4ae6297bf547478ddf79ab1dee73ce7b86c5de98414b04837",
+      "bytes": 126290
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-glass-rail.png",
+      "sha256": "b3b3050da1c3f770b62609db3547ec8ed3157204126fa2aeeea004de8e55ece8",
+      "bytes": 11716
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-jeju-court.png",
+      "sha256": "f116c120fbfb6229df7a598502b4597cd5f1fd8d7e321044a07d2b338517bc6e",
+      "bytes": 208815
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-jeju-gate.png",
+      "sha256": "02566957c2f18a4b5ef7c35a96cb971417cf3d298feaad075474bec040d001f9",
+      "bytes": 80331
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-kiosk.png",
+      "sha256": "02f5ee07a6cf7186aeb0a69b6e4dd37a782514810a84bde9af2b69399316aec8",
+      "bytes": 56416
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-modern-bridge-source.png",
+      "sha256": "3ca7960609940dc7d10b38520332c178b401aa34ca9594c12bec68d55d60c25c",
+      "bytes": 76757
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-modern-bridge.png",
+      "sha256": "1dc8a3207adc0af72458955ef8e544907249705897671665df15cf7d5cba176c",
+      "bytes": 42823
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-nature-centre.png",
+      "sha256": "a6e7074343073fdc980304545443eca510b951f2dec4dda825530abd51e5f460",
+      "bytes": 203728
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-oreum.png",
+      "sha256": "2077753f626c27dc27c6c0b249e97de68c483668cefbff6e8ed9841c68f9180a",
+      "bytes": 452306
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-queue-garden.png",
+      "sha256": "98fca435d728cfcc07d68556dfd836e8669ef868fff044c74ca116f5d95756a3",
+      "bytes": 53572
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-rock-garden.png",
+      "sha256": "4c4dfcf039edc67d91b105fb196f2062d2d243e49e946f4a43ae1744696937a6",
+      "bytes": 52942
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-seawall.png",
+      "sha256": "6d1d926206bcf203d3f51aa6885c73852652aed696406698b08be6c98c04a378",
+      "bytes": 79012
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-station.png",
+      "sha256": "3b827ff5367eeb5059290fc1886fd405ccbcc63bdc98d98a00393e955ffd1abd",
+      "bytes": 201311
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-streetlight-short.png",
+      "sha256": "c5a561e6df9670686ca702afc501f4d15fe507572eaaaa24518833d874bc1a9f",
+      "bytes": 4154
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-streetlight-tall.png",
+      "sha256": "91fc761827f9a0c94987b464a388cd23cb93ebd35325e071d7953bf5a13a8063",
+      "bytes": 5036
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-terrace.png",
+      "sha256": "c6f5c8c0cba32996977f3f302b8b55be332a417bcd357af3069f2eae598bf178",
+      "bytes": 134609
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-tower.png",
+      "sha256": "270ce53f16a1ff4de0ecbb4339c90d51b2b353656bbdffdcf8e12f2b2156efe3",
+      "bytes": 170481
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-trail-pavilion.png",
+      "sha256": "9cf129b474ae765783d158e3acb17765a5b8954594391f1e86aba1635c1a56e6",
+      "bytes": 70882
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-trail-sign.png",
+      "sha256": "8dc8ba1a201aa6b79284c26c62e3e0d8c90157df998c8edabf272a18bfd31cef",
+      "bytes": 21841
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-train.png",
+      "sha256": "00a61f493b0edb778fec0fd48ff31d8bff847eac49d02155a626d2a52fc23460",
+      "bytes": 90234
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-urban-bench.png",
+      "sha256": "60474b33392b7835f088284bb55c17eb7d5839ab1e1d12d3db02227d7b3ab818",
+      "bytes": 48235
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-urban-hub.png",
+      "sha256": "c1d7f330b87452a984e4ebd3c5719b270062bc497dc319efc05eeab7c6877280",
+      "bytes": 231776
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-wayfinding.png",
+      "sha256": "fe92feed2560cdb5bf2043f44c20bb8a37d472b5f6adf7fa42e1ff8ccdeb56ae",
+      "bytes": 23166
+    },
+    {
+      "path": "../../../.cache/v3-final/native-input/v3-wheel.png",
+      "sha256": "e5e35e400912e13e0703d6d11966cf37e70f3f0d67f90bb7150f4b29a2a50f9c",
+      "bytes": 245026
+    }
+  ],
+  "outputs": [
+    {
+      "path": "palette.json",
+      "sha256": "20c521df3a4a6c7c001e5a16761d47f7867e31eb28c8f756d8f755a5985f5c76",
+      "bytes": 14075
+    },
+    {
+      "path": "palette.gpl",
+      "sha256": "842890e9c5d5afc55eccd2ecd3b040a206c26546bcf0a5600891c4f457c74333",
+      "bytes": 5185
+    },
+    {
+      "path": "palette.hex",
+      "sha256": "a09030ab76c05529719a786e87e5115156c9ddc50e868a50e70f20b82e9a46ad",
+      "bytes": 1785
+    },
+    {
+      "path": "swatches.png",
+      "sha256": "9969d7a5dd44b03363ab9e5a98521782fa68728fbc2268de87c831b96d70bb03",
+      "bytes": 3091
+    }
+  ],
+  "tool": {
+    "name": "palette_tool",
+    "version": "0.4.0"
+  },
+  "palette": {
+    "colors": 255,
+    "reserved": 192,
+    "transparent_index": 255,
+    "seed": 0
+  },
+  "fit": {
+    "../../../.cache/v3-final/native-input/terrain-asphalt.png": {
+      "measured_px": 16384,
+      "alpha_threshold": 128,
+      "off_palette_px": 16383,
+      "partial_alpha_px": 0,
+      "colors": 5531,
+      "palette_colors_used": 49,
+      "mean_delta_e": 0.013218,
+      "p95_delta_e": 0.018879,
+      "max_delta_e": 0.035131
+    },
+    "../../../.cache/v3-final/native-input/terrain-basalt.png": {
+      "measured_px": 16384,
+      "alpha_threshold": 128,
+      "off_palette_px": 16376,
+      "partial_alpha_px": 0,
+      "colors": 9942,
+      "palette_colors_used": 83,
+      "mean_delta_e": 0.012468,
+      "p95_delta_e": 0.020842,
+      "max_delta_e": 0.040092
+    },
+    "../../../.cache/v3-final/native-input/terrain-concrete.png": {
+      "measured_px": 16384,
+      "alpha_threshold": 128,
+      "off_palette_px": 16383,
+      "partial_alpha_px": 0,
+      "colors": 3844,
+      "palette_colors_used": 42,
+      "mean_delta_e": 0.015779,
+      "p95_delta_e": 0.023498,
+      "max_delta_e": 0.033193
+    },
+    "../../../.cache/v3-final/native-input/terrain-deep-water.png": {
+      "measured_px": 16384,
+      "alpha_threshold": 128,
+      "off_palette_px": 16383,
+      "partial_alpha_px": 0,
+      "colors": 7079,
+      "palette_colors_used": 23,
+      "mean_delta_e": 0.014794,
+      "p95_delta_e": 0.029986,
+      "max_delta_e": 0.053193
+    },
+    "../../../.cache/v3-final/native-input/terrain-forest.png": {
+      "measured_px": 16384,
+      "alpha_threshold": 128,
+      "off_palette_px": 16379,
+      "partial_alpha_px": 0,
+      "colors": 15773,
+      "palette_colors_used": 145,
+      "mean_delta_e": 0.019482,
+      "p95_delta_e": 0.03008,
+      "max_delta_e": 0.071772
+    },
+    "../../../.cache/v3-final/native-input/terrain-grass.png": {
+      "measured_px": 16384,
+      "alpha_threshold": 128,
+      "off_palette_px": 16381,
+      "partial_alpha_px": 0,
+      "colors": 14988,
+      "palette_colors_used": 73,
+      "mean_delta_e": 0.01925,
+      "p95_delta_e": 0.028955,
+      "max_delta_e": 0.053726
+    },
+    "../../../.cache/v3-final/native-input/terrain-paver.png": {
+      "measured_px": 16384,
+      "alpha_threshold": 128,
+      "off_palette_px": 16382,
+      "partial_alpha_px": 0,
+      "colors": 5979,
+      "palette_colors_used": 41,
+      "mean_delta_e": 0.015048,
+      "p95_delta_e": 0.025215,
+      "max_delta_e": 0.036196
+    },
+    "../../../.cache/v3-final/native-input/terrain-sand.png": {
+      "measured_px": 16384,
+      "alpha_threshold": 128,
+      "off_palette_px": 16363,
+      "partial_alpha_px": 0,
+      "colors": 8050,
+      "palette_colors_used": 63,
+      "mean_delta_e": 0.009308,
+      "p95_delta_e": 0.015798,
+      "max_delta_e": 0.037842
+    },
+    "../../../.cache/v3-final/native-input/terrain-shallow-water.png": {
+      "measured_px": 16384,
+      "alpha_threshold": 128,
+      "off_palette_px": 16377,
+      "partial_alpha_px": 0,
+      "colors": 12338,
+      "palette_colors_used": 13,
+      "mean_delta_e": 0.016227,
+      "p95_delta_e": 0.036112,
+      "max_delta_e": 0.054476
+    },
+    "../../../.cache/v3-final/native-input/v3-basalt-discovery.png": {
+      "measured_px": 12629,
+      "alpha_threshold": 128,
+      "off_palette_px": 12622,
+      "partial_alpha_px": 654,
+      "colors": 11610,
+      "palette_colors_used": 218,
+      "mean_delta_e": 0.016384,
+      "p95_delta_e": 0.029901,
+      "max_delta_e": 0.077127
+    },
+    "../../../.cache/v3-final/native-input/v3-bloom-entry.png": {
+      "measured_px": 71539,
+      "alpha_threshold": 128,
+      "off_palette_px": 71521,
+      "partial_alpha_px": 1880,
+      "colors": 54587,
+      "palette_colors_used": 251,
+      "mean_delta_e": 0.020518,
+      "p95_delta_e": 0.039552,
+      "max_delta_e": 0.12872
+    },
+    "../../../.cache/v3-final/native-input/v3-bus-stop.png": {
+      "measured_px": 27474,
+      "alpha_threshold": 128,
+      "off_palette_px": 27461,
+      "partial_alpha_px": 474,
+      "colors": 24043,
+      "palette_colors_used": 249,
+      "mean_delta_e": 0.021126,
+      "p95_delta_e": 0.044002,
+      "max_delta_e": 0.108602
+    },
+    "../../../.cache/v3-final/native-input/v3-carousel.png": {
+      "measured_px": 80189,
+      "alpha_threshold": 128,
+      "off_palette_px": 80164,
+      "partial_alpha_px": 886,
+      "colors": 66552,
+      "palette_colors_used": 254,
+      "mean_delta_e": 0.020422,
+      "p95_delta_e": 0.041804,
+      "max_delta_e": 0.11329
+    },
+    "../../../.cache/v3-final/native-input/v3-cliff-lookout.png": {
+      "measured_px": 82634,
+      "alpha_threshold": 128,
+      "off_palette_px": 82594,
+      "partial_alpha_px": 647,
+      "colors": 75919,
+      "palette_colors_used": 253,
+      "mean_delta_e": 0.019671,
+      "p95_delta_e": 0.037426,
+      "max_delta_e": 0.107381
+    },
+    "../../../.cache/v3-final/native-input/v3-coastal-cafe.png": {
+      "measured_px": 53018,
+      "alpha_threshold": 128,
+      "off_palette_px": 53003,
+      "partial_alpha_px": 903,
+      "colors": 45437,
+      "palette_colors_used": 255,
+      "mean_delta_e": 0.019475,
+      "p95_delta_e": 0.037636,
+      "max_delta_e": 0.134974
+    },
+    "../../../.cache/v3-final/native-input/v3-coastal-rocks.png": {
+      "measured_px": 34329,
+      "alpha_threshold": 128,
+      "off_palette_px": 34316,
+      "partial_alpha_px": 1169,
+      "colors": 32426,
+      "palette_colors_used": 230,
+      "mean_delta_e": 0.017555,
+      "p95_delta_e": 0.032189,
+      "max_delta_e": 0.121705
+    },
+    "../../../.cache/v3-final/native-input/v3-discovery-hall.png": {
+      "measured_px": 69289,
+      "alpha_threshold": 128,
+      "off_palette_px": 69271,
+      "partial_alpha_px": 380,
+      "colors": 63171,
+      "palette_colors_used": 251,
+      "mean_delta_e": 0.021124,
+      "p95_delta_e": 0.038499,
+      "max_delta_e": 0.095011
+    },
+    "../../../.cache/v3-final/native-input/v3-ferry-terminal.png": {
+      "measured_px": 51279,
+      "alpha_threshold": 128,
+      "off_palette_px": 51264,
+      "partial_alpha_px": 577,
+      "colors": 45733,
+      "palette_colors_used": 251,
+      "mean_delta_e": 0.022161,
+      "p95_delta_e": 0.046014,
+      "max_delta_e": 0.118031
+    },
+    "../../../.cache/v3-final/native-input/v3-glass-rail.png": {
+      "measured_px": 5640,
+      "alpha_threshold": 128,
+      "off_palette_px": 5638,
+      "partial_alpha_px": 275,
+      "colors": 3743,
+      "palette_colors_used": 102,
+      "mean_delta_e": 0.01605,
+      "p95_delta_e": 0.036086,
+      "max_delta_e": 0.076691
+    },
+    "../../../.cache/v3-final/native-input/v3-jeju-court.png": {
+      "measured_px": 72935,
+      "alpha_threshold": 128,
+      "off_palette_px": 72893,
+      "partial_alpha_px": 340,
+      "colors": 66017,
+      "palette_colors_used": 228,
+      "mean_delta_e": 0.016826,
+      "p95_delta_e": 0.030489,
+      "max_delta_e": 0.103343
+    },
+    "../../../.cache/v3-final/native-input/v3-jeju-gate.png": {
+      "measured_px": 25303,
+      "alpha_threshold": 128,
+      "off_palette_px": 25290,
+      "partial_alpha_px": 943,
+      "colors": 24024,
+      "palette_colors_used": 225,
+      "mean_delta_e": 0.017451,
+      "p95_delta_e": 0.03247,
+      "max_delta_e": 0.1112
+    },
+    "../../../.cache/v3-final/native-input/v3-kiosk.png": {
+      "measured_px": 22466,
+      "alpha_threshold": 128,
+      "off_palette_px": 22461,
+      "partial_alpha_px": 627,
+      "colors": 19998,
+      "palette_colors_used": 245,
+      "mean_delta_e": 0.019158,
+      "p95_delta_e": 0.03694,
+      "max_delta_e": 0.12556
+    },
+    "../../../.cache/v3-final/native-input/v3-modern-bridge-source.png": {
+      "measured_px": 30026,
+      "alpha_threshold": 128,
+      "off_palette_px": 30011,
+      "partial_alpha_px": 426,
+      "colors": 26464,
+      "palette_colors_used": 250,
+      "mean_delta_e": 0.019839,
+      "p95_delta_e": 0.041694,
+      "max_delta_e": 0.106181
+    },
+    "../../../.cache/v3-final/native-input/v3-modern-bridge.png": {
+      "measured_px": 16530,
+      "alpha_threshold": 128,
+      "off_palette_px": 16527,
+      "partial_alpha_px": 987,
+      "colors": 13910,
+      "palette_colors_used": 227,
+      "mean_delta_e": 0.01687,
+      "p95_delta_e": 0.032732,
+      "max_delta_e": 0.095335
+    },
+    "../../../.cache/v3-final/native-input/v3-nature-centre.png": {
+      "measured_px": 76753,
+      "alpha_threshold": 128,
+      "off_palette_px": 76730,
+      "partial_alpha_px": 853,
+      "colors": 68185,
+      "palette_colors_used": 240,
+      "mean_delta_e": 0.018478,
+      "p95_delta_e": 0.034119,
+      "max_delta_e": 0.118235
+    },
+    "../../../.cache/v3-final/native-input/v3-oreum.png": {
+      "measured_px": 152656,
+      "alpha_threshold": 128,
+      "off_palette_px": 152575,
+      "partial_alpha_px": 258,
+      "colors": 134765,
+      "palette_colors_used": 231,
+      "mean_delta_e": 0.019291,
+      "p95_delta_e": 0.034868,
+      "max_delta_e": 0.127397
+    },
+    "../../../.cache/v3-final/native-input/v3-queue-garden.png": {
+      "measured_px": 18477,
+      "alpha_threshold": 128,
+      "off_palette_px": 18472,
+      "partial_alpha_px": 833,
+      "colors": 15892,
+      "palette_colors_used": 231,
+      "mean_delta_e": 0.017936,
+      "p95_delta_e": 0.035037,
+      "max_delta_e": 0.116486
+    },
+    "../../../.cache/v3-final/native-input/v3-rock-garden.png": {
+      "measured_px": 15568,
+      "alpha_threshold": 128,
+      "off_palette_px": 15567,
+      "partial_alpha_px": 1250,
+      "colors": 15174,
+      "palette_colors_used": 207,
+      "mean_delta_e": 0.018939,
+      "p95_delta_e": 0.031761,
+      "max_delta_e": 0.115038
+    },
+    "../../../.cache/v3-final/native-input/v3-seawall.png": {
+      "measured_px": 34113,
+      "alpha_threshold": 128,
+      "off_palette_px": 34106,
+      "partial_alpha_px": 448,
+      "colors": 27538,
+      "palette_colors_used": 237,
+      "mean_delta_e": 0.019922,
+      "p95_delta_e": 0.039253,
+      "max_delta_e": 0.129774
+    },
+    "../../../.cache/v3-final/native-input/v3-station.png": {
+      "measured_px": 83715,
+      "alpha_threshold": 128,
+      "off_palette_px": 83689,
+      "partial_alpha_px": 365,
+      "colors": 70400,
+      "palette_colors_used": 254,
+      "mean_delta_e": 0.02059,
+      "p95_delta_e": 0.039841,
+      "max_delta_e": 0.130213
+    },
+    "../../../.cache/v3-final/native-input/v3-streetlight-short.png": {
+      "measured_px": 1332,
+      "alpha_threshold": 128,
+      "off_palette_px": 1332,
+      "partial_alpha_px": 190,
+      "colors": 1188,
+      "palette_colors_used": 99,
+      "mean_delta_e": 0.016439,
+      "p95_delta_e": 0.028298,
+      "max_delta_e": 0.051158
+    },
+    "../../../.cache/v3-final/native-input/v3-streetlight-tall.png": {
+      "measured_px": 1774,
+      "alpha_threshold": 128,
+      "off_palette_px": 1771,
+      "partial_alpha_px": 134,
+      "colors": 1539,
+      "palette_colors_used": 108,
+      "mean_delta_e": 0.016591,
+      "p95_delta_e": 0.028293,
+      "max_delta_e": 0.042905
+    },
+    "../../../.cache/v3-final/native-input/v3-terrace.png": {
+      "measured_px": 59056,
+      "alpha_threshold": 128,
+      "off_palette_px": 58991,
+      "partial_alpha_px": 760,
+      "colors": 42937,
+      "palette_colors_used": 237,
+      "mean_delta_e": 0.017566,
+      "p95_delta_e": 0.037614,
+      "max_delta_e": 0.136109
+    },
+    "../../../.cache/v3-final/native-input/v3-tower.png": {
+      "measured_px": 64793,
+      "alpha_threshold": 128,
+      "off_palette_px": 64773,
+      "partial_alpha_px": 788,
+      "colors": 56047,
+      "palette_colors_used": 249,
+      "mean_delta_e": 0.018575,
+      "p95_delta_e": 0.03571,
+      "max_delta_e": 0.129016
+    },
+    "../../../.cache/v3-final/native-input/v3-trail-pavilion.png": {
+      "measured_px": 29313,
+      "alpha_threshold": 128,
+      "off_palette_px": 29306,
+      "partial_alpha_px": 765,
+      "colors": 25493,
+      "palette_colors_used": 222,
+      "mean_delta_e": 0.017028,
+      "p95_delta_e": 0.031938,
+      "max_delta_e": 0.101135
+    },
+    "../../../.cache/v3-final/native-input/v3-trail-sign.png": {
+      "measured_px": 8868,
+      "alpha_threshold": 128,
+      "off_palette_px": 8866,
+      "partial_alpha_px": 401,
+      "colors": 7085,
+      "palette_colors_used": 193,
+      "mean_delta_e": 0.017299,
+      "p95_delta_e": 0.028171,
+      "max_delta_e": 0.072148
+    },
+    "../../../.cache/v3-final/native-input/v3-train.png": {
+      "measured_px": 40699,
+      "alpha_threshold": 128,
+      "off_palette_px": 40693,
+      "partial_alpha_px": 847,
+      "colors": 31561,
+      "palette_colors_used": 229,
+      "mean_delta_e": 0.019822,
+      "p95_delta_e": 0.038742,
+      "max_delta_e": 0.125296
+    },
+    "../../../.cache/v3-final/native-input/v3-urban-bench.png": {
+      "measured_px": 15331,
+      "alpha_threshold": 128,
+      "off_palette_px": 15327,
+      "partial_alpha_px": 1756,
+      "colors": 14140,
+      "palette_colors_used": 222,
+      "mean_delta_e": 0.01933,
+      "p95_delta_e": 0.034728,
+      "max_delta_e": 0.117184
+    },
+    "../../../.cache/v3-final/native-input/v3-urban-hub.png": {
+      "measured_px": 95091,
+      "alpha_threshold": 128,
+      "off_palette_px": 95046,
+      "partial_alpha_px": 614,
+      "colors": 80732,
+      "palette_colors_used": 254,
+      "mean_delta_e": 0.018492,
+      "p95_delta_e": 0.035148,
+      "max_delta_e": 0.150469
+    },
+    "../../../.cache/v3-final/native-input/v3-wayfinding.png": {
+      "measured_px": 9100,
+      "alpha_threshold": 128,
+      "off_palette_px": 9100,
+      "partial_alpha_px": 392,
+      "colors": 7281,
+      "palette_colors_used": 219,
+      "mean_delta_e": 0.020109,
+      "p95_delta_e": 0.037712,
+      "max_delta_e": 0.077915
+    },
+    "../../../.cache/v3-final/native-input/v3-wheel.png": {
+      "measured_px": 78485,
+      "alpha_threshold": 128,
+      "off_palette_px": 78460,
+      "partial_alpha_px": 3015,
+      "colors": 63810,
+      "palette_colors_used": 254,
+      "mean_delta_e": 0.022813,
+      "p95_delta_e": 0.046719,
+      "max_delta_e": 0.131951
+    }
+  },
+  "totals": {
+    "max_delta_e": 0.150469,
+    "worst_p95_delta_e": 0.046719,
+    "off_palette_px": 1587247
+  }
+}

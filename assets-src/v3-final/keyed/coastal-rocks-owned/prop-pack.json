@@ -1,0 +1,198 @@
+{
+  "schema": "generate2dmap.prop_pack.v2",
+  "tool": {
+    "name": "extract_prop_pack",
+    "version": "0.4.0"
+  },
+  "input": "../../raw/coastal-rocks-owned.png",
+  "source_size": [
+    512,
+    400
+  ],
+  "source_sha256": "a982c96dc229808b43454e5d3188f830974979dc1ebaa6a6fc188611dc0f72e7",
+  "source_mode": "RGBA",
+  "layout_mode": "explicit_boxes",
+  "boxes_file": "../../boxes/coastal-rocks-owned.json",
+  "labels_file": null,
+  "background_mode": "native_alpha",
+  "rows": null,
+  "cols": null,
+  "threshold": 100,
+  "edge_threshold": 150,
+  "despill_radius": 0,
+  "despill": {
+    "mode": "off",
+    "applied": "off",
+    "radius": 0,
+    "margin": 12,
+    "changed_px": 0
+  },
+  "hygiene": {
+    "mode": "both",
+    "floor": 4,
+    "solid_min": 32,
+    "attach_radius": 2,
+    "connectivity": 8,
+    "floor_px": 0,
+    "detached_px": 0,
+    "detached_components": 0,
+    "max_removed_alpha": 0
+  },
+  "alpha_floor": 4,
+  "alpha_floor_pixels_removed": 0,
+  "trim_border": 0,
+  "edge_clean_depth": 0,
+  "component_mode": "all",
+  "component_padding": 8,
+  "min_component_area": 1,
+  "edge_touch_margin": 0,
+  "geometry": {
+    "connectivity": 8,
+    "alpha_geometry_threshold": 16,
+    "anchor_mode": "stance",
+    "support_band_fraction": 0.25,
+    "anchor_rounding": "whole pixels, half-up",
+    "grid_rounding": null,
+    "keep_canvas": false,
+    "world_scale": null
+  },
+  "accepted": [
+    {
+      "index": 0,
+      "label": "v3-coastal-rocks",
+      "display_name": "v3-coastal-rocks",
+      "status": "accepted",
+      "image": "v3-coastal-rocks/prop.png",
+      "sha256": "a982c96dc229808b43454e5d3188f830974979dc1ebaa6a6fc188611dc0f72e7",
+      "output_size": [
+        512,
+        400
+      ],
+      "grid": null,
+      "cell_box": [
+        0,
+        0,
+        512,
+        400
+      ],
+      "source_box": [
+        0,
+        0,
+        512,
+        400
+      ],
+      "source_rect": [
+        0,
+        0,
+        512,
+        400
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "anchor_px": [
+        255,
+        392
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 8,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        8,
+        8,
+        504,
+        392
+      ],
+      "padded_crop_bbox": [
+        0,
+        0,
+        512,
+        400
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 126733,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false
+    }
+  ],
+  "rejected": [],
+  "edge_touch_props": [],
+  "warnings": [],
+  "qa": {
+    "status": "pass",
+    "method": "native alpha, not keyed; alpha hygiene both; 8-connected components (all); checks measured on the published pixels",
+    "notProven": [
+      "that each label names the art in its cell or box",
+      "that a prop is complete: clipping is detected only where art meets the cell edge",
+      "keyed-edge quality beyond the edge fringe count",
+      "that anchors and suggested footprints match gameplay contact (both are measured from alpha)",
+      "runtime placement, collision or occlusion"
+    ],
+    "checks": [
+      {
+        "id": "accepted",
+        "status": "pass",
+        "value": 1,
+        "threshold": ">= 1"
+      },
+      {
+        "id": "edge_touch",
+        "status": "pass",
+        "value": [],
+        "threshold": 0
+      },
+      {
+        "id": "dropped_area",
+        "status": "pass",
+        "value": {},
+        "threshold": 0.01
+      },
+      {
+        "id": "strategy_aspect",
+        "status": "skipped",
+        "value": null,
+        "threshold": 1.6
+      },
+      {
+        "id": "edge_fringe",
+        "status": "skipped",
+        "value": null,
+        "threshold": 0.02
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../../raw/coastal-rocks-owned.png",
+        "sha256": "a982c96dc229808b43454e5d3188f830974979dc1ebaa6a6fc188611dc0f72e7",
+        "bytes": 387103
+      },
+      {
+        "path": "../../boxes/coastal-rocks-owned.json",
+        "sha256": "c75fda3cc9edc8d2778f446516fa2130dc42e2d472963072564893f249cd1471",
+        "bytes": 170
+      }
+    ],
+    "outputs": [
+      {
+        "path": "v3-coastal-rocks/prop.png",
+        "sha256": "a982c96dc229808b43454e5d3188f830974979dc1ebaa6a6fc188611dc0f72e7",
+        "bytes": 387103
+      }
+    ],
+    "tool": {
+      "name": "extract_prop_pack",
+      "version": "0.4.0"
+    }
+  }
+}

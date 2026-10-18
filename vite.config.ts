@@ -16,6 +16,7 @@ export default defineConfig({
         refinementReview: "refinement-review.html",
         livingKoreaReview: "living-korea-review.html",
         fullWorldReview: "full-world-review.html",
+        v3WorldReview: "v3-world-review.html",
       },
     },
   },
