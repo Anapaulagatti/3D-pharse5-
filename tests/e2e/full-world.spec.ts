@@ -216,15 +216,22 @@ test("drag joystick has analog strength, diagonal motion, independent sprint and
       type: "touchMove",
       touchPoints: [a],
     });
-    await p.waitForTimeout(700);
+    // CI/software GPU frame throughput varies. Observe real displacement and
+    // fractional physics velocity, rather than treating700ms as an FPS guarantee.
+    await p.waitForFunction(() => window.__SEOUL__!.x > 2186, undefined, {
+      timeout: 4000,
+    });
     const slow = await p.evaluate(() => ({
       x: window.__SEOUL__!.x,
       m: window.__FULL_WORLD__!.analogMagnitude,
+      velocity: window.__FULL_WORLD__!.velocity,
     }));
     expect(slow.x - 2176).toBeGreaterThan(10);
     expect(slow.x - 2176).toBeLessThan(28);
     expect(slow.m).toBeGreaterThan(0.4);
     expect(slow.m).toBeLessThan(0.6);
+    expect(slow.velocity[0]).toBeCloseTo(slow.m * 60, 0);
+    expect(Math.abs(slow.velocity[1])).toBeLessThan(0.01);
     await d.send("Input.dispatchTouchEvent", {
       type: "touchStart",
       touchPoints: [a, b],

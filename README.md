@@ -1,3 +1,9 @@
+# Latest review — Living Korea full connected world
+
+New isolated entry: **full-world-review.html**. Five destinations, analog landscape controls and real-input review evidence. Read [review instructions](docs/full-world/REVIEW.md), [actual engine board](docs/full-world/review-board.png), [full native map](docs/full-world/quality/full-map-overview.png). Download [portable playable package](docs/full-world/playable-review.zip), extract entire folder, `python3 start.py` (Windows `py start.py`), open printed HTTP URL. No Node needed to view. Artwork awaits user review; no public deployment/main merge. Previous worlds/source/Juni remain intact.
+
+## Preserved previous review/history
+
 # Current review — Living Korea first Namsan increment
 
 [View the current review and evidence](docs/living-korea/REVIEW.md). Repaired northern boundaries/frontage, editable four-destination plan, ONE playable Namsan-inspired park and full-viewport landscape mobile. The other three destinations remain planned; stop for visual/gameplay approval before mass production. No main merge or public deployment.

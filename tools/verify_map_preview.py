@@ -8,11 +8,11 @@ from pathlib import Path
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from functools import partial
 import threading, subprocess, os, json, sys, hashlib, importlib.util, argparse
-ap=argparse.ArgumentParser();ap.add_argument('--bundle',default='assets-src/gwanghwamun/map-bundle.json');ap.add_argument('--cache-dir',default='.cache/gwanghwamun');ap.add_argument('--output-dir',default='docs/gwanghwamun');a=ap.parse_args()
+ap=argparse.ArgumentParser();ap.add_argument('--bundle',default='assets-src/gwanghwamun/map-bundle.json');ap.add_argument('--cache-dir',default='.cache/gwanghwamun');ap.add_argument('--output-dir',default='docs/gwanghwamun');ap.add_argument('--max-bytes',type=int,default=16000000);a=ap.parse_args()
 R=Path(__file__).resolve().parents[1];C=R/a.cache_dir;Q=R/a.output_dir;Q.mkdir(parents=True,exist_ok=True);C.mkdir(parents=True,exist_ok=True);B=R/a.bundle
 F=Path(os.environ.get('SPRITE_FORGE_ROOT','/workspace/tooling-cache/agent-sprite-forge'))/'skills/generate2dmap/scripts'
 preview=C/'forge-final-preview'
-if not preview.exists():subprocess.run([sys.executable,str(F/'build_scene_preview.py'),'--bundle',str(B),'--output-dir',str(preview),'--actor-height','80','--strict'],check=True)
+if not preview.exists():subprocess.run([sys.executable,str(F/'build_scene_preview.py'),'--bundle',str(B),'--output-dir',str(preview),'--actor-height','80','--max-bytes',str(a.max_bytes),'--strict'],check=True)
 sys.path.insert(0,str(F));spec=importlib.util.spec_from_file_location('forge_scene',F/'build_scene_preview.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
 adapter=C/'chromium-selection.cjs';adapter.write_text("""const Module=require('node:module');const orig=Module._load;
 Module._load=function(name,...args){const m=orig.call(this,name,...args);if((name==='playwright'||name==='playwright-core')&&m.chromium&&!m.chromium.__local){const launch=m.chromium.launch.bind(m.chromium);m.chromium.launch=o=>launch({...o,executablePath:process.env.PIXEL_CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader',...(o?.args??[])]});m.chromium.__local=true;}return m;};
