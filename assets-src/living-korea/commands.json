@@ -1348,5 +1348,79 @@
     "exit": 0,
     "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/living-korea/linked-park-cb82f1f2c16b5f35\", \"metadata\": \"/workspace/3D-pharse5-/.cache/living-korea/linked-park-cb82f1f2c16b5f35/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/living-korea/linked-park-cb82f1f2c16b5f35/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/living-korea/linked-park-cb82f1f2c16b5f35/nav-debug.png\", \"map\": \"korea-namsan\", \"cell\": 4, \"targets\": 11, \"unreachable\": 0, \"thinGaps\": 0}\n",
     "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "tools/capture_living_korea.mjs"
+    ],
+    "exit": 0,
+    "outputs": [
+      "docs/living-korea/quality/capture.json",
+      "docs/living-korea/quality/native-gameplay-original.webm"
+    ],
+    "note": "Normal public entry, real multi-pointer input,13route segments,0errors; raw CDP JPEG hashes/times preserved; no QA placement."
+  },
+  {
+    "command": [
+      "python3",
+      "tools/encode_korea_capture.py",
+      "--verify-only"
+    ],
+    "exit": 0,
+    "outputs": [
+      "docs/living-korea/quality/video-verification.json"
+    ],
+    "note": "First encoding succeeded with9282frames but rounding drift failed strict timestamp QA. Correct absolute-tick duration construction encoded finalMP4. Verification-only reuses encoded artifact after original WebM container duration absence; all final frames decoded and exact times checked. Earlier failures retained in capture-diagnostics.md."
+  },
+  {
+    "command": [
+      "node",
+      "tools/verify_korea_video.mjs"
+    ],
+    "exit": 0,
+    "outputs": [
+      "docs/living-korea/quality/video-playback.json"
+    ],
+    "note": "Final HTTP Blob playback/strictseek/decoded-moving-pixels. Initial favicon/Range/stale-video-layer harness failures documented, never presented as successful evidence."
+  },
+  {
+    "command": [
+      "node",
+      "tools/profile_living_korea.mjs"
+    ],
+    "exit": 0,
+    "outputs": [
+      "docs/living-korea/quality/performance.json"
+    ],
+    "note": "Six cases sequentially, no capture/encoding concurrently, actual gameframe deltas separate from captureFPS."
+  },
+  {
+    "command": [
+      "python3",
+      "tools/package_review.py",
+      "--entry",
+      "living-korea-review.html",
+      "--folder",
+      "Korean-Arena-Living-Korea-Review",
+      "--review-dir",
+      "docs/living-korea"
+    ],
+    "exit": 0,
+    "outputs": [
+      "docs/living-korea/playable-review.zip",
+      "docs/living-korea/package.json"
+    ]
+  },
+  {
+    "command": [
+      "node",
+      "tools/verify_portable_korea.mjs"
+    ],
+    "exit": 0,
+    "outputs": [
+      "docs/living-korea/package.json"
+    ],
+    "note": "Actual extracted launcher HTTP source/ZIP exact north+park pixels desktop and landscape, portrait screen, reciprocal travel/room lesson/originalguests/priorworld,0errors."
   }
 ]

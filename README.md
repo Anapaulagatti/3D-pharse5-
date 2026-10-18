@@ -1,3 +1,13 @@
+# Current review — Living Korea first Namsan increment
+
+[View the current review and evidence](docs/living-korea/REVIEW.md). Repaired northern boundaries/frontage, editable four-destination plan, ONE playable Namsan-inspired park and full-viewport landscape mobile. The other three destinations remain planned; stop for visual/gameplay approval before mass production. No main merge or public deployment.
+
+Download `docs/living-korea/playable-review.zip`, extract the ENTIRE folder and run `python3 start.py` (Windows `py start.py`). Open the printed HTTP URL ending `/3D-pharse5-/living-korea-review.html`. For software-GPU use `--canvas`; optional phone-on-same-WiFi review uses `--lan`. Python3 required, no Node needed to VIEW. Never file:// or HTML source viewer. Cloud localhost is internal, not a user preview URL.
+
+Developers: `bash tools/setup.sh` validates stored assets/types/lint/format/unit/build/browser; it never generates art. `npm run dev` or `npm run preview` serves the new entry under `/3D-pharse5-/`. Existing entries/Juni144frames/source/assets/checkpoints remain intact. [Mobile compatibility](docs/living-korea/MOBILE.md), [measured performance](docs/living-korea/PERFORMANCE.md), [actual Forge workflow](docs/living-korea/FORGE.md). Physical phone/Safari testing is still required.
+
+## Historical reviews below
+
 # Current review: compact Living Seoul
 
 Stage B final polish is completed at `checkpoint/stage-b-final-polish-verified-20261016`. The next user-authorized review adds a meaningful palace court/main hall, compact Academy/workshop/museum routes and one modern book-and-tea corner, preserving the old town and Juni144frames. It is **not publicly released** and does not replace main.
