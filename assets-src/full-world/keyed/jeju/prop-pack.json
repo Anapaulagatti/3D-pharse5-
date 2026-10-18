@@ -1,0 +1,569 @@
+{
+  "schema": "generate2dmap.prop_pack.v2",
+  "tool": {
+    "name": "extract_prop_pack",
+    "version": "0.4.0"
+  },
+  "input": "../../raw/jeju.png",
+  "source_size": [
+    1536,
+    1024
+  ],
+  "source_sha256": "6f3c10cb1cb787aa318e14fe5394449d607f2829fa266837f0e8a789180ce23f",
+  "source_mode": "RGB",
+  "layout_mode": "explicit_boxes",
+  "boxes_file": "../../boxes/jeju.json",
+  "labels_file": null,
+  "background_mode": "chroma_key",
+  "rows": null,
+  "cols": null,
+  "threshold": 100,
+  "edge_threshold": 150,
+  "despill_radius": 3,
+  "despill": {
+    "mode": "edge",
+    "applied": "edge",
+    "radius": 3,
+    "margin": 12,
+    "changed_px": 20950
+  },
+  "hygiene": {
+    "mode": "both",
+    "floor": 4,
+    "solid_min": 32,
+    "attach_radius": 2,
+    "connectivity": 8,
+    "floor_px": 0,
+    "detached_px": 0,
+    "detached_components": 0,
+    "max_removed_alpha": 0
+  },
+  "alpha_floor": 4,
+  "alpha_floor_pixels_removed": 0,
+  "trim_border": 0,
+  "edge_clean_depth": 0,
+  "component_mode": "all",
+  "component_padding": 8,
+  "min_component_area": 1,
+  "edge_touch_margin": 0,
+  "geometry": {
+    "connectivity": 8,
+    "alpha_geometry_threshold": 16,
+    "anchor_mode": "stance",
+    "support_band_fraction": 0.25,
+    "anchor_rounding": "whole pixels, half-up",
+    "grid_rounding": null,
+    "keep_canvas": false,
+    "world_scale": null
+  },
+  "accepted": [
+    {
+      "index": 0,
+      "label": "fw-oreum",
+      "display_name": "fw-oreum",
+      "status": "accepted",
+      "image": "fw-oreum/prop.png",
+      "sha256": "131a8677988ff97f745c6f2bad98f485a1c8a0f7777d08234c8e60b02b8406cf",
+      "output_size": [
+        639,
+        393
+      ],
+      "grid": null,
+      "cell_box": [
+        0,
+        0,
+        660,
+        560
+      ],
+      "source_box": [
+        0,
+        0,
+        660,
+        560
+      ],
+      "source_rect": [
+        12,
+        139,
+        651,
+        532
+      ],
+      "trim_offset": [
+        12,
+        139
+      ],
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "anchor_px": [
+        320,
+        385
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 2,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        20,
+        147,
+        643,
+        524
+      ],
+      "padded_crop_bbox": [
+        12,
+        139,
+        651,
+        532
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 163741,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    },
+    {
+      "index": 1,
+      "label": "fw-guardian",
+      "display_name": "fw-guardian",
+      "status": "accepted",
+      "image": "fw-guardian/prop.png",
+      "sha256": "a2e4f410c60c5223edf3fb87211913823cd1bf68e1981bbf95590b6cd0b6d97b",
+      "output_size": [
+        267,
+        437
+      ],
+      "grid": null,
+      "cell_box": [
+        660,
+        0,
+        980,
+        560
+      ],
+      "source_box": [
+        660,
+        0,
+        980,
+        560
+      ],
+      "source_rect": [
+        675,
+        106,
+        942,
+        543
+      ],
+      "trim_offset": [
+        15,
+        106
+      ],
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "anchor_px": [
+        134,
+        429
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        23,
+        114,
+        274,
+        535
+      ],
+      "padded_crop_bbox": [
+        15,
+        106,
+        282,
+        543
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 63401,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    },
+    {
+      "index": 2,
+      "label": "fw-jeju-shelter",
+      "display_name": "fw-jeju-shelter",
+      "status": "accepted",
+      "image": "fw-jeju-shelter/prop.png",
+      "sha256": "d708dd320e8e0a17aef2edec9501b22966b18a44e91ad89e1ab15e83b28ac937",
+      "output_size": [
+        522,
+        401
+      ],
+      "grid": null,
+      "cell_box": [
+        980,
+        0,
+        1536,
+        560
+      ],
+      "source_box": [
+        980,
+        0,
+        1536,
+        560
+      ],
+      "source_rect": [
+        1003,
+        127,
+        1525,
+        528
+      ],
+      "trim_offset": [
+        23,
+        127
+      ],
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "anchor_px": [
+        260,
+        393
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        31,
+        135,
+        537,
+        520
+      ],
+      "padded_crop_bbox": [
+        23,
+        127,
+        545,
+        528
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 131411,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    },
+    {
+      "index": 3,
+      "label": "fw-tangerine",
+      "display_name": "fw-tangerine",
+      "status": "accepted",
+      "image": "fw-tangerine/prop.png",
+      "sha256": "34eab0546689307d57e2dfd506bec158e092531a4bce9fad7e1a4dc764c59437",
+      "output_size": [
+        498,
+        393
+      ],
+      "grid": null,
+      "cell_box": [
+        0,
+        560,
+        536,
+        1024
+      ],
+      "source_box": [
+        0,
+        560,
+        536,
+        1024
+      ],
+      "source_rect": [
+        21,
+        581,
+        519,
+        974
+      ],
+      "trim_offset": [
+        21,
+        21
+      ],
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "anchor_px": [
+        227,
+        385
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        29,
+        29,
+        511,
+        406
+      ],
+      "padded_crop_bbox": [
+        21,
+        21,
+        519,
+        414
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 104695,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    },
+    {
+      "index": 4,
+      "label": "fw-basalt-wall",
+      "display_name": "fw-basalt-wall",
+      "status": "accepted",
+      "image": "fw-basalt-wall/prop.png",
+      "sha256": "73c438143d1b960fd6970912df52860f6a0f2075fb09d72a308a6b36021eeb71",
+      "output_size": [
+        488,
+        197
+      ],
+      "grid": null,
+      "cell_box": [
+        536,
+        560,
+        1024,
+        1024
+      ],
+      "source_box": [
+        536,
+        560,
+        1024,
+        1024
+      ],
+      "source_rect": [
+        536,
+        721,
+        1024,
+        918
+      ],
+      "trim_offset": [
+        0,
+        161
+      ],
+      "padding": [
+        4,
+        8,
+        5,
+        8
+      ],
+      "anchor_px": [
+        244,
+        189
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        4,
+        169,
+        483,
+        350
+      ],
+      "padded_crop_bbox": [
+        0,
+        161,
+        488,
+        358
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 65951,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    },
+    {
+      "index": 5,
+      "label": "fw-coastal-garden",
+      "display_name": "fw-coastal-garden",
+      "status": "accepted",
+      "image": "fw-coastal-garden/prop.png",
+      "sha256": "697d144ed604b8b74dbcc8db62f6fe93e46775f40af0eadeea5ed135f36dae99",
+      "output_size": [
+        474,
+        287
+      ],
+      "grid": null,
+      "cell_box": [
+        1024,
+        560,
+        1536,
+        1024
+      ],
+      "source_box": [
+        1024,
+        560,
+        1536,
+        1024
+      ],
+      "source_rect": [
+        1049,
+        658,
+        1523,
+        945
+      ],
+      "trim_offset": [
+        25,
+        98
+      ],
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "anchor_px": [
+        235,
+        279
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 7,
+      "min_component_area": 1,
+      "trim_applied": 0,
+      "crop_bbox": [
+        33,
+        106,
+        491,
+        377
+      ],
+      "padded_crop_bbox": [
+        25,
+        98,
+        499,
+        385
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 86426,
+      "dropped_components": 0,
+      "dropped_area": 0,
+      "edge_touch": false,
+      "edge_fringe_px": 0
+    }
+  ],
+  "rejected": [],
+  "edge_touch_props": [],
+  "warnings": [],
+  "qa": {
+    "status": "pass",
+    "method": "legacy #FF00FF key (100/150) and edge despill radius 3; alpha hygiene both; 8-connected components (all); checks measured on the published pixels",
+    "notProven": [
+      "that each label names the art in its cell or box",
+      "that a prop is complete: clipping is detected only where art meets the cell edge",
+      "keyed-edge quality beyond the edge fringe count",
+      "that anchors and suggested footprints match gameplay contact (both are measured from alpha)",
+      "runtime placement, collision or occlusion"
+    ],
+    "checks": [
+      {
+        "id": "accepted",
+        "status": "pass",
+        "value": 6,
+        "threshold": ">= 1"
+      },
+      {
+        "id": "edge_touch",
+        "status": "pass",
+        "value": [],
+        "threshold": 0
+      },
+      {
+        "id": "dropped_area",
+        "status": "pass",
+        "value": {},
+        "threshold": 0.01
+      },
+      {
+        "id": "strategy_aspect",
+        "status": "skipped",
+        "value": null,
+        "threshold": 1.6
+      },
+      {
+        "id": "edge_fringe",
+        "status": "pass",
+        "value": 0.0,
+        "threshold": 0.02
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../../raw/jeju.png",
+        "sha256": "6f3c10cb1cb787aa318e14fe5394449d607f2829fa266837f0e8a789180ce23f",
+        "bytes": 2416263
+      },
+      {
+        "path": "../../boxes/jeju.json",
+        "sha256": "717da37365adabfa5be709b62a68fb8019aaee55f9ae5495d13ba5c95bb939af",
+        "bytes": 747
+      }
+    ],
+    "outputs": [
+      {
+        "path": "fw-oreum/prop.png",
+        "sha256": "131a8677988ff97f745c6f2bad98f485a1c8a0f7777d08234c8e60b02b8406cf",
+        "bytes": 450008
+      },
+      {
+        "path": "fw-guardian/prop.png",
+        "sha256": "a2e4f410c60c5223edf3fb87211913823cd1bf68e1981bbf95590b6cd0b6d97b",
+        "bytes": 174792
+      },
+      {
+        "path": "fw-jeju-shelter/prop.png",
+        "sha256": "d708dd320e8e0a17aef2edec9501b22966b18a44e91ad89e1ab15e83b28ac937",
+        "bytes": 326822
+      },
+      {
+        "path": "fw-tangerine/prop.png",
+        "sha256": "34eab0546689307d57e2dfd506bec158e092531a4bce9fad7e1a4dc764c59437",
+        "bytes": 289984
+      },
+      {
+        "path": "fw-basalt-wall/prop.png",
+        "sha256": "73c438143d1b960fd6970912df52860f6a0f2075fb09d72a308a6b36021eeb71",
+        "bytes": 183655
+      },
+      {
+        "path": "fw-coastal-garden/prop.png",
+        "sha256": "697d144ed604b8b74dbcc8db62f6fe93e46775f40af0eadeea5ed135f36dae99",
+        "bytes": 250659
+      }
+    ],
+    "tool": {
+      "name": "extract_prop_pack",
+      "version": "0.4.0"
+    }
+  }
+}

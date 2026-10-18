@@ -1,3 +1,19 @@
+# FULL-WORLD-MOBA-001 — implemented candidate / evidence finalization
+
+The4352×4800single outdoor world now contains heritage, Namsan, Bora Bloom, Blue Letter Coast and Windstone/Jeju, with an explicit reciprocal coast ferry.296placed props/364static rectangles;15routes/5865center-and-shoulder samples PASS. Original1428source/art/test/lock files and Juni144frames remain byte-identical. New analog landscape joystick, independent sprint/action cluster, portrait pause and software-GPU Canvas fallback are implemented only in full-world-review.html.
+
+Actual native Phaser full-map and17native scene captures were produced and inspected, including mobile HUD. No console/resource errors. Current source lint/build and12unit tests pass. All six distinct new browser cases pass across observed targeted runs (first4/6,second5/6,focused corrected CDP partial-release test1/1); this is not a claim of one combined full regression. Original failed diagnostics retained. Full32browser run/CI/independent clone/portable ZIP/video/performance evidence are still pending at this source checkpoint.
+
+Six actual host image calls; zero paid provider API requests. Forge extraction/finish/palette/terrain/nav/Tiled executed; model pricing unexposed. Actorless compose retains one decorative ferry-foot warning and skipped actor checks; no universal seam/device-FPS claim. Source code/approved art is frozen unless actual QA finds a material fault. No main merge or deployment. Continue evidence/verification/checkpoint handoff, then STOP for visual review.
+
+## Previous record
+
+# FULL-WORLD-MOBA-001 — new user-approved production (2026-10-18)
+
+Read docs/current/LIVING_SEOUL_FULL_WORLD_MOBA.md completely. Latest user APPROVES district/zoning plan and authorizes complete connected map/all four southern destinations, meaningful court/frontage refinement, full actual Phaser overview exports, real landscape analog joystick + exploration action cluster, smoother measured game feel, review videos/build/tests/checkpoint. Prior first-increment STOP is superseded ONLY for this new scope. Preserve approved Juni144frames, old source/art/entries/tests/history/main/Pages; add isolated full-world-review.html, no whole-project redesign. Existing no paid APIs/main merge/publication/delegation/reset/force/worktree/separate-app edits remains. Recovery before edits recovery/before-full-world-moba-20261018 ->3f208e8 verified remote. Read actual Forge map/sprite/media skills; original host art + extraction/finish/palette/nav/Tiled, never generic code-drawn substitute. Report real engine/performance/capture separately, physical-device limits honestly. Finish complete full-world review then STOP; no public deployment.
+
+## Prior verified scope / retained history
+
 # STOP — Living Korea first increment ready for visual/gameplay review (2026-10-18)
 
 Stage A repaired north144props/150colliders (23unique timber posts, minimum52px), Stage B four-destination editable masterplan and FIRST Stage C Namsan35props/39colliders are complete with landscape mobile. Other3destinations remain PLANNED, not produced. Root full setup:12unit+26browser PASS,0skip/unexpected/flaky, assets/types/lint/format/build PASS. Exact291file20,698,371byteZIP independently extracted through its own HTTP launcher locally: source/ZIP desktop+landscape north/park pixels equal, portrait screen/reciprocal travel/Hangul lesson/oldworld/4oldguests PASS,0errors. Video9282actual CDP frames/155.311s/59.76396averageVFR with <0.5msmax PTSerror; originalVP98888frames retained; actual browser playback/seek/moving pixels PASS. Runtime/captureFPS separate; Canvas~60/forcedsoftwareWebGL22–24short cloud samples, realdevices unmeasured.

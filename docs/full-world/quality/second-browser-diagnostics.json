@@ -1,0 +1,366 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/3D-pharse5-/node_modules/.bin/playwright",
+      "test",
+      "tests/e2e/full-world.spec.ts"
+    ],
+    "configFile": "/workspace/3D-pharse5-/playwright.config.ts",
+    "rootDir": "/workspace/3D-pharse5-/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/3D-pharse5-/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/workspace/3D-pharse5-/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/workspace/3D-pharse5-/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/workspace/3D-pharse5-/tests/e2e",
+        "snapshotDir": "/workspace/3D-pharse5-/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 120000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4201/3D-pharse5-/",
+          "headless": true,
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--use-gl=angle",
+              "--use-angle=swiftshader",
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "screenshot": "only-on-failure",
+          "video": "off"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": ".cache/full-world-targeted2/e2e-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://127.0.0.1:4201/3D-pharse5-/",
+      "reuseExistingServer": true,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "full-world.spec.ts",
+      "file": "full-world.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "full world loads all five destinations,144frame Juni and bounded visible scenery",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2769,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T11:26:17.799Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8d0e8525c4e29f4dda38-9c85009490a4633520b0",
+          "file": "full-world.spec.ts",
+          "line": 75,
+          "column": 1
+        },
+        {
+          "title": "all mainland districts connect through actual walking and Jeju through explicit reciprocal ferry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 105918,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T11:26:20.798Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8d0e8525c4e29f4dda38-26e1ba58e0cbc253df43",
+          "file": "full-world.spec.ts",
+          "line": 106,
+          "column": 1
+        },
+        {
+          "title": "drag joystick has analog strength, diagonal motion, independent sprint and correct partial release",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3474,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m60\u001b[39m\nReceived: \u001b[31m0\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m60\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n    at /workspace/3D-pharse5-/tests/e2e/full-world.spec.ts:250:69",
+                    "location": {
+                      "file": "/workspace/3D-pharse5-/tests/e2e/full-world.spec.ts",
+                      "column": 69,
+                      "line": 250
+                    },
+                    "snippet": "  248 |     expect(await p.evaluate(() => window.__PIXEL_METRICS__!.speed)).toBe(60);\n  249 |     expect(\n> 250 |       await p.evaluate(() => window.__FULL_WORLD__!.analogMagnitude),\n      |                                                                     ^\n  251 |     ).toBeGreaterThan(0.98);\n  252 |     await d.send(\"Input.dispatchTouchEvent\", {\n  253 |       type: \"touchEnd\","
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/3D-pharse5-/tests/e2e/full-world.spec.ts",
+                        "column": 69,
+                        "line": 250
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m60\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\n  248 |     expect(await p.evaluate(() => window.__PIXEL_METRICS__!.speed)).toBe(60);\n  249 |     expect(\n> 250 |       await p.evaluate(() => window.__FULL_WORLD__!.analogMagnitude),\n      |                                                                     ^\n  251 |     ).toBeGreaterThan(0.98);\n  252 |     await d.send(\"Input.dispatchTouchEvent\", {\n  253 |       type: \"touchEnd\",\n    at /workspace/3D-pharse5-/tests/e2e/full-world.spec.ts:250:69"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T11:28:06.725Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/3D-pharse5-/test-results/full-world-drag-joystick-h-d0314-and-correct-partial-release/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/3D-pharse5-/test-results/full-world-drag-joystick-h-d0314-and-correct-partial-release/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/3D-pharse5-/tests/e2e/full-world.spec.ts",
+                    "column": 69,
+                    "line": 250
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8d0e8525c4e29f4dda38-8798720d40e31eaa782c",
+          "file": "full-world.spec.ts",
+          "line": 184,
+          "column": 1
+        },
+        {
+          "title": "royal gate has real safe closure and retained Academy room lesson returns to global entrance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7063,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T11:28:10.677Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8d0e8525c4e29f4dda38-194c858e9ccf744b6896",
+          "file": "full-world.spec.ts",
+          "line": 273,
+          "column": 1
+        },
+        {
+          "title": "rail blocks outside timber crossing, real bridge passes and sea/oreum retain solid boundaries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 12327,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T11:28:17.958Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8d0e8525c4e29f4dda38-5b56b1a1b041168cc3ac",
+          "file": "full-world.spec.ts",
+          "line": 302,
+          "column": 1
+        },
+        {
+          "title": "landscape thumb targets fit common viewports, portrait pauses and explicit software GPU uses Canvas",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7677,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T11:28:30.295Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8d0e8525c4e29f4dda38-c620b9a199871f075d50",
+          "file": "full-world.spec.ts",
+          "line": 331,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-18T11:26:17.297Z",
+    "duration": 140820.868,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

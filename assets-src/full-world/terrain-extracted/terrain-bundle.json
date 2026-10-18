@@ -1,0 +1,397 @@
+{
+  "schema": "generate2dmap.terrain_tile_bundle.v2",
+  "source": {
+    "path": "../terrain-source-rows.png",
+    "sha256": "2810b334b0cbe502c5b03630b71111fb4c091045dd09b47bf0766f98514e1f3f",
+    "bytes": 3952251,
+    "size": [
+      627,
+      2508
+    ],
+    "mode": "RGBA",
+    "bit_depth": 8,
+    "conversion": "none"
+  },
+  "prompt": {
+    "path": "../prompts/terrain.txt",
+    "sha256": "65791dba2d30b4010a5e0839738e2df15aa043a2595a9320bf5c647f77ec329c",
+    "bytes": 1497
+  },
+  "grid": {
+    "rows": 4,
+    "cols": 1,
+    "rounding": "exact",
+    "source_cell_size": [
+      627,
+      627
+    ],
+    "output_tile_size": [
+      128,
+      128
+    ]
+  },
+  "tile": {
+    "shape": "square",
+    "layer": "base",
+    "footprint": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        128.0,
+        0.0
+      ],
+      [
+        128.0,
+        128.0
+      ],
+      [
+        0.0,
+        128.0
+      ]
+    ]
+  },
+  "terrains": {
+    "forest": {
+      "display_name": "forest",
+      "row": 0,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "forest-1.png",
+          "source_cell": [
+            0,
+            0
+          ],
+          "source_box": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "resized": true,
+          "mean_luminance": 0.259169,
+          "contrast": 0.144488,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "wrap": {
+            "x": {
+              "seam": 12.041016,
+              "adjacent_median": 15.548828,
+              "adjacent_p95": 19.096191,
+              "adjacent_max": 19.115234,
+              "seam_over_median": 0.7744,
+              "seam_over_p95": 0.630545,
+              "seam_ratio": 0.629917,
+              "near_median": 14.570312,
+              "verdict": "continuous",
+              "method": "premultiplied RGBA column steps (0-255); join vs interior steps within 8 columns per side, whole edge and worst 4-row window"
+            },
+            "y": {
+              "seam": 20.648438,
+              "adjacent_median": 16.18457,
+              "adjacent_p95": 19.036621,
+              "adjacent_max": 20.6875,
+              "seam_over_median": 1.27581,
+              "seam_over_p95": 1.084669,
+              "seam_ratio": 0.998112,
+              "near_median": 17.236328,
+              "verdict": "continuous",
+              "method": "premultiplied RGBA column steps (0-255); join vs interior steps within 8 columns per side, whole edge and worst 4-row window"
+            }
+          },
+          "sha256": "91c8f6169f094bbcb224a1434807b6ddc19b5fb1b3ea47b1f953697913bcd64a"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "sand": {
+      "display_name": "sand",
+      "row": 1,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "sand-1.png",
+          "source_cell": [
+            1,
+            0
+          ],
+          "source_box": [
+            0,
+            627,
+            627,
+            1254
+          ],
+          "resized": true,
+          "mean_luminance": 0.806677,
+          "contrast": 0.063196,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "wrap": {
+            "x": {
+              "seam": 10.25,
+              "adjacent_median": 10.978516,
+              "adjacent_p95": 12.38623,
+              "adjacent_max": 12.800781,
+              "seam_over_median": 0.933642,
+              "seam_over_p95": 0.827532,
+              "seam_ratio": 0.800732,
+              "near_median": 11.094727,
+              "verdict": "continuous",
+              "method": "premultiplied RGBA column steps (0-255); join vs interior steps within 8 columns per side, whole edge and worst 4-row window"
+            },
+            "y": {
+              "seam": 11.933594,
+              "adjacent_median": 11.331055,
+              "adjacent_p95": 13.623535,
+              "adjacent_max": 16.103516,
+              "seam_over_median": 1.053176,
+              "seam_over_p95": 0.875954,
+              "seam_ratio": 0.741055,
+              "near_median": 11.53418,
+              "verdict": "continuous",
+              "method": "premultiplied RGBA column steps (0-255); join vs interior steps within 8 columns per side, whole edge and worst 4-row window"
+            }
+          },
+          "sha256": "cd52d0a520c2a99ebe188f35dc9ba7e14464e9c15382f830bb49108ed7ff6ae1"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "basalt": {
+      "display_name": "basalt",
+      "row": 2,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "basalt-1.png",
+          "source_cell": [
+            2,
+            0
+          ],
+          "source_box": [
+            0,
+            1254,
+            627,
+            1881
+          ],
+          "resized": true,
+          "mean_luminance": 0.26514,
+          "contrast": 0.10195,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "wrap": {
+            "x": {
+              "seam": 14.765625,
+              "adjacent_median": 14.90332,
+              "adjacent_p95": 17.047852,
+              "adjacent_max": 17.607422,
+              "seam_over_median": 0.990761,
+              "seam_over_p95": 0.866128,
+              "seam_ratio": 0.838602,
+              "near_median": 14.40625,
+              "verdict": "continuous",
+              "method": "premultiplied RGBA column steps (0-255); join vs interior steps within 8 columns per side, whole edge and worst 4-row window"
+            },
+            "y": {
+              "seam": 11.708984,
+              "adjacent_median": 15.344727,
+              "adjacent_p95": 17.867188,
+              "adjacent_max": 18.394531,
+              "seam_over_median": 0.763062,
+              "seam_over_p95": 0.655334,
+              "seam_ratio": 0.636547,
+              "near_median": 14.345703,
+              "verdict": "continuous",
+              "method": "premultiplied RGBA column steps (0-255); join vs interior steps within 8 columns per side, whole edge and worst 4-row window"
+            }
+          },
+          "sha256": "b8f5b6c63e68bfb1d22a2c596461801101a6f30a4b662f9d4a4f338d74675950"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "brick": {
+      "display_name": "brick",
+      "row": 3,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "brick-1.png",
+          "source_cell": [
+            3,
+            0
+          ],
+          "source_box": [
+            0,
+            1881,
+            627,
+            2508
+          ],
+          "resized": true,
+          "mean_luminance": 0.40682,
+          "contrast": 0.067882,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "wrap": {
+            "x": {
+              "seam": 11.433594,
+              "adjacent_median": 6.246094,
+              "adjacent_p95": 8.14502,
+              "adjacent_max": 10.138672,
+              "seam_over_median": 1.830519,
+              "seam_over_p95": 1.403753,
+              "seam_ratio": 1.127721,
+              "near_median": 5.744141,
+              "verdict": "continuous",
+              "method": "premultiplied RGBA column steps (0-255); join vs interior steps within 8 columns per side, whole edge and worst 4-row window"
+            },
+            "y": {
+              "seam": 11.546875,
+              "adjacent_median": 4.762695,
+              "adjacent_p95": 16.781738,
+              "adjacent_max": 23.205078,
+              "seam_over_median": 2.424441,
+              "seam_over_p95": 0.688062,
+              "seam_ratio": 0.766071,
+              "near_median": 4.595703,
+              "verdict": "continuous",
+              "method": "premultiplied RGBA column steps (0-255); join vs interior steps within 8 columns per side, whole edge and worst 4-row window"
+            }
+          },
+          "sha256": "bca8286c6013de9cff9733394dfff69b35eecad4a96ed518e0ea8309275001f8"
+        }
+      ],
+      "variant_difference_min": 1.0
+    }
+  },
+  "processing": {
+    "background_mode": "opaque",
+    "background_mode_requested": "opaque",
+    "cell_shape": "square",
+    "resampler": "lanczos",
+    "grid_rounding": "exact",
+    "edge_policy": "seamless",
+    "wrap_aware_resize": true
+  },
+  "qc": {
+    "min_contrast": 0.035,
+    "min_variant_difference": 0.025,
+    "max_border_delta": 0.1,
+    "min_shape_coverage": 0.97,
+    "max_shape_spill": 0.03,
+    "max_seam_ratio": 1.25,
+    "warnings": [],
+    "passed": true,
+    "seamless_verified": false
+  },
+  "qa": {
+    "status": "pass",
+    "method": "Grid slices of the atlas, background handled per --background-mode, resized to the tile size (Lanczos or nearest; wrap-aware for the seamless policy). Luminance contrast and mean thumbnail differences; drawn frames along opposite edges; footprint coverage and spill for iso/hex base tiles; for the seamless policy, premultiplied wrap and Wang-join steps normalised by the art's own steps near each edge.",
+    "notProven": [
+      "visual quality, style match and readability at game zoom",
+      "that each variant reads as the named terrain",
+      "seamlessness: no exact seam proof exists for image tiles (seamless_verified stays false)",
+      "joins between different variants of a fill row (measured as diagnostics only)"
+    ],
+    "checks": [
+      {
+        "id": "contrast",
+        "status": "pass",
+        "value": 0.063196,
+        "threshold": 0.035
+      },
+      {
+        "id": "variant_difference",
+        "status": "pass",
+        "value": 1.0,
+        "threshold": 0.025
+      },
+      {
+        "id": "border_frame",
+        "status": "pass",
+        "value": 0,
+        "threshold": 0.1
+      },
+      {
+        "id": "shape_coverage",
+        "status": "skipped",
+        "value": null,
+        "threshold": 0.97
+      },
+      {
+        "id": "shape_spill",
+        "status": "skipped",
+        "value": null,
+        "threshold": 0.03
+      },
+      {
+        "id": "wrap_seams",
+        "status": "pass",
+        "value": 1.127721,
+        "threshold": 1.25
+      },
+      {
+        "id": "wang_seams",
+        "status": "skipped",
+        "value": null,
+        "threshold": null
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../terrain-source-rows.png",
+        "sha256": "2810b334b0cbe502c5b03630b71111fb4c091045dd09b47bf0766f98514e1f3f",
+        "bytes": 3952251
+      },
+      {
+        "path": "../prompts/terrain.txt",
+        "sha256": "65791dba2d30b4010a5e0839738e2df15aa043a2595a9320bf5c647f77ec329c",
+        "bytes": 1497
+      }
+    ],
+    "outputs": [
+      {
+        "path": "forest-1.png",
+        "sha256": "91c8f6169f094bbcb224a1434807b6ddc19b5fb1b3ea47b1f953697913bcd64a",
+        "bytes": 47701
+      },
+      {
+        "path": "sand-1.png",
+        "sha256": "cd52d0a520c2a99ebe188f35dc9ba7e14464e9c15382f830bb49108ed7ff6ae1",
+        "bytes": 44541
+      },
+      {
+        "path": "basalt-1.png",
+        "sha256": "b8f5b6c63e68bfb1d22a2c596461801101a6f30a4b662f9d4a4f338d74675950",
+        "bytes": 47979
+      },
+      {
+        "path": "brick-1.png",
+        "sha256": "bca8286c6013de9cff9733394dfff69b35eecad4a96ed518e0ea8309275001f8",
+        "bytes": 38279
+      }
+    ],
+    "tool": {
+      "name": "extract_terrain_tiles.py",
+      "version": "0.4.0"
+    }
+  }
+}
