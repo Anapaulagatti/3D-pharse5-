@@ -185,7 +185,7 @@ await fs.writeFile(
         node: process.version,
       },
       method:
-        "Actual Phaser frame deltas and rAF intervals during7.8s of real movement;1ms CPU profiling identical per case. No video/encoder runs concurrently. Separate fresh browser per target. Candidate uses actual default software-GPU detection, no renderer override; baseline Canvas explicitly selected. Canvas default compositor; explicit software ANGLE Swiftshader only for WebGL cases. Mobile844x390DPR1/3 is emulated; same actual keyboard movement across baseline/candidate, not physical device. Same desktop native1024x768 baseline vs candidate; no universal FPS improvement claim.",
+        "Actual Phaser frame deltas and rAF intervals during7.8s of real movement;1ms CPU profiling identical per case. No video/encoder runs concurrently. Separate fresh browser per target. Canvas explicitly selected for baseline and candidate; WebGL explicitly forced only in named WebGL cases; default software-GPU fallback is tested separately in browser tests. Canvas default compositor; explicit software ANGLE Swiftshader only for WebGL cases. Mobile844x390DPR1/3 is emulated; same actual keyboard movement across baseline/candidate, not physical device. Same desktop native1024x768 baseline vs candidate; no universal FPS improvement claim.",
       inputs,
       results,
     },

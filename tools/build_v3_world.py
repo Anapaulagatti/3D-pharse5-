@@ -229,16 +229,9 @@ solid(2608,3896,24,24,'Nonpublic oreum rear-edge sliver')
 for k,x,y in [('kr-pine',832,480),('rf-prod-tree',1016,928),('rf-prod-ginkgo',896,1440),('kr-pine',1008,1824),('rf-prod-tree',1184,2176),('kr-pine',3520,320),('rf-prod-tree',3376,768),('rf-prod-ginkgo',3488,1216),('kr-pine',3408,1640),('rf-prod-tree',3520,2048),('rf-prod-tree',3040,2464),('kr-pine',1376,2688),('rf-prod-tree',1360,3488),('kr-pine',224,3504),('rf-prod-ginkgo',4240,3360),('rf-prod-tree',3200,3456)]:place(k,x,y,'Layered original foliage at authored terrain edge, not camouflage for a seam')
 # Curated nonwalking hillside backdrop. Terrain is already continuous; never a seam-covering oversized canopy.
 # Native-size art only, fixed offsets, constrained to forest >=96px from public walk envelope.
-core_distance=distance_transform_edt(~walk_a)
-groves=[('west-royal',416,320),('west-academy',400,848),('west-scholars',416,1392),('west-cultural',480,1904),('west-hills',560,2240),('east-royal',3904,320),('east-science',3936,848),('east-museum',3872,1376),('east-cultural',3904,1888)]
-patterns=[ [(-240,-176),(-88,-224),(80,-192),(248,-128),(-256,-16),(-112,-48),(64,-40),(224,40),(-208,144),(-48,128),(128,176),(264,224),(-272,288),(-112,320),(80,336)], [(-224,-224),(-48,-192),(144,-224),(288,-112),(-272,-48),(-88,-16),(96,-48),(240,80),(-224,128),(-64,176),(112,144),(272,240),(-256,304),(-80,320),(96,320)] ]
-for i,(name,cx,cy) in enumerate(groves):
- for j,(dx,dy) in enumerate(patterns[i%2]):
-  x,y=cx+dx,cy+dy
-  if not(128<=x<W-128 and 240<=y<2304):continue
-  if forest[y,x] and core_distance[y,x]>=96:
-   place(['kr-pine','rf-prod-tree','rf-prod-ginkgo','kr-pine'][j%4],x,y,'Inaccessible '+name+' woodland backdrop; natural boundary, native-size original canopy')
-del core_distance
+for o in json.loads((S/'woodland-layout.json').read_text())['placements']:
+ place(o['prop'],o['x'],o['y'],o['purpose'])
+
 # Save draft before actual Forge finishing/export; all source paths are relative to this bundle.
 write(P/'outdoor-draft.json',B);write(S/'routes.json',routes)
 print(json.dumps({'draftProps':len(B['objects']),'solids':len(B['collision']['solids']),'size':[W,H],'newArtRGB':'host-image + approved assets; masks/data authored','removedInstances':len(removed)}))

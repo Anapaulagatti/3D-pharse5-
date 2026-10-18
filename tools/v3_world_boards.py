@@ -31,7 +31,7 @@ for journey in [False,True]:
  im.save(O/('WORLD_JOURNEY_MAP.png'if journey else'FINAL_FULL_WORLD_OVERVIEW_REVIEW.png'))
 # Native-size paired environments, with no screenshot resampling.
 im=Image.new('RGB',(2048,2448),bg)
-for i,(left,right,title)in enumerate([('after-royal-garden-native','after-namsan-tower-native','Royal timber / giwa  |  Steel / glass observation tower'),('after-academy-native','after-coast-station-native','Scholarly courtyard  |  Contemporary rail infrastructure'),('after-workshop-native','after-bora-bloom-native','Invention workshop  |  Coordinated modern amusement plaza')]):
+for i,(left,right,title)in enumerate([('after-royal-garden-native','after-namsan-hero-native','Royal timber / giwa  |  Steel / glass observation tower'),('after-academy-native','after-coast-station-native','Scholarly courtyard  |  Contemporary rail infrastructure'),('after-workshop-native','after-bora-bloom-native','Invention workshop  |  Coordinated modern amusement plaza')]):
  y=i*816;text(im,(16,y+10),title,22);im.paste(png(left),(0,y+48));im.paste(png(right),(1024,y+48))
 im.save(O/'TRADITIONAL_VS_MODERN.png')
 im=Image.new('RGB',(2048,2492),bg)
@@ -45,7 +45,7 @@ text(im,(14,2460),'Latest annotated image was not supplied. These are the actual
 im=Image.new('RGB',(2816,1056),bg);text(im,(16,12),'WINDSTONE JEJU — BEFORE / AFTER AT IDENTICAL NATIVE COORDINATES',26)
 before=Image.open('docs/full-world/quality/full-map-overview.png').convert('RGB').crop((1536,3840,2944,4800));after=world.crop((1536,3840,2944,4800));im.paste(before,(0,64));im.paste(after,(1408,64));text(im,(16,1025),'Actual Phaser pixels, 1×. New oreum, cultural court, cliff, nature centre, basalt discovery and reciprocal ferry loop.',18);im.save(O/'JEJU_BEFORE_AFTER.png')
 im=Image.new('RGB',(2048,2448),bg)
-for i,(name,label)in enumerate([('after-royal-garden-native','1 ROYAL HERITAGE'),('after-namsan-tower-native','2 NAMSAN'),('after-bora-bloom-native','3 BORA BLOOM'),('after-coast-bridge-native','4 BLUE LETTER COAST'),('after-jeju-garden-native','5 WINDSTONE JEJU')]):
+for i,(name,label)in enumerate([('after-royal-garden-native','1 ROYAL HERITAGE'),('after-namsan-hero-native','2 NAMSAN'),('after-bora-bloom-native','3 BORA BLOOM'),('after-coast-bridge-native','4 BLUE LETTER COAST'),('after-jeju-garden-native','5 WINDSTONE JEJU')]):
  x=i%2*1024;y=i//2*816;text(im,(x+16,y+10),label+' · NATIVE1×',22);im.paste(png(name),(x,y+48))
 x,y=1024,1632;text(im,(x+16,y+10),'LANDSCAPE PLAY / 844 × 390',22);im.paste(png('mobile-landscape-interface'),(x+16,y+80));text(im,(x+16,y+530),'Analog stick · independent sprint · Explore / Talk / Emote',21);text(im,(x+16,y+575),'OS reduced motion · portrait pause · previous worlds retained',21);text(im,(x+16,y+640),'Native-scale character:80px body /96×112canvas',21);text(im,(x+16,y+690),'Emulated Chromium; physical phones unmeasured.',21);im.save(O/'DISTRICT_IDENTITY_BOARD.png')
 # Editable review overlay links actual engine capture, never replaces layered Tiled art.

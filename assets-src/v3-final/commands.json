@@ -1949,5 +1949,122 @@
     "exit": 0,
     "stdout": "{\"output\": \"/workspace/3D-pharse5-/.cache/v3-final/qa-8cfc211a4f18eafe/minimap/preview.png\", \"report\": \"/workspace/3D-pharse5-/.cache/v3-final/qa-8cfc211a4f18eafe/minimap/composition.json\", \"placed\": 406, \"warnings\": 0, \"audit_status\": null}\n",
     "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v3-final/map/outdoor-draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/v3-final/map/.hash-1dacc9c46eb3c683.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/v3-final/map/.hash-1dacc9c46eb3c683.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/v3-final/map/.hash-1dacc9c46eb3c683.json\", \"files_hashed\": 512}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v3-final/map/outdoor-bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v3-final/export-9a5b2b7a19950619/validate.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/v3-final/map/outdoor-bundle.json\", \"id\": \"v3-korea\", \"version\": 2, \"errors\": 0, \"warnings\": 0, \"metadata\": \"/workspace/3D-pharse5-/.cache/v3-final/export-9a5b2b7a19950619/validate.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/export_tiled.py",
+      "export",
+      "--embedded-variant",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v3-final/map/outdoor-bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v3-final/export-9a5b2b7a19950619/tiled"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v3-final/export-9a5b2b7a19950619/tiled\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v3-final/export-9a5b2b7a19950619/tiled/export-report.json\", \"map\": \"/workspace/3D-pharse5-/.cache/v3-final/export-9a5b2b7a19950619/tiled/map.tmj\", \"embedded\": \"/workspace/3D-pharse5-/.cache/v3-final/export-9a5b2b7a19950619/tiled/map.embedded.tmj\", \"tilesets\": 2, \"layers\": [\"Ground\", \"Edging\", \"Props\", \"collision\", \"interactions\"], \"differingPixels\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v3-final/map/outdoor-bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/v3-final/room-bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/world-nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/world-nav\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/world-nav/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/world-nav/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/world-nav/nav-debug.png\", \"map\": \"v3-korea\", \"cell\": 4, \"targets\": 45, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v3-final/room-bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/v3-final/map/outdoor-bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/room-nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/room-nav\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/room-nav/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/room-nav/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/room-nav/nav-debug.png\", \"map\": \"v3-reading-room\", \"cell\": 4, \"targets\": 5, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/compose_layered_preview.py",
+      "--base",
+      "/workspace/3D-pharse5-/assets-src/v3-final/map/ground-native.png",
+      "--placements",
+      "/workspace/3D-pharse5-/assets-src/v3-final/map/actor-placements.json",
+      "--output",
+      "/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/compose/preview.png",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/compose/composition.json",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v3-final/map/outdoor-bundle.json",
+      "--debug-overlay",
+      "/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/compose/collision-overlay.png",
+      "--audit-out",
+      "/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/compose/audit.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"output\": \"/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/compose/preview.png\", \"report\": \"/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/compose/composition.json\", \"debug_overlay\": \"/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/compose/collision-overlay.png\", \"audit_out\": \"/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/compose/audit.json\", \"placed\": 407, \"warnings\": 0, \"audit_status\": \"warn\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/compose_layered_preview.py",
+      "--base",
+      "/workspace/3D-pharse5-/assets-src/v3-final/map/ground-native.png",
+      "--placements",
+      "/workspace/3D-pharse5-/assets-src/v3-final/map/placements.json",
+      "--output",
+      "/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/minimap/preview.png",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/minimap/composition.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"output\": \"/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/minimap/preview.png\", \"report\": \"/workspace/3D-pharse5-/.cache/v3-final/qa-9a5b2b7a19950619/minimap/composition.json\", \"placed\": 406, \"warnings\": 0, \"audit_status\": null}\n",
+    "stderr": ""
   }
 ]
