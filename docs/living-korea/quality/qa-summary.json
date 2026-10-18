@@ -1,0 +1,484 @@
+[
+  {
+    "file": "assets-src/living-korea/keyed/park-kit/prop-pack.json",
+    "qa": {
+      "status": "pass",
+      "method": "legacy #FF00FF key (100/150) and edge despill radius 3; alpha hygiene both; 8-connected components (all); checks measured on the published pixels",
+      "notProven": [
+        "that each label names the art in its cell or box",
+        "that a prop is complete: clipping is detected only where art meets the cell edge",
+        "keyed-edge quality beyond the edge fringe count",
+        "that anchors and suggested footprints match gameplay contact (both are measured from alpha)",
+        "runtime placement, collision or occlusion"
+      ],
+      "checks": [
+        {
+          "id": "accepted",
+          "status": "pass",
+          "value": 6,
+          "threshold": ">= 1"
+        },
+        {
+          "id": "edge_touch",
+          "status": "pass",
+          "value": [],
+          "threshold": 0
+        },
+        {
+          "id": "dropped_area",
+          "status": "pass",
+          "value": {},
+          "threshold": 0.01
+        },
+        {
+          "id": "strategy_aspect",
+          "status": "skipped",
+          "value": null,
+          "threshold": 1.6
+        },
+        {
+          "id": "edge_fringe",
+          "status": "pass",
+          "value": 0.0,
+          "threshold": 0.02
+        }
+      ],
+      "inputs": [
+        {
+          "path": "../../raw/park-kit.png",
+          "sha256": "412273ad8005fba2bb4dab11e4bf376fd5d23aa45294e170df5e477ef591a297",
+          "bytes": 2196248
+        },
+        {
+          "path": "../../boxes/park-kit.json",
+          "sha256": "6e4adfc5a691082f897aac399012b73bea553f8251f758ae25f64f93cf405cc6",
+          "bytes": 725
+        }
+      ],
+      "outputs": [
+        {
+          "path": "kr-directory/prop.png",
+          "sha256": "c074bdf6c9b92969460268b0f7c6ecb5e12e6da45a494541d26a70900c11d46c",
+          "bytes": 197137
+        },
+        {
+          "path": "kr-overlook/prop.png",
+          "sha256": "365fc6f1b9e1889f7084d522e70d31f76d3581348cba2afa742d61a00b7c4de0",
+          "bytes": 372631
+        },
+        {
+          "path": "kr-telescope/prop.png",
+          "sha256": "def546de662491d092f7216e553d685e84b86e6710f07774b31ef5cbf1c21a43",
+          "bytes": 59247
+        },
+        {
+          "path": "kr-cliff/prop.png",
+          "sha256": "e1a4de97c17541a09bfbdb45b8b811ee175f74d423fb2861a63c6809b4ac7006",
+          "bytes": 354169
+        },
+        {
+          "path": "kr-pine/prop.png",
+          "sha256": "41688f2194488e0d17fe6f1834eb5b838a8ade09ee091147a0f0a92143ebbf20",
+          "bytes": 327209
+        },
+        {
+          "path": "kr-rest/prop.png",
+          "sha256": "8d6fe8113ea3e5c12f3bfe3426f525ea1c1e7081b6ce3a450666b0e254776236",
+          "bytes": 143396
+        }
+      ],
+      "tool": {
+        "name": "extract_prop_pack",
+        "version": "0.4.0"
+      }
+    }
+  },
+  {
+    "file": "assets-src/living-korea/keyed/tower/prop-pack.json",
+    "qa": {
+      "status": "pass",
+      "method": "legacy #FF00FF key (100/150) and edge despill radius 3; alpha hygiene both; 8-connected components (all); checks measured on the published pixels",
+      "notProven": [
+        "that each label names the art in its cell or box",
+        "that a prop is complete: clipping is detected only where art meets the cell edge",
+        "keyed-edge quality beyond the edge fringe count",
+        "that anchors and suggested footprints match gameplay contact (both are measured from alpha)",
+        "runtime placement, collision or occlusion"
+      ],
+      "checks": [
+        {
+          "id": "accepted",
+          "status": "pass",
+          "value": 1,
+          "threshold": ">= 1"
+        },
+        {
+          "id": "edge_touch",
+          "status": "pass",
+          "value": [],
+          "threshold": 0
+        },
+        {
+          "id": "dropped_area",
+          "status": "pass",
+          "value": {},
+          "threshold": 0.01
+        },
+        {
+          "id": "strategy_aspect",
+          "status": "skipped",
+          "value": null,
+          "threshold": 1.6
+        },
+        {
+          "id": "edge_fringe",
+          "status": "pass",
+          "value": 0.0,
+          "threshold": 0.02
+        }
+      ],
+      "inputs": [
+        {
+          "path": "../../raw/tower.png",
+          "sha256": "f9beac0b44da1a381e0295a816846dfc7cc1628236900267551d308787616b7c",
+          "bytes": 1716221
+        },
+        {
+          "path": "../../boxes/tower.json",
+          "sha256": "87d81948a0d35be997b8bb3342321b5aef0ce83d074702c6f0865e93db7f267f",
+          "bytes": 168
+        }
+      ],
+      "outputs": [
+        {
+          "path": "tower-master/prop.png",
+          "sha256": "a8531eba56271d454503122c35b12125961675f3d5d21c25f157e68c3ee1f8ec",
+          "bytes": 906776
+        }
+      ],
+      "tool": {
+        "name": "extract_prop_pack",
+        "version": "0.4.0"
+      }
+    }
+  },
+  {
+    "file": "assets-src/living-korea/keyed/boundary/prop-pack.json",
+    "qa": {
+      "status": "pass",
+      "method": "legacy #FF00FF key (100/150) and edge despill radius 3; alpha hygiene both; 8-connected components (all); checks measured on the published pixels",
+      "notProven": [
+        "that each label names the art in its cell or box",
+        "that a prop is complete: clipping is detected only where art meets the cell edge",
+        "keyed-edge quality beyond the edge fringe count",
+        "that anchors and suggested footprints match gameplay contact (both are measured from alpha)",
+        "runtime placement, collision or occlusion"
+      ],
+      "checks": [
+        {
+          "id": "accepted",
+          "status": "pass",
+          "value": 6,
+          "threshold": ">= 1"
+        },
+        {
+          "id": "edge_touch",
+          "status": "pass",
+          "value": [],
+          "threshold": 0
+        },
+        {
+          "id": "dropped_area",
+          "status": "pass",
+          "value": {},
+          "threshold": 0.01
+        },
+        {
+          "id": "strategy_aspect",
+          "status": "skipped",
+          "value": null,
+          "threshold": 1.6
+        },
+        {
+          "id": "edge_fringe",
+          "status": "pass",
+          "value": 0.0,
+          "threshold": 0.02
+        }
+      ],
+      "inputs": [
+        {
+          "path": "../../raw/boundary.png",
+          "sha256": "4b8ad5208da44f89c0429c5bc19475bbc03f55d6bd7850e3329b8a8e273d5cbf",
+          "bytes": 1563761
+        },
+        {
+          "path": "../../boxes/boundary.json",
+          "sha256": "ec031dc0961ce123f10cbf38eb70538ccbea446a260aa45c49b2ec28bfb5a32b",
+          "bytes": 735
+        }
+      ],
+      "outputs": [
+        {
+          "path": "kr-palace-h/prop.png",
+          "sha256": "db66ab40c1c2de8565e8b66989528ae0b7414e5a2c798a9ed01fb13efe256521",
+          "bytes": 201327
+        },
+        {
+          "path": "kr-palace-v/prop.png",
+          "sha256": "0471d9c79800ba4a53d142b6b52d611eea966ead7b2758dfc34c13ea31a73907",
+          "bytes": 73446
+        },
+        {
+          "path": "kr-pier/prop.png",
+          "sha256": "ff6ceef00753eb7a58a6f57c55915401f711281602f2d3e58d41fe6f8aae041e",
+          "bytes": 105935
+        },
+        {
+          "path": "kr-scholar-h/prop.png",
+          "sha256": "96e83b6e018abb20247f4f441f6a52041503577bdeb6f8cfe7f77004ceb89144",
+          "bytes": 159577
+        },
+        {
+          "path": "kr-timber-h/prop.png",
+          "sha256": "c247f30f7290ee4dd51366c92a780fd0af6e20af190a5fb76783407137f5f2e6",
+          "bytes": 92459
+        },
+        {
+          "path": "kr-timber-v/prop.png",
+          "sha256": "d1aa988db29050b8fc84c3859e831dbcde45259dc5d904e6fa4c823ba28ec425",
+          "bytes": 41647
+        }
+      ],
+      "tool": {
+        "name": "extract_prop_pack",
+        "version": "0.4.0"
+      }
+    }
+  },
+  {
+    "file": "assets-src/living-korea/keyed/overlook-access/prop-pack.json",
+    "qa": {
+      "status": "pass",
+      "method": "legacy #FF00FF key (100/150) and edge despill radius 3; alpha hygiene both; 8-connected components (all); checks measured on the published pixels",
+      "notProven": [
+        "that each label names the art in its cell or box",
+        "that a prop is complete: clipping is detected only where art meets the cell edge",
+        "keyed-edge quality beyond the edge fringe count",
+        "that anchors and suggested footprints match gameplay contact (both are measured from alpha)",
+        "runtime placement, collision or occlusion"
+      ],
+      "checks": [
+        {
+          "id": "accepted",
+          "status": "pass",
+          "value": 1,
+          "threshold": ">= 1"
+        },
+        {
+          "id": "edge_touch",
+          "status": "pass",
+          "value": [],
+          "threshold": 0
+        },
+        {
+          "id": "dropped_area",
+          "status": "pass",
+          "value": {},
+          "threshold": 0.01
+        },
+        {
+          "id": "strategy_aspect",
+          "status": "skipped",
+          "value": null,
+          "threshold": 1.6
+        },
+        {
+          "id": "edge_fringe",
+          "status": "pass",
+          "value": 0.0,
+          "threshold": 0.02
+        }
+      ],
+      "inputs": [
+        {
+          "path": "../../raw/overlook-access.png",
+          "sha256": "758406eb4bdaba1ee832a05d11dcb7859eb7c3866a26378fdff0c18719b7760a",
+          "bytes": 2240142
+        },
+        {
+          "path": "../../boxes/overlook-access.json",
+          "sha256": "47b062c452d02e04eda98a7f6de554a9c70ee99e45402e9e94649186cc2848e3",
+          "bytes": 173
+        }
+      ],
+      "outputs": [
+        {
+          "path": "kr-overlook-access/prop.png",
+          "sha256": "90af0abab1b6966c38698b401d8782fb67cde6df2ce5a60ba0ea3e399bac0805",
+          "bytes": 2121353
+        }
+      ],
+      "tool": {
+        "name": "extract_prop_pack",
+        "version": "0.4.0"
+      }
+    }
+  },
+  {
+    "file": "assets-src/living-korea/north/composed/audit.json",
+    "status": "pass",
+    "checks": [
+      {
+        "id": "actor_feet_valid",
+        "status": "skipped",
+        "value": {
+          "checked": 0,
+          "invalid": [],
+          "actor_radius_px": 8.0,
+          "y_squash": 0.5,
+          "model": "bundle",
+          "collision": "forge_nav D2 blocking set of outdoor-bundle.json"
+        },
+        "threshold": "forge_nav rule N9: the foot and 8 footprint samples in the walk area and off every blocker (with --bundle the bundle's D2 blocking set, as map_nav.py judges it)"
+      },
+      {
+        "id": "actor_feet_off_placement_footprints",
+        "status": "skipped",
+        "value": {
+          "checked": 0,
+          "actors": []
+        },
+        "threshold": "placement footprints are compose-only (the bundle's blocking set decides validity, D2); an actor standing in one is reported so the prop can be added to the bundle"
+      },
+      {
+        "id": "feet_in_walk_area",
+        "status": "pass",
+        "value": {
+          "checked": 144,
+          "outside": [],
+          "walk_area": "outdoor-bundle.json collision.walkRegions"
+        },
+        "threshold": "foot inside a walk area"
+      },
+      {
+        "id": "bounds",
+        "status": "pass",
+        "value": {
+          "off_canvas": [],
+          "clipped": [],
+          "empty": []
+        },
+        "threshold": "visible pixels (alpha > 16) inside the canvas"
+      },
+      {
+        "id": "footprint_overlaps",
+        "status": "skipped",
+        "value": {
+          "pairs": [],
+          "checked": 0,
+          "without_footprint": 144
+        },
+        "threshold": "solid footprints do not overlap"
+      },
+      {
+        "id": "duplicate_placements",
+        "status": "pass",
+        "value": [],
+        "threshold": "no two placements of the same image at the same point"
+      },
+      {
+        "id": "actors_visible",
+        "status": "skipped",
+        "value": {
+          "hidden": []
+        },
+        "threshold": "no actor fully covered by later draws"
+      }
+    ],
+    "notProven": [
+      "Feet are tested at the placement positions: actors with the forge_nav rules (centre and 8 footprint samples), on the bundle's blocking set with --bundle (D2), else on the canvas, stage ground polygons and solid placement footprints; props as points. Reachability between points is map_nav's job.",
+      "Overlaps are checked only between footprints from prop-pack manifests or placements; placements without a footprint are counted, not checked.",
+      "Occlusion is measured on the flattened preview at alpha > 16; runtime sorting, animation, camera, lighting and scale are not simulated.",
+      "The preview is not proof that the art reads well at gameplay scale; look at it."
+    ]
+  },
+  {
+    "file": "assets-src/living-korea/park/composed/audit.json",
+    "status": "pass",
+    "checks": [
+      {
+        "id": "actor_feet_valid",
+        "status": "skipped",
+        "value": {
+          "checked": 0,
+          "invalid": [],
+          "actor_radius_px": 8.0,
+          "y_squash": 0.5,
+          "model": "bundle",
+          "collision": "forge_nav D2 blocking set of outdoor-bundle.json"
+        },
+        "threshold": "forge_nav rule N9: the foot and 8 footprint samples in the walk area and off every blocker (with --bundle the bundle's D2 blocking set, as map_nav.py judges it)"
+      },
+      {
+        "id": "actor_feet_off_placement_footprints",
+        "status": "skipped",
+        "value": {
+          "checked": 0,
+          "actors": []
+        },
+        "threshold": "placement footprints are compose-only (the bundle's blocking set decides validity, D2); an actor standing in one is reported so the prop can be added to the bundle"
+      },
+      {
+        "id": "feet_in_walk_area",
+        "status": "pass",
+        "value": {
+          "checked": 35,
+          "outside": [],
+          "walk_area": "outdoor-bundle.json collision.walkRegions"
+        },
+        "threshold": "foot inside a walk area"
+      },
+      {
+        "id": "bounds",
+        "status": "pass",
+        "value": {
+          "off_canvas": [],
+          "clipped": [],
+          "empty": []
+        },
+        "threshold": "visible pixels (alpha > 16) inside the canvas"
+      },
+      {
+        "id": "footprint_overlaps",
+        "status": "skipped",
+        "value": {
+          "pairs": [],
+          "checked": 0,
+          "without_footprint": 35
+        },
+        "threshold": "solid footprints do not overlap"
+      },
+      {
+        "id": "duplicate_placements",
+        "status": "pass",
+        "value": [],
+        "threshold": "no two placements of the same image at the same point"
+      },
+      {
+        "id": "actors_visible",
+        "status": "skipped",
+        "value": {
+          "hidden": []
+        },
+        "threshold": "no actor fully covered by later draws"
+      }
+    ],
+    "notProven": [
+      "Feet are tested at the placement positions: actors with the forge_nav rules (centre and 8 footprint samples), on the bundle's blocking set with --bundle (D2), else on the canvas, stage ground polygons and solid placement footprints; props as points. Reachability between points is map_nav's job.",
+      "Overlaps are checked only between footprints from prop-pack manifests or placements; placements without a footprint are counted, not checked.",
+      "Occlusion is measured on the flattened preview at alpha > 16; runtime sorting, animation, camera, lighting and scale are not simulated.",
+      "The preview is not proof that the art reads well at gameplay scale; look at it."
+    ]
+  }
+]

@@ -1363,7 +1363,7 @@
     },
     "work-front-west": {
       "image": "props/work-front-west.png",
-      "sha256": "3a7b1b8d74a671fac7f9eb90434aeb6182de3324aa234753b2953112b157ca3d",
+      "sha256": "4c2ab4a1e0ac17a32491a77cc1357b4ca92a5ba7ce505a0fa63614871758df6e",
       "size": [
         104,
         34
@@ -1388,7 +1388,7 @@
     },
     "work-front-east": {
       "image": "props/work-front-east.png",
-      "sha256": "af3cab5e6a2386686970947927cdc4afa8d135e5fb6eb6c45ac99f4d88aff84f",
+      "sha256": "1936a0abf6d6ea700a7e9a3dcb007b5d92f69078238f257dbfdd295a6b5703b0",
       "size": [
         544,
         34
@@ -1413,7 +1413,7 @@
     },
     "work-west-rear": {
       "image": "props/work-west-rear.png",
-      "sha256": "cdc71cc6aa99ea290e20a53c6799fdf9551420f823a1d280a140249e4298ac03",
+      "sha256": "9bd163aba55054826122bccdcfd048879cecec22934399503903c1bf89d1b3dc",
       "size": [
         22,
         144
@@ -1438,7 +1438,7 @@
     },
     "work-west-front": {
       "image": "props/work-west-front.png",
-      "sha256": "0898dfb49dea57a29dfb2f0465603bc501b5f65cd25b8ea8a47baf827d52e2d3",
+      "sha256": "174207af11b35308f03197fd0cb9ce31a9a4ac3bd4e543625c9915319c8edd84",
       "size": [
         22,
         128
@@ -1463,7 +1463,7 @@
     },
     "work-east": {
       "image": "props/work-east.png",
-      "sha256": "2a693f8a1591ccaff7118c20f136cecab254208f159c3074d98d9b640ce6ed5b",
+      "sha256": "42c61e3ed61bd5b4e9184124cf0b1afa0c630c9cdfdb36b52386c4ea7efb2add",
       "size": [
         22,
         400
@@ -1488,13 +1488,38 @@
     },
     "work-rear-east": {
       "image": "props/work-rear-east.png",
-      "sha256": "712734acf12d0c7f1147a86679e4a742cbaa6eccf497be5ad4fd23b815b55580",
+      "sha256": "ac35ede4a7e88c40236076b49d57fbeee2c3ba76ee689d26efc6b2ac6f9741ab",
       "size": [
         208,
         34
       ],
       "anchor_px": [
         0,
+        34
+      ],
+      "solid": false,
+      "footprint": {
+        "shape": "rect",
+        "width": 16,
+        "depth": 8,
+        "offset": [
+          0,
+          -4
+        ],
+        "basis": "world_px"
+      },
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "kr-timber-cap": {
+      "image": "props/kr-timber-cap.png",
+      "sha256": "adabda0760c159c71c680f461cee8eb0ed90be3fab29e9e4a2cb55dba152da15",
+      "size": [
+        16,
+        34
+      ],
+      "anchor_px": [
+        8,
         34
       ],
       "solid": false,
@@ -1521,6 +1546,56 @@
       "anchor_px": [
         22,
         62
+      ],
+      "solid": false,
+      "footprint": {
+        "shape": "rect",
+        "width": 16,
+        "depth": 8,
+        "offset": [
+          0,
+          -4
+        ],
+        "basis": "world_px"
+      },
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "kr-directory": {
+      "image": "../props/kr-directory.png",
+      "sha256": "77df4e8ae69360d22a2345700d41ac45f2ce8828ab7b3f4b0fbee1d3a75f31fe",
+      "size": [
+        164,
+        133
+      ],
+      "anchor_px": [
+        82,
+        131
+      ],
+      "solid": false,
+      "footprint": {
+        "shape": "rect",
+        "width": 16,
+        "depth": 8,
+        "offset": [
+          0,
+          -4
+        ],
+        "basis": "world_px"
+      },
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "kr-rest": {
+      "image": "../props/kr-rest.png",
+      "sha256": "42b5ff07bf41de69617e492b0c335cf0c616ac0e0023fa45498571c3997d8686",
+      "size": [
+        242,
+        149
+      ],
+      "anchor_px": [
+        121,
+        147
       ],
       "solid": false,
       "footprint": {
@@ -3557,7 +3632,493 @@
       "purpose": "Observation garden rear return meets equipment wing"
     },
     {
-      "id": "kr-108-kr-pier",
+      "id": "kr-108-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 1480,
+      "y": 1040,
+      "sortY": 1040,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-109-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 1480,
+      "y": 1112,
+      "sortY": 1112,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-110-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 1480,
+      "y": 1184,
+      "sortY": 1184,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-111-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 1480,
+      "y": 1312,
+      "sortY": 1312,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-112-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 1480,
+      "y": 1376,
+      "sortY": 1376,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-113-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 1480,
+      "y": 1440,
+      "sortY": 1440,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-114-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 1532,
+      "y": 1440,
+      "sortY": 1440,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-115-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 1584,
+      "y": 1440,
+      "sortY": 1440,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-116-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 1680,
+      "y": 1440,
+      "sortY": 1440,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-117-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 1771,
+      "y": 1440,
+      "sortY": 1440,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-118-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 1861,
+      "y": 1440,
+      "sortY": 1440,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-119-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 1952,
+      "y": 1440,
+      "sortY": 1440,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-120-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 2016,
+      "y": 1040,
+      "sortY": 1040,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-121-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 2043,
+      "y": 1440,
+      "sortY": 1440,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-122-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 2085,
+      "y": 1040,
+      "sortY": 1040,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-123-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 2133,
+      "y": 1440,
+      "sortY": 1440,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-124-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 2155,
+      "y": 1040,
+      "sortY": 1040,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-125-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 2224,
+      "y": 1040,
+      "sortY": 1040,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-126-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 2224,
+      "y": 1120,
+      "sortY": 1120,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-127-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 2224,
+      "y": 1200,
+      "sortY": 1200,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-128-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 2224,
+      "y": 1280,
+      "sortY": 1280,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-129-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 2224,
+      "y": 1360,
+      "sortY": 1360,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-130-kr-timber-cap",
+      "prop": "kr-timber-cap",
+      "x": 2224,
+      "y": 1440,
+      "sortY": 1440,
+      "scale": 1,
+      "anchor_px": [
+        8,
+        34
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "props/kr-timber-cap.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "One authored post per timber socket; shared corners deduplicated, no baked end-post doubles"
+    },
+    {
+      "id": "kr-131-rf-polish-flowers",
+      "prop": "rf-polish-flowers",
+      "x": 1848,
+      "y": 1520,
+      "sortY": 1520,
+      "scale": 1,
+      "anchor_px": [
+        34,
+        69
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../../stage-b-polish/props/polish-flowers.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Museum cross-lane garden edge"
+    },
+    {
+      "id": "kr-132-rf-polish-flowers",
+      "prop": "rf-polish-flowers",
+      "x": 2056,
+      "y": 1520,
+      "sortY": 1520,
+      "scale": 1,
+      "anchor_px": [
+        34,
+        69
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../../stage-b-polish/props/polish-flowers.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Museum cross-lane garden edge"
+    },
+    {
+      "id": "kr-133-rf-prod-bench",
+      "prop": "rf-prod-bench",
+      "x": 2144,
+      "y": 1552,
+      "sortY": 1552,
+      "scale": 1,
+      "anchor_px": [
+        37,
+        51
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../../gwanghwamun/props/bench.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Purposeful pedestrian pause between separate institutions"
+    },
+    {
+      "id": "kr-134-rf-prod-planter",
+      "prop": "rf-prod-planter",
+      "x": 1520,
+      "y": 1056,
+      "sortY": 1056,
+      "scale": 1,
+      "anchor_px": [
+        28,
+        43
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../../gwanghwamun/props/planter.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Workshop rear terminal planting"
+    },
+    {
+      "id": "kr-135-kr-pier",
       "prop": "kr-pier",
       "x": 384,
       "y": 80,
@@ -3575,7 +4136,7 @@
       "purpose": "One deliberate grounded wall junction / garden end pier"
     },
     {
-      "id": "kr-109-kr-pier",
+      "id": "kr-136-kr-pier",
       "prop": "kr-pier",
       "x": 1920,
       "y": 80,
@@ -3593,7 +4154,7 @@
       "purpose": "One deliberate grounded wall junction / garden end pier"
     },
     {
-      "id": "kr-110-kr-pier",
+      "id": "kr-137-kr-pier",
       "prop": "kr-pier",
       "x": 384,
       "y": 720,
@@ -3611,7 +4172,7 @@
       "purpose": "One deliberate grounded wall junction / garden end pier"
     },
     {
-      "id": "kr-111-kr-pier",
+      "id": "kr-138-kr-pier",
       "prop": "kr-pier",
       "x": 1920,
       "y": 720,
@@ -3629,7 +4190,7 @@
       "purpose": "One deliberate grounded wall junction / garden end pier"
     },
     {
-      "id": "kr-112-kr-pier",
+      "id": "kr-139-kr-pier",
       "prop": "kr-pier",
       "x": 384,
       "y": 448,
@@ -3647,7 +4208,7 @@
       "purpose": "One deliberate grounded wall junction / garden end pier"
     },
     {
-      "id": "kr-113-kr-pier",
+      "id": "kr-140-kr-pier",
       "prop": "kr-pier",
       "x": 1920,
       "y": 448,
@@ -3665,7 +4226,7 @@
       "purpose": "One deliberate grounded wall junction / garden end pier"
     },
     {
-      "id": "kr-114-kr-pier",
+      "id": "kr-141-kr-pier",
       "prop": "kr-pier",
       "x": 304,
       "y": 1472,
@@ -3683,7 +4244,7 @@
       "purpose": "One deliberate grounded wall junction / garden end pier"
     },
     {
-      "id": "kr-115-kr-pier",
+      "id": "kr-142-kr-pier",
       "prop": "kr-pier",
       "x": 832,
       "y": 1472,
@@ -3699,6 +4260,42 @@
         "alphaThreshold": 128
       },
       "purpose": "One deliberate grounded wall junction / garden end pier"
+    },
+    {
+      "id": "kr-143-kr-directory",
+      "prop": "kr-directory",
+      "x": 1360,
+      "y": 2144,
+      "sortY": 2144,
+      "scale": 1,
+      "anchor_px": [
+        82,
+        131
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../props/kr-directory.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Contemporary wayfinding at the signed regional travel garden"
+    },
+    {
+      "id": "kr-144-kr-rest",
+      "prop": "kr-rest",
+      "x": 944,
+      "y": 2176,
+      "sortY": 2176,
+      "scale": 1,
+      "anchor_px": [
+        121,
+        147
+      ],
+      "occlusion": "tall",
+      "occluder": {
+        "source": "../props/kr-rest.png",
+        "alphaThreshold": 128
+      },
+      "purpose": "Modern travel-garden rest, off main walking route"
     }
   ],
   "collision": {
@@ -4633,6 +5230,222 @@
       },
       {
         "shape": "rect",
+        "x": 1474,
+        "y": 1030,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 1474,
+        "y": 1102,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 1474,
+        "y": 1174,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 1474,
+        "y": 1302,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 1474,
+        "y": 1366,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 1474,
+        "y": 1430,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 1526,
+        "y": 1430,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 1578,
+        "y": 1430,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 1674,
+        "y": 1430,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 1765,
+        "y": 1430,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 1855,
+        "y": 1430,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 1946,
+        "y": 1430,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 2010,
+        "y": 1030,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 2037,
+        "y": 1430,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 2079,
+        "y": 1030,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 2127,
+        "y": 1430,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 2149,
+        "y": 1030,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 2218,
+        "y": 1030,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 2218,
+        "y": 1110,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 2218,
+        "y": 1190,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 2218,
+        "y": 1270,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 2218,
+        "y": 1350,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 2218,
+        "y": 1430,
+        "w": 12,
+        "h": 10,
+        "reason": "Timber terminal/intermediate post base"
+      },
+      {
+        "shape": "rect",
+        "x": 1832,
+        "y": 1506,
+        "w": 32,
+        "h": 14,
+        "reason": "Museum cross-lane garden edge"
+      },
+      {
+        "shape": "rect",
+        "x": 2040,
+        "y": 1506,
+        "w": 32,
+        "h": 14,
+        "reason": "Museum cross-lane garden edge"
+      },
+      {
+        "shape": "rect",
+        "x": 2128,
+        "y": 1538,
+        "w": 32,
+        "h": 14,
+        "reason": "Purposeful pedestrian pause between separate institutions"
+      },
+      {
+        "shape": "rect",
+        "x": 1504,
+        "y": 1042,
+        "w": 32,
+        "h": 14,
+        "reason": "Workshop rear terminal planting"
+      },
+      {
+        "shape": "rect",
         "x": 372,
         "y": 64,
         "w": 24,
@@ -4694,6 +5507,22 @@
         "w": 24,
         "h": 16,
         "reason": "Boundary pier base"
+      },
+      {
+        "shape": "rect",
+        "x": 1300.0,
+        "y": 2126,
+        "w": 120,
+        "h": 18,
+        "reason": "Contemporary wayfinding at the signed regional travel garden"
+      },
+      {
+        "shape": "rect",
+        "x": 894.0,
+        "y": 2156,
+        "w": 100,
+        "h": 20,
+        "reason": "Modern travel-garden rest, off main walking route"
       }
     ],
     "rects": []
@@ -4717,7 +5546,7 @@
     {
       "id": "travel-return",
       "x": 1152,
-      "y": 2048,
+      "y": 2016,
       "facing": "north"
     }
   ],
@@ -5010,6 +5839,23 @@
         "korea-reading-room": [
           544,
           1152
+        ]
+      },
+      "latch": true,
+      "reciprocal": true
+    },
+    {
+      "id": "to-namsan",
+      "circle": [
+        1152,
+        2080,
+        32
+      ],
+      "to": "korea-namsan:start",
+      "entranceByFrom": {
+        "korea-namsan": [
+          1152,
+          2016
         ]
       },
       "latch": true,

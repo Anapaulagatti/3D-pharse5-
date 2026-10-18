@@ -33,4 +33,6 @@ def export(folder,name,runtime):
  if not out.exists():out.mkdir();run(M/'compose_layered_preview.py','--base',p/'layers/base.png','--placements',p/'placements.json','--output',out/'preview.png','--report',out/'composition.json','--bundle',bundle,'--debug-overlay',out/'collision-overlay.png','--audit-out',out/'audit.json')
  if (p/'composed').exists():shutil.move(p/'composed',C/f'previous-{folder}-composed-{len(json.loads((S/"commands.json").read_text()))}')
  shutil.copytree(out,p/'composed');base=Image.open(out/'preview.png');base.resize((288,round(h*288/w)),Image.Resampling.NEAREST).save(d/'minimap.png');print(json.dumps({'folder':folder,'objects':len(b['objects']),'colliders':len(solids),'world':[w,h]}))
-if __name__=='__main__':export('north','outdoor','north')
+if __name__=='__main__':
+ folder=sys.argv[1]if len(sys.argv)>1 else 'north'
+ export(folder,'outdoor',folder)

@@ -1,11 +1,12 @@
 import Phaser from "phaser";
+import { travelState } from "./travel";
 import { JuniScene } from "../refinement/JuniScene";
 import { controls } from "../game/Plaza";
 import outdoor from "../../assets-src/living-korea/north/world.json";
 import bundle from "../../assets-src/living-korea/north/outdoor-bundle.json";
 import anchors from "../../public/review/living-korea/north/anchors.json";
 import room from "../../assets-src/living-seoul/room-world.json";
-import roomBundle from "../../assets-src/world-refinement/room-bundle.json";
+import roomBundle from "../../assets-src/living-korea/north/room-bundle.json";
 import roomAnchors from "../../public/review/living-seoul/room/anchors.json";
 let returning = false,
   gateOpen = false,
@@ -54,6 +55,12 @@ export class KoreaTown extends JuniScene {
   override create() {
     super.create();
     this.transitioning = false;
+    if (!this.inside && travelState.returnNorth) {
+      this.player.setPosition(1152, 2016);
+      this.player.body?.reset(1152, 2016);
+      this.lastPosition = { x: 1152, y: 2016 };
+      travelState.returnNorth = false;
+    }
     this.leaves = [];
     this.lamps = [];
     this.scenery = [];
@@ -159,6 +166,13 @@ export class KoreaTown extends JuniScene {
       delete window.__SEOUL__;
       delete window.__SEOUL_TEST__;
     });
+  }
+  public travelToNamsan() {
+    this.player.setVelocity(0);
+    controls.x = controls.y = 0;
+    controls.run = false;
+    travelState.transitions++;
+    this.scene.start("namsan");
   }
   private near(x: number, y: number, r = 100) {
     return Phaser.Math.Distance.Between(this.player.x, this.player.y, x, y) < r;
@@ -275,6 +289,10 @@ export class KoreaTown extends JuniScene {
   }
   override interactProp(kind: string) {
     if (controls.paused || document.hidden) return;
+    if (kind === "kr-directory" && this.near(1360, 2144, 144)) {
+      window.dispatchEvent(new Event("korea-travel"));
+      return;
+    }
     if (kind === "rf-prod-gate") {
       this.toggleGate();
       return;
@@ -398,6 +416,12 @@ export class KoreaTown extends JuniScene {
         camera.worldView.width,
         camera.worldView.height,
       ],
+    };
+    window.__KOREA__ = {
+      district: this.inside ? "room" : "heritage",
+      travelTransitions: travelState.transitions,
+      scenicStops: 0,
+      world: this.inside ? [768, 576] : [2304, 2240],
     };
     if (window.__PLAZA_REVIEW__)
       window.__PLAZA_REVIEW__.environmentClock = this.ambient;

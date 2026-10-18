@@ -228,7 +228,7 @@ canvas {
   bottom: calc(14px + var(--safe-bottom));
   left: 50%;
   transform: translateX(-50%);
-  width: min(560px, calc(100% - 32px));
+  width: min(560px, calc(100% - 32px - var(--safe-left) - var(--safe-right)));
   max-height: calc(100% - 28px - var(--safe-bottom));
   overflow: auto;
   background: #f1e8d2;
@@ -361,5 +361,53 @@ canvas {
     scroll-behavior: auto !important;
     animation: none !important;
     transition: none !important;
+  }
+}
+
+#travel-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  background: #19382f;
+  color: #f4dfaf;
+  font-size: 20px;
+  letter-spacing: 0.03em;
+}
+
+header #district-location {
+  min-width: 0;
+  max-width: 35%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#dialog button {
+  min-height: 44px;
+}
+/* Mobile is a full landscape game viewport; HUD overlays the world. */
+@media (pointer: coarse) {
+  header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 12;
+    background: #173b32dc;
+    backdrop-filter: none;
+  }
+  main {
+    height: 100dvh;
+  }
+  .hint {
+    top: calc(48px + var(--safe-top));
+  }
+  #mini-wrap {
+    top: calc(48px + var(--safe-top));
+  }
+  #settings {
+    top: calc(48px + var(--safe-top));
+  }
+  #dialog {
+    max-height: calc(100% - 70px - var(--safe-top) - var(--safe-bottom));
   }
 }

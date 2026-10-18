@@ -1,0 +1,1708 @@
+{
+  "schema": "generate2dmap.compose_report.v2",
+  "tool": {
+    "name": "compose_layered_preview",
+    "version": "0.4.0"
+  },
+  "base": "../../../../assets-src/living-korea/park/layers/base.png",
+  "base_sha256": "fd820d7c1bfe4d5435631049fce69b54939f395afd70f6eac8be64be999228d6",
+  "placements": "../../../../assets-src/living-korea/park/placements.json",
+  "placements_sha256": "e1363f2d3b4d0329971df0482bdba45856b26ecc53176f69742fe4130baf764f",
+  "output": "preview.png",
+  "output_sha256": "7afa24e97b88de44a06a82019fca38b06468082374c0a61aa5a17647ebfe29be",
+  "canvas_size": [
+    1408,
+    1280
+  ],
+  "scale": 1.0,
+  "resampler": "lanczos",
+  "sort": "ground-line",
+  "anchor_policy": "manifest",
+  "compositing_order": [
+    {
+      "band": "base",
+      "draws": "the base image (scaled by --scale)"
+    },
+    {
+      "band": "background",
+      "draws": "placements on layer background",
+      "sorted_by": [
+        "sortY",
+        "x",
+        "id"
+      ]
+    },
+    {
+      "band": "world",
+      "draws": "props, objects, actors and every other layer",
+      "sorted_by": [
+        "sortY",
+        "x",
+        "id"
+      ]
+    },
+    {
+      "band": "foreground",
+      "draws": "the foreground list and layer foreground",
+      "sorted_by": [
+        "sortY",
+        "x",
+        "id"
+      ]
+    },
+    {
+      "band": "not baked",
+      "draws": "the debug overlay and plate pan are separate files"
+    }
+  ],
+  "prop_packs": [],
+  "pasted": [
+    {
+      "id": "park-4",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 0,
+      "image": "../../../../assets-src/living-korea/props/kr-overlook-access.png",
+      "image_sha256": "6f1e2608b04254124866b29fbcabeb4eecab5ee9af793b627543ccf92690fa0a",
+      "left": 974,
+      "top": 686,
+      "w": 293,
+      "h": 132,
+      "source_size": [
+        293,
+        132
+      ],
+      "anchorPx": [
+        146.0,
+        130.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1120.0,
+        816.0
+      ],
+      "anchor_canvas": [
+        1120.0,
+        816.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        976,
+        688,
+        1265,
+        816
+      ],
+      "sortY": -65.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-12",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 1,
+      "image": "../../../../assets-src/living-korea/props/kr-pine.png",
+      "image_sha256": "c235c9f43c2975d1cbba156c69a9f4ec4fa186e3986e00c77fb76a2dc30d3b9c",
+      "left": 294,
+      "top": 55,
+      "w": 309,
+      "h": 171,
+      "source_size": [
+        309,
+        171
+      ],
+      "anchorPx": [
+        154.0,
+        169.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        448.0,
+        224.0
+      ],
+      "anchor_canvas": [
+        448.0,
+        224.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        296,
+        57,
+        601,
+        224
+      ],
+      "sortY": 224.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-11",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 2,
+      "image": "../../../../assets-src/living-korea/props/kr-pine.png",
+      "image_sha256": "c235c9f43c2975d1cbba156c69a9f4ec4fa186e3986e00c77fb76a2dc30d3b9c",
+      "left": 38,
+      "top": 87,
+      "w": 309,
+      "h": 171,
+      "source_size": [
+        309,
+        171
+      ],
+      "anchorPx": [
+        154.0,
+        169.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        192.0,
+        256.0
+      ],
+      "anchor_canvas": [
+        192.0,
+        256.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        40,
+        89,
+        345,
+        256
+      ],
+      "sortY": 256.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-13",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 3,
+      "image": "../../../../assets-src/living-korea/props/kr-pine.png",
+      "image_sha256": "c235c9f43c2975d1cbba156c69a9f4ec4fa186e3986e00c77fb76a2dc30d3b9c",
+      "left": 486,
+      "top": 87,
+      "w": 309,
+      "h": 171,
+      "source_size": [
+        309,
+        171
+      ],
+      "anchorPx": [
+        154.0,
+        169.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        640.0,
+        256.0
+      ],
+      "anchor_canvas": [
+        640.0,
+        256.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        488,
+        89,
+        793,
+        256
+      ],
+      "sortY": 256.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-14",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 4,
+      "image": "../../../../assets-src/living-korea/props/kr-pine.png",
+      "image_sha256": "c235c9f43c2975d1cbba156c69a9f4ec4fa186e3986e00c77fb76a2dc30d3b9c",
+      "left": 966,
+      "top": 87,
+      "w": 309,
+      "h": 171,
+      "source_size": [
+        309,
+        171
+      ],
+      "anchorPx": [
+        154.0,
+        169.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1120.0,
+        256.0
+      ],
+      "anchor_canvas": [
+        1120.0,
+        256.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        968,
+        89,
+        1273,
+        256
+      ],
+      "sortY": 256.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-24",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 5,
+      "image": "../../../../assets-src/living-korea/props/kr-pine.png",
+      "image_sha256": "c235c9f43c2975d1cbba156c69a9f4ec4fa186e3986e00c77fb76a2dc30d3b9c",
+      "left": 390,
+      "top": 311,
+      "w": 309,
+      "h": 171,
+      "source_size": [
+        309,
+        171
+      ],
+      "anchorPx": [
+        154.0,
+        169.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        544.0,
+        480.0
+      ],
+      "anchor_canvas": [
+        544.0,
+        480.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        392,
+        313,
+        697,
+        480
+      ],
+      "sortY": 480.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-8",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 6,
+      "image": "../../../../assets-src/living-korea/props/kr-cliff.png",
+      "image_sha256": "b6a563d539023f12a92b371971c1c8e9891c9ac02062c5feb1f82cc7eed780ad",
+      "left": 894,
+      "top": 385,
+      "w": 229,
+      "h": 97,
+      "source_size": [
+        229,
+        97
+      ],
+      "anchorPx": [
+        114.0,
+        95.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1008.0,
+        480.0
+      ],
+      "anchor_canvas": [
+        1008.0,
+        480.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        896,
+        387,
+        1121,
+        480
+      ],
+      "sortY": 480.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-23",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 7,
+      "image": "../../../../assets-src/living-korea/props/kr-pine.png",
+      "image_sha256": "c235c9f43c2975d1cbba156c69a9f4ec4fa186e3986e00c77fb76a2dc30d3b9c",
+      "left": 934,
+      "top": 311,
+      "w": 309,
+      "h": 171,
+      "source_size": [
+        309,
+        171
+      ],
+      "anchorPx": [
+        154.0,
+        169.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1088.0,
+        480.0
+      ],
+      "anchor_canvas": [
+        1088.0,
+        480.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        936,
+        313,
+        1241,
+        480
+      ],
+      "sortY": 480.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-16",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 8,
+      "image": "../../../../assets-src/living-korea/props/kr-pine.png",
+      "image_sha256": "c235c9f43c2975d1cbba156c69a9f4ec4fa186e3986e00c77fb76a2dc30d3b9c",
+      "left": 70,
+      "top": 327,
+      "w": 309,
+      "h": 171,
+      "source_size": [
+        309,
+        171
+      ],
+      "anchorPx": [
+        154.0,
+        169.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        224.0,
+        496.0
+      ],
+      "anchor_canvas": [
+        224.0,
+        496.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        72,
+        329,
+        377,
+        496
+      ],
+      "sortY": 496.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-28",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 9,
+      "image": "../../../../assets-src/gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 66,
+      "top": 317,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        160.0,
+        512.0
+      ],
+      "anchor_canvas": [
+        160.0,
+        512.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        68,
+        319,
+        253,
+        511
+      ],
+      "sortY": 512.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-15",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 10,
+      "image": "../../../../assets-src/living-korea/props/kr-pine.png",
+      "image_sha256": "c235c9f43c2975d1cbba156c69a9f4ec4fa186e3986e00c77fb76a2dc30d3b9c",
+      "left": 1062,
+      "top": 343,
+      "w": 309,
+      "h": 171,
+      "source_size": [
+        309,
+        171
+      ],
+      "anchorPx": [
+        154.0,
+        169.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1216.0,
+        512.0
+      ],
+      "anchor_canvas": [
+        1216.0,
+        512.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1064,
+        345,
+        1369,
+        512
+      ],
+      "sortY": 512.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-1",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 11,
+      "image": "../../../../assets-src/living-korea/props/kr-tower-shaft.png",
+      "image_sha256": "ba002001819284225113c8f4eb8ed4d0a3884a032d39c836e8e12b563facbcea",
+      "left": 768,
+      "top": 194,
+      "w": 128,
+      "h": 344,
+      "source_size": [
+        128,
+        344
+      ],
+      "anchorPx": [
+        64.0,
+        342.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        832.0,
+        536.0
+      ],
+      "anchor_canvas": [
+        832.0,
+        536.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        770,
+        196,
+        894,
+        536
+      ],
+      "sortY": 552.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-6",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 12,
+      "image": "../../../../assets-src/living-korea/props/kr-cliff.png",
+      "image_sha256": "b6a563d539023f12a92b371971c1c8e9891c9ac02062c5feb1f82cc7eed780ad",
+      "left": 334,
+      "top": 513,
+      "w": 229,
+      "h": 97,
+      "source_size": [
+        229,
+        97
+      ],
+      "anchorPx": [
+        114.0,
+        95.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        448.0,
+        608.0
+      ],
+      "anchor_canvas": [
+        448.0,
+        608.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        336,
+        515,
+        561,
+        608
+      ],
+      "sortY": 608.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-2",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 13,
+      "image": "../../../../assets-src/living-korea/props/kr-tower-pavilion.png",
+      "image_sha256": "65aa2a97e5810c5ab41cee1afe8d87276947ae21c0c1d94d35be2fe6c7de55be",
+      "left": 630,
+      "top": 461,
+      "w": 405,
+      "h": 213,
+      "source_size": [
+        405,
+        213
+      ],
+      "anchorPx": [
+        202.0,
+        211.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        832.0,
+        672.0
+      ],
+      "anchor_canvas": [
+        832.0,
+        672.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        632,
+        463,
+        1033,
+        672
+      ],
+      "sortY": 632.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-9",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 14,
+      "image": "../../../../assets-src/living-korea/props/kr-cliff.png",
+      "image_sha256": "b6a563d539023f12a92b371971c1c8e9891c9ac02062c5feb1f82cc7eed780ad",
+      "left": 1134,
+      "top": 545,
+      "w": 229,
+      "h": 97,
+      "source_size": [
+        229,
+        97
+      ],
+      "anchorPx": [
+        114.0,
+        95.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1248.0,
+        640.0
+      ],
+      "anchor_canvas": [
+        1248.0,
+        640.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1136,
+        547,
+        1361,
+        640
+      ],
+      "sortY": 640.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-32",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 15,
+      "image": "../../../../assets-src/stage-b-polish/props/polish-flowers.png",
+      "image_sha256": "44309376cabcf76885d28eeb03960fe9517657fed23b0a2ce59ffc97e12a11b8",
+      "left": 654,
+      "top": 603,
+      "w": 68,
+      "h": 71,
+      "source_size": [
+        68,
+        71
+      ],
+      "anchorPx": [
+        34.0,
+        69.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        688.0,
+        672.0
+      ],
+      "anchor_canvas": [
+        688.0,
+        672.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        656,
+        605,
+        720,
+        672
+      ],
+      "sortY": 672.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-33",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 16,
+      "image": "../../../../assets-src/stage-b-polish/props/polish-flowers.png",
+      "image_sha256": "44309376cabcf76885d28eeb03960fe9517657fed23b0a2ce59ffc97e12a11b8",
+      "left": 942,
+      "top": 603,
+      "w": 68,
+      "h": 71,
+      "source_size": [
+        68,
+        71
+      ],
+      "anchorPx": [
+        34.0,
+        69.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        976.0,
+        672.0
+      ],
+      "anchor_canvas": [
+        976.0,
+        672.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        944,
+        605,
+        1008,
+        672
+      ],
+      "sortY": 672.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-17",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 17,
+      "image": "../../../../assets-src/living-korea/props/kr-pine.png",
+      "image_sha256": "c235c9f43c2975d1cbba156c69a9f4ec4fa186e3986e00c77fb76a2dc30d3b9c",
+      "left": 38,
+      "top": 567,
+      "w": 309,
+      "h": 171,
+      "source_size": [
+        309,
+        171
+      ],
+      "anchorPx": [
+        154.0,
+        169.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        192.0,
+        736.0
+      ],
+      "anchor_canvas": [
+        192.0,
+        736.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        40,
+        569,
+        345,
+        736
+      ],
+      "sortY": 736.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-5",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 18,
+      "image": "../../../../assets-src/living-korea/props/kr-telescope.png",
+      "image_sha256": "2691a42f02be0c747415c4e95ac75b39f63228b19b98d420e8f5860478231096",
+      "left": 1090,
+      "top": 646,
+      "w": 61,
+      "h": 100,
+      "source_size": [
+        61,
+        100
+      ],
+      "anchorPx": [
+        30.0,
+        98.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1120.0,
+        744.0
+      ],
+      "anchor_canvas": [
+        1120.0,
+        744.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1092,
+        648,
+        1149,
+        744
+      ],
+      "sortY": 744.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-29",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 19,
+      "image": "../../../../assets-src/living-korea/props/kr-rest.png",
+      "image_sha256": "42b5ff07bf41de69617e492b0c335cf0c616ac0e0023fa45498571c3997d8686",
+      "left": 231,
+      "top": 749,
+      "w": 242,
+      "h": 149,
+      "source_size": [
+        242,
+        149
+      ],
+      "anchorPx": [
+        121.0,
+        147.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        352.0,
+        896.0
+      ],
+      "anchor_canvas": [
+        352.0,
+        896.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        233,
+        751,
+        471,
+        896
+      ],
+      "sortY": 896.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-10",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 20,
+      "image": "../../../../assets-src/living-korea/props/kr-cliff.png",
+      "image_sha256": "b6a563d539023f12a92b371971c1c8e9891c9ac02062c5feb1f82cc7eed780ad",
+      "left": 846,
+      "top": 833,
+      "w": 229,
+      "h": 97,
+      "source_size": [
+        229,
+        97
+      ],
+      "anchorPx": [
+        114.0,
+        95.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        960.0,
+        928.0
+      ],
+      "anchor_canvas": [
+        960.0,
+        928.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        848,
+        835,
+        1073,
+        928
+      ],
+      "sortY": 928.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-22",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 21,
+      "image": "../../../../assets-src/living-korea/props/kr-pine.png",
+      "image_sha256": "c235c9f43c2975d1cbba156c69a9f4ec4fa186e3986e00c77fb76a2dc30d3b9c",
+      "left": 1094,
+      "top": 759,
+      "w": 309,
+      "h": 171,
+      "source_size": [
+        309,
+        171
+      ],
+      "anchorPx": [
+        154.0,
+        169.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1248.0,
+        928.0
+      ],
+      "anchor_canvas": [
+        1248.0,
+        928.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1096,
+        761,
+        1401,
+        928
+      ],
+      "sortY": 928.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-18",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 22,
+      "image": "../../../../assets-src/living-korea/props/kr-pine.png",
+      "image_sha256": "c235c9f43c2975d1cbba156c69a9f4ec4fa186e3986e00c77fb76a2dc30d3b9c",
+      "left": 70,
+      "top": 823,
+      "w": 309,
+      "h": 171,
+      "source_size": [
+        309,
+        171
+      ],
+      "anchorPx": [
+        154.0,
+        169.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        224.0,
+        992.0
+      ],
+      "anchor_canvas": [
+        224.0,
+        992.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        72,
+        825,
+        377,
+        992
+      ],
+      "sortY": 992.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-31",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 23,
+      "image": "../../../../assets-src/living-korea/props/kr-rest.png",
+      "image_sha256": "42b5ff07bf41de69617e492b0c335cf0c616ac0e0023fa45498571c3997d8686",
+      "left": 1095,
+      "top": 861,
+      "w": 242,
+      "h": 149,
+      "source_size": [
+        242,
+        149
+      ],
+      "anchorPx": [
+        121.0,
+        147.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1216.0,
+        1008.0
+      ],
+      "anchor_canvas": [
+        1216.0,
+        1008.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1097,
+        863,
+        1335,
+        1008
+      ],
+      "sortY": 1008.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-7",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 24,
+      "image": "../../../../assets-src/living-korea/props/kr-cliff.png",
+      "image_sha256": "b6a563d539023f12a92b371971c1c8e9891c9ac02062c5feb1f82cc7eed780ad",
+      "left": 238,
+      "top": 993,
+      "w": 229,
+      "h": 97,
+      "source_size": [
+        229,
+        97
+      ],
+      "anchorPx": [
+        114.0,
+        95.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        352.0,
+        1088.0
+      ],
+      "anchor_canvas": [
+        352.0,
+        1088.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        240,
+        995,
+        465,
+        1088
+      ],
+      "sortY": 1088.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-21",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 25,
+      "image": "../../../../assets-src/living-korea/props/kr-pine.png",
+      "image_sha256": "c235c9f43c2975d1cbba156c69a9f4ec4fa186e3986e00c77fb76a2dc30d3b9c",
+      "left": 1062,
+      "top": 951,
+      "w": 309,
+      "h": 171,
+      "source_size": [
+        309,
+        171
+      ],
+      "anchorPx": [
+        154.0,
+        169.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1216.0,
+        1120.0
+      ],
+      "anchor_canvas": [
+        1216.0,
+        1120.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1064,
+        953,
+        1369,
+        1120
+      ],
+      "sortY": 1120.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-19",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 26,
+      "image": "../../../../assets-src/living-korea/props/kr-pine.png",
+      "image_sha256": "c235c9f43c2975d1cbba156c69a9f4ec4fa186e3986e00c77fb76a2dc30d3b9c",
+      "left": 294,
+      "top": 983,
+      "w": 309,
+      "h": 171,
+      "source_size": [
+        309,
+        171
+      ],
+      "anchorPx": [
+        154.0,
+        169.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        448.0,
+        1152.0
+      ],
+      "anchor_canvas": [
+        448.0,
+        1152.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        296,
+        985,
+        601,
+        1152
+      ],
+      "sortY": 1152.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-30",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 27,
+      "image": "../../../../assets-src/living-korea/props/kr-rest.png",
+      "image_sha256": "42b5ff07bf41de69617e492b0c335cf0c616ac0e0023fa45498571c3997d8686",
+      "left": 839,
+      "top": 1005,
+      "w": 242,
+      "h": 149,
+      "source_size": [
+        242,
+        149
+      ],
+      "anchorPx": [
+        121.0,
+        147.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        960.0,
+        1152.0
+      ],
+      "anchor_canvas": [
+        960.0,
+        1152.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        841,
+        1007,
+        1079,
+        1152
+      ],
+      "sortY": 1152.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-34",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 28,
+      "image": "../../../../assets-src/stage-b-polish/props/polish-flowers.png",
+      "image_sha256": "44309376cabcf76885d28eeb03960fe9517657fed23b0a2ce59ffc97e12a11b8",
+      "left": 622,
+      "top": 1091,
+      "w": 68,
+      "h": 71,
+      "source_size": [
+        68,
+        71
+      ],
+      "anchorPx": [
+        34.0,
+        69.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        656.0,
+        1160.0
+      ],
+      "anchor_canvas": [
+        656.0,
+        1160.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        624,
+        1093,
+        688,
+        1160
+      ],
+      "sortY": 1160.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-35",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 29,
+      "image": "../../../../assets-src/stage-b-polish/props/polish-flowers.png",
+      "image_sha256": "44309376cabcf76885d28eeb03960fe9517657fed23b0a2ce59ffc97e12a11b8",
+      "left": 766,
+      "top": 1091,
+      "w": 68,
+      "h": 71,
+      "source_size": [
+        68,
+        71
+      ],
+      "anchorPx": [
+        34.0,
+        69.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        800.0,
+        1160.0
+      ],
+      "anchor_canvas": [
+        800.0,
+        1160.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        768,
+        1093,
+        832,
+        1160
+      ],
+      "sortY": 1160.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-3",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 30,
+      "image": "../../../../assets-src/living-korea/props/kr-directory.png",
+      "image_sha256": "77df4e8ae69360d22a2345700d41ac45f2ce8828ab7b3f4b0fbee1d3a75f31fe",
+      "left": 430,
+      "top": 1037,
+      "w": 164,
+      "h": 133,
+      "source_size": [
+        164,
+        133
+      ],
+      "anchorPx": [
+        82.0,
+        131.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        512.0,
+        1168.0
+      ],
+      "anchor_canvas": [
+        512.0,
+        1168.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        432,
+        1039,
+        592,
+        1168
+      ],
+      "sortY": 1168.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-25",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 31,
+      "image": "../../../../assets-src/gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 98,
+      "top": 989,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        192.0,
+        1184.0
+      ],
+      "anchor_canvas": [
+        192.0,
+        1184.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        100,
+        991,
+        285,
+        1183
+      ],
+      "sortY": 1184.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-20",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 32,
+      "image": "../../../../assets-src/living-korea/props/kr-pine.png",
+      "image_sha256": "c235c9f43c2975d1cbba156c69a9f4ec4fa186e3986e00c77fb76a2dc30d3b9c",
+      "left": 838,
+      "top": 1015,
+      "w": 309,
+      "h": 171,
+      "source_size": [
+        309,
+        171
+      ],
+      "anchorPx": [
+        154.0,
+        169.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        992.0,
+        1184.0
+      ],
+      "anchor_canvas": [
+        992.0,
+        1184.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        840,
+        1017,
+        1145,
+        1184
+      ],
+      "sortY": 1184.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-27",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 33,
+      "image": "../../../../assets-src/gwanghwamun/props/tree.png",
+      "image_sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "left": 1186,
+      "top": 1005,
+      "w": 189,
+      "h": 196,
+      "source_size": [
+        189,
+        196
+      ],
+      "anchorPx": [
+        94.0,
+        195.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        1280.0,
+        1200.0
+      ],
+      "anchor_canvas": [
+        1280.0,
+        1200.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        1188,
+        1007,
+        1373,
+        1199
+      ],
+      "sortY": 1200.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    },
+    {
+      "id": "park-26",
+      "group": "props",
+      "kind": "prop",
+      "layer": "props",
+      "band": "world",
+      "draw_index": 34,
+      "image": "../../../../assets-src/gwanghwamun/props/ginkgo.png",
+      "image_sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "left": 666,
+      "top": 1003,
+      "w": 204,
+      "h": 214,
+      "source_size": [
+        204,
+        214
+      ],
+      "anchorPx": [
+        102.0,
+        213.0
+      ],
+      "anchor_source": "px",
+      "anchor_world": [
+        768.0,
+        1216.0
+      ],
+      "anchor_canvas": [
+        768.0,
+        1216.0
+      ],
+      "anchor_world_error": [
+        0.0,
+        0.0
+      ],
+      "resampler": "lanczos",
+      "clipped": false,
+      "visible_bounds": [
+        668,
+        1005,
+        868,
+        1215
+      ],
+      "sortY": 1216.0,
+      "sort_source": "explicit",
+      "footprint": null,
+      "warnings": []
+    }
+  ],
+  "warnings": [],
+  "audit_status": "pass"
+}

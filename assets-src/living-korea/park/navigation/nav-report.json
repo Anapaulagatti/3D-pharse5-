@@ -1,0 +1,418 @@
+{
+  "schema": "generate2dmap.nav_report.v1",
+  "status": "pass",
+  "method": "plan Appendix C validity (centre + 8 footprint samples against walk regions, solids, object footprints scaled once, tile collision and material classes) on a grid of cell max(1, round(r/2)) px; 4-neighbour moves open when segmentClear holds between node centres (samples every cell/2, plus the exact thin-gap centre path and one_way direction); BFS from every spawn and portal arrival to every interaction, exit, anchor slot and approach point",
+  "notProven": [
+    "that the collision data matches the painted art",
+    "positions closer than one grid cell to a blocker (the grid samples cell centres)",
+    "runtime movement code: map-runtime.mjs parity is tested during integration",
+    "links to maps not passed with --link"
+  ],
+  "checks": [
+    {
+      "id": "starts_valid",
+      "status": "pass",
+      "value": {
+        "starts": 2,
+        "blocked": []
+      },
+      "threshold": {
+        "blocked": 0
+      }
+    },
+    {
+      "id": "targets_reachable",
+      "status": "pass",
+      "value": {
+        "reachable": 11,
+        "total": 11,
+        "unreachable": []
+      },
+      "threshold": {
+        "unreachable": 0
+      }
+    },
+    {
+      "id": "portals_inside_world",
+      "status": "pass",
+      "value": {
+        "outside": []
+      },
+      "threshold": {
+        "outside": 0
+      }
+    },
+    {
+      "id": "arrivals_outside_triggers",
+      "status": "pass",
+      "value": {
+        "problems": 0
+      },
+      "threshold": {
+        "problems": 0
+      }
+    },
+    {
+      "id": "reciprocal_links",
+      "status": "skipped",
+      "value": {
+        "links": [],
+        "notChecked": [
+          "korea-north"
+        ]
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "thin_gaps",
+      "status": "pass",
+      "value": 0,
+      "threshold": "reported: moves the thin-gap rule closed although every footprint sample was valid"
+    },
+    {
+      "id": "unreachable_walkable_area",
+      "status": "pass",
+      "value": {
+        "pockets": 0,
+        "cells": 0
+      },
+      "threshold": "reported"
+    },
+    {
+      "id": "blocked_rects_union",
+      "status": "pass",
+      "value": {
+        "rects": 124,
+        "blockedCells": 20195
+      },
+      "threshold": "union == blocked cells"
+    },
+    {
+      "id": "footprints_scaled_once",
+      "status": "pass",
+      "value": {
+        "objectSolids": 0
+      },
+      "threshold": "object footprint x scale, never inflated by the actor radius"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../../assets-src/living-korea/park/outdoor-bundle.json",
+      "sha256": "6303199a1e8cb3c0f6086d0dd45696df3f8993654122583ab38c0027af5e6468",
+      "bytes": 35891
+    },
+    {
+      "path": "../../../../assets-src/living-korea/park/tileset.json",
+      "sha256": "51242eaf379b86d4918a62a62eb7b415671e7db241b640a889778ba2f81e05bc",
+      "bytes": 27529
+    },
+    {
+      "path": "../../../../assets-src/living-korea/park/tiles.png",
+      "sha256": "86b517ef6c708a269e25d7bb847e45270731e1a149ba8d56d53a554209c21911",
+      "bytes": 653230
+    },
+    {
+      "path": "../../../../assets-src/living-korea/park/layers/ground.json",
+      "sha256": "9a39fe472435a8fbbb5fb71699fcc8f64f99abc2611c338add43e09877ceae12",
+      "bytes": 12643
+    },
+    {
+      "path": "../../../../assets-src/living-korea/park/layers/edging.json",
+      "sha256": "56aa1b0252c5097e286c68d9c9b52e00eec8f8bc3f0d0ddfd8505a9aecc0b7b1",
+      "bytes": 14619
+    },
+    {
+      "path": "../../../../assets-src/living-korea/props/kr-directory.png",
+      "sha256": "77df4e8ae69360d22a2345700d41ac45f2ce8828ab7b3f4b0fbee1d3a75f31fe",
+      "bytes": 27066
+    },
+    {
+      "path": "../../../../assets-src/living-korea/props/kr-overlook.png",
+      "sha256": "b70de01f353eb68172030606201c6c3f7594aa43f654bc44ec3e3369bcb6be2f",
+      "bytes": 63529
+    },
+    {
+      "path": "../../../../assets-src/living-korea/props/kr-telescope.png",
+      "sha256": "2691a42f02be0c747415c4e95ac75b39f63228b19b98d420e8f5860478231096",
+      "bytes": 6851
+    },
+    {
+      "path": "../../../../assets-src/living-korea/props/kr-cliff.png",
+      "sha256": "b6a563d539023f12a92b371971c1c8e9891c9ac02062c5feb1f82cc7eed780ad",
+      "bytes": 37800
+    },
+    {
+      "path": "../../../../assets-src/living-korea/props/kr-pine.png",
+      "sha256": "c235c9f43c2975d1cbba156c69a9f4ec4fa186e3986e00c77fb76a2dc30d3b9c",
+      "bytes": 70180
+    },
+    {
+      "path": "../../../../assets-src/living-korea/props/kr-rest.png",
+      "sha256": "42b5ff07bf41de69617e492b0c335cf0c616ac0e0023fa45498571c3997d8686",
+      "bytes": 26093
+    },
+    {
+      "path": "../../../../assets-src/living-korea/props/kr-tower-shaft.png",
+      "sha256": "ba002001819284225113c8f4eb8ed4d0a3884a032d39c836e8e12b563facbcea",
+      "bytes": 31692
+    },
+    {
+      "path": "../../../../assets-src/living-korea/props/kr-tower-pavilion.png",
+      "sha256": "65aa2a97e5810c5ab41cee1afe8d87276947ae21c0c1d94d35be2fe6c7de55be",
+      "bytes": 126936
+    },
+    {
+      "path": "../../../../assets-src/living-korea/props/kr-overlook-access.png",
+      "sha256": "6f1e2608b04254124866b29fbcabeb4eecab5ee9af793b627543ccf92690fa0a",
+      "bytes": 58486
+    },
+    {
+      "path": "../../../../assets-src/gwanghwamun/props/tree.png",
+      "sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "bytes": 40364
+    },
+    {
+      "path": "../../../../assets-src/gwanghwamun/props/ginkgo.png",
+      "sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "bytes": 48819
+    },
+    {
+      "path": "../../../../assets-src/stage-b-polish/props/polish-flowers.png",
+      "sha256": "44309376cabcf76885d28eeb03960fe9517657fed23b0a2ce59ffc97e12a11b8",
+      "bytes": 8162
+    },
+    {
+      "path": "../../../../assets-src/gwanghwamun/props/planter.png",
+      "sha256": "35caea815680e4b8ce01fe6afe22a56b1daee0778bc3f47ba3eb756d7fd29c1f",
+      "bytes": 4245
+    }
+  ],
+  "outputs": [
+    {
+      "path": "nav-grid.json",
+      "sha256": "926e88a5de97ae344b2d286dd42abe65d9fce2a09745ecb237071f46f3c6ccd4",
+      "bytes": 238326
+    },
+    {
+      "path": "nav-debug.png",
+      "sha256": "7361d2726decfcff9ff02e8c9609b0ede5622b997b4c601644723614fabc653d",
+      "bytes": 1841555
+    }
+  ],
+  "tool": {
+    "name": "map_nav.py",
+    "version": "0.4.0"
+  },
+  "map": "korea-namsan",
+  "cell": 4,
+  "starts": [
+    {
+      "kind": "spawn",
+      "id": "start",
+      "point": [
+        704.0,
+        1056.0
+      ],
+      "reachable": true,
+      "steps": 0,
+      "node": [
+        702.0,
+        1054.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "arrival",
+      "id": "return-heritage<-korea-north",
+      "point": [
+        704.0,
+        1056.0
+      ],
+      "reachable": true,
+      "steps": 0,
+      "node": [
+        702.0,
+        1054.0
+      ],
+      "reason": null
+    }
+  ],
+  "targets": [
+    {
+      "kind": "interaction",
+      "id": "tower",
+      "point": [
+        832.0,
+        656.0
+      ],
+      "reachable": true,
+      "steps": 95,
+      "node": [
+        754.0,
+        710.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "interaction",
+      "id": "viewpoint",
+      "point": [
+        1120.0,
+        744.0
+      ],
+      "reachable": true,
+      "steps": 145,
+      "node": [
+        1058.0,
+        814.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "interaction",
+      "id": "forest",
+      "point": [
+        384.0,
+        816.0
+      ],
+      "reachable": true,
+      "steps": 104,
+      "node": [
+        462.0,
+        870.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "interaction",
+      "id": "return",
+      "point": [
+        704.0,
+        1120.0
+      ],
+      "reachable": true,
+      "steps": 0,
+      "node": [
+        698.0,
+        1050.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "interaction",
+      "id": "directory",
+      "point": [
+        512.0,
+        1168.0
+      ],
+      "reachable": true,
+      "steps": 39,
+      "node": [
+        566.0,
+        1090.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "approach",
+      "id": "tower/approach[0]",
+      "point": [
+        832.0,
+        688.0
+      ],
+      "reachable": true,
+      "steps": 116,
+      "node": [
+        826.0,
+        698.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "approach",
+      "id": "viewpoint/approach[0]",
+      "point": [
+        1120.0,
+        784.0
+      ],
+      "reachable": true,
+      "steps": 164,
+      "node": [
+        1114.0,
+        794.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "approach",
+      "id": "forest/approach[0]",
+      "point": [
+        384.0,
+        848.0
+      ],
+      "reachable": true,
+      "steps": 124,
+      "node": [
+        394.0,
+        858.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "approach",
+      "id": "return/approach[0]",
+      "point": [
+        704.0,
+        1088.0
+      ],
+      "reachable": true,
+      "steps": 4,
+      "node": [
+        698.0,
+        1082.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "approach",
+      "id": "directory/approach[0]",
+      "point": [
+        608.0,
+        1168.0
+      ],
+      "reachable": true,
+      "steps": 44,
+      "node": [
+        618.0,
+        1162.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "exit",
+      "id": "return-heritage",
+      "point": [
+        704.0,
+        1120.0
+      ],
+      "reachable": true,
+      "steps": 6,
+      "node": [
+        698.0,
+        1090.0
+      ],
+      "reason": null
+    }
+  ],
+  "links": [],
+  "thinGaps": [],
+  "unreachablePockets": [],
+  "bundleNav": {
+    "cell": 4,
+    "grid": "nav-grid.json"
+  },
+  "problems": []
+}

@@ -1,3 +1,21 @@
+# LIVING-KOREA — first playable source checkpoint / evidence handoff pending
+
+Final socket visual correction is now tested: north144props/150colliders,23unique timber posts (minimum52px), park35/39,3reciprocal maps and2952path samples PASS. Five targeted actual Phaser flows passed after this correction with0skip/unexpected/flaky, including reciprocal travel with exact north image equality, real stairs/blocking, mobile full-landscape HUD/multi-touch/portrait pause/safeareas/dialogue across568x320,640x360,844x390,932x430.31actual canvas captures +mobile/portrait interfaces saved. Official Forge marker36north+11park routes and52+13assets loaded, noerrors/Y-sort pass. Actor checks skipped on actorless boards explicitly retained; source1123old files/Juni144frames unchanged. Source9cStageA/B CI39088910168 SUCCESS preserved.
+
+First Namsan production done; Stage D still finishes measured performance/actual walkthrough/HTTP-tested ZIP/full regression and independent final checkpoint. No further artwork/districts/NPCs. STOP for visual/gameplay approval after that evidence handoff. Main/Pages/paid APIs/cleanup/delegation remain forbidden. Docs/living-korea has source, exact tool logs, editable masterplan, actual renderer evidence and limits. Do not call a pending source checkpoint fully verified.
+
+## Earlier progress
+
+# LIVING-KOREA — first Namsan playable increment / final QA pending (2026-10-18)
+
+Stage A/B source9c921e351dd77531f30913990ebbf7710d6266e3 pushed, exact CI39088910168 SUCCESS. First Namsan increment now implemented, not the whole southern world. Current north144props/150colliders, park35/39,3reciprocal maps,2952clear public-path samples,1123prior asset/source/lock files unchanged,Juni144frames intact. Source docs/living-korea/{PLAN,STAGE_A,FORGE,HISTORICAL_REFERENCES}. Four actual host image calls;15finished components including retained prior terrace candidate, actual Forge extraction/area finish/shared192palette/nav/Tiled/compose. Targeted real stair edit fixes closed front; bare timber beam runs +23unique socket posts fix duplicate-post clusters (minimum52px). No paid providers/modelprice unexposed/no new actors.
+
+Mobile now full landscape canvas under HUD, portrait rotate-screen with physics pause, explicit fullscreen/orientation request + unsupported fallback, multi-touch hold/run/emote, configurable56/68pxcontrols/safeinsets. Five new Phaser flows passed before final socket adjustment; final socket source/nav/build checks pass; final targeted/full regression/capture/performance/portable/independent Git verification IN PROGRESS. Actual31canvas stills/desktop/mobile/portrait/overview rendered with0errors. No physical-phone/realSafari/60FPSclaim. CDP screencast4sdiagnostic≈60captureFPS is NOT runtime performance proof. Final source facts belong in observed immutable tag, never guessed.
+
+STOP after repaired north + first Namsan review package. Bora Bloom/Busan coast/Jeju remain editable masterplan ONLY; no mass production/main merge/Pages/paid services/cleanup/delegation/separate-app changes. Recovery before work0bde505 retained. Stage D finishes evidence and verified checkpoint next.
+
+## Retained earlier progress
+
 # LIVING-KOREA — Stage A + B checkpoint (2026-10-18)
 
 Stage A repaired north is implemented in separate living-korea-review.html:115props/121colliders/11museum-cluster translations224pxsouth, original1123protected files unchanged. Actual boundary host-image kit6parts +Forge extraction/finish/palette/hash/nav/Tiled/compose and strict painted-seam check executed. Three new actual Phaser browser flows PASS; build/type/lint/format/12unit checked. docs/living-korea/STAGE_A.md and raw failures retained. Missing annotated image disclosed; nine independent native audit poses recorded, no exact-blue-circle correspondence claim.

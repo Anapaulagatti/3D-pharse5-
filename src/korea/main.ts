@@ -1,5 +1,6 @@
 import Phaser from "phaser";
 import { KoreaTown } from "./Town";
+import { NamsanPark } from "./Park";
 import { setupKoreaUI } from "./ui";
 import "./style.css";
 const base = import.meta.env.BASE_URL;
@@ -9,9 +10,9 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 <div id="mini-wrap"><img id="mini-map" src="${base}review/living-korea/north/minimap.png" alt="Bản đồ khu di sản"><span id="map-player"></span></div>
 <div class="hint" id="quest-progress">WASD / ↑↓←→ · Shift chạy · E khám phá</div>
 <div class="touch-controls" aria-label="Điều khiển cảm ứng"><div class="dpad"><button data-x="0" data-y="-1" aria-label="Đi lên">↑</button><button data-x="-1" data-y="0" aria-label="Sang trái">←</button><button data-x="1" data-y="0" aria-label="Sang phải">→</button><button data-x="0" data-y="1" aria-label="Đi xuống">↓</button></div><div class="actions"><button id="wave" aria-label="Chào">Chào</button><button id="celebrate" aria-label="Vui mừng">Vui</button><button id="run" aria-pressed="false">Chạy</button><button id="interact">Khám phá · E</button></div></div>
-<aside id="settings" hidden aria-label="Cài đặt"><h2>Hành trình của bạn</h2><p>Thế giới du lịch giáo dục hư cấu. Các điểm đến ngoài đời nằm ở những vùng khác nhau của Hàn Quốc.</p><label>Tầm nhìn <select id="zoom"><option value="1">1× · Dạo phố</option><option value="2">2× · Chi tiết</option></select></label><label>Nút cảm ứng <select id="control-size"><option value="56">Vừa</option><option value="68">Lớn</option></select></label><label><input type="checkbox" id="motion"> Giảm chuyển động</label><button id="night" aria-pressed="false">Ánh chiều</button><button id="fullscreen">Toàn màn hình ngang</button><a href="?renderer=canvas">Chế độ tương thích Canvas</a><p id="orientation-status" role="status"></p><p id="storage-status" role="status"></p><p id="render-status" role="status"></p><button id="settings-close">Trở lại</button></aside>
+<aside id="settings" hidden aria-label="Cài đặt"><h2>Hành trình của bạn</h2><p>Thế giới du lịch giáo dục hư cấu. Các điểm đến ngoài đời nằm ở những vùng khác nhau của Hàn Quốc.</p><label>Tầm nhìn <select id="zoom"><option value="0.5">Toàn cảnh</option><option value="1">1× · Dạo phố</option><option value="2">2× · Chi tiết</option></select></label><label>Nút cảm ứng <select id="control-size"><option value="56">Vừa</option><option value="68">Lớn</option></select></label><label><input type="checkbox" id="motion"> Giảm chuyển động</label><button id="night" aria-pressed="false">Ánh chiều</button><button id="fullscreen">Toàn màn hình ngang</button><a href="?renderer=canvas">Chế độ tương thích Canvas</a><p id="orientation-status" role="status"></p><p id="storage-status" role="status"></p><p id="render-status" role="status"></p><button id="settings-close">Trở lại</button></aside>
 <div id="dialog" role="dialog" aria-label="Khám phá Hàn Quốc" hidden><div id="dialog-copy"></div><button id="close-dialog">Đóng lời nhắn</button></div>
-<div id="rotate-screen" hidden><span class="rotate-symbol" aria-hidden="true">▯ ↻ ▭</span><h1>Xoay ngang, mở hành trình.</h1><p>Korean Arena được thiết kế để dạo phố theo chiều ngang.</p><button id="enter-landscape">Bắt đầu ở chế độ ngang</button><p id="rotate-note" role="status">Nếu trình duyệt không tự xoay, hãy xoay thiết bị và tắt khóa xoay màn hình.</p></div>
+<div id="travel-veil" role="status" hidden></div><div id="rotate-screen" hidden><span class="rotate-symbol" aria-hidden="true">▯ ↻ ▭</span><h1>Xoay ngang, mở hành trình.</h1><p>Korean Arena được thiết kế để dạo phố theo chiều ngang.</p><button id="enter-landscape">Bắt đầu ở chế độ ngang</button><p id="rotate-note" role="status">Nếu trình duyệt không tự xoay, hãy xoay thiết bị và tắt khóa xoay màn hình.</p></div>
 </main>`;
 const stage = document.querySelector<HTMLDivElement>("#stage")!;
 const overview = new URLSearchParams(location.search).has("overview");
@@ -54,7 +55,7 @@ const game = new Phaser.Game({
   antialias: false,
   antialiasGL: false,
   physics: { default: "arcade", arcade: { debug: false } },
-  scene: [new KoreaTown(), new KoreaTown(true)],
+  scene: [new KoreaTown(), new KoreaTown(true), new NamsanPark()],
   input: { windowEvents: false, activePointers: 4 },
   audio: { noAudio: true },
   banner: false,

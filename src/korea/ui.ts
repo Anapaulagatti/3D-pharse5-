@@ -1,4 +1,6 @@
 import type Phaser from "phaser";
+import type { KoreaTown } from "./Town";
+import type { NamsanPark } from "./Park";
 import { Plaza, controls } from "../game/Plaza";
 import {
   letterLesson,
@@ -80,6 +82,8 @@ export function setupKoreaUI(game: Phaser.Game) {
   };
   $("fullscreen").onclick = () => void orientation();
   $("enter-landscape").onclick = () => void orientation();
+  if (matchMedia("(pointer: coarse)").matches)
+    $("interact").textContent = "Khám phá";
   controls.zoom = 1;
   $("zoom").onchange = (e) => {
     controls.zoom = Number((e.target as HTMLSelectElement).value);
@@ -180,13 +184,51 @@ export function setupKoreaUI(game: Phaser.Game) {
   window.addEventListener("town-dialog", (e) =>
     say((e as CustomEvent<string>).detail),
   );
-  window.addEventListener("korea-travel", () =>
+  window.addEventListener("korea-travel", (e) => {
+    const returning = (e as CustomEvent<string>).detail === "heritage";
     say(
-      "남산 · Namsan. Vườn chuyển tiếp nối khu di sản với công viên trên đồi. Điểm đến đầu tiên đang được chuẩn bị cho vòng duyệt này.",
-    ),
-  );
+      returning
+        ? "Về khu di sản: cung điện, Học viện và phố văn hóa."
+        : "남산 · Namsan — công viên trên đồi ở Seoul. Đây là hành trình du lịch hư cấu, không phải đường đi ngoài đời giữa các địa danh.",
+    );
+    const go = document.createElement("button");
+    go.id = "travel-go";
+    go.textContent = returning ? "Về phố văn hóa" : "Đến công viên Namsan";
+    go.onclick = () => {
+      $("dialog").hidden = true;
+      syncPause();
+      resetInput();
+      $("travel-veil").hidden = false;
+      $("travel-veil").textContent = returning
+        ? "Trở về phố văn hóa…"
+        : "Theo đường rừng, đến Namsan…";
+      const active = game.scene.getScenes(true)[0];
+      if (returning) (active as NamsanPark).returnToHeritage();
+      else (active as KoreaTown).travelToNamsan();
+    };
+    $("dialog-copy").append(document.createElement("br"), go);
+    if (!returning) {
+      const note = document.createElement("p");
+      note.textContent =
+        "Các hành trình tương lai: Bora Bloom Park · Blue Letter Coast (Busan) · Windstone Garden (Jeju). Chưa mở trong bản duyệt này.";
+      $("dialog-copy").append(note);
+    }
+  });
+  window.addEventListener("korea-scenic-view", () => {
+    const button = document.createElement("button");
+    button.id = "scenic-view";
+    button.textContent = "Ngắm toàn cảnh";
+    button.onclick = () => {
+      controls.zoom = 0.5;
+      ($("zoom") as HTMLSelectElement).value = "0.5";
+      $("dialog").hidden = true;
+      syncPause();
+    };
+    $("dialog-copy").append(button);
+  });
   window.addEventListener("game-ready", () => {
     $("loading")?.remove();
+    $("travel-veil").hidden = true;
     $("render-status").textContent = "Hành trình đã sẵn sàng · Chơi cục bộ";
     syncPause();
   });
@@ -202,7 +244,9 @@ export function setupKoreaUI(game: Phaser.Game) {
   const status = () => {
     $("quest-progress").textContent = progress.mastered.length
       ? `Hangul · ${progress.mastered.length}/3 tên chữ đã khám phá`
-      : "WASD / ↑↓←→ · Shift chạy · E khám phá";
+      : matchMedia("(pointer: coarse)").matches
+        ? "Giữ hướng / Chạy · Chạm Khám phá"
+        : "WASD / ↑↓←→ · Shift chạy · E khám phá";
   };
   status();
   window.addEventListener("district-position", (e) => {
@@ -211,8 +255,19 @@ export function setupKoreaUI(game: Phaser.Game) {
     ).detail;
     $("district-location").textContent = p.location;
     const room = p.area === "room";
-    $("map-player").style.left = ((room ? 544 : p.x) / 2304) * 100 + "%";
-    $("map-player").style.top = ((room ? 1152 : p.y) / 2240) * 100 + "%";
+    const park = window.__KOREA__?.district === "namsan";
+    const map = $("mini-map") as HTMLImageElement;
+    const file =
+      import.meta.env.BASE_URL +
+      "review/living-korea/" +
+      (park ? "park/" : "north/") +
+      "minimap.png";
+    if (map.getAttribute("src") !== file) map.src = file;
+    map.alt = park ? "Bản đồ công viên Namsan" : "Bản đồ khu di sản";
+    $("map-player").style.left =
+      ((room ? 544 : p.x) / (park ? 1408 : 2304)) * 100 + "%";
+    $("map-player").style.top =
+      ((room ? 1152 : p.y) / (park ? 1280 : 2240)) * 100 + "%";
   });
   let index = 0;
   const render = () => {

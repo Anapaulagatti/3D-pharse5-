@@ -13,7 +13,7 @@
       "id": "starts_valid",
       "status": "pass",
       "value": {
-        "starts": 4,
+        "starts": 5,
         "blocked": []
       },
       "threshold": {
@@ -24,8 +24,8 @@
       "id": "targets_reachable",
       "status": "pass",
       "value": {
-        "reachable": 35,
-        "total": 35,
+        "reachable": 36,
+        "total": 36,
         "unreachable": []
       },
       "threshold": {
@@ -58,6 +58,7 @@
       "value": {
         "links": [],
         "notChecked": [
+          "korea-namsan",
           "korea-reading-room"
         ]
       },
@@ -84,8 +85,8 @@
       "id": "blocked_rects_union",
       "status": "pass",
       "value": {
-        "rects": 367,
-        "blockedCells": 77816
+        "rects": 404,
+        "blockedCells": 78591
       },
       "threshold": "union == blocked cells"
     },
@@ -101,8 +102,8 @@
   "inputs": [
     {
       "path": "../../../../assets-src/living-korea/north/outdoor-bundle.json",
-      "sha256": "a450feb8147e8cb133fd179404d2425e13aecb0ad00a84437e6aacd7897a4bc4",
-      "bytes": 119978
+      "sha256": "a946625c880b4e22b4854d6f857154ce0d74a8f8f08a0db50ec6088b24771258",
+      "bytes": 143249
     },
     {
       "path": "../../../../assets-src/living-korea/north/tileset.json",
@@ -391,50 +392,65 @@
     },
     {
       "path": "../../../../assets-src/living-korea/north/props/work-front-west.png",
-      "sha256": "3a7b1b8d74a671fac7f9eb90434aeb6182de3324aa234753b2953112b157ca3d",
-      "bytes": 4918
+      "sha256": "4c2ab4a1e0ac17a32491a77cc1357b4ca92a5ba7ce505a0fa63614871758df6e",
+      "bytes": 1241
     },
     {
       "path": "../../../../assets-src/living-korea/north/props/work-front-east.png",
-      "sha256": "af3cab5e6a2386686970947927cdc4afa8d135e5fb6eb6c45ac99f4d88aff84f",
-      "bytes": 6734
+      "sha256": "1936a0abf6d6ea700a7e9a3dcb007b5d92f69078238f257dbfdd295a6b5703b0",
+      "bytes": 1506
     },
     {
       "path": "../../../../assets-src/living-korea/north/props/work-west-rear.png",
-      "sha256": "cdc71cc6aa99ea290e20a53c6799fdf9551420f823a1d280a140249e4298ac03",
-      "bytes": 4121
+      "sha256": "9bd163aba55054826122bccdcfd048879cecec22934399503903c1bf89d1b3dc",
+      "bytes": 629
     },
     {
       "path": "../../../../assets-src/living-korea/north/props/work-west-front.png",
-      "sha256": "0898dfb49dea57a29dfb2f0465603bc501b5f65cd25b8ea8a47baf827d52e2d3",
-      "bytes": 4095
+      "sha256": "174207af11b35308f03197fd0cb9ce31a9a4ac3bd4e543625c9915319c8edd84",
+      "bytes": 614
     },
     {
       "path": "../../../../assets-src/living-korea/north/props/work-east.png",
-      "sha256": "2a693f8a1591ccaff7118c20f136cecab254208f159c3074d98d9b640ce6ed5b",
-      "bytes": 4412
+      "sha256": "42c61e3ed61bd5b4e9184124cf0b1afa0c630c9cdfdb36b52386c4ea7efb2add",
+      "bytes": 863
     },
     {
       "path": "../../../../assets-src/living-korea/north/props/work-rear-east.png",
-      "sha256": "712734acf12d0c7f1147a86679e4a742cbaa6eccf497be5ad4fd23b815b55580",
-      "bytes": 6217
+      "sha256": "ac35ede4a7e88c40236076b49d57fbeee2c3ba76ee689d26efc6b2ac6f9741ab",
+      "bytes": 1304
+    },
+    {
+      "path": "../../../../assets-src/living-korea/north/props/kr-timber-cap.png",
+      "sha256": "adabda0760c159c71c680f461cee8eb0ed90be3fab29e9e4a2cb55dba152da15",
+      "bytes": 1241
     },
     {
       "path": "../../../../assets-src/living-korea/props/kr-pier.png",
       "sha256": "5f43c28638950727a5bc58cee814155cdeb8a49ebe9945e5235f6b6be8e93201",
       "bytes": 4772
+    },
+    {
+      "path": "../../../../assets-src/living-korea/props/kr-directory.png",
+      "sha256": "77df4e8ae69360d22a2345700d41ac45f2ce8828ab7b3f4b0fbee1d3a75f31fe",
+      "bytes": 27066
+    },
+    {
+      "path": "../../../../assets-src/living-korea/props/kr-rest.png",
+      "sha256": "42b5ff07bf41de69617e492b0c335cf0c616ac0e0023fa45498571c3997d8686",
+      "bytes": 26093
     }
   ],
   "outputs": [
     {
       "path": "nav-grid.json",
-      "sha256": "73ae4ebcd5eefa07abc5c5444af7ca997ad89e6b98ae5c91f21111fcb4b4974d",
-      "bytes": 675349
+      "sha256": "e4f732a5e641ecb433662e874029a763f722da2480b85adce9a0a04bcbbff759",
+      "bytes": 677372
     },
     {
       "path": "nav-debug.png",
-      "sha256": "60d937cd8941a308421eced056ce02a954879f40753f8d1c47fef6d3aefae312",
-      "bytes": 4703692
+      "sha256": "336131598339c5f12a0cae10652e168e20761edae3deb4c40dc216da9d73be17",
+      "bytes": 4748542
     }
   ],
   "tool": {
@@ -479,13 +495,13 @@
       "id": "travel-return",
       "point": [
         1152.0,
-        2048.0
+        2016.0
       ],
       "reachable": true,
       "steps": 0,
       "node": [
         1150.0,
-        2046.0
+        2014.0
       ],
       "reason": null
     },
@@ -501,6 +517,21 @@
       "node": [
         542.0,
         1150.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "arrival",
+      "id": "to-namsan<-korea-namsan",
+      "point": [
+        1152.0,
+        2016.0
+      ],
+      "reachable": true,
+      "steps": 0,
+      "node": [
+        1150.0,
+        2014.0
       ],
       "reason": null
     }
@@ -649,7 +680,7 @@
         1472.0
       ],
       "reachable": true,
-      "steps": 227,
+      "steps": 219,
       "node": [
         1554.0,
         1526.0
@@ -694,7 +725,7 @@
         1696.0
       ],
       "reachable": true,
-      "steps": 270,
+      "steps": 262,
       "node": [
         1890.0,
         1690.0
@@ -709,7 +740,7 @@
         1840.0
       ],
       "reachable": true,
-      "steps": 176,
+      "steps": 168,
       "node": [
         590.0,
         1894.0
@@ -739,7 +770,7 @@
         1664.0
       ],
       "reachable": true,
-      "steps": 72,
+      "steps": 64,
       "node": [
         1146.0,
         1754.0
@@ -757,7 +788,7 @@
       "steps": 0,
       "node": [
         1146.0,
-        2042.0
+        2010.0
       ],
       "reason": null
     },
@@ -904,7 +935,7 @@
         1536.0
       ],
       "reachable": true,
-      "steps": 240,
+      "steps": 232,
       "node": [
         1626.0,
         1546.0
@@ -952,7 +983,7 @@
       "steps": 204,
       "node": [
         1978.0,
-        2042.0
+        2026.0
       ],
       "reason": null
     },
@@ -964,7 +995,7 @@
         1872.0
       ],
       "reachable": true,
-      "steps": 196,
+      "steps": 188,
       "node": [
         522.0,
         1882.0
@@ -994,7 +1025,7 @@
         1664.0
       ],
       "reachable": true,
-      "steps": 96,
+      "steps": 88,
       "node": [
         1130.0,
         1674.0
@@ -1009,7 +1040,7 @@
         2048.0
       ],
       "reachable": true,
-      "steps": 0,
+      "steps": 4,
       "node": [
         1146.0,
         2042.0
@@ -1028,6 +1059,21 @@
       "node": [
         538.0,
         1134.0
+      ],
+      "reason": null
+    },
+    {
+      "kind": "exit",
+      "id": "to-namsan",
+      "point": [
+        1152.0,
+        2080.0
+      ],
+      "reachable": true,
+      "steps": 6,
+      "node": [
+        1146.0,
+        2050.0
       ],
       "reason": null
     }

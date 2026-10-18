@@ -1,0 +1,895 @@
+{
+  "schema": "generate2dmap.compose_audit.v1",
+  "status": "pass",
+  "method": "compose_layered_preview placement audit: actor feet by forge_nav rule N9 at the placement positions (with --bundle on the bundle's D2 blocking set in world pixels, else on the canvas, stage ground polygons and solid placement footprints, closed sets), prop feet as points in the walk area, solid footprints rasterised at pixel centres, occlusion from the draw-index owner map at alpha > 16.",
+  "notProven": [
+    "Feet are tested at the placement positions: actors with the forge_nav rules (centre and 8 footprint samples), on the bundle's blocking set with --bundle (D2), else on the canvas, stage ground polygons and solid placement footprints; props as points. Reachability between points is map_nav's job.",
+    "Overlaps are checked only between footprints from prop-pack manifests or placements; placements without a footprint are counted, not checked.",
+    "Occlusion is measured on the flattened preview at alpha > 16; runtime sorting, animation, camera, lighting and scale are not simulated.",
+    "The preview is not proof that the art reads well at gameplay scale; look at it."
+  ],
+  "checks": [
+    {
+      "id": "actor_feet_valid",
+      "status": "skipped",
+      "value": {
+        "checked": 0,
+        "invalid": [],
+        "actor_radius_px": 8.0,
+        "y_squash": 0.5,
+        "model": "bundle",
+        "collision": "forge_nav D2 blocking set of outdoor-bundle.json"
+      },
+      "threshold": "forge_nav rule N9: the foot and 8 footprint samples in the walk area and off every blocker (with --bundle the bundle's D2 blocking set, as map_nav.py judges it)"
+    },
+    {
+      "id": "actor_feet_off_placement_footprints",
+      "status": "skipped",
+      "value": {
+        "checked": 0,
+        "actors": []
+      },
+      "threshold": "placement footprints are compose-only (the bundle's blocking set decides validity, D2); an actor standing in one is reported so the prop can be added to the bundle"
+    },
+    {
+      "id": "feet_in_walk_area",
+      "status": "pass",
+      "value": {
+        "checked": 35,
+        "outside": [],
+        "walk_area": "outdoor-bundle.json collision.walkRegions"
+      },
+      "threshold": "foot inside a walk area"
+    },
+    {
+      "id": "bounds",
+      "status": "pass",
+      "value": {
+        "off_canvas": [],
+        "clipped": [],
+        "empty": []
+      },
+      "threshold": "visible pixels (alpha > 16) inside the canvas"
+    },
+    {
+      "id": "footprint_overlaps",
+      "status": "skipped",
+      "value": {
+        "pairs": [],
+        "checked": 0,
+        "without_footprint": 35
+      },
+      "threshold": "solid footprints do not overlap"
+    },
+    {
+      "id": "duplicate_placements",
+      "status": "pass",
+      "value": [],
+      "threshold": "no two placements of the same image at the same point"
+    },
+    {
+      "id": "actors_visible",
+      "status": "skipped",
+      "value": {
+        "hidden": []
+      },
+      "threshold": "no actor fully covered by later draws"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../../assets-src/living-korea/park/layers/base.png",
+      "sha256": "fd820d7c1bfe4d5435631049fce69b54939f395afd70f6eac8be64be999228d6",
+      "bytes": 883492
+    },
+    {
+      "path": "../../../../assets-src/living-korea/park/placements.json",
+      "sha256": "e1363f2d3b4d0329971df0482bdba45856b26ecc53176f69742fe4130baf764f",
+      "bytes": 7441
+    },
+    {
+      "path": "../../../../assets-src/living-korea/props/kr-tower-shaft.png",
+      "sha256": "ba002001819284225113c8f4eb8ed4d0a3884a032d39c836e8e12b563facbcea",
+      "bytes": 31692
+    },
+    {
+      "path": "../../../../assets-src/living-korea/props/kr-tower-pavilion.png",
+      "sha256": "65aa2a97e5810c5ab41cee1afe8d87276947ae21c0c1d94d35be2fe6c7de55be",
+      "bytes": 126936
+    },
+    {
+      "path": "../../../../assets-src/living-korea/props/kr-directory.png",
+      "sha256": "77df4e8ae69360d22a2345700d41ac45f2ce8828ab7b3f4b0fbee1d3a75f31fe",
+      "bytes": 27066
+    },
+    {
+      "path": "../../../../assets-src/living-korea/props/kr-overlook-access.png",
+      "sha256": "6f1e2608b04254124866b29fbcabeb4eecab5ee9af793b627543ccf92690fa0a",
+      "bytes": 58486
+    },
+    {
+      "path": "../../../../assets-src/living-korea/props/kr-telescope.png",
+      "sha256": "2691a42f02be0c747415c4e95ac75b39f63228b19b98d420e8f5860478231096",
+      "bytes": 6851
+    },
+    {
+      "path": "../../../../assets-src/living-korea/props/kr-cliff.png",
+      "sha256": "b6a563d539023f12a92b371971c1c8e9891c9ac02062c5feb1f82cc7eed780ad",
+      "bytes": 37800
+    },
+    {
+      "path": "../../../../assets-src/living-korea/props/kr-pine.png",
+      "sha256": "c235c9f43c2975d1cbba156c69a9f4ec4fa186e3986e00c77fb76a2dc30d3b9c",
+      "bytes": 70180
+    },
+    {
+      "path": "../../../../assets-src/gwanghwamun/props/tree.png",
+      "sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "bytes": 40364
+    },
+    {
+      "path": "../../../../assets-src/gwanghwamun/props/ginkgo.png",
+      "sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "bytes": 48819
+    },
+    {
+      "path": "../../../../assets-src/living-korea/props/kr-rest.png",
+      "sha256": "42b5ff07bf41de69617e492b0c335cf0c616ac0e0023fa45498571c3997d8686",
+      "bytes": 26093
+    },
+    {
+      "path": "../../../../assets-src/stage-b-polish/props/polish-flowers.png",
+      "sha256": "44309376cabcf76885d28eeb03960fe9517657fed23b0a2ce59ffc97e12a11b8",
+      "bytes": 8162
+    },
+    {
+      "path": "../../../../assets-src/living-korea/park/outdoor-bundle.json",
+      "sha256": "6303199a1e8cb3c0f6086d0dd45696df3f8993654122583ab38c0027af5e6468",
+      "bytes": 35891
+    }
+  ],
+  "outputs": [
+    {
+      "path": "preview.png",
+      "sha256": "7afa24e97b88de44a06a82019fca38b06468082374c0a61aa5a17647ebfe29be",
+      "bytes": 2046665
+    }
+  ],
+  "tool": {
+    "name": "compose_layered_preview",
+    "version": "0.4.0"
+  },
+  "placements": [
+    {
+      "id": "park-4",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 0,
+      "foot": [
+        1120.0,
+        816.0
+      ],
+      "visible_bounds": [
+        976,
+        688,
+        1265,
+        816
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.1668600286630724,
+      "occluded_by": [
+        "park-22",
+        "park-5"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "park-12",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 1,
+      "foot": [
+        448.0,
+        224.0
+      ],
+      "visible_bounds": [
+        296,
+        57,
+        601,
+        224
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.13615301192940946,
+      "occluded_by": [
+        "park-13",
+        "park-11"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "park-11",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 2,
+      "foot": [
+        192.0,
+        256.0
+      ],
+      "visible_bounds": [
+        40,
+        89,
+        345,
+        256
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "park-13",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 3,
+      "foot": [
+        640.0,
+        256.0
+      ],
+      "visible_bounds": [
+        488,
+        89,
+        793,
+        256
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "park-14",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 4,
+      "foot": [
+        1120.0,
+        256.0
+      ],
+      "visible_bounds": [
+        968,
+        89,
+        1273,
+        256
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "park-24",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 5,
+      "foot": [
+        544.0,
+        480.0
+      ],
+      "visible_bounds": [
+        392,
+        313,
+        697,
+        480
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "park-8",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 6,
+      "foot": [
+        1008.0,
+        480.0
+      ],
+      "visible_bounds": [
+        896,
+        387,
+        1121,
+        480
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.6562786434463794,
+      "occluded_by": [
+        "park-23",
+        "park-15",
+        "park-2"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "park-23",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 7,
+      "foot": [
+        1088.0,
+        480.0
+      ],
+      "visible_bounds": [
+        936,
+        313,
+        1241,
+        480
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.3077327549377239,
+      "occluded_by": [
+        "park-15"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "park-16",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 8,
+      "foot": [
+        224.0,
+        496.0
+      ],
+      "visible_bounds": [
+        72,
+        329,
+        377,
+        496
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.41716783331690166,
+      "occluded_by": [
+        "park-28"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "park-28",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 9,
+      "foot": [
+        160.0,
+        512.0
+      ],
+      "visible_bounds": [
+        68,
+        319,
+        253,
+        511
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "park-15",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 10,
+      "foot": [
+        1216.0,
+        512.0
+      ],
+      "visible_bounds": [
+        1064,
+        345,
+        1369,
+        512
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "park-1",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 11,
+      "foot": [
+        832.0,
+        536.0
+      ],
+      "visible_bounds": [
+        770,
+        196,
+        894,
+        536
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.21064328187879153,
+      "occluded_by": [
+        "park-2"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "park-6",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 12,
+      "foot": [
+        448.0,
+        608.0
+      ],
+      "visible_bounds": [
+        336,
+        515,
+        561,
+        608
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "park-2",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 13,
+      "foot": [
+        832.0,
+        672.0
+      ],
+      "visible_bounds": [
+        632,
+        463,
+        1033,
+        672
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.06127800524451396,
+      "occluded_by": [
+        "park-32",
+        "park-33"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "park-9",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 14,
+      "foot": [
+        1248.0,
+        640.0
+      ],
+      "visible_bounds": [
+        1136,
+        547,
+        1361,
+        640
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "park-32",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 15,
+      "foot": [
+        688.0,
+        672.0
+      ],
+      "visible_bounds": [
+        656,
+        605,
+        720,
+        672
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "park-33",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 16,
+      "foot": [
+        976.0,
+        672.0
+      ],
+      "visible_bounds": [
+        944,
+        605,
+        1008,
+        672
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "park-17",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 17,
+      "foot": [
+        192.0,
+        736.0
+      ],
+      "visible_bounds": [
+        40,
+        569,
+        345,
+        736
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "park-5",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 18,
+      "foot": [
+        1120.0,
+        744.0
+      ],
+      "visible_bounds": [
+        1092,
+        648,
+        1149,
+        744
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "park-29",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 19,
+      "foot": [
+        352.0,
+        896.0
+      ],
+      "visible_bounds": [
+        233,
+        751,
+        471,
+        896
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.2744639912039582,
+      "occluded_by": [
+        "park-18"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "park-10",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 20,
+      "foot": [
+        960.0,
+        928.0
+      ],
+      "visible_bounds": [
+        848,
+        835,
+        1073,
+        928
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "park-22",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 21,
+      "foot": [
+        1248.0,
+        928.0
+      ],
+      "visible_bounds": [
+        1096,
+        761,
+        1401,
+        928
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.02724374774064215,
+      "occluded_by": [
+        "park-31"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "park-18",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 22,
+      "foot": [
+        224.0,
+        992.0
+      ],
+      "visible_bounds": [
+        72,
+        825,
+        377,
+        992
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 9.859016070196194e-05,
+      "occluded_by": [
+        "park-25"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "park-31",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 23,
+      "foot": [
+        1216.0,
+        1008.0
+      ],
+      "visible_bounds": [
+        1097,
+        863,
+        1335,
+        1008
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.4455057724024189,
+      "occluded_by": [
+        "park-21",
+        "park-27"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "park-7",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 24,
+      "foot": [
+        352.0,
+        1088.0
+      ],
+      "visible_bounds": [
+        240,
+        995,
+        465,
+        1088
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.5384313211994238,
+      "occluded_by": [
+        "park-19",
+        "park-25",
+        "park-3"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "park-21",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 25,
+      "foot": [
+        1216.0,
+        1120.0
+      ],
+      "visible_bounds": [
+        1064,
+        953,
+        1369,
+        1120
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.35676492819349964,
+      "occluded_by": [
+        "park-27",
+        "park-20"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "park-19",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 26,
+      "foot": [
+        448.0,
+        1152.0
+      ],
+      "visible_bounds": [
+        296,
+        985,
+        601,
+        1152
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.36655821748989453,
+      "occluded_by": [
+        "park-3"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "park-30",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 27,
+      "foot": [
+        960.0,
+        1152.0
+      ],
+      "visible_bounds": [
+        841,
+        1007,
+        1079,
+        1152
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.7713716327652557,
+      "occluded_by": [
+        "park-20",
+        "park-26"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "park-34",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 28,
+      "foot": [
+        656.0,
+        1160.0
+      ],
+      "visible_bounds": [
+        624,
+        1093,
+        688,
+        1160
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.017191977077363897,
+      "occluded_by": [
+        "park-26"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "park-35",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 29,
+      "foot": [
+        800.0,
+        1160.0
+      ],
+      "visible_bounds": [
+        768,
+        1093,
+        832,
+        1160
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.9906876790830945,
+      "occluded_by": [
+        "park-26"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "park-3",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 30,
+      "foot": [
+        512.0,
+        1168.0
+      ],
+      "visible_bounds": [
+        432,
+        1039,
+        592,
+        1168
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "park-25",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 31,
+      "foot": [
+        192.0,
+        1184.0
+      ],
+      "visible_bounds": [
+        100,
+        991,
+        285,
+        1183
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "park-20",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 32,
+      "foot": [
+        992.0,
+        1184.0
+      ],
+      "visible_bounds": [
+        840,
+        1017,
+        1145,
+        1184
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0058496828683164085,
+      "occluded_by": [
+        "park-26"
+      ],
+      "footprint": null
+    },
+    {
+      "id": "park-27",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 33,
+      "foot": [
+        1280.0,
+        1200.0
+      ],
+      "visible_bounds": [
+        1188,
+        1007,
+        1373,
+        1199
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    },
+    {
+      "id": "park-26",
+      "kind": "prop",
+      "band": "world",
+      "draw_index": 34,
+      "foot": [
+        768.0,
+        1216.0
+      ],
+      "visible_bounds": [
+        668,
+        1005,
+        868,
+        1215
+      ],
+      "foot_walkable": true,
+      "occluded_fraction": 0.0,
+      "footprint": null
+    }
+  ],
+  "overlaps": [],
+  "walk_area": "outdoor-bundle.json collision.walkRegions"
+}
