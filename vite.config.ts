@@ -14,6 +14,7 @@ export default defineConfig({
         districtReview: "district-review.html",
         productionReview: "production-review.html",
         refinementReview: "refinement-review.html",
+        livingKoreaReview: "living-korea-review.html",
       },
     },
   },

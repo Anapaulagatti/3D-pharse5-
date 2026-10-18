@@ -1,0 +1,37 @@
+[WebServer] (node:14006) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:14030) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/e2e/living-korea.spec.ts:20:1 › repaired palace side returns block at former floating gates, main gate still opens safely (6.9s)
+  ✓  2 tests/e2e/living-korea.spec.ts:44:1 › academy true entrance and retained lesson survive; museum cross-lane is now physically clear (5.8s)
+  ✘  3 tests/e2e/living-korea.spec.ts:70:1 › landscape touch is multi-pointer, rotates/pauses cleanly and preserves user pause (2.2s)
+
+
+  1) tests/e2e/living-korea.spec.ts:70:1 › landscape touch is multi-pointer, rotates/pauses cleanly and preserves user pause
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      115 |     });
+      116 |     await page.waitForTimeout(150);
+    > 117 |     expect(await page.evaluate(() => window.__PIXEL_METRICS__!.moving)).toBe(
+          |                                                                         ^
+      118 |       true,
+      119 |     );
+      120 |     await client.send("Input.dispatchTouchEvent", {
+        at /workspace/3D-pharse5-/tests/e2e/living-korea.spec.ts:117:73
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/living-korea-landscape-tou-079d5-ly-and-preserves-user-pause/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/living-korea-landscape-tou-079d5-ly-and-preserves-user-pause/error-context.md
+
+  1 failed
+    tests/e2e/living-korea.spec.ts:70:1 › landscape touch is multi-pointer, rotates/pauses cleanly and preserves user pause
+  2 passed (16.3s)

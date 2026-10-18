@@ -1,3 +1,17 @@
+# LIVING-KOREA — Stage A + B checkpoint (2026-10-18)
+
+Stage A repaired north is implemented in separate living-korea-review.html:115props/121colliders/11museum-cluster translations224pxsouth, original1123protected files unchanged. Actual boundary host-image kit6parts +Forge extraction/finish/palette/hash/nav/Tiled/compose and strict painted-seam check executed. Three new actual Phaser browser flows PASS; build/type/lint/format/12unit checked. docs/living-korea/STAGE_A.md and raw failures retained. Missing annotated image disclosed; nine independent native audit poses recorded, no exact-blue-circle correspondence claim.
+
+Stage B southern-masterplan JSON/SVG/PNG complete: heritage/cultural travel hub→first Namsan increment; original entertainment/Busan coastal rail/Jeju destinations PLANNED ONLY.1439route planning samples (not actual future game navigation), two initial reserved-mass conflicts fixed without relaxed clearance. No claim all four destinations are built. Stage C starts ONLY first Namsan original tower/park review increment, then full QA and STOP before mass southern production. Mobile landscape candidate already supports portrait rotate/pause, multi-touch and control-size/safeareas; physical Android/iOS unmeasured. No paid providers/main merge/publication/delegation/cleanup; recovery tags/oldentry/Juni144frames preserved.
+
+## Retained previous progress
+
+# LIVING-KOREA-EXPANSION-001 — IN PROGRESS (2026-10-18)
+
+New authority docs/current/LIVING_KOREA_EXPANSION.md. Recovery/before-living-korea-expansion-20261018 pushed/peeled→0bde505. Scope docs/living-korea/PLAN.md: northern repairs, four-destination southern planning, FIRST Namsan playable increment and mandatory mobile landscape; stop before mass-producing all southern areas. Missing annotated blue-circle screenshot disclosed; numbered rendered audit instead. Existing Juni144frames/oldart/source/entries/main/Pages preserved. No paid API/publication/main merge/delegation/cleanup. Actual Forge skills read at5324342, doctor0FAIL/0WARN/7optionalMISSING; host image route available, video generation absent. No art/runtime/test completion claimed yet.
+
+## Retained earlier checkpoint history
+
 # LIVING-SEOUL-REFINEMENT-001 — final technical review complete / visual approval pending
 
 Both queued tasks implemented: Stage B final polish verified at97c7d6b, then the user-authorized compact Living Seoul refinement. Current review: docs/world-refinement/REVIEW.md and verification.json; exact FINAL source/remoteCI/independent-checkout observations belong in immutable checkpoint/living-seoul-refinement-verified-20261016 AFTER observation. Pre-wall8d7 passed CI38901947317 and independent12unit/21browser; preserve it as recovery, not artistic approval.

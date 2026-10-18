@@ -1,3 +1,9 @@
+# LIVING-KOREA-EXPANSION-001 — current user authority (2026-10-18)
+
+Read docs/current/LIVING_KOREA_EXPANSION.md completely. Latest user authorizes northern boundary/spacing repairs, southern four-destination planning, FIRST reviewable playable Namsan increment and mandatory landscape mobile. Prior review STOP is superseded ONLY in this scope. Stop before mass-producing the entire south: entertainment/Busan/Jeju are planned, not final-produced this increment. Preserve Juni144frames/all approved pixels/old review entries/source/main/Pages. No paid APIs/main merge/public deployment/delegation/reset/force/worktree/cleanup/separate-app edits. Recovery before edits recovery/before-living-korea-expansion-20261018 ->0bde505; independently verify remote. Actual Forge skills required; record tools/warnings. Annotated blue-circle image was NOT attached to latest message: audit numbered defects from existing rendered map, never claim exact annotation correspondence. Setup validates stored assets only, never generates.
+
+## Retained earlier instructions / history
+
 # STOP — final Living Seoul review awaits user approval
 
 Read docs/world-refinement/REVIEW.md, verification.json, FORGE.md/PERFORMANCE.md and actual checkpoint/living-seoul-refinement-verified-20261016 AFTER observation. Final149placements/124statics,1440painted closed-wall pixels, root12unit+21browser,202fileHTTP ZIP, genuine49.30FPSaverageVFR/4677frames/94.861s proof. Both queued tasks complete locally; exact final SHA/CI/independent-checkout facts belong in verified tag. Pre-wall8d7 is recoverable and passed independent checks, but latest joins and QA-frame synchronization supersede it. Stop before further modern/NPC art/main merge/deploy/paidAPI/cleanup/delegation/reset/force/worktree. Setup never generates; preserve old483files/Juni144frames/main/Pages. Finish checkpoint handoff only.
