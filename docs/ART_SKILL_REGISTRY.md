@@ -151,3 +151,7 @@ Latest docs/current/URBAN_PLANNING_REFINEMENT.md provisionally accepts overall z
 ## Latest production authority (2026-10-16)
 
 User APPROVES refined masterplan in docs/current/BUILD_LIVING_SEOUL.md. Execute Stage A architecture bible and FIRST playable Stage B using actual original host images/Forge extraction/finish/palette/map/nav/Tiled and existing Juni/Phaser workflow. Earlier planning-only holds superseded for this scope. First northern block4096×1728retains approved world coordinates; remaining southern buildings/NPC animation wait for visual approval. Record actual tool commands/outputs, provenance, all QA limits. No paid routes or automatic Pages/main publication.
+
+## V4 focused compound readability (2026-10-19)
+
+Latest docs/current/V4_MAP_READABILITY.md authorizes targeted road joints and open southern frontage/boundary polish only. Actual pinnedForge5324342 map/sprite/media SKILL.md read, proven Gwanghwamun/Juni records reused. One original host-image kit: six low boundary props; actual measured extraction/single-still finish/shared palette/map hash/nav/Tiled/compose. No new character/landmark/terrain image or paid provider route. Existing RGB textures reused; no codeart map substitute. Preserve old source/runtime entries, all406placements/621colliders/Juni144frames and northern/island pixels. New32physical boundary feet retain45clear routes. All visual acceptance remains pending; final evidence/checkpoint readback required. Setup never generates; no main/publication/delegation.

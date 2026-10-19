@@ -1,4 +1,8 @@
 import Phaser from "phaser";
+import v4World from "../../assets-src/v4-readability/map/world.json";
+import v4Bundle from "../../assets-src/v4-readability/map/outdoor-bundle.json";
+import v4Anchors from "../../public/review/v4-readability/world/anchors.json";
+import v4Water from "../../assets-src/v4-readability/water.json";
 import { JuniScene } from "../refinement/JuniScene";
 import { controls } from "../game/Plaza";
 import originalWorld from "../../assets-src/v3-final/map/world.json";
@@ -13,16 +17,29 @@ import roomAnchors from "../../public/review/living-seoul/room/anchors.json";
 import originalWater from "../../assets-src/v3-final/water.json";
 import streetWater from "../../assets-src/modern-streets/water.json";
 import stops from "../../assets-src/v3-final/stops.json";
+export const v4Review = location.pathname.endsWith(
+  "v4-readability-review.html",
+);
 export const streetReview = location.pathname.endsWith(
   "modern-streets-review.html",
 );
-export const worldAssetRoot = streetReview
-  ? "review/modern-streets/world/"
-  : "review/v3-final/world/";
-const world = streetReview ? streetWorld : originalWorld;
-const bundle = streetReview ? streetBundle : originalBundle;
-const anchors = streetReview ? streetAnchors : originalAnchors;
-const water = streetReview ? streetWater : originalWater;
+export const worldAssetRoot = v4Review
+  ? "review/v4-readability/world/"
+  : streetReview
+    ? "review/modern-streets/world/"
+    : "review/v3-final/world/";
+const world = v4Review ? v4World : streetReview ? streetWorld : originalWorld;
+const bundle = v4Review
+  ? v4Bundle
+  : streetReview
+    ? streetBundle
+    : originalBundle;
+const anchors = v4Review
+  ? v4Anchors
+  : streetReview
+    ? streetAnchors
+    : originalAnchors;
+const water = v4Review ? v4Water : streetReview ? streetWater : originalWater;
 const waterByTile = new Map<number, number[]>();
 for (const frames of water.frames)
   for (const id of frames) waterByTile.set(id, frames);
@@ -476,7 +493,11 @@ export class FullWorld extends JuniScene {
     };
     window.__V3_WORLD__ = {
       discoveryFound: basaltFound,
-      candidate: streetReview ? "modern-streets" : "v3-final",
+      candidate: v4Review
+        ? "v4-readability"
+        : streetReview
+          ? "modern-streets"
+          : "v3-final",
     };
     if (window.__PLAZA_REVIEW__)
       window.__PLAZA_REVIEW__.environmentClock = this.clock;
