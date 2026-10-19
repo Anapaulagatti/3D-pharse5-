@@ -1,0 +1,325 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/3D-pharse5-/node_modules/.bin/playwright",
+      "test",
+      "tests/e2e/v6-restructure.spec.ts"
+    ],
+    "configFile": "/workspace/3D-pharse5-/playwright.config.ts",
+    "rootDir": "/workspace/3D-pharse5-/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/3D-pharse5-/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/workspace/3D-pharse5-/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/workspace/3D-pharse5-/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/workspace/3D-pharse5-/tests/e2e",
+        "snapshotDir": "/workspace/3D-pharse5-/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 120000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4201/3D-pharse5-/",
+          "headless": true,
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--use-gl=angle",
+              "--use-angle=swiftshader",
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "screenshot": "only-on-failure",
+          "video": "off"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": ".cache/v6-targeted/e2e-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://127.0.0.1:4201/3D-pharse5-/",
+      "reuseExistingServer": true,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "v6-restructure.spec.ts",
+      "file": "v6-restructure.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "V6 actual relocation preserves north and routes all five districts",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 241022,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 240000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 240000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 240000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/workspace/3D-pharse5-/tests/e2e/v6-restructure.spec.ts",
+                        "column": 44,
+                        "line": 213
+                      },
+                      "message": "Error: keyboard.up: Target page, context or browser has been closed\n\n  211 |     }\n  212 |   } finally {\n> 213 |     for (const k of held) await p.keyboard.up(k);\n      |                                            ^\n  214 |     await p.keyboard.up(\"Shift\");\n  215 |   }\n  216 |   await settled(p);\n    at follow (/workspace/3D-pharse5-/tests/e2e/v6-restructure.spec.ts:213:44)\n    at /workspace/3D-pharse5-/tests/e2e/v6-restructure.spec.ts:29:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T09:54:25.837Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/3D-pharse5-/test-results/v6-restructure-V6-actual-r-d9f62-d-routes-all-five-districts/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/3D-pharse5-/test-results/v6-restructure-V6-actual-r-d9f62-d-routes-all-five-districts/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "56f3d420efab998f91c8-e169683efaf29553686c",
+          "file": "v6-restructure.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "V6 Namsan entrance and park physical approaches remain accessible",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 86865,
+                  "error": {
+                    "message": "Error: Actual walking stuck near 1120,3344: {\"ready\":true,\"area\":\"outdoor\",\"x\":1125.7389942535656,\"y\":3355.0511750612654,\"world\":[4352,5312],\"gateOpen\":false,\"transitions\":0,\"activeProps\":56,\"totalProps\":497,\"ambientClock\":19326.476666666666,\"reservedNPCs\":[],\"view\":[609,2974,1024,652]}",
+                    "stack": "Error: Actual walking stuck near 1120,3344: {\"ready\":true,\"area\":\"outdoor\",\"x\":1125.7389942535656,\"y\":3355.0511750612654,\"world\":[4352,5312],\"gateOpen\":false,\"transitions\":0,\"activeProps\":56,\"totalProps\":497,\"ambientClock\":19326.476666666666,\"reservedNPCs\":[],\"view\":[609,2974,1024,652]}\n    at follow (/workspace/3D-pharse5-/tests/e2e/v6-restructure.spec.ts:191:17)\n    at /workspace/3D-pharse5-/tests/e2e/v6-restructure.spec.ts:69:3",
+                    "location": {
+                      "file": "/workspace/3D-pharse5-/tests/e2e/v6-restructure.spec.ts",
+                      "column": 17,
+                      "line": 191
+                    },
+                    "snippet": "  189 |         if (Math.abs(s.x - x) < 6 && Math.abs(s.y - y) < 6) break;\n  190 |         if (Date.now() - began > 24000)\n> 191 |           throw Error(\n      |                 ^\n  192 |             `Actual walking stuck near ${x},${y}: ${JSON.stringify(s)}`,\n  193 |           );\n  194 |         const keys = new Set<string>();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/3D-pharse5-/tests/e2e/v6-restructure.spec.ts",
+                        "column": 17,
+                        "line": 191
+                      },
+                      "message": "Error: Actual walking stuck near 1120,3344: {\"ready\":true,\"area\":\"outdoor\",\"x\":1125.7389942535656,\"y\":3355.0511750612654,\"world\":[4352,5312],\"gateOpen\":false,\"transitions\":0,\"activeProps\":56,\"totalProps\":497,\"ambientClock\":19326.476666666666,\"reservedNPCs\":[],\"view\":[609,2974,1024,652]}\n\n  189 |         if (Math.abs(s.x - x) < 6 && Math.abs(s.y - y) < 6) break;\n  190 |         if (Date.now() - began > 24000)\n> 191 |           throw Error(\n      |                 ^\n  192 |             `Actual walking stuck near ${x},${y}: ${JSON.stringify(s)}`,\n  193 |           );\n  194 |         const keys = new Set<string>();\n    at follow (/workspace/3D-pharse5-/tests/e2e/v6-restructure.spec.ts:191:17)\n    at /workspace/3D-pharse5-/tests/e2e/v6-restructure.spec.ts:69:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T09:58:28.965Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/3D-pharse5-/test-results/v6-restructure-V6-Namsan-e-25335-pproaches-remain-accessible/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/3D-pharse5-/test-results/v6-restructure-V6-Namsan-e-25335-pproaches-remain-accessible/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/3D-pharse5-/tests/e2e/v6-restructure.spec.ts",
+                    "column": 17,
+                    "line": 191
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "56f3d420efab998f91c8-c2835aba7099eeef1210",
+          "file": "v6-restructure.spec.ts",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "V6 new rail barrier blocks outside its relocated crossing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 22756,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T09:59:58.010Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "56f3d420efab998f91c8-248f547d2add6e744ec9",
+          "file": "v6-restructure.spec.ts",
+          "line": 95,
+          "column": 1
+        },
+        {
+          "title": "V6 mobile uses actual analog movement, retained motion preference and portrait pause",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6625,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:00:22.989Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "56f3d420efab998f91c8-a143aad24e8cede43bb3",
+          "file": "v6-restructure.spec.ts",
+          "line": 106,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T09:54:25.041Z",
+    "duration": 364920.67699999997,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

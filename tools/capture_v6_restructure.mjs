@@ -101,7 +101,7 @@ try {
     monitor(p);
     await p.goto(base + "v6-world-review.html?qa&renderer=canvas");
     await p.waitForFunction(() => window.__SEOUL__?.ready);
-    await p.evaluate(() => window.__SEOUL_TEST__.place(2240, 3536));
+    await p.evaluate(() => window.__SEOUL_TEST__.place(1776, 3520));
     await stable(p);
     await snap(p, name + "-native");
     await p.screenshot({ path: out + "/" + name + "-interface.png" });

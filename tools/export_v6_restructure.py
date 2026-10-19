@@ -49,7 +49,11 @@ def finish():
  atlas.save(P/'tiles.png');write(P/'tileset.json',{'schema':'generate2dmap.tileset.v1','image':'tiles.png','sha256':sha(P/'tiles.png'),'tile_size':[32,32],'columns':columns,'kind':'flat','materials':['original-heritage','grass','forest','concrete','pavers','asphalt','sand','basalt','water'],'tiles':[{'index':i,'properties':{'walkable':True}}for i in range(len(unique))],'art_source':'host_image','seamless_verified':False})
  write(P/'layers/ground.json',ground);write(P/'layers/edging.json',[[-1]*(W//32)for _ in range(H//32)]);write(S/'water.json',{'frames':waves,'periodMs':180,'source':'literal generated water pixels shifted0,1,2,3,2,1; no code-painted water; visible tiles only'})
  b=json.loads((P/'outdoor-draft.json').read_text());used={o['prop']for o in b['objects']};b['props']={k:v for k,v in b['props'].items()if k in used};write(P/'outdoor-draft.json',b);hashed(P/'outdoor-draft.json',P/'outdoor-bundle.json');bundle=P/'outdoor-bundle.json';out=C/f'export-{sha(bundle)[:16]}';out.mkdir(exist_ok=True)
- run(M/'map_bundle.py','validate','--bundle',bundle,'--report',out/'validate.json')
+ # Forge deliberately refuses to overwrite an existing report. Rechecks get a new
+ # cache-only receipt rather than force-writing approved output or hiding a rerun.
+ report=out/'validate.json'
+ if report.exists():report=out/f'validate-recheck-{len(json.loads((S/"commands.json").read_text()))}.json'
+ run(M/'map_bundle.py','validate','--bundle',bundle,'--report',report)
  if not (out/'tiled').exists():run(M/'export_tiled.py','export','--embedded-variant','--bundle',bundle,'--output-dir',out/'tiled')
  dest=P/'tiled'
  if dest.exists():shutil.move(dest,C/f'prior-tiled-{sha(dest/"map.embedded.tmj")[:12]}-{len(json.loads((S/"commands.json").read_text()))}')

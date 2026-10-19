@@ -127,7 +127,7 @@ test("V6 mobile uses actual analog movement, retained motion preference and port
   try {
     const p = await c.newPage();
     await ready(p);
-    await place(p, 2240, 3536);
+    await place(p, 2240, 3024);
     const d = await c.newCDPSession(p),
       box = (await p.locator("#joystick").boundingBox())!,
       cx = box.x + box.width / 2,
