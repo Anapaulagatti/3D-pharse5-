@@ -1,0 +1,31 @@
+# Final Modern Street & Urban Infrastructure Polish
+
+The visually approved4352×4800V3world stays in place: all406prop/landmark placements,103original image assets,621collision rectangles,spawns/portals/interactions and144Juni frames preserved. All3101prior protected files remain byte-identical. Northern ground0..2239and Jeju3648..4799pixels stay exactly unchanged, including native Phaser capture bytes at heritage/Jeju review poses. Only modern ground surfaces/flush infrastructure and the traditional-to-modern threshold change. No approved building regenerated or moved.
+
+## Circulation and visual fixes
+
+The old isolated dark curved surface now joins a connected64pxmedium-charcoal shared boulevard in a128pxsidewalk envelope. A112pxpaver threshold meets the preserved northern approach. Clean cardinal street/park branches, small functional forecourts, defined material edges, understated stone curbs/drainage and one actual zebra crossing give the south an engineered road language. The crossing is at2464,2784, away from the retail interaction label, connected to real walkable sidewalk. It is not a vehicle gameplay system.
+
+Station paver forecourt and lower public lane connect ONLY through the existing timber rail crossing/platform stair; tactile approaches do not advertise a blocked extra crossing. Continuous80pxcoastal promenade joins cafe/ferry pockets, the existing48pxinlet bridge and viewing-deck stair. Bora Bloom's112pxmain/arrival spine,96pxattraction walk and80-88pxsecondary approaches link unchanged rides/entrances/queues. Namsan keeps organic forest trails with only bounded contemporary arrival plazas. Jeju remains basalt/nature, no asphalt. Street coordinates/materials/masks are editable in assets-src/modern-streets and ROAD_HIERARCHY.json/SVG.
+
+One original host-image kit supplies6flush ground overlays and3new strict material swatches, finished by actual pinned Forge tools into the unchanged255palette. No extra prop/light/physics object or draw-call layer. All visible RGB comes from original/approved image art; code authors geometry/masks, not generic placeholder art. Sources/prompts/measured boxes/palette/QA/Tiled resources/29actual commands(27success/2diagnostics) preserved;0paid-provider APIrequests. Native host model/price unexposed, not claimed free. See FORGE.md.
+
+## Actual visual/runtime evidence
+
+25native Phaser captures: identical-camera10before/10after, two4352×4800full-world frames and3landscape native views; whole-browser844×390/568×320/932×430and portrait evidence. Four required PNGs including smaller overview supplied; actual native overview and representative transition/retail/station/park/promenade/mobile frames inspected. No screenshot pixels repainted; board labels are outside image regions, only smaller overview intentionally25%nearest.
+
+Real normal-public-entry80.396second CDP analog+sprint/action walkthrough:4817originalframes=4817encodedframes,8completed route legs,0errors/failure. No QA hook/placement/animation injection/scene skips or speed-up. Seven actual delivery-order inversions sorted by unchanged original capture timestamps; all source timestamps/hashes retained, encoded relative PTSerror<0.5ms. Actual browser play/strict seek/changing decoded pixels PASS; representative decoded frames inspected, not a claim every frame manually watched. Capture throughput is not performance measurement.
+
+Four targeted real-Phaser cases PASS: protected native pixels/five-district rendering; actual cardinal threshold/retail zebra/rail/platform/bridge/ferry; actual park spine/discovery approach; analog touch/DPR3/OS reduced-motion/portrait pause/44pxtargets.12unit/type/lint/format/production/source PASS.44routes/11517strict centre+shoulder samples use unchanged8×4feet/8pxsteps and exact621runtime solids. Linked world/room navigation and unchanged official45-route HTTP marker checks PASS. Forced softwareWebGLfive-district images/movement and genuinely WebGL-disabled Canvas fallback/movement PASS,0critical errors/externalrequests.
+
+Separate uncaptured paired7.8second cloud CPU/frame profiles: urban Canvas60.14→60.01FPS, park59.91→60.14, emulated coastDPR3Canvas60.08→60.18; forced softwareWebGL21.83→23.17. Short samples support no observed frame-rate regression in these cases, not sustained60FPS/hardwarephone/Safari certification. Raw profiles/methods in PERFORMANCE.md. Automatic software/unavailableWebGL Canvas compatibility retained.
+
+## Portable package, recovery and limits
+
+Exact620file ZIP58,373,087bytes SHAa75e3ce4cf13bb1d2ce5bdb9e70e1bc3c315458ad236e05c457125712776dbd8 independently extracted/hashed/launched over its Python HTTP; five-district desktop/mobile rendered pixels match source; portrait/reciprocal ferry/Academy lesson+return/basalt retry+complete/old4guests PASS,0errors. Security audit hashes620files/scans64textfiles,0credential-pattern findings/private-authoring-or3Dpaths/externalruntime requests; original/Phaser/Zod notices retained. This is a scoped pattern audit, not exhaustive certification. First packaging attempt missed the new entry in the common launcher's condition; corrected and exact HTTP package retested before delivery.
+
+Raw composition retains7nonwalking canopy bounds WARNs and explicit-footprint SKIPs; raw finishing envelopes remain needs-visual-review; extraction strategy_aspect SKIPPED1.6, edge-fringe0≤0.02. Prior122tiny unowned source pixels and Juni weak side-idle/small-wave warnings remain in protected original reports. All3new final swatches pass unchanged1.25edge-wrap metrics; no arbitrary whole-world/Wang seam certification. Physical phones/Safari/hardwareGPU unmeasured. Numeric tests do not approve art.
+
+Recovery before work: recovery/before-modern-streets-polish-20261019→3209c287c6ad08f6b98b2b325f542e20ab0275e2. Art/runtime source9de1666c856c8c0d8006e79d7f692782b24bfc25. Final exact handoffSHA/CI/independent setup/rebuild/ZIP/remote facts belong in the actual immutable checkpoint/modern-streets-polish-verified-20261019 AFTER verification. Do not infer tag existence or retarget it. Work stays on rebuild/pixel-social-rpg-v3; main/public website preserved. Environment draft activation is separate from website publication.
+
+**STOP for final user street/map visual approval.** No main merge/public deployment, building/world regeneration, NPC/gameplay expansion or cleanup.
