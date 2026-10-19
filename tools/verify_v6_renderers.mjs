@@ -3,7 +3,7 @@ import fs from "node:fs/promises";
 import { createHash } from "node:crypto";
 const base =
     process.env.PIXEL_CAPTURE_URL ?? "http://127.0.0.1:4201/3D-pharse5-/",
-  out = "docs/v6-restructure/quality";
+  out = (process.env.PIXEL_REVIEW_DIR ?? "docs/v6-restructure") + "/quality";
 const results = [],
   errors = [],
   externalRequests = [];

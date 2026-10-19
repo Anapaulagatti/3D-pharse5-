@@ -60,9 +60,11 @@ base.paste(Image.open(OLD/'ground-native.png').crop((0,0,W,2240)).convert('RGB')
 oldland=Image.open(OLD/'land-mask.png').crop((0,3648,W,4800))
 base.paste(Image.open(OLD/'ground-native.png').crop((0,3648,W,4800)).convert('RGB'),(0,3968),oldland)
 walk=land.copy();walk.paste(Image.open(OLD/'walk-mask.png').crop((0,0,W,2240)),(0,0))
+old_road_mask=blank()
 def fill(mask,name):
  a=np.array(mask)>0;a[:2240]=False;a&=la
  base.paste(material(name),(0,0),Image.fromarray(np.uint8(a)*255))
+ old_road_mask.paste(255,(0,0),Image.fromarray(np.uint8(a)*255))
 routes=[]
 def route(key,points,width=80,mat='concrete',clear=48):
  fill(line(points,width),mat);routes.append({'id':key,'zone':'v6','points':points,'clearWidth':clear})
@@ -231,6 +233,11 @@ for p in b['portals']:
  if p['id']=='ferry-coast':p['circle']=[2496,4208,28]
 write(S/'stops.json',stops)
 write(S/'travel.json',{'mainlandTrigger':[2496,3912],'islandTrigger':[2496,4208],'mainlandArrival':[2496,3864],'islandArrival':[2496,4280],'discovery':[2144,4880]})
+from v6_path_repairs import repair_ground
+base=repair_ground(base,land,walk,old_road_mask)
+# The editable repaired network is now the active route source. The original
+# thirty-route network remains recoverable at the baseline Git checkpoint.
+routes=[dict(r,zone='v6-path-fix')for r in json.loads((R/'assets-src/v6-path-fix/path-network.json').read_text())['paths']]
 land.save(P/'land-mask.png');walk.save(P/'walk-mask.png');forest.save(P/'forest-mask.png');base.save(P/'terrain-composite-unquantized.png')
 write(P/'outdoor-draft.json',b);write(S/'relocations.json',{'baseline':'2b5244db06d4cabbaa47196d0f2c78f55d6107ca','worldBefore':[4352,4800],'worldAfter':[W,H],'placements':relocations})
 write(S/'boundaries.json',boundaries)

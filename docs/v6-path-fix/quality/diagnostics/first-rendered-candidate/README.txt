@@ -1,0 +1,1 @@
+Rejected during actual Phaser visual inspection: civic branch endpoint adds a square protrusion, station-front grass seam remains, and new east passage hides Juni behind retained tree. Final source shortens/tapers the junction, joins station paving to real stairs, and routes the park via the existing gap west of the hall. No objects, collision or avatar changed.

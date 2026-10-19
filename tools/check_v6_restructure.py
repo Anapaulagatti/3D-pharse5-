@@ -19,7 +19,16 @@ for k,p in b['props'].items():assert sha(P/p['image'])==p['sha256']and(runtime/f
 assert sha(runtime/'plaza.json')==world['mapSha256']and(runtime/'tiles.png').read_bytes()==(P/'tiles.png').read_bytes()
 actual=sorted((o['x'],o['y'],o['width'],o['height'])for l in t['layers']if l['name']=='Collision'for o in l['objects']);expected=sorted((o['x'],o['y'],o['w'],o['h'])for o in b['collision']['solids']);assert actual==expected
 before=Image.open(R/'assets-src/v4-readability/map/ground-native.png').convert('RGB');after=Image.open(P/'ground-native.png').convert('RGB');assert after.size==(4352,5312)
-assert ImageChops.difference(before.crop((0,0,4352,2240)),after.crop((0,0,4352,2240))).getbbox()is None
+# The latest user explicitly requested two inherited northern path corrections.
+# Only their recorded pixel mask is exempt; architecture/physics and all other
+# original northern pixels remain protected, with an additional V6-wide guard.
+repair=R/'assets-src/v6-path-fix'
+if (repair/'preservation.json').exists():
+ mask=Image.open(repair/'edit-mask.png').crop((0,0,4352,2240)).convert('L')
+ diff=ImageChops.difference(before.crop((0,0,4352,2240)),after.crop((0,0,4352,2240)))
+ diff.paste((0,0,0),(0,0),mask)
+ assert diff.getbbox()is None,'Original northern ground changed outside authorized path mask'
+else:assert ImageChops.difference(before.crop((0,0,4352,2240)),after.crop((0,0,4352,2240))).getbbox()is None
 for name,source in [('world',P/'outdoor-bundle.json'),('room',S/'room-bundle.json')]:
  nav=read(S/f'{name}-navigation/nav-report.json')
  assert nav['status']=='pass'and not nav['problems']and not nav.get('unreachablePockets'),name
@@ -46,5 +55,5 @@ for r in routes:
     x=a[0]+dx*f-dy/dist*off;y=a[1]+dy*f+dx/dist*off;samples+=1
     hit=[q for q in b['collision']['solids']if x+8>q['x']and x-8<q['x']+q['w']and y+4>q['y']and y-4<q['y']+q['h']]
     if hit:bad.append({'route':r['id'],'point':[round(x,2),round(y,2)],'reason':hit[0].get('reason')})
-report={'status':'PASS'if not bad else'FAIL','sourceBundleSha256':sha(P/'outdoor-bundle.json'),'routes':len(routes),'samples':samples,'failures':bad,'priorProtectedFiles':len(proof['files']),'method':'Actual8x4feet+shoulders at8pxsampling; exact runtimeTiled rectangles; native northern pixels/Juni/original artwork protected; no tolerance changes.'};Q.mkdir(parents=True,exist_ok=True);(Q/'route-clearance.json').write_text(json.dumps(report,indent=2)+'\n')
+report={'status':'PASS'if not bad else'FAIL','sourceBundleSha256':sha(P/'outdoor-bundle.json'),'routes':len(routes),'samples':samples,'failures':bad,'priorProtectedFiles':len(proof['files']),'method':'Actual8x4feet+shoulders at8pxsampling; exact runtimeTiled rectangles; northern ground outside authorized local path mask/Juni/original artwork protected; no tolerance changes.'};Q.mkdir(parents=True,exist_ok=True);(Q/'route-clearance.json').write_text(json.dumps(report,indent=2)+'\n')
 assert not bad,json.dumps(bad[:12]);print(json.dumps({k:v for k,v in report.items()if k!='failures'}))

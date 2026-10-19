@@ -1,4 +1,4 @@
-"""Actual Forge palette/map/nav/Tiled/compose export of targeted V4; no generation or provider routes."""
+"""Actual Forge palette/map/nav/Tiled/compose export of the V6 terrain/map; no generation or provider routes."""
 from v6_restructure_art import *
 from PIL import Image
 import math,copy,numpy as np

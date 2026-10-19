@@ -1,0 +1,1 @@
+INVALID WebGL evidence: production preserveDrawingBuffer=false cleared the post-render backbuffer. These two PNGs contain only transparent black; their equality proves nothing about rendered sharpness. Replaced by actual DPR1 browser-compositor screenshots in final before/after evidence. Canvas2D native extraction was valid. No application renderer setting changed.

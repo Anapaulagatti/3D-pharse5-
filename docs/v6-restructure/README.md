@@ -1,3 +1,5 @@
+> Active V6 now includes the user-authorized [sharpness/path repairs](../v6-path-fix/README.md). This folder retains the original V6 review images/ZIP; current fixed playable package and comparisons are in docs/v6-path-fix. Same V6 entry, original architecture/Juni/physics/layout retained.
+
 # V6 reconstructed world — review candidate
 
 Actual editable4352×5312Phaser world; historical north is preserved. Namsan park moves west, station/rail/shops form a central transit campus, amusements form an eastern campus, the promenade connects below and Jeju remains a distinct ferry destination.122original objects relocated; original artwork and Juni144frames retained. Original user Drive PNG is preserved for comparison and is NOT a game background.
