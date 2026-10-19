@@ -1,3 +1,7 @@
+# Portable review handoff correction (2026-10-19)
+
+Independent exact59d4526 clone completed12unit+41browser/511rebuilt-file hashes PASS, then HTTP package check correctly caught that the global *.zip ignore rule excluded docs/v3-final/playable-review.zip from that commit. Preserve the failed diagnostic in execution cache; add only the exact previously HTTP-verified44,693,449byte ZIP (SHA3f0d7ae97ddad3e27e4fdb6f0eaef1d92beb6be203c59c8b71d3630ed896e5cc) with explicit Git inclusion. No runtime/art changes. Final tag must wait for exact corrected-source CI and independently fetched ZIP HTTP verification.
+
 # STOP — V3 final world candidate / final visual approval pending
 
 All five final-world passes have local source/runtime/visual/package evidence in docs/v3-final. Art/runtime checkpoint f288d0251369758e3fb9f858bedb88204db874c5 (same static build as reviewed ZIP), prior recovery c575bf4 and firstV3ebaac68/CI39164895856SUCCESS preserved.12unit+41browser/type/lint/format/build/source/nav PASS,0skipped/unexpected/flaky.406placements/103images/621exactcolliders;24routes/7455clear samples;45linked targets/officialmarker routes PASS.1791prior source/art/test/lock files and144Juni frames byte-identical. Seven original host-image calls,0paidprovider calls; actual Forge5324342 provenance, source sheets/props/masks/palette/Tiled retained. No new NPCs/learning-app edit/main merge/public deployment.
