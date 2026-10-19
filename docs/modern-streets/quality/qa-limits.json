@@ -1,0 +1,579 @@
+{
+  "compositionStatus": "warn",
+  "compositionNonPassChecks": [
+    {
+      "id": "actor_feet_off_placement_footprints",
+      "status": "skipped",
+      "value": {
+        "checked": 1,
+        "actors": []
+      },
+      "threshold": "placement footprints are compose-only (the bundle's blocking set decides validity, D2); an actor standing in one is reported so the prop can be added to the bundle"
+    },
+    {
+      "id": "bounds",
+      "status": "warn",
+      "value": {
+        "off_canvas": [],
+        "clipped": [
+          "v3-288",
+          "v3-296",
+          "v3-366",
+          "v3-303",
+          "v3-311",
+          "v3-314",
+          "v3-318"
+        ],
+        "empty": []
+      },
+      "threshold": "visible pixels (alpha > 16) inside the canvas"
+    },
+    {
+      "id": "footprint_overlaps",
+      "status": "skipped",
+      "value": {
+        "pairs": [],
+        "checked": 0,
+        "without_footprint": 407
+      },
+      "threshold": "solid footprints do not overlap"
+    }
+  ],
+  "extraction": {
+    "status": "pass",
+    "method": "legacy #FF00FF key (100/150) and edge despill radius 3; alpha hygiene both; 8-connected components (all); checks measured on the published pixels",
+    "notProven": [
+      "that each label names the art in its cell or box",
+      "that a prop is complete: clipping is detected only where art meets the cell edge",
+      "keyed-edge quality beyond the edge fringe count",
+      "that anchors and suggested footprints match gameplay contact (both are measured from alpha)",
+      "runtime placement, collision or occlusion"
+    ],
+    "checks": [
+      {
+        "id": "accepted",
+        "status": "pass",
+        "value": 6,
+        "threshold": ">= 1"
+      },
+      {
+        "id": "edge_touch",
+        "status": "pass",
+        "value": [],
+        "threshold": 0
+      },
+      {
+        "id": "dropped_area",
+        "status": "pass",
+        "value": {},
+        "threshold": 0.01
+      },
+      {
+        "id": "strategy_aspect",
+        "status": "skipped",
+        "value": null,
+        "threshold": 1.6
+      },
+      {
+        "id": "edge_fringe",
+        "status": "pass",
+        "value": 0.0,
+        "threshold": 0.02
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../raw/infrastructure.png",
+        "sha256": "86e711d80ab31457a910f8732ca42a5186922416e797bdbb1296f9b3f4696344",
+        "bytes": 2638723
+      },
+      {
+        "path": "../boxes.json",
+        "sha256": "556eb46df3ccbd73b1be2f135a689a696ee16b4cb47f41c057ee6573207b6f6a",
+        "bytes": 710
+      }
+    ],
+    "outputs": [
+      {
+        "path": "curb/prop.png",
+        "sha256": "e753bc6df90141f0f69678550b50348e3ed090610a64f3f1717e4a75e260e1bc",
+        "bytes": 55983
+      },
+      {
+        "path": "tactile/prop.png",
+        "sha256": "ea7ce9c9ca966b70cce8b3465fb6e0d9be7996bbd8ae9d3ed4131b14dd4dc271",
+        "bytes": 55829
+      },
+      {
+        "path": "grate/prop.png",
+        "sha256": "38752d01dd632276feaf86504a68cb7b98ba9b08d36a18b0021e574b5fe4a5f3",
+        "bytes": 59954
+      },
+      {
+        "path": "crossing/prop.png",
+        "sha256": "cd36bb0356b9057e16d3509206fe68287372d068aee030d2e4fad9dd398239b3",
+        "bytes": 96737
+      },
+      {
+        "path": "drain/prop.png",
+        "sha256": "d6fe5c5eb97afa62c4f32b3ff74d756e1b6717498c46379d97d41879a4fabb94",
+        "bytes": 32877
+      },
+      {
+        "path": "cover/prop.png",
+        "sha256": "3f8f71b0c2d918ff35f0c47bd8318d2e4a51ce3806419828d640ccdc3c721ee3",
+        "bytes": 97537
+      }
+    ],
+    "tool": {
+      "name": "extract_prop_pack",
+      "version": "0.4.0"
+    }
+  },
+  "finishing": [
+    {
+      "asset": "cover",
+      "qa": {
+        "status": "needs-visual-review",
+        "method": "finish_frames hd v1: one scale per clip from the rest pose (target height / rest height at the 50% alpha contour, rows with >= 6 px; or scale-ref x sqrt(rest-area ratio) clamped to +-3%), forge_core.resample_rgba box (area) on premultiplied float channels with the output grid pinned to the anchor (stance midpoint on the feet line, or the alpha centroid), forge_core.alpha_hygiene(both, floor 4), canvas = union of alpha > 4 plus 1 px; never nearest, never an upscale; display sizes re-derived from the source frames",
+        "notProven": [
+          "identity, pose and readability at the finished size (look at review-contact.png and the frames)",
+          "that the target height suits the game camera and the rest of the cast (run lineup)",
+          "loop seams and timing (gait_loop, retime); finished frames keep the source names",
+          "engine blending: draw with premultiplied alpha (RGB under alpha 0 is zeroed)"
+        ],
+        "checks": [
+          {
+            "id": "no-upscale",
+            "status": "pass",
+            "value": 0.105727,
+            "threshold": 1.0
+          },
+          {
+            "id": "rest-height",
+            "status": "pass",
+            "value": 0.0,
+            "threshold": 1.5,
+            "note": "|measured - nominal| rest-pose body height at 1x (outline included), output px"
+          },
+          {
+            "id": "empty-frames",
+            "status": "pass",
+            "value": [],
+            "threshold": 0
+          },
+          {
+            "id": "flicker",
+            "status": "skipped",
+            "value": null,
+            "threshold": null
+          },
+          {
+            "id": "alpha-hygiene",
+            "status": "skipped",
+            "value": {
+              "floor_px": 1,
+              "detached_px": 0,
+              "detached_components": 0,
+              "mode": "both",
+              "floor": 4
+            },
+            "threshold": null
+          }
+        ],
+        "inputs": [
+          {
+            "path": "../frames-cover/000.png",
+            "sha256": "3f8f71b0c2d918ff35f0c47bd8318d2e4a51ce3806419828d640ccdc3c721ee3"
+          }
+        ],
+        "outputs": [
+          {
+            "path": "frames/000.png",
+            "sha256": "da0b706da010daee13b453b7654be408a3d8535c5d32c4df48fb8cc662338677",
+            "bytes": 1275
+          },
+          {
+            "path": "review-contact.png",
+            "sha256": "8a12b7d558d92c8a0eacacfda2e6f5e806c392e8163b37ba7687cc9fe579a875",
+            "bytes": 3111
+          }
+        ],
+        "tool": {
+          "name": "finish_frames",
+          "version": "0.4.0"
+        }
+      }
+    },
+    {
+      "asset": "crossing",
+      "qa": {
+        "status": "needs-visual-review",
+        "method": "finish_frames hd v1: one scale per clip from the rest pose (target height / rest height at the 50% alpha contour, rows with >= 6 px; or scale-ref x sqrt(rest-area ratio) clamped to +-3%), forge_core.resample_rgba box (area) on premultiplied float channels with the output grid pinned to the anchor (stance midpoint on the feet line, or the alpha centroid), forge_core.alpha_hygiene(both, floor 4), canvas = union of alpha > 4 plus 1 px; never nearest, never an upscale; display sizes re-derived from the source frames",
+        "notProven": [
+          "identity, pose and readability at the finished size (look at review-contact.png and the frames)",
+          "that the target height suits the game camera and the rest of the cast (run lineup)",
+          "loop seams and timing (gait_loop, retime); finished frames keep the source names",
+          "engine blending: draw with premultiplied alpha (RGB under alpha 0 is zeroed)"
+        ],
+        "checks": [
+          {
+            "id": "no-upscale",
+            "status": "pass",
+            "value": 0.184549,
+            "threshold": 1.0
+          },
+          {
+            "id": "rest-height",
+            "status": "pass",
+            "value": 0.0,
+            "threshold": 1.5,
+            "note": "|measured - nominal| rest-pose body height at 1x (outline included), output px"
+          },
+          {
+            "id": "empty-frames",
+            "status": "pass",
+            "value": [],
+            "threshold": 0
+          },
+          {
+            "id": "flicker",
+            "status": "skipped",
+            "value": null,
+            "threshold": null
+          },
+          {
+            "id": "alpha-hygiene",
+            "status": "skipped",
+            "value": {
+              "floor_px": 0,
+              "detached_px": 0,
+              "detached_components": 0,
+              "mode": "both",
+              "floor": 4
+            },
+            "threshold": null
+          }
+        ],
+        "inputs": [
+          {
+            "path": "../frames-crossing/000.png",
+            "sha256": "cd36bb0356b9057e16d3509206fe68287372d068aee030d2e4fad9dd398239b3"
+          }
+        ],
+        "outputs": [
+          {
+            "path": "frames/000.png",
+            "sha256": "628ba07c4338e05f410b202337bae4cf4aaeb29f316ead647d79e6c584b87c50",
+            "bytes": 3915
+          },
+          {
+            "path": "review-contact.png",
+            "sha256": "326e9482175d504c65d03981fabe2e34c1f3fc517e5c03fa8164534f2b97721c",
+            "bytes": 8765
+          }
+        ],
+        "tool": {
+          "name": "finish_frames",
+          "version": "0.4.0"
+        }
+      }
+    },
+    {
+      "asset": "curb",
+      "qa": {
+        "status": "needs-visual-review",
+        "method": "finish_frames hd v1: one scale per clip from the rest pose (target height / rest height at the 50% alpha contour, rows with >= 6 px; or scale-ref x sqrt(rest-area ratio) clamped to +-3%), forge_core.resample_rgba box (area) on premultiplied float channels with the output grid pinned to the anchor (stance midpoint on the feet line, or the alpha centroid), forge_core.alpha_hygiene(both, floor 4), canvas = union of alpha > 4 plus 1 px; never nearest, never an upscale; display sizes re-derived from the source frames",
+        "notProven": [
+          "identity, pose and readability at the finished size (look at review-contact.png and the frames)",
+          "that the target height suits the game camera and the rest of the cast (run lineup)",
+          "loop seams and timing (gait_loop, retime); finished frames keep the source names",
+          "engine blending: draw with premultiplied alpha (RGB under alpha 0 is zeroed)"
+        ],
+        "checks": [
+          {
+            "id": "no-upscale",
+            "status": "pass",
+            "value": 0.142857,
+            "threshold": 1.0
+          },
+          {
+            "id": "rest-height",
+            "status": "pass",
+            "value": 0.0,
+            "threshold": 1.5,
+            "note": "|measured - nominal| rest-pose body height at 1x (outline included), output px"
+          },
+          {
+            "id": "empty-frames",
+            "status": "pass",
+            "value": [],
+            "threshold": 0
+          },
+          {
+            "id": "flicker",
+            "status": "skipped",
+            "value": null,
+            "threshold": null
+          },
+          {
+            "id": "alpha-hygiene",
+            "status": "skipped",
+            "value": {
+              "floor_px": 0,
+              "detached_px": 0,
+              "detached_components": 0,
+              "mode": "both",
+              "floor": 4
+            },
+            "threshold": null
+          }
+        ],
+        "inputs": [
+          {
+            "path": "../frames-curb/000.png",
+            "sha256": "e753bc6df90141f0f69678550b50348e3ed090610a64f3f1717e4a75e260e1bc"
+          }
+        ],
+        "outputs": [
+          {
+            "path": "frames/000.png",
+            "sha256": "045bd14195a1c9fb21041e0db61160ea71a781a36682408f210bf5e12e27b3f3",
+            "bytes": 1350
+          },
+          {
+            "path": "review-contact.png",
+            "sha256": "98d602efe0748e64cd2a0daa3dce65c8afbf4ff1934ed3213f905b2a6f82e585",
+            "bytes": 3038
+          }
+        ],
+        "tool": {
+          "name": "finish_frames",
+          "version": "0.4.0"
+        }
+      }
+    },
+    {
+      "asset": "drain",
+      "qa": {
+        "status": "needs-visual-review",
+        "method": "finish_frames hd v1: one scale per clip from the rest pose (target height / rest height at the 50% alpha contour, rows with >= 6 px; or scale-ref x sqrt(rest-area ratio) clamped to +-3%), forge_core.resample_rgba box (area) on premultiplied float channels with the output grid pinned to the anchor (stance midpoint on the feet line, or the alpha centroid), forge_core.alpha_hygiene(both, floor 4), canvas = union of alpha > 4 plus 1 px; never nearest, never an upscale; display sizes re-derived from the source frames",
+        "notProven": [
+          "identity, pose and readability at the finished size (look at review-contact.png and the frames)",
+          "that the target height suits the game camera and the rest of the cast (run lineup)",
+          "loop seams and timing (gait_loop, retime); finished frames keep the source names",
+          "engine blending: draw with premultiplied alpha (RGB under alpha 0 is zeroed)"
+        ],
+        "checks": [
+          {
+            "id": "no-upscale",
+            "status": "pass",
+            "value": 0.232558,
+            "threshold": 1.0
+          },
+          {
+            "id": "rest-height",
+            "status": "pass",
+            "value": 0.0,
+            "threshold": 1.5,
+            "note": "|measured - nominal| rest-pose body height at 1x (outline included), output px"
+          },
+          {
+            "id": "empty-frames",
+            "status": "pass",
+            "value": [],
+            "threshold": 0
+          },
+          {
+            "id": "flicker",
+            "status": "skipped",
+            "value": null,
+            "threshold": null
+          },
+          {
+            "id": "alpha-hygiene",
+            "status": "skipped",
+            "value": {
+              "floor_px": 0,
+              "detached_px": 0,
+              "detached_components": 0,
+              "mode": "both",
+              "floor": 4
+            },
+            "threshold": null
+          }
+        ],
+        "inputs": [
+          {
+            "path": "../frames-drain/000.png",
+            "sha256": "d6fe5c5eb97afa62c4f32b3ff74d756e1b6717498c46379d97d41879a4fabb94"
+          }
+        ],
+        "outputs": [
+          {
+            "path": "frames/000.png",
+            "sha256": "8ce54fb082b4207e9cd5a9f7dda6184edec732eda55c51034e3dbcdfea2137b8",
+            "bytes": 2365
+          },
+          {
+            "path": "review-contact.png",
+            "sha256": "b2031dcc1c73058e9569034bb2fdb0e9fb178b86e1e6f48ef0ad10030aa26c5f",
+            "bytes": 5496
+          }
+        ],
+        "tool": {
+          "name": "finish_frames",
+          "version": "0.4.0"
+        }
+      }
+    },
+    {
+      "asset": "grate",
+      "qa": {
+        "status": "needs-visual-review",
+        "method": "finish_frames hd v1: one scale per clip from the rest pose (target height / rest height at the 50% alpha contour, rows with >= 6 px; or scale-ref x sqrt(rest-area ratio) clamped to +-3%), forge_core.resample_rgba box (area) on premultiplied float channels with the output grid pinned to the anchor (stance midpoint on the feet line, or the alpha centroid), forge_core.alpha_hygiene(both, floor 4), canvas = union of alpha > 4 plus 1 px; never nearest, never an upscale; display sizes re-derived from the source frames",
+        "notProven": [
+          "identity, pose and readability at the finished size (look at review-contact.png and the frames)",
+          "that the target height suits the game camera and the rest of the cast (run lineup)",
+          "loop seams and timing (gait_loop, retime); finished frames keep the source names",
+          "engine blending: draw with premultiplied alpha (RGB under alpha 0 is zeroed)"
+        ],
+        "checks": [
+          {
+            "id": "no-upscale",
+            "status": "pass",
+            "value": 0.111111,
+            "threshold": 1.0
+          },
+          {
+            "id": "rest-height",
+            "status": "pass",
+            "value": 0.0,
+            "threshold": 1.5,
+            "note": "|measured - nominal| rest-pose body height at 1x (outline included), output px"
+          },
+          {
+            "id": "empty-frames",
+            "status": "pass",
+            "value": [],
+            "threshold": 0
+          },
+          {
+            "id": "flicker",
+            "status": "skipped",
+            "value": null,
+            "threshold": null
+          },
+          {
+            "id": "alpha-hygiene",
+            "status": "skipped",
+            "value": {
+              "floor_px": 0,
+              "detached_px": 0,
+              "detached_components": 0,
+              "mode": "both",
+              "floor": 4
+            },
+            "threshold": null
+          }
+        ],
+        "inputs": [
+          {
+            "path": "../frames-grate/000.png",
+            "sha256": "38752d01dd632276feaf86504a68cb7b98ba9b08d36a18b0021e574b5fe4a5f3"
+          }
+        ],
+        "outputs": [
+          {
+            "path": "frames/000.png",
+            "sha256": "8ca3ea2e2904b02373200190eae71a3671fe9cc571fb99ee14b51886172c326f",
+            "bytes": 1120
+          },
+          {
+            "path": "review-contact.png",
+            "sha256": "6f4125d795d9ba57673843fef7db0eab123d38748e3cea9a25bc4917cffa9889",
+            "bytes": 2507
+          }
+        ],
+        "tool": {
+          "name": "finish_frames",
+          "version": "0.4.0"
+        }
+      }
+    },
+    {
+      "asset": "tactile",
+      "qa": {
+        "status": "needs-visual-review",
+        "method": "finish_frames hd v1: one scale per clip from the rest pose (target height / rest height at the 50% alpha contour, rows with >= 6 px; or scale-ref x sqrt(rest-area ratio) clamped to +-3%), forge_core.resample_rgba box (area) on premultiplied float channels with the output grid pinned to the anchor (stance midpoint on the feet line, or the alpha centroid), forge_core.alpha_hygiene(both, floor 4), canvas = union of alpha > 4 plus 1 px; never nearest, never an upscale; display sizes re-derived from the source frames",
+        "notProven": [
+          "identity, pose and readability at the finished size (look at review-contact.png and the frames)",
+          "that the target height suits the game camera and the rest of the cast (run lineup)",
+          "loop seams and timing (gait_loop, retime); finished frames keep the source names",
+          "engine blending: draw with premultiplied alpha (RGB under alpha 0 is zeroed)"
+        ],
+        "checks": [
+          {
+            "id": "no-upscale",
+            "status": "pass",
+            "value": 0.123077,
+            "threshold": 1.0
+          },
+          {
+            "id": "rest-height",
+            "status": "pass",
+            "value": 0.0,
+            "threshold": 1.5,
+            "note": "|measured - nominal| rest-pose body height at 1x (outline included), output px"
+          },
+          {
+            "id": "empty-frames",
+            "status": "pass",
+            "value": [],
+            "threshold": 0
+          },
+          {
+            "id": "flicker",
+            "status": "skipped",
+            "value": null,
+            "threshold": null
+          },
+          {
+            "id": "alpha-hygiene",
+            "status": "skipped",
+            "value": {
+              "floor_px": 0,
+              "detached_px": 0,
+              "detached_components": 0,
+              "mode": "both",
+              "floor": 4
+            },
+            "threshold": null
+          }
+        ],
+        "inputs": [
+          {
+            "path": "../frames-tactile/000.png",
+            "sha256": "ea7ce9c9ca966b70cce8b3465fb6e0d9be7996bbd8ae9d3ed4131b14dd4dc271"
+          }
+        ],
+        "outputs": [
+          {
+            "path": "frames/000.png",
+            "sha256": "cd6c145b3cce6fb39a68caa9ae1caf22e54fc3bf1ea5376e3ccdba00e9a3fcf9",
+            "bytes": 1216
+          },
+          {
+            "path": "review-contact.png",
+            "sha256": "cc65f7d13486535fbfa4dd5a35a8ff6a5207d7f00629a31103dbd9b9ba691b7f",
+            "bytes": 2753
+          }
+        ],
+        "tool": {
+          "name": "finish_frames",
+          "version": "0.4.0"
+        }
+      }
+    }
+  ]
+}

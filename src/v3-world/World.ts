@@ -1,14 +1,28 @@
 import Phaser from "phaser";
 import { JuniScene } from "../refinement/JuniScene";
 import { controls } from "../game/Plaza";
-import world from "../../assets-src/v3-final/map/world.json";
-import bundle from "../../assets-src/v3-final/map/outdoor-bundle.json";
-import anchors from "../../public/review/v3-final/world/anchors.json";
+import originalWorld from "../../assets-src/v3-final/map/world.json";
+import streetWorld from "../../assets-src/modern-streets/map/world.json";
+import originalBundle from "../../assets-src/v3-final/map/outdoor-bundle.json";
+import streetBundle from "../../assets-src/modern-streets/map/outdoor-bundle.json";
+import originalAnchors from "../../public/review/v3-final/world/anchors.json";
+import streetAnchors from "../../public/review/modern-streets/world/anchors.json";
 import room from "../../assets-src/living-seoul/room-world.json";
 import roomBundle from "../../assets-src/v3-final/room-bundle.json";
 import roomAnchors from "../../public/review/living-seoul/room/anchors.json";
-import water from "../../assets-src/v3-final/water.json";
+import originalWater from "../../assets-src/v3-final/water.json";
+import streetWater from "../../assets-src/modern-streets/water.json";
 import stops from "../../assets-src/v3-final/stops.json";
+export const streetReview = location.pathname.endsWith(
+  "modern-streets-review.html",
+);
+export const worldAssetRoot = streetReview
+  ? "review/modern-streets/world/"
+  : "review/v3-final/world/";
+const world = streetReview ? streetWorld : originalWorld;
+const bundle = streetReview ? streetBundle : originalBundle;
+const anchors = streetReview ? streetAnchors : originalAnchors;
+const water = streetReview ? streetWater : originalWater;
 const waterByTile = new Map<number, number[]>();
 for (const frames of water.frames)
   for (const id of frames) waterByTile.set(id, frames);
@@ -82,9 +96,7 @@ export class FullWorld extends JuniScene {
       layout: inside ? room : world,
       bundle: inside ? roomBundle : bundle,
       anchors: inside ? roomAnchors : anchors,
-      assetRoot: inside
-        ? "review/living-seoul/room/"
-        : "review/v3-final/world/",
+      assetRoot: inside ? "review/living-seoul/room/" : worldAssetRoot,
       ambience: false,
     });
   }
@@ -99,7 +111,7 @@ export class FullWorld extends JuniScene {
     else
       this.load.image(
         "rf-prod-doors",
-        import.meta.env.BASE_URL + "review/v3-final/world/rf-prod-doors.png",
+        import.meta.env.BASE_URL + worldAssetRoot + "rf-prod-doors.png",
       );
   }
   override create() {
@@ -464,7 +476,7 @@ export class FullWorld extends JuniScene {
     };
     window.__V3_WORLD__ = {
       discoveryFound: basaltFound,
-      candidate: "v3-final",
+      candidate: streetReview ? "modern-streets" : "v3-final",
     };
     if (window.__PLAZA_REVIEW__)
       window.__PLAZA_REVIEW__.environmentClock = this.clock;

@@ -1,0 +1,186 @@
+{
+  "schema": "video2dsprite.finish.v1",
+  "tool": {
+    "name": "finish_frames",
+    "version": "0.4.0"
+  },
+  "mode": "hd",
+  "clip": "grate",
+  "character": null,
+  "role": "prop",
+  "source": {
+    "frames": "../frames-grate",
+    "count": 1,
+    "size": [
+      394,
+      106
+    ],
+    "pattern": "*.png",
+    "registration": null
+  },
+  "rest": {
+    "frame": 0,
+    "topPx": 8,
+    "feetPx": 98,
+    "heightPx": 90,
+    "areaPx": 33842,
+    "stanceX": 197.5,
+    "centroid": [
+      196.76907393180073,
+      53.17608297381951
+    ],
+    "minRun": 6
+  },
+  "anchorMode": "feet",
+  "anchorSource": [
+    197.5,
+    98.0
+  ],
+  "scale": 0.1111111111111111,
+  "scaleSource": "target-height",
+  "targetHeight": 10.0,
+  "scaleRef": null,
+  "size": [
+    45,
+    12
+  ],
+  "anchor": [
+    23,
+    11
+  ],
+  "canvas": null,
+  "engine": {
+    "sourceSize": [
+      45,
+      12
+    ],
+    "sourceAnchor": [
+      23,
+      11
+    ],
+    "sampling": "linear",
+    "pixelArt": false,
+    "note": "engine_export.py package --clean-dir <out>/frames --source-size W,H --source-anchor X,Y (no --registration; add --pixel-art --sampling nearest for pixel)"
+  },
+  "resampler": "box",
+  "restOutput": {
+    "heightPx": 10.0,
+    "areaPx": 417.802,
+    "bodyHeightPx": 10.0,
+    "outlinePx": 0,
+    "measuredHeightPx": 10,
+    "measuredAreaPx": 420
+  },
+  "displaySizes": [
+    {
+      "label": "1x",
+      "dir": "frames",
+      "scale": 0.1111111111111111,
+      "size": [
+        45,
+        12
+      ],
+      "anchor": [
+        23,
+        11
+      ],
+      "targetHeight": 10.0,
+      "flicker": null,
+      "alphaBinary": false
+    }
+  ],
+  "palette": null,
+  "pixel": null,
+  "colourLock": null,
+  "indexedSheet": null,
+  "loopPolicy": "cycle",
+  "frames": [
+    {
+      "file": "frames/000.png",
+      "sha256": "8ca3ea2e2904b02373200190eae71a3671fe9cc571fb99ee14b51886172c326f",
+      "sourceFile": "000.png",
+      "sourceSha256": "38752d01dd632276feaf86504a68cb7b98ba9b08d36a18b0021e574b5fe4a5f3",
+      "opaquePx": 420
+    }
+  ],
+  "flicker": null,
+  "specksRemoved": 0,
+  "alphaBinary": false,
+  "review": {
+    "path": "review-contact.png",
+    "frames": [
+      0
+    ]
+  },
+  "qa": {
+    "status": "needs-visual-review",
+    "method": "finish_frames hd v1: one scale per clip from the rest pose (target height / rest height at the 50% alpha contour, rows with >= 6 px; or scale-ref x sqrt(rest-area ratio) clamped to +-3%), forge_core.resample_rgba box (area) on premultiplied float channels with the output grid pinned to the anchor (stance midpoint on the feet line, or the alpha centroid), forge_core.alpha_hygiene(both, floor 4), canvas = union of alpha > 4 plus 1 px; never nearest, never an upscale; display sizes re-derived from the source frames",
+    "notProven": [
+      "identity, pose and readability at the finished size (look at review-contact.png and the frames)",
+      "that the target height suits the game camera and the rest of the cast (run lineup)",
+      "loop seams and timing (gait_loop, retime); finished frames keep the source names",
+      "engine blending: draw with premultiplied alpha (RGB under alpha 0 is zeroed)"
+    ],
+    "checks": [
+      {
+        "id": "no-upscale",
+        "status": "pass",
+        "value": 0.111111,
+        "threshold": 1.0
+      },
+      {
+        "id": "rest-height",
+        "status": "pass",
+        "value": 0.0,
+        "threshold": 1.5,
+        "note": "|measured - nominal| rest-pose body height at 1x (outline included), output px"
+      },
+      {
+        "id": "empty-frames",
+        "status": "pass",
+        "value": [],
+        "threshold": 0
+      },
+      {
+        "id": "flicker",
+        "status": "skipped",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "id": "alpha-hygiene",
+        "status": "skipped",
+        "value": {
+          "floor_px": 0,
+          "detached_px": 0,
+          "detached_components": 0,
+          "mode": "both",
+          "floor": 4
+        },
+        "threshold": null
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../frames-grate/000.png",
+        "sha256": "38752d01dd632276feaf86504a68cb7b98ba9b08d36a18b0021e574b5fe4a5f3"
+      }
+    ],
+    "outputs": [
+      {
+        "path": "frames/000.png",
+        "sha256": "8ca3ea2e2904b02373200190eae71a3671fe9cc571fb99ee14b51886172c326f",
+        "bytes": 1120
+      },
+      {
+        "path": "review-contact.png",
+        "sha256": "6f4125d795d9ba57673843fef7db0eab123d38748e3cea9a25bc4917cffa9889",
+        "bytes": 2507
+      }
+    ],
+    "tool": {
+      "name": "finish_frames",
+      "version": "0.4.0"
+    }
+  }
+}

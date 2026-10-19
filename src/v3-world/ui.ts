@@ -1,5 +1,5 @@
 import type Phaser from "phaser";
-import { FullWorld } from "./World";
+import { FullWorld, worldAssetRoot } from "./World";
 import { attachJoystick } from "../full-world/Joystick";
 import { controls } from "../game/Plaza";
 import {
@@ -155,7 +155,7 @@ export function setupFullUI(game: Phaser.Game) {
       "Hành trình Hàn Quốc hư cấu · Đi bộ theo phố/vườn giữa di sản, rừng tháp, công viên hoa và ga ven biển. Bến phà nối vườn Jeju. Các nơi ngoài đời ở những vùng khác nhau.",
     );
     const img = document.createElement("img");
-    img.src = import.meta.env.BASE_URL + "review/v3-final/world/minimap.png";
+    img.src = import.meta.env.BASE_URL + worldAssetRoot + "minimap.png";
     img.alt = "Toàn bản đồ năm vùng chơi được";
     img.className = "journey-map";
     $("dialog-copy").append(img);

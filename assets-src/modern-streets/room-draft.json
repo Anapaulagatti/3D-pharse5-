@@ -1,0 +1,234 @@
+{
+  "schema": "generate2dmap.map_bundle.v2",
+  "id": "v3-reading-room",
+  "name": "Sejong Hangul Academy — reading room (unmanned first slice)",
+  "world": {
+    "width": 768,
+    "height": 576,
+    "unit": "px"
+  },
+  "tile_size": [
+    32,
+    32
+  ],
+  "tilesets": [
+    {
+      "id": "town",
+      "manifest": "../gwanghwamun/tileset.json",
+      "sha256": "71da0320451ba3434e07abba4bcbe966e7175cd898f6c3d605299698b8a4ac31"
+    }
+  ],
+  "layers": [
+    {
+      "name": "RoomBase",
+      "kind": "image",
+      "image": "../living-seoul/room-base.png",
+      "sha256": "bbf9c3a3fce01a813448bed50cc2e38308c44f32de550fee2563e09a79cf771f"
+    },
+    {
+      "name": "Ground",
+      "kind": "tiles",
+      "data": "../living-seoul/room/ground.json",
+      "tileset": "town",
+      "sha256": "0825e402213f07e902b726854a9f9f82f6dfabdd90c2a14f9c5fd8a48c0b4bc9"
+    },
+    {
+      "name": "Edging",
+      "kind": "tiles",
+      "data": "../living-seoul/room/edging.json",
+      "tileset": "town",
+      "sha256": "0825e402213f07e902b726854a9f9f82f6dfabdd90c2a14f9c5fd8a48c0b4bc9"
+    },
+    {
+      "name": "Props",
+      "kind": "objects"
+    }
+  ],
+  "props": {
+    "desk": {
+      "image": "../living-seoul/props/desk.png",
+      "sha256": "0a5cca95b4164cfc740ae41cab13fb3714eaba83d97b8cb11ed547a4de55c146",
+      "anchor_px": [
+        51,
+        72
+      ],
+      "size": [
+        102,
+        73
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 112,
+        "depth": 28,
+        "offset": [
+          0,
+          -14.0
+        ],
+        "basis": "world_px"
+      },
+      "solid": true,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    },
+    "shelf": {
+      "image": "../living-seoul/props/shelf.png",
+      "sha256": "a32bd5efaa17dd6293001235091fa2d85d5055ba99da7749e0521878394f0fef",
+      "anchor_px": [
+        69,
+        139
+      ],
+      "size": [
+        138,
+        140
+      ],
+      "footprint": {
+        "shape": "rect",
+        "width": 123,
+        "depth": 23,
+        "offset": [
+          0,
+          -11.5
+        ],
+        "basis": "world_px"
+      },
+      "solid": true,
+      "occlusion_class": "tall",
+      "occupant_policy": "y_sort"
+    }
+  },
+  "objects": [
+    {
+      "id": "room-0",
+      "prop": "shelf",
+      "x": 170,
+      "y": 240,
+      "sortY": 240,
+      "scale": 1,
+      "anchor_px": [
+        69,
+        139
+      ],
+      "occlusion": "tall"
+    },
+    {
+      "id": "room-1",
+      "prop": "shelf",
+      "x": 600,
+      "y": 240,
+      "sortY": 240,
+      "scale": 1,
+      "anchor_px": [
+        69,
+        139
+      ],
+      "occlusion": "tall"
+    },
+    {
+      "id": "room-2",
+      "prop": "desk",
+      "x": 385,
+      "y": 320,
+      "sortY": 320,
+      "scale": 1,
+      "anchor_px": [
+        51,
+        72
+      ],
+      "occlusion": "tall"
+    }
+  ],
+  "collision": {
+    "actorRadius": 8,
+    "ySquash": 0.5,
+    "walkRegions": [
+      {
+        "polygon": [
+          [
+            40,
+            156
+          ],
+          [
+            728,
+            156
+          ],
+          [
+            728,
+            536
+          ],
+          [
+            40,
+            536
+          ]
+        ]
+      }
+    ],
+    "solids": [],
+    "rects": []
+  },
+  "nav": {
+    "cell": 4
+  },
+  "spawns": [
+    {
+      "id": "start",
+      "x": 384,
+      "y": 490,
+      "facing": "north"
+    }
+  ],
+  "anchors": {
+    "study": {
+      "point": [
+        385,
+        354
+      ],
+      "approach": [
+        385,
+        370
+      ]
+    },
+    "exit": {
+      "point": [
+        384,
+        510
+      ],
+      "approach": [
+        384,
+        490
+      ]
+    }
+  },
+  "interactions": [
+    {
+      "id": "study",
+      "x": 385,
+      "y": 354,
+      "reach": 90
+    },
+    {
+      "id": "exit",
+      "x": 384,
+      "y": 510,
+      "reach": 60
+    }
+  ],
+  "portals": [
+    {
+      "id": "return-world",
+      "circle": [
+        384,
+        536,
+        20
+      ],
+      "to": "v3-korea:room-return",
+      "entranceByFrom": {
+        "v3-korea": [
+          384,
+          480
+        ]
+      },
+      "reciprocal": true
+    }
+  ],
+  "art_source": "host_image"
+}
