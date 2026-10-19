@@ -189,10 +189,10 @@ for (const [name, entry, pose, mobile, gl, dpr] of [
 }
 const inputs = {};
 for (const f of [
-  "assets-src/v3-final/map/outdoor-bundle.json",
-  "public/review/v3-final/world/plaza.json",
   "assets-src/modern-streets/map/outdoor-bundle.json",
   "public/review/modern-streets/world/plaza.json",
+  "assets-src/v4-readability/map/outdoor-bundle.json",
+  "public/review/v4-readability/world/plaza.json",
 ])
   inputs[f] = createHash("sha256")
     .update(await fs.readFile(f))

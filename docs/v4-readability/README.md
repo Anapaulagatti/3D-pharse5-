@@ -1,0 +1,13 @@
+# Korean Arena — V4 map readability review
+
+[Full overview](FINAL_MAP_V4_FULL_OVERVIEW.png) · [Smaller overview](FINAL_MAP_V4_REVIEW_OVERVIEW.png) · [Native before/after](READABILITY_BEFORE_AFTER.png) · [Four southern destinations](SOUTHERN_DISTRICT_READABILITY_BOARD.png) · [Actual gameplay video](quality/v4-readability-walkthrough.mp4) · [Playable ZIP](playable-review.zip)
+
+This is the targeted review candidate, not a public website release. Original landmarks/Juni/world retained.32new low boundary props and targeted path joints clarify Namsan, station/promenade, amusement and commercial frontage. North and Jeju unchanged. [Concise report](FINAL_REPORT.md), [Forge/provenance/limits](FORGE.md), [performance](PERFORMANCE.md), [exact local evidence](verification.json), [editable boundary/entrance map](COMPOUNDS.svg) / [JSON](COMPOUNDS.json).
+
+To VIEW the rendered game, download playable-review.zip and extract the ENTIRE Korean-Arena-V4-Readability-Review folder. Run `python3 start.py` (Windows: `py start.py`) inside it. Open the HTTP address printed by the launcher, ending `/3D-pharse5-/v4-readability-review.html`. Do not open the HTML source viewer or use file://. Python3required; no Node/account/API needed to view. Ctrl+C stops the server. Optional `--canvas` for software GPU; `--lan` explicitly allows a phone on the same network, rotate landscape manually. Cloud loopback has no public tunnel and is not a user-facing preview URL.
+
+WASD/arrows walk; Shift/Run sprints; E/Explore interacts. Mobile has analog stick and independent Run/Explore/Talk/Emote. Portrait pauses; operating-system reduced-motion preference retained. Follow palace avenue through the threshold, shop frontage and zebra, real rail crossing/platform stairs, promenade/inlet bridge and Bora Bloom entrance/loop. Original Academy lesson and reciprocal island ferry remain. Rides/train are scenic structures, not newly implemented mechanics.
+
+Exact ZIP:72,106,813bytes /735distfiles, SHA256 `1bf065b41d58d20b6bfe76b1da71c2b7839df4d95153c82efeb0fe768ead7ecb`. HTTP launcher and source/ZIPpixels verified. Video80.212s/4804original frames. Physical-phone/Safari/hardwareGPU limits and raw WARN/SKIP envelopes disclosed. User circle annotation absent; coordinate repairs shown without claiming an unseen-image match.
+
+Recover before edits with recovery/before-v4-readability-20261019→96418496d33b822cbf0512e54a6078ee7747bd02. Art/runtime checkpoint5cc118b37ab0ec63c44a5126a097f66ce95298ab. Read ACTUAL checkpoint/v4-readability-verified-20261019 annotation after creation for final exactSHA/CI/independent setup/build/50browser/ZIP/startup facts; do not infer them from a planned tag. No main merge/public deployment. STOP for final visual approval.
