@@ -1,4 +1,10 @@
 import Phaser from "phaser";
+import v6World from "../../assets-src/v6-restructure/map/world.json";
+import v6Bundle from "../../assets-src/v6-restructure/map/outdoor-bundle.json";
+import v6Anchors from "../../public/review/v6-restructure/world/anchors.json";
+import v6Water from "../../assets-src/v6-restructure/water.json";
+import v6Stops from "../../assets-src/v6-restructure/stops.json";
+import v6Travel from "../../assets-src/v6-restructure/travel.json";
 import v4World from "../../assets-src/v4-readability/map/world.json";
 import v4Bundle from "../../assets-src/v4-readability/map/outdoor-bundle.json";
 import v4Anchors from "../../public/review/v4-readability/world/anchors.json";
@@ -16,30 +22,50 @@ import roomBundle from "../../assets-src/v3-final/room-bundle.json";
 import roomAnchors from "../../public/review/living-seoul/room/anchors.json";
 import originalWater from "../../assets-src/v3-final/water.json";
 import streetWater from "../../assets-src/modern-streets/water.json";
-import stops from "../../assets-src/v3-final/stops.json";
+import originalStops from "../../assets-src/v3-final/stops.json";
+export const v6Review = location.pathname.endsWith("v6-world-review.html");
+const stops = v6Review ? v6Stops : originalStops;
 export const v4Review = location.pathname.endsWith(
   "v4-readability-review.html",
 );
 export const streetReview = location.pathname.endsWith(
   "modern-streets-review.html",
 );
-export const worldAssetRoot = v4Review
-  ? "review/v4-readability/world/"
-  : streetReview
-    ? "review/modern-streets/world/"
-    : "review/v3-final/world/";
-const world = v4Review ? v4World : streetReview ? streetWorld : originalWorld;
-const bundle = v4Review
-  ? v4Bundle
-  : streetReview
-    ? streetBundle
-    : originalBundle;
-const anchors = v4Review
-  ? v4Anchors
-  : streetReview
-    ? streetAnchors
-    : originalAnchors;
-const water = v4Review ? v4Water : streetReview ? streetWater : originalWater;
+export const worldAssetRoot = v6Review
+  ? "review/v6-restructure/world/"
+  : v4Review
+    ? "review/v4-readability/world/"
+    : streetReview
+      ? "review/modern-streets/world/"
+      : "review/v3-final/world/";
+const world = v6Review
+  ? v6World
+  : v4Review
+    ? v4World
+    : streetReview
+      ? streetWorld
+      : originalWorld;
+const bundle = v6Review
+  ? v6Bundle
+  : v4Review
+    ? v4Bundle
+    : streetReview
+      ? streetBundle
+      : originalBundle;
+const anchors = v6Review
+  ? v6Anchors
+  : v4Review
+    ? v4Anchors
+    : streetReview
+      ? streetAnchors
+      : originalAnchors;
+const water = v6Review
+  ? v6Water
+  : v4Review
+    ? v4Water
+    : streetReview
+      ? streetWater
+      : originalWater;
 const waterByTile = new Map<number, number[]>();
 for (const frames of water.frames)
   for (const id of frames) waterByTile.set(id, frames);
@@ -53,7 +79,7 @@ declare global {
 let gateOpen = false,
   returning = false,
   transitions = 0;
-export const worldSize = [4352, 4800] as const;
+export const worldSize = [4352, v6Review ? 5312 : 4800] as const;
 export type FullDistrict =
   | "heritage"
   | "namsan"
@@ -72,6 +98,14 @@ export const names: Record<FullDistrict, string> = {
   room: "Học viện · Phòng đọc",
 };
 export function districtAt(x: number, y: number): FullDistrict {
+  if (v6Review) {
+    if (y >= 3968) return "jeju";
+    if (y >= 2448 && y < 3700 && x < 1408) return "namsan";
+    if (y >= 2448 && y < 3700 && x >= 3072) return "entertainment";
+    if (y >= 2592) return "busan-coast";
+    if (y < 2240 && x >= 1024 && x < 3328) return "heritage";
+    return "commons";
+  }
   if (y >= 3648 && x >= 1536 && x <= 2944) return "jeju";
   if (y >= 2496 && y < 3648 && x >= 1536 && x <= 3072) return "busan-coast";
   if (y >= 2240 && x < 1408) return "namsan";
@@ -249,7 +283,13 @@ export class FullWorld extends JuniScene {
     this.input.keyboard?.resetKeys();
     window.dispatchEvent(new Event("full-reset-input"));
     const arrive = () => {
-      const p = to === "jeju" ? [1760, 4544] : [2848, 3136];
+      const p = v6Review
+        ? to === "jeju"
+          ? v6Travel.islandArrival
+          : v6Travel.mainlandArrival
+        : to === "jeju"
+          ? [1760, 4544]
+          : [2848, 3136];
       this.place(p[0], p[1]);
       this.juni.setPosition(p[0], p[1]);
       this.cameras.main.centerOn(p[0], p[1]);
@@ -276,8 +316,14 @@ export class FullWorld extends JuniScene {
         this.say("Đến bàn học để khám phá ba tên chữ Hangul; cửa ra phía nam.");
       return;
     }
-    if (this.near(2848, 3184, 112) || this.near(1760, 4608, 112)) {
-      const to = this.player.y > 3600 ? "busan-coast" : "jeju";
+    const mainland = v6Review ? v6Travel.mainlandTrigger : [2848, 3184];
+    const island = v6Review ? v6Travel.islandTrigger : [1760, 4608];
+    if (
+      this.near(mainland[0], mainland[1], 112) ||
+      this.near(island[0], island[1], 112)
+    ) {
+      const to =
+        this.player.y > (v6Review ? 4040 : 3600) ? "busan-coast" : "jeju";
       window.dispatchEvent(new CustomEvent("full-ferry", { detail: to }));
       return;
     }
@@ -309,7 +355,7 @@ export class FullWorld extends JuniScene {
       );
       return;
     }
-    if (this.near(2144, 4560, 112)) {
+    if (this.near(2144, v6Review ? 4880 : 4560, 112)) {
       window.dispatchEvent(new Event("v3-discovery"));
       return;
     }
@@ -356,7 +402,7 @@ export class FullWorld extends JuniScene {
     if (this.overview && !this.inside) {
       cam.stopFollow();
       cam.setZoom(1);
-      cam.centerOn(2176, 2400);
+      cam.centerOn(worldSize[0] / 2, worldSize[1] / 2);
     }
     if (this.inside) {
       const w = this.scale.width / controls.zoom,
@@ -394,9 +440,9 @@ export class FullWorld extends JuniScene {
                 {
                   heritage: 1120,
                   namsan: 2912,
-                  entertainment: 2960,
-                  "busan-coast": 3120,
-                  jeju: 4384,
+                  entertainment: v6Review ? 3296 : 2960,
+                  "busan-coast": v6Review ? 3600 : 3120,
+                  jeju: v6Review ? 4704 : 4384,
                   commons: 2368,
                   room: 384,
                 } as const
@@ -419,7 +465,10 @@ export class FullWorld extends JuniScene {
             const fromX = Math.max(0, Math.floor(view.x / 32) - 1),
               fromY = Math.max(0, Math.floor(view.y / 32) - 1);
             const toX = Math.min(136, Math.ceil(view.right / 32) + 1),
-              toY = Math.min(150, Math.ceil(view.bottom / 32) + 1);
+              toY = Math.min(
+                worldSize[1] / 32,
+                Math.ceil(view.bottom / 32) + 1,
+              );
             for (let y = fromY; y < toY; y++)
               for (let x = fromX; x < toX; x++) {
                 const tile = child.getTileAt(x, y);
@@ -471,7 +520,7 @@ export class FullWorld extends JuniScene {
       area: this.inside ? "room" : "outdoor",
       x: this.player.x,
       y: this.player.y,
-      world: this.inside ? [768, 576] : [4352, 4800],
+      world: this.inside ? [768, 576] : [...worldSize],
       gateOpen,
       transitions,
       activeProps: this.scenery.filter((o) => o.visible).length,
@@ -482,7 +531,7 @@ export class FullWorld extends JuniScene {
     };
     window.__FULL_WORLD__ = {
       district,
-      world: this.inside ? [768, 576] : [4352, 4800],
+      world: this.inside ? [768, 576] : [...worldSize],
       activeProps: window.__SEOUL__.activeProps,
       totalProps: window.__SEOUL__.totalProps,
       transitions,
@@ -493,11 +542,13 @@ export class FullWorld extends JuniScene {
     };
     window.__V3_WORLD__ = {
       discoveryFound: basaltFound,
-      candidate: v4Review
-        ? "v4-readability"
-        : streetReview
-          ? "modern-streets"
-          : "v3-final",
+      candidate: v6Review
+        ? "v6-restructure"
+        : v4Review
+          ? "v4-readability"
+          : streetReview
+            ? "modern-streets"
+            : "v3-final",
     };
     if (window.__PLAZA_REVIEW__)
       window.__PLAZA_REVIEW__.environmentClock = this.clock;

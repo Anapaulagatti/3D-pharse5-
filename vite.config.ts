@@ -18,6 +18,7 @@ export default defineConfig({
         fullWorldReview: "full-world-review.html",
         v3WorldReview: "v3-world-review.html",
         modernStreetsReview: "modern-streets-review.html",
+        v6WorldReview: "v6-world-review.html",
         v4ReadabilityReview: "v4-readability-review.html",
       },
     },
