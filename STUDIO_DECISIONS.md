@@ -1,3 +1,17 @@
+# V8 phases 1–2 checkpoint — masterplan and playable graybox
+
+Recovery tag remotely verified at ea8588f. Editable 4352×5312 masterplan defines12sites,38routes, explicit four city blocks, N–S civic axis/E–W avenue, east-side rail terminal, separate parks and ferry-only island travel. Plan is design data, not final artwork. Native graybox Phaser stills inspected; actual held-key traversal of both full city axes passed,0resource/page errors.34,926foot/shoulder samples pass after correcting first-draft access conflicts; first failure receipt retained.273historical placements and every north-ground pixel above2240exact. Premium production/complete route QA still pending. No user visual approval or release claim.
+
+# V8 COMPLETE MODERN DISTRICT REBUILD — current authority
+
+User explicitly rejects V7 southern urban plan and authorizes complete replacement of southern roads/blocks/plots/grounds/positions/collisions. Latest chat request governs all 20 sections and deliverables. Preserve north y<2240, Juni144frames, approved native original buildings/props, gameplay/lessons/UI/mobile and recovery history.
+
+Mandatory order: recover → study Pixels public world/navigation principles without copying assets → editable dimensioned masterplan and feasibility → real playable graybox → premium original/existing-source materials and site planning → real Phaser QA and corrections → build/type/lint/unit/browser/mobile/travel → verified branch checkpoint/ZIP/video/boards. No premature plan-only handoff. Independent Namsan west, civic/transit center, entertainment east, continuous waterfront and ferry-only Jeju access. Every building has a plot, frontage, entrance and function. Main N–S boulevard + E–W avenue, structured local blocks, organic park/island loops. No tracing, global saturation filter, paid provider API, delegation, source deletion, history rewrite, main merge, deployment or separate-app edits. STOP after complete candidate for USER visual approval, not final-art acceptance.
+
+Recovery recovery/before-v8-southern-city-rebuild-20261020 remotely peeled to ea8588f1c85b1a6481bd38eb68ab3a6a19d3f43a before edits. Pinned Forge generate2dmap/generate2dsprite/generate2dmedia and proven Gwanghwamun/Juni workflows read. Build/setup only validate stored art, never generate.
+
+## Previous records — historical where superseded
+
 # V7 decisions — clean reconstruction, preserved artwork
 
 1. Latest V7 authorizes rejected system/site/coordinate/collider changes; previous V6 count/ground-only freezes remain historical, not blockers. Preserve old complete source/entry/recovery and all approved native artwork, Juni and lessons.
