@@ -175,3 +175,7 @@ Latest docs/current/V4_MAP_READABILITY.md authorizes targeted road joints and op
 ## V6 sharpness and path repairs (2026-10-19)
 
 Actual pinned5324342 map/sprite/media SKILL.md read and original Gwanghwamun/Juni workflows reused. Targeted terrain masks, original textures and literal approved pier wood crops; actual palette/map hash/validate/linked nav/Tiled/compose processing,0new media/provider calls.39path/11040sample/12threshold guards, exact geometry/art preservation and real native DPR/renderer evidence. Initial blank WebGL readback rejected and replaced by nonblank browser compositor proof; raw diagnostics retained. Offline build/checks require Pillow only; NumPy/Forge are authoring-only. Read docs/v6-path-fix/REPORT.md and actual verified checkpoint annotation; STOP for user review after handoff. No main/deploy/paid route/delegation.
+
+## Final map lock (2026-10-20)
+
+User-authorized surgical ground finish only. Actual pinnedForge5324342 map/sprite/media skills read, proven Gwanghwamun/Juni reused. Existing palette-finished native texture RGB,integer color variants/open ground inlays/eight-pixel sand corner cuts; no image tracing or generation. Actual21map hash/validate/linked-nav/Tiled/compose calls plus localdoctor diagnostic recorded,0media/provider calls. All approved geometry/art/code/route/coast/forest/Juni exact. Actual native/full/mobile/Canvas/WebGL/traversal/HTTP-package evidence in docs/final-map-lock; warnings retained. Finish exact Git handoff then STOP. Setup never generates. No main/deploy/delegation/paid API.

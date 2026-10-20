@@ -1,9 +1,9 @@
 """Read-only static delivery audit for the fixed V6 review package."""
 from pathlib import Path
-import json, hashlib, re
+import json, hashlib, re, os
 
 R = Path(__file__).resolve().parents[1]
-D = R / 'docs/v6-path-fix'
+D = R / os.environ.get('PIXEL_REVIEW_DIR', 'docs/v6-path-fix')
 package = json.loads((D/'package.json').read_text())
 assert package['status'] == 'VERIFIED_EXACT_ZIP_OVER_HTTP'
 patterns = [r'-----BEGIN (?:[A-Z]+ )?PRIVATE KEY-----',r'\bAKIA[A-Z0-9]{16}\b',r'\bgh[pousr]_[A-Za-z0-9]{20,}\b',r'\bgithub_pat_[A-Za-z0-9_]{40,}\b',r'\bsk-(?:proj-|svcacct-)?[A-Za-z0-9_-]{32,}\b',r'\bsk_live_[A-Za-z0-9]{20,}\b',r'\bAIza[A-Za-z0-9_-]{35}\b']

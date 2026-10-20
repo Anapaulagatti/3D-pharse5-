@@ -1,3 +1,5 @@
+> Latest current ground finish: [final map-lock review](../final-map-lock/README.md). This folder retains the previous review images/ZIP; current native exports and playable package are in docs/final-map-lock. Approved geometry/art retained.
+
 # V6 — sharpness and path repair review
 
 This fixes the existing V6. Original architecture, Juni144frames,497placements,552colliders, world layout and previous reviews remain intact. No main merge or deployment. User visual approval is pending.

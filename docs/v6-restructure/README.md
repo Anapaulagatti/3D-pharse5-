@@ -1,3 +1,5 @@
+> Latest current ground finish: [final map-lock review](../final-map-lock/README.md). This folder retains the previous review images/ZIP; current native exports and playable package are in docs/final-map-lock. Approved geometry/art retained.
+
 > Active V6 now includes the user-authorized [sharpness/path repairs](../v6-path-fix/README.md). This folder retains the original V6 review images/ZIP; current fixed playable package and comparisons are in docs/v6-path-fix. Same V6 entry, original architecture/Juni/physics/layout retained.
 
 # V6 reconstructed world — review candidate

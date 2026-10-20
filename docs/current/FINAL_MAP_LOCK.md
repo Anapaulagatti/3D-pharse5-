@@ -1,0 +1,5 @@
+# Final map lock — authorized scope
+
+User request: surgical polish of existing V6 only. Improve the central traditional/modern ground transition, lower-half circulation and venue footprint readability, Jeju path corners, harbor boarding flow and restrained fresh modern material color. Preserve approved buildings, Juni, zoning, coastline, forest masses, palace, modern district, ferry route and Jeju island. No redesign/regeneration/rescaling/reshuffling/tracing. Export actual Phaser full overview and native gameplay crops; validate and commit only to rebuild/pixel-social-rpg-v3, never main/deploy.
+
+Baseline:2df01bf215e0355cc1fed20b58779d5d0b740683. Recovery:recovery/before-final-map-lock-20261020. Local integer RGB material adjustments and original grass/native texture edge cuts only. Existing centerlines/widths/routes/land and walk masks/552colliders/497prop placements/108artfiles/144Juni frames remain exact. Inlays are flush ground, not walls. Visual review and runtime verification determine eligibility, not an automatic art approval.

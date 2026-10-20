@@ -5,7 +5,7 @@ import crypto from "node:crypto";
 const phase = process.argv[2] ?? "before";
 if (!["before", "after"].includes(phase))
   throw Error("before or after required");
-const out = `docs/v6-path-fix/quality/${phase}`;
+const out = `${process.env.PIXEL_PATH_CAPTURE_ROOT ?? "docs/v6-path-fix/quality"}/${phase}`;
 await fs.mkdir(out, { recursive: true });
 const base =
   process.env.PIXEL_CAPTURE_URL ?? "http://127.0.0.1:4201/3D-pharse5-/";

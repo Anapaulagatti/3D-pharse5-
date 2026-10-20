@@ -27,7 +27,10 @@ def finish():
  # Finish the literal RGB terrain/mask composition with the real shared-palette tool.
  inp=P/'terrain-composite-unquantized.png';q=C/f'ground-palette-{sha(inp)[:16]}'
  if not q.exists():run(F/'skills/generate2dsprite/scripts/palette_tool.py','apply','--input',inp,'--palette',S/'palette/palette.json','--orphans',0,'--output-dir',q)
- src=Image.open(q/inp.name).convert('RGBA');src.save(P/'ground-native.png');W,H=src.size;unique=[];lookup={}
+ src=Image.open(q/inp.name).convert('RGBA')
+ from final_map_lock import finish_ground
+ src=finish_ground(src)
+ src.save(P/'ground-native.png');W,H=src.size;unique=[];lookup={}
  def reg(im):
   im=im.convert('RGBA');key=im.tobytes()
   if key not in lookup:lookup[key]=len(unique);unique.append(im)

@@ -1,0 +1,122 @@
+{
+  "id": "FINAL-MAP-LOCK-001",
+  "baseline": "2df01bf215e0355cc1fed20b58779d5d0b740683",
+  "art_source": "existing",
+  "rule": "Ground pixels only, wholly inside the prior V6 path-repair mask. No tracing, generation, resampling, object, collision, coast, forest or route changes.",
+  "modernBounds": [
+    1400,
+    2480,
+    4300,
+    3792
+  ],
+  "modernTone": {
+    "saturation": 1.045,
+    "offset": [
+      -1,
+      1,
+      3
+    ]
+  },
+  "connector": [
+    2112,
+    2240,
+    2240,
+    2480
+  ],
+  "courts": [
+    {
+      "id": "station-front",
+      "tone": [
+        -2,
+        1,
+        5
+      ]
+    },
+    {
+      "id": "library-front",
+      "tone": [
+        3,
+        2,
+        -1
+      ]
+    },
+    {
+      "id": "cafe-front",
+      "tone": [
+        -3,
+        3,
+        2
+      ]
+    },
+    {
+      "id": "terminal-square",
+      "tone": [
+        -3,
+        1,
+        5
+      ]
+    },
+    {
+      "id": "wheel-square",
+      "tone": [
+        -2,
+        2,
+        4
+      ]
+    },
+    {
+      "id": "carousel-square",
+      "tone": [
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "hall-square",
+      "tone": [
+        -2,
+        3,
+        2
+      ]
+    },
+    {
+      "id": "arch-square",
+      "tone": [
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "id": "kiosk-square",
+      "tone": [
+        3,
+        2,
+        -1
+      ]
+    }
+  ],
+  "edgeWidth": 5,
+  "courtBorderWidth": 4,
+  "islandCornerRadius": 8,
+  "dockGuides": {
+    "mainland": [
+      2496,
+      3704,
+      3904
+    ],
+    "island": [
+      2496,
+      4144,
+      4280
+    ],
+    "offsetFromCentre": 22,
+    "width": 3
+  },
+  "notes": [
+    "Venue borders are flush ground inlays, never new walls or collision promises; wide openings remain on all existing route axes.",
+    "Jeju edits only soften the outer eight pixels of existing sand corners; centerlines, width/shoulder checks, court thresholds and every existing obstacle stay fixed.",
+    "Color transforms are local integer RGB lookup tables; no filtering, downsampling, blur or changes to building/character pixels."
+  ]
+}
