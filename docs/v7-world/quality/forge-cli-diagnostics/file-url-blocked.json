@@ -1,0 +1,1208 @@
+{
+  "schema": "generate2dmap.scene_preview_qa.v1",
+  "status": "fail",
+  "method": "build_scene_preview: bundle files resolved relative to the bundle and checked against their sha256 when given; collision read through forge_nav (the D2 blocking set; tile collision converted into world solids, material classes into BLOCK and one_way pixel planes); tiles layers pre-rendered from tileset manifests; art found in the D6 order and embedded as data URIs; map-runtime.mjs inlined verbatim; the page scanned for anything that loads from outside it; size gate; optional headless-Chromium run (--verify).",
+  "notProven": [
+    "Collision is forge_nav's D2 blocking set and the page walks it with map-runtime.mjs, which mirrors forge_nav rule for rule; their agreement is tested on synthetic fixtures (tests/test_map_runtime_js.py), not on this map. Rotated shapes can differ by one ulp of sin and cos between a browser and Python.",
+    "Without --verify, or when it prints SKIPPED, the page was assembled and scanned but never run in a browser.",
+    "The actor is a debug marker sized from collision.actorRadius, not character art; animation, lights, atmosphere, stage data, camera bounds and occluder masks are not drawn.",
+    "Draw order is whole-object Y-sort by (sortY, x, id); per-pixel occlusion, fades and cut-aways are not simulated.",
+    "Route checks walk the forge_nav grid with the runtime walker at --speed; an engine controller (acceleration, physics colliders, other speeds) may behave differently. one_way material blocks moving down onto it on every map (N11); a top-down map should not use it.",
+    "Footprint samples lie half a nav cell apart (N10): a solid thinner than that can fall between the samples of the footprint's rim; the actor's centre path is tested exactly (thin-gap rule).",
+    "Only headless Chromium is exercised (with --verify); other browsers, devices and touch input are not tested."
+  ],
+  "checks": [
+    {
+      "id": "html-size",
+      "status": "pass",
+      "value": 18878042,
+      "threshold": 96000000
+    },
+    {
+      "id": "external-references",
+      "status": "pass",
+      "value": [],
+      "threshold": []
+    },
+    {
+      "id": "ascii-only",
+      "status": "pass",
+      "value": true,
+      "threshold": true
+    },
+    {
+      "id": "single-inline-script",
+      "status": "pass",
+      "value": true,
+      "threshold": true
+    },
+    {
+      "id": "runtime-inlined",
+      "status": "pass",
+      "value": "map-runtime.mjs",
+      "threshold": null
+    },
+    {
+      "id": "object-art",
+      "status": "pass",
+      "value": [],
+      "threshold": []
+    },
+    {
+      "id": "browser-verify",
+      "status": "fail",
+      "value": "154.0.8037.57",
+      "threshold": null
+    },
+    {
+      "id": "browser-page-errors",
+      "status": "fail",
+      "value": [
+        "page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/3D-pharse5-/.cache/v7-world/.forge-scene-preview-verified.stage-7f31b91e/preview.html"
+      ],
+      "threshold": []
+    },
+    {
+      "id": "browser-network-requests",
+      "status": "pass",
+      "value": [],
+      "threshold": []
+    },
+    {
+      "id": "browser-assets-loaded",
+      "status": "fail",
+      "value": {},
+      "threshold": null
+    },
+    {
+      "id": "browser-keyboard-walk",
+      "status": "fail",
+      "value": [],
+      "threshold": null
+    },
+    {
+      "id": "browser-routes",
+      "status": "fail",
+      "value": [],
+      "threshold": []
+    },
+    {
+      "id": "browser-y-sort",
+      "status": "fail",
+      "value": null,
+      "threshold": null
+    },
+    {
+      "id": "build-warnings",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/v7-world/map/outdoor-bundle.json",
+      "sha256": "e5af51554ec7bb59463b7219bfd770c3ddf5576ad800602d82c20d757ff22411",
+      "bytes": 424083
+    },
+    {
+      "path": "../../../assets-src/seoul-production/props/prod-hall.png",
+      "sha256": "a5c9e3ba7fa3508cccaf4278aa9acd5de54d5a0f0e92539e4b08d60a841d6b9c",
+      "bytes": 201579
+    },
+    {
+      "path": "../../../assets-src/seoul-production/props/prod-study.png",
+      "sha256": "629d99d65da6c00c973b055f40864f3cb5bf973a7ccaf623ab295007fcaf75cc",
+      "bytes": 125786
+    },
+    {
+      "path": "../../../assets-src/seoul-production/props/prod-library.png",
+      "sha256": "b5350bb53ab2d106f1c750a348caab424d83d4102885bfb8fb3c67b91ad624ca",
+      "bytes": 114269
+    },
+    {
+      "path": "../../../assets-src/seoul-production/props/prod-museum.png",
+      "sha256": "d1f47fdf0c32e32bd0745e43c36b2bde68871d3a68edb1ffeebe8f198aac89b5",
+      "bytes": 207512
+    },
+    {
+      "path": "../../../assets-src/gwanghwamun/props/sejong.png",
+      "sha256": "4e4e6770ac0fb5e6c5e7552cf1d380f2f9c49644b506621aca7e40dcf5a93857",
+      "bytes": 18657
+    },
+    {
+      "path": "../../../assets-src/seoul-production/props/prod-gate.png",
+      "sha256": "ca0643ec60e5cca9817f5f5db206352e1e66fe17f5a50e218a1d85c9f9840952",
+      "bytes": 223268
+    },
+    {
+      "path": "../../../assets-src/world-refinement/props/rf-inner-gate.png",
+      "sha256": "f2ab658880c697d084a0019648f21a4526c1789e5697128fc6c0eb74f80b7c0b",
+      "bytes": 39740
+    },
+    {
+      "path": "../../../assets-src/world-refinement/props/rf-royal-hall.png",
+      "sha256": "4f15a37e2a72137e693edeeb9e03bc14736f500d3aff9584e198dbbb09391123",
+      "bytes": 231941
+    },
+    {
+      "path": "../../../assets-src/world-refinement/props/rf-exhibit.png",
+      "sha256": "8f8a14487d8de4ed455a435b84e5bb7672877c1bf84b6491789debc9a7698b6c",
+      "bytes": 11252
+    },
+    {
+      "path": "../../../assets-src/world-refinement/props/rf-banner.png",
+      "sha256": "58248c33983c1281b80fa70809f2c82ab50b3a68a2c8fb1e201fe47014134f0b",
+      "bytes": 15449
+    },
+    {
+      "path": "../../../assets-src/world-refinement/props/rf-stone-lantern.png",
+      "sha256": "571d9e96d3a7bfe3d7da9c3cc02c57289f8726e5158805b244012526739edaf8",
+      "bytes": 13810
+    },
+    {
+      "path": "../../../assets-src/seoul-production/props/prod-court-gate.png",
+      "sha256": "80c5b24b270b681907bdd7f728ef8479cfd39c3ba7662e7647feda180aa75da8",
+      "bytes": 19947
+    },
+    {
+      "path": "../../../assets-src/seoul-production/props/prod-writing.png",
+      "sha256": "4d0faced9ab8d0a4f5677f95c2af4c876250f89de30d09e69d056a4d7f1a8564",
+      "bytes": 14113
+    },
+    {
+      "path": "../../../assets-src/stage-b-polish/props/polish-folio.png",
+      "sha256": "4315e28ab55fc497f6c94ff61ab181af31af4ef90f1d6daf8a4cac094e646f23",
+      "bytes": 10744
+    },
+    {
+      "path": "../../../assets-src/stage-b-polish/props/polish-bamboo.png",
+      "sha256": "a0b8a4ab2576431187df7a6102f6ce661a34925f2267efd73d87bf014fe03fa2",
+      "bytes": 7208
+    },
+    {
+      "path": "../../../assets-src/stage-b-polish/props/polish-flowers.png",
+      "sha256": "44309376cabcf76885d28eeb03960fe9517657fed23b0a2ce59ffc97e12a11b8",
+      "bytes": 8162
+    },
+    {
+      "path": "../../../assets-src/seoul-production/props/prod-armillary.png",
+      "sha256": "2aad306a661f7db4b6b29aa81097d8b04db305e956850a2dee980752ccb643bf",
+      "bytes": 19104
+    },
+    {
+      "path": "../../../assets-src/seoul-production/props/prod-sundial.png",
+      "sha256": "a7fe454380eea9ba79f2afe25c9dde8e413bce62a897f139bb62fb66739da696",
+      "bytes": 15013
+    },
+    {
+      "path": "../../../assets-src/seoul-production/props/prod-clock.png",
+      "sha256": "2b0807d8353e51a4171977c1535d4399d271c130f265fac065ced255a26857e9",
+      "bytes": 22557
+    },
+    {
+      "path": "../../../assets-src/stage-b-polish/props/polish-tools.png",
+      "sha256": "da5b4117fdc3f88e2b79304eeef2d5e86b08f0b65e474f03cd36a194d1d786cf",
+      "bytes": 8977
+    },
+    {
+      "path": "../../../assets-src/stage-b-polish/props/polish-chart.png",
+      "sha256": "3c23ff59b8fbb3814d970a82ffd60e297be7863a6b5a0b49eb3fa67cdc0ba4e8",
+      "bytes": 11052
+    },
+    {
+      "path": "../../../assets-src/seoul-production/props/prod-strategy.png",
+      "sha256": "f5dcafe0644bcc6a54bc407f4e42300660d5fa143b98be995f0c532ecd1c2bc8",
+      "bytes": 12813
+    },
+    {
+      "path": "../../../assets-src/seoul-production/props/prod-ship.png",
+      "sha256": "8c77706262a3e8d7b1c12bef316d9566a8b81617091e1d51441e3b93a6edefd4",
+      "bytes": 20603
+    },
+    {
+      "path": "../../../assets-src/stage-b-polish/props/polish-stele.png",
+      "sha256": "1bc236260705796156947df5e3521abf71dfdb338f088bd4a3bf041b33bc66bf",
+      "bytes": 8566
+    },
+    {
+      "path": "../../../assets-src/world-refinement/props/rf-cafe.png",
+      "sha256": "a9f64b4f61293c6a89dbdd554167990a4099f54b88a08dfd81ba3e6041c93eb2",
+      "bytes": 132478
+    },
+    {
+      "path": "../../../assets-src/world-refinement/props/rf-cafe-seating.png",
+      "sha256": "42b0aa11146065b84147df8cbeca9cf519f49b6b41435a37ab2b646eac38abfe",
+      "bytes": 9475
+    },
+    {
+      "path": "../../../assets-src/world-refinement/props/rf-workshop-main.png",
+      "sha256": "60eaaaffc5b3aef3d72214779b093d5a7ce5a9553a1ba53192b49aaa4458bb6c",
+      "bytes": 112045
+    },
+    {
+      "path": "../../../assets-src/world-refinement/props/rf-workshop-wing.png",
+      "sha256": "e6e5527fb191d0349a45638a596f26ba70b5b6f8f773a96357dda4997384cd47",
+      "bytes": 112007
+    },
+    {
+      "path": "../../../assets-src/gwanghwamun/props/planter.png",
+      "sha256": "35caea815680e4b8ce01fe6afe22a56b1daee0778bc3f47ba3eb756d7fd29c1f",
+      "bytes": 4245
+    },
+    {
+      "path": "../../../assets-src/gwanghwamun/props/bench.png",
+      "sha256": "111ec597f59aa232bf8ddb38658b693480c7261282c60f86bec65a7b1133359a",
+      "bytes": 5110
+    },
+    {
+      "path": "../../../assets-src/gwanghwamun/props/jars.png",
+      "sha256": "7e80af2dab5040ada3a6244c533bb0b4fcff2a27d180f604e0974b5548f15f85",
+      "bytes": 5204
+    },
+    {
+      "path": "../../../assets-src/gwanghwamun/props/lantern.png",
+      "sha256": "dfe4dc19f4b77a23fffe7715d63d1ecd2ee2d65b4afc674e861df11d453f526c",
+      "bytes": 6021
+    },
+    {
+      "path": "../../../assets-src/gwanghwamun/props/ginkgo.png",
+      "sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "bytes": 48819
+    },
+    {
+      "path": "../../../assets-src/gwanghwamun/props/tree.png",
+      "sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "bytes": 40364
+    },
+    {
+      "path": "../../../assets-src/living-korea/north/props/palace-north.png",
+      "sha256": "26b2cf7c49133778644526a290f45f9a75556818ce5c7b92257201117b26a2fb",
+      "bytes": 18383
+    },
+    {
+      "path": "../../../assets-src/living-korea/north/props/palace-side-384.png",
+      "sha256": "7fb714c430571089f5690e3007bc78f132933033f53be7ee116a62703441fcaf",
+      "bytes": 12291
+    },
+    {
+      "path": "../../../assets-src/living-korea/north/props/palace-side-1920.png",
+      "sha256": "7fb714c430571089f5690e3007bc78f132933033f53be7ee116a62703441fcaf",
+      "bytes": 12291
+    },
+    {
+      "path": "../../../assets-src/living-korea/north/props/palace-front-west.png",
+      "sha256": "9e240969e565b4e4d9e7afbb806bf4b4c185d12130b05ec684a1df4c4f44e472",
+      "bytes": 16266
+    },
+    {
+      "path": "../../../assets-src/living-korea/north/props/palace-front-east.png",
+      "sha256": "9e240969e565b4e4d9e7afbb806bf4b4c185d12130b05ec684a1df4c4f44e472",
+      "bytes": 16266
+    },
+    {
+      "path": "../../../assets-src/living-korea/north/props/palace-inner-west.png",
+      "sha256": "7818323218abb87806bac34d1249c06947ee2aded8169cd94176a5fd0300d308",
+      "bytes": 16605
+    },
+    {
+      "path": "../../../assets-src/living-korea/north/props/palace-inner-east.png",
+      "sha256": "7818323218abb87806bac34d1249c06947ee2aded8169cd94176a5fd0300d308",
+      "bytes": 16605
+    },
+    {
+      "path": "../../../assets-src/living-korea/north/props/academy-front-west.png",
+      "sha256": "adc65ad56c7b502b87a52b6187ac4d3c8fab06e8e17ba9a9d7464be41e5886ed",
+      "bytes": 11006
+    },
+    {
+      "path": "../../../assets-src/living-korea/north/props/academy-front-east.png",
+      "sha256": "64b92c49dffd0d8e9e80d76f9c785e8d291f2ef6e3500401a8fe464d7069bdb9",
+      "bytes": 11157
+    },
+    {
+      "path": "../../../assets-src/living-korea/north/props/work-front-west.png",
+      "sha256": "4c2ab4a1e0ac17a32491a77cc1357b4ca92a5ba7ce505a0fa63614871758df6e",
+      "bytes": 1241
+    },
+    {
+      "path": "../../../assets-src/living-korea/north/props/work-front-east.png",
+      "sha256": "1936a0abf6d6ea700a7e9a3dcb007b5d92f69078238f257dbfdd295a6b5703b0",
+      "bytes": 1506
+    },
+    {
+      "path": "../../../assets-src/living-korea/north/props/work-west-rear.png",
+      "sha256": "9bd163aba55054826122bccdcfd048879cecec22934399503903c1bf89d1b3dc",
+      "bytes": 629
+    },
+    {
+      "path": "../../../assets-src/living-korea/north/props/work-west-front.png",
+      "sha256": "174207af11b35308f03197fd0cb9ce31a9a4ac3bd4e543625c9915319c8edd84",
+      "bytes": 614
+    },
+    {
+      "path": "../../../assets-src/living-korea/north/props/work-east.png",
+      "sha256": "42c61e3ed61bd5b4e9184124cf0b1afa0c630c9cdfdb36b52386c4ea7efb2add",
+      "bytes": 863
+    },
+    {
+      "path": "../../../assets-src/living-korea/north/props/work-rear-east.png",
+      "sha256": "ac35ede4a7e88c40236076b49d57fbeee2c3ba76ee689d26efc6b2ac6f9741ab",
+      "bytes": 1304
+    },
+    {
+      "path": "../../../assets-src/living-korea/north/props/kr-timber-cap.png",
+      "sha256": "adabda0760c159c71c680f461cee8eb0ed90be3fab29e9e4a2cb55dba152da15",
+      "bytes": 1241
+    },
+    {
+      "path": "../../../assets-src/living-korea/props/kr-pier.png",
+      "sha256": "5f43c28638950727a5bc58cee814155cdeb8a49ebe9945e5235f6b6be8e93201",
+      "bytes": 4772
+    },
+    {
+      "path": "../../../assets-src/full-world/props/fw-royal-pavilion.png",
+      "sha256": "18b9e44b3a251896c8ed4641d17902794afebd66c344f88c2ea707d711572b1c",
+      "bytes": 56905
+    },
+    {
+      "path": "../../../assets-src/full-world/props/fw-scholar-rest.png",
+      "sha256": "6d2ea0398ad78125e23571fc7435a6c65a25acfdd6fd70425cd0d03f96071b69",
+      "bytes": 27614
+    },
+    {
+      "path": "../../../assets-src/full-world/props/fw-hanji-desk.png",
+      "sha256": "e1fe78f94a7379eb824f2aa4c7240a362510059394ae78bb83e63b30bd7a8615",
+      "bytes": 15651
+    },
+    {
+      "path": "../../../assets-src/full-world/props/fw-science.png",
+      "sha256": "1fb4e08c6301dcd81f45d8ea5bc7071f04b08add7a64f5498167f7a015e7bded",
+      "bytes": 26228
+    },
+    {
+      "path": "../../../assets-src/full-world/props/fw-maritime.png",
+      "sha256": "2c02bf753f08114457f8183d2bf385bc6b336dec7e287edd714dbfed6dd9138d",
+      "bytes": 24990
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-wayfinding.png",
+      "sha256": "09420e83f8438163e1971782012af7985f129cc9cd2cf02a69740f1b3f800106",
+      "bytes": 15790
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-rock-garden.png",
+      "sha256": "61b4175181bd64cc495f3ecaebebe9d7132abaa6d21c56054642c3af34353934",
+      "bytes": 46294
+    },
+    {
+      "path": "../../../assets-src/living-korea/props/kr-pine.png",
+      "sha256": "c235c9f43c2975d1cbba156c69a9f4ec4fa186e3986e00c77fb76a2dc30d3b9c",
+      "bytes": 70180
+    },
+    {
+      "path": "../../../assets-src/full-world/props/fw-bookstore.png",
+      "sha256": "50ab889f79b7416e8e3306e47925bd728802abc0546a58ff66d302bac12d0b8e",
+      "bytes": 135200
+    },
+    {
+      "path": "../../../assets-src/living-korea/props/kr-rest.png",
+      "sha256": "42b5ff07bf41de69617e492b0c335cf0c616ac0e0023fa45498571c3997d8686",
+      "bytes": 26093
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-urban-hub.png",
+      "sha256": "7ccaaa24aa2825fc166222b8eac54eaf41246ad22c274e68e902f93221f20d1b",
+      "bytes": 172167
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-bus-stop.png",
+      "sha256": "33e6dcd4571d6f34d6435095f2965584584e12f701583de1583bd431a356d890",
+      "bytes": 37229
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-tower.png",
+      "sha256": "9a76a282c666a39a899bce49926a6cdaee9bf5ea5e1a5a2fc4bb9b30bb4c994a",
+      "bytes": 131645
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-terrace.png",
+      "sha256": "58f41972976cb26d8dec4fdf74b755b5e005332978916ee2bf6902e37ba44da7",
+      "bytes": 87071
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-trail-pavilion.png",
+      "sha256": "1fd1c0e05d0347b618567736cccb1ce2bb8f6c57d5d5d938f6f7ee7da6e532bb",
+      "bytes": 51795
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-trail-sign.png",
+      "sha256": "6f2359e62beb4627d6aab083319c7b077d2a0d4ce44c205f902ddac5cdec9110",
+      "bytes": 14347
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-bloom-entry.png",
+      "sha256": "b401edc759653e6f7a8abd7aae172d249caabae6a6fec812b378ccac06c2cdab",
+      "bytes": 118604
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-wheel.png",
+      "sha256": "f737975c02c018d8bd0ddb7b8f0d5d7726553de4b2c35bb672783126368b2d48",
+      "bytes": 188297
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-carousel.png",
+      "sha256": "6e23137f1490aeae23a0f6f23acd8c398dc176d6b355ad26d17c7446f90a1ebb",
+      "bytes": 161205
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-discovery-hall.png",
+      "sha256": "511daada026b9e76ca271671a17cc5b2c0a84cda97c387c824409ab7d338d9bb",
+      "bytes": 140212
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-kiosk.png",
+      "sha256": "8e1a3fea1dde16d112c9ced82985a57e00ebcb3397f0930e4b2440de29f7b913",
+      "bytes": 40161
+    },
+    {
+      "path": "../../../assets-src/full-world/props/fw-flower-bed.png",
+      "sha256": "e81205bee56e6f8592b34fcc5cdd62e4bc36053a946a34809b8d8d80b2b51c85",
+      "bytes": 19333
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-station.png",
+      "sha256": "43a80ecd2b9477525d2127041f5cd1934910b8012f21edc49b59002185d31f03",
+      "bytes": 136427
+    },
+    {
+      "path": "../../../assets-src/full-world/props/fw-rail-run.png",
+      "sha256": "d55f27529c71c40b21b322a57cf652671cef0321d0ddd662143f85fe7c53413e",
+      "bytes": 32822
+    },
+    {
+      "path": "../../../assets-src/full-world/props/fw-crossing.png",
+      "sha256": "3c00ed487ff451d2dc69fcfcd6999e1fab4a09eb86c57854da3276e0d910dcec",
+      "bytes": 31504
+    },
+    {
+      "path": "../../../assets-src/full-world/props/fw-platform-run.png",
+      "sha256": "cf6cecf2f05c4b1cb49b9d1e56a0659ca74260222b799e3308937f2ec02ce953",
+      "bytes": 35073
+    },
+    {
+      "path": "../../../assets-src/v3-final/prop-layers/platform-stairs.png",
+      "sha256": "3ff4cf30eaff74800988f94ccd406a5817a37050d60a2cdea7a5cde7726d558e",
+      "bytes": 13724
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-train.png",
+      "sha256": "3efbd18fa70a0572cbb1d9784d3caf40d1e4f70ef4c8908a60049143cb9abbad",
+      "bytes": 53915
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-coastal-cafe.png",
+      "sha256": "9137b269e9e7912acee6912f464ccb7942b484d11e2f3dec6b96c10cb50d815a",
+      "bytes": 99254
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-ferry-terminal.png",
+      "sha256": "d71f3cedffa39443461a1ad55924f5208f416f205ce212a2c8357a7f7d112a66",
+      "bytes": 85718
+    },
+    {
+      "path": "../../../assets-src/full-world/props/fw-jetty.png",
+      "sha256": "c1cd258175c2d0c2acd4bb986973079aaf8d141ce8f03d76ad754233965e59da",
+      "bytes": 37361
+    },
+    {
+      "path": "../../../assets-src/full-world/props/fw-ferry.png",
+      "sha256": "6792985428d309d07fd6a1fc3c717976383c75b6a2705bd9d0cd9ed21b6d8235",
+      "bytes": 51119
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-modern-bridge.png",
+      "sha256": "3b62941ff60a5a3a63ac663e2a74331e4c19763c8bedf9ef89f732dddbc3a983",
+      "bytes": 29412
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-seawall.png",
+      "sha256": "5006a3e6a51505d3a5fd6543ed3175d32094ea687357a07099212ef7fa6d190b",
+      "bytes": 49149
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-glass-rail.png",
+      "sha256": "25cdffb69cfbaafbc817759c27bb35f92301b46143e728e35be5925847b9d1b4",
+      "bytes": 5577
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-oreum.png",
+      "sha256": "9faa17fcca92070d44c0ecac552a48ff86386b86e5f7f3a65daee0c8d2b45dc7",
+      "bytes": 402777
+    },
+    {
+      "path": "../../../assets-src/v3-final/prop-layers/jeju-yard-back.png",
+      "sha256": "859da931259497faaee02f13d058594f15afcb241206c713c59611bce73e4fd1",
+      "bytes": 116680
+    },
+    {
+      "path": "../../../assets-src/v3-final/prop-layers/jeju-yard-front.png",
+      "sha256": "3ae9192a5557cd7d06511d4877c1217530ac6be125f1f2ad4f7bd4c4e33cd914",
+      "bytes": 64522
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-nature-centre.png",
+      "sha256": "30842c9e1f942e78d879c0c5ba2de66f17c7b98e02978d24eff1853516f16a70",
+      "bytes": 160110
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-cliff-lookout.png",
+      "sha256": "1028fa12d09434d106620bcf9d8f657213a232518eecf35f35d75ac46de28599",
+      "bytes": 223306
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-basalt-discovery.png",
+      "sha256": "4e5a5977d7c8f78378bb6b3a8957414ce588ba998593e55c275881237837bfbb",
+      "bytes": 35654
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-jeju-gate.png",
+      "sha256": "5436db619be97d342ca9eb241a3be5d75d1b866dc2571833e67c8830bbed87a5",
+      "bytes": 69561
+    },
+    {
+      "path": "../../../assets-src/full-world/props/fw-guardian.png",
+      "sha256": "9685097bfbd742dc715c51a781cbdc7b6f87caf293eb9a6c12242f04bb670219",
+      "bytes": 13434
+    },
+    {
+      "path": "../../../assets-src/full-world/props/fw-basalt-wall.png",
+      "sha256": "a74b970da2c423f2087dbacf5aab669ddf80b60df338c0287b18e3eb907224f8",
+      "bytes": 14045
+    },
+    {
+      "path": "../../../assets-src/v4-readability/props/v4-rail.png",
+      "sha256": "edf32b43bd2bab6a93b68732d170f9f59f2cb8c0c1414233b08b750411234c55",
+      "bytes": 3117
+    },
+    {
+      "path": "../../../assets-src/v4-readability/props/v4-planter.png",
+      "sha256": "7e47018df51ae68ce6e0512bb3cf84c8d33d1798a96802841ac15ac1bc375d8b",
+      "bytes": 11146
+    },
+    {
+      "path": "../../../assets-src/v4-readability/props/v4-park.png",
+      "sha256": "52eeeb1aa0edea06758265ab8cd91641a34c4ee70ed7aad9abd8031c34b77850",
+      "bytes": 4702
+    },
+    {
+      "path": "../../../assets-src/v4-readability/props/v4-hedge.png",
+      "sha256": "de972ed092eb5094c44f20de25629fcbde6535a42bc4621a89918ae9ef8bc857",
+      "bytes": 11740
+    },
+    {
+      "path": "../../../assets-src/v3-final/props/v3-streetlight-short.png",
+      "sha256": "4456f09fd0e4706a2c2d4c165aa330880a694b0115b485855c3a5abdd7d91274",
+      "bytes": 2513
+    },
+    {
+      "path": "../../../assets-src/full-world/props/fw-tangerine.png",
+      "sha256": "e07f5dedd64d1c1379523fdd12dfdc6cb3762ee4911aa645fbf2afa63c53de30",
+      "bytes": 44600
+    },
+    {
+      "path": "../../../assets-src/full-world/props/fw-coastal-garden.png",
+      "sha256": "8bb43cb9a7b31293346b1982950f860cce26eb2c6f4453b389aedd06ac74b1c5",
+      "bytes": 25599
+    },
+    {
+      "path": "../../../assets-src/v7-world/map/tileset.json",
+      "sha256": "44dd33489cc36a465a57523b6d5398dcbbd6a894fedd7b9fcc643f683a0a69ef",
+      "bytes": 383646
+    },
+    {
+      "path": "../../../assets-src/v7-world/map/tiles.png",
+      "sha256": "ea740c6d7114113e04f90ec958a92dd4e832b35c77689c6bae5983bb49bbf709",
+      "bytes": 5481164
+    },
+    {
+      "path": "../../../assets-src/v7-world/map/layers/ground.json",
+      "sha256": "17d0032c0f7afa186092fb2cba08c7142bc09bf648fc8256ec0db959518d95c2",
+      "bytes": 209426
+    },
+    {
+      "path": "../../../assets-src/v7-world/map/layers/edging.json",
+      "sha256": "5b3f458c6d5b31b4a014378ff956e1dfc09d49da0f79940487d543fd696766ab",
+      "bytes": 181939
+    }
+  ],
+  "outputs": [
+    {
+      "path": "preview.html",
+      "sha256": "981295edbbbda9af2007b46f5fc7b635d6957c34264e67fa472b0728fc539bc2",
+      "bytes": 18878042
+    }
+  ],
+  "tool": {
+    "name": "build_scene_preview",
+    "version": "0.4.0"
+  },
+  "preview": {
+    "file": "preview.html",
+    "bytes": 18878042,
+    "sha256": "981295edbbbda9af2007b46f5fc7b635d6957c34264e67fa472b0728fc539bc2",
+    "runtime": {
+      "file": "map-runtime.mjs",
+      "version": "1.1.2",
+      "sha256": "c1fc3d9bf15cfa53fdfeb050ce4252f7ace4c923066ca4e135dea576e7445273"
+    },
+    "world": [
+      4352,
+      5312
+    ],
+    "zoom": 1,
+    "speed": 96.0,
+    "actorHeight": 36.0,
+    "actorRadius": 8,
+    "ySquash": 0.5,
+    "start": "start",
+    "layers": [
+      {
+        "name": "Ground",
+        "source": "tiles",
+        "size": [
+          4352,
+          5312
+        ]
+      },
+      {
+        "name": "Edging",
+        "source": "tiles",
+        "size": [
+          4352,
+          5312
+        ]
+      },
+      {
+        "name": "Props",
+        "source": "objects"
+      }
+    ],
+    "drawOrder": [
+      "heritage-kr-135-kr-pier",
+      "heritage-kr-93-palace-north",
+      "heritage-kr-136-kr-pier",
+      "v3-211",
+      "v3-212",
+      "v3-213",
+      "v3-214",
+      "v3-181",
+      "v3-250",
+      "v3-352",
+      "heritage-refined-127",
+      "heritage-refined-128",
+      "v3-354",
+      "heritage-refined-126",
+      "v3-353",
+      "v3-290",
+      "v3-289",
+      "heritage-refined-47",
+      "v3-277",
+      "v3-288",
+      "heritage-refined-49",
+      "heritage-refined-50",
+      "v3-291",
+      "heritage-refined-123",
+      "heritage-refined-48",
+      "heritage-refined-124",
+      "v3-232",
+      "v3-355",
+      "v3-358",
+      "v3-220",
+      "heritage-kr-139-kr-pier",
+      "heritage-kr-98-palace-inner-west",
+      "heritage-refined-46",
+      "heritage-kr-99-palace-inner-east",
+      "heritage-kr-140-kr-pier",
+      "v3-292",
+      "v3-293",
+      "v3-357",
+      "v3-294",
+      "v3-272",
+      "full-180",
+      "full-181",
+      "v3-356",
+      "heritage-refined-51",
+      "heritage-refined-52",
+      "heritage-refined-148",
+      "heritage-refined-149",
+      "heritage-refined-129",
+      "v3-295",
+      "heritage-refined-130",
+      "heritage-refined-104",
+      "v3-296",
+      "heritage-refined-103",
+      "v3-359",
+      "v3-364",
+      "v3-218",
+      "v3-297",
+      "v3-365",
+      "v3-301",
+      "v3-299",
+      "v3-360",
+      "v3-362",
+      "v3-361",
+      "v3-300",
+      "v3-298",
+      "v3-363",
+      "heritage-kr-137-kr-pier",
+      "heritage-kr-94-palace-side-384",
+      "heritage-kr-96-palace-front-west",
+      "heritage-kr-97-palace-front-east",
+      "heritage-kr-138-kr-pier",
+      "heritage-kr-95-palace-side-1920",
+      "v3-302",
+      "heritage-refined-140",
+      "v3-366",
+      "heritage-refined-6",
+      "heritage-refined-141",
+      "v3-278",
+      "v3-303",
+      "v3-304",
+      "heritage-refined-131",
+      "heritage-refined-119",
+      "heritage-refined-120",
+      "v3-369",
+      "v3-368",
+      "heritage-refined-136",
+      "v3-305",
+      "v3-367",
+      "heritage-refined-142",
+      "heritage-refined-111",
+      "heritage-refined-112",
+      "v3-370",
+      "v3-273",
+      "heritage-refined-138",
+      "v3-306",
+      "v3-371",
+      "v3-309",
+      "v3-372",
+      "heritage-refined-88",
+      "v3-373",
+      "v3-307",
+      "heritage-kr-108-kr-timber-cap",
+      "heritage-kr-107-work-rear-east",
+      "heritage-kr-120-kr-timber-cap",
+      "heritage-kr-122-kr-timber-cap",
+      "heritage-kr-124-kr-timber-cap",
+      "heritage-kr-125-kr-timber-cap",
+      "v3-308",
+      "heritage-kr-134-rf-prod-planter",
+      "heritage-refined-92",
+      "heritage-refined-93",
+      "heritage-refined-137",
+      "heritage-refined-132",
+      "v3-310",
+      "heritage-refined-1",
+      "heritage-refined-143",
+      "v3-374",
+      "v3-375",
+      "heritage-kr-109-kr-timber-cap",
+      "heritage-refined-107",
+      "heritage-kr-126-kr-timber-cap",
+      "v3-380",
+      "v3-315",
+      "heritage-refined-135",
+      "v3-376",
+      "v3-378",
+      "v3-312",
+      "heritage-refined-90",
+      "heritage-refined-91",
+      "heritage-refined-70",
+      "v3-311",
+      "heritage-refined-67",
+      "heritage-refined-5",
+      "heritage-kr-104-work-west-rear",
+      "heritage-kr-110-kr-timber-cap",
+      "heritage-refined-89",
+      "v3-314",
+      "v3-379",
+      "v3-313",
+      "heritage-refined-96",
+      "heritage-refined-97",
+      "heritage-kr-127-kr-timber-cap",
+      "heritage-refined-99",
+      "heritage-refined-100",
+      "v3-279",
+      "v3-377",
+      "v3-316",
+      "heritage-refined-106",
+      "heritage-refined-117",
+      "heritage-refined-64",
+      "heritage-kr-128-kr-timber-cap",
+      "v3-317",
+      "v3-381",
+      "heritage-refined-71",
+      "v3-382",
+      "heritage-refined-3",
+      "heritage-kr-111-kr-timber-cap",
+      "full-183",
+      "heritage-refined-63",
+      "v3-319",
+      "v3-383",
+      "heritage-refined-68",
+      "full-182",
+      "heritage-refined-72",
+      "heritage-kr-129-kr-timber-cap",
+      "v3-384",
+      "heritage-refined-2",
+      "heritage-kr-112-kr-timber-cap",
+      "v3-320",
+      "heritage-refined-98",
+      "v3-318",
+      "heritage-refined-69",
+      "heritage-refined-65",
+      "heritage-refined-66",
+      "heritage-refined-113",
+      "v3-321",
+      "heritage-refined-101",
+      "v3-274",
+      "heritage-kr-102-work-front-west",
+      "heritage-kr-105-work-west-front",
+      "heritage-kr-113-kr-timber-cap",
+      "heritage-kr-114-kr-timber-cap",
+      "heritage-kr-115-kr-timber-cap",
+      "heritage-kr-103-work-front-east",
+      "heritage-kr-116-kr-timber-cap",
+      "heritage-kr-117-kr-timber-cap",
+      "heritage-kr-118-kr-timber-cap",
+      "heritage-kr-119-kr-timber-cap",
+      "heritage-kr-121-kr-timber-cap",
+      "heritage-kr-123-kr-timber-cap",
+      "heritage-kr-106-work-east",
+      "heritage-kr-130-kr-timber-cap",
+      "heritage-kr-100-academy-front-west",
+      "heritage-kr-141-kr-pier",
+      "heritage-refined-55",
+      "heritage-kr-101-academy-front-east",
+      "heritage-kr-142-kr-pier",
+      "v3-385",
+      "v3-322",
+      "heritage-refined-134",
+      "heritage-refined-114",
+      "v3-388",
+      "heritage-kr-131-rf-polish-flowers",
+      "heritage-kr-132-rf-polish-flowers",
+      "v3-386",
+      "heritage-kr-133-rf-prod-bench",
+      "v3-323",
+      "heritage-refined-118",
+      "v3-387",
+      "heritage-refined-109",
+      "heritage-refined-110",
+      "heritage-refined-122",
+      "heritage-refined-139",
+      "v3-324",
+      "heritage-refined-133",
+      "v3-389",
+      "heritage-refined-144",
+      "v3-280",
+      "v3-325",
+      "heritage-refined-87",
+      "v3-391",
+      "v3-394",
+      "v3-395",
+      "v3-329",
+      "v3-330",
+      "v3-390",
+      "v3-326",
+      "v3-327",
+      "v3-331",
+      "heritage-refined-105",
+      "v3-328",
+      "v3-392",
+      "v3-393",
+      "v3-396",
+      "v3-332",
+      "heritage-refined-125",
+      "heritage-refined-147",
+      "v3-398",
+      "v3-275",
+      "heritage-refined-86",
+      "heritage-refined-145",
+      "heritage-refined-121",
+      "v3-335",
+      "heritage-refined-146",
+      "v3-333",
+      "v3-334",
+      "v3-399",
+      "v3-397",
+      "heritage-refined-4",
+      "v3-400",
+      "heritage-refined-108",
+      "heritage-refined-94",
+      "heritage-refined-95",
+      "heritage-refined-115",
+      "heritage-refined-75",
+      "v3-336",
+      "heritage-refined-73",
+      "v3-401",
+      "v3-345",
+      "v3-337",
+      "v3-339",
+      "v3-237",
+      "v3-346",
+      "v3-281",
+      "heritage-refined-74",
+      "v3-402",
+      "full-184",
+      "heritage-refined-116",
+      "heritage-refined-102",
+      "v3-344",
+      "v3-403",
+      "v3-338",
+      "v3-340",
+      "heritage-refined-76",
+      "v3-347",
+      "v3-404",
+      "v3-176",
+      "v3-236",
+      "v3-276",
+      "v3-405",
+      "v3-349",
+      "v3-350",
+      "heritage-kr-144-kr-rest",
+      "full-185",
+      "v3-178",
+      "v3-238",
+      "v3-239",
+      "v7-site-1",
+      "v7-site-3",
+      "v7-site-5",
+      "v7-site-7",
+      "v7-site-9",
+      "v7-site-11",
+      "v7-site-13",
+      "v7-site-14",
+      "v7-site-111",
+      "v7-site-112",
+      "v7-site-39",
+      "v7-site-40",
+      "v7-site-42",
+      "v7-site-43",
+      "v7-site-44",
+      "v7-site-45",
+      "v7-site-47",
+      "v7-site-99",
+      "v7-site-101",
+      "v7-site-136",
+      "v7-site-15",
+      "v7-site-16",
+      "v7-site-139",
+      "v7-site-49",
+      "v7-site-50",
+      "v3-195",
+      "v7-site-124",
+      "v7-site-125",
+      "v7-site-17",
+      "v7-site-18",
+      "v7-site-51",
+      "v7-site-52",
+      "v7-site-100",
+      "v7-site-102",
+      "v7-site-19",
+      "v7-site-132",
+      "v7-site-20",
+      "v7-site-141",
+      "v7-site-107",
+      "v7-site-108",
+      "v7-site-109",
+      "v7-site-110",
+      "v7-site-53",
+      "v7-site-54",
+      "v7-site-140",
+      "v7-site-134",
+      "v3-177",
+      "v3-216",
+      "v3-182",
+      "v3-210",
+      "v7-site-21",
+      "v7-site-22",
+      "v7-site-55",
+      "v7-site-56",
+      "v7-site-137",
+      "v7-site-23",
+      "v7-site-24",
+      "v7-site-57",
+      "v7-site-58",
+      "v3-192",
+      "v3-193",
+      "v7-site-103",
+      "v7-site-104",
+      "v7-site-25",
+      "v3-180",
+      "v7-site-26",
+      "v7-site-59",
+      "v7-site-60",
+      "v7-site-113",
+      "v7-site-114",
+      "v7-site-27",
+      "v7-site-28",
+      "v3-215",
+      "v7-site-61",
+      "v7-site-62",
+      "v7-site-29",
+      "v7-site-30",
+      "v7-site-128",
+      "v7-site-63",
+      "v7-site-64",
+      "v7-site-31",
+      "v7-site-32",
+      "v7-site-129",
+      "v7-site-65",
+      "v7-site-66",
+      "v7-site-138",
+      "v7-site-135",
+      "v7-site-133",
+      "v7-site-105",
+      "v7-site-106",
+      "v7-site-120",
+      "v7-site-142",
+      "v7-site-33",
+      "v7-site-34",
+      "v7-site-143",
+      "v7-site-67",
+      "v7-site-68",
+      "v3-207",
+      "v7-site-35",
+      "v7-site-36",
+      "v7-site-69",
+      "v7-site-70",
+      "v3-194",
+      "v7-site-115",
+      "v7-site-116",
+      "v7-site-37",
+      "v7-site-38",
+      "v7-site-117",
+      "v7-site-118",
+      "v3-183",
+      "v7-site-126",
+      "v7-site-127",
+      "v7-site-71",
+      "v7-site-72",
+      "v7-site-2",
+      "v7-site-4",
+      "v7-site-6",
+      "v7-site-8",
+      "v7-site-10",
+      "v7-site-12",
+      "v7-site-119",
+      "v7-site-73",
+      "v7-site-74",
+      "v3-217",
+      "v3-209",
+      "v3-191",
+      "v7-site-121",
+      "v3-208",
+      "v3-240",
+      "v7-site-41",
+      "v7-site-46",
+      "v7-site-48",
+      "v3-241",
+      "v7-site-75",
+      "v7-site-76",
+      "v7-site-77",
+      "v7-site-78",
+      "v7-site-79",
+      "v7-site-80",
+      "v7-site-81",
+      "v7-site-82",
+      "v7-site-83",
+      "v7-site-84",
+      "v7-site-85",
+      "v7-site-86",
+      "v7-site-87",
+      "v7-site-88",
+      "v7-site-89",
+      "v7-site-90",
+      "v7-site-91",
+      "v7-site-92",
+      "v7-site-93",
+      "v7-site-94",
+      "v7-site-95",
+      "v7-site-96",
+      "v7-site-97",
+      "v7-site-98",
+      "v3-233",
+      "v3-234",
+      "v3-235",
+      "v3-219",
+      "v3-271",
+      "v6-island-north-pier",
+      "v3-242",
+      "v3-246",
+      "v7-site-122",
+      "v3-264",
+      "v7-site-130",
+      "v3-265",
+      "v7-site-144",
+      "v7-site-147",
+      "v3-243",
+      "v3-267",
+      "v3-244",
+      "v3-245",
+      "v3-269",
+      "v3-249",
+      "v3-270",
+      "v7-site-146",
+      "v3-247",
+      "v7-site-148",
+      "v7-site-123",
+      "v7-site-145",
+      "v7-site-131",
+      "v3-268",
+      "v3-248",
+      "v3-251",
+      "v3-266"
+    ],
+    "objectArt": {
+      "object.image": 0,
+      "props": 475,
+      "prop-pack": 0,
+      "occluder.source": 0,
+      "missing": []
+    },
+    "counts": {
+      "objects": 475,
+      "portals": 3,
+      "spawns": 4,
+      "interactions": 21,
+      "anchors": 21
+    },
+    "images": {
+      "count": 101,
+      "bytes": 13959316
+    },
+    "materialMap": null,
+    "collision": {
+      "collisionSolids": 581,
+      "rects": 0,
+      "footprints": 0,
+      "tileSolids": 0,
+      "blockingMaterialClasses": []
+    },
+    "hashes": {
+      "checked": 479,
+      "unchecked": 0
+    }
+  },
+  "warnings": [],
+  "verify": {
+    "status": "fail",
+    "browser": "154.0.8037.57",
+    "routesOk": false,
+    "routes": 0,
+    "failing": [],
+    "ysort": "fail"
+  }
+}

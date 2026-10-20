@@ -1,3 +1,17 @@
+# V7 decisions — clean reconstruction, preserved artwork
+
+1. Latest V7 authorizes rejected system/site/coordinate/collider changes; previous V6 count/ground-only freezes remain historical, not blockers. Preserve old complete source/entry/recovery and all approved native artwork, Juni and lessons.
+2. One clean graph drives new terrain/Tiled/navigation. The old southern handoff mask is only an erasure diagnostic, never reused paving geometry. No bitmap tracing, global screenshot filter or generic code-drawn replacement artwork.
+3. Station/independent commercial plots, centered leisure entrance and enclosed Namsan are site-planned together. Native images and physical templates move together; original foot sizes/speeds/check thresholds remain.
+4. Real short bridge spans a coastal drainage inlet; reciprocal public ferry remains mainland-island travel. Distinct landside lookout/narrow piers avoid the failed oversized sea deck. Jeju has one scenic destination circuit.
+5. Actual host-image original material kit and installed Forge processing, no provider APIs. Source originals/extraction/provenance retained. No seamless/Wang certification or hidden composeWARN/SKIP. File-policy preview failure resolved by unmodified upstream HTTP verification, not changed checks.
+6. Use actual draw filtering/native art pixels to judge sharpness, not restored Canvas smoothing or inherited DPR label glyphs. Paired cloud perf samples vary; retain both initial and focused repeat, do not claim universal60FPS/physical mobile certification.
+7. Current source-only branch candidate/ZIP awaits user visual approval. Exact CI/independent verification is recorded in immutable final tag after observation. No main merge/public deployment/newproduction.
+
+# V7 WORLD RECONSTRUCTION — current explicit user authority
+
+Read docs/current/V7_WORLD_RECONSTRUCTION.md completely. Prior V6/final-map-lock STOP/coordinate/collider-count/road freezes are SUPERSEDED for rejected systems only. User authorizes full clean roads/site-planning/Namsan/station/amusement/waterfront/Jeju reconstruction and honest movement of objects/colliders/navigation. Preserve Juni144frames, approved architecture/art sources, historical compound/lessons/dialogue/mobile joystick and Git history. Recovery/before-v7-world-reconstruction-20261020→3a559c0fe8d274ea0a7e275719231d188df30f4b pushed/remote-peeled before edits. Execute all phases through real Phaser implementation/visual QC/video/ZIP/tests and verified branch checkpoint, not concepts only. No tracing/reference bitmap,paid APIs,main merge,public deployment,separate-app edits,delegation,force/reset/worktree. V7 uses a clean active road graph; V6 sources/review remain a recoverable historical baseline and must never be overpainted/imported as V7 southern ground. Setup validates stored assets only, never generates.
+
 # FINAL MAP LOCK — local verified candidate, finish Git handoff then STOP
 
 Only native ground pixels were surgically finished inside the existing V6 path-repair envelope.497placements/108approved images/552bodies/Juni144frames/world/zoning/coast/forest/route network/spawns/portals/src/UI/lock/workflow exact; north0..2239 and every pixel outside final mask exact. Changed1741403ground pixels (7.533%world), largely small RGB material adjustments,9open flush venue inlays,4305inner/98outer Jeju corner pixels and visible boarding guides. No tracing/generation/rescale/shuffle/new landmark or obstacle. Recovery/before-final-map-lock-20261020→2df01bf remotely verified before edits.

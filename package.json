@@ -8,7 +8,7 @@
   },
   "scripts": {
     "assets": "python3 tools/export_world.py && python3 tools/export_actors.py",
-    "assets:check": "python3 tools/check_world.py && python3 tools/check_actors.py && python3 tools/check_gwanghwamun.py && python3 tools/check_juni_animation.py && python3 tools/check_living_seoul.py && python3 tools/check_seoul_production.py && python3 tools/check_stage_b_polish.py && python3 tools/check_world_refinement.py && python3 tools/check_living_korea.py && python3 tools/check_full_world.py && python3 tools/check_v3_world.py && python3 tools/check_modern_streets.py && python3 tools/check_v4_readability.py && python3 tools/check_v6_restructure.py && python3 tools/check_v6_path_fix.py && python3 tools/check_final_map_lock.py",
+    "assets:check": "python3 tools/check_world.py && python3 tools/check_actors.py && python3 tools/check_gwanghwamun.py && python3 tools/check_juni_animation.py && python3 tools/check_living_seoul.py && python3 tools/check_seoul_production.py && python3 tools/check_stage_b_polish.py && python3 tools/check_world_refinement.py && python3 tools/check_living_korea.py && python3 tools/check_full_world.py && python3 tools/check_v3_world.py && python3 tools/check_modern_streets.py && python3 tools/check_v4_readability.py && python3 tools/check_v6_restructure.py && python3 tools/check_v6_path_fix.py && python3 tools/check_final_map_lock.py && python3 tools/check_v7_world.py",
     "dev": "vite --host 127.0.0.1 --port 4200",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
@@ -16,7 +16,7 @@
     "format:check": "prettier --check src tests tools/*.mjs *.ts *.json index.html",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "build": "npm run typecheck && npm run assets:check && vite build",
+    "build": "npm run typecheck && npm run assets:check && vite build --config vite.v7.config.ts",
     "preview": "vite preview --host 127.0.0.1 --port 4201",
     "assets:chibi": "python3 tools/export_actors.py"
   },

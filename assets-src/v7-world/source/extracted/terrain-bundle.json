@@ -1,0 +1,354 @@
+{
+  "schema": "generate2dmap.terrain_tile_bundle.v2",
+  "source": {
+    "path": "../material-rows.png",
+    "sha256": "dc17d8f7035b0299afa6ae51d8492c188cfab044f2f39f231fdcf0dc0c72bb03",
+    "bytes": 3086611,
+    "size": [
+      512,
+      3072
+    ],
+    "mode": "RGB",
+    "bit_depth": 8,
+    "conversion": "RGB -> RGBA"
+  },
+  "grid": {
+    "rows": 6,
+    "cols": 1,
+    "rounding": "exact",
+    "source_cell_size": [
+      512,
+      512
+    ],
+    "output_tile_size": [
+      128,
+      128
+    ]
+  },
+  "tile": {
+    "shape": "square",
+    "layer": "base",
+    "footprint": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        128.0,
+        0.0
+      ],
+      [
+        128.0,
+        128.0
+      ],
+      [
+        0.0,
+        128.0
+      ]
+    ]
+  },
+  "terrains": {
+    "grass": {
+      "display_name": "grass",
+      "row": 0,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "grass-1.png",
+          "source_cell": [
+            0,
+            0
+          ],
+          "source_box": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "resized": true,
+          "mean_luminance": 0.446186,
+          "contrast": 0.138301,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "dc16008ed8864b1605725d443640f0c136689e58df4781ee8cb3ef33596f2d00"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "meadow": {
+      "display_name": "meadow",
+      "row": 1,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "meadow-1.png",
+          "source_cell": [
+            1,
+            0
+          ],
+          "source_box": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "resized": true,
+          "mean_luminance": 0.532314,
+          "contrast": 0.120411,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "f8b56c88490f6149f5b90ca005ebdb2e848487ceed057ffa64ac572b3d8a61a3"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "earth": {
+      "display_name": "earth",
+      "row": 2,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "earth-1.png",
+          "source_cell": [
+            2,
+            0
+          ],
+          "source_box": [
+            0,
+            1024,
+            512,
+            1536
+          ],
+          "resized": true,
+          "mean_luminance": 0.717153,
+          "contrast": 0.078271,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "716c545c5ac735d5fa46b38c8c60e5cdaff958a1a3740434c0c6954819a19f81"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "civic": {
+      "display_name": "civic",
+      "row": 3,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "civic-1.png",
+          "source_cell": [
+            3,
+            0
+          ],
+          "source_box": [
+            0,
+            1536,
+            512,
+            2048
+          ],
+          "resized": true,
+          "mean_luminance": 0.642952,
+          "contrast": 0.118981,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "132a3704923b36e1037338e1c7572335b3f940fd279b1ea78c847d6411102177"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "festival": {
+      "display_name": "festival",
+      "row": 4,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "festival-1.png",
+          "source_cell": [
+            4,
+            0
+          ],
+          "source_box": [
+            0,
+            2048,
+            512,
+            2560
+          ],
+          "resized": true,
+          "mean_luminance": 0.743111,
+          "contrast": 0.115934,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "8b87c9323df5105ce474cedf88aca0d9350dc2e3cdedf981015438adccfc6ae9"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "timber": {
+      "display_name": "timber",
+      "row": 5,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "timber-1.png",
+          "source_cell": [
+            5,
+            0
+          ],
+          "source_box": [
+            0,
+            2560,
+            512,
+            3072
+          ],
+          "resized": true,
+          "mean_luminance": 0.592899,
+          "contrast": 0.09241,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "c0f76698056492092d317727ffde26d277e70830bec7ead875432ae0963ea526"
+        }
+      ],
+      "variant_difference_min": 1.0
+    }
+  },
+  "processing": {
+    "background_mode": "opaque",
+    "background_mode_requested": "opaque",
+    "cell_shape": "square",
+    "resampler": "nearest",
+    "grid_rounding": "exact",
+    "edge_policy": "isolated",
+    "wrap_aware_resize": false
+  },
+  "qc": {
+    "min_contrast": 0.035,
+    "min_variant_difference": 0.025,
+    "max_border_delta": 0.1,
+    "min_shape_coverage": 0.97,
+    "max_shape_spill": 0.03,
+    "max_seam_ratio": null,
+    "warnings": [],
+    "passed": true,
+    "seamless_verified": false
+  },
+  "qa": {
+    "status": "pass",
+    "method": "Grid slices of the atlas, background handled per --background-mode, resized to the tile size (Lanczos or nearest; wrap-aware for the seamless policy). Luminance contrast and mean thumbnail differences; drawn frames along opposite edges; footprint coverage and spill for iso/hex base tiles; for the seamless policy, premultiplied wrap and Wang-join steps normalised by the art's own steps near each edge.",
+    "notProven": [
+      "visual quality, style match and readability at game zoom",
+      "that each variant reads as the named terrain",
+      "seamlessness: no exact seam proof exists for image tiles (seamless_verified stays false)"
+    ],
+    "checks": [
+      {
+        "id": "contrast",
+        "status": "pass",
+        "value": 0.078271,
+        "threshold": 0.035
+      },
+      {
+        "id": "variant_difference",
+        "status": "pass",
+        "value": 1.0,
+        "threshold": 0.025
+      },
+      {
+        "id": "border_frame",
+        "status": "pass",
+        "value": 0,
+        "threshold": 0.1
+      },
+      {
+        "id": "shape_coverage",
+        "status": "skipped",
+        "value": null,
+        "threshold": 0.97
+      },
+      {
+        "id": "shape_spill",
+        "status": "skipped",
+        "value": null,
+        "threshold": 0.03
+      },
+      {
+        "id": "wrap_seams",
+        "status": "skipped",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "id": "wang_seams",
+        "status": "skipped",
+        "value": null,
+        "threshold": null
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../material-rows.png",
+        "sha256": "dc17d8f7035b0299afa6ae51d8492c188cfab044f2f39f231fdcf0dc0c72bb03",
+        "bytes": 3086611
+      }
+    ],
+    "outputs": [
+      {
+        "path": "grass-1.png",
+        "sha256": "dc16008ed8864b1605725d443640f0c136689e58df4781ee8cb3ef33596f2d00",
+        "bytes": 51076
+      },
+      {
+        "path": "meadow-1.png",
+        "sha256": "f8b56c88490f6149f5b90ca005ebdb2e848487ceed057ffa64ac572b3d8a61a3",
+        "bytes": 50315
+      },
+      {
+        "path": "earth-1.png",
+        "sha256": "716c545c5ac735d5fa46b38c8c60e5cdaff958a1a3740434c0c6954819a19f81",
+        "bytes": 47462
+      },
+      {
+        "path": "civic-1.png",
+        "sha256": "132a3704923b36e1037338e1c7572335b3f940fd279b1ea78c847d6411102177",
+        "bytes": 43970
+      },
+      {
+        "path": "festival-1.png",
+        "sha256": "8b87c9323df5105ce474cedf88aca0d9350dc2e3cdedf981015438adccfc6ae9",
+        "bytes": 41221
+      },
+      {
+        "path": "timber-1.png",
+        "sha256": "c0f76698056492092d317727ffde26d277e70830bec7ead875432ae0963ea526",
+        "bytes": 33859
+      }
+    ],
+    "tool": {
+      "name": "extract_terrain_tiles.py",
+      "version": "0.4.0"
+    }
+  }
+}
