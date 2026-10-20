@@ -1,0 +1,364 @@
+{
+  "schema": "generate2dmap.terrain_tile_bundle.v2",
+  "source": {
+    "path": "../material-rows.png",
+    "sha256": "b5c8d88f4a4355c9e60163a1031014487feb654b0c708b3f568e9882b31ea024",
+    "bytes": 3372649,
+    "size": [
+      512,
+      3072
+    ],
+    "mode": "RGB",
+    "bit_depth": 8,
+    "conversion": "RGB -> RGBA"
+  },
+  "prompt": {
+    "path": "../material-prompt.txt",
+    "sha256": "c89f6b8824458ba57bc44ed35f8254c017b4684a62ee9788caab10124aa2ecdf",
+    "bytes": 1615
+  },
+  "grid": {
+    "rows": 6,
+    "cols": 1,
+    "rounding": "exact",
+    "source_cell_size": [
+      512,
+      512
+    ],
+    "output_tile_size": [
+      128,
+      128
+    ]
+  },
+  "tile": {
+    "shape": "square",
+    "layer": "base",
+    "footprint": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        128.0,
+        0.0
+      ],
+      [
+        128.0,
+        128.0
+      ],
+      [
+        0.0,
+        128.0
+      ]
+    ]
+  },
+  "terrains": {
+    "civic": {
+      "display_name": "civic",
+      "row": 0,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "civic-1.png",
+          "source_cell": [
+            0,
+            0
+          ],
+          "source_box": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "resized": true,
+          "mean_luminance": 0.724052,
+          "contrast": 0.069501,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "59fe9a00c3b5b0b68a6e40377afc97d270dd97fdef46a3a9256f0cdebfa218c6"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "boulevard": {
+      "display_name": "boulevard",
+      "row": 1,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "boulevard-1.png",
+          "source_cell": [
+            1,
+            0
+          ],
+          "source_box": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "resized": true,
+          "mean_luminance": 0.493213,
+          "contrast": 0.080117,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "06cb9acd1d96b989cad488625286b643c1e01748d2004bb4e08983d2059015d3"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "sidewalk": {
+      "display_name": "sidewalk",
+      "row": 2,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "sidewalk-1.png",
+          "source_cell": [
+            2,
+            0
+          ],
+          "source_box": [
+            0,
+            1024,
+            512,
+            1536
+          ],
+          "resized": true,
+          "mean_luminance": 0.748651,
+          "contrast": 0.075045,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "07f59d5b526ae3df823c31b1a718e2f18bcf676fe48032ca95043ac3003629de"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "festival": {
+      "display_name": "festival",
+      "row": 3,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "festival-1.png",
+          "source_cell": [
+            3,
+            0
+          ],
+          "source_box": [
+            0,
+            1536,
+            512,
+            2048
+          ],
+          "resized": true,
+          "mean_luminance": 0.666511,
+          "contrast": 0.111277,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "61e48c59b69461e06a3753d21fd091703ef567f96edd992aa13e63fedb29640b"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "coast": {
+      "display_name": "coast",
+      "row": 4,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "coast-1.png",
+          "source_cell": [
+            4,
+            0
+          ],
+          "source_box": [
+            0,
+            2048,
+            512,
+            2560
+          ],
+          "resized": true,
+          "mean_luminance": 0.674969,
+          "contrast": 0.142713,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "de9f04f456e3b275f597f5a6ed7c918c9202de17914c0d946f1b5ff16a7737ba"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "earth": {
+      "display_name": "earth",
+      "row": 5,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "earth-1.png",
+          "source_cell": [
+            5,
+            0
+          ],
+          "source_box": [
+            0,
+            2560,
+            512,
+            3072
+          ],
+          "resized": true,
+          "mean_luminance": 0.557435,
+          "contrast": 0.07598,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "0cbe9fa1ca74e4c9c6947f68f85d5936b7bade51fd136b4ba251ef08c68662f5"
+        }
+      ],
+      "variant_difference_min": 1.0
+    }
+  },
+  "processing": {
+    "background_mode": "opaque",
+    "background_mode_requested": "opaque",
+    "cell_shape": "square",
+    "resampler": "lanczos",
+    "grid_rounding": "exact",
+    "edge_policy": "isolated",
+    "wrap_aware_resize": false
+  },
+  "qc": {
+    "min_contrast": 0.035,
+    "min_variant_difference": 0.025,
+    "max_border_delta": 0.1,
+    "min_shape_coverage": 0.97,
+    "max_shape_spill": 0.03,
+    "max_seam_ratio": null,
+    "warnings": [],
+    "passed": true,
+    "seamless_verified": false
+  },
+  "qa": {
+    "status": "pass",
+    "method": "Grid slices of the atlas, background handled per --background-mode, resized to the tile size (Lanczos or nearest; wrap-aware for the seamless policy). Luminance contrast and mean thumbnail differences; drawn frames along opposite edges; footprint coverage and spill for iso/hex base tiles; for the seamless policy, premultiplied wrap and Wang-join steps normalised by the art's own steps near each edge.",
+    "notProven": [
+      "visual quality, style match and readability at game zoom",
+      "that each variant reads as the named terrain",
+      "seamlessness: no exact seam proof exists for image tiles (seamless_verified stays false)"
+    ],
+    "checks": [
+      {
+        "id": "contrast",
+        "status": "pass",
+        "value": 0.069501,
+        "threshold": 0.035
+      },
+      {
+        "id": "variant_difference",
+        "status": "pass",
+        "value": 1.0,
+        "threshold": 0.025
+      },
+      {
+        "id": "border_frame",
+        "status": "pass",
+        "value": 0,
+        "threshold": 0.1
+      },
+      {
+        "id": "shape_coverage",
+        "status": "skipped",
+        "value": null,
+        "threshold": 0.97
+      },
+      {
+        "id": "shape_spill",
+        "status": "skipped",
+        "value": null,
+        "threshold": 0.03
+      },
+      {
+        "id": "wrap_seams",
+        "status": "skipped",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "id": "wang_seams",
+        "status": "skipped",
+        "value": null,
+        "threshold": null
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../material-rows.png",
+        "sha256": "b5c8d88f4a4355c9e60163a1031014487feb654b0c708b3f568e9882b31ea024",
+        "bytes": 3372649
+      },
+      {
+        "path": "../material-prompt.txt",
+        "sha256": "c89f6b8824458ba57bc44ed35f8254c017b4684a62ee9788caab10124aa2ecdf",
+        "bytes": 1615
+      }
+    ],
+    "outputs": [
+      {
+        "path": "civic-1.png",
+        "sha256": "59fe9a00c3b5b0b68a6e40377afc97d270dd97fdef46a3a9256f0cdebfa218c6",
+        "bytes": 39370
+      },
+      {
+        "path": "boulevard-1.png",
+        "sha256": "06cb9acd1d96b989cad488625286b643c1e01748d2004bb4e08983d2059015d3",
+        "bytes": 37142
+      },
+      {
+        "path": "sidewalk-1.png",
+        "sha256": "07f59d5b526ae3df823c31b1a718e2f18bcf676fe48032ca95043ac3003629de",
+        "bytes": 37133
+      },
+      {
+        "path": "festival-1.png",
+        "sha256": "61e48c59b69461e06a3753d21fd091703ef567f96edd992aa13e63fedb29640b",
+        "bytes": 40786
+      },
+      {
+        "path": "coast-1.png",
+        "sha256": "de9f04f456e3b275f597f5a6ed7c918c9202de17914c0d946f1b5ff16a7737ba",
+        "bytes": 36570
+      },
+      {
+        "path": "earth-1.png",
+        "sha256": "0cbe9fa1ca74e4c9c6947f68f85d5936b7bade51fd136b4ba251ef08c68662f5",
+        "bytes": 46048
+      }
+    ],
+    "tool": {
+      "name": "extract_terrain_tiles.py",
+      "version": "0.4.0"
+    }
+  }
+}
