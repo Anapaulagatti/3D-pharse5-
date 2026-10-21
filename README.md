@@ -1,29 +1,28 @@
-# Korean Arena — V9 southern world reconstruction
+# Korean Arena — V10 clean-room graybox
 
-Vietnamese-first Korean learning pixel town, built with the existing Phaser foundation. **V9 is an in-progress review candidate, not a final map or a public deployment.** Work stays on `rebuild/pixel-social-rpg-v3`; `main` and the public website are preserved.
+Current work is on `rebuild/southern-city-cleanroom-v10`. V9's southern map is rejected. The new masterplan and playable graybox are **awaiting user approval before final artwork**. Main and the public website are unchanged.
 
-Read AGENTS.md, docs/current/V9_TOTAL_SOUTHERN_WORLD_RESET.md and the four STUDIO records. The approved historical north and Juni144-frame animation are protected independently. Superseded southern implementations were removed only after the pushed recovery tag documented in SOUTHERN_RESET_CLEANUP.md.
+Start with [the review index](docs/v10-city/README.md), [masterplan](docs/v10-city/V10_NEW_URBAN_MASTERPLAN.png), [actual Phaser graybox](docs/v10-city/V10_GRAYBOX_OVERVIEW.png), [geometry comparison](docs/v10-city/V9_V10_GEOMETRY_COMPARISON.png), [workspace audit](docs/v10-city/V10_CLEAN_WORKSPACE_AUDIT.md) and [source graph](docs/v10-city/V10_SOURCE_DEPENDENCY_GRAPH.md).
+
+Download/extract [V10_GRAYBOX_REVIEW.zip](docs/v10-city/V10_GRAYBOX_REVIEW.zip), enter Korean-Arena-V10-Graybox and run `python3 start.py` (Windows `py start.py`). Python3 required; Node is unnecessary to view. Open the printed local HTTP URL. WASD/arrows walk, Shift runs, E interacts; landscape touch joystick is retained. This is a spatial review, not final southern art or a public deployment.
 
 ## Development
 
-Node24+, Python3.12 with `tools/requirements.txt`, locked npm dependencies and Chromium are used. `bash tools/setup.sh` verifies stored artwork, types, lint, formatting, unit tests, build and actual browser tests. It never generates artwork or calls a provider. Optional external authoring tools are not setup/runtime dependencies.
+Node24+, Python3.12/Pillow12.3.0 and installed Chromium. No API keys/services required.
 
+```sh
+npm ci --ignore-scripts
+npm run dev
+# Vite development:4200, base /3D-pharse5-/
 ```
-npm ci
-npm run build
-npm run preview -- --host 0.0.0.0
+
+```sh
+bash tools/setup.sh
+# Stored assets/preservation, typecheck, lint, format,12unit tests,build,15browser cases
 ```
 
-Open `http://localhost:4201/3D-pharse5-/v9-world-review.html` **in a browser**. A source-file preview in chat displays HTML text and does not run the game. The server address is local/internal, not a public showcase URL.
+`npm run preview` serves the production build on4201. `npm run assets:check` validates stored assets only; setup never authors images. Optional Forge authoring uses the recorded pin, outside production dependencies. Do not regenerate approved artwork. Existing actor scripts remain preserved tools, not setup steps.
 
-Arrow keys/WASD or the analog joystick move Juni. Hold Shift/the Run button to run; E/Explore interacts, Space waves. Settings include native zoom, reduced motion and Canvas compatibility. The approved Academy lesson and palace gate remain functional.
+New outdoor runtime root is public/assets/v10-city; editable plan/source is assets-src/v10-city. Protected north, Juni144frames, shared physics/joystick/mobile/Academy and source artwork remain unchanged. Old V9 coordinate-specific tests are retained under tests/archive/v9 and are not counted as current tests. Recovery tag recovery/before-v10-cleanroom-20261021 preserves the exact pre-V10 state.
 
-## Current review sources
-
-- PIXELS_WORLD_DESIGN_STUDY.md distinguishes observations, unavailable references and original design choices.
-- assets-src/v9-world/plan/city.json and city.svg are editable V9 planning data.
-- docs/v9-world contains current engine evidence only. Graybox captures are explicitly temporary geometry; final illustrated screenshots will be separately labeled.
-- assets-src/protected-north preserves exact north art/geometry; assets-src/library holds reusable original art with provenance and no rejected southern placements.
-- assets-src/juni-animation preserves editable character sources; src/engine holds the approved shared movement/occlusion adapter.
-
-No paid API, automatic publication, main merge or separate learning-app modification is authorized. The finished V9 package must stop for user visual review.
+Build has the documented main-chunk size warning. Physical-phone/TiledGUI/WindowsGUI testing and user visual approval remain outstanding. No final artwork, main merge, website release or paid API is authorized before the current approval gate.

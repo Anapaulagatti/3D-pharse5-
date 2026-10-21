@@ -1,0 +1,592 @@
+{
+  "schema": "generate2dmap.map_bundle_report.v1",
+  "status": "fail",
+  "method": "JSON Schema map.schema.json#/$defs/map_bundle_v2 (vendored copy, built-in Draft 2020-12 evaluator), file existence and sha256 of every referenced file, and cross-field rules: unique ids, tile indices against tilesets, wang/blob topology, material colours, portal targets and arrivals, slots and approach points",
+  "notProven": [
+    "reachability, portal arrivals and collision geometry (run map_nav.py check)",
+    "that collision and footprints match the painted art",
+    "engine or editor import (Tiled GUI, Godot, LDtk not verified)"
+  ],
+  "checks": [
+    {
+      "id": "schema",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "files",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "sha256",
+      "status": "fail",
+      "value": {
+        "errors": 1,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "tilesets",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "layers",
+      "status": "warn",
+      "value": {
+        "errors": 0,
+        "warnings": 1
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "props_and_objects",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "collision",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "material_map",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "portals",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "spawns_anchors_interactions",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "document",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../assets-src/v10-city/map/bundle-hashed.json",
+      "sha256": "72523251ded58d5bae718852cb042de2b369b660b2f8583e45adc1195aa0d0ab",
+      "bytes": 279789
+    },
+    {
+      "path": "../assets-src/v10-city/map/ground-native.png",
+      "sha256": "4c71662f9fad10368ed160e429cc3cb8e7331158bedf36e4f1a5f293d3605164",
+      "bytes": 4308786
+    },
+    {
+      "path": "../assets-src/v10-city/map/academy-front-east.png",
+      "sha256": "64b92c49dffd0d8e9e80d76f9c785e8d291f2ef6e3500401a8fe464d7069bdb9",
+      "bytes": 11157
+    },
+    {
+      "path": "../assets-src/v10-city/map/academy-front-west.png",
+      "sha256": "adc65ad56c7b502b87a52b6187ac4d3c8fab06e8e17ba9a9d7464be41e5886ed",
+      "bytes": 11006
+    },
+    {
+      "path": "../assets-src/v10-city/map/fw-hanji-desk.png",
+      "sha256": "e1fe78f94a7379eb824f2aa4c7240a362510059394ae78bb83e63b30bd7a8615",
+      "bytes": 15651
+    },
+    {
+      "path": "../assets-src/v10-city/map/fw-maritime.png",
+      "sha256": "2c02bf753f08114457f8183d2bf385bc6b336dec7e287edd714dbfed6dd9138d",
+      "bytes": 24990
+    },
+    {
+      "path": "../assets-src/v10-city/map/fw-royal-pavilion.png",
+      "sha256": "18b9e44b3a251896c8ed4641d17902794afebd66c344f88c2ea707d711572b1c",
+      "bytes": 56905
+    },
+    {
+      "path": "../assets-src/v10-city/map/fw-scholar-rest.png",
+      "sha256": "6d2ea0398ad78125e23571fc7435a6c65a25acfdd6fd70425cd0d03f96071b69",
+      "bytes": 27614
+    },
+    {
+      "path": "../assets-src/v10-city/map/fw-science.png",
+      "sha256": "1fb4e08c6301dcd81f45d8ea5bc7071f04b08add7a64f5498167f7a015e7bded",
+      "bytes": 26228
+    },
+    {
+      "path": "../assets-src/v10-city/map/kr-pier.png",
+      "sha256": "5f43c28638950727a5bc58cee814155cdeb8a49ebe9945e5235f6b6be8e93201",
+      "bytes": 4772
+    },
+    {
+      "path": "../assets-src/v10-city/map/kr-pine.png",
+      "sha256": "c235c9f43c2975d1cbba156c69a9f4ec4fa186e3986e00c77fb76a2dc30d3b9c",
+      "bytes": 70180
+    },
+    {
+      "path": "../assets-src/v10-city/map/kr-timber-cap.png",
+      "sha256": "adabda0760c159c71c680f461cee8eb0ed90be3fab29e9e4a2cb55dba152da15",
+      "bytes": 1241
+    },
+    {
+      "path": "../assets-src/v10-city/map/palace-front-east.png",
+      "sha256": "9e240969e565b4e4d9e7afbb806bf4b4c185d12130b05ec684a1df4c4f44e472",
+      "bytes": 16266
+    },
+    {
+      "path": "../assets-src/v10-city/map/palace-front-west.png",
+      "sha256": "9e240969e565b4e4d9e7afbb806bf4b4c185d12130b05ec684a1df4c4f44e472",
+      "bytes": 16266
+    },
+    {
+      "path": "../assets-src/v10-city/map/palace-inner-east.png",
+      "sha256": "7818323218abb87806bac34d1249c06947ee2aded8169cd94176a5fd0300d308",
+      "bytes": 16605
+    },
+    {
+      "path": "../assets-src/v10-city/map/palace-inner-west.png",
+      "sha256": "7818323218abb87806bac34d1249c06947ee2aded8169cd94176a5fd0300d308",
+      "bytes": 16605
+    },
+    {
+      "path": "../assets-src/v10-city/map/palace-north.png",
+      "sha256": "26b2cf7c49133778644526a290f45f9a75556818ce5c7b92257201117b26a2fb",
+      "bytes": 18383
+    },
+    {
+      "path": "../assets-src/v10-city/map/palace-side-1920.png",
+      "sha256": "7fb714c430571089f5690e3007bc78f132933033f53be7ee116a62703441fcaf",
+      "bytes": 12291
+    },
+    {
+      "path": "../assets-src/v10-city/map/palace-side-384.png",
+      "sha256": "7fb714c430571089f5690e3007bc78f132933033f53be7ee116a62703441fcaf",
+      "bytes": 12291
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-banner.png",
+      "sha256": "58248c33983c1281b80fa70809f2c82ab50b3a68a2c8fb1e201fe47014134f0b",
+      "bytes": 15449
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-cafe.png",
+      "sha256": "a9f64b4f61293c6a89dbdd554167990a4099f54b88a08dfd81ba3e6041c93eb2",
+      "bytes": 132478
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-cafe-seating.png",
+      "sha256": "42b0aa11146065b84147df8cbeca9cf519f49b6b41435a37ab2b646eac38abfe",
+      "bytes": 9475
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-exhibit.png",
+      "sha256": "8f8a14487d8de4ed455a435b84e5bb7672877c1bf84b6491789debc9a7698b6c",
+      "bytes": 11252
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-inner-gate.png",
+      "sha256": "f2ab658880c697d084a0019648f21a4526c1789e5697128fc6c0eb74f80b7c0b",
+      "bytes": 39740
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-polish-bamboo.png",
+      "sha256": "a0b8a4ab2576431187df7a6102f6ce661a34925f2267efd73d87bf014fe03fa2",
+      "bytes": 7208
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-polish-chart.png",
+      "sha256": "3c23ff59b8fbb3814d970a82ffd60e297be7863a6b5a0b49eb3fa67cdc0ba4e8",
+      "bytes": 11052
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-polish-flowers.png",
+      "sha256": "44309376cabcf76885d28eeb03960fe9517657fed23b0a2ce59ffc97e12a11b8",
+      "bytes": 8162
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-polish-folio.png",
+      "sha256": "4315e28ab55fc497f6c94ff61ab181af31af4ef90f1d6daf8a4cac094e646f23",
+      "bytes": 10744
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-polish-stele.png",
+      "sha256": "1bc236260705796156947df5e3521abf71dfdb338f088bd4a3bf041b33bc66bf",
+      "bytes": 8566
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-polish-tools.png",
+      "sha256": "da5b4117fdc3f88e2b79304eeef2d5e86b08f0b65e474f03cd36a194d1d786cf",
+      "bytes": 8977
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-prod-armillary.png",
+      "sha256": "2aad306a661f7db4b6b29aa81097d8b04db305e956850a2dee980752ccb643bf",
+      "bytes": 19104
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-prod-bench.png",
+      "sha256": "111ec597f59aa232bf8ddb38658b693480c7261282c60f86bec65a7b1133359a",
+      "bytes": 5110
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-prod-clock.png",
+      "sha256": "2b0807d8353e51a4171977c1535d4399d271c130f265fac065ced255a26857e9",
+      "bytes": 22557
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-prod-court-gate.png",
+      "sha256": "80c5b24b270b681907bdd7f728ef8479cfd39c3ba7662e7647feda180aa75da8",
+      "bytes": 19947
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-prod-gate.png",
+      "sha256": "ca0643ec60e5cca9817f5f5db206352e1e66fe17f5a50e218a1d85c9f9840952",
+      "bytes": 223268
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-prod-ginkgo.png",
+      "sha256": "30c8f4123327fd45fc7f70d51bac9a09aba283bf0e9b75967661f2f1698435bf",
+      "bytes": 48819
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-prod-hall.png",
+      "sha256": "a5c9e3ba7fa3508cccaf4278aa9acd5de54d5a0f0e92539e4b08d60a841d6b9c",
+      "bytes": 201579
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-prod-jars.png",
+      "sha256": "7e80af2dab5040ada3a6244c533bb0b4fcff2a27d180f604e0974b5548f15f85",
+      "bytes": 5204
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-prod-lantern.png",
+      "sha256": "dfe4dc19f4b77a23fffe7715d63d1ecd2ee2d65b4afc674e861df11d453f526c",
+      "bytes": 6021
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-prod-library.png",
+      "sha256": "b5350bb53ab2d106f1c750a348caab424d83d4102885bfb8fb3c67b91ad624ca",
+      "bytes": 114269
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-prod-museum.png",
+      "sha256": "d1f47fdf0c32e32bd0745e43c36b2bde68871d3a68edb1ffeebe8f198aac89b5",
+      "bytes": 207512
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-prod-planter.png",
+      "sha256": "35caea815680e4b8ce01fe6afe22a56b1daee0778bc3f47ba3eb756d7fd29c1f",
+      "bytes": 4245
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-prod-sejong.png",
+      "sha256": "4e4e6770ac0fb5e6c5e7552cf1d380f2f9c49644b506621aca7e40dcf5a93857",
+      "bytes": 18657
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-prod-ship.png",
+      "sha256": "8c77706262a3e8d7b1c12bef316d9566a8b81617091e1d51441e3b93a6edefd4",
+      "bytes": 20603
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-prod-strategy.png",
+      "sha256": "f5dcafe0644bcc6a54bc407f4e42300660d5fa143b98be995f0c532ecd1c2bc8",
+      "bytes": 12813
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-prod-study.png",
+      "sha256": "629d99d65da6c00c973b055f40864f3cb5bf973a7ccaf623ab295007fcaf75cc",
+      "bytes": 125786
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-prod-sundial.png",
+      "sha256": "a7fe454380eea9ba79f2afe25c9dde8e413bce62a897f139bb62fb66739da696",
+      "bytes": 15013
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-prod-tree.png",
+      "sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "bytes": 40364
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-prod-writing.png",
+      "sha256": "4d0faced9ab8d0a4f5677f95c2af4c876250f89de30d09e69d056a4d7f1a8564",
+      "bytes": 14113
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-royal-hall.png",
+      "sha256": "4f15a37e2a72137e693edeeb9e03bc14736f500d3aff9584e198dbbb09391123",
+      "bytes": 231941
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-stone-lantern.png",
+      "sha256": "571d9e96d3a7bfe3d7da9c3cc02c57289f8726e5158805b244012526739edaf8",
+      "bytes": 13810
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-workshop-main.png",
+      "sha256": "60eaaaffc5b3aef3d72214779b093d5a7ce5a9553a1ba53192b49aaa4458bb6c",
+      "bytes": 112045
+    },
+    {
+      "path": "../assets-src/v10-city/map/rf-workshop-wing.png",
+      "sha256": "e6e5527fb191d0349a45638a596f26ba70b5b6f8f773a96357dda4997384cd47",
+      "bytes": 112007
+    },
+    {
+      "path": "../assets-src/v10-city/map/v3-rock-garden.png",
+      "sha256": "61b4175181bd64cc495f3ecaebebe9d7132abaa6d21c56054642c3af34353934",
+      "bytes": 46294
+    },
+    {
+      "path": "../assets-src/v10-city/map/v3-wayfinding.png",
+      "sha256": "09420e83f8438163e1971782012af7985f129cc9cd2cf02a69740f1b3f800106",
+      "bytes": 15790
+    },
+    {
+      "path": "../assets-src/v10-city/map/work-east.png",
+      "sha256": "42c61e3ed61bd5b4e9184124cf0b1afa0c630c9cdfdb36b52386c4ea7efb2add",
+      "bytes": 863
+    },
+    {
+      "path": "../assets-src/v10-city/map/work-front-east.png",
+      "sha256": "1936a0abf6d6ea700a7e9a3dcb007b5d92f69078238f257dbfdd295a6b5703b0",
+      "bytes": 1506
+    },
+    {
+      "path": "../assets-src/v10-city/map/work-front-west.png",
+      "sha256": "4c2ab4a1e0ac17a32491a77cc1357b4ca92a5ba7ce505a0fa63614871758df6e",
+      "bytes": 1241
+    },
+    {
+      "path": "../assets-src/v10-city/map/work-rear-east.png",
+      "sha256": "ac35ede4a7e88c40236076b49d57fbeee2c3ba76ee689d26efc6b2ac6f9741ab",
+      "bytes": 1304
+    },
+    {
+      "path": "../assets-src/v10-city/map/work-west-front.png",
+      "sha256": "174207af11b35308f03197fd0cb9ce31a9a4ac3bd4e543625c9915319c8edd84",
+      "bytes": 614
+    },
+    {
+      "path": "../assets-src/v10-city/map/work-west-rear.png",
+      "sha256": "9bd163aba55054826122bccdcfd048879cecec22934399503903c1bf89d1b3dc",
+      "bytes": 629
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-N1.png",
+      "sha256": "a98916b902fb1a00069d0ef8ecf7d849a2d03c067ed4eadc7fe1dc9bda74cd9f",
+      "bytes": 2489
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-N2.png",
+      "sha256": "2baf5a4abc4ddd246b09bdffe62f775a0b3116d8b9a90eecf9caace00bb82089",
+      "bytes": 2350
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-N3.png",
+      "sha256": "a091707ad5123a21c7961adea4b57d41bb1e75277960d5c7f8462991059a09f9",
+      "bytes": 2854
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-N4.png",
+      "sha256": "65413c14b5f38be606057f1a18e75e9671d08d95d496d134c4a10f8b16a1f0e7",
+      "bytes": 2910
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-N5.png",
+      "sha256": "29168edf576c9e41978fa7285a10a6a40cddc442b4a7a3c41139473e56b94270",
+      "bytes": 2828
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-N6.png",
+      "sha256": "ae45e0d0441498edae3f206a2d6178d6d676e900ecb53a236882135798d673fe",
+      "bytes": 3101
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-S1.png",
+      "sha256": "b740574c5e18c432a3d494e54a73c3e36b7a907464308d8e937e4d8d9e14556a",
+      "bytes": 2713
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-S2.png",
+      "sha256": "fc376ec7116bc971aa071999bdddee127dd974209f42336d381fb351a273f1f7",
+      "bytes": 2580
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-S5.png",
+      "sha256": "d3b24fd85495400d7f7ceac991748118c56a82826b6c86b1b1a16ec7571f396d",
+      "bytes": 3041
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-S6.png",
+      "sha256": "31bb9a58ff96fecfc716167b405866c73bc5372696e73315811f830cc26dad57",
+      "bytes": 3336
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-station.png",
+      "sha256": "fd64aff282ecbd455bc149e49be160fd31a311504410516d0ffbaa49a902e51f",
+      "bytes": 4577
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-station-kiosk.png",
+      "sha256": "e8e825f670c723842293e9dc70c27c8e748e1d4aabf6666b4245eba28c0c108f",
+      "bytes": 4121
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-station-book.png",
+      "sha256": "2d4663668379dbc3a21f73919892850203fb045c888d764fd55014ddab2d43eb",
+      "bytes": 4870
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-civic-house.png",
+      "sha256": "b4f8d1ceb7cc59ed7260f38a1d286f3f72915d7c2642529731a96df516582985",
+      "bytes": 3771
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-coast-1.png",
+      "sha256": "dbadb85211a0aff10e963c64f078fa2604e74d815749f94777c6f496685e8314",
+      "bytes": 3948
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-coast-2.png",
+      "sha256": "c97a10ba342552aef4e71dcd89f6c6e82f9ca5d1bc4dbbad92f7a918aec5886c",
+      "bytes": 3925
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-terminal.png",
+      "sha256": "5758cefb0c23a7597dbea02be63b436bf4c99f0cc3921f023a380e099ddcc7e0",
+      "bytes": 3918
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-tower.png",
+      "sha256": "ec75ac444892073cdea7cfaceefa8390187f585e8a83d52682ad46a2b0ca8f06",
+      "bytes": 4141
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-wheel.png",
+      "sha256": "c9cea3a55d527af73072cdbf6d054d9df4d736910a2f0cef55ed95c4fe5513be",
+      "bytes": 3379
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-carousel.png",
+      "sha256": "bc80f7682348de2be81047272a13df2abcdbc554fe75c4e28ab71832f7c79041",
+      "bytes": 4157
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-pavilion.png",
+      "sha256": "e4c78fca39b94bf99c094553d5fb083ea35735d51465c125f40ac803a33adc98",
+      "bytes": 3552
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-jeju-hall.png",
+      "sha256": "73db1792914ce6f0a5b64fc10285b2e718c8122f362cf3dc8a8a5f9c77ec1411",
+      "bytes": 2943
+    },
+    {
+      "path": "../assets-src/v10-city/map/v10-gray-jeju-tea.png",
+      "sha256": "709f2f7da3df339cdb59d1130b55603992efe01c224a488759aa751c81c75df3",
+      "bytes": 3130
+    }
+  ],
+  "outputs": [],
+  "tool": {
+    "name": "map_bundle.py",
+    "version": "0.4.0"
+  },
+  "bundle": {
+    "id": "v10-city",
+    "version": 2,
+    "world": [
+      4352.0,
+      5888.0
+    ],
+    "counts": {
+      "tilesets": 0,
+      "layers": 1,
+      "props": 82,
+      "objects": 296,
+      "portals": 0,
+      "spawns": 2,
+      "anchors": 32,
+      "interactions": 0
+    }
+  },
+  "problems": [
+    {
+      "severity": "error",
+      "path": "$.layers[0].image",
+      "message": "sha256 mismatch for ground-native.png: recorded a923fe8f87a0fa806411e37cc2c8a6f7e3501c679c61c1ddb383eaa0d704b00e, file has 4c71662f9fad10368ed160e429cc3cb8e7331158bedf36e4f1a5f293d3605164",
+      "code": "sha256"
+    },
+    {
+      "severity": "warning",
+      "path": "$.layers",
+      "message": "objects are not drawn: the bundle has no objects layer",
+      "code": "rule"
+    }
+  ]
+}

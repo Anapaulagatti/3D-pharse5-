@@ -4,7 +4,7 @@ import { setupFullUI } from "./world/ui";
 import "./world/style.css";
 const base = import.meta.env.BASE_URL;
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-<header><a href="${base}" class="brand">KOREAN ARENA <small>NHỮNG CON ĐƯỜNG HÀN QUỐC</small></a><span id="district-location">Quảng trường cung điện</span><button id="pause" aria-pressed="false">Tạm dừng</button><button id="settings-open" aria-label="Mở cài đặt">☰</button></header>
+<header><a href="${base}" class="brand">KOREAN ARENA <small>V10 · GRAYBOX CHỜ DUYỆT</small></a><span id="district-location">Quảng trường cung điện</span><button id="pause" aria-pressed="false">Tạm dừng</button><button id="settings-open" aria-label="Mở cài đặt">☰</button></header>
 <main><div id="stage" aria-label="Thế giới Korean Arena"><p id="loading">Đang mở hành trình…</p></div>
 <button id="mini-wrap" aria-label="Mở bản đồ hành trình"><img id="mini-map" src="${base}${worldAssetRoot}minimap.png" alt="Bản đồ khu di sản"><span id="map-player"></span></button>
 <div class="hint" id="quest-progress">WASD / ↑↓←→ · Shift chạy · E khám phá</div>

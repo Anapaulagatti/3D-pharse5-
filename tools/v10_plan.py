@@ -38,11 +38,11 @@ def make_plan():
     road('leisure-circuit', [[1280,3904],[1136,3744],[624,3744],[400,3936],[464,4224],[960,4352],[1232,4176],[1280,3904]], 80, 'park')
     road('namsan-gateway', [[1456,2960],[1216,2960]], 96, 'park')
     road('namsan-loop', [[1216,2960],[1152,2672],[896,2480],[560,2528],[320,2784],[352,3104],[656,3328],[1024,3248],[1216,2960]], 72, 'park')
-    road('tower-climb', [[560,2528],[608,2736],[832,2848],[736,3040]], 64, 'park')
+    road('tower-climb', [[560,2528],[608,2736],[864,2816],[896,3008],[736,3040]], 64, 'park')
     road('mainland-pier', [[3776,4224],[3968,4384],[3968,4592]], 128, 'pier')
     road('jeju-arrival', [[3296,5024],[3296,5184]], 112, 'pier')
     road('jeju-olle', [[3296,5184],[2992,5040],[2624,5168],[2464,5456],[2752,5648],[3216,5664],[3552,5488],[3568,5216],[3296,5184]], 80, 'island')
-    road('village-lane', [[2624,5168],[2992,5392],[3216,5664]], 72, 'island')
+    road('village-lane', [[2624,5168],[2576,5360],[2944,5456],[3216,5664]], 72, 'island')
     plots = []
     def plot(id,label,rect,door,facing='south',district='commons',height=72):
         plots.append(dict(id=id,label=label,rect=rect,door=door,facing=facing,district=district,height=height))

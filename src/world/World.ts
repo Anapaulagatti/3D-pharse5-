@@ -1,17 +1,17 @@
 import Phaser from "phaser";
-import world from "../../assets-src/v9-world/map/world.json";
-import bundle from "../../assets-src/v9-world/map/bundle.json";
-import anchors from "../../public/assets/world/anchors.json";
-import water from "../../assets-src/v9-world/water.json";
-import stops from "../../assets-src/v9-world/stops.json";
-import travel from "../../assets-src/v9-world/travel.json";
-import regions from "../../assets-src/v9-world/regions.json";
+import world from "../../assets-src/v10-city/map/world.json";
+import bundle from "../../assets-src/v10-city/map/bundle.json";
+import anchors from "../../public/assets/v10-city/anchors.json";
+import water from "../../assets-src/v10-city/water.json";
+import stops from "../../assets-src/v10-city/stops.json";
+import travel from "../../assets-src/v10-city/travel.json";
+import regions from "../../assets-src/v10-city/regions.json";
 import room from "../../assets-src/interiors/academy/world.json";
 import roomBundle from "../../assets-src/interiors/academy/bundle.json";
 import roomAnchors from "../../public/assets/academy/anchors.json";
 import { JuniScene } from "../engine/JuniScene";
 import { controls } from "../game/Plaza";
-export const worldAssetRoot = "assets/world/";
+export const worldAssetRoot = "assets/v10-city/";
 export const worldSize = [world.width, world.height] as const;
 export type FullDistrict =
   | "heritage"
@@ -457,7 +457,7 @@ export class FullWorld extends JuniScene {
     };
     window.__WORLD_REVIEW__ = {
       discoveryFound: basaltFound,
-      candidate: "v9-world",
+      candidate: "v10-graybox",
     };
     if (window.__PLAZA_REVIEW__)
       window.__PLAZA_REVIEW__.environmentClock = this.clock;

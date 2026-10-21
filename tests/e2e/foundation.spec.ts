@@ -1,9 +1,9 @@
 import { test, expect, type Page } from "@playwright/test";
 async function ready(p: Page, qa = true) {
-  await p.goto("v9-world-review.html" + (qa ? "?qa&renderer=canvas" : ""));
+  await p.goto("v10-city-review.html" + (qa ? "?qa&renderer=canvas" : ""));
   await p.waitForFunction(
     () =>
-      window.__WORLD_REVIEW__?.candidate === "v9-world" &&
+      window.__WORLD_REVIEW__?.candidate === "v10-graybox" &&
       window.__SEOUL__?.ready,
   );
 }
