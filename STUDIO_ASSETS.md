@@ -1,3 +1,9 @@
+# Current authority — NEW final-world Gate 1
+
+User's latest `docs/current/FINAL_WORLD_MASTER_PROMPT.md` supersedes all older gate numbering below. Only STYLE + MASTERPLAN + PLAYABLE GRAYBOX on `art-gate/final-gate1-world`; review `docs/world-gate1/GATE1_REVIEW.md`, then STOP for explicit approval. Old street is the quality bible; no inherited southern coordinates/art/imports enter the new preview. New runtime uses `assets-src/world-gate1/plan.json`, `src/world-gate1` and unchanged Juni/Joystick only. Protected old north/runtime/shared files remain byte-identical. Gate 2 three polished samples and Gate 3 full-world production are not started. No merge/deploy/paid APIs/delegation. Entries below are historical, not active instructions.
+
+---
+
 # Current Gate1 authority — 21 October2026, Asia/Saigon
 
 V10 final artwork rejected. User directive docs/current/FINAL_WORLD_ART_DIRECTOR.md authorizes ONLY one premium playable Korean street sample, then explicit user approval. No full southern rebuild or Gate2 work. Branch art-gate/final-korean-town derives from approved graybox3c323bc. New Gate1 artwork and original composition only; protected north/Juni are visual benchmarks and preserved. Read AGENTS.md for limits; older entries below are archived historical instructions, not current authority. Initial sample; user-feedback correction count0/1.

@@ -1,3 +1,11 @@
+# Current review: final-world Gate 1 (style + masterplan)
+
+Latest authority: [master prompt](docs/current/FINAL_WORLD_MASTER_PROMPT.md). [Review pack](docs/world-gate1/GATE1_REVIEW.md) · [style bible](docs/world-gate1/STYLE_BIBLE.png) · [zoning](docs/world-gate1/MASTERPLAN_REVIEW.png).
+
+Only the new `world-gate1.html` entry represents this Gate 1. `npm run dev -- --port 4240` then open `/3D-pharse5-/world-gate1.html`; `?overview` shows labelled scaled planning, normal entry stays zoom1. Production preview build: `npx vite build --config world-gate1.vite.config.ts`. Root app/old entries remain historical unchanged baselines, not the new final world. Gate 2 and Gate 3 are locked pending user approval; no deployment or main merge.
+
+---
+
 # Current review: Gate1 Korean street quality sample
 
 V10 final artwork was rejected. Only one new playable street is under review; the full V10 plan/north/Juni remain preserved and Gate2 is locked.

@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #172e32;
+  color: #f1eedc;
+  font: 14px system-ui;
+}
+header,
+footer {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 12px 20px;
+  flex-wrap: wrap;
+}
+header {
+  height: 70px;
+}
+header span {
+  color: #edd2a0;
+}
+a {
+  color: #a9dfd6;
+}
+#stage {
+  height: calc(100dvh - 120px);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  max-width: none;
+}
+footer {
+  height: 50px;
+  justify-content: space-between;
+}
+#card {
+  position: fixed;
+  bottom: 90px;
+  left: 25%;
+  right: 15%;
+  padding: 20px;
+  background: #203b40;
+  border: 2px solid #d9c18e;
+  z-index: 4;
+}
+#joystick {
+  position: fixed;
+  left: 25px;
+  bottom: 65px;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #e0d4a6;
+  border-radius: 50%;
+  background: #234c5090;
+  touch-action: none;
+}
+.stick-knob {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  left: 30px;
+  top: 30px;
+  border-radius: 50%;
+  background: #e0d4a6;
+}
+#inspect {
+  position: fixed;
+  right: 25px;
+  bottom: 65px;
+  padding: 20px;
+  border: 1px solid #e0d4a6;
+  background: #234c50;
+  color: white;
+  touch-action: none;
+}
+@media (pointer: fine) {
+  #joystick,
+  #inspect {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  header {
+    height: 50px;
+    font-size: 11px;
+    gap: 10px;
+    padding: 6px;
+  }
+  header span {
+    display: none;
+  }
+  footer {
+    height: 36px;
+    padding: 5px;
+    font-size: 10px;
+  }
+  #stage {
+    height: calc(100dvh - 86px);
+  }
+}

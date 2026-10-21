@@ -1,0 +1,50 @@
+{
+  "stage": "GATE_1_STYLE_MASTERPLAN_ONLY",
+  "humanApproval": "PENDING",
+  "gate2": "LOCKED",
+  "gate3": "LOCKED",
+  "checks": {
+    "existingAppBuild": "PASS; observed output, original large-chunk warning retained",
+    "isolatedPreviewBuild": "PASS; see logs/preview-build.log",
+    "typecheck": "PASS",
+    "unitTests": {
+      "passed": 12,
+      "files": 4,
+      "note": "Actual npm test in this task; existing foundation tests, not graybox visual approval"
+    },
+    "lint": "PASS after ignoring compiled dist-* outputs",
+    "format": "PASS",
+    "browserCases": 10,
+    "browserErrors": [],
+    "navigationTargets": 16,
+    "unreachable": 0,
+    "renderedRouteCenterlines": 17,
+    "protectedFiles": 214,
+    "portablePackage": "PASS: 28 manifest files verified, own HTTP launcher, desktop keyboard + mobile CDP touch"
+  },
+  "nativeOverview": [
+    4096,
+    4608
+  ],
+  "desktopNativeCrop": [
+    1366,
+    930
+  ],
+  "mobileCanvas": [
+    844,
+    304
+  ],
+  "limits": [
+    "Code-drawn graybox, not final production art",
+    "No operational ferry/interiors/NPC/gesture integration claimed",
+    "Physical phones and GitHub CI untested",
+    "Full road-width clearance and final-art collider alignment remain Gate2/3 work"
+  ],
+  "diagnostics": [
+    "Initial lint erroneously included minified dist-gate1: 4917 errors; added generated-directory ignore, no source rules weakened",
+    "Initial global Canvas-context smoothing assertion failed after text rendering; final assertion checks actual Juni texture source scaleMode1 used by Phaser CanvasRenderer at each sprite draw; original diagnostic retained"
+  ],
+  "noMerge": true,
+  "noDeploy": true,
+  "newMediaCalls": 0
+}
