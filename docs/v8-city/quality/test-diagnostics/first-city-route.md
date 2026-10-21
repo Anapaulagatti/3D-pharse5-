@@ -174,5 +174,5 @@ Error: Actual walking stuck near 2896.8888888888887,2688: {"ready":true,"area":"
   203 |   }
   204 |   await settled(p);
   205 | }
-  206 | 
+  206 |
 ```
