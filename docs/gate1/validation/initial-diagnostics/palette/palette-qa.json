@@ -1,0 +1,183 @@
+{
+  "status": "pass",
+  "method": "forge_palette.build_palette (weighted k-means++ in OKLab over unique colours, reserved colours fixed, coverage skipping) then forge_palette.fit_report of every input: OKLab dE of each pixel with alpha >= the threshold to its nearest palette colour",
+  "notProven": [
+    "Visual quality of the palette: look at swatches.png and an applied frame.",
+    "Colours of pixels below the alpha threshold were not sampled or measured.",
+    "No --max-delta-e gate was set."
+  ],
+  "checks": [
+    {
+      "id": "palette_colors",
+      "status": "pass",
+      "value": 256,
+      "threshold": 256
+    },
+    {
+      "id": "inputs_without_samples",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0,
+      "files": []
+    },
+    {
+      "id": "max_delta_e",
+      "status": "skipped",
+      "value": 0.182425,
+      "threshold": null
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/gate1/native/bench-back.png",
+      "sha256": "af413916920838f3d92774974093bc32f07fd703820d400a410c0239ea6f02a2",
+      "bytes": 6909
+    },
+    {
+      "path": "../../../assets-src/gate1/native/bench-front.png",
+      "sha256": "3b403361f1ca12d61e4adce72ea2a197afc19e6f48c4cd3fa006c4927eccc6e9",
+      "bytes": 6765
+    },
+    {
+      "path": "../../../assets-src/gate1/native/bikes.png",
+      "sha256": "eb7442102cd01d989fac48c31112d4628bbda59249412aa2afc2ec989d2c2265",
+      "bytes": 15089
+    },
+    {
+      "path": "../../../assets-src/gate1/native/flowerbox.png",
+      "sha256": "e6763b702445291999fecece1f8b47d75594af7ae7c5ddc58991ac849c61e841",
+      "bytes": 11345
+    },
+    {
+      "path": "../../../assets-src/gate1/native/light.png",
+      "sha256": "2812d5ffb5e2055ac21b8f61bcfa9887b9a896c920c69b24f51ec183a2c080f2",
+      "bytes": 8557
+    },
+    {
+      "path": "../../../assets-src/gate1/native/street-foundation.png",
+      "sha256": "8e09d9b72ba7a6a7d42c4dc04cc1d870039b3c86359e8ae361c90af0bdb59522",
+      "bytes": 3621951
+    },
+    {
+      "path": "../../../assets-src/gate1/native/tree-planter.png",
+      "sha256": "2bb171aafee0017c4e2179f0788929d3f9370b2c749d36b3687db73127768340",
+      "bytes": 9074
+    }
+  ],
+  "outputs": [
+    {
+      "path": "palette.json",
+      "sha256": "7b46855177c65a5d4e0c3bf26f622aa999865d1630fa172975453d6ab12a69b1",
+      "bytes": 9450
+    },
+    {
+      "path": "palette.gpl",
+      "sha256": "b1ded4911e00ecfa9b640cfa7a147c308609d05faed758163bb998c20cab229a",
+      "bytes": 5176
+    },
+    {
+      "path": "palette.hex",
+      "sha256": "4c78417d72d78b9c6baa003b429ea937fc568f4f4827c581d44409590716365c",
+      "bytes": 1792
+    },
+    {
+      "path": "swatches.png",
+      "sha256": "abe747d812a259e3755f6498853387b7c3ed86dfb51649fb78085e256c95ef3d",
+      "bytes": 3093
+    }
+  ],
+  "tool": {
+    "name": "palette_tool",
+    "version": "0.4.0"
+  },
+  "palette": {
+    "colors": 256,
+    "reserved": 0,
+    "transparent_index": null,
+    "seed": 0
+  },
+  "fit": {
+    "../../../assets-src/gate1/native/bench-back.png": {
+      "measured_px": 3396,
+      "alpha_threshold": 128,
+      "off_palette_px": 3367,
+      "partial_alpha_px": 182,
+      "colors": 2219,
+      "palette_colors_used": 86,
+      "mean_delta_e": 0.008708,
+      "p95_delta_e": 0.017388,
+      "max_delta_e": 0.030518
+    },
+    "../../../assets-src/gate1/native/bench-front.png": {
+      "measured_px": 3249,
+      "alpha_threshold": 128,
+      "off_palette_px": 3243,
+      "partial_alpha_px": 363,
+      "colors": 2400,
+      "palette_colors_used": 103,
+      "mean_delta_e": 0.009276,
+      "p95_delta_e": 0.017772,
+      "max_delta_e": 0.040658
+    },
+    "../../../assets-src/gate1/native/bikes.png": {
+      "measured_px": 4362,
+      "alpha_threshold": 128,
+      "off_palette_px": 4358,
+      "partial_alpha_px": 621,
+      "colors": 4162,
+      "palette_colors_used": 168,
+      "mean_delta_e": 0.012168,
+      "p95_delta_e": 0.023415,
+      "max_delta_e": 0.07027
+    },
+    "../../../assets-src/gate1/native/flowerbox.png": {
+      "measured_px": 3717,
+      "alpha_threshold": 128,
+      "off_palette_px": 3705,
+      "partial_alpha_px": 348,
+      "colors": 3188,
+      "palette_colors_used": 160,
+      "mean_delta_e": 0.011392,
+      "p95_delta_e": 0.023711,
+      "max_delta_e": 0.074137
+    },
+    "../../../assets-src/gate1/native/light.png": {
+      "measured_px": 3684,
+      "alpha_threshold": 128,
+      "off_palette_px": 3672,
+      "partial_alpha_px": 217,
+      "colors": 2726,
+      "palette_colors_used": 143,
+      "mean_delta_e": 0.009292,
+      "p95_delta_e": 0.018011,
+      "max_delta_e": 0.037245
+    },
+    "../../../assets-src/gate1/native/street-foundation.png": {
+      "measured_px": 1572864,
+      "alpha_threshold": 128,
+      "off_palette_px": 1571926,
+      "partial_alpha_px": 0,
+      "colors": 685891,
+      "palette_colors_used": 256,
+      "mean_delta_e": 0.015105,
+      "p95_delta_e": 0.030027,
+      "max_delta_e": 0.182425
+    },
+    "../../../assets-src/gate1/native/tree-planter.png": {
+      "measured_px": 3230,
+      "alpha_threshold": 128,
+      "off_palette_px": 3222,
+      "partial_alpha_px": 167,
+      "colors": 2734,
+      "palette_colors_used": 80,
+      "mean_delta_e": 0.008982,
+      "p95_delta_e": 0.016859,
+      "max_delta_e": 0.029776
+    }
+  },
+  "totals": {
+    "max_delta_e": 0.182425,
+    "worst_p95_delta_e": 0.030027,
+    "off_palette_px": 1593493
+  }
+}

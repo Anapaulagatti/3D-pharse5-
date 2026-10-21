@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/korean-street-gate1/tools/gate1_validate.py", line 29, in <module>
+    if __name__=='__main__':validate()
+                            ^^^^^^^^^^
+  File "/workspace/korean-street-gate1/tools/gate1_validate.py", line 26, in validate
+    one=Image.open(D/'GATE1_STREET_NATIVE.png');two=Image.open(D/'GATE1_STREET_2X.png');assert one.resize((3072,2048),Image.Resampling.NEAREST).tobytes()==two.tobytes()
+                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

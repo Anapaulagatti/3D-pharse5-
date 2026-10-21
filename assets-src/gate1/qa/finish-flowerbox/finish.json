@@ -1,0 +1,186 @@
+{
+  "schema": "video2dsprite.finish.v1",
+  "tool": {
+    "name": "finish_frames",
+    "version": "0.4.0"
+  },
+  "mode": "hd",
+  "clip": "finish-flowerbox",
+  "character": null,
+  "role": null,
+  "source": {
+    "frames": "../furniture-extracted-binary/flowerbox",
+    "count": 1,
+    "size": [
+      449,
+      232
+    ],
+    "pattern": "*.png",
+    "registration": null
+  },
+  "rest": {
+    "frame": 0,
+    "topPx": 9,
+    "feetPx": 224,
+    "heightPx": 215,
+    "areaPx": 74082,
+    "stanceX": 222.0,
+    "centroid": [
+      224.48566453389486,
+      119.28801868200102
+    ],
+    "minRun": 6
+  },
+  "anchorMode": "feet",
+  "anchorSource": [
+    222.0,
+    224.0
+  ],
+  "scale": 0.22325581395348837,
+  "scaleSource": "target-height",
+  "targetHeight": 48.0,
+  "scaleRef": null,
+  "size": [
+    99,
+    51
+  ],
+  "anchor": [
+    49,
+    50
+  ],
+  "canvas": null,
+  "engine": {
+    "sourceSize": [
+      99,
+      51
+    ],
+    "sourceAnchor": [
+      49,
+      50
+    ],
+    "sampling": "linear",
+    "pixelArt": false,
+    "note": "engine_export.py package --clean-dir <out>/frames --source-size W,H --source-anchor X,Y (no --registration; add --pixel-art --sampling nearest for pixel)"
+  },
+  "resampler": "box",
+  "restOutput": {
+    "heightPx": 48.0,
+    "areaPx": 3692.481,
+    "bodyHeightPx": 48.0,
+    "outlinePx": 0,
+    "measuredHeightPx": 48,
+    "measuredAreaPx": 3717
+  },
+  "displaySizes": [
+    {
+      "label": "1x",
+      "dir": "frames",
+      "scale": 0.22325581395348837,
+      "size": [
+        99,
+        51
+      ],
+      "anchor": [
+        49,
+        50
+      ],
+      "targetHeight": 48.0,
+      "flicker": null,
+      "alphaBinary": false
+    }
+  ],
+  "palette": null,
+  "pixel": null,
+  "colourLock": null,
+  "indexedSheet": null,
+  "loopPolicy": "oneshot",
+  "frames": [
+    {
+      "file": "frames/prop.png",
+      "sha256": "e6763b702445291999fecece1f8b47d75594af7ae7c5ddc58991ac849c61e841",
+      "sourceFile": "prop.png",
+      "sourceSha256": "e4afedc76afc4bd67ae4094ddad888bb4d76463cac2dbb35cedddc94634d529c",
+      "opaquePx": 3717
+    }
+  ],
+  "flicker": null,
+  "specksRemoved": 0,
+  "alphaBinary": false,
+  "review": {
+    "path": "review-contact.png",
+    "frames": [
+      0
+    ]
+  },
+  "qa": {
+    "status": "needs-visual-review",
+    "method": "finish_frames hd v1: one scale per clip from the rest pose (target height / rest height at the 50% alpha contour, rows with >= 6 px; or scale-ref x sqrt(rest-area ratio) clamped to +-3%), forge_core.resample_rgba box (area) on premultiplied float channels with the output grid pinned to the anchor (stance midpoint on the feet line, or the alpha centroid), forge_core.alpha_hygiene(both, floor 4), canvas = union of alpha > 4 plus 1 px; never nearest, never an upscale; display sizes re-derived from the source frames",
+    "notProven": [
+      "identity, pose and readability at the finished size (look at review-contact.png and the frames)",
+      "that the target height suits the game camera and the rest of the cast (run lineup)",
+      "loop seams and timing (gait_loop, retime); finished frames keep the source names",
+      "engine blending: draw with premultiplied alpha (RGB under alpha 0 is zeroed)"
+    ],
+    "checks": [
+      {
+        "id": "no-upscale",
+        "status": "pass",
+        "value": 0.223256,
+        "threshold": 1.0
+      },
+      {
+        "id": "rest-height",
+        "status": "pass",
+        "value": 0.0,
+        "threshold": 1.5,
+        "note": "|measured - nominal| rest-pose body height at 1x (outline included), output px"
+      },
+      {
+        "id": "empty-frames",
+        "status": "pass",
+        "value": [],
+        "threshold": 0
+      },
+      {
+        "id": "flicker",
+        "status": "skipped",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "id": "alpha-hygiene",
+        "status": "skipped",
+        "value": {
+          "floor_px": 0,
+          "detached_px": 0,
+          "detached_components": 0,
+          "mode": "both",
+          "floor": 4
+        },
+        "threshold": null
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../furniture-extracted-binary/flowerbox/prop.png",
+        "sha256": "e4afedc76afc4bd67ae4094ddad888bb4d76463cac2dbb35cedddc94634d529c"
+      }
+    ],
+    "outputs": [
+      {
+        "path": "frames/prop.png",
+        "sha256": "e6763b702445291999fecece1f8b47d75594af7ae7c5ddc58991ac849c61e841",
+        "bytes": 11345
+      },
+      {
+        "path": "review-contact.png",
+        "sha256": "ccfab8e5ead2db382df46ee724391074c3518505370cbdf4d4c18e2144d13687",
+        "bytes": 25071
+      }
+    ],
+    "tool": {
+      "name": "finish_frames",
+      "version": "0.4.0"
+    }
+  }
+}

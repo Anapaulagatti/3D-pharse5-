@@ -1,0 +1,17 @@
+[
+  {
+    "command": "python3 /workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/extract_prop_pack.py --input assets-src/gate1/originals/furniture.png --rows 2 --cols 3 --labels bench-front,bench-back,light,tree-planter,bikes,flowerbox --output-dir .cache/gate1/furniture-extracted --art-source host_image --background-mode native_alpha --component-mode all --min-component-area 1 --reject-edge-touch --max-dropped-fraction 0.01",
+    "exit": 1,
+    "output": "error: Accepted props touch a cell edge: ['bench-front', 'bench-back', 'light', 'tree-planter', 'bikes', 'flowerbox']\n"
+  },
+  {
+    "command": "python3 /workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/extract_prop_pack.py --input .cache/gate1/furniture-binary.png --rows 2 --cols 3 --labels bench-front,bench-back,light,tree-planter,bikes,flowerbox --output-dir .cache/gate1/furniture-extracted-binary --art-source host_image --background-mode native_alpha --component-mode all --min-component-area 1 --reject-edge-touch --max-dropped-fraction 0.01",
+    "exit": 0,
+    "output": "{\"status\": \"ok\", \"output_dir\": \"/workspace/korean-street-gate1/.cache/gate1/furniture-extracted-binary\", \"manifest\": \"/workspace/korean-street-gate1/.cache/gate1/furniture-extracted-binary/prop-pack.json\", \"accepted\": 6, \"placeholders\": 0, \"rejected\": 0, \"qa\": \"warn\", \"warnings\": [\"tall or wide props in a square grid (aspect > 1.6): ['bench-front 409x201', 'bench-back 409x182', 'light 151x428', 'flowerbox 433x216']; generate them one by one or in custom cells, or extract with --auto-boxes\"]}\n"
+  },
+  {
+    "command": "python3 /workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/extract_prop_pack.py --input .cache/gate1/furniture-binary.png --boxes-file assets-src/gate1/plan/furniture-boxes.json --output-dir .cache/gate1/furniture-extracted-custom --art-source host_image --background-mode native_alpha --component-mode all --min-component-area 1 --reject-edge-touch --max-dropped-fraction 0.01",
+    "exit": 0,
+    "output": "{\"status\": \"ok\", \"output_dir\": \"/workspace/korean-street-gate1/.cache/gate1/furniture-extracted-custom\", \"manifest\": \"/workspace/korean-street-gate1/.cache/gate1/furniture-extracted-custom/prop-pack.json\", \"accepted\": 6, \"placeholders\": 0, \"rejected\": 0, \"qa\": \"pass\", \"warnings\": []}\n"
+  }
+]

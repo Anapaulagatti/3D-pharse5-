@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/korean-street-gate1/tools/gate1_art.py", line 16, in <module>
+    run('python3',F/'generate2dsprite/scripts/palette_tool.py','apply','--palette',C/'palette/palette.json','--input',N,'--alpha-threshold','128','--output-dir',C/'palette-finished')
+  File "/workspace/korean-street-gate1/tools/gate1_art.py", line 7, in run
+    p=subprocess.run(list(map(str,cmd)),cwd=R,capture_output=True,text=True);log.append(dict(command=list(map(str,cmd)),exit=p.returncode,stdout=p.stdout,stderr=p.stderr));(S/'processing-log.json').write_text(json.dumps(log,indent=2)+'\n');assert p.returncode==0,p.stderr or p.stdout
+                                                                                                                                                                                                                                                       ^^^^^^^^^^^^^^^
+AssertionError: error: the palette has no transparent_index, so transparent pixels cannot be indexed; set transparent_index in the palette (255, or a free slot)
+

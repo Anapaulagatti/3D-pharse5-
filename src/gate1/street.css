@@ -1,0 +1,223 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #f5efdf;
+  background: #263a3c;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+button {
+  font: inherit;
+  color: inherit;
+  background: #314c4d;
+  border: 1px solid #aab7a2;
+  border-radius: 8px;
+  padding: 9px 15px;
+  cursor: pointer;
+}
+button:hover {
+  background: #486463;
+}
+button:focus-visible {
+  outline: 3px solid #f1cf7b;
+  outline-offset: 3px;
+}
+header {
+  height: 64px;
+  max-width: 1600px;
+  margin: auto;
+  padding: 10px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #f3d790;
+}
+.brand span {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #c9d3c7;
+  margin-top: 5px;
+}
+main {
+  position: relative;
+  margin: auto;
+  max-width: 1600px;
+  padding: 0 32px;
+}
+#stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: min(1024px, calc(100dvh - 112px));
+  min-height: 240px;
+  position: relative;
+  background: #233638;
+  overflow: hidden;
+}
+canvas {
+  display: block;
+  max-width: 100%;
+  image-rendering: pixelated;
+  outline: none;
+}
+#loading,
+.error {
+  position: absolute;
+  text-align: center;
+  z-index: 20;
+  padding: 16px;
+  background: #243c3a;
+}
+footer {
+  max-width: 1600px;
+  margin: auto;
+  min-height: 48px;
+  padding: 10px 32px;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #bdccc3;
+}
+#touch {
+  display: none;
+}
+body[data-touch="true"] #touch {
+  display: block;
+}
+#joystick {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  border: 2px solid #e3dda36b;
+  border-radius: 50%;
+  width: 108px;
+  height: 108px;
+  background: #273c3566;
+  touch-action: none;
+  z-index: 10;
+}
+.stick-knob {
+  position: absolute;
+  left: calc(50% - 22px);
+  top: calc(50% - 22px);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #f9dfaa9c;
+  background: #b6b38c50;
+  pointer-events: none;
+}
+.actions {
+  position: fixed;
+  right: 24px;
+  bottom: 25px;
+  display: flex;
+  gap: 12px;
+  align-items: end;
+  z-index: 10;
+}
+.actions button {
+  touch-action: none;
+  background: #354d46d4;
+  min-height: 54px;
+}
+#interact {
+  background: #ead49c;
+  color: #273d39;
+  min-height: 68px;
+}
+#dialog {
+  position: fixed;
+  z-index: 30;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(430px, 90vw);
+  padding: 26px;
+  background: #f0ead9;
+  color: #223b3f;
+  border: 3px solid #718878;
+  border-radius: 14px;
+  box-shadow: 0 20px 70px #071a2790;
+}
+#dialog h2 {
+  font-size: 20px;
+  margin-top: 0;
+}
+#dialog p {
+  line-height: 1.7;
+  white-space: pre-line;
+}
+#dialog button {
+  margin-top: 8px;
+}
+#portrait {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: #233c37;
+  place-content: center;
+  text-align: center;
+  padding-top: 45dvh;
+  font-size: 22px;
+}
+[hidden] {
+  display: none !important;
+}
+@media (max-height: 600px) {
+  header {
+    height: 44px;
+    padding: 6px 16px;
+  }
+  .brand {
+    font-size: 11px;
+  }
+  .brand span {
+    font-size: 10px;
+    margin-top: 2px;
+  }
+  main {
+    padding: 0 8px;
+  }
+  #stage {
+    height: calc(100dvh - 44px);
+  }
+  footer {
+    display: none;
+  }
+  header #pause {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+  #joystick {
+    width: 88px;
+    height: 88px;
+    bottom: 18px;
+    left: 18px;
+  }
+  .actions {
+    right: 16px;
+    bottom: 16px;
+  }
+  .actions button {
+    font-size: 11px;
+    padding: 9px;
+    min-height: 48px;
+  }
+  #interact {
+    min-height: 60px;
+  }
+}

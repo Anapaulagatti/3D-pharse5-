@@ -1,0 +1,186 @@
+{
+  "schema": "video2dsprite.finish.v1",
+  "tool": {
+    "name": "finish_frames",
+    "version": "0.4.0"
+  },
+  "mode": "hd",
+  "clip": "finish-tree-planter",
+  "character": null,
+  "role": null,
+  "source": {
+    "frames": "../furniture-extracted-binary/tree-planter",
+    "count": 1,
+    "size": [
+      343,
+      258
+    ],
+    "pattern": "*.png",
+    "registration": null
+  },
+  "rest": {
+    "frame": 0,
+    "topPx": 8,
+    "feetPx": 250,
+    "heightPx": 242,
+    "areaPx": 69804,
+    "stanceX": 171.5,
+    "centroid": [
+      171.2270786774397,
+      129.62755716004813
+    ],
+    "minRun": 6
+  },
+  "anchorMode": "feet",
+  "anchorSource": [
+    171.5,
+    250.0
+  ],
+  "scale": 0.21487603305785125,
+  "scaleSource": "target-height",
+  "targetHeight": 52.0,
+  "scaleRef": null,
+  "size": [
+    74,
+    54
+  ],
+  "anchor": [
+    37,
+    53
+  ],
+  "canvas": null,
+  "engine": {
+    "sourceSize": [
+      74,
+      54
+    ],
+    "sourceAnchor": [
+      37,
+      53
+    ],
+    "sampling": "linear",
+    "pixelArt": false,
+    "note": "engine_export.py package --clean-dir <out>/frames --source-size W,H --source-anchor X,Y (no --registration; add --pixel-art --sampling nearest for pixel)"
+  },
+  "resampler": "box",
+  "restOutput": {
+    "heightPx": 52.0,
+    "areaPx": 3222.97,
+    "bodyHeightPx": 52.0,
+    "outlinePx": 0,
+    "measuredHeightPx": 52,
+    "measuredAreaPx": 3230
+  },
+  "displaySizes": [
+    {
+      "label": "1x",
+      "dir": "frames",
+      "scale": 0.21487603305785125,
+      "size": [
+        74,
+        54
+      ],
+      "anchor": [
+        37,
+        53
+      ],
+      "targetHeight": 52.0,
+      "flicker": null,
+      "alphaBinary": false
+    }
+  ],
+  "palette": null,
+  "pixel": null,
+  "colourLock": null,
+  "indexedSheet": null,
+  "loopPolicy": "oneshot",
+  "frames": [
+    {
+      "file": "frames/prop.png",
+      "sha256": "2bb171aafee0017c4e2179f0788929d3f9370b2c749d36b3687db73127768340",
+      "sourceFile": "prop.png",
+      "sourceSha256": "96b51c8f807a230b2f5b701e5b615a3adafb4f2ab9ad19523c67282a60381385",
+      "opaquePx": 3230
+    }
+  ],
+  "flicker": null,
+  "specksRemoved": 0,
+  "alphaBinary": false,
+  "review": {
+    "path": "review-contact.png",
+    "frames": [
+      0
+    ]
+  },
+  "qa": {
+    "status": "needs-visual-review",
+    "method": "finish_frames hd v1: one scale per clip from the rest pose (target height / rest height at the 50% alpha contour, rows with >= 6 px; or scale-ref x sqrt(rest-area ratio) clamped to +-3%), forge_core.resample_rgba box (area) on premultiplied float channels with the output grid pinned to the anchor (stance midpoint on the feet line, or the alpha centroid), forge_core.alpha_hygiene(both, floor 4), canvas = union of alpha > 4 plus 1 px; never nearest, never an upscale; display sizes re-derived from the source frames",
+    "notProven": [
+      "identity, pose and readability at the finished size (look at review-contact.png and the frames)",
+      "that the target height suits the game camera and the rest of the cast (run lineup)",
+      "loop seams and timing (gait_loop, retime); finished frames keep the source names",
+      "engine blending: draw with premultiplied alpha (RGB under alpha 0 is zeroed)"
+    ],
+    "checks": [
+      {
+        "id": "no-upscale",
+        "status": "pass",
+        "value": 0.214876,
+        "threshold": 1.0
+      },
+      {
+        "id": "rest-height",
+        "status": "pass",
+        "value": 0.0,
+        "threshold": 1.5,
+        "note": "|measured - nominal| rest-pose body height at 1x (outline included), output px"
+      },
+      {
+        "id": "empty-frames",
+        "status": "pass",
+        "value": [],
+        "threshold": 0
+      },
+      {
+        "id": "flicker",
+        "status": "skipped",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "id": "alpha-hygiene",
+        "status": "skipped",
+        "value": {
+          "floor_px": 0,
+          "detached_px": 0,
+          "detached_components": 0,
+          "mode": "both",
+          "floor": 4
+        },
+        "threshold": null
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../furniture-extracted-binary/tree-planter/prop.png",
+        "sha256": "96b51c8f807a230b2f5b701e5b615a3adafb4f2ab9ad19523c67282a60381385"
+      }
+    ],
+    "outputs": [
+      {
+        "path": "frames/prop.png",
+        "sha256": "2bb171aafee0017c4e2179f0788929d3f9370b2c749d36b3687db73127768340",
+        "bytes": 9074
+      },
+      {
+        "path": "review-contact.png",
+        "sha256": "4145731016c0b05740a50a57c89fe65b61c187b5b71fe4eb3d9b5de7db34a785",
+        "bytes": 20182
+      }
+    ],
+    "tool": {
+      "name": "finish_frames",
+      "version": "0.4.0"
+    }
+  }
+}

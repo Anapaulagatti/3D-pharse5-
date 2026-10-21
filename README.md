@@ -1,3 +1,14 @@
+# Current review: Gate1 Korean street quality sample
+
+V10 final artwork was rejected. Only one new playable street is under review; the full V10 plan/north/Juni remain preserved and Gate2 is locked.
+
+- [Gate1 art review and seven-category critique](docs/gate1/GATE1_ART_REVIEW.md)
+- [Actual Phaser native image](docs/gate1/GATE1_STREET_NATIVE.png), [equal-scale north comparison](docs/gate1/GATE1_NORTH_VS_SOUTH.png), [gameplay video](docs/gate1/GATE1_GAMEPLAY.mp4)
+- [Playable ZIP](docs/gate1/GATE1_PLAYABLE.zip): extract, `python3 start.py` (Windows: `py start.py`)
+- [Sources, executed skills and reproducibility](docs/gate1/GATE1_SOURCE_AND_SKILLS.md)
+
+Development sample: `npm run dev -- --port 4230`, `/3D-pharse5-/gate1-street.html`. Production sample: `npx vite build --config gate1.vite.config.ts`, then `python3 tools/gate1_package.py`. Existing default world entry/build remains the unchanged approved graybox and is not the Gate1 sample. No main merge or deployment. Await explicit visual approval before any full-world production.
+
 # Korean Arena — V10 clean-room graybox
 
 Current work is on `rebuild/southern-city-cleanroom-v10`. V9's southern map is rejected. The new masterplan and playable graybox are **awaiting user approval before final artwork**. Main and the public website are unchanged.

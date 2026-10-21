@@ -1,0 +1,15 @@
+node:internal/fs/promises:697
+  return new FileHandle(await PromisePrototypeThen(
+                        ^
+
+Error: ENOENT: no such file or directory, open 'dist/assets/actors/hero/atlas.json'
+    at async open (node:internal/fs/promises:697:25)
+    at async Object.readFile (node:internal/fs/promises:1348:14)
+    at async file:///workspace/korean-street-gate1/tools/gate1_verify_package.mjs:108:11 {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'dist/assets/actors/hero/atlas.json'
+}
+
+Node.js v24.19.0

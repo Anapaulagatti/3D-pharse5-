@@ -1,0 +1,171 @@
+{
+  "schema": "generate2dmap.tiled_export.v1",
+  "status": "pass",
+  "method": "TMJ and TSX written from the bundle, read back with the built-in reader (TSX via ElementTree) and re-rendered (tile layers, image layers, prop tile objects in draw order); the re-render must equal render_map(bundle) pixel for pixel (preview.png)",
+  "notProven": [
+    "Tiled GUI not verified: opening the map, wang/terrain brushes and the mixed blob wangset in the editor",
+    "Phaser or another engine rendering map.embedded.tmj the same way",
+    "runtime depth sorting by the sortY property (Tiled's own topdown order sorts by image bottom)"
+  ],
+  "checks": [
+    {
+      "id": "tsx_well_formed",
+      "status": "pass",
+      "value": [],
+      "threshold": []
+    },
+    {
+      "id": "rerender_map_tmj",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "rerender_map_embedded_tmj",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/gate1/map/bundle-hashed.json",
+      "sha256": "46f0020eada580d62d0c463bbc10bae43fc2003a8f5e0c983c2ed05544810fe3",
+      "bytes": 10516
+    },
+    {
+      "path": "../../../assets-src/gate1/map/floor.png",
+      "sha256": "549fbbad4790f6eae104ee52c36d83b8ce4660c342ef2887442fdd18b8827321",
+      "bytes": 1227074
+    },
+    {
+      "path": "../../../assets-src/gate1/map/architecture.png",
+      "sha256": "b9479a9157b599d38f6b6069b9cfbd3a7434772be04e13e167659c4c682c6132",
+      "bytes": 1565428
+    },
+    {
+      "path": "../../../assets-src/gate1/map/bench-front.png",
+      "sha256": "e64448123e947a43d45eebec72cbd6466f4be1bd7dd3e1ab67b06634b11af7fc",
+      "bytes": 3524
+    },
+    {
+      "path": "../../../assets-src/gate1/map/bench-back.png",
+      "sha256": "ecaf0664fd85d407d19552e76168b6a4b1a0b147cfe8499873eb9ae14e7b9f5c",
+      "bytes": 3871
+    },
+    {
+      "path": "../../../assets-src/gate1/map/light.png",
+      "sha256": "1dc04611e1e0d45089b2074279d46a7ed1113dfedb5b5580ed3303ddc74f0117",
+      "bytes": 5328
+    },
+    {
+      "path": "../../../assets-src/gate1/map/tree-planter.png",
+      "sha256": "ffc48fd134d639df4babcfcf324613ed74e8cbfdfb587ab355a70fbf9993f77a",
+      "bytes": 6447
+    },
+    {
+      "path": "../../../assets-src/gate1/map/bikes.png",
+      "sha256": "6e3b733b05e538f8922a7feb04b41e9bab9255ad92b47d272dd337a9331e8bc0",
+      "bytes": 12364
+    },
+    {
+      "path": "../../../assets-src/gate1/map/flowerbox.png",
+      "sha256": "2d560349524c9c84e83c4672cb900b4729fa6da05fd15da41d87493c89f97896",
+      "bytes": 8839
+    },
+    {
+      "path": "../../../assets-src/gate1/map/heritage-tree.png",
+      "sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "bytes": 40364
+    }
+  ],
+  "outputs": [
+    {
+      "path": "images/architecture.png",
+      "sha256": "b9479a9157b599d38f6b6069b9cfbd3a7434772be04e13e167659c4c682c6132",
+      "bytes": 1565428
+    },
+    {
+      "path": "images/bench-back.png",
+      "sha256": "ecaf0664fd85d407d19552e76168b6a4b1a0b147cfe8499873eb9ae14e7b9f5c",
+      "bytes": 3871
+    },
+    {
+      "path": "images/bench-front.png",
+      "sha256": "e64448123e947a43d45eebec72cbd6466f4be1bd7dd3e1ab67b06634b11af7fc",
+      "bytes": 3524
+    },
+    {
+      "path": "images/bikes.png",
+      "sha256": "6e3b733b05e538f8922a7feb04b41e9bab9255ad92b47d272dd337a9331e8bc0",
+      "bytes": 12364
+    },
+    {
+      "path": "images/floor.png",
+      "sha256": "549fbbad4790f6eae104ee52c36d83b8ce4660c342ef2887442fdd18b8827321",
+      "bytes": 1227074
+    },
+    {
+      "path": "images/flowerbox.png",
+      "sha256": "2d560349524c9c84e83c4672cb900b4729fa6da05fd15da41d87493c89f97896",
+      "bytes": 8839
+    },
+    {
+      "path": "images/heritage-tree.png",
+      "sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "bytes": 40364
+    },
+    {
+      "path": "images/light.png",
+      "sha256": "1dc04611e1e0d45089b2074279d46a7ed1113dfedb5b5580ed3303ddc74f0117",
+      "bytes": 5328
+    },
+    {
+      "path": "images/tree-planter.png",
+      "sha256": "ffc48fd134d639df4babcfcf324613ed74e8cbfdfb587ab355a70fbf9993f77a",
+      "bytes": 6447
+    },
+    {
+      "path": "map.embedded.tmj",
+      "sha256": "4021c784bf2bd9d81ccdd6410a619cc9f51ec02f603347ec853b7320c63aab99",
+      "bytes": 34153
+    },
+    {
+      "path": "map.tmj",
+      "sha256": "8a22b3da659bb85727f6ca13f5bd94d4b7c15ff2bee050135a207e3051cf79a6",
+      "bytes": 28239
+    },
+    {
+      "path": "preview.png",
+      "sha256": "409e62661527f9778f696461b5eb38404a4d6f5100e4c0ff22faa7517cf3fb19",
+      "bytes": 2797086
+    },
+    {
+      "path": "props.tsx",
+      "sha256": "b9b1c8dd13f56c14a3ffefa2a50e17b9bc6bc18827c1eaebf3e937085feec847",
+      "bytes": 2979
+    }
+  ],
+  "tool": {
+    "name": "export_tiled.py",
+    "version": "0.4.0"
+  },
+  "tiled": {
+    "format": "1.10",
+    "app": "1.11.0",
+    "tilesets": [
+      {
+        "file": "props.tsx",
+        "name": "props",
+        "firstgid": 1,
+        "tilecount": 8
+      }
+    ],
+    "layers": [
+      "original-ground",
+      "original-architecture-and-street-furniture",
+      "collision",
+      "interactions"
+    ]
+  }
+}

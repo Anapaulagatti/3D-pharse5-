@@ -1,0 +1,545 @@
+{
+  "schema": "generate2dmap.map_bundle.v2",
+  "id": "gate1-muneum",
+  "world": {
+    "width": 1536,
+    "height": 1024,
+    "unit": "px"
+  },
+  "art_source": "mixed",
+  "layers": [
+    {
+      "name": "original-ground",
+      "kind": "image",
+      "image": "floor.png",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "original-architecture-and-street-furniture",
+      "kind": "objects"
+    }
+  ],
+  "props": {
+    "architecture": {
+      "image": "architecture.png",
+      "size": [
+        1536,
+        576
+      ],
+      "anchor_px": [
+        0,
+        576
+      ],
+      "solid": false,
+      "art_source": "host_image"
+    },
+    "bench-front": {
+      "image": "bench-front.png",
+      "size": [
+        100,
+        50
+      ],
+      "anchor_px": [
+        50,
+        50
+      ],
+      "solid": false,
+      "art_source": "host_image"
+    },
+    "bench-back": {
+      "image": "bench-back.png",
+      "size": [
+        110,
+        50
+      ],
+      "anchor_px": [
+        55,
+        50
+      ],
+      "solid": false,
+      "art_source": "host_image"
+    },
+    "light": {
+      "image": "light.png",
+      "size": [
+        69,
+        192
+      ],
+      "anchor_px": [
+        34,
+        192
+      ],
+      "solid": false,
+      "art_source": "host_image"
+    },
+    "tree-planter": {
+      "image": "tree-planter.png",
+      "size": [
+        74,
+        54
+      ],
+      "anchor_px": [
+        37,
+        54
+      ],
+      "solid": false,
+      "art_source": "host_image"
+    },
+    "bikes": {
+      "image": "bikes.png",
+      "size": [
+        108,
+        71
+      ],
+      "anchor_px": [
+        54,
+        71
+      ],
+      "solid": false,
+      "art_source": "host_image"
+    },
+    "flowerbox": {
+      "image": "flowerbox.png",
+      "size": [
+        99,
+        51
+      ],
+      "anchor_px": [
+        49,
+        51
+      ],
+      "solid": false,
+      "art_source": "host_image"
+    },
+    "heritage-tree": {
+      "image": "heritage-tree.png",
+      "size": [
+        189,
+        196
+      ],
+      "anchor_px": [
+        94,
+        195
+      ],
+      "solid": false,
+      "art_source": "existing"
+    }
+  },
+  "objects": [
+    {
+      "id": "gate1-1",
+      "prop": "architecture",
+      "x": 0,
+      "y": 576,
+      "sortY": 560,
+      "scale": 1,
+      "anchor_px": [
+        0,
+        576
+      ]
+    },
+    {
+      "id": "gate1-2",
+      "prop": "tree-planter",
+      "x": 64,
+      "y": 920,
+      "sortY": 920,
+      "scale": 1,
+      "anchor_px": [
+        37,
+        54
+      ]
+    },
+    {
+      "id": "gate1-3",
+      "prop": "heritage-tree",
+      "x": 64,
+      "y": 915,
+      "sortY": 915,
+      "scale": 1,
+      "anchor_px": [
+        94,
+        195
+      ]
+    },
+    {
+      "id": "gate1-4",
+      "prop": "tree-planter",
+      "x": 1496,
+      "y": 624,
+      "sortY": 624,
+      "scale": 1,
+      "anchor_px": [
+        37,
+        54
+      ]
+    },
+    {
+      "id": "gate1-5",
+      "prop": "heritage-tree",
+      "x": 1496,
+      "y": 619,
+      "sortY": 619,
+      "scale": 1,
+      "anchor_px": [
+        94,
+        195
+      ]
+    },
+    {
+      "id": "gate1-6",
+      "prop": "bench-front",
+      "x": 1216,
+      "y": 872,
+      "sortY": 872,
+      "scale": 1,
+      "anchor_px": [
+        50,
+        50
+      ]
+    },
+    {
+      "id": "gate1-7",
+      "prop": "bench-back",
+      "x": 1216,
+      "y": 988,
+      "sortY": 988,
+      "scale": 1,
+      "anchor_px": [
+        55,
+        50
+      ]
+    },
+    {
+      "id": "gate1-8",
+      "prop": "light",
+      "x": 744,
+      "y": 624,
+      "sortY": 624,
+      "scale": 1,
+      "anchor_px": [
+        34,
+        192
+      ]
+    },
+    {
+      "id": "gate1-9",
+      "prop": "light",
+      "x": 1464,
+      "y": 968,
+      "sortY": 968,
+      "scale": 1,
+      "anchor_px": [
+        34,
+        192
+      ]
+    },
+    {
+      "id": "gate1-10",
+      "prop": "bikes",
+      "x": 1440,
+      "y": 616,
+      "sortY": 616,
+      "scale": 1,
+      "anchor_px": [
+        54,
+        71
+      ]
+    },
+    {
+      "id": "gate1-11",
+      "prop": "flowerbox",
+      "x": 1080,
+      "y": 1008,
+      "sortY": 1008,
+      "scale": 1,
+      "anchor_px": [
+        49,
+        51
+      ]
+    }
+  ],
+  "collision": {
+    "actorRadius": 8,
+    "ySquash": 0.5,
+    "solids": [
+      {
+        "shape": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 1536,
+        "h": 560,
+        "reason": "New adjoining street wall, no walk-through facade"
+      },
+      {
+        "shape": "rect",
+        "x": 0,
+        "y": 896,
+        "w": 312,
+        "h": 128,
+        "reason": "Outside-slice heritage forecourt behind the closed low boundary; not a public path"
+      },
+      {
+        "shape": "rect",
+        "x": 0,
+        "y": 720,
+        "w": 176,
+        "h": 72,
+        "reason": "Measured new-source low wall/raised planting"
+      },
+      {
+        "shape": "rect",
+        "x": 0,
+        "y": 808,
+        "w": 304,
+        "h": 88,
+        "reason": "Measured new-source low wall/raised planting"
+      },
+      {
+        "shape": "rect",
+        "x": 272,
+        "y": 880,
+        "w": 40,
+        "h": 144,
+        "reason": "Measured new-source low wall/raised planting"
+      },
+      {
+        "shape": "rect",
+        "x": 304,
+        "y": 832,
+        "w": 176,
+        "h": 72,
+        "reason": "Measured new-source low wall/raised planting"
+      },
+      {
+        "shape": "rect",
+        "x": 736,
+        "y": 832,
+        "w": 48,
+        "h": 192,
+        "reason": "Measured new-source low wall/raised planting"
+      },
+      {
+        "shape": "rect",
+        "x": 784,
+        "y": 792,
+        "w": 96,
+        "h": 40,
+        "reason": "Measured new-source low wall/raised planting"
+      },
+      {
+        "shape": "rect",
+        "x": 1096,
+        "y": 776,
+        "w": 224,
+        "h": 56,
+        "reason": "Measured new-source low wall/raised planting"
+      },
+      {
+        "shape": "rect",
+        "x": 1312,
+        "y": 816,
+        "w": 104,
+        "h": 64,
+        "reason": "Measured new-source low wall/raised planting"
+      },
+      {
+        "shape": "rect",
+        "x": 1384,
+        "y": 872,
+        "w": 64,
+        "h": 152,
+        "reason": "Measured new-source low wall/raised planting"
+      },
+      {
+        "shape": "rect",
+        "x": 736,
+        "y": 960,
+        "w": 128,
+        "h": 64,
+        "reason": "Measured new-source low wall/raised planting"
+      },
+      {
+        "shape": "rect",
+        "x": 48,
+        "y": 616,
+        "w": 12,
+        "h": 12,
+        "reason": "Painted curb bollard"
+      },
+      {
+        "shape": "rect",
+        "x": 288,
+        "y": 616,
+        "w": 12,
+        "h": 12,
+        "reason": "Painted curb bollard"
+      },
+      {
+        "shape": "rect",
+        "x": 742,
+        "y": 616,
+        "w": 12,
+        "h": 12,
+        "reason": "Painted curb bollard"
+      },
+      {
+        "shape": "rect",
+        "x": 1378,
+        "y": 616,
+        "w": 12,
+        "h": 12,
+        "reason": "Painted curb bollard"
+      },
+      {
+        "shape": "rect",
+        "x": 1470,
+        "y": 616,
+        "w": 12,
+        "h": 12,
+        "reason": "Painted curb bollard"
+      },
+      {
+        "shape": "rect",
+        "x": 32.0,
+        "y": 908,
+        "w": 64,
+        "h": 12,
+        "reason": "New original tree-planter physical support"
+      },
+      {
+        "shape": "rect",
+        "x": 56,
+        "y": 907,
+        "w": 16,
+        "h": 8,
+        "reason": "Protected-source tree trunk, not canopy"
+      },
+      {
+        "shape": "rect",
+        "x": 1464.0,
+        "y": 612,
+        "w": 64,
+        "h": 12,
+        "reason": "New original tree-planter physical support"
+      },
+      {
+        "shape": "rect",
+        "x": 1488,
+        "y": 611,
+        "w": 16,
+        "h": 8,
+        "reason": "Protected-source tree trunk, not canopy"
+      },
+      {
+        "shape": "rect",
+        "x": 1170.0,
+        "y": 860,
+        "w": 92,
+        "h": 12,
+        "reason": "New original bench-front physical support"
+      },
+      {
+        "shape": "rect",
+        "x": 1170.0,
+        "y": 976,
+        "w": 92,
+        "h": 12,
+        "reason": "New original bench-back physical support"
+      },
+      {
+        "shape": "rect",
+        "x": 738.0,
+        "y": 616,
+        "w": 12,
+        "h": 8,
+        "reason": "New original light physical support"
+      },
+      {
+        "shape": "rect",
+        "x": 1458.0,
+        "y": 960,
+        "w": 12,
+        "h": 8,
+        "reason": "New original light physical support"
+      },
+      {
+        "shape": "rect",
+        "x": 1392.0,
+        "y": 604,
+        "w": 96,
+        "h": 12,
+        "reason": "New original bikes physical support"
+      },
+      {
+        "shape": "rect",
+        "x": 1036.0,
+        "y": 996,
+        "w": 88,
+        "h": 12,
+        "reason": "New original flowerbox physical support"
+      }
+    ]
+  },
+  "spawns": [
+    {
+      "id": "entry",
+      "x": 192,
+      "y": 590,
+      "facing": "right"
+    }
+  ],
+  "anchors": {
+    "cafe": {
+      "point": [
+        242,
+        580
+      ],
+      "approach": [
+        242,
+        580
+      ]
+    },
+    "bookshop": {
+      "point": [
+        598,
+        580
+      ],
+      "approach": [
+        598,
+        580
+      ]
+    },
+    "learning": {
+      "point": [
+        888,
+        580
+      ],
+      "approach": [
+        888,
+        580
+      ]
+    },
+    "convenience": {
+      "point": [
+        1288,
+        580
+      ],
+      "approach": [
+        1288,
+        580
+      ]
+    },
+    "court": {
+      "point": [
+        1120,
+        928
+      ],
+      "approach": [
+        1120,
+        928
+      ]
+    }
+  }
+}
