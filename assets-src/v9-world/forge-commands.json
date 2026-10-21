@@ -1,0 +1,158 @@
+[
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json"
+    ],
+    "exit": 1,
+    "stdout": "",
+    "stderr": "error: $.schema: \"map_bundle.v2\" is not generate2dmap.map_bundle.v2 (or generate2dmap.map_bundle.v1)\nerror: fix the bundle before hashing it (nothing was written)\n"
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-1.json"
+    ],
+    "exit": 1,
+    "stdout": "",
+    "stderr": "error: $.layers[2].kind: 'props' is not one of ['tiles', 'image', 'objects']\nerror: fix the bundle before hashing it (nothing was written)\n"
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-2.json"
+    ],
+    "exit": 1,
+    "stdout": "",
+    "stderr": "error: $.tilesets[0].manifest: tileset.json: $: 'materials' is a required property\nerror: fix the bundle before hashing it (nothing was written)\n"
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-3.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-3.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-3.json\", \"files_hashed\": 335}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/validation-4.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json\", \"id\": \"korean-arena\", \"version\": 2, \"errors\": 0, \"warnings\": 0, \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/validation-4.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/export_tiled.py",
+      "export",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--embedded-variant",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/tiled"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/tiled\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/tiled/export-report.json\", \"map\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/tiled/map.tmj\", \"embedded\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/tiled/map.embedded.tmj\", \"tilesets\": 2, \"layers\": [\"Ground\", \"Edging\", \"Props\", \"collision\", \"interactions\"], \"differingPixels\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle-draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-6.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-6.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-6.json\", \"files_hashed\": 6}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/world-nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/world-nav\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/world-nav/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/world-nav/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/world-nav/nav-debug.png\", \"map\": \"korean-arena\", \"cell\": 4, \"targets\": 11, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/academy-nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/academy-nav\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/academy-nav/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/academy-nav/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/academy-nav/nav-debug.png\", \"map\": \"academy\", \"cell\": 4, \"targets\": 5, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/compose_layered_preview.py",
+      "--base",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/ground-native.png",
+      "--placements",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/placements.json",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--output",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/compose/preview.png",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/compose/report.json",
+      "--debug-overlay",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/compose/debug.png",
+      "--audit-out",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/compose/audit.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/compose/preview.png\", \"report\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/compose/report.json\", \"debug_overlay\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/compose/debug.png\", \"audit_out\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/compose/audit.json\", \"placed\": 273, \"warnings\": 0, \"audit_status\": \"warn\"}\n",
+    "stderr": ""
+  }
+]

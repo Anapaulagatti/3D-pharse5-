@@ -1,1 +1,0 @@
-Actual rendered inspection caught grass shoulders cutting across a join to retained northern paving, and an exposed gray tail beyond the new deck floor. Final terrain clear masks preserve old soft connecting streets and only clear the inherited road, while timber surfacing is clipped to the full EXISTING walk support. No physics/object/camera changes.

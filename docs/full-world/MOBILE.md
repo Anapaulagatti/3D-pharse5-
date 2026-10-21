@@ -1,9 +1,0 @@
-# Landscape exploration controls
-
-Only full-world-review.html changes mobile UI; every previous game/review stays intact. Full-viewport native render, compact area/pause/menu HUD, minimap/journey shortcut and safe-area margins. Bottom-left captured analog drag stick: radial0.14deadzone, continuous angle/magnitude, clamped knob and smooth velocity approach. Independent held-sprint pointer supports simultaneous steering; releasing sprint does not release the stick. Bottom-right Explore, Talk/Confirm and Emote→Wave/Celebrate. No combat icons, backend, paid audio, ads or account system.
-
-Release, pointercancel, capture loss, visibility hide, pause, dialogue/travel/scene loading and orientation changes clear input. Portrait pauses and presents rotate screen; manual landscape rotation resumes while preserving explicit user pause. User-gesture fullscreen/orientation lock is requested only where browser supports it; unsupported/manual rotation remains usable. OS reduced-motion is respected, not silently disabled. Water/leaves freeze for pause/reduce/hide. Juni animation uses preserved image-generated frame sets, not CSS translation or art rescaling.
-
-Actual Chromium checks:568x320,640x360,844x390,932x430, DPR3, reduced-motion, portrait/resume, minimum44px action targets/nonoverlap/inside viewport. Real CDP drag/deadzone/fractional diagonal/run/partial-release/emote/dialog confirmation verified. Forced Canvas and WebGL tested as applicable; software GPU detection defaults to Canvas only in this entry. Physical Android/iOS/Safari/hardware-GPU behavior is unmeasured; unsupported orientation-lock simulation is not real Safari certification.
-
-For a same-network phone: extract the full portable package; `python3 start.py --lan`, then use the printed path with the computer's LAN IP. LAN HTTP may not support orientation lock/fullscreen; rotate manually. Do not confuse cloud loopback with a public preview URL.

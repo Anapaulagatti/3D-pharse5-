@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { JuniMotion } from "../../src/review/JuniMotion";
+import { JuniMotion } from "../../src/engine/JuniMotion";
 
 describe("Juni generated-frame runtime", () => {
   it("uses actual travel and preserves phase across run changes and blocked input", () => {

@@ -7,20 +7,7 @@ export default defineConfig({
     target: "es2022",
     chunkSizeWarningLimit: 1600,
     rolldownOptions: {
-      input: {
-        game: "index.html",
-        characterReview: "character-review.html",
-        plazaReview: "plaza-review.html",
-        districtReview: "district-review.html",
-        productionReview: "production-review.html",
-        refinementReview: "refinement-review.html",
-        livingKoreaReview: "living-korea-review.html",
-        fullWorldReview: "full-world-review.html",
-        v3WorldReview: "v3-world-review.html",
-        modernStreetsReview: "modern-streets-review.html",
-        v6WorldReview: "v6-world-review.html",
-        v4ReadabilityReview: "v4-readability-review.html",
-      },
+      input: { game: "index.html", v9Review: "v9-world-review.html" },
     },
   },
 });

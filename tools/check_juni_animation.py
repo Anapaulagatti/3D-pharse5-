@@ -6,7 +6,7 @@ from PIL import Image, ImageChops
 
 R=Path(__file__).resolve().parents[1]
 S=R/'assets-src/juni-animation'
-D=R/'public/review/juni-animation'
+D=R/'public/assets/juni'
 read=lambda p:json.loads(p.read_text())
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 m=read(S/'run-manifest.json');runtime=read(S/'runtime.json');atlas=read(D/'juni.json')

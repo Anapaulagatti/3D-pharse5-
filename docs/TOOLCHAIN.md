@@ -1,9 +1,0 @@
-# Verified current toolkit
-
-Runtime Phaser4.2.1/Zod4.6.7, TypeScript5.9.3/Vite8.3.4, Vitest5.0.4/Playwright1.64.1, ESLint/Prettier remain exactly locked. Node24+/npm11, Python3.12/Pillow12.3.0, numpy2.3.5, Chromium154 and ffmpeg7.1.5 available in the current instance. Reuse working packages; no unrelated installation or external credentials required. Install dependency requirements with `python3 -m pip install -r tools/requirements.txt` if missing. Current dependencies contain no Three.js/React/R3F/Drei/GLTF packages.
-
-`bash tools/setup.sh` validates package identity/version/dependencies, native world/actor source QA, type/lint/format/unit/build/browser. It never regenerates artwork. `npm ci` is required for the clean-clone verification; root dependencies otherwise reused. Source QA and tests write ignored.cache. Services restart after snapshots: `npm run dev`4200 or build/preview4201; verify actual HTTP/Phaser readiness, not just a PID. User-viewable ZIP includes a Python HTTP launcher and needs no Node.
-
-Native Tiled/LibreSprite GUI unavailable; editable PNG atlases, native deterministic pixel modules, Tiled JSON and actual Phaser are the tested alternatives. Optional Forge pinned source in /workspace/tooling-cache/agent-sprite-forge; all five skill files inspected. PNG pipelines use numpy/Pillow/ffmpeg. Resvg absent and unnecessary; no SVG character work. Video generation unavailable/no-route; no paid requests were made. Run `python3 tools/export_actors.py` then `python3 tools/forge_workflow.py --forge-root /path/to/agent-sprite-forge` for the documented authoring QA workflow. This is not needed for normal runtime build; see usage report for actual execution/limits.
-
-Cloud software rendering/emulated mobile do not establish real-phoneFPS. Historical archive recovery and source-main promotion are separate from public website release. Environment draft save is separate from Review/Save/Publish and fresh-task restoration.

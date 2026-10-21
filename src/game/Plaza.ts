@@ -5,11 +5,10 @@ import {
   historicalGuests,
   historicalDisclaimer,
 } from "../content/historicalGuests";
-import world from "../../assets-src/world/world.json";
-type World = typeof world;
+import type { WorldData as World } from "../engine/types";
 type PlazaOptions = {
   key?: string;
-  layout?: World;
+  layout: World;
   assetRoot?: string;
   anchors?: Record<string, number[]>;
   guests?: boolean;
@@ -86,9 +85,9 @@ export class Plaza extends Phaser.Scene {
   private lastFoot = { x: 512, y: 560 };
   private active = true;
   private overlay!: Phaser.GameObjects.Rectangle;
-  constructor(private options: PlazaOptions = {}) {
+  constructor(private options: PlazaOptions) {
     super(options.key ?? "plaza");
-    this.layout = options.layout ?? world;
+    this.layout = options.layout;
   }
   preload() {
     const base =
