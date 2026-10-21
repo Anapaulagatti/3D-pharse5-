@@ -23,7 +23,9 @@ try {
           .ok
       )
         break;
-    } catch {}
+    } catch {
+      // The archive HTTP process may still be starting.
+    }
     if (i === 79)
       throw Error(
         "Archived V8 launcher unavailable; restore exact ZIP from recovery tag",

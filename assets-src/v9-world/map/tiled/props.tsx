@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.0" name="props" tilewidth="1536" tileheight="640" tilecount="59" columns="0" objectalignment="bottomleft">
+<tileset version="1.10" tiledversion="1.11.0" name="props" tilewidth="1536" tileheight="640" tilecount="84" columns="0" objectalignment="bottomleft">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0" type="prop">
   <properties>
@@ -101,6 +101,331 @@
  </tile>
  <tile id="7" type="prop">
   <properties>
+   <property name="prop" value="gray-bakery"/>
+   <property name="anchorX" type="float" value="128"/>
+   <property name="anchorY" type="float" value="222"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-bakery.png" width="256" height="224"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="116" y="206" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="8" type="prop">
+  <properties>
+   <property name="prop" value="gray-basalt-learning"/>
+   <property name="anchorX" type="float" value="90"/>
+   <property name="anchorY" type="float" value="104"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-basalt-learning.png" width="180" height="106"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="78" y="88" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="9" type="prop">
+  <properties>
+   <property name="prop" value="gray-bookshop"/>
+   <property name="anchorX" type="float" value="146"/>
+   <property name="anchorY" type="float" value="284"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-bookshop.png" width="292" height="286"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="134" y="268" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="10" type="prop">
+  <properties>
+   <property name="prop" value="gray-cafe"/>
+   <property name="anchorX" type="float" value="182"/>
+   <property name="anchorY" type="float" value="270"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-cafe.png" width="365" height="272"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="170" y="254" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="11" type="prop">
+  <properties>
+   <property name="prop" value="gray-campus-entry"/>
+   <property name="anchorX" type="float" value="222"/>
+   <property name="anchorY" type="float" value="282"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-campus-entry.png" width="444" height="284"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="210" y="266" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="12" type="prop">
+  <properties>
+   <property name="prop" value="gray-carousel"/>
+   <property name="anchorX" type="float" value="195"/>
+   <property name="anchorY" type="float" value="290"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-carousel.png" width="390" height="292"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="183" y="274" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="13" type="prop">
+  <properties>
+   <property name="prop" value="gray-cliff-lookout"/>
+   <property name="anchorX" type="float" value="183"/>
+   <property name="anchorY" type="float" value="301"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-cliff-lookout.png" width="366" height="303"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="171" y="285" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="14" type="prop">
+  <properties>
+   <property name="prop" value="gray-coastal-cafe"/>
+   <property name="anchorX" type="float" value="171"/>
+   <property name="anchorY" type="float" value="206"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-coastal-cafe.png" width="342" height="208"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="159" y="190" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="15" type="prop">
+  <properties>
+   <property name="prop" value="gray-corner-grocery"/>
+   <property name="anchorX" type="float" value="128"/>
+   <property name="anchorY" type="float" value="222"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-corner-grocery.png" width="256" height="224"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="116" y="206" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="16" type="prop">
+  <properties>
+   <property name="prop" value="gray-design-gallery"/>
+   <property name="anchorX" type="float" value="128"/>
+   <property name="anchorY" type="float" value="222"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-design-gallery.png" width="256" height="224"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="116" y="206" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="17" type="prop">
+  <properties>
+   <property name="prop" value="gray-discovery-hall"/>
+   <property name="anchorX" type="float" value="186"/>
+   <property name="anchorY" type="float" value="224"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-discovery-hall.png" width="373" height="226"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="174" y="208" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="18" type="prop">
+  <properties>
+   <property name="prop" value="gray-ferry-terminal"/>
+   <property name="anchorX" type="float" value="162"/>
+   <property name="anchorY" type="float" value="191"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-ferry-terminal.png" width="324" height="193"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="150" y="175" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="19" type="prop">
+  <properties>
+   <property name="prop" value="gray-garden-pavilion"/>
+   <property name="anchorX" type="float" value="139"/>
+   <property name="anchorY" type="float" value="138"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-garden-pavilion.png" width="278" height="140"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="127" y="122" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="20" type="prop">
+  <properties>
+   <property name="prop" value="gray-language-center"/>
+   <property name="anchorX" type="float" value="128"/>
+   <property name="anchorY" type="float" value="222"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-language-center.png" width="256" height="224"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="116" y="206" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="21" type="prop">
+  <properties>
+   <property name="prop" value="gray-library"/>
+   <property name="anchorX" type="float" value="90"/>
+   <property name="anchorY" type="float" value="374"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-library.png" width="180" height="376"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="78" y="358" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="22" type="prop">
+  <properties>
+   <property name="prop" value="gray-lookout"/>
+   <property name="anchorX" type="float" value="162"/>
+   <property name="anchorY" type="float" value="127"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-lookout.png" width="325" height="129"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="150" y="111" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="23" type="prop">
+  <properties>
+   <property name="prop" value="gray-nature-center"/>
+   <property name="anchorX" type="float" value="203"/>
+   <property name="anchorY" type="float" value="237"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-nature-center.png" width="406" height="239"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="191" y="221" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="24" type="prop">
+  <properties>
+   <property name="prop" value="gray-neighborhood-service"/>
+   <property name="anchorX" type="float" value="203"/>
+   <property name="anchorY" type="float" value="291"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-neighborhood-service.png" width="406" height="293"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="191" y="275" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="25" type="prop">
+  <properties>
+   <property name="prop" value="gray-oreum"/>
+   <property name="anchorX" type="float" value="262"/>
+   <property name="anchorY" type="float" value="387"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-oreum.png" width="525" height="389"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="250" y="371" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="26" type="prop">
+  <properties>
+   <property name="prop" value="gray-station"/>
+   <property name="anchorX" type="float" value="227"/>
+   <property name="anchorY" type="float" value="246"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-station.png" width="454" height="248"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="215" y="230" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="27" type="prop">
+  <properties>
+   <property name="prop" value="gray-tower"/>
+   <property name="anchorX" type="float" value="200"/>
+   <property name="anchorY" type="float" value="564"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-tower.png" width="400" height="566"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="188" y="548" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="28" type="prop">
+  <properties>
+   <property name="prop" value="gray-transit-shelter"/>
+   <property name="anchorX" type="float" value="123"/>
+   <property name="anchorY" type="float" value="131"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-transit-shelter.png" width="246" height="133"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="111" y="115" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="29" type="prop">
+  <properties>
+   <property name="prop" value="gray-village"/>
+   <property name="anchorX" type="float" value="195"/>
+   <property name="anchorY" type="float" value="230"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-village.png" width="390" height="232"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="183" y="214" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="30" type="prop">
+  <properties>
+   <property name="prop" value="gray-visitor"/>
+   <property name="anchorX" type="float" value="106"/>
+   <property name="anchorY" type="float" value="131"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-visitor.png" width="212" height="133"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="94" y="115" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="31" type="prop">
+  <properties>
+   <property name="prop" value="gray-wheel"/>
+   <property name="anchorX" type="float" value="182"/>
+   <property name="anchorY" type="float" value="387"/>
+   <property name="solid" type="bool" value="false"/>
+   <property name="occlusionClass" value="tall"/>
+  </properties>
+  <image source="images/gray-wheel.png" width="364" height="389"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="footprint" type="footprint" x="170" y="371" width="24" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="32" type="prop">
+  <properties>
    <property name="prop" value="kr-pier"/>
    <property name="anchorX" type="float" value="22"/>
    <property name="anchorY" type="float" value="62"/>
@@ -113,7 +438,7 @@
    <object id="1" name="footprint" type="footprint" x="14" y="54" width="16" height="8"/>
   </objectgroup>
  </tile>
- <tile id="8" type="prop">
+ <tile id="33" type="prop">
   <properties>
    <property name="prop" value="kr-pine"/>
    <property name="anchorX" type="float" value="154"/>
@@ -127,7 +452,7 @@
    <object id="1" name="footprint" type="footprint" x="142" y="157" width="24" height="12"/>
   </objectgroup>
  </tile>
- <tile id="9" type="prop">
+ <tile id="34" type="prop">
   <properties>
    <property name="prop" value="kr-timber-cap"/>
    <property name="anchorX" type="float" value="8"/>
@@ -141,7 +466,7 @@
    <object id="1" name="footprint" type="footprint" x="0" y="26" width="16" height="8"/>
   </objectgroup>
  </tile>
- <tile id="10" type="prop">
+ <tile id="35" type="prop">
   <properties>
    <property name="prop" value="palace-front-east"/>
    <property name="anchorX" type="float" value="0"/>
@@ -155,7 +480,7 @@
    <object id="1" name="footprint" type="footprint" x="-8" y="50" width="16" height="8"/>
   </objectgroup>
  </tile>
- <tile id="11" type="prop">
+ <tile id="36" type="prop">
   <properties>
    <property name="prop" value="palace-front-west"/>
    <property name="anchorX" type="float" value="0"/>
@@ -169,7 +494,7 @@
    <object id="1" name="footprint" type="footprint" x="-8" y="50" width="16" height="8"/>
   </objectgroup>
  </tile>
- <tile id="12" type="prop">
+ <tile id="37" type="prop">
   <properties>
    <property name="prop" value="palace-inner-east"/>
    <property name="anchorX" type="float" value="0"/>
@@ -183,7 +508,7 @@
    <object id="1" name="footprint" type="footprint" x="-8" y="50" width="16" height="8"/>
   </objectgroup>
  </tile>
- <tile id="13" type="prop">
+ <tile id="38" type="prop">
   <properties>
    <property name="prop" value="palace-inner-west"/>
    <property name="anchorX" type="float" value="0"/>
@@ -197,7 +522,7 @@
    <object id="1" name="footprint" type="footprint" x="-8" y="50" width="16" height="8"/>
   </objectgroup>
  </tile>
- <tile id="14" type="prop">
+ <tile id="39" type="prop">
   <properties>
    <property name="prop" value="palace-north"/>
    <property name="anchorX" type="float" value="0"/>
@@ -211,7 +536,7 @@
    <object id="1" name="footprint" type="footprint" x="-8" y="50" width="16" height="8"/>
   </objectgroup>
  </tile>
- <tile id="15" type="prop">
+ <tile id="40" type="prop">
   <properties>
    <property name="prop" value="palace-side-1920"/>
    <property name="anchorX" type="float" value="18"/>
@@ -225,7 +550,7 @@
    <object id="1" name="footprint" type="footprint" x="10" y="632" width="16" height="8"/>
   </objectgroup>
  </tile>
- <tile id="16" type="prop">
+ <tile id="41" type="prop">
   <properties>
    <property name="prop" value="palace-side-384"/>
    <property name="anchorX" type="float" value="18"/>
@@ -239,7 +564,7 @@
    <object id="1" name="footprint" type="footprint" x="10" y="632" width="16" height="8"/>
   </objectgroup>
  </tile>
- <tile id="17" type="prop">
+ <tile id="42" type="prop">
   <properties>
    <property name="prop" value="rf-banner"/>
    <property name="anchorX" type="float" value="62"/>
@@ -253,7 +578,7 @@
    <object id="1" name="footprint" type="footprint" x="50" y="83" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="18" type="prop">
+ <tile id="43" type="prop">
   <properties>
    <property name="prop" value="rf-cafe"/>
    <property name="anchorX" type="float" value="182"/>
@@ -267,7 +592,7 @@
    <object id="1" name="footprint" type="footprint" x="170" y="254" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="19" type="prop">
+ <tile id="44" type="prop">
   <properties>
    <property name="prop" value="rf-cafe-seating"/>
    <property name="anchorX" type="float" value="54"/>
@@ -281,7 +606,7 @@
    <object id="1" name="footprint" type="footprint" x="42" y="50" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="20" type="prop">
+ <tile id="45" type="prop">
   <properties>
    <property name="prop" value="rf-exhibit"/>
    <property name="anchorX" type="float" value="58"/>
@@ -295,7 +620,7 @@
    <object id="1" name="footprint" type="footprint" x="46" y="46" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="21" type="prop">
+ <tile id="46" type="prop">
   <properties>
    <property name="prop" value="rf-inner-gate"/>
    <property name="anchorX" type="float" value="122"/>
@@ -309,7 +634,7 @@
    <object id="1" name="footprint" type="footprint" x="110" y="109" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="22" type="prop">
+ <tile id="47" type="prop">
   <properties>
    <property name="prop" value="rf-polish-bamboo"/>
    <property name="anchorX" type="float" value="34"/>
@@ -323,7 +648,7 @@
    <object id="1" name="footprint" type="footprint" x="22" y="55" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="23" type="prop">
+ <tile id="48" type="prop">
   <properties>
    <property name="prop" value="rf-polish-chart"/>
    <property name="anchorX" type="float" value="52"/>
@@ -337,7 +662,7 @@
    <object id="1" name="footprint" type="footprint" x="40" y="64" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="24" type="prop">
+ <tile id="49" type="prop">
   <properties>
    <property name="prop" value="rf-polish-flowers"/>
    <property name="anchorX" type="float" value="34"/>
@@ -351,7 +676,7 @@
    <object id="1" name="footprint" type="footprint" x="22" y="53" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="25" type="prop">
+ <tile id="50" type="prop">
   <properties>
    <property name="prop" value="rf-polish-folio"/>
    <property name="anchorX" type="float" value="50"/>
@@ -365,7 +690,7 @@
    <object id="1" name="footprint" type="footprint" x="38" y="63" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="26" type="prop">
+ <tile id="51" type="prop">
   <properties>
    <property name="prop" value="rf-polish-stele"/>
    <property name="anchorX" type="float" value="36"/>
@@ -379,7 +704,7 @@
    <object id="1" name="footprint" type="footprint" x="24" y="71" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="27" type="prop">
+ <tile id="52" type="prop">
   <properties>
    <property name="prop" value="rf-polish-tools"/>
    <property name="anchorX" type="float" value="46"/>
@@ -393,7 +718,7 @@
    <object id="1" name="footprint" type="footprint" x="34" y="53" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="28" type="prop">
+ <tile id="53" type="prop">
   <properties>
    <property name="prop" value="rf-prod-armillary"/>
    <property name="anchorX" type="float" value="50"/>
@@ -407,7 +732,7 @@
    <object id="1" name="footprint" type="footprint" x="38" y="95" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="29" type="prop">
+ <tile id="54" type="prop">
   <properties>
    <property name="prop" value="rf-prod-bench"/>
    <property name="anchorX" type="float" value="37"/>
@@ -420,7 +745,7 @@
    <object id="1" name="footprint" type="footprint" x="4" y="35" width="66" height="16"/>
   </objectgroup>
  </tile>
- <tile id="30" type="prop">
+ <tile id="55" type="prop">
   <properties>
    <property name="prop" value="rf-prod-clock"/>
    <property name="anchorX" type="float" value="57"/>
@@ -434,7 +759,7 @@
    <object id="1" name="footprint" type="footprint" x="45" y="122" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="31" type="prop">
+ <tile id="56" type="prop">
   <properties>
    <property name="prop" value="rf-prod-court-gate"/>
    <property name="anchorX" type="float" value="74"/>
@@ -448,7 +773,7 @@
    <object id="1" name="footprint" type="footprint" x="62" y="85" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="32" type="prop">
+ <tile id="57" type="prop">
   <properties>
    <property name="prop" value="rf-prod-gate"/>
    <property name="anchorX" type="float" value="234"/>
@@ -462,7 +787,7 @@
    <object id="1" name="footprint" type="footprint" x="222" y="316" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="33" type="prop">
+ <tile id="58" type="prop">
   <properties>
    <property name="prop" value="rf-prod-ginkgo"/>
    <property name="anchorX" type="float" value="102"/>
@@ -475,7 +800,7 @@
    <object id="1" name="footprint" type="footprint" x="91" y="201" width="22" height="12"/>
   </objectgroup>
  </tile>
- <tile id="34" type="prop">
+ <tile id="59" type="prop">
   <properties>
    <property name="prop" value="rf-prod-hall"/>
    <property name="anchorX" type="float" value="321"/>
@@ -489,7 +814,7 @@
    <object id="1" name="footprint" type="footprint" x="309" y="218" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="35" type="prop">
+ <tile id="60" type="prop">
   <properties>
    <property name="prop" value="rf-prod-jars"/>
    <property name="anchorX" type="float" value="32"/>
@@ -502,7 +827,7 @@
    <object id="1" name="footprint" type="footprint" x="6" y="32" width="52" height="20"/>
   </objectgroup>
  </tile>
- <tile id="36" type="prop">
+ <tile id="61" type="prop">
   <properties>
    <property name="prop" value="rf-prod-lantern"/>
    <property name="anchorX" type="float" value="26"/>
@@ -515,7 +840,7 @@
    <object id="1" name="footprint" type="footprint" x="18" y="81" width="16" height="10"/>
   </objectgroup>
  </tile>
- <tile id="37" type="prop">
+ <tile id="62" type="prop">
   <properties>
    <property name="prop" value="rf-prod-library"/>
    <property name="anchorX" type="float" value="90"/>
@@ -529,7 +854,7 @@
    <object id="1" name="footprint" type="footprint" x="78" y="358" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="38" type="prop">
+ <tile id="63" type="prop">
   <properties>
    <property name="prop" value="rf-prod-museum"/>
    <property name="anchorX" type="float" value="294"/>
@@ -543,7 +868,7 @@
    <object id="1" name="footprint" type="footprint" x="282" y="224" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="39" type="prop">
+ <tile id="64" type="prop">
   <properties>
    <property name="prop" value="rf-prod-planter"/>
    <property name="anchorX" type="float" value="28"/>
@@ -556,7 +881,7 @@
    <object id="1" name="footprint" type="footprint" x="-3" y="26" width="62" height="17"/>
   </objectgroup>
  </tile>
- <tile id="40" type="prop">
+ <tile id="65" type="prop">
   <properties>
    <property name="prop" value="rf-prod-sejong"/>
    <property name="anchorX" type="float" value="61"/>
@@ -569,7 +894,7 @@
    <object id="1" name="footprint" type="footprint" x="23" y="100" width="76" height="35"/>
   </objectgroup>
  </tile>
- <tile id="41" type="prop">
+ <tile id="66" type="prop">
   <properties>
    <property name="prop" value="rf-prod-ship"/>
    <property name="anchorX" type="float" value="62"/>
@@ -583,7 +908,7 @@
    <object id="1" name="footprint" type="footprint" x="50" y="111" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="42" type="prop">
+ <tile id="67" type="prop">
   <properties>
    <property name="prop" value="rf-prod-strategy"/>
    <property name="anchorX" type="float" value="62"/>
@@ -597,7 +922,7 @@
    <object id="1" name="footprint" type="footprint" x="50" y="54" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="43" type="prop">
+ <tile id="68" type="prop">
   <properties>
    <property name="prop" value="rf-prod-study"/>
    <property name="anchorX" type="float" value="90"/>
@@ -611,7 +936,7 @@
    <object id="1" name="footprint" type="footprint" x="78" y="391" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="44" type="prop">
+ <tile id="69" type="prop">
   <properties>
    <property name="prop" value="rf-prod-sundial"/>
    <property name="anchorX" type="float" value="46"/>
@@ -625,7 +950,7 @@
    <object id="1" name="footprint" type="footprint" x="34" y="73" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="45" type="prop">
+ <tile id="70" type="prop">
   <properties>
    <property name="prop" value="rf-prod-tree"/>
    <property name="anchorX" type="float" value="94"/>
@@ -638,7 +963,7 @@
    <object id="1" name="footprint" type="footprint" x="82" y="179" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="46" type="prop">
+ <tile id="71" type="prop">
   <properties>
    <property name="prop" value="rf-prod-writing"/>
    <property name="anchorX" type="float" value="52"/>
@@ -652,7 +977,7 @@
    <object id="1" name="footprint" type="footprint" x="40" y="76" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="47" type="prop">
+ <tile id="72" type="prop">
   <properties>
    <property name="prop" value="rf-royal-hall"/>
    <property name="anchorX" type="float" value="321"/>
@@ -666,7 +991,7 @@
    <object id="1" name="footprint" type="footprint" x="309" y="235" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="48" type="prop">
+ <tile id="73" type="prop">
   <properties>
    <property name="prop" value="rf-stone-lantern"/>
    <property name="anchorX" type="float" value="34"/>
@@ -680,7 +1005,7 @@
    <object id="1" name="footprint" type="footprint" x="22" y="116" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="49" type="prop">
+ <tile id="74" type="prop">
   <properties>
    <property name="prop" value="rf-workshop-main"/>
    <property name="anchorX" type="float" value="164"/>
@@ -694,7 +1019,7 @@
    <object id="1" name="footprint" type="footprint" x="152" y="193" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="50" type="prop">
+ <tile id="75" type="prop">
   <properties>
    <property name="prop" value="rf-workshop-wing"/>
    <property name="anchorX" type="float" value="84"/>
@@ -708,7 +1033,7 @@
    <object id="1" name="footprint" type="footprint" x="72" y="399" width="24" height="16"/>
   </objectgroup>
  </tile>
- <tile id="51" type="prop">
+ <tile id="76" type="prop">
   <properties>
    <property name="prop" value="v3-rock-garden"/>
    <property name="anchorX" type="float" value="98"/>
@@ -722,7 +1047,7 @@
    <object id="1" name="footprint" type="footprint" x="90" y="118" width="16" height="8"/>
   </objectgroup>
  </tile>
- <tile id="52" type="prop">
+ <tile id="77" type="prop">
   <properties>
    <property name="prop" value="v3-wayfinding"/>
    <property name="anchorX" type="float" value="52"/>
@@ -736,7 +1061,7 @@
    <object id="1" name="footprint" type="footprint" x="44" y="138" width="16" height="8"/>
   </objectgroup>
  </tile>
- <tile id="53" type="prop">
+ <tile id="78" type="prop">
   <properties>
    <property name="prop" value="work-east"/>
    <property name="anchorX" type="float" value="11"/>
@@ -750,7 +1075,7 @@
    <object id="1" name="footprint" type="footprint" x="3" y="392" width="16" height="8"/>
   </objectgroup>
  </tile>
- <tile id="54" type="prop">
+ <tile id="79" type="prop">
   <properties>
    <property name="prop" value="work-front-east"/>
    <property name="anchorX" type="float" value="0"/>
@@ -764,7 +1089,7 @@
    <object id="1" name="footprint" type="footprint" x="-8" y="26" width="16" height="8"/>
   </objectgroup>
  </tile>
- <tile id="55" type="prop">
+ <tile id="80" type="prop">
   <properties>
    <property name="prop" value="work-front-west"/>
    <property name="anchorX" type="float" value="0"/>
@@ -778,7 +1103,7 @@
    <object id="1" name="footprint" type="footprint" x="-8" y="26" width="16" height="8"/>
   </objectgroup>
  </tile>
- <tile id="56" type="prop">
+ <tile id="81" type="prop">
   <properties>
    <property name="prop" value="work-rear-east"/>
    <property name="anchorX" type="float" value="0"/>
@@ -792,7 +1117,7 @@
    <object id="1" name="footprint" type="footprint" x="-8" y="26" width="16" height="8"/>
   </objectgroup>
  </tile>
- <tile id="57" type="prop">
+ <tile id="82" type="prop">
   <properties>
    <property name="prop" value="work-west-front"/>
    <property name="anchorX" type="float" value="11"/>
@@ -806,7 +1131,7 @@
    <object id="1" name="footprint" type="footprint" x="3" y="120" width="16" height="8"/>
   </objectgroup>
  </tile>
- <tile id="58" type="prop">
+ <tile id="83" type="prop">
   <properties>
    <property name="prop" value="work-west-rear"/>
    <property name="anchorX" type="float" value="11"/>

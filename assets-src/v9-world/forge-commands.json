@@ -154,5 +154,488 @@
     "exit": 0,
     "stdout": "{\"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/compose/preview.png\", \"report\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/compose/report.json\", \"debug_overlay\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/compose/debug.png\", \"audit_out\": \"/workspace/3D-pharse5-/.cache/v9-world/export-86e4815f7494797d/compose/audit.json\", \"placed\": 273, \"warnings\": 0, \"audit_status\": \"warn\"}\n",
     "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-10.json"
+    ],
+    "exit": 1,
+    "stdout": "",
+    "stderr": "error: $.props['gray-cliff-lookout'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: $.props['gray-campus-entry'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: $.props['gray-lookout'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: $.props['gray-basalt-learning'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: $.props['gray-station'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: $.props['gray-tower'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: $.props['gray-visitor'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: $.props['gray-transit-shelter'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: $.props['gray-village'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: $.props['gray-garden-pavilion'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: $.props['gray-ferry-terminal'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: $.props['gray-cafe'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: $.props['gray-oreum'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: $.props['gray-neighborhood-service'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: $.props['gray-carousel'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: $.props['gray-discovery-hall'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: $.props['gray-coastal-cafe'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: $.props['gray-library'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: $.props['gray-nature-center'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: $.props['gray-wheel'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: $.props['gray-bookshop'].status: 'temporary-graybox' is not one of ['accepted', 'placeholder']\nerror: fix the bundle before hashing it (nothing was written)\n"
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-11.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-11.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-11.json\", \"files_hashed\": 377}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/validation-12.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json\", \"id\": \"korean-arena\", \"version\": 2, \"errors\": 0, \"warnings\": 0, \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/validation-12.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/export_tiled.py",
+      "export",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--embedded-variant",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/tiled"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/tiled\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/tiled/export-report.json\", \"map\": \"/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/tiled/map.tmj\", \"embedded\": \"/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/tiled/map.embedded.tmj\", \"tilesets\": 2, \"layers\": [\"Ground\", \"Edging\", \"Props\", \"collision\", \"interactions\"], \"differingPixels\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle-draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-14.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-14.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-14.json\", \"files_hashed\": 6}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/world-nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/world-nav\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/world-nav/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/world-nav/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/world-nav/nav-debug.png\", \"map\": \"korean-arena\", \"cell\": 4, \"targets\": 53, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/academy-nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/academy-nav\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/academy-nav/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/academy-nav/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/academy-nav/nav-debug.png\", \"map\": \"academy\", \"cell\": 4, \"targets\": 5, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/compose_layered_preview.py",
+      "--base",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/ground-native.png",
+      "--placements",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/placements.json",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--output",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/compose/preview.png",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/compose/report.json",
+      "--debug-overlay",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/compose/debug.png",
+      "--audit-out",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/compose/audit.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/compose/preview.png\", \"report\": \"/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/compose/report.json\", \"debug_overlay\": \"/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/compose/debug.png\", \"audit_out\": \"/workspace/3D-pharse5-/.cache/v9-world/export-7f27d6f696095a3a/compose/audit.json\", \"placed\": 294, \"warnings\": 0, \"audit_status\": \"warn\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-18.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-18.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-18.json\", \"files_hashed\": 385}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/validation-19.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json\", \"id\": \"korean-arena\", \"version\": 2, \"errors\": 0, \"warnings\": 0, \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/validation-19.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/export_tiled.py",
+      "export",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--embedded-variant",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/tiled"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/tiled\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/tiled/export-report.json\", \"map\": \"/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/tiled/map.tmj\", \"embedded\": \"/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/tiled/map.embedded.tmj\", \"tilesets\": 2, \"layers\": [\"Ground\", \"Edging\", \"Props\", \"collision\", \"interactions\"], \"differingPixels\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle-draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-21.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-21.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-21.json\", \"files_hashed\": 6}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/world-nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/world-nav\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/world-nav/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/world-nav/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/world-nav/nav-debug.png\", \"map\": \"korean-arena\", \"cell\": 4, \"targets\": 61, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/academy-nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/academy-nav\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/academy-nav/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/academy-nav/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/academy-nav/nav-debug.png\", \"map\": \"academy\", \"cell\": 4, \"targets\": 5, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/compose_layered_preview.py",
+      "--base",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/ground-native.png",
+      "--placements",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/placements.json",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--output",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/compose/preview.png",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/compose/report.json",
+      "--debug-overlay",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/compose/debug.png",
+      "--audit-out",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/compose/audit.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/compose/preview.png\", \"report\": \"/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/compose/report.json\", \"debug_overlay\": \"/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/compose/debug.png\", \"audit_out\": \"/workspace/3D-pharse5-/.cache/v9-world/export-70dbd5685c8c6883/compose/audit.json\", \"placed\": 298, \"warnings\": 0, \"audit_status\": \"warn\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-25.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-25.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-25.json\", \"files_hashed\": 385}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/validation-26.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json\", \"id\": \"korean-arena\", \"version\": 2, \"errors\": 0, \"warnings\": 0, \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/validation-26.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/export_tiled.py",
+      "export",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--embedded-variant",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/tiled"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/tiled\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/tiled/export-report.json\", \"map\": \"/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/tiled/map.tmj\", \"embedded\": \"/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/tiled/map.embedded.tmj\", \"tilesets\": 2, \"layers\": [\"Ground\", \"Edging\", \"Props\", \"collision\", \"interactions\"], \"differingPixels\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle-draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-28.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-28.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-28.json\", \"files_hashed\": 6}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/world-nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/world-nav\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/world-nav/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/world-nav/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/world-nav/nav-debug.png\", \"map\": \"korean-arena\", \"cell\": 4, \"targets\": 61, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/academy-nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/academy-nav\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/academy-nav/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/academy-nav/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/academy-nav/nav-debug.png\", \"map\": \"academy\", \"cell\": 4, \"targets\": 5, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/compose_layered_preview.py",
+      "--base",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/ground-native.png",
+      "--placements",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/placements.json",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--output",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/compose/preview.png",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/compose/report.json",
+      "--debug-overlay",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/compose/debug.png",
+      "--audit-out",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/compose/audit.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/compose/preview.png\", \"report\": \"/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/compose/report.json\", \"debug_overlay\": \"/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/compose/debug.png\", \"audit_out\": \"/workspace/3D-pharse5-/.cache/v9-world/export-01a09523b30e2ecc/compose/audit.json\", \"placed\": 298, \"warnings\": 0, \"audit_status\": \"warn\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmedia/scripts/forge_doctor.py",
+      "--host-tools",
+      "image_gen,image_edit",
+      "--save",
+      "/workspace/3D-pharse5-/assets-src/v9-world/doctor.json"
+    ],
+    "exit": 0,
+    "stdout": "[OK     ] python.version                 Python 3.12.14 at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3\n[OK     ] deps.numpy                     2.3.5\n[OK     ] deps.Pillow                    12.3.0\n[OK     ] deps.scipy                     1.17.0\n[MISSING] deps.resvg-py                  not installed; needed for codeart2d SVG rendering (PixelSpec needs only numpy and Pillow)\n           -> \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3\" -m pip install \"resvg-py>=0.5,<0.6\"\n[OK     ] encoding.stdout                stdout=utf-8\n[OK     ] skills.present                 /workspace/tooling-cache/agent-sprite-forge/skills: all 5 skills\n[OK     ] skills.vendored                vendored shared files agree across skills\n[OK     ] skills.canonical               source checkout: vendored copies match shared/\n[OK     ] ffmpeg                         7.1.5-0+deb13u1 at /usr/bin/ffmpeg\n[OK     ] media.host-tools               declared: image_gen, image_edit\n[OK     ] media.config                   no user config file at ~/.config/agent-sprite-forge/config.json (optional: API keys may also come from the environment)\n[MISSING] media.api.openai               OPENAI_API_KEY is not configured\n           -> optional: set OPENAI_API_KEY in the environment or in the user config file to make the OpenAI API an image route (GPT Image)\n[MISSING] media.api.gemini               GOOGLE_API_KEY or GEMINI_API_KEY is not configured\n           -> optional: set GOOGLE_API_KEY or GEMINI_API_KEY in the environment or in the user config file to make the Google Gemini API an image route (Gemini image models)\n[MISSING] media.api.xai                  XAI_API_KEY is not configured\n           -> optional: set XAI_API_KEY in the environment or in the user config file to make the xAI API an image and video route (Grok Imagine)\n[MISSING] media.api.byteplus             ARK_API_KEY is not configured\n           -> optional: set ARK_API_KEY in the environment or in the user config file to make the BytePlus ModelArk API an image and video route (Seedream, Seedance)\n[MISSING] media.api.fal                  FAL_KEY is not configured\n           -> optional: set FAL_KEY in the environment or in the user config file to make the fal.ai API a reference-edit and video route (Kling, Veo, Luma, MiniMax, Wan, Vidu, LTX)\n[OK     ] cli.codex                      codex-cli 0.159.2 at /opt/codex/bin/codex\n[MISSING] cli.grok                       Grok Build CLI not found on PATH or in $GROK_HOME/bin\n           -> optional: install the Grok Build CLI and sign in, then verify a route\n[UNKNOWN] route.codex-cli:image_gen      PRESENT: no proof for this version\n           -> nothing to do: the route's first successful route_media.py run records the proof; to verify ahead of time (one quota call; repeat after a CLI update): python \"<skill-dir>/scripts/forge_doctor.py\" --verify-route codex-cli --execute\nCLI LADDER (PRESENT -> AUTH_MODE -> TOOL_EXPOSED -> VERIFIED)\n  codex-cli:image_gen            PRESENT       PRESENT=OK AUTH_MODE=UNKNOWN TOOL_EXPOSED=UNKNOWN VERIFIED=UNKNOWN\nROUTES (API when a key is configured, then local, then codeart2d only when asked or nothing else exists)\n  api keys    openai=no  gemini=no  xai=no  byteplus=no  fal=no  (environment or user config file; values are never shown)\n  image       host_image      ready     the calling agent's own media tool\n              option: local:codex-cli (ready) Codex (local CLI), at PRESENT: its first successful run records the VERIFIED proof; route_media.py runs it on the user's own sign-in (subscription quota, not API credit)\n  image_edit  host_image_edit ready     the calling agent's own media tool\n              option: local:codex-cli (ready) Codex (local CLI), at PRESENT: its first successful run records the VERIFIED proof; route_media.py runs it on the user's own sign-in (subscription quota, not API credit)\n  video       none            none      no video generation route: write a motion brief and report the missing capability (supplied clips can still be processed)\n  clip        ffmpeg          ready     supplied clips decode and encode with ffmpeg 7.1.5-0+deb13u1\n  code_art    codeart2d       fallback  explicit-only last resort: only when the user asks for code-drawn art or no image or video route exists; codeart2d PixelSpec; SVG needs resvg-py\n  order       image: host_image > local:codex-cli > codeart2d\n  order       image_edit: host_image_edit > local:codex-cli > codeart2d\n  order       video: codeart2d\noverall OK: 0 FAIL, 0 WARN, 7 MISSING (134 ms)\nsaved: /workspace/3D-pharse5-/assets-src/v9-world/doctor.json\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-33.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-33.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-33.json\", \"files_hashed\": 385}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/validation-34.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json\", \"id\": \"korean-arena\", \"version\": 2, \"errors\": 0, \"warnings\": 0, \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/validation-34.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/export_tiled.py",
+      "export",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--embedded-variant",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/tiled"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/tiled\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/tiled/export-report.json\", \"map\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/tiled/map.tmj\", \"embedded\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/tiled/map.embedded.tmj\", \"tilesets\": 2, \"layers\": [\"Ground\", \"Edging\", \"Props\", \"collision\", \"interactions\"], \"differingPixels\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle-draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-36.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-36.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-36.json\", \"files_hashed\": 6}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/world-nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/world-nav\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/world-nav/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/world-nav/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/world-nav/nav-debug.png\", \"map\": \"korean-arena\", \"cell\": 4, \"targets\": 61, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/academy-nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/academy-nav\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/academy-nav/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/academy-nav/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/academy-nav/nav-debug.png\", \"map\": \"academy\", \"cell\": 4, \"targets\": 5, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/compose_layered_preview.py",
+      "--base",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/ground-native.png",
+      "--placements",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/placements.json",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--output",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/compose/preview.png",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/compose/report.json",
+      "--debug-overlay",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/compose/debug.png",
+      "--audit-out",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/compose/audit.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/compose/preview.png\", \"report\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/compose/report.json\", \"debug_overlay\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/compose/debug.png\", \"audit_out\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/compose/audit.json\", \"placed\": 298, \"warnings\": 0, \"audit_status\": \"warn\"}\n",
+    "stderr": ""
   }
 ]

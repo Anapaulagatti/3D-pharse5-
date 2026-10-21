@@ -18,9 +18,9 @@ def export():
  cols=128;atlas=Image.new('RGBA',(cols*32,math.ceil(len(unique)/cols)*32));assert max(atlas.size)<=4096
  for i,tile in enumerate(unique):atlas.paste(tile,((i%cols)*32,(i//cols)*32))
  atlas.save(P/'tiles.png');write(P/'tileset.json',{'schema':'generate2dmap.tileset.v1','image':'tiles.png','sha256':sha(P/'tiles.png'),'tile_size':[32,32],'columns':cols,'kind':'flat','materials':['approved-north','authored-south'],'tiles':[{'index':i,'properties':{'walkable':True}}for i in range(len(unique))],'art_source':'host_image','seamless_verified':False});write(P/'layers/ground.json',grid);write(P/'layers/edging.json',[[-1]*(W//32)for _ in range(H//32)])
- b=json.loads((P/'draft.json').read_text());used={o['prop']for o in b['objects']};catalog=json.loads((L/'props.json').read_text());b['props']={}
+ b=json.loads((P/'draft.json').read_text());used={o['prop']for o in b['objects']};catalog=json.loads((L/'props.json').read_text());catalog={k:dict(v,image=str(L/v['image']))for k,v in catalog.items()};extra=P/'extra-props.json';catalog.update(json.loads(extra.read_text())if extra.exists()else{});b['props']={}
  for key in used:
-  p=dict(catalog[key]);p['image']=os.path.relpath(L/p['image'],P);p.pop('colliders',None);b['props'][key]=p
+  p=dict(catalog[key]);p['image']=os.path.relpath(p['image'],P);p.pop('colliders',None);b['props'][key]=p
  for o in b['objects']:o['occluder']['source']=b['props'][o['prop']]['image']
  write(P/'draft.json',b);hashed(P/'draft.json',P/'bundle.json')
  bundle=P/'bundle.json';out=CACHE/('export-'+sha(bundle)[:16]);out.mkdir(exist_ok=True)
