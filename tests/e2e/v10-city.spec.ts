@@ -1,5 +1,8 @@
 import { test, expect, type Page } from "@playwright/test";
 import fs from "node:fs";
+const venueLabels: Record<string, string> = JSON.parse(
+  fs.readFileSync("assets-src/v10-city/production/venue-labels.json", "utf8"),
+);
 const plan = JSON.parse(
   fs.readFileSync("assets-src/v10-city/plan/city.json", "utf8"),
 );
@@ -17,7 +20,7 @@ async function boot(p: Page, renderer = "canvas") {
   await p.waitForFunction(
     () =>
       window.__SEOUL__?.ready &&
-      window.__WORLD_REVIEW__?.candidate === "v10-graybox",
+      window.__WORLD_REVIEW__?.candidate === "v10-final-art-review",
   );
   return { errors, legacy };
 }
@@ -104,7 +107,8 @@ for (const [name, points] of [
       [1280, 3744],
       [400, 3744],
       [400, 4224],
-      [400, 4352],
+      [560, 4224],
+      [560, 4352],
       [960, 4352],
       [1232, 4176],
       [1232, 4080],
@@ -153,6 +157,35 @@ for (const [name, points] of [
       await page.keyboard.up("Shift");
     }
     const last = points.at(-1)!;
+    // Settle normal acceleration drift with small real walking inputs; retain the
+    // same endpoint tolerance rather than letting host scheduling decide it.
+    for (const [coordinate, target] of [
+      ["x", last[0]],
+      ["y", last[1]],
+    ] as const) {
+      for (let correction = 0; correction < 16; correction++) {
+        const value = await page.evaluate(
+          (a) => window.__SEOUL__![a],
+          coordinate,
+        );
+        if (Math.abs(value - target) < 5) break;
+        const key =
+          coordinate === "x"
+            ? target > value
+              ? "ArrowRight"
+              : "ArrowLeft"
+            : target > value
+              ? "ArrowDown"
+              : "ArrowUp";
+        await page.keyboard.down(key);
+        await page.waitForTimeout(
+          Math.max(20, Math.min(85, Math.abs(target - value) * 9)),
+        );
+        await page.keyboard.up(key);
+        await page.waitForTimeout(140);
+      }
+    }
+
     const actual = await page.evaluate(() => [
       window.__SEOUL__!.x,
       window.__SEOUL__!.y,
@@ -170,7 +203,9 @@ test("all 23 entrances are walkable and identify their intended venue", async ({
   for (const lot of plan.plots) {
     await place(page, lot.door[0], lot.door[1]);
     await page.locator("#interact").click();
-    await expect(page.locator("#dialog-copy")).toContainText(lot.label);
+    await expect(page.locator("#dialog-copy")).toContainText(
+      venueLabels[lot.id],
+    );
     await page.locator("#close-dialog").click();
   }
   expect(observed).toEqual({ errors: [], legacy: [] });

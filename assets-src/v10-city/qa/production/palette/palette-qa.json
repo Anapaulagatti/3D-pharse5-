@@ -1,0 +1,1031 @@
+{
+  "status": "pass",
+  "method": "forge_palette.build_palette (weighted k-means++ in OKLab over unique colours, reserved colours fixed, coverage skipping) then forge_palette.fit_report of every input: OKLab dE of each pixel with alpha >= the threshold to its nearest palette colour",
+  "notProven": [
+    "Visual quality of the palette: look at swatches.png and an applied frame.",
+    "Colours of pixels below the alpha threshold were not sampled or measured.",
+    "No --max-delta-e gate was set."
+  ],
+  "checks": [
+    {
+      "id": "palette_colors",
+      "status": "pass",
+      "value": 192,
+      "threshold": 192
+    },
+    {
+      "id": "inputs_without_samples",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0,
+      "files": []
+    },
+    {
+      "id": "max_delta_e",
+      "status": "skipped",
+      "value": 0.085625,
+      "threshold": null
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/v10-city/native/asphalt-material.png",
+      "sha256": "ddb0aeed5dda017439bb4b13e5d597d983257150a09caded6943ad2393576365",
+      "bytes": 9745
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/basalt-material.png",
+      "sha256": "ec11b129b257fd6242dfa28f40e26dc9418f8c58163704a37f2184d33621af0e",
+      "bytes": 9544
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/basalt-wall.png",
+      "sha256": "11419e0c48f91e9ee3eb1a2b1f2de2b6d6397893e4280fefbd95084839d7b0d7",
+      "bytes": 12209
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/bench.png",
+      "sha256": "31794c0a148f2aa38499c7f8b2b0c374daeb9ab515af35e496cb59bda82a3d8a",
+      "bytes": 5388
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/bikes.png",
+      "sha256": "2c5184cd1c6ce14d1c7fa1be52b6e3f5859335f725b56d2dfc4b9f5e32b533d3",
+      "bytes": 9505
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/bollards.png",
+      "sha256": "d866d257705c2208b053cc9577d1c411523158ad139bdc4d7115a4b5730d80ab",
+      "bytes": 3933
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/brick-material.png",
+      "sha256": "ab5ade845847b933de1ed436e0b87cf67ec15b0683e66d91b78fa122e1f32e34",
+      "bytes": 6943
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/campus-gate.png",
+      "sha256": "2079bc05c9c5e30fe867e7799c374cb2a501c558d46cecb2b59bd546146296ea",
+      "bytes": 48476
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/carousel.png",
+      "sha256": "a7b880a7cd67bfae1578564a27bfc91059a74c3bdb66637414d36291660a96e6",
+      "bytes": 57772
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/cherry.png",
+      "sha256": "74268489931148a38fc166d179a33fb978bd9bfdfd7844f62004f5fd6a538c56",
+      "bytes": 33137
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/civic-house.png",
+      "sha256": "8ba84b81a71c152cde66cd9b6315dc21dd968da21802dee205097af5450df1fc",
+      "bytes": 57018
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/civic-material.png",
+      "sha256": "dd0d6af6008dc1e8b5d0f4b42b5f02999f59c224912963388417cdfcbba804b0",
+      "bytes": 7766
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/coast-1.png",
+      "sha256": "91d45d0489b4d2a0a0d73ba860cf5371ad54329c159e47d9f22f1f2a7bb826a7",
+      "bytes": 53113
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/coast-2.png",
+      "sha256": "3117d339cbf152d3af942c6bf91130574a8b3663c21030de67b375dc080fe776",
+      "bytes": 89827
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/coastal-material.png",
+      "sha256": "04dd508ea9541af300949b2e2c34226b543c7bd9ab06fd006444d6ae041b2c7c",
+      "bytes": 7139
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/deciduous.png",
+      "sha256": "b4d63b409265f04bd40fd1553e39f248abd0121f5ac5c5bfa4b004414a3e7941",
+      "bytes": 45929
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/ferry.png",
+      "sha256": "c081353078a44e4fa9506d8a6fc4c949d07fa59459eaac7d49fedb6d6255309e",
+      "bytes": 29734
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/flowerbed.png",
+      "sha256": "00fd3d74970c7caf964c4a2b14240deebea3ddff89ba7f3e8de56607056b2895",
+      "bytes": 10438
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/granite-material.png",
+      "sha256": "3c7edb1325de61a2d5346f89cc961cfc25fa86e36ece2608fb5ce7aea9840cdd",
+      "bytes": 9980
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/grass-material.png",
+      "sha256": "f85d02d669ea41642cb2221b8daf46c86510719a08b4bda9552986ee3fe9567c",
+      "bytes": 10172
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/gravel-material.png",
+      "sha256": "cdf638454e0ce8696b5adb9975c5e3b386c861205faa58bfd3ce49a3f894d0b3",
+      "bytes": 10366
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/jeju-hall.png",
+      "sha256": "5e8338a83fff69742a3bdd10cc3466fb123c1a4a5962daf99442aa7db5e900cb",
+      "bytes": 31293
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/jeju-tea.png",
+      "sha256": "73638aa54aec5f64cf9dcb0c5d697236bb8a7cd780a6fd134819af372964680d",
+      "bytes": 46318
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/lamp.png",
+      "sha256": "2c4729fde87f6a3fadada630abf45b509b151e8a9fc387346392daf920584d3a",
+      "bytes": 2264
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/leisure-material.png",
+      "sha256": "8bd15ffca6213b45199e0c48677ec44bacf34cd5917c1cab45a421c7a0488adb",
+      "bytes": 7795
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/masonry-material.png",
+      "sha256": "478c7bedc90a4e716d5d7be370fe7c9afbe8c2100abb50a7d4803c59231e494d",
+      "bytes": 9621
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/meadow-material.png",
+      "sha256": "f68449d2b977e4edcde385d33017647d8f39810bf30d8d3a8933b6340578b957",
+      "bytes": 9997
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/N1.png",
+      "sha256": "4edf81709cbaec6a541d1f583f1397445c0c2fe1f2029f54d6ad7926d84e14fe",
+      "bytes": 59729
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/N2.png",
+      "sha256": "c37f85aab0dd8e1dda31ff20fb7825e7272d498760133e2110f80b39974b47ea",
+      "bytes": 56697
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/N3.png",
+      "sha256": "f4dfffe119ac42d8b0d135d2bc0c3fb549c6378ba8b4c68d5c07f735f961c600",
+      "bytes": 54826
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/N4.png",
+      "sha256": "5b1a0ae307607525f8289f59e6e6632f9e6c68bbe8398c592892603a3f919e79",
+      "bytes": 88077
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/N5.png",
+      "sha256": "46908270ba131d0002d74d4e28f236c92949e06d23f7659ae376dcf10d3b3b1e",
+      "bytes": 83601
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/N6.png",
+      "sha256": "6e694bec7763cd33d46e8e9d65281a35a7557536a75ed798d6fcb061c48d1842",
+      "bytes": 79624
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/oreum.png",
+      "sha256": "6750cad9840492ee566e150d9207d1972e5ef8adc4ac30c9b135c27e84b47cfa",
+      "bytes": 89064
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/pavilion.png",
+      "sha256": "9f97f61d91b50e6ea81f9bc42ddde91b77cea52efd033031167106c0692a1517",
+      "bytes": 29785
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/pergola.png",
+      "sha256": "f1b1e795f014d6262ca3fb29b3b32414e8fb06f7e2ae5e8c2070b7914108a5fa",
+      "bytes": 35250
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/pine.png",
+      "sha256": "24ae862985f9ab6f66f2051f68f87b7264081c3d98314ef66d5d39afedc66868",
+      "bytes": 28479
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/planter.png",
+      "sha256": "41180e35222486663c22e8a181373d1627fd75c0b21feef3e97f7f99722b33bd",
+      "bytes": 10739
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/queue.png",
+      "sha256": "24ccd2269ce3da9c4cf996099e709bb8f2d1dbcdf032f990c0835844a80efecc",
+      "bytes": 4781
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/rail-vertical.png",
+      "sha256": "60cad1b0ca26629ac9e9c2a073db7442380cc2abb231d3b6e724c70cdd031650",
+      "bytes": 4933
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/rail.png",
+      "sha256": "abbc234b0bc02079d285afd1d009efb25e3c76a965225720d0ce0bfeaf3a26ff",
+      "bytes": 7486
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/S1.png",
+      "sha256": "37160457e95555bccadb167c10d7e8c7aa319e6e081ae175005ce20cdffd3368",
+      "bytes": 39133
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/S2.png",
+      "sha256": "516d15ee485908df5f08be8d98d5859c952fb3fc35344f3820b500e6e5529d87",
+      "bytes": 44492
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/S5.png",
+      "sha256": "1d73ea9e2f05f944ddb25bb97458fbd9ff40cd3092f9dfc0a621c75169d152bd",
+      "bytes": 56594
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/S6.png",
+      "sha256": "d9a3d466e7fe7b84ec5079b83f54bde0ac969a843e942b6ca26176dfd6228866",
+      "bytes": 70708
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/sea-material.png",
+      "sha256": "786bf534ff7f5f489dffd5db8f50594fd644bb1a3e93c950c6944500085b5b99",
+      "bytes": 7524
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/shallows-material.png",
+      "sha256": "14f273a3b22f07bcdf46affd2abf095f7bdfd219dd9748c8751f868cb8f53bb4",
+      "bytes": 8273
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/sidewalk-material.png",
+      "sha256": "06be123edeb54f229335bd8a93b28191e62d0ed906e8227d025a0c9316c96d83",
+      "bytes": 8241
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/soil-material.png",
+      "sha256": "ea6d7df76a25fba7f19d463dc4c69688873e258d999b162b5c650338e19543dd",
+      "bytes": 10096
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/stairs.png",
+      "sha256": "1b6b4a17209f3c3287663db824022d13cf1a469dc4d54465b5f46d618b89dd97",
+      "bytes": 14347
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/station-book.png",
+      "sha256": "0d830ecdc5227299735511bbb7685b0bc260630f84a01badcf9515708b45745c",
+      "bytes": 82692
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/station-kiosk.png",
+      "sha256": "447985c972b379341171b2100468332047c51da2d27ffefe311a42eacf9a39df",
+      "bytes": 63730
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/station.png",
+      "sha256": "30a3620e808192d8e9f628d379fb838a9570dec16c7f8ffd888626bf70df0142",
+      "bytes": 151446
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/tangerine.png",
+      "sha256": "f4aede47decaf1dd4f041f853428fed82401395382bdb49fbaa05478f3840872",
+      "bytes": 24164
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/terminal.png",
+      "sha256": "336ed71014e87e83259e3e2bd4de60b02a1acdc0cb4fd576273901cd9699dd5c",
+      "bytes": 58729
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/timber-material.png",
+      "sha256": "0da7142b62bbc56086acc41b965a8a52facbf1efaaa304a2f8d9392c7445b45f",
+      "bytes": 6754
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/tower.png",
+      "sha256": "2b3b19343e8b91a3bdf4753a30e3f9087af6909163e6d288548f5c7eea3c557e",
+      "bytes": 33987
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/train.png",
+      "sha256": "dc5f4acba944b9f8409384a82b2f86140c88d3c6e991a325cddc815f0287f3ba",
+      "bytes": 51780
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/view-deck.png",
+      "sha256": "d66ada4bbd4c5bd762f10a6ce15c1b0cdcaf29fc339f3fcd4abc87caaf14a5e6",
+      "bytes": 36720
+    },
+    {
+      "path": "../../../assets-src/v10-city/native/wheel.png",
+      "sha256": "0d3c6927ff0b80dd98e044e16ed98a5ddf31b2f5bbc22d4a88cdfc73acbea4a1",
+      "bytes": 88206
+    }
+  ],
+  "outputs": [
+    {
+      "path": "palette.json",
+      "sha256": "f057448f753890bce6003a95ae6056c5948e492f6e7bc2ba2f215d9d55c84416",
+      "bytes": 7141
+    },
+    {
+      "path": "palette.gpl",
+      "sha256": "31afdeb639fe152353a33a5e942590038fa65bf5d3f84ca1715db952388eac0d",
+      "bytes": 3891
+    },
+    {
+      "path": "palette.hex",
+      "sha256": "1d7bc97f2d2402c0960aa26927bcd7b31db1e52c9ee7db97cf492a0aed874841",
+      "bytes": 1344
+    },
+    {
+      "path": "swatches.png",
+      "sha256": "33af44261f5613202686cc12c6f3f3521b35c0b0663415504e9e6fd3073bae5e",
+      "bytes": 2353
+    }
+  ],
+  "tool": {
+    "name": "palette_tool",
+    "version": "0.4.0"
+  },
+  "palette": {
+    "colors": 192,
+    "reserved": 0,
+    "transparent_index": 255,
+    "seed": 0
+  },
+  "fit": {
+    "../../../assets-src/v10-city/native/asphalt-material.png": {
+      "measured_px": 4096,
+      "alpha_threshold": 128,
+      "off_palette_px": 4096,
+      "partial_alpha_px": 0,
+      "colors": 64,
+      "palette_colors_used": 13,
+      "mean_delta_e": 0.012613,
+      "p95_delta_e": 0.019095,
+      "max_delta_e": 0.020845
+    },
+    "../../../assets-src/v10-city/native/basalt-material.png": {
+      "measured_px": 4096,
+      "alpha_threshold": 128,
+      "off_palette_px": 4096,
+      "partial_alpha_px": 0,
+      "colors": 64,
+      "palette_colors_used": 18,
+      "mean_delta_e": 0.00918,
+      "p95_delta_e": 0.01509,
+      "max_delta_e": 0.017471
+    },
+    "../../../assets-src/v10-city/native/basalt-wall.png": {
+      "measured_px": 4117,
+      "alpha_threshold": 128,
+      "off_palette_px": 4117,
+      "partial_alpha_px": 0,
+      "colors": 127,
+      "palette_colors_used": 60,
+      "mean_delta_e": 0.01271,
+      "p95_delta_e": 0.021967,
+      "max_delta_e": 0.032278
+    },
+    "../../../assets-src/v10-city/native/bench.png": {
+      "measured_px": 1793,
+      "alpha_threshold": 128,
+      "off_palette_px": 1793,
+      "partial_alpha_px": 0,
+      "colors": 127,
+      "palette_colors_used": 41,
+      "mean_delta_e": 0.01494,
+      "p95_delta_e": 0.021583,
+      "max_delta_e": 0.026304
+    },
+    "../../../assets-src/v10-city/native/bikes.png": {
+      "measured_px": 2762,
+      "alpha_threshold": 128,
+      "off_palette_px": 2761,
+      "partial_alpha_px": 0,
+      "colors": 127,
+      "palette_colors_used": 60,
+      "mean_delta_e": 0.014706,
+      "p95_delta_e": 0.02582,
+      "max_delta_e": 0.042869
+    },
+    "../../../assets-src/v10-city/native/bollards.png": {
+      "measured_px": 1435,
+      "alpha_threshold": 128,
+      "off_palette_px": 1435,
+      "partial_alpha_px": 0,
+      "colors": 126,
+      "palette_colors_used": 52,
+      "mean_delta_e": 0.011725,
+      "p95_delta_e": 0.021451,
+      "max_delta_e": 0.027357
+    },
+    "../../../assets-src/v10-city/native/brick-material.png": {
+      "measured_px": 4096,
+      "alpha_threshold": 128,
+      "off_palette_px": 4096,
+      "partial_alpha_px": 0,
+      "colors": 64,
+      "palette_colors_used": 11,
+      "mean_delta_e": 0.01861,
+      "p95_delta_e": 0.030415,
+      "max_delta_e": 0.038264
+    },
+    "../../../assets-src/v10-city/native/campus-gate.png": {
+      "measured_px": 25213,
+      "alpha_threshold": 128,
+      "off_palette_px": 24999,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 73,
+      "mean_delta_e": 0.017269,
+      "p95_delta_e": 0.030198,
+      "max_delta_e": 0.046651
+    },
+    "../../../assets-src/v10-city/native/carousel.png": {
+      "measured_px": 25082,
+      "alpha_threshold": 128,
+      "off_palette_px": 25082,
+      "partial_alpha_px": 0,
+      "colors": 127,
+      "palette_colors_used": 58,
+      "mean_delta_e": 0.017193,
+      "p95_delta_e": 0.029779,
+      "max_delta_e": 0.042424
+    },
+    "../../../assets-src/v10-city/native/cherry.png": {
+      "measured_px": 10216,
+      "alpha_threshold": 128,
+      "off_palette_px": 10216,
+      "partial_alpha_px": 0,
+      "colors": 127,
+      "palette_colors_used": 58,
+      "mean_delta_e": 0.018723,
+      "p95_delta_e": 0.031238,
+      "max_delta_e": 0.040625
+    },
+    "../../../assets-src/v10-city/native/civic-house.png": {
+      "measured_px": 27515,
+      "alpha_threshold": 128,
+      "off_palette_px": 27504,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 79,
+      "mean_delta_e": 0.014133,
+      "p95_delta_e": 0.025834,
+      "max_delta_e": 0.036105
+    },
+    "../../../assets-src/v10-city/native/civic-material.png": {
+      "measured_px": 4096,
+      "alpha_threshold": 128,
+      "off_palette_px": 4096,
+      "partial_alpha_px": 0,
+      "colors": 64,
+      "palette_colors_used": 17,
+      "mean_delta_e": 0.00892,
+      "p95_delta_e": 0.013304,
+      "max_delta_e": 0.015313
+    },
+    "../../../assets-src/v10-city/native/coast-1.png": {
+      "measured_px": 26794,
+      "alpha_threshold": 128,
+      "off_palette_px": 26791,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 76,
+      "mean_delta_e": 0.016919,
+      "p95_delta_e": 0.032762,
+      "max_delta_e": 0.053352
+    },
+    "../../../assets-src/v10-city/native/coast-2.png": {
+      "measured_px": 45158,
+      "alpha_threshold": 128,
+      "off_palette_px": 45153,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 86,
+      "mean_delta_e": 0.013578,
+      "p95_delta_e": 0.027633,
+      "max_delta_e": 0.04081
+    },
+    "../../../assets-src/v10-city/native/coastal-material.png": {
+      "measured_px": 4096,
+      "alpha_threshold": 128,
+      "off_palette_px": 4096,
+      "partial_alpha_px": 0,
+      "colors": 64,
+      "palette_colors_used": 17,
+      "mean_delta_e": 0.011163,
+      "p95_delta_e": 0.02271,
+      "max_delta_e": 0.033555
+    },
+    "../../../assets-src/v10-city/native/deciduous.png": {
+      "measured_px": 16234,
+      "alpha_threshold": 128,
+      "off_palette_px": 16233,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 40,
+      "mean_delta_e": 0.016672,
+      "p95_delta_e": 0.031179,
+      "max_delta_e": 0.038793
+    },
+    "../../../assets-src/v10-city/native/ferry.png": {
+      "measured_px": 12930,
+      "alpha_threshold": 128,
+      "off_palette_px": 12924,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 71,
+      "mean_delta_e": 0.015968,
+      "p95_delta_e": 0.031209,
+      "max_delta_e": 0.048413
+    },
+    "../../../assets-src/v10-city/native/flowerbed.png": {
+      "measured_px": 3345,
+      "alpha_threshold": 128,
+      "off_palette_px": 3345,
+      "partial_alpha_px": 0,
+      "colors": 127,
+      "palette_colors_used": 70,
+      "mean_delta_e": 0.014207,
+      "p95_delta_e": 0.029804,
+      "max_delta_e": 0.03527
+    },
+    "../../../assets-src/v10-city/native/granite-material.png": {
+      "measured_px": 4096,
+      "alpha_threshold": 128,
+      "off_palette_px": 4096,
+      "partial_alpha_px": 0,
+      "colors": 64,
+      "palette_colors_used": 35,
+      "mean_delta_e": 0.013318,
+      "p95_delta_e": 0.021982,
+      "max_delta_e": 0.031559
+    },
+    "../../../assets-src/v10-city/native/grass-material.png": {
+      "measured_px": 4096,
+      "alpha_threshold": 128,
+      "off_palette_px": 4096,
+      "partial_alpha_px": 0,
+      "colors": 64,
+      "palette_colors_used": 18,
+      "mean_delta_e": 0.01439,
+      "p95_delta_e": 0.022544,
+      "max_delta_e": 0.026993
+    },
+    "../../../assets-src/v10-city/native/gravel-material.png": {
+      "measured_px": 4096,
+      "alpha_threshold": 128,
+      "off_palette_px": 4096,
+      "partial_alpha_px": 0,
+      "colors": 64,
+      "palette_colors_used": 29,
+      "mean_delta_e": 0.010192,
+      "p95_delta_e": 0.016004,
+      "max_delta_e": 0.019947
+    },
+    "../../../assets-src/v10-city/native/jeju-hall.png": {
+      "measured_px": 12433,
+      "alpha_threshold": 128,
+      "off_palette_px": 12254,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 54,
+      "mean_delta_e": 0.015157,
+      "p95_delta_e": 0.027571,
+      "max_delta_e": 0.040098
+    },
+    "../../../assets-src/v10-city/native/jeju-tea.png": {
+      "measured_px": 19276,
+      "alpha_threshold": 128,
+      "off_palette_px": 19270,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 69,
+      "mean_delta_e": 0.01233,
+      "p95_delta_e": 0.019534,
+      "max_delta_e": 0.030375
+    },
+    "../../../assets-src/v10-city/native/lamp.png": {
+      "measured_px": 478,
+      "alpha_threshold": 128,
+      "off_palette_px": 478,
+      "partial_alpha_px": 0,
+      "colors": 120,
+      "palette_colors_used": 49,
+      "mean_delta_e": 0.01536,
+      "p95_delta_e": 0.026392,
+      "max_delta_e": 0.032437
+    },
+    "../../../assets-src/v10-city/native/leisure-material.png": {
+      "measured_px": 4096,
+      "alpha_threshold": 128,
+      "off_palette_px": 4096,
+      "partial_alpha_px": 0,
+      "colors": 64,
+      "palette_colors_used": 22,
+      "mean_delta_e": 0.014086,
+      "p95_delta_e": 0.024368,
+      "max_delta_e": 0.029901
+    },
+    "../../../assets-src/v10-city/native/masonry-material.png": {
+      "measured_px": 4096,
+      "alpha_threshold": 128,
+      "off_palette_px": 4096,
+      "partial_alpha_px": 0,
+      "colors": 64,
+      "palette_colors_used": 21,
+      "mean_delta_e": 0.010255,
+      "p95_delta_e": 0.017353,
+      "max_delta_e": 0.020609
+    },
+    "../../../assets-src/v10-city/native/meadow-material.png": {
+      "measured_px": 4096,
+      "alpha_threshold": 128,
+      "off_palette_px": 4096,
+      "partial_alpha_px": 0,
+      "colors": 64,
+      "palette_colors_used": 30,
+      "mean_delta_e": 0.017048,
+      "p95_delta_e": 0.026581,
+      "max_delta_e": 0.029538
+    },
+    "../../../assets-src/v10-city/native/N1.png": {
+      "measured_px": 34534,
+      "alpha_threshold": 128,
+      "off_palette_px": 34518,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 78,
+      "mean_delta_e": 0.014135,
+      "p95_delta_e": 0.026692,
+      "max_delta_e": 0.058096
+    },
+    "../../../assets-src/v10-city/native/N2.png": {
+      "measured_px": 31477,
+      "alpha_threshold": 128,
+      "off_palette_px": 31472,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 67,
+      "mean_delta_e": 0.014889,
+      "p95_delta_e": 0.023634,
+      "max_delta_e": 0.039017
+    },
+    "../../../assets-src/v10-city/native/N3.png": {
+      "measured_px": 40641,
+      "alpha_threshold": 128,
+      "off_palette_px": 40608,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 76,
+      "mean_delta_e": 0.01479,
+      "p95_delta_e": 0.026708,
+      "max_delta_e": 0.043224
+    },
+    "../../../assets-src/v10-city/native/N4.png": {
+      "measured_px": 50344,
+      "alpha_threshold": 128,
+      "off_palette_px": 50316,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 73,
+      "mean_delta_e": 0.019112,
+      "p95_delta_e": 0.038393,
+      "max_delta_e": 0.07483
+    },
+    "../../../assets-src/v10-city/native/N5.png": {
+      "measured_px": 45219,
+      "alpha_threshold": 128,
+      "off_palette_px": 45207,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 73,
+      "mean_delta_e": 0.016583,
+      "p95_delta_e": 0.032208,
+      "max_delta_e": 0.045857
+    },
+    "../../../assets-src/v10-city/native/N6.png": {
+      "measured_px": 47770,
+      "alpha_threshold": 128,
+      "off_palette_px": 47770,
+      "partial_alpha_px": 0,
+      "colors": 127,
+      "palette_colors_used": 60,
+      "mean_delta_e": 0.016159,
+      "p95_delta_e": 0.027261,
+      "max_delta_e": 0.085625
+    },
+    "../../../assets-src/v10-city/native/oreum.png": {
+      "measured_px": 36328,
+      "alpha_threshold": 128,
+      "off_palette_px": 36306,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 56,
+      "mean_delta_e": 0.013566,
+      "p95_delta_e": 0.022109,
+      "max_delta_e": 0.036553
+    },
+    "../../../assets-src/v10-city/native/pavilion.png": {
+      "measured_px": 14679,
+      "alpha_threshold": 128,
+      "off_palette_px": 14678,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 66,
+      "mean_delta_e": 0.012743,
+      "p95_delta_e": 0.026663,
+      "max_delta_e": 0.034174
+    },
+    "../../../assets-src/v10-city/native/pergola.png": {
+      "measured_px": 15800,
+      "alpha_threshold": 128,
+      "off_palette_px": 15793,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 69,
+      "mean_delta_e": 0.013237,
+      "p95_delta_e": 0.02216,
+      "max_delta_e": 0.036162
+    },
+    "../../../assets-src/v10-city/native/pine.png": {
+      "measured_px": 9435,
+      "alpha_threshold": 128,
+      "off_palette_px": 9434,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 46,
+      "mean_delta_e": 0.014797,
+      "p95_delta_e": 0.024971,
+      "max_delta_e": 0.029557
+    },
+    "../../../assets-src/v10-city/native/planter.png": {
+      "measured_px": 3513,
+      "alpha_threshold": 128,
+      "off_palette_px": 3513,
+      "partial_alpha_px": 0,
+      "colors": 127,
+      "palette_colors_used": 63,
+      "mean_delta_e": 0.01459,
+      "p95_delta_e": 0.027027,
+      "max_delta_e": 0.041819
+    },
+    "../../../assets-src/v10-city/native/queue.png": {
+      "measured_px": 1324,
+      "alpha_threshold": 128,
+      "off_palette_px": 1324,
+      "partial_alpha_px": 0,
+      "colors": 127,
+      "palette_colors_used": 42,
+      "mean_delta_e": 0.015115,
+      "p95_delta_e": 0.029901,
+      "max_delta_e": 0.045362
+    },
+    "../../../assets-src/v10-city/native/rail-vertical.png": {
+      "measured_px": 1513,
+      "alpha_threshold": 128,
+      "off_palette_px": 1513,
+      "partial_alpha_px": 0,
+      "colors": 126,
+      "palette_colors_used": 46,
+      "mean_delta_e": 0.013912,
+      "p95_delta_e": 0.029131,
+      "max_delta_e": 0.032422
+    },
+    "../../../assets-src/v10-city/native/rail.png": {
+      "measured_px": 3141,
+      "alpha_threshold": 128,
+      "off_palette_px": 3141,
+      "partial_alpha_px": 0,
+      "colors": 127,
+      "palette_colors_used": 46,
+      "mean_delta_e": 0.012566,
+      "p95_delta_e": 0.022952,
+      "max_delta_e": 0.02982
+    },
+    "../../../assets-src/v10-city/native/S1.png": {
+      "measured_px": 17689,
+      "alpha_threshold": 128,
+      "off_palette_px": 17687,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 82,
+      "mean_delta_e": 0.013135,
+      "p95_delta_e": 0.024405,
+      "max_delta_e": 0.03093
+    },
+    "../../../assets-src/v10-city/native/S2.png": {
+      "measured_px": 19771,
+      "alpha_threshold": 128,
+      "off_palette_px": 19770,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 84,
+      "mean_delta_e": 0.016285,
+      "p95_delta_e": 0.02785,
+      "max_delta_e": 0.041672
+    },
+    "../../../assets-src/v10-city/native/S5.png": {
+      "measured_px": 28806,
+      "alpha_threshold": 128,
+      "off_palette_px": 28800,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 90,
+      "mean_delta_e": 0.0149,
+      "p95_delta_e": 0.029516,
+      "max_delta_e": 0.041792
+    },
+    "../../../assets-src/v10-city/native/S6.png": {
+      "measured_px": 33501,
+      "alpha_threshold": 128,
+      "off_palette_px": 33490,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 88,
+      "mean_delta_e": 0.016723,
+      "p95_delta_e": 0.029658,
+      "max_delta_e": 0.03933
+    },
+    "../../../assets-src/v10-city/native/sea-material.png": {
+      "measured_px": 4096,
+      "alpha_threshold": 128,
+      "off_palette_px": 4096,
+      "partial_alpha_px": 0,
+      "colors": 64,
+      "palette_colors_used": 8,
+      "mean_delta_e": 0.010856,
+      "p95_delta_e": 0.017249,
+      "max_delta_e": 0.018474
+    },
+    "../../../assets-src/v10-city/native/shallows-material.png": {
+      "measured_px": 4096,
+      "alpha_threshold": 128,
+      "off_palette_px": 4096,
+      "partial_alpha_px": 0,
+      "colors": 64,
+      "palette_colors_used": 7,
+      "mean_delta_e": 0.014844,
+      "p95_delta_e": 0.024964,
+      "max_delta_e": 0.026884
+    },
+    "../../../assets-src/v10-city/native/sidewalk-material.png": {
+      "measured_px": 4096,
+      "alpha_threshold": 128,
+      "off_palette_px": 4096,
+      "partial_alpha_px": 0,
+      "colors": 64,
+      "palette_colors_used": 10,
+      "mean_delta_e": 0.008999,
+      "p95_delta_e": 0.013877,
+      "max_delta_e": 0.016163
+    },
+    "../../../assets-src/v10-city/native/soil-material.png": {
+      "measured_px": 4096,
+      "alpha_threshold": 128,
+      "off_palette_px": 4096,
+      "partial_alpha_px": 0,
+      "colors": 64,
+      "palette_colors_used": 14,
+      "mean_delta_e": 0.013429,
+      "p95_delta_e": 0.019968,
+      "max_delta_e": 0.023357
+    },
+    "../../../assets-src/v10-city/native/stairs.png": {
+      "measured_px": 5473,
+      "alpha_threshold": 128,
+      "off_palette_px": 5446,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 56,
+      "mean_delta_e": 0.0121,
+      "p95_delta_e": 0.02241,
+      "max_delta_e": 0.025665
+    },
+    "../../../assets-src/v10-city/native/station-book.png": {
+      "measured_px": 51241,
+      "alpha_threshold": 128,
+      "off_palette_px": 51241,
+      "partial_alpha_px": 0,
+      "colors": 127,
+      "palette_colors_used": 90,
+      "mean_delta_e": 0.015034,
+      "p95_delta_e": 0.028548,
+      "max_delta_e": 0.039433
+    },
+    "../../../assets-src/v10-city/native/station-kiosk.png": {
+      "measured_px": 40055,
+      "alpha_threshold": 128,
+      "off_palette_px": 40050,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 85,
+      "mean_delta_e": 0.017496,
+      "p95_delta_e": 0.040486,
+      "max_delta_e": 0.072362
+    },
+    "../../../assets-src/v10-city/native/station.png": {
+      "measured_px": 99531,
+      "alpha_threshold": 128,
+      "off_palette_px": 99507,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 77,
+      "mean_delta_e": 0.014774,
+      "p95_delta_e": 0.02688,
+      "max_delta_e": 0.033415
+    },
+    "../../../assets-src/v10-city/native/tangerine.png": {
+      "measured_px": 7969,
+      "alpha_threshold": 128,
+      "off_palette_px": 7967,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 50,
+      "mean_delta_e": 0.016683,
+      "p95_delta_e": 0.037022,
+      "max_delta_e": 0.044023
+    },
+    "../../../assets-src/v10-city/native/terminal.png": {
+      "measured_px": 31076,
+      "alpha_threshold": 128,
+      "off_palette_px": 31074,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 69,
+      "mean_delta_e": 0.014804,
+      "p95_delta_e": 0.024603,
+      "max_delta_e": 0.0339
+    },
+    "../../../assets-src/v10-city/native/timber-material.png": {
+      "measured_px": 4096,
+      "alpha_threshold": 128,
+      "off_palette_px": 4096,
+      "partial_alpha_px": 0,
+      "colors": 64,
+      "palette_colors_used": 13,
+      "mean_delta_e": 0.009842,
+      "p95_delta_e": 0.01605,
+      "max_delta_e": 0.017837
+    },
+    "../../../assets-src/v10-city/native/tower.png": {
+      "measured_px": 15358,
+      "alpha_threshold": 128,
+      "off_palette_px": 15357,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 83,
+      "mean_delta_e": 0.014039,
+      "p95_delta_e": 0.025409,
+      "max_delta_e": 0.042848
+    },
+    "../../../assets-src/v10-city/native/train.png": {
+      "measured_px": 30935,
+      "alpha_threshold": 128,
+      "off_palette_px": 30934,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 47,
+      "mean_delta_e": 0.014707,
+      "p95_delta_e": 0.025378,
+      "max_delta_e": 0.045616
+    },
+    "../../../assets-src/v10-city/native/view-deck.png": {
+      "measured_px": 14070,
+      "alpha_threshold": 128,
+      "off_palette_px": 14067,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 61,
+      "mean_delta_e": 0.011892,
+      "p95_delta_e": 0.018448,
+      "max_delta_e": 0.03601
+    },
+    "../../../assets-src/v10-city/native/wheel.png": {
+      "measured_px": 31397,
+      "alpha_threshold": 128,
+      "off_palette_px": 31173,
+      "partial_alpha_px": 0,
+      "colors": 128,
+      "palette_colors_used": 93,
+      "mean_delta_e": 0.015454,
+      "p95_delta_e": 0.027815,
+      "max_delta_e": 0.037125
+    }
+  },
+  "totals": {
+    "max_delta_e": 0.085625,
+    "worst_p95_delta_e": 0.040486,
+    "off_palette_px": 1062047
+  }
+}

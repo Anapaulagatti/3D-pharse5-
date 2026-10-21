@@ -1,0 +1,13 @@
+# V10 clean-build proof
+
+The approved branch and tag were checked through native Git against full checkpoint `3c323bc1d844c80b3e0ca0d62df3f1806a7a972f`. A fresh independent clone with no hardlinks was created at `/workspace/v10-production`; origin is `https://github.com/Anapaulagatti/3D-pharse5-.git`. Branch: `production/v10-original-city-art`. Remote-verified annotated tag `recovery/v10-approved-graybox-before-art-20261021` preserves the approved base before art production. Existing recovery tags remain intact. Main was not merged or deployed.
+
+The clone did not import old build outputs, browser profiles or map caches. Existing installed Forge/tooling was retained at pinned revision5324342fdfab72430f4e9604f3fe427009f8596d. Exact-lockfile `npm ci --ignore-scripts` installed138 packages. Node24.19.0, Python3.12.14, Pillow12.3.0 and system Chromium are available; no dependency/lockfile update was made. Numpy/scipy are used only during authoring, not ordinary stored-output setup.
+
+The previous owned graybox dev server was stopped; new production is served from this clone on internal4220. Browser captures use fresh contexts with blocked service workers. Loaded URLs are retained in `captures.json`, `performance.json` and package verification. All outdoor URLs use `assets/v10-city/`; no `assets/world/` or V9 map is requested. Loopback addresses are internal evidence endpoints, not published links.
+
+The final compiler consumes the frozen plan SHA808ca4aa56be22afb11b35f30cbe557a5a5915dce272af0e9465257032233cc0, unchanged protected north and new image provenance. It removes only owned graybox runtime PNGs, writes fresh atlas/Tiled/world/bundle outputs and losslessly reconstructs the runtime terrain from Tiled for comparison. Final hashed bundle/nav/Forge readback receipts are refreshed after the collision refinements. No old southern cache or comparator is a compiler input.
+
+`tools/setup.sh` validates stored assets, TypeScript, lint, format, unit tests, build and15 actual browser cases; its final log and JSON browser results are included under `validation/`. First final-art gameplay found two obstruction cases; those failures are preserved under `iterations/first-navigation/` and were fixed by moving new furniture/rocks off approved routes. The final exact actor-footprint centre-line check covers all19 roads, in addition to full navigation reachability and real keyboard routes.
+
+The portable ZIP contains the exact144 built files. Its extracted Python HTTP launcher is independently exercised through normal-entry desktop keyboard and emulated-mobile touch. Package manifest hashes are compared byte-for-byte to `dist`; see `package.json` and `package-verification.json`. Art generation is never part of setup or launch.

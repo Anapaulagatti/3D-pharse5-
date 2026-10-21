@@ -3,7 +3,7 @@ async function ready(p: Page, qa = true) {
   await p.goto("v10-city-review.html" + (qa ? "?qa&renderer=canvas" : ""));
   await p.waitForFunction(
     () =>
-      window.__WORLD_REVIEW__?.candidate === "v10-graybox" &&
+      window.__WORLD_REVIEW__?.candidate === "v10-final-art-review" &&
       window.__SEOUL__?.ready,
   );
 }

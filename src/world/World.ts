@@ -457,7 +457,7 @@ export class FullWorld extends JuniScene {
     };
     window.__WORLD_REVIEW__ = {
       discoveryFound: basaltFound,
-      candidate: "v10-graybox",
+      candidate: "v10-final-art-review",
     };
     if (window.__PLAZA_REVIEW__)
       window.__PLAZA_REVIEW__.environmentClock = this.clock;

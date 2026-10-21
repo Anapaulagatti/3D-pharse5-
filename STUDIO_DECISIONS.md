@@ -1,3 +1,7 @@
+# Current V10 final-art production — 2026-10-21
+
+Authority: docs/current/V10_STRICT_PRODUCTION.md explicitly approves the previous masterplan/graybox. Current branch production/v10-original-city-art; approved base3c323bc, recoverable pre-art tag verified remotely. New original image sheets, measured extraction,192-color finish and production compiler replace every southern graybox frame. Approved plan unchanged; north and Juni protected. Production inputs/evidence: assets-src/v10-city and docs/v10-production. Archived entries below describe earlier states and are not current production authority. Final user visual approval is pending; no merge/deploy.
+
 # V10 decisions
 
 1. Current docs/current/V10_CLEANROOM_REQUEST.md supersedes V9 production mission. First delivery ends after masterplan and playable graybox; final art requires explicit user approval.
