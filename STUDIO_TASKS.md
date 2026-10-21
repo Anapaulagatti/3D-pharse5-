@@ -1,14 +1,11 @@
-# V9 total southern world reset — in progress
+# V9 total southern reset — source candidate verified; delivery in progress
 
-User rejects all previous southern layouts. Recovery tag recovery/before-v9-total-southern-reset-20261021→0b809ee883231fcfe46af6330a93e2142c98c299 is remote-verified.4,931obsolete tracked files (4,087,341,729bytes) removed after dependency inventory and exact north/actor/art extraction. Preserve273north objects/4352×2240ground/Juni144frames/shared gameplay/UI and108reusable native art kinds/60original sheet+provenance records. No rejected southern placement/road/plot/ground inputs remain in the V9 planner.
+- [x] A: Push full rejected V8 recovery0b809ee and verify recovery/before-v9-total-southern-reset-20261021 before deleting4,931obsolete tracked files. Preserve protected north/Juni/original art/shared systems.
+- [x] B: Public Pixels reference study with honest access limits. Original4352×6144 plan,33routes/25sites, no rejected southern geometry. Editable JSON/SVG/PNG and source/body feasibility.
+- [x] C: Actual graybox36browser checks, then3visual-setback corrections and3transit-density cases. Checkpointbb8c9e7 precedes new image generation.
+- [x] D:4real host-image calls:16material swatches,4shops, targeted2water-cell edit,2distinct fence modules. Actual Forge extraction/palettes/hash/Tiled/nav/composition/HTTP preview. No paid provider API.
+- [x] E: Production build/type/lint/format/12unit. Full52browser cases plus1additional cached/reference occlusion case.33actual input routes, reciprocal ferry, Academy, discovery, mobile, DPR, nearest filters and disabled-WebGL fallback. Final actual north frame byte-identical to archived V8. Forge61targets/keyboard/Y-sort pass. Actual screenshots inspected and corrected.
+- [ ] F: Record normal-entry walkthrough, encode/playback-verify all captured timestamps, package and HTTP-test ZIP, independent clean setup/actual GitHub CI, final recovery tag and source checkpoints.
+- [ ] USER visual approval — STOP after complete candidate; do not lock/expand/deploy automatically.
 
-- [x] Archive active V8 work, including actual519.967s video/ZIP and successful12unit/65browser source CI, as REJECTED recovery only.
-- [x] Inventory and remove obsolete active southern implementations/reports; original source library retained.
-- [x] Verify north-only playable foundation: 12 unit +4 browser tests; actual matched-camera 1024×768 Phaser north frame byte-identical to archived V8; build/type/lint/format pass.
-- [x] Pixels public reference study + new editable4352×6144 V9 plan,31routes/25sites; geometry feasibility passes.
-- [x] Real playable graybox:36browser checks pass; visual review moved one obstructing service plot and cafe setback,3affected routes reverified;7actual-engine captures inspected.
-- [ ] Original-image/Forge/Tiled world production, actual Phaser visual correction and navigation/mobile QA.
-- [ ] Final build/tests/real-video/HTTP-ZIP/branch checkpoint.
-- [ ] USER visual approval; STOP after complete candidate.
-
-No main merge/deploy/paid API/delegation/separate-app changes. Setup validates stored files, never generates. Current V9 source is an in-progress rebuild, not approved art. See SOUTHERN_RESET_CLEANUP.md and docs/current/V9_TOTAL_SOUTHERN_WORLD_RESET.md.
+`main`33360ed/public website stay protected. No paid APIs, main merge, automatic deployment, separate-app changes, history rewrite or delegation. Current images are a review candidate, not user-approved final art.

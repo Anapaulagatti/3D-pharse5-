@@ -81,7 +81,7 @@ try {
       {
         status: equal && !errors.length ? "PASS" : "FAIL",
         method:
-          "Actual archived V8 ZIP HTTP vs cleaned north-only V9 production, same native1024x768 camera2176,1328 zoom1/Canvas/viewport1440x1140/DPR1/reduced-motion. No filters.",
+          "Actual archived V8 ZIP HTTP vs current full V9 production, same native1024x768 camera2176,1328 zoom1/Canvas/viewport1440x1140/DPR1/reduced-motion. No filters.",
         rows,
         errors,
       },

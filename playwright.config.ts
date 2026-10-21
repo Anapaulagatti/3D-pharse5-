@@ -1,5 +1,6 @@
 import { defineConfig } from "@playwright/test";
 import { existsSync } from "node:fs";
+const previewPort = Number(process.env.PIXEL_PREVIEW_PORT ?? 4201);
 export default defineConfig({
   testDir: "tests/e2e",
   workers: 1,
@@ -14,7 +15,7 @@ export default defineConfig({
     ],
   ],
   use: {
-    baseURL: "http://127.0.0.1:4201/3D-pharse5-/",
+    baseURL: `http://127.0.0.1:${previewPort}/3D-pharse5-/`,
     headless: true,
     launchOptions: {
       executablePath:
@@ -31,8 +32,8 @@ export default defineConfig({
     video: "off",
   },
   webServer: {
-    command: "npm run preview",
-    url: "http://127.0.0.1:4201/3D-pharse5-/",
+    command: `npm run preview -- --port ${previewPort}`,
+    url: `http://127.0.0.1:${previewPort}/3D-pharse5-/`,
     reuseExistingServer: !process.env.CI,
     timeout: 30000,
   },

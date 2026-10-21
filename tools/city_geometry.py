@@ -50,12 +50,13 @@ def object_at(kind,x,y,purpose,props,id):
 def bundle(objects,solids):
  n=json.loads((ROOT/'assets-src/protected-north/district.json').read_text());b=json.loads((SOURCE/'map/draft.json').read_text());b.update(name='Korean Arena — V9 new southern world candidate',world={'width':W,'height':H,'unit':'px'},objects=n['objects']+objects)
  b['collision'].update(solids=n['solids']+solids,walkRegions=[{'polygon':[[0,0],[W,0],[W,H],[0,H]]}]);b['camera']['bounds']=[0,0,W,H]
- b['spawns']=n['spawns']+[{'id':'ferry-mainland','x':2560,'y':4760,'facing':'north'},{'id':'ferry-jeju','x':2064,'y':5528,'facing':'south'}]
+ b['spawns']=n['spawns']+[{'id':'ferry-mainland','x':PLAN['travel']['mainlandArrival'][0],'y':PLAN['travel']['mainlandArrival'][1],'facing':'north'},{'id':'ferry-jeju','x':PLAN['travel']['islandArrival'][0],'y':PLAN['travel']['islandArrival'][1],'facing':'south'}]
  b['anchors']=dict(n['anchors']);b['interactions']=[{'id':s['id'],'x':s['x'],'y':s['y'],'reach':104}for s in n['stops']]
  for p in PLAN['plots']:
   b['anchors'][p['id']]={'point':p['entrance'],'approach':p['entrance']};b['interactions'].append({'id':p['id'],'x':p['entrance'][0],'y':p['entrance'][1],'reach':96})
  # Real runtime transport is intentional and tested both ways. Independent arrival spawns seed island nav.
  b['portals']=[q for q in b['portals']if q['id']=='academy']
  write(SOURCE/'travel.json',PLAN['travel']);write(SOURCE/'regions.json',[{'id':'heritage','bounds':[0,0,4352,2240],'ambient':[2176,1120]}]+[dict(id=d['id'],bounds=d['bounds'],ambient=[(d['bounds'][0]+d['bounds'][2])//2,(d['bounds'][1]+d['bounds'][3])//2])for d in PLAN['districts']])
- stops=n['stops']+[{'id':p['id'],'x':p['entrance'][0],'y':p['entrance'][1],'text':p['function']+'. Không gian học tiếng Hàn và gặp gỡ trong khu phố mới.'}for p in PLAN['plots']]
+ labels={'bookshop':'책방 · Hiệu sách','library':'서재 · Nhà đọc ở ngưỡng phố','neighborhood-service':'안내 · Nhà thông tin','cafe':'카페 · Quán cà phê','tower':'전망대 · Đài quan sát','garden-pavilion':'쉼터 · Đình nghỉ','station':'기차역 · Nhà ga','transit-shelter':'정류장 · Trạm xe','coastal-cafe':'바다 카페 · Cà phê biển','lookout':'바다 · Ngắm biển','wheel':'관람차 · Vòng quay','carousel':'회전목마 · Đu quay','visitor':'안내소 · Quầy thông tin','discovery-hall':'문화관 · Nhà văn hóa','campus-entry':'입구 · Cổng công viên','ferry-terminal':'선착장 · Bến phà','oreum':'오름 · Đồi núi lửa','village':'마을 · Làng Jeju','nature-center':'자연 · Nhà thiên nhiên','cliff-lookout':'절벽 · Mỏm đá','basalt-learning':'현무암 · Đá basalt','corner-grocery':'가게 · Tạp hóa','bakery':'빵집 · Tiệm bánh','language-center':'배움 · Lớp cộng đồng','design-gallery':'공방 · Gallery gốm'}
+ stops=n['stops']+[{'id':p['id'],'x':p['entrance'][0],'y':p['entrance'][1],'text':labels[p['id']]+'. Điểm gặp gỡ và khám phá từ vựng Hàn Quốc. Theo phố lát để đến ga, công viên và bến phà.'}for p in PLAN['plots']]
  write(SOURCE/'stops.json',stops);return b

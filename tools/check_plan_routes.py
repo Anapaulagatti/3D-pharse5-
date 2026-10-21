@@ -12,4 +12,4 @@ for r in PLAN['roads']:
     bad.append({'point':[round(x),round(y)],'reason':s['reason']});break
  if bad:fail.append({'route':r['id'],'count':len(bad),'examples':bad[::max(1,len(bad)//4)][:5]})
  rows.append({'id':r['id'],'points':points,'length':round(sum(math.dist(a,z)for a,z in zip(points,points[1:]))),'blockedSamples':len(bad)})
-write(SOURCE/'plan/route-geometry-check.json',{'status':'FAIL'if fail else'PASS','actor':[8,4],'failures':fail});write(SOURCE/'plan/navigation-routes.json',rows);print(json.dumps(fail,indent=2));assert not fail
+write(SOURCE/'plan/route-geometry-check.json',{'status':'FAIL'if fail else'PASS','actor':[8,4],'semanticSha256':hashlib.sha256(json.dumps({'collision':b['collision'],'roads':PLAN['roads']},sort_keys=True).encode()).hexdigest(),'failures':fail});write(SOURCE/'plan/navigation-routes.json',rows);print(json.dumps(fail,indent=2));assert not fail

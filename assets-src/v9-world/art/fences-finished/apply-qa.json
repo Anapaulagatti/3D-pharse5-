@@ -1,0 +1,92 @@
+{
+  "status": "pass",
+  "method": "forge_palette.quantize_image: OKLab-nearest palette colour per pixel (exact palette colours kept), alpha binary at the threshold, then the written PNGs re-read and measured with forge_palette.fit_report against the palette",
+  "notProven": [
+    "Visual quality after snapping: compare an output with its input.",
+    "Indexed PNGs are engine exports; they are not checked by builders.",
+    "No --max-delta-e gate was set."
+  ],
+  "checks": [
+    {
+      "id": "output_off_palette_px",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "output_partial_alpha_px",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "max_delta_e",
+      "status": "skipped",
+      "value": 0.051397,
+      "threshold": null
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../fences-native-raw/campus-fence.png",
+      "sha256": "fa3886419e5fbcb8f87c9a2f9560502891716d8e15abc55b87f9efa5a5d478aa",
+      "bytes": 8315
+    },
+    {
+      "path": "../fences-native-raw/park-fence.png",
+      "sha256": "526c65ffd10a74310683aa6835b38d3029f42e3424ea6cc1d405cb75d0e5a8a4",
+      "bytes": 11851
+    },
+    {
+      "path": "../fences-palette/palette.json",
+      "sha256": "35270d1024e7a868816f6e355ba47bc2bc8d2403b358861aac96e22fbf423ee5",
+      "bytes": 3704
+    }
+  ],
+  "outputs": [
+    {
+      "path": "campus-fence.png",
+      "sha256": "c185b8b00e31088f811d15f4a888025bea1a71f26fd66abc4fdecbd7791ac28a",
+      "bytes": 4437
+    },
+    {
+      "path": "park-fence.png",
+      "sha256": "9175e55c4026e2ec8889af16bdedf0effe1d1e703491e2dd4b977d6100f8838f",
+      "bytes": 6345
+    }
+  ],
+  "tool": {
+    "name": "palette_tool",
+    "version": "0.4.0"
+  },
+  "fit": {
+    "campus-fence.png": {
+      "measured_px": 1940,
+      "alpha_threshold": 128,
+      "off_palette_px": 1931,
+      "partial_alpha_px": 2571,
+      "colors": 1836,
+      "palette_colors_used": 95,
+      "mean_delta_e": 0.013218,
+      "p95_delta_e": 0.031217,
+      "max_delta_e": 0.051397
+    },
+    "park-fence.png": {
+      "measured_px": 3308,
+      "alpha_threshold": 128,
+      "off_palette_px": 3283,
+      "partial_alpha_px": 4319,
+      "colors": 2771,
+      "palette_colors_used": 62,
+      "mean_delta_e": 0.009468,
+      "p95_delta_e": 0.019589,
+      "max_delta_e": 0.049043
+    }
+  },
+  "totals": {
+    "max_delta_e": 0.051397,
+    "worst_p95_delta_e": 0.031217,
+    "off_palette_px": 5214
+  },
+  "locked_inputs": []
+}

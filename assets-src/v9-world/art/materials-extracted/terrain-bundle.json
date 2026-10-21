@@ -1,0 +1,724 @@
+{
+  "schema": "generate2dmap.terrain_tile_bundle.v2",
+  "source": {
+    "path": "../native-material-strip.png",
+    "sha256": "efb9a62004c1ddd3bfc3dff60311f938a1b6f7affaa25e60c931047ad8211100",
+    "bytes": 174466,
+    "size": [
+      64,
+      1024
+    ],
+    "mode": "RGB",
+    "bit_depth": 8,
+    "conversion": "RGB -> RGBA"
+  },
+  "prompt": {
+    "path": "../../prompts/materials.txt",
+    "sha256": "c57fefcce7b2afc049cbe51eaa00e70b2c3359252825558713886300229a21d0",
+    "bytes": 2187
+  },
+  "grid": {
+    "rows": 16,
+    "cols": 1,
+    "rounding": "exact",
+    "source_cell_size": [
+      64,
+      64
+    ],
+    "output_tile_size": [
+      64,
+      64
+    ]
+  },
+  "tile": {
+    "shape": "square",
+    "layer": "base",
+    "footprint": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        64.0,
+        0.0
+      ],
+      [
+        64.0,
+        64.0
+      ],
+      [
+        0.0,
+        64.0
+      ]
+    ]
+  },
+  "terrains": {
+    "city-stone": {
+      "display_name": "city-stone",
+      "row": 0,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "city-stone-1.png",
+          "source_cell": [
+            0,
+            0
+          ],
+          "source_box": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "resized": false,
+          "mean_luminance": 0.771107,
+          "contrast": 0.107886,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "fed9efff625e4c8de80c557f0ce2c7d004d571b93f9b8c1bbe1f69c607c46691"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "city-herringbone": {
+      "display_name": "city-herringbone",
+      "row": 1,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "city-herringbone-1.png",
+          "source_cell": [
+            1,
+            0
+          ],
+          "source_box": [
+            0,
+            64,
+            64,
+            128
+          ],
+          "resized": false,
+          "mean_luminance": 0.512001,
+          "contrast": 0.111324,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "5784171e198953c8049aabfa4b823603d9c10451b2fa32a7cc33b50b1b824f51"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "concrete": {
+      "display_name": "concrete",
+      "row": 2,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "concrete-1.png",
+          "source_cell": [
+            2,
+            0
+          ],
+          "source_box": [
+            0,
+            128,
+            64,
+            192
+          ],
+          "resized": false,
+          "mean_luminance": 0.831938,
+          "contrast": 0.099291,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "75383090f58b52074a056e59c36729b4618a16889bcefa190b0398febc22d011"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "civic-inset": {
+      "display_name": "civic-inset",
+      "row": 3,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "civic-inset-1.png",
+          "source_cell": [
+            3,
+            0
+          ],
+          "source_box": [
+            0,
+            192,
+            64,
+            256
+          ],
+          "resized": false,
+          "mean_luminance": 0.402555,
+          "contrast": 0.103611,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "a825dc9a52c73e0cf9a944cb15f6d39ec4d4a6d53171d7632770332388f12696"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "park-grass": {
+      "display_name": "park-grass",
+      "row": 4,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "park-grass-1.png",
+          "source_cell": [
+            4,
+            0
+          ],
+          "source_box": [
+            0,
+            256,
+            64,
+            320
+          ],
+          "resized": false,
+          "mean_luminance": 0.513238,
+          "contrast": 0.148744,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "1b2a5b3e570f693630a9205b12df5b39201afff2cd1ae4f5e921d6eb8855c373"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "forest-grass": {
+      "display_name": "forest-grass",
+      "row": 5,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "forest-grass-1.png",
+          "source_cell": [
+            5,
+            0
+          ],
+          "source_box": [
+            0,
+            320,
+            64,
+            384
+          ],
+          "resized": false,
+          "mean_luminance": 0.319381,
+          "contrast": 0.145294,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "83ccf4e0f66723ec6df027a8d167c310785254e9d50bd182195c29f57ff30752"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "park-trail": {
+      "display_name": "park-trail",
+      "row": 6,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "park-trail-1.png",
+          "source_cell": [
+            6,
+            0
+          ],
+          "source_box": [
+            0,
+            384,
+            64,
+            448
+          ],
+          "resized": false,
+          "mean_luminance": 0.683098,
+          "contrast": 0.127205,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "c1c1adf9485a95372e28452a55f29c1454ce6c7f07d7be29d469f3b060cc3164"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "mulch": {
+      "display_name": "mulch",
+      "row": 7,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "mulch-1.png",
+          "source_cell": [
+            7,
+            0
+          ],
+          "source_box": [
+            0,
+            448,
+            64,
+            512
+          ],
+          "resized": false,
+          "mean_luminance": 0.303701,
+          "contrast": 0.144404,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "7d0cd998212e9f0f1d7deb571840f5eb835c1dadc6811c6caf97b487a5de7b63"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "leisure-paving": {
+      "display_name": "leisure-paving",
+      "row": 8,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "leisure-paving-1.png",
+          "source_cell": [
+            8,
+            0
+          ],
+          "source_box": [
+            0,
+            512,
+            64,
+            576
+          ],
+          "resized": false,
+          "mean_luminance": 0.659347,
+          "contrast": 0.086865,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "e56b807ec5abddf56e3e9828c130dd80aca21cbef9b7fa9a37fde89702a2fc97"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "coastal-stone": {
+      "display_name": "coastal-stone",
+      "row": 9,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "coastal-stone-1.png",
+          "source_cell": [
+            9,
+            0
+          ],
+          "source_box": [
+            0,
+            576,
+            64,
+            640
+          ],
+          "resized": false,
+          "mean_luminance": 0.839625,
+          "contrast": 0.103406,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "732d1164de3760f150ba0dcb3cd612643a9a194fe4ad8292fb4f362491412648"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "basalt": {
+      "display_name": "basalt",
+      "row": 10,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "basalt-1.png",
+          "source_cell": [
+            10,
+            0
+          ],
+          "source_box": [
+            0,
+            640,
+            64,
+            704
+          ],
+          "resized": false,
+          "mean_luminance": 0.287841,
+          "contrast": 0.108863,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "f4523fd37198a84099b197204ee420b31fe1e3f7d7a51fcdd8862da07487a5d8"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "jeju-trail": {
+      "display_name": "jeju-trail",
+      "row": 11,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "jeju-trail-1.png",
+          "source_cell": [
+            11,
+            0
+          ],
+          "source_box": [
+            0,
+            704,
+            64,
+            768
+          ],
+          "resized": false,
+          "mean_luminance": 0.666937,
+          "contrast": 0.160678,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "0af83023a9172b8c7b6c4705730af96f03c991ca7df2dccf2eb26acafc71d433"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "sea": {
+      "display_name": "sea",
+      "row": 12,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "sea-1.png",
+          "source_cell": [
+            12,
+            0
+          ],
+          "source_box": [
+            0,
+            768,
+            64,
+            832
+          ],
+          "resized": false,
+          "mean_luminance": 0.306913,
+          "contrast": 0.106441,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "e1ef0cea469e5e81d06b61664954131be9e28da9833baadcab265864ee2350ea"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "shallows": {
+      "display_name": "shallows",
+      "row": 13,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "shallows-1.png",
+          "source_cell": [
+            13,
+            0
+          ],
+          "source_box": [
+            0,
+            832,
+            64,
+            896
+          ],
+          "resized": false,
+          "mean_luminance": 0.643369,
+          "contrast": 0.107144,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "7e44bc7396fd1badcdc27ca3d85f0fb83d4d9cb65fee0cbce1cac70e145007df"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "jeju-grass": {
+      "display_name": "jeju-grass",
+      "row": 14,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "jeju-grass-1.png",
+          "source_cell": [
+            14,
+            0
+          ],
+          "source_box": [
+            0,
+            896,
+            64,
+            960
+          ],
+          "resized": false,
+          "mean_luminance": 0.489342,
+          "contrast": 0.152611,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "d3dbfd217b41736235ee2b9653be8983972fa82f5c49b181cee4822bc4ff8c1a"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "rail-gravel": {
+      "display_name": "rail-gravel",
+      "row": 15,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "rail-gravel-1.png",
+          "source_cell": [
+            15,
+            0
+          ],
+          "source_box": [
+            0,
+            960,
+            64,
+            1024
+          ],
+          "resized": false,
+          "mean_luminance": 0.355929,
+          "contrast": 0.160052,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "983b8b622a7407d26100d219afe05b4c9f548465f556884c3cd00f0c3ad26bb5"
+        }
+      ],
+      "variant_difference_min": 1.0
+    }
+  },
+  "processing": {
+    "background_mode": "opaque",
+    "background_mode_requested": "opaque",
+    "cell_shape": "square",
+    "resampler": "nearest",
+    "grid_rounding": "exact",
+    "edge_policy": "isolated",
+    "wrap_aware_resize": false
+  },
+  "qc": {
+    "min_contrast": 0.035,
+    "min_variant_difference": 0.025,
+    "max_border_delta": 0.1,
+    "min_shape_coverage": 0.97,
+    "max_shape_spill": 0.03,
+    "max_seam_ratio": null,
+    "warnings": [],
+    "passed": true,
+    "seamless_verified": false
+  },
+  "qa": {
+    "status": "pass",
+    "method": "Grid slices of the atlas, background handled per --background-mode, resized to the tile size (Lanczos or nearest; wrap-aware for the seamless policy). Luminance contrast and mean thumbnail differences; drawn frames along opposite edges; footprint coverage and spill for iso/hex base tiles; for the seamless policy, premultiplied wrap and Wang-join steps normalised by the art's own steps near each edge.",
+    "notProven": [
+      "visual quality, style match and readability at game zoom",
+      "that each variant reads as the named terrain",
+      "seamlessness: no exact seam proof exists for image tiles (seamless_verified stays false)"
+    ],
+    "checks": [
+      {
+        "id": "contrast",
+        "status": "pass",
+        "value": 0.086865,
+        "threshold": 0.035
+      },
+      {
+        "id": "variant_difference",
+        "status": "pass",
+        "value": 1.0,
+        "threshold": 0.025
+      },
+      {
+        "id": "border_frame",
+        "status": "pass",
+        "value": 0,
+        "threshold": 0.1
+      },
+      {
+        "id": "shape_coverage",
+        "status": "skipped",
+        "value": null,
+        "threshold": 0.97
+      },
+      {
+        "id": "shape_spill",
+        "status": "skipped",
+        "value": null,
+        "threshold": 0.03
+      },
+      {
+        "id": "wrap_seams",
+        "status": "skipped",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "id": "wang_seams",
+        "status": "skipped",
+        "value": null,
+        "threshold": null
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../native-material-strip.png",
+        "sha256": "efb9a62004c1ddd3bfc3dff60311f938a1b6f7affaa25e60c931047ad8211100",
+        "bytes": 174466
+      },
+      {
+        "path": "../../prompts/materials.txt",
+        "sha256": "c57fefcce7b2afc049cbe51eaa00e70b2c3359252825558713886300229a21d0",
+        "bytes": 2187
+      }
+    ],
+    "outputs": [
+      {
+        "path": "city-stone-1.png",
+        "sha256": "fed9efff625e4c8de80c557f0ce2c7d004d571b93f9b8c1bbe1f69c607c46691",
+        "bytes": 11446
+      },
+      {
+        "path": "city-herringbone-1.png",
+        "sha256": "5784171e198953c8049aabfa4b823603d9c10451b2fa32a7cc33b50b1b824f51",
+        "bytes": 12568
+      },
+      {
+        "path": "concrete-1.png",
+        "sha256": "75383090f58b52074a056e59c36729b4618a16889bcefa190b0398febc22d011",
+        "bytes": 11358
+      },
+      {
+        "path": "civic-inset-1.png",
+        "sha256": "a825dc9a52c73e0cf9a944cb15f6d39ec4d4a6d53171d7632770332388f12696",
+        "bytes": 11965
+      },
+      {
+        "path": "park-grass-1.png",
+        "sha256": "1b2a5b3e570f693630a9205b12df5b39201afff2cd1ae4f5e921d6eb8855c373",
+        "bytes": 13141
+      },
+      {
+        "path": "forest-grass-1.png",
+        "sha256": "83ccf4e0f66723ec6df027a8d167c310785254e9d50bd182195c29f57ff30752",
+        "bytes": 12942
+      },
+      {
+        "path": "park-trail-1.png",
+        "sha256": "c1c1adf9485a95372e28452a55f29c1454ce6c7f07d7be29d469f3b060cc3164",
+        "bytes": 13166
+      },
+      {
+        "path": "mulch-1.png",
+        "sha256": "7d0cd998212e9f0f1d7deb571840f5eb835c1dadc6811c6caf97b487a5de7b63",
+        "bytes": 12965
+      },
+      {
+        "path": "leisure-paving-1.png",
+        "sha256": "e56b807ec5abddf56e3e9828c130dd80aca21cbef9b7fa9a37fde89702a2fc97",
+        "bytes": 11659
+      },
+      {
+        "path": "coastal-stone-1.png",
+        "sha256": "732d1164de3760f150ba0dcb3cd612643a9a194fe4ad8292fb4f362491412648",
+        "bytes": 11584
+      },
+      {
+        "path": "basalt-1.png",
+        "sha256": "f4523fd37198a84099b197204ee420b31fe1e3f7d7a51fcdd8862da07487a5d8",
+        "bytes": 12731
+      },
+      {
+        "path": "jeju-trail-1.png",
+        "sha256": "0af83023a9172b8c7b6c4705730af96f03c991ca7df2dccf2eb26acafc71d433",
+        "bytes": 13081
+      },
+      {
+        "path": "sea-1.png",
+        "sha256": "e1ef0cea469e5e81d06b61664954131be9e28da9833baadcab265864ee2350ea",
+        "bytes": 10964
+      },
+      {
+        "path": "shallows-1.png",
+        "sha256": "7e44bc7396fd1badcdc27ca3d85f0fb83d4d9cb65fee0cbce1cac70e145007df",
+        "bytes": 12029
+      },
+      {
+        "path": "jeju-grass-1.png",
+        "sha256": "d3dbfd217b41736235ee2b9653be8983972fa82f5c49b181cee4822bc4ff8c1a",
+        "bytes": 13154
+      },
+      {
+        "path": "rail-gravel-1.png",
+        "sha256": "983b8b622a7407d26100d219afe05b4c9f548465f556884c3cd00f0c3ad26bb5",
+        "bytes": 13583
+      }
+    ],
+    "tool": {
+      "name": "extract_terrain_tiles.py",
+      "version": "0.4.0"
+    }
+  }
+}

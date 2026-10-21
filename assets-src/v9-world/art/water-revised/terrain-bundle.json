@@ -1,0 +1,210 @@
+{
+  "schema": "generate2dmap.terrain_tile_bundle.v2",
+  "source": {
+    "path": "../water-edit-strip.png",
+    "sha256": "0dfe9431abc72f4d3c6f1787fe94d836095a40aae261ca29cfdf7533b43ce802",
+    "bytes": 16585,
+    "size": [
+      64,
+      128
+    ],
+    "mode": "RGB",
+    "bit_depth": 8,
+    "conversion": "RGB -> RGBA"
+  },
+  "grid": {
+    "rows": 2,
+    "cols": 1,
+    "rounding": "exact",
+    "source_cell_size": [
+      64,
+      64
+    ],
+    "output_tile_size": [
+      64,
+      64
+    ]
+  },
+  "tile": {
+    "shape": "square",
+    "layer": "base",
+    "footprint": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        64.0,
+        0.0
+      ],
+      [
+        64.0,
+        64.0
+      ],
+      [
+        0.0,
+        64.0
+      ]
+    ]
+  },
+  "terrains": {
+    "sea": {
+      "display_name": "sea",
+      "row": 0,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "sea-1.png",
+          "source_cell": [
+            0,
+            0
+          ],
+          "source_box": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "resized": false,
+          "mean_luminance": 0.298372,
+          "contrast": 0.065882,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "fc69babe6c994f5b5f8cace05ac7a81456a6f1b3ec34c1866cf3700dc28c7b1d"
+        }
+      ],
+      "variant_difference_min": 1.0
+    },
+    "shallows": {
+      "display_name": "shallows",
+      "row": 1,
+      "kind": "fill",
+      "variants": [
+        {
+          "path": "shallows-1.png",
+          "source_cell": [
+            1,
+            0
+          ],
+          "source_box": [
+            0,
+            64,
+            64,
+            128
+          ],
+          "resized": false,
+          "mean_luminance": 0.622468,
+          "contrast": 0.069032,
+          "border": {
+            "checked": true,
+            "frame": false,
+            "frames": [],
+            "max_delta": 0.0
+          },
+          "sha256": "a34fadff25ff7f16c4381d964af14d74701435dbba14147e0c5aa149dbbb7cc2"
+        }
+      ],
+      "variant_difference_min": 1.0
+    }
+  },
+  "processing": {
+    "background_mode": "opaque",
+    "background_mode_requested": "opaque",
+    "cell_shape": "square",
+    "resampler": "nearest",
+    "grid_rounding": "exact",
+    "edge_policy": "isolated",
+    "wrap_aware_resize": false
+  },
+  "qc": {
+    "min_contrast": 0.035,
+    "min_variant_difference": 0.025,
+    "max_border_delta": 0.1,
+    "min_shape_coverage": 0.97,
+    "max_shape_spill": 0.03,
+    "max_seam_ratio": null,
+    "warnings": [],
+    "passed": true,
+    "seamless_verified": false
+  },
+  "qa": {
+    "status": "pass",
+    "method": "Grid slices of the atlas, background handled per --background-mode, resized to the tile size (Lanczos or nearest; wrap-aware for the seamless policy). Luminance contrast and mean thumbnail differences; drawn frames along opposite edges; footprint coverage and spill for iso/hex base tiles; for the seamless policy, premultiplied wrap and Wang-join steps normalised by the art's own steps near each edge.",
+    "notProven": [
+      "visual quality, style match and readability at game zoom",
+      "that each variant reads as the named terrain",
+      "seamlessness: no exact seam proof exists for image tiles (seamless_verified stays false)"
+    ],
+    "checks": [
+      {
+        "id": "contrast",
+        "status": "pass",
+        "value": 0.065882,
+        "threshold": 0.035
+      },
+      {
+        "id": "variant_difference",
+        "status": "pass",
+        "value": 1.0,
+        "threshold": 0.025
+      },
+      {
+        "id": "border_frame",
+        "status": "pass",
+        "value": 0,
+        "threshold": 0.1
+      },
+      {
+        "id": "shape_coverage",
+        "status": "skipped",
+        "value": null,
+        "threshold": 0.97
+      },
+      {
+        "id": "shape_spill",
+        "status": "skipped",
+        "value": null,
+        "threshold": 0.03
+      },
+      {
+        "id": "wrap_seams",
+        "status": "skipped",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "id": "wang_seams",
+        "status": "skipped",
+        "value": null,
+        "threshold": null
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../water-edit-strip.png",
+        "sha256": "0dfe9431abc72f4d3c6f1787fe94d836095a40aae261ca29cfdf7533b43ce802",
+        "bytes": 16585
+      }
+    ],
+    "outputs": [
+      {
+        "path": "sea-1.png",
+        "sha256": "fc69babe6c994f5b5f8cace05ac7a81456a6f1b3ec34c1866cf3700dc28c7b1d",
+        "bytes": 8842
+      },
+      {
+        "path": "shallows-1.png",
+        "sha256": "a34fadff25ff7f16c4381d964af14d74701435dbba14147e0c5aa149dbbb7cc2",
+        "bytes": 9971
+      }
+    ],
+    "tool": {
+      "name": "extract_terrain_tiles.py",
+      "version": "0.4.0"
+    }
+  }
+}

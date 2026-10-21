@@ -1,20 +1,11 @@
-# V9 total southern world reset — in progress
+# V9 decisions
 
-User rejects all previous southern layouts. Recovery tag recovery/before-v9-total-southern-reset-20261021→0b809ee883231fcfe46af6330a93e2142c98c299 is remote-verified.4,931obsolete tracked files (4,087,341,729bytes) removed after dependency inventory and exact north/actor/art extraction. Preserve273north objects/4352×2240ground/Juni144frames/shared gameplay/UI and108reusable native art kinds/60original sheet+provenance records. No rejected southern placement/road/plot/ground inputs remain in the V9 planner.
-
-- [x] Archive active V8 work, including actual519.967s video/ZIP and successful12unit/65browser source CI, as REJECTED recovery only.
-- [x] Inventory and remove obsolete active southern implementations/reports; original source library retained.
-- [x] Verify north-only playable foundation: 12 unit +4 browser tests; actual matched-camera 1024×768 Phaser north frame byte-identical to archived V8; build/type/lint/format pass.
-- [x] Pixels public reference study + new editable4352×6144 V9 plan,31routes/25sites; geometry feasibility passes.
-- [x] Real playable graybox:36browser checks pass; visual review moved one obstructing service plot and cafe setback,3affected routes reverified;7actual-engine captures inspected.
-- [ ] Original-image/Forge/Tiled world production, actual Phaser visual correction and navigation/mobile QA.
-- [ ] Final build/tests/real-video/HTTP-ZIP/branch checkpoint.
-- [ ] USER visual approval; STOP after complete candidate.
-
-No main merge/deploy/paid API/delegation/separate-app changes. Setup validates stored files, never generates. Current V9 source is an in-progress rebuild, not approved art. See SOUTHERN_RESET_CLEANUP.md and docs/current/V9_TOTAL_SOUTHERN_WORLD_RESET.md.
-
-## New V9 design decisions — Stage B / C
-
-Original 4352×6144 plan: Namsan northeast, transit southwest, leisure southeast and Jeju southwest.29initial routes/21original-art sites expanded to31routes/25sites with four reserved original neighborhood-shop designs. Roads and plots were authored before new art. No rejected southern coordinate/template imports. The isolated V8 engine image is comparison evidence only.
-
-The first route-body audit failed at seven route groups (railway, pavilion/kiosk, hall, ferry/coast and island shore). Those conflicts were corrected in the editable plan rather than weakening collisions; the current8×4px actor route geometry check passes. Stage C uses explicitly temporary code-drawn site volumes; no final southern illustration has been positioned yet. Final image generation remains gated on actual graybox browser traversal.
+1. Respect explicit clean reset: remove obsolete active southern source/reports after remote-verified V8 recovery. Preserve108native original art kinds/60original sheet and provenance records, Juni144frames,273north objects and shared gameplay. History/tags/main are retained.
+2. Start from fresh roads, blocks, plots and entrances. No prior southern coordinate/terrain/mask import. Namsan moves northeast, transit southwest, leisure southeast and Jeju southwest. Compare V8 only after authoring, reading its actual engine image directly from the archive tag.
+3. Civic square has a planted meeting island with an open walkable ring. Shops face public frontages. Move the service building west to avoid hiding the square; group gallery/tram-shelter with the station and add a purposeful neighborhood lane. No repeated building clones or recolors.
+4. Use one perpendicular rail crossing with real blocking tracks. Station/shops/forecourt form one block. Campus has distinct coordinated fencing, planted side edges and actual gateways connected to its internal loop and coastal route.
+5. Keep a single intentional ferry system, no mainland-island bridge. Render soil coast separately from walkable pier geometry so decks do not create fake islands. Island arrival1984,5504 lies on its trail outside the112px boarding trigger.
+6. Final RGB comes from original image-generated materials and retained native artwork. Data masks define material shapes; no generic code-drawn replacement world. Natural material reflections and6gentle pixel-offset water phases preserve literal crisp source pixels. No global filter, blur or resampling of approved architecture/Juni.
+7. Union public surfaces before curbs: no internal rings at joins or outlined end caps inside forecourts. Remove purposeless mulch bars; size station forecourt to its native facade. Jeju gets small lighter stone thresholds, basalt edges and a coherent scenic circuit.
+8. Use actual Forge processing/Tiled/nav/preview, not merely skill reads. Diagnostic self-contained HTML needs32MB because it embeds all image bytes; this changes only diagnostic size budget. No provider API requests; host model/price unexposed. Record raw failures/WARN.
+9. Technical tests do not approve art. Actual engine views were inspected/corrected; final review waits for the user. No public deployment/main merge/mass NPC/new gameplay/delegation.

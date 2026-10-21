@@ -637,5 +637,719 @@
     "exit": 0,
     "stdout": "{\"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/compose/preview.png\", \"report\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/compose/report.json\", \"debug_overlay\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/compose/debug.png\", \"audit_out\": \"/workspace/3D-pharse5-/.cache/v9-world/export-2c64b9a7c0f446ef/compose/audit.json\", \"placed\": 298, \"warnings\": 0, \"audit_status\": \"warn\"}\n",
     "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/extract_prop_pack.py",
+      "--input",
+      "/workspace/3D-pharse5-/assets-src/v9-world/originals/shops.png",
+      "--boxes-file",
+      "/workspace/3D-pharse5-/assets-src/v9-world/art/shop-boxes.json",
+      "--background-mode",
+      "native_alpha",
+      "--component-mode",
+      "all",
+      "--alpha-hygiene",
+      "none",
+      "--component-padding",
+      "4",
+      "--art-source",
+      "host_image",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/v9-world/art/shops-extracted"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"ok\", \"output_dir\": \"/workspace/3D-pharse5-/assets-src/v9-world/art/shops-extracted\", \"manifest\": \"/workspace/3D-pharse5-/assets-src/v9-world/art/shops-extracted/prop-pack.json\", \"accepted\": 4, \"placeholders\": 0, \"rejected\": 0, \"qa\": \"warn\", \"warnings\": [\"props touch a cell edge (possible clipping): ['new-grocery', 'new-bakery', 'new-language']\"]}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dsprite/scripts/palette_tool.py",
+      "build",
+      "--input",
+      "/workspace/3D-pharse5-/assets-src/v9-world/art/shops-native-raw",
+      "--colors",
+      "192",
+      "--name",
+      "Korean Arena V9 original shop pixel palette",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/v9-world/art/shops-palette"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/v9-world/art/shops-palette\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/v9-world/art/shops-palette/palette.json\", \"qa\": \"/workspace/3D-pharse5-/assets-src/v9-world/art/shops-palette/palette-qa.json\", \"colors\": 192, \"files\": [\"palette.json\", \"palette.gpl\", \"palette.hex\", \"swatches.png\"]}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dsprite/scripts/palette_tool.py",
+      "apply",
+      "--palette",
+      "/workspace/3D-pharse5-/assets-src/v9-world/art/shops-palette/palette.json",
+      "--input",
+      "/workspace/3D-pharse5-/assets-src/v9-world/art/shops-native-raw",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/v9-world/art/shops-finished",
+      "--alpha-threshold",
+      "128"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/v9-world/art/shops-finished\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/v9-world/art/shops-finished/apply-qa.json\", \"frames\": 4, \"locked_inputs\": 0, \"indexed\": false}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/extract_terrain_tiles.py",
+      "--input",
+      "/workspace/3D-pharse5-/assets-src/v9-world/art/native-material-strip.png",
+      "--rows",
+      "16",
+      "--cols",
+      "1",
+      "--terrain-row",
+      "city-stone=0",
+      "--terrain-row",
+      "city-herringbone=1",
+      "--terrain-row",
+      "concrete=2",
+      "--terrain-row",
+      "civic-inset=3",
+      "--terrain-row",
+      "park-grass=4",
+      "--terrain-row",
+      "forest-grass=5",
+      "--terrain-row",
+      "park-trail=6",
+      "--terrain-row",
+      "mulch=7",
+      "--terrain-row",
+      "leisure-paving=8",
+      "--terrain-row",
+      "coastal-stone=9",
+      "--terrain-row",
+      "basalt=10",
+      "--terrain-row",
+      "jeju-trail=11",
+      "--terrain-row",
+      "sea=12",
+      "--terrain-row",
+      "shallows=13",
+      "--terrain-row",
+      "jeju-grass=14",
+      "--terrain-row",
+      "rail-gravel=15",
+      "--tile-size",
+      "64",
+      "--resampler",
+      "nearest",
+      "--background-mode",
+      "opaque",
+      "--edge-policy",
+      "isolated",
+      "--prompt",
+      "/workspace/3D-pharse5-/assets-src/v9-world/prompts/materials.txt",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/v9-world/art/materials-extracted"
+    ],
+    "exit": 0,
+    "stdout": "{\"output\": \"/workspace/3D-pharse5-/assets-src/v9-world/art/materials-extracted\", \"manifest\": \"/workspace/3D-pharse5-/assets-src/v9-world/art/materials-extracted/terrain-bundle.json\", \"schema\": \"generate2dmap.terrain_tile_bundle.v2\", \"status\": \"pass\", \"qc\": {\"passed\": true, \"warnings\": []}}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-44.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-44.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-44.json\", \"files_hashed\": 622}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/validation-45.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json\", \"id\": \"korean-arena\", \"version\": 2, \"errors\": 0, \"warnings\": 0, \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/validation-45.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/export_tiled.py",
+      "export",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--embedded-variant",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/tiled"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/tiled\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/tiled/export-report.json\", \"map\": \"/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/tiled/map.tmj\", \"embedded\": \"/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/tiled/map.embedded.tmj\", \"tilesets\": 2, \"layers\": [\"Ground\", \"Edging\", \"Props\", \"collision\", \"interactions\"], \"differingPixels\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle-draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-47.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-47.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-47.json\", \"files_hashed\": 6}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/world-nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/world-nav\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/world-nav/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/world-nav/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/world-nav/nav-debug.png\", \"map\": \"korean-arena\", \"cell\": 4, \"targets\": 61, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/academy-nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/academy-nav\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/academy-nav/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/academy-nav/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/academy-nav/nav-debug.png\", \"map\": \"academy\", \"cell\": 4, \"targets\": 5, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/compose_layered_preview.py",
+      "--base",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/ground-native.png",
+      "--placements",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/placements.json",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--output",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/compose/preview.png",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/compose/report.json",
+      "--debug-overlay",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/compose/debug.png",
+      "--audit-out",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/compose/audit.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/compose/preview.png\", \"report\": \"/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/compose/report.json\", \"debug_overlay\": \"/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/compose/debug.png\", \"audit_out\": \"/workspace/3D-pharse5-/.cache/v9-world/export-bb21b6bf39514bc3/compose/audit.json\", \"placed\": 520, \"warnings\": 0, \"audit_status\": \"warn\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/extract_terrain_tiles.py",
+      "--input",
+      "/workspace/3D-pharse5-/assets-src/v9-world/art/water-edit-strip.png",
+      "--rows",
+      "2",
+      "--cols",
+      "1",
+      "--terrain-row",
+      "sea=0",
+      "--terrain-row",
+      "shallows=1",
+      "--tile-size",
+      "64",
+      "--resampler",
+      "nearest",
+      "--background-mode",
+      "opaque",
+      "--edge-policy",
+      "isolated",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/v9-world/art/water-revised"
+    ],
+    "exit": 0,
+    "stdout": "{\"output\": \"/workspace/3D-pharse5-/assets-src/v9-world/art/water-revised\", \"manifest\": \"/workspace/3D-pharse5-/assets-src/v9-world/art/water-revised/terrain-bundle.json\", \"schema\": \"generate2dmap.terrain_tile_bundle.v2\", \"status\": \"pass\", \"qc\": {\"passed\": true, \"warnings\": []}}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/extract_prop_pack.py",
+      "--input",
+      "/workspace/3D-pharse5-/assets-src/v9-world/originals/fences.png",
+      "--rows",
+      "1",
+      "--cols",
+      "2",
+      "--labels",
+      "campus-fence,park-fence",
+      "--grid-rounding",
+      "nearest",
+      "--background-mode",
+      "native_alpha",
+      "--component-mode",
+      "all",
+      "--alpha-hygiene",
+      "none",
+      "--art-source",
+      "host_image",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/v9-world/art/fences-extracted"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"ok\", \"output_dir\": \"/workspace/3D-pharse5-/assets-src/v9-world/art/fences-extracted\", \"manifest\": \"/workspace/3D-pharse5-/assets-src/v9-world/art/fences-extracted/prop-pack.json\", \"accepted\": 2, \"placeholders\": 0, \"rejected\": 0, \"qa\": \"warn\", \"warnings\": [\"props touch a cell edge (possible clipping): ['park-fence']\"]}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dsprite/scripts/palette_tool.py",
+      "build",
+      "--input",
+      "/workspace/3D-pharse5-/assets-src/v9-world/art/fences-native-raw",
+      "--colors",
+      "96",
+      "--name",
+      "V9 original park campus infrastructure",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/v9-world/art/fences-palette"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/v9-world/art/fences-palette\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/v9-world/art/fences-palette/palette.json\", \"qa\": \"/workspace/3D-pharse5-/assets-src/v9-world/art/fences-palette/palette-qa.json\", \"colors\": 96, \"files\": [\"palette.json\", \"palette.gpl\", \"palette.hex\", \"swatches.png\"]}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dsprite/scripts/palette_tool.py",
+      "apply",
+      "--palette",
+      "/workspace/3D-pharse5-/assets-src/v9-world/art/fences-palette/palette.json",
+      "--input",
+      "/workspace/3D-pharse5-/assets-src/v9-world/art/fences-native-raw",
+      "--output-dir",
+      "/workspace/3D-pharse5-/assets-src/v9-world/art/fences-finished",
+      "--alpha-threshold",
+      "128"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/v9-world/art/fences-finished\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/v9-world/art/fences-finished/apply-qa.json\", \"frames\": 2, \"locked_inputs\": 0, \"indexed\": false}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-55.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-55.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-55.json\", \"files_hashed\": 385}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/validation-56.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json\", \"id\": \"korean-arena\", \"version\": 2, \"errors\": 0, \"warnings\": 0, \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/validation-56.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/export_tiled.py",
+      "export",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--embedded-variant",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/tiled"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/tiled\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/tiled/export-report.json\", \"map\": \"/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/tiled/map.tmj\", \"embedded\": \"/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/tiled/map.embedded.tmj\", \"tilesets\": 2, \"layers\": [\"Ground\", \"Edging\", \"Props\", \"collision\", \"interactions\"], \"differingPixels\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle-draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-58.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-58.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-58.json\", \"files_hashed\": 6}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/world-nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/world-nav\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/world-nav/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/world-nav/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/world-nav/nav-debug.png\", \"map\": \"korean-arena\", \"cell\": 4, \"targets\": 61, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/academy-nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/academy-nav\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/academy-nav/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/academy-nav/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/academy-nav/nav-debug.png\", \"map\": \"academy\", \"cell\": 4, \"targets\": 5, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/compose_layered_preview.py",
+      "--base",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/ground-native.png",
+      "--placements",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/placements.json",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--output",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/compose/preview.png",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/compose/report.json",
+      "--debug-overlay",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/compose/debug.png",
+      "--audit-out",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/compose/audit.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/compose/preview.png\", \"report\": \"/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/compose/report.json\", \"debug_overlay\": \"/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/compose/debug.png\", \"audit_out\": \"/workspace/3D-pharse5-/.cache/v9-world/export-1209e71b340e0329/compose/audit.json\", \"placed\": 298, \"warnings\": 0, \"audit_status\": \"warn\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-62.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-62.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-62.json\", \"files_hashed\": 627}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/validation-63.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json\", \"id\": \"korean-arena\", \"version\": 2, \"errors\": 0, \"warnings\": 0, \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/validation-63.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/export_tiled.py",
+      "export",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--embedded-variant",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/tiled"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/tiled\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/tiled/export-report.json\", \"map\": \"/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/tiled/map.tmj\", \"embedded\": \"/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/tiled/map.embedded.tmj\", \"tilesets\": 2, \"layers\": [\"Ground\", \"Edging\", \"Props\", \"collision\", \"interactions\"], \"differingPixels\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle-draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-65.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-65.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-65.json\", \"files_hashed\": 6}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/world-nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/world-nav\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/world-nav/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/world-nav/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/world-nav/nav-debug.png\", \"map\": \"korean-arena\", \"cell\": 4, \"targets\": 61, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/academy-nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/academy-nav\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/academy-nav/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/academy-nav/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/academy-nav/nav-debug.png\", \"map\": \"academy\", \"cell\": 4, \"targets\": 5, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/compose_layered_preview.py",
+      "--base",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/ground-native.png",
+      "--placements",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/placements.json",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--output",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/compose/preview.png",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/compose/report.json",
+      "--debug-overlay",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/compose/debug.png",
+      "--audit-out",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/compose/audit.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/compose/preview.png\", \"report\": \"/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/compose/report.json\", \"debug_overlay\": \"/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/compose/debug.png\", \"audit_out\": \"/workspace/3D-pharse5-/.cache/v9-world/export-cfe6d287a175203a/compose/audit.json\", \"placed\": 523, \"warnings\": 0, \"audit_status\": \"warn\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-69.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-69.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/.hashed-69.json\", \"files_hashed\": 627}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/validation-70.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"bundle\": \"/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json\", \"id\": \"korean-arena\", \"version\": 2, \"errors\": 0, \"warnings\": 0, \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/validation-70.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/export_tiled.py",
+      "export",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--embedded-variant",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/tiled"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/tiled\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/tiled/export-report.json\", \"map\": \"/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/tiled/map.tmj\", \"embedded\": \"/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/tiled/map.embedded.tmj\", \"tilesets\": 2, \"layers\": [\"Ground\", \"Edging\", \"Props\", \"collision\", \"interactions\"], \"differingPixels\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle-draft.json",
+      "--output",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-72.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-72.json\", \"metadata\": \"/workspace/3D-pharse5-/assets-src/interiors/academy/.hashed-72.json\", \"files_hashed\": 6}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/world-nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/world-nav\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/world-nav/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/world-nav/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/world-nav/nav-debug.png\", \"map\": \"korean-arena\", \"cell\": 4, \"targets\": 61, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/interiors/academy/bundle.json",
+      "--link",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/academy-nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/academy-nav\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/academy-nav/nav-report.json\", \"grid\": \"/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/academy-nav/nav-grid.json\", \"debug\": \"/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/academy-nav/nav-debug.png\", \"map\": \"academy\", \"cell\": 4, \"targets\": 5, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/compose_layered_preview.py",
+      "--base",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/ground-native.png",
+      "--placements",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/placements.json",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--output",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/compose/preview.png",
+      "--report",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/compose/report.json",
+      "--debug-overlay",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/compose/debug.png",
+      "--audit-out",
+      "/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/compose/audit.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"output\": \"/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/compose/preview.png\", \"report\": \"/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/compose/report.json\", \"debug_overlay\": \"/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/compose/debug.png\", \"audit_out\": \"/workspace/3D-pharse5-/.cache/v9-world/export-60915cd8bac64cb3/compose/audit.json\", \"placed\": 523, \"warnings\": 0, \"audit_status\": \"warn\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/build_scene_preview.py",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--actor-height",
+      "55",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/scene-60915cd8bac64cb3"
+    ],
+    "exit": 1,
+    "stdout": "",
+    "stderr": "error: QA failed, nothing published: html-size 22521450\n"
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/build_scene_preview.py",
+      "--bundle",
+      "/workspace/3D-pharse5-/assets-src/v9-world/map/bundle.json",
+      "--actor-height",
+      "55",
+      "--max-bytes",
+      "32000000",
+      "--output-dir",
+      "/workspace/3D-pharse5-/.cache/v9-world/scene-60915cd8bac64cb3"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output_dir\": \"/workspace/3D-pharse5-/.cache/v9-world/scene-60915cd8bac64cb3\", \"preview\": \"/workspace/3D-pharse5-/.cache/v9-world/scene-60915cd8bac64cb3/preview.html\", \"metadata\": \"/workspace/3D-pharse5-/.cache/v9-world/scene-60915cd8bac64cb3/preview-qa.json\", \"bytes\": 22521450, \"verify\": \"not-requested\", \"warnings\": 0, \"failed\": []}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "--require",
+      "/workspace/3D-pharse5-/.cache/v9-world/scene-60915cd8bac64cb3/launch-host.cjs",
+      "/workspace/3D-pharse5-/.cache/v9-world/scene-60915cd8bac64cb3/upstream-verifier.cjs"
+    ],
+    "exit": 0,
+    "stdout": "{\"browser\":\"154.0.8037.57\",\"pageErrors\":[],\"consoleErrors\":[],\"requests\":[],\"error\":null,\"assets\":{\"total\":100,\"loaded\":100,\"failed\":[]},\"keyboard\":[{\"key\":\"ArrowRight\",\"free\":true,\"moved\":33.59999999999809},{\"key\":\"ArrowLeft\",\"free\":true,\"moved\":30.399999999998272},{\"key\":\"ArrowDown\",\"free\":true,\"moved\":27.200000000000387},{\"key\":\"ArrowUp\",\"free\":true,\"moved\":28.80000000000041}],\"routes\":{\"ok\":true,\"speed\":96,\"budget\":1.6,\"tickHz\":60,\"cell\":4,\"spawns\":[{\"id\":\"start\",\"valid\":true,\"reachableCells\":864343},{\"id\":\"room-return\",\"valid\":true,\"reachableCells\":864343},{\"id\":\"ferry-mainland\",\"valid\":true,\"reachableCells\":864343},{\"id\":\"ferry-jeju\",\"valid\":true,\"reachableCells\":71747},{\"id\":\"academy<-academy\",\"kind\":\"arrival\",\"valid\":true,\"reachableCells\":864343}],\"results\":[{\"target\":\"academy\",\"kind\":\"exit\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":683,\"distance\":1092.8,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1599.249,1235.573],\"fired\":true,\"inwardFired\":false},{\"target\":\"hall\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":257,\"distance\":410.069,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2170,422]},{\"target\":\"hanji\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":342,\"distance\":546.181,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2406,454]},{\"target\":\"royal-garden\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":426,\"distance\":681.167,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1654,586]},{\"target\":\"science\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":581,\"distance\":929.109,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2570,1414]},{\"target\":\"museum\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1070,\"distance\":1711.209,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2950,1942]},{\"target\":\"bookshop\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1440,\"distance\":2303.034,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1702,2706]},{\"target\":\"library\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1278,\"distance\":2043.556,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2490,2706]},{\"target\":\"neighborhood-service\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2239,\"distance\":3582.231,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[874,3222]},{\"target\":\"cafe\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1648,\"distance\":2636.062,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2614,3190]},{\"target\":\"tower\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1887,\"distance\":3017.981,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3466,2882]},{\"target\":\"garden-pavilion\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2181,\"distance\":3488.752,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3638,3206]},{\"target\":\"station\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2328,\"distance\":3724.37,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1450,3902]},{\"target\":\"transit-shelter\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1723,\"distance\":2755.345,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2266,3562]},{\"target\":\"coastal-cafe\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2963,\"distance\":4739.28,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[726,4178]},{\"target\":\"lookout\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2513,\"distance\":4019.28,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1446,4178]},{\"target\":\"wheel\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2670,\"distance\":4270.828,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3058,3974]},{\"target\":\"carousel\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2969,\"distance\":4749.611,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3746,4206]},{\"target\":\"visitor\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2747,\"distance\":4394.854,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3938,3678]},{\"target\":\"discovery-hall\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":3104,\"distance\":4966.15,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3698,4486]},{\"target\":\"campus-entry\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2757,\"distance\":4410.588,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3162,4514]},{\"target\":\"ferry-terminal\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2452,\"distance\":3921.971,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2298,4578]},{\"target\":\"oreum\",\"kind\":\"interaction\",\"from\":\"ferry-jeju\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":395,\"distance\":630.966,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1354,5526]},{\"target\":\"village\",\"kind\":\"interaction\",\"from\":\"ferry-jeju\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":540,\"distance\":862.949,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1350,5826]},{\"target\":\"nature-center\",\"kind\":\"interaction\",\"from\":\"ferry-jeju\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":257,\"distance\":409.739,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1930,5814]},{\"target\":\"cliff-lookout\",\"kind\":\"interaction\",\"from\":\"ferry-jeju\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":876,\"distance\":1400.019,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[710,5658]},{\"target\":\"basalt-learning\",\"kind\":\"interaction\",\"from\":\"ferry-jeju\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":432,\"distance\":690.105,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1610,5918]},{\"target\":\"corner-grocery\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1659,\"distance\":2653.146,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1358,2734]},{\"target\":\"bakery\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1939,\"distance\":3102.231,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1354,3222]},{\"target\":\"language-center\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1211,\"distance\":1936.991,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2070,2706]},{\"target\":\"design-gallery\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1978,\"distance\":3163.549,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2118,3910]},{\"target\":\"hall.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":321,\"distance\":512.141,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2176,320]},{\"target\":\"hanji.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":449,\"distance\":718.197,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2480,384]},{\"target\":\"royal-garden.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":484,\"distance\":773.292,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1568,528]},{\"target\":\"science.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":635,\"distance\":1015.364,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2656,1472]},{\"target\":\"museum.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1172,\"distance\":1874.806,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3008,2028]},{\"target\":\"bookshop.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1496,\"distance\":2392.606,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1648,2784]},{\"target\":\"library.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1335,\"distance\":2135.685,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2544,2784]},{\"target\":\"neighborhood-service.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2309,\"distance\":3693.192,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[800,3280]},{\"target\":\"cafe.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1695,\"distance\":2711.322,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2672,3264]},{\"target\":\"tower.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1937,\"distance\":3099.096,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3520,2960]},{\"target\":\"garden-pavilion.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2235,\"distance\":3574.904,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3704,3272]},{\"target\":\"station.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2405,\"distance\":3846.922,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1376,3960]},{\"target\":\"transit-shelter.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1841,\"distance\":2945.207,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2224,3648]},{\"target\":\"coastal-cafe.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":3013,\"distance\":4819.443,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[672,4256]},{\"target\":\"lookout.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2563,\"distance\":4099.415,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1392,4256]},{\"target\":\"wheel.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2736,\"distance\":4377.219,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3136,3920]},{\"target\":\"carousel.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":3028,\"distance\":4843.821,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3840,4216]},{\"target\":\"visitor.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2828,\"distance\":4523.747,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3872,3744]},{\"target\":\"discovery-hall.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":3158,\"distance\":5051.872,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3776,4536]},{\"target\":\"campus-entry.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2828,\"distance\":4523.551,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3216,4592]},{\"target\":\"ferry-terminal.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2504,\"distance\":4005.261,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2352,4656]},{\"target\":\"oreum.approach[0]\",\"kind\":\"approach\",\"from\":\"ferry-jeju\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":449,\"distance\":717.45,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1280,5584]},{\"target\":\"village.approach[0]\",\"kind\":\"approach\",\"from\":\"ferry-jeju\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":601,\"distance\":960.681,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1296,5904]},{\"target\":\"nature-center.approach[0]\",\"kind\":\"approach\",\"from\":\"ferry-jeju\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":335,\"distance\":535.845,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1856,5872]},{\"target\":\"cliff-lookout.approach[0]\",\"kind\":\"approach\",\"from\":\"ferry-jeju\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":945,\"distance\":1511.142,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[672,5744]},{\"target\":\"basalt-learning.approach[0]\",\"kind\":\"approach\",\"from\":\"ferry-jeju\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":525,\"distance\":839.485,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1536,5976]},{\"target\":\"corner-grocery.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1726,\"distance\":2760.537,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1280,2784]},{\"target\":\"bakery.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2009,\"distance\":3213.145,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1280,3280]},{\"target\":\"language-center.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1267,\"distance\":2025.69,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2016,2784]},{\"target\":\"design-gallery.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2034,\"distance\":3254.002,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2192,3968]}],\"portals\":[{\"id\":\"academy\",\"activation\":\"intent\",\"to\":\"academy:start\",\"arrivals\":[{\"from\":\"academy\",\"spawn\":\"academy<-academy\",\"found\":true,\"point\":[1568,1152],\"insideTrigger\":false,\"inZone\":true,\"latchedOnArrival\":true,\"valid\":true,\"joined\":true,\"bounceBack\":[]}]}]},\"ysort\":{\"status\":\"pass\",\"object\":\"heritage-kr-135-kr-pier\",\"pixel\":[1408,51,53],\"behind\":{\"withActor\":[138,124,112,255],\"withoutActor\":[138,124,112,255]},\"front\":{\"withActor\":[242,245,234,255],\"withoutActor\":[211,179,138,255]}},\"snapshot\":{\"schema\":\"generate2dmap.scene_snapshot.v1\",\"runtime\":{\"name\":\"map-runtime\",\"version\":\"1.1.2\"},\"world\":{\"width\":4352,\"height\":6144,\"actorRadius\":8,\"ySquash\":0.5,\"cell\":4,\"tickHz\":60,\"solids\":478,\"portals\":1,\"oneWay\":false},\"actor\":{\"x\":2176,\"y\":832,\"valid\":true,\"facing\":[0,1],\"latched\":[],\"travelled\":120,\"pathLength\":0},\"ready\":true,\"error\":null,\"tick\":526,\"title\":\"Korean Arena — V9 new southern world candidate\",\"source\":{\"file\":\"bundle.json\",\"sha256\":\"60915cd8bac64cb37c33cbb091a3475799b6d14897bb320e62ec1c33b1e053ac\",\"schema\":\"generate2dmap.map_bundle.v2\"},\"start\":\"start\",\"speed\":96,\"zoom\":1,\"debug\":false,\"assets\":{\"total\":100,\"loaded\":100,\"failed\":[]},\"drawOrder\":[\"heritage-kr-135-kr-pier\",\"heritage-kr-93-palace-north\",\"heritage-kr-136-kr-pier\",\"v3-352\",\"heritage-refined-127\",\"heritage-refined-128\",\"v3-354\",\"heritage-refined-126\",\"v3-353\",\"v3-290\",\"v3-289\",\"heritage-refined-47\",\"v3-277\",\"v3-288\",\"heritage-refined-49\",\"heritage-refined-50\",\"v3-291\",\"heritage-refined-123\",\"heritage-refined-48\",\"heritage-refined-124\",\"v3-355\",\"v3-358\",\"heritage-kr-139-kr-pier\",\"heritage-kr-98-palace-inner-west\",\"heritage-refined-46\",\"heritage-kr-99-palace-inner-east\",\"heritage-kr-140-kr-pier\",\"v3-292\",\"v3-293\",\"v3-357\",\"v3-294\",\"v3-272\",\"full-180\",\"full-181\",\"v3-356\",\"heritage-refined-51\",\"heritage-refined-52\",\"heritage-refined-148\",\"heritage-refined-149\",\"heritage-refined-129\",\"v3-295\",\"heritage-refined-130\",\"heritage-refined-104\",\"v3-296\",\"heritage-refined-103\",\"v3-359\",\"v3-364\",\"v3-297\",\"v3-365\",\"v3-301\",\"v3-299\",\"v3-360\",\"v3-362\",\"v3-361\",\"v3-300\",\"v3-298\",\"v3-363\",\"heritage-kr-137-kr-pier\",\"heritage-kr-94-palace-side-384\",\"heritage-kr-96-palace-front-west\",\"heritage-kr-97-palace-front-east\",\"heritage-kr-138-kr-pier\",\"heritage-kr-95-palace-side-1920\",\"v3-302\",\"heritage-refined-140\",\"v3-366\",\"heritage-refined-6\",\"heritage-refined-141\",\"v3-278\",\"v3-303\",\"v3-304\",\"heritage-refined-131\",\"heritage-refined-119\",\"heritage-refined-120\",\"v3-369\",\"v3-368\",\"heritage-refined-136\",\"v3-305\",\"v3-367\",\"heritage-refined-142\",\"heritage-refined-111\",\"heritage-refined-112\",\"v3-370\",\"v3-273\",\"heritage-refined-138\",\"v3-306\",\"v3-371\",\"v3-309\",\"v3-372\",\"heritage-refined-88\",\"v3-373\",\"v3-307\",\"heritage-kr-108-kr-timber-cap\",\"heritage-kr-107-work-rear-east\",\"heritage-kr-120-kr-timber-cap\",\"heritage-kr-122-kr-timber-cap\",\"heritage-kr-124-kr-timber-cap\",\"heritage-kr-125-kr-timber-cap\",\"v3-308\",\"heritage-kr-134-rf-prod-planter\",\"heritage-refined-92\",\"heritage-refined-93\",\"heritage-refined-137\",\"heritage-refined-132\",\"v3-310\",\"heritage-refined-1\",\"heritage-refined-143\",\"v3-374\",\"v3-375\",\"heritage-kr-109-kr-timber-cap\",\"heritage-refined-107\",\"heritage-kr-126-kr-timber-cap\",\"v3-380\",\"v3-315\",\"heritage-refined-135\",\"v3-376\",\"v3-378\",\"v3-312\",\"heritage-refined-90\",\"heritage-refined-91\",\"heritage-refined-70\",\"v3-311\",\"heritage-refined-67\",\"heritage-refined-5\",\"heritage-kr-104-work-west-rear\",\"heritage-kr-110-kr-timber-cap\",\"heritage-refined-89\",\"v3-314\",\"v3-379\",\"v3-313\",\"heritage-refined-96\",\"heritage-refined-97\",\"heritage-kr-127-kr-timber-cap\",\"heritage-refined-99\",\"heritage-refined-100\",\"v3-279\",\"v3-377\",\"v3-316\",\"heritage-refined-106\",\"heritage-refined-117\",\"heritage-refined-64\",\"heritage-kr-128-kr-timber-cap\",\"v3-317\",\"v3-381\",\"heritage-refined-71\",\"v3-382\",\"heritage-refined-3\",\"heritage-kr-111-kr-timber-cap\",\"full-183\",\"heritage-refined-63\",\"v3-319\",\"v3-383\",\"heritage-refined-68\",\"full-182\",\"heritage-refined-72\",\"heritage-kr-129-kr-timber-cap\",\"v3-384\",\"heritage-refined-2\",\"heritage-kr-112-kr-timber-cap\",\"v3-320\",\"heritage-refined-98\",\"v3-318\",\"heritage-refined-69\",\"heritage-refined-65\",\"heritage-refined-66\",\"heritage-refined-113\",\"v3-321\",\"heritage-refined-101\",\"v3-274\",\"heritage-kr-102-work-front-west\",\"heritage-kr-105-work-west-front\",\"heritage-kr-113-kr-timber-cap\",\"heritage-kr-114-kr-timber-cap\",\"heritage-kr-115-kr-timber-cap\",\"heritage-kr-103-work-front-east\",\"heritage-kr-116-kr-timber-cap\",\"heritage-kr-117-kr-timber-cap\",\"heritage-kr-118-kr-timber-cap\",\"heritage-kr-119-kr-timber-cap\",\"heritage-kr-121-kr-timber-cap\",\"heritage-kr-123-kr-timber-cap\",\"heritage-kr-106-work-east\",\"heritage-kr-130-kr-timber-cap\",\"heritage-kr-100-academy-front-west\",\"heritage-kr-141-kr-pier\",\"heritage-refined-55\",\"heritage-kr-101-academy-front-east\",\"heritage-kr-142-kr-pier\",\"v3-385\",\"v3-322\",\"heritage-refined-134\",\"heritage-refined-114\",\"v3-388\",\"heritage-kr-131-rf-polish-flowers\",\"heritage-kr-132-rf-polish-flowers\",\"v3-386\",\"heritage-kr-133-rf-prod-bench\",\"v3-323\",\"heritage-refined-118\",\"v3-387\",\"heritage-refined-109\",\"heritage-refined-110\",\"heritage-refined-122\",\"heritage-refined-139\",\"v3-324\",\"heritage-refined-133\",\"v3-389\",\"heritage-refined-144\",\"v3-280\",\"v3-325\",\"heritage-refined-87\",\"v3-391\",\"v3-394\",\"v3-395\",\"v3-329\",\"v3-330\",\"v3-390\",\"v3-326\",\"v3-327\",\"v3-331\",\"heritage-refined-105\",\"v3-328\",\"v3-392\",\"v3-393\",\"v3-396\",\"v3-332\",\"heritage-refined-125\",\"heritage-refined-147\",\"v3-398\",\"v3-275\",\"heritage-refined-86\",\"heritage-refined-145\",\"heritage-refined-121\",\"v3-335\",\"heritage-refined-146\",\"v3-333\",\"v3-334\",\"v3-399\",\"v3-397\",\"heritage-refined-4\",\"v3-400\",\"heritage-refined-108\",\"heritage-refined-94\",\"heritage-refined-95\",\"heritage-refined-115\",\"heritage-refined-75\",\"v3-336\",\"heritage-refined-73\",\"v3-401\",\"v3-345\",\"v3-337\",\"v3-339\",\"v3-237\",\"v3-346\",\"v3-281\",\"heritage-refined-74\",\"v3-402\",\"full-184\",\"heritage-refined-116\",\"heritage-refined-102\",\"v3-344\",\"v3-403\",\"v3-338\",\"v3-340\",\"heritage-refined-76\",\"v3-347\",\"v3-404\",\"v3-176\",\"v3-236\",\"v3-276\",\"v3-405\",\"v3-349\",\"v3-350\",\"v9-104\",\"v9-105\",\"v9-106\",\"v9-107\",\"v9-108\",\"v9-109\",\"v9-110\",\"v9-111\",\"v9-112\",\"v9-144\",\"v9-140\",\"v9-145\",\"v9-141\",\"v9-142\",\"v9-143\",\"v9-195\",\"v9-194\",\"v9-191\",\"v9-193\",\"v9-192\",\"v9-190\",\"v9-2\",\"v9-1\",\"v9-24\",\"v9-148\",\"v9-151\",\"v9-147\",\"v9-146\",\"v9-150\",\"v9-22\",\"v9-149\",\"v9-198\",\"v9-197\",\"v9-67\",\"v9-199\",\"v9-196\",\"v9-200\",\"v9-68\",\"v9-45\",\"v9-46\",\"v9-47\",\"v9-155\",\"v9-156\",\"v9-154\",\"v9-57\",\"v9-152\",\"v9-153\",\"v9-52\",\"v9-5\",\"v9-202\",\"v9-203\",\"v9-201\",\"v9-158\",\"v9-43\",\"v9-44\",\"v9-53\",\"v9-157\",\"v9-159\",\"v9-54\",\"v9-58\",\"v9-36\",\"v9-37\",\"v9-204\",\"v9-206\",\"v9-205\",\"v9-50\",\"v9-51\",\"v9-207\",\"v9-250\",\"v9-161\",\"v9-163\",\"v9-162\",\"v9-160\",\"v9-4\",\"v9-6\",\"v9-3\",\"v9-23\",\"v9-248\",\"v9-249\",\"v9-63\",\"v9-208\",\"v9-168\",\"v9-164\",\"v9-165\",\"v9-166\",\"v9-167\",\"v9-48\",\"v9-49\",\"v9-56\",\"v9-55\",\"v9-69\",\"v9-59\",\"v9-113\",\"v9-114\",\"v9-115\",\"v9-116\",\"v9-117\",\"v9-118\",\"v9-119\",\"v9-64\",\"v9-169\",\"v9-171\",\"v9-174\",\"v9-170\",\"v9-173\",\"v9-172\",\"v9-26\",\"v9-78\",\"v9-79\",\"v9-80\",\"v9-81\",\"v9-82\",\"v9-83\",\"v9-84\",\"v9-85\",\"v9-209\",\"v9-211\",\"v9-27\",\"v9-210\",\"v9-28\",\"v9-8\",\"v9-90\",\"v9-239\",\"v9-91\",\"v9-176\",\"v9-175\",\"v9-180\",\"v9-177\",\"v9-178\",\"v9-179\",\"v9-13\",\"v9-29\",\"v9-30\",\"v9-60\",\"v9-240\",\"v9-212\",\"v9-213\",\"v9-92\",\"v9-93\",\"v9-70\",\"v9-181\",\"v9-186\",\"v9-183\",\"v9-184\",\"v9-182\",\"v9-185\",\"v9-11\",\"v9-94\",\"v9-95\",\"v9-7\",\"v9-25\",\"v9-215\",\"v9-216\",\"v9-187\",\"v9-189\",\"v9-61\",\"v9-214\",\"v9-188\",\"v9-74\",\"v9-73\",\"v9-71\",\"v9-38\",\"v9-39\",\"v9-96\",\"v9-97\",\"v9-62\",\"v9-219\",\"v9-217\",\"v9-220\",\"v9-235\",\"v9-221\",\"v9-218\",\"v9-12\",\"v9-9\",\"v9-241\",\"v9-10\",\"v9-98\",\"v9-238\",\"v9-99\",\"v9-236\",\"v9-222\",\"v9-124\",\"v9-125\",\"v9-75\",\"v9-123\",\"v9-126\",\"v9-100\",\"v9-101\",\"v9-122\",\"v9-237\",\"v9-127\",\"v9-128\",\"v9-72\",\"v9-242\",\"v9-102\",\"v9-224\",\"v9-103\",\"v9-15\",\"v9-14\",\"v9-129\",\"v9-223\",\"v9-121\",\"v9-16\",\"v9-86\",\"v9-87\",\"v9-88\",\"v9-89\",\"v9-120\",\"v9-76\",\"v9-77\",\"v9-130\",\"v9-139\",\"v9-138\",\"v9-133\",\"v9-132\",\"v9-41\",\"v9-134\",\"v9-40\",\"v9-131\",\"v9-137\",\"v9-135\",\"v9-65\",\"v9-42\",\"v9-136\",\"v9-33\",\"v9-32\",\"v9-31\",\"v9-227\",\"v9-226\",\"v9-225\",\"v9-231\",\"v9-229\",\"v9-228\",\"v9-232\",\"v9-230\",\"v9-233\",\"v9-35\",\"v9-34\",\"v9-234\",\"v9-66\",\"v9-17\",\"v9-247\",\"v9-20\",\"v9-245\",\"v9-246\",\"v9-19\",\"v9-18\",\"v9-244\",\"v9-243\",\"v9-21\"],\"exitsFired\":[],\"interactionsReached\":[],\"events\":[{\"tick\":0,\"type\":\"arrive\",\"id\":\"start\"},{\"tick\":77,\"type\":\"arrive\",\"id\":\"start\"},{\"tick\":117,\"type\":\"arrive\",\"id\":\"start\"},{\"tick\":155,\"type\":\"arrive\",\"id\":\"start\"},{\"tick\":194,\"type\":\"arrive\",\"id\":\"start\"},{\"tick\":231,\"type\":\"arrive\",\"id\":\"start\"},{\"tick\":236,\"type\":\"routes\",\"ok\":true,\"failing\":0},{\"tick\":248,\"type\":\"arrive\",\"id\":\"start\"}],\"routes\":{\"ok\":true,\"speed\":96,\"budget\":1.6,\"tickHz\":60,\"cell\":4,\"spawns\":[{\"id\":\"start\",\"valid\":true,\"reachableCells\":864343},{\"id\":\"room-return\",\"valid\":true,\"reachableCells\":864343},{\"id\":\"ferry-mainland\",\"valid\":true,\"reachableCells\":864343},{\"id\":\"ferry-jeju\",\"valid\":true,\"reachableCells\":71747},{\"id\":\"academy<-academy\",\"kind\":\"arrival\",\"valid\":true,\"reachableCells\":864343}],\"results\":[{\"target\":\"academy\",\"kind\":\"exit\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":683,\"distance\":1092.8,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1599.249,1235.573],\"fired\":true,\"inwardFired\":false},{\"target\":\"hall\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":257,\"distance\":410.069,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2170,422]},{\"target\":\"hanji\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":342,\"distance\":546.181,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2406,454]},{\"target\":\"royal-garden\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":426,\"distance\":681.167,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1654,586]},{\"target\":\"science\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":581,\"distance\":929.109,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2570,1414]},{\"target\":\"museum\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1070,\"distance\":1711.209,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2950,1942]},{\"target\":\"bookshop\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1440,\"distance\":2303.034,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1702,2706]},{\"target\":\"library\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1278,\"distance\":2043.556,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2490,2706]},{\"target\":\"neighborhood-service\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2239,\"distance\":3582.231,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[874,3222]},{\"target\":\"cafe\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1648,\"distance\":2636.062,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2614,3190]},{\"target\":\"tower\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1887,\"distance\":3017.981,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3466,2882]},{\"target\":\"garden-pavilion\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2181,\"distance\":3488.752,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3638,3206]},{\"target\":\"station\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2328,\"distance\":3724.37,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1450,3902]},{\"target\":\"transit-shelter\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1723,\"distance\":2755.345,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2266,3562]},{\"target\":\"coastal-cafe\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2963,\"distance\":4739.28,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[726,4178]},{\"target\":\"lookout\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2513,\"distance\":4019.28,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1446,4178]},{\"target\":\"wheel\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2670,\"distance\":4270.828,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3058,3974]},{\"target\":\"carousel\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2969,\"distance\":4749.611,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3746,4206]},{\"target\":\"visitor\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2747,\"distance\":4394.854,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3938,3678]},{\"target\":\"discovery-hall\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":3104,\"distance\":4966.15,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3698,4486]},{\"target\":\"campus-entry\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2757,\"distance\":4410.588,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3162,4514]},{\"target\":\"ferry-terminal\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2452,\"distance\":3921.971,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2298,4578]},{\"target\":\"oreum\",\"kind\":\"interaction\",\"from\":\"ferry-jeju\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":395,\"distance\":630.966,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1354,5526]},{\"target\":\"village\",\"kind\":\"interaction\",\"from\":\"ferry-jeju\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":540,\"distance\":862.949,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1350,5826]},{\"target\":\"nature-center\",\"kind\":\"interaction\",\"from\":\"ferry-jeju\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":257,\"distance\":409.739,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1930,5814]},{\"target\":\"cliff-lookout\",\"kind\":\"interaction\",\"from\":\"ferry-jeju\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":876,\"distance\":1400.019,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[710,5658]},{\"target\":\"basalt-learning\",\"kind\":\"interaction\",\"from\":\"ferry-jeju\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":432,\"distance\":690.105,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1610,5918]},{\"target\":\"corner-grocery\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1659,\"distance\":2653.146,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1358,2734]},{\"target\":\"bakery\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1939,\"distance\":3102.231,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1354,3222]},{\"target\":\"language-center\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1211,\"distance\":1936.991,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2070,2706]},{\"target\":\"design-gallery\",\"kind\":\"interaction\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1978,\"distance\":3163.549,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2118,3910]},{\"target\":\"hall.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":321,\"distance\":512.141,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2176,320]},{\"target\":\"hanji.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":449,\"distance\":718.197,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2480,384]},{\"target\":\"royal-garden.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":484,\"distance\":773.292,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1568,528]},{\"target\":\"science.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":635,\"distance\":1015.364,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2656,1472]},{\"target\":\"museum.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1172,\"distance\":1874.806,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3008,2028]},{\"target\":\"bookshop.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1496,\"distance\":2392.606,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1648,2784]},{\"target\":\"library.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1335,\"distance\":2135.685,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2544,2784]},{\"target\":\"neighborhood-service.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2309,\"distance\":3693.192,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[800,3280]},{\"target\":\"cafe.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1695,\"distance\":2711.322,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2672,3264]},{\"target\":\"tower.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1937,\"distance\":3099.096,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3520,2960]},{\"target\":\"garden-pavilion.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2235,\"distance\":3574.904,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3704,3272]},{\"target\":\"station.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2405,\"distance\":3846.922,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1376,3960]},{\"target\":\"transit-shelter.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1841,\"distance\":2945.207,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2224,3648]},{\"target\":\"coastal-cafe.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":3013,\"distance\":4819.443,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[672,4256]},{\"target\":\"lookout.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2563,\"distance\":4099.415,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1392,4256]},{\"target\":\"wheel.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2736,\"distance\":4377.219,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3136,3920]},{\"target\":\"carousel.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":3028,\"distance\":4843.821,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3840,4216]},{\"target\":\"visitor.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2828,\"distance\":4523.747,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3872,3744]},{\"target\":\"discovery-hall.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":3158,\"distance\":5051.872,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3776,4536]},{\"target\":\"campus-entry.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2828,\"distance\":4523.551,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[3216,4592]},{\"target\":\"ferry-terminal.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2504,\"distance\":4005.261,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2352,4656]},{\"target\":\"oreum.approach[0]\",\"kind\":\"approach\",\"from\":\"ferry-jeju\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":449,\"distance\":717.45,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1280,5584]},{\"target\":\"village.approach[0]\",\"kind\":\"approach\",\"from\":\"ferry-jeju\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":601,\"distance\":960.681,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1296,5904]},{\"target\":\"nature-center.approach[0]\",\"kind\":\"approach\",\"from\":\"ferry-jeju\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":335,\"distance\":535.845,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1856,5872]},{\"target\":\"cliff-lookout.approach[0]\",\"kind\":\"approach\",\"from\":\"ferry-jeju\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":945,\"distance\":1511.142,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[672,5744]},{\"target\":\"basalt-learning.approach[0]\",\"kind\":\"approach\",\"from\":\"ferry-jeju\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":525,\"distance\":839.485,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1536,5976]},{\"target\":\"corner-grocery.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1726,\"distance\":2760.537,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1280,2784]},{\"target\":\"bakery.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2009,\"distance\":3213.145,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[1280,3280]},{\"target\":\"language-center.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":1267,\"distance\":2025.69,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2016,2784]},{\"target\":\"design-gallery.approach[0]\",\"kind\":\"approach\",\"from\":\"start\",\"ok\":true,\"reachable\":true,\"reason\":null,\"ticks\":2034,\"distance\":3254.002,\"maxStep\":1.6,\"zeroMotionTicks\":0,\"blocked\":false,\"firedEnRoute\":[],\"end\":[2192,3968]}],\"portals\":[{\"id\":\"academy\",\"activation\":\"intent\",\"to\":\"academy:start\",\"arrivals\":[{\"from\":\"academy\",\"spawn\":\"academy<-academy\",\"found\":true,\"point\":[1568,1152],\"insideTrigger\":false,\"inZone\":true,\"latchedOnArrival\":true,\"valid\":true,\"joined\":true,\"bounceBack\":[]}]}]}}}\n",
+    "stderr": "",
+    "adapter": "HTTP URL + installed Chromium only; upstream verifier body unchanged"
   }
 ]

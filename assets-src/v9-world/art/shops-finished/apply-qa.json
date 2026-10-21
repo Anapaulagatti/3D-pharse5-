@@ -1,0 +1,134 @@
+{
+  "status": "pass",
+  "method": "forge_palette.quantize_image: OKLab-nearest palette colour per pixel (exact palette colours kept), alpha binary at the threshold, then the written PNGs re-read and measured with forge_palette.fit_report against the palette",
+  "notProven": [
+    "Visual quality after snapping: compare an output with its input.",
+    "Indexed PNGs are engine exports; they are not checked by builders.",
+    "No --max-delta-e gate was set."
+  ],
+  "checks": [
+    {
+      "id": "output_off_palette_px",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "output_partial_alpha_px",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "max_delta_e",
+      "status": "skipped",
+      "value": 0.097576,
+      "threshold": null
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../shops-native-raw/new-bakery.png",
+      "sha256": "37e58c8b89e1a4f84bffba47ff50ff92a4db0508c8166b6b1a7376a5c4df081d",
+      "bytes": 111581
+    },
+    {
+      "path": "../shops-native-raw/new-gallery.png",
+      "sha256": "929d270718781eb4b3b447b2d8ebbe16bff7928297478eaf3373a0ec94058d0d",
+      "bytes": 81168
+    },
+    {
+      "path": "../shops-native-raw/new-grocery.png",
+      "sha256": "7f81c0883e08ab4d124343b2fff69d7ad7c3c8a61c4ba551be86376e872bb7ed",
+      "bytes": 81037
+    },
+    {
+      "path": "../shops-native-raw/new-language.png",
+      "sha256": "abb53c2e4bb61d18a4c040b9a2ca4d6f29d2a8b49cd2e8d4f528403ab80ba643",
+      "bytes": 101964
+    },
+    {
+      "path": "../shops-palette/palette.json",
+      "sha256": "e487cc0531aeeef9c05f0a6fa334633f012e60b0bd414c0a9420a1439038d41f",
+      "bytes": 7166
+    }
+  ],
+  "outputs": [
+    {
+      "path": "new-bakery.png",
+      "sha256": "95dfce9c3b7454045761e051d96e679c7b684608c0cba4a801c6b206e645097b",
+      "bytes": 74202
+    },
+    {
+      "path": "new-gallery.png",
+      "sha256": "34caeb8ce980f01837fe56575a4e2429d7a1596640c33933eb76085749fd10b3",
+      "bytes": 52806
+    },
+    {
+      "path": "new-grocery.png",
+      "sha256": "f8bb648252a77e8a51dc5fea46799a1385513c8ceb0a1d5783750a1f77c5b134",
+      "bytes": 53453
+    },
+    {
+      "path": "new-language.png",
+      "sha256": "1b57b781f1fd50f289a33e7cf9448721348916fd8e208cfaa0a63bf9031fc218",
+      "bytes": 66983
+    }
+  ],
+  "tool": {
+    "name": "palette_tool",
+    "version": "0.4.0"
+  },
+  "fit": {
+    "new-bakery.png": {
+      "measured_px": 40976,
+      "alpha_threshold": 128,
+      "off_palette_px": 40939,
+      "partial_alpha_px": 43425,
+      "colors": 35125,
+      "palette_colors_used": 185,
+      "mean_delta_e": 0.014468,
+      "p95_delta_e": 0.028007,
+      "max_delta_e": 0.067205
+    },
+    "new-gallery.png": {
+      "measured_px": 30285,
+      "alpha_threshold": 128,
+      "off_palette_px": 30228,
+      "partial_alpha_px": 31699,
+      "colors": 22540,
+      "palette_colors_used": 174,
+      "mean_delta_e": 0.013937,
+      "p95_delta_e": 0.029926,
+      "max_delta_e": 0.067928
+    },
+    "new-grocery.png": {
+      "measured_px": 28594,
+      "alpha_threshold": 128,
+      "off_palette_px": 28543,
+      "partial_alpha_px": 30489,
+      "colors": 23864,
+      "palette_colors_used": 191,
+      "mean_delta_e": 0.016196,
+      "p95_delta_e": 0.034512,
+      "max_delta_e": 0.097576
+    },
+    "new-language.png": {
+      "measured_px": 38705,
+      "alpha_threshold": 128,
+      "off_palette_px": 38656,
+      "partial_alpha_px": 40693,
+      "colors": 31473,
+      "palette_colors_used": 186,
+      "mean_delta_e": 0.014436,
+      "p95_delta_e": 0.030169,
+      "max_delta_e": 0.07082
+    }
+  },
+  "totals": {
+    "max_delta_e": 0.097576,
+    "worst_p95_delta_e": 0.034512,
+    "off_palette_px": 138366
+  },
+  "locked_inputs": []
+}

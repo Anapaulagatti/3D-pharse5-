@@ -242,13 +242,12 @@ export function setupFullUI(game: Phaser.Game) {
     say(
       to === "jeju"
         ? "배 · Phà. Jeju và Busan xa nhau ngoài đời. Chuyến phà trong bản đồ du lịch giáo dục này là chuyển tiếp hư cấu, không mô phỏng một tuyến thật."
-        : "배 · Phà. Trở lại ga và đường dạo Blue Letter Coast.",
+        : "배 · Phà. Trở lại ga và đường dạo bờ biển Gyeol.",
     );
     const go = document.createElement("button");
     go.id = "travel-go";
     go.dataset.continue = "true";
-    go.textContent =
-      to === "jeju" ? "Lên phà đến Windstone" : "Lên phà về bờ biển";
+    go.textContent = to === "jeju" ? "Lên phà đến Jeju" : "Lên phà về bờ biển";
     go.onclick = () => {
       $("dialog").hidden = true;
       syncPause();
@@ -290,7 +289,7 @@ export function setupFullUI(game: Phaser.Game) {
     $("district-location").textContent = p.location;
     const room = p.area === "room";
     const map = $("mini-map") as HTMLImageElement;
-    map.alt = "Bản đồ di sản, Namsan, Bora Bloom, bờ biển và Windstone";
+    map.alt = "Bản đồ di sản, Namsan, Bora Bloom, bờ biển và Jeju";
     $("map-player").style.left =
       ((room ? 1568 : p.x) / worldSize[0]) * 100 + "%";
     $("map-player").style.top =

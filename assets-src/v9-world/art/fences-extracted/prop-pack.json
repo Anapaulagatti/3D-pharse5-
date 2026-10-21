@@ -1,0 +1,282 @@
+{
+  "schema": "generate2dmap.prop_pack.v2",
+  "tool": {
+    "name": "extract_prop_pack",
+    "version": "0.4.0"
+  },
+  "input": "../../originals/fences.png",
+  "source_size": [
+    2172,
+    724
+  ],
+  "source_sha256": "671d537b33d4d71198e694a891bbeb0435c72e7cb6b83fb5291abefcb4facdcb",
+  "source_mode": "RGBA",
+  "layout_mode": "grid",
+  "boxes_file": null,
+  "labels_file": null,
+  "background_mode": "native_alpha",
+  "art_source": "host_image",
+  "rows": 1,
+  "cols": 2,
+  "threshold": 100,
+  "edge_threshold": 150,
+  "despill_radius": 0,
+  "despill": {
+    "mode": "off",
+    "applied": "off",
+    "radius": 0,
+    "margin": 12,
+    "changed_px": 0
+  },
+  "hygiene": {
+    "mode": "none",
+    "floor": 4,
+    "solid_min": 32,
+    "attach_radius": 2,
+    "connectivity": 8,
+    "floor_px": 0,
+    "detached_px": 0,
+    "detached_components": 0,
+    "max_removed_alpha": 0
+  },
+  "alpha_floor": 0,
+  "alpha_floor_pixels_removed": 0,
+  "trim_border": 0,
+  "edge_clean_depth": 0,
+  "component_mode": "all",
+  "component_padding": 8,
+  "min_component_area": "auto",
+  "edge_touch_margin": 0,
+  "geometry": {
+    "connectivity": 8,
+    "alpha_geometry_threshold": 16,
+    "anchor_mode": "stance",
+    "support_band_fraction": 0.25,
+    "anchor_rounding": "whole pixels, half-up",
+    "grid_rounding": "nearest",
+    "keep_canvas": false,
+    "world_scale": null
+  },
+  "accepted": [
+    {
+      "index": 0,
+      "label": "campus-fence",
+      "display_name": "campus-fence",
+      "status": "accepted",
+      "image": "campus-fence/prop.png",
+      "sha256": "cf2b6584a67f54cb9af9da5ba0fa442a428c66c0ed8513efcc18922bcd0a3829",
+      "output_size": [
+        1024,
+        420
+      ],
+      "grid": [
+        0,
+        0
+      ],
+      "cell_box": [
+        0,
+        0,
+        1086,
+        724
+      ],
+      "source_box": [
+        0,
+        0,
+        1086,
+        724
+      ],
+      "source_rect": [
+        35,
+        250,
+        1059,
+        670
+      ],
+      "trim_offset": [
+        35,
+        250
+      ],
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "anchor_px": [
+        513,
+        297
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 2,
+      "min_component_area": 100,
+      "trim_applied": 0,
+      "crop_bbox": [
+        43,
+        258,
+        1051,
+        662
+      ],
+      "padded_crop_bbox": [
+        35,
+        250,
+        1059,
+        670
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 217130,
+      "dropped_components": 311,
+      "dropped_area": 766,
+      "edge_touch": false
+    },
+    {
+      "index": 1,
+      "label": "park-fence",
+      "display_name": "park-fence",
+      "status": "accepted",
+      "image": "park-fence/prop.png",
+      "sha256": "32a31f52e993bfe661f5e11728f5165c9733a4cac5d48604dcc073e85df5e524",
+      "output_size": [
+        1019,
+        308
+      ],
+      "grid": [
+        0,
+        1
+      ],
+      "cell_box": [
+        1086,
+        0,
+        2172,
+        724
+      ],
+      "source_box": [
+        1086,
+        0,
+        2172,
+        724
+      ],
+      "source_rect": [
+        1116,
+        250,
+        2135,
+        558
+      ],
+      "trim_offset": [
+        30,
+        250
+      ],
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "anchor_px": [
+        511,
+        297
+      ],
+      "anchor_source": "measured",
+      "component_mode": "all",
+      "component_count": 1,
+      "min_component_area": 100,
+      "trim_applied": 0,
+      "crop_bbox": [
+        38,
+        258,
+        1041,
+        550
+      ],
+      "padded_crop_bbox": [
+        30,
+        250,
+        1049,
+        558
+      ],
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "kept_area": 220088,
+      "dropped_components": 284,
+      "dropped_area": 685,
+      "edge_touch": true
+    }
+  ],
+  "rejected": [],
+  "edge_touch_props": [
+    "park-fence"
+  ],
+  "warnings": [
+    "props touch a cell edge (possible clipping): ['park-fence']"
+  ],
+  "qa": {
+    "status": "warn",
+    "method": "native alpha, not keyed; alpha hygiene none; 8-connected components (all); checks measured on the published pixels",
+    "notProven": [
+      "that each label names the art in its cell or box",
+      "that a prop is complete: clipping is detected only where art meets the cell edge",
+      "keyed-edge quality beyond the edge fringe count",
+      "that anchors and suggested footprints match gameplay contact (both are measured from alpha)",
+      "runtime placement, collision or occlusion"
+    ],
+    "checks": [
+      {
+        "id": "accepted",
+        "status": "pass",
+        "value": 2,
+        "threshold": ">= 1"
+      },
+      {
+        "id": "edge_touch",
+        "status": "warn",
+        "value": [
+          "park-fence"
+        ],
+        "threshold": 0
+      },
+      {
+        "id": "dropped_area",
+        "status": "pass",
+        "value": {
+          "campus-fence": 0.0035,
+          "park-fence": 0.0031
+        },
+        "threshold": 0.01
+      },
+      {
+        "id": "strategy_aspect",
+        "status": "skipped",
+        "value": null,
+        "threshold": 1.6
+      },
+      {
+        "id": "edge_fringe",
+        "status": "skipped",
+        "value": null,
+        "threshold": 0.02
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../../originals/fences.png",
+        "sha256": "671d537b33d4d71198e694a891bbeb0435c72e7cb6b83fb5291abefcb4facdcb",
+        "bytes": 801936
+      }
+    ],
+    "outputs": [
+      {
+        "path": "campus-fence/prop.png",
+        "sha256": "cf2b6584a67f54cb9af9da5ba0fa442a428c66c0ed8513efcc18922bcd0a3829",
+        "bytes": 388992
+      },
+      {
+        "path": "park-fence/prop.png",
+        "sha256": "32a31f52e993bfe661f5e11728f5165c9733a4cac5d48604dcc073e85df5e524",
+        "bytes": 365961
+      }
+    ],
+    "tool": {
+      "name": "extract_prop_pack",
+      "version": "0.4.0"
+    }
+  }
+}

@@ -22,19 +22,21 @@ road('tower-lookout',[[3520,2960],[3520,2904]],64,'scenic','Observation lobby ap
 road('park-pavilion',[[3872,3336],[3872,3392],[4080,3520],[4080,3744],[3872,3744]],64,'scenic','Secondary park gate to visitor entrance')
 road('station-crossing',[[1936,3376],[1936,3728],[1936,3960]],80,'secondary','One marked rail crossing, not a rail/path overlap')
 road('station-front',[[1056,3960],[1376,3960],[1936,3960],[2528,3960]],96,'secondary','Station entrance and main boulevard')
+road('transit-neighborhood-lane',[[1936,3648],[2528,3648]],64,'local','Bus shelter to gallery block and civic boulevard')
 road('station-platform',[[1376,3728],[1936,3728]],56,'local','Platform access behind station, clear of rail line')
 road('coastal-city-street',[[2528,4176],[2784,4176],[2880,4288],[3216,4288],[3216,4536]],80,'secondary','East city to amusement gateway')
 road('leisure-loop',[[3216,4400],[2960,4272],[2952,3960],[3136,3920],[3408,3912],[3584,3744],[3872,3744],[4048,3936],[3976,4232],[3776,4320],[3520,4368],[3216,4400]],72,'leisure','Attraction forecourts on a complete internal circuit',True)
 road('carousel-front',[[3976,4232],[3840,4216]],64,'leisure','Carousel queue frontage')
 road('visitor-front',[[3872,3744],[3872,3728]],64,'leisure','Visitor kiosk and northern gate')
 road('hall-front',[[3520,4368],[3520,4536],[3776,4536]],64,'leisure','Discovery pavilion and park main gate')
+road('coastal-campus-east-access',[[3976,4232],[4080,4352],[4032,4560]],64,'leisure','Purposeful eastern waterfront entrance to the campus loop')
 road('campus-main',[[3216,4400],[3216,4560],[3216,4592]],96,'leisure','Park gate to public promenade')
 road('seaside-lane',[[1056,3960],[1056,4176]],64,'local','Station forecourt to coastal pocket')
 road('west-waterfront',[[1056,4176],[768,4256]],64,'local','Coastal cafe and lookout')
 road('coastal-promenade',[[768,4256],[1376,4224],[1888,4344],[2192,4496],[2160,4616],[2528,4656],[2880,4624],[3552,4656],[4032,4560]],96,'coastal','Continuous safe public seafront',True)
 road('ferry-boarding',[[2528,4656],[2560,4720],[2560,4880]],64,'timber','Terminal, waiting space, pier and boarding edge')
 road('island-arrival',[[2064,5408],[2064,5472],[1920,5504],[1664,5568]],64,'island','Landing to scenic exploration circuit',True)
-road('jeju-loop',[[1664,5568],[1568,5648],[1632,5856],[1840,5904],[1808,5952],[1568,5984],[1184,5968],[992,5856],[752,5840],[672,5744],[608,5584],[736,5384],[944,5408],[1024,5568],[1280,5584],[1536,5520],[1664,5568]],56,'island','Complete terrain-following scenic loop',True)
+road('jeju-loop',[[1664,5568],[1568,5648],[1632,5856],[1840,5904],[1808,5952],[1568,5984],[1184,5968],[992,5856],[752,5840],[672,5744],[608,5584],[736,5384],[944,5408],[1024,5568],[1280,5584],[1536,5552],[1664,5568]],56,'island','Complete terrain-following scenic loop',True)
 road('oreum-approach',[[1280,5584],[1280,5544]],56,'island','Hill viewpoint')
 road('village-approach',[[1184,5968],[1296,5904]],56,'island','Cultural courtyard entrance')
 road('nature-approach',[[1840,5904],[1856,5872]],56,'island','Nature center south facade')
@@ -49,7 +51,7 @@ plot('cafe',[2480,2952,2864,3264],[2672,3184],'rf-cafe',[2672,3264],'Social cafe
 plot('tower',[3264,2320,3776,2944],[3520,2904],'v3-tower',[3520,2960],'Namsan observation destination')
 plot('garden-pavilion',[3544,3056,3872,3256],[3704,3200],'v3-trail-pavilion',[3704,3272],'Park trail information and rest')
 plot('station',[1056,3656,1696,3968],[1376,3896],'v3-station',[1376,3960],'Passenger building facing forecourt, railway behind')
-plot('transit-shelter',[2080,3472,2376,3720],[2224,3624],'v3-bus-stop',[2224,3696],'Local public transport transfer')
+plot('transit-shelter',[2080,3440,2376,3648],[2224,3592],'v3-bus-stop',[2224,3648],'Local public transport transfer')
 plot('coastal-cafe',[448,3880,896,4232],[672,4136],'v3-coastal-cafe',[672,4256],'Seafront rest and neighborhood edge')
 plot('lookout',[1216,4000,1568,4224],[1392,4168],'v3-seawall',[1392,4256],'Coastal viewing platform')
 plot('wheel',[2880,3472,3376,3920],[3136,3856],'v3-wheel',[3136,3920],'Observation wheel dedicated queue court')
@@ -66,14 +68,17 @@ plot('basalt-learning',[1408,5808,1664,5976],[1536,5920],'v3-basalt-discovery',[
 plot('corner-grocery',[1112,2464,1448,2760],[1280,2728],'new-grocery',[1280,2784],'Korean neighborhood grocery and public frontage')
 plot('bakery',[1112,2952,1448,3264],[1280,3216],'new-bakery',[1280,3280],'Small bakery with social terrace')
 plot('language-center',[1848,2392,2184,2744],[2016,2672],'new-language',[2016,2784],'Korean language community classroom')
-plot('design-gallery',[1448,2952,1712,3264],[1584,3216],'new-gallery',[1584,3280],'Contemporary craft and design shop')
+plot('design-gallery',[2016,3672,2368,3944],[2192,3904],'new-gallery',[2192,3968],'Contemporary craft and design shop')
 # Dimensions/local native collider templates only; no previous southern positions consulted.
 catalog=json.loads((ROOT/'assets-src/library/props.json').read_text())
+catalog['v3-oreum']['colliders']=[{'x':-216,'y':-224,'w':432,'h':224}]
+catalog['rf-cafe']['colliders']=[{'x':-160,'y':-56,'w':320,'h':56}]
+catalog['rf-prod-library']['colliders']=[{'x':-72,'y':-48,'w':144,'h':48}]
 for key in ['new-grocery','new-bakery','new-language','new-gallery']:
  catalog[key]={'size':[256,224],'anchor_px':[128,222],'colliders':[{'x':-104,'y':-48,'w':208,'h':48}]}
 for p in plots:
  a=catalog[p['asset']];x,y=p['site'];ax,ay=a['anchor_px'];w,h=a['size'];p['artBounds']=[x-ax,y-ay,x-ax+w,y-ay+h];p['bodyRects']=[[x+c['x'],y+c['y'],c['w'],c['h']]for c in a['colliders']];p['nativeScale']=1
-plan=dict(schema='korean-arena.v9.urban-plan.v1',world=[W,H],fixedNorthernBoundary=2240,coordinateBasis='new south; no rejected southern inputs',mainland=mainland,island=island,roads=roads,plots=plots,districts=[{'id':'commons','bounds':[704,2240,2832,3472],'color':'#89b8c5'},{'id':'namsan','bounds':[2832,2240,4352,3472],'color':'#739f66'},{'id':'transit','bounds':[384,3472,2528,4176],'color':'#89a8d2'},{'id':'entertainment','bounds':[2784,3472,4256,4544],'color':'#c48ca8'},{'id':'busan-coast','bounds':[0,4176,4352,4992],'color':'#79bdbc'},{'id':'jeju','bounds':[480,4960,2256,6080],'color':'#9fae79'}],rail={'start':[720,3584],'end':[2032,3584],'crossing':[1936,3584],'train':[1136,3576],'platform':[1376,3672]},travel={'enabled':True,'mainlandTrigger':[2560,4880],'islandTrigger':[2064,5408],'mainlandArrival':[2560,4760],'islandArrival':[2064,5528],'discovery':[1536,5976],'seaBoundary':5000},socialAnchors=[{'id':'civic-meet','point':[2176,2936],'role':'Future Korean conversation'},{'id':'station-meet','point':[1568,3984],'role':'Future travel vocabulary'},{'id':'park-rest','point':[3392,3376],'role':'Future nature quest'}])
+plan=dict(schema='korean-arena.v9.urban-plan.v1',world=[W,H],fixedNorthernBoundary=2240,coordinateBasis='new south; no rejected southern inputs',mainland=mainland,island=island,roads=roads,plots=plots,districts=[{'id':'commons','bounds':[704,2240,2832,3472],'color':'#89b8c5'},{'id':'namsan','bounds':[2832,2240,4352,3472],'color':'#739f66'},{'id':'transit','bounds':[384,3472,2528,4176],'color':'#89a8d2'},{'id':'entertainment','bounds':[2784,3472,4256,4544],'color':'#c48ca8'},{'id':'busan-coast','bounds':[0,4176,4352,4992],'color':'#79bdbc'},{'id':'jeju','bounds':[480,4960,2256,6080],'color':'#9fae79'}],rail={'start':[720,3584],'end':[2032,3584],'crossing':[1936,3584],'train':[1136,3576],'platform':[1376,3672]},travel={'enabled':True,'mainlandTrigger':[2560,4880],'islandTrigger':[2064,5408],'mainlandArrival':[2560,4760],'islandArrival':[1984,5504],'discovery':[1536,5976],'seaBoundary':5000},socialAnchors=[{'id':'civic-meet','point':[2176,3056],'role':'Future Korean conversation'},{'id':'station-meet','point':[1568,3984],'role':'Future travel vocabulary'},{'id':'park-rest','point':[3392,3376],'role':'Future nature quest'}])
 write(P/'city.json',plan)
 # Structural feasibility is explicit and independent from aesthetic approval.
 issues=[]

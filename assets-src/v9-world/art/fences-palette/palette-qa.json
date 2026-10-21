@@ -1,0 +1,103 @@
+{
+  "status": "pass",
+  "method": "forge_palette.build_palette (weighted k-means++ in OKLab over unique colours, reserved colours fixed, coverage skipping) then forge_palette.fit_report of every input: OKLab dE of each pixel with alpha >= the threshold to its nearest palette colour",
+  "notProven": [
+    "Visual quality of the palette: look at swatches.png and an applied frame.",
+    "Colours of pixels below the alpha threshold were not sampled or measured.",
+    "No --max-delta-e gate was set."
+  ],
+  "checks": [
+    {
+      "id": "palette_colors",
+      "status": "pass",
+      "value": 96,
+      "threshold": 96
+    },
+    {
+      "id": "inputs_without_samples",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0,
+      "files": []
+    },
+    {
+      "id": "max_delta_e",
+      "status": "skipped",
+      "value": 0.051397,
+      "threshold": null
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../fences-native-raw/campus-fence.png",
+      "sha256": "fa3886419e5fbcb8f87c9a2f9560502891716d8e15abc55b87f9efa5a5d478aa",
+      "bytes": 8315
+    },
+    {
+      "path": "../fences-native-raw/park-fence.png",
+      "sha256": "526c65ffd10a74310683aa6835b38d3029f42e3424ea6cc1d405cb75d0e5a8a4",
+      "bytes": 11851
+    }
+  ],
+  "outputs": [
+    {
+      "path": "palette.json",
+      "sha256": "35270d1024e7a868816f6e355ba47bc2bc8d2403b358861aac96e22fbf423ee5",
+      "bytes": 3704
+    },
+    {
+      "path": "palette.gpl",
+      "sha256": "e65f558dc915385125e98e76b1e5779a0a85b7ef6e0677c6c38f3de6746e37ec",
+      "bytes": 1992
+    },
+    {
+      "path": "palette.hex",
+      "sha256": "e35bd47412f445cdf0063ae4afb0c9610c544fca787f17a6a0cc43d4442069eb",
+      "bytes": 672
+    },
+    {
+      "path": "swatches.png",
+      "sha256": "35ccdd4ff885238ccc79536b55768cca355e8962b4547bb42be7b5c619c7adbe",
+      "bytes": 1251
+    }
+  ],
+  "tool": {
+    "name": "palette_tool",
+    "version": "0.4.0"
+  },
+  "palette": {
+    "colors": 96,
+    "reserved": 0,
+    "transparent_index": 255,
+    "seed": 0
+  },
+  "fit": {
+    "../fences-native-raw/campus-fence.png": {
+      "measured_px": 1940,
+      "alpha_threshold": 128,
+      "off_palette_px": 1931,
+      "partial_alpha_px": 2571,
+      "colors": 1836,
+      "palette_colors_used": 95,
+      "mean_delta_e": 0.013218,
+      "p95_delta_e": 0.031217,
+      "max_delta_e": 0.051397
+    },
+    "../fences-native-raw/park-fence.png": {
+      "measured_px": 3308,
+      "alpha_threshold": 128,
+      "off_palette_px": 3283,
+      "partial_alpha_px": 4319,
+      "colors": 2771,
+      "palette_colors_used": 62,
+      "mean_delta_e": 0.009468,
+      "p95_delta_e": 0.019589,
+      "max_delta_e": 0.049043
+    }
+  },
+  "totals": {
+    "max_delta_e": 0.051397,
+    "worst_p95_delta_e": 0.031217,
+    "off_palette_px": 5214
+  }
+}

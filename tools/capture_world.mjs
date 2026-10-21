@@ -11,12 +11,12 @@ const rows = [],
   errors = [];
 try {
   for (const [id, x, y] of [
-    ["CITY_STREETS", 2176, 2936],
-    ["NAMSAN", 3520, 3064],
-    ["STATION", 1504, 3912],
-    ["ENTERTAINMENT", 3552, 4056],
+    ["CITY_STREETS", 2176, 3056],
+    ["NAMSAN", 3520, 2960],
+    ["STATION", 1376, 3960],
+    ["ENTERTAINMENT", 3408, 3912],
     ["WATERFRONT", 2528, 4688],
-    ["JEJU", 1376, 5624],
+    ["JEJU", 1536, 5552],
   ]) {
     const p = await browser.newPage({
       viewport: { width: 1440, height: 1140 },
