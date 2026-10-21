@@ -6,6 +6,9 @@ const tour = JSON.parse(
 );
 const base = process.env.PIXEL_VIDEO_DIR ?? `.cache/v9-video-${Date.now()}`;
 await fs.mkdir(base + "/frames", { recursive: true });
+const storage = await fs.statfs(base);
+if (storage.bavail * storage.bsize < 6 * 1024 ** 3)
+  throw Error("At least6GiB free required for full capture and metadata");
 const browser = await chromium.launch({
   executablePath: process.env.PIXEL_CHROMIUM_PATH ?? "/usr/bin/chromium",
   args: ["--no-sandbox", "--disable-gpu-compositing"],
@@ -66,7 +69,7 @@ try {
   });
   await cdp.send("Page.startScreencast", {
     format: "jpeg",
-    quality: 84,
+    quality: 78,
     maxWidth: 1280,
     maxHeight: 960,
     everyNthFrame: 2,
@@ -233,7 +236,7 @@ try {
         deviceScaleFactor: 1,
         renderer: "Canvas",
         method:
-          "Actual CDP browser screencast JPEG84, everyNthFrame2. All delivered frames retained with original timestamps; no cuts, loops, speed changes, gameplay hooks or external video.",
+          "Actual CDP browser screencast JPEG78, everyNthFrame2. All delivered frames retained with original timestamps; no cuts, loops, speed changes, gameplay hooks or external video.",
         sourceBundleSha256: tour.sourceBundleSha256,
         visits,
         errors,
@@ -264,20 +267,22 @@ try {
     "seconds",
   );
 } catch (e) {
-  await fs.writeFile(
-    base + "/failure.json",
-    JSON.stringify(
-      {
-        status: "FAIL",
-        error: String(e),
-        visits,
-        frames: frames.length,
-        errors,
-      },
-      null,
-      2,
-    ),
-  );
+  await fs
+    .writeFile(
+      base + "/failure.json",
+      JSON.stringify(
+        {
+          status: "FAIL",
+          error: String(e),
+          visits,
+          frames: frames.length,
+          errors,
+        },
+        null,
+        2,
+      ),
+    )
+    .catch(() => {});
   throw e;
 } finally {
   if (capturing && cdp) await cdp.send("Page.stopScreencast").catch(() => {});
