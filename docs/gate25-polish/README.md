@@ -40,6 +40,8 @@ All four stops stay at50%. At844×390 the coastal view starts at sourceY260; ore
 
 Controls use the side gutters when space permits and collapse after2.4s inactivity. The small landmark-labelled **Controls** button remains visible; tap it or the scene to restore the toolbar. Pause/Resume, Skip and Return stay reachable. Keyboard focus keeps controls open; reduced motion keeps static selections and disables automatic collapse. Paused tour supports manual drag/pinch. Joystick isolation and cancellation remain intact.
 
+[Download verification](published-verification.json):40 remote files match local SHA-256; images decode; ZIP CRC/manifest pass. Main, approved planning branch and Gate1 checkpoint remain intact.
+
 ## Approval checkpoint
 
 Automated/emulated behavior and packaging are checked separately from visual and mobile acceptance. Physical Android Chrome/iPhone Safari remain **NOT TESTED**; the existing long-session handoff is retained with a concise checklist/export workflow. Native PNGs are original-resolution Phaser exports/crops; JPEGs are lossy review copies and video is actual timestamped gameplay.
