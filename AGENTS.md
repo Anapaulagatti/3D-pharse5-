@@ -1,3 +1,7 @@
+# Current authority — rejected polish / Gate2.5 environment reconstruction ONLY
+
+Latest: docs/current/GATE25_RECONSTRUCTION_DIRECTIVE.md. Prior polish REJECTED. Diagnose both runtime joins full-height, reconstruct coherent environmental compositions with explicit protected facade/door/signage masks, derived clean ground and complete Y-sorted foreground. Wider landscaping/environment changes authorized only for this district. Preserve approved architecture/Juni/tour/mobile/source originals/checkpoints. No unrelated building/world expansion, Gate3, merge, public deployment, paid API or delegation. Independent human visual approval remains mandatory; STOP with annotated defects, native before/after upper/middle/lower crops, actual pan/walk videos, one ZIP, hashes and honest PASS/FAIL/NOT TESTED.
+
 # Current authority — Gate2.5 FINAL VISUAL POLISH ONLY
 
 Latest user directive: docs/current/GATE25_POLISH_DIRECTIVE.md. Localized district background continuation and both seam-object repairs are authorized, preserving every approved facade/entrance/Juni/world coordinate and native chunk architecture. Polish existing Jeju tour composition and collapsible accessible controls, retain real-device handoff. No Jeju redesign, full world, Gate3, main merge, public deployment, paid API or delegation. Preserve original artwork/checkpoints. STOP with before/after, native/crossing/tour evidence, one ZIP, PASS/FAIL/NOT TESTED and request explicit approval. Older no-new-art constraints are superseded ONLY for the specifically authorized missing backgrounds and seam objects.

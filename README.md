@@ -1,3 +1,7 @@
+# Current delivery — Gate2.5 environment reconstruction / human review pending
+
+[Current review, native before/after, pan/walk videos and single playable ZIP](docs/gate25-reconstruction/README.md). Previous polish is REJECTED history. Shared environmental composition replaces its joins; approved facades/Juni/coordinates, sources, Gate1 and Jeju/tour remain protected. Technical verification is not artistic approval. Independent human art review and physical-device acceptance pending. Gate3/merge/public deployment stay LOCKED. Earlier entries below are history.
+
 # Current delivery — Gate2.5 final visual polish
 
 [Polish review](docs/gate25-polish/README.md): localized margins/seams and tour UI/composition only. Approved art/Juni/coordinates/checkpoints retained. Physical-device acceptance NOT TESTED; STOP for explicit human approval. Gate3/merge/deployment locked. Earlier deliveries below remain historical.

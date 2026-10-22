@@ -1,0 +1,80 @@
+{
+  "commandsPassed": [
+    "npm run typecheck",
+    "npm run lint",
+    "npm run format:check",
+    "npm run assets:check",
+    "npm test",
+    "npx vite build --config gate2.vite.config.ts",
+    "node tools/gate25_reconstruction_qa.mjs",
+    "node tools/gate25_reconstruction_pan.mjs",
+    "node tools/gate25_reconstruction_depth.mjs",
+    "node tools/gate25_reconstruction_package_qa.mjs"
+  ],
+  "unitTests": 18,
+  "unitTestFiles": 5,
+  "browserCases": 7,
+  "packagedSceneEntries": 12,
+  "physicalDevices": "NOT TESTED",
+  "humanArtApproval": "PENDING",
+  "independentHumanInspection": "NOT TESTED",
+  "videos": [
+    {
+      "path": "DISTRICT_CROSSINGS.mp4",
+      "sha256": "d99029c3ca1caec8ae1897859e709c70b025f5a951987a59f30de0c5e8375435",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 844,
+            "height": 390
+          }
+        ],
+        "format": {
+          "duration": "17.240000",
+          "size": "3437512"
+        }
+      }
+    },
+    {
+      "path": "JEJU_TOUR.mp4",
+      "sha256": "3b6468efa49b2335080d2b3af5e8ba9cee21769873cf382dd19d2227eefbdc7f",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 844,
+            "height": 390
+          }
+        ],
+        "format": {
+          "duration": "19.880000",
+          "size": "3099292"
+        }
+      }
+    },
+    {
+      "path": "NATIVE_CAMERA_PAN.mp4",
+      "sha256": "3913733e36eef7a1283c2e953388ab5df47a643186af1612bee805781a2bf426",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1280,
+            "height": 900
+          }
+        ],
+        "format": {
+          "duration": "18.760000",
+          "size": "13130235"
+        }
+      }
+    }
+  ]
+}
