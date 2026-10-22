@@ -26,6 +26,6 @@ These are actual Phaser captures in Chromium with mobile landscape layout. They 
 
 For a physical phone on trusted Wi-Fi use `python3 start.py --lan`. The retained [mobile checklist](../gate25-polish/MOBILE_CHECKLIST.md) and [Android/iPhone procedure](../gate25/DEVICE_TESTING.md) apply; use the current composition scene, then **Options(···) → Export test report**. Attach actual device model, OS/browser and recorded device evidence. No public deployment.
 
-[Protected pixels and local edit proof](asset-proof.json) · [Source preservation](preservation.json) · [Native crop verification](evidence-checks.json) · [Art/source provenance](../../assets-src/gate25-refinement/provenance.json) · [ZIP manifest/CRC](package.json) · [Extracted runtime QA](package-qa.json).
+[Protected pixels and local edit proof](asset-proof.json) · [Source preservation](preservation.json) · [Native crop verification](evidence-checks.json) · [Art/source provenance](../../assets-src/gate25-refinement/provenance.json) · [ZIP manifest/CRC](package.json) · [Extracted runtime QA](package-qa.json) · [Published file verification](published-verification.json).
 
 Technical checks PASS. Human artistic acceptance and physical-device acceptance remain **NOT TESTED / pending**. Please explicitly approve or reject this final composition before further work. **STOP: no Gate3, merge or deployment.**
