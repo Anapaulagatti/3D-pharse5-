@@ -66,4 +66,6 @@ Options(···) offers **Landmark moments**, off by default. A stationary first 
 
 See [REPORT.md](REPORT.md) for measured viewport coverage, raw browser intervals, memory limits and PASS/FAIL judgments. Physical-device performance remains untested.
 
+[Published-file verification](published-verification.json): 38 downloaded review files match their local SHA-256, images decode, the ZIP passes CRC/manifest checks and protected remote refs remain intact.
+
 **STOP: awaiting explicit human artistic/acceptance approval. Gate3, merge and deployment remain prohibited.**
