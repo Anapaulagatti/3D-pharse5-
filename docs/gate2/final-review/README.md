@@ -44,6 +44,6 @@ Original delivered PNGs remain unchanged: [A](../A_NATIVE_1X.png), [B](../B_NATI
 
 The spatial overlays compare approved data with proposals only. Jeju’s larger reservation and arrival realignment, and the station’s10px discrepancy, are unresolved. No proposed after-state is applied to the masterplan.
 
-[File sizes / hashes / decoded-memory inventory](review-files.json) · [native-source preservation and exact-crop verification](verification.json) · [actual-input entrance QA](access-qa.json) · [local amendment and provenance](../../../assets-src/gate2/access-fix/amendment.json).
+[Published JPEG/PNG and review-link verification](published-verification.json) · [File sizes / hashes / decoded-memory inventory](review-files.json) · [native-source preservation and exact-crop verification](verification.json) · [actual-input entrance QA](access-qa.json) · [local amendment and provenance](../../../assets-src/gate2/access-fix/amendment.json).
 
 **STOP: awaiting explicit human artistic review. Gate3, merge, deployment and protected-checkpoint alteration remain prohibited.**
