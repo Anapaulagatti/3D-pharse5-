@@ -1,6 +1,6 @@
 # CODEX — GATE 2.5 REJECTED: SEAMLESS ENVIRONMENT RECONSTRUCTION
 
-**Repository:** `Anapaulagatti/3D-pharse5-`  
+**Repository:** `Anapaulagatti/3D-pharse5-`
 **Working branch:** `art-gate/gate2-three-slices`
 
 ## HUMAN REVIEW DECISION

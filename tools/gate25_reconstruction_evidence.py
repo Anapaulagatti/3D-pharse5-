@@ -17,7 +17,7 @@ for p in list(D.glob('TOUR_*.png'))+list(D.glob('PLAYER_*.png'))+list(D.glob('PA
 # Verify immutable inputs against the snapshot taken BEFORE any reconstruction.
 before=json.loads((D/'protected-before.json').read_text());changed=[p for p,h in before.items()if not (R/p).exists()or sha(R/p)!=h];assert changed==['public/assets/gate2/catalog.json'],changed
 remote=subprocess.check_output(['git','ls-remote','origin','refs/heads/main','refs/heads/art-gate/final-gate1-world','refs/tags/checkpoint/gate1-approved-planning-20261022^{}'],cwd=R,text=True)
-refs={line.split()[1]:line.split()[0]for line in remote.splitlines()};assert refs['refs/heads/main']=='33360ed1989e4db9fc3fc4e3686ca385e0b00908';assert refs['refs/heads/art-gate/final-gate1-world']==refs['refs/tags/checkpoint/gate1-approved-planning-20261022^{}']=='e0a5c0aeff1a2980042983e6091abff11b987fad' 
+refs={line.split()[1]:line.split()[0]for line in remote.splitlines()};assert refs['refs/heads/main']=='33360ed1989e4db9fc3fc4e3686ca385e0b00908';assert refs['refs/heads/art-gate/final-gate1-world']==refs['refs/tags/checkpoint/gate1-approved-planning-20261022^{}']=='e0a5c0aeff1a2980042983e6091abff11b987fad'
 old='4eef7a7';source_diff=subprocess.check_output(['git','diff',old,'--','src','public/assets/juni','assets-src/gate1','assets-src/gate2','assets-src/world-gate1'],cwd=R,text=True);assert not source_diff
 (D/'preservation.json').write_text(json.dumps(dict(snapshotFiles=len(before),changedExistingFiles=changed,approvedSourcesAndHistoricalDerivedAssetsUnmodified=True,JuniAndTourAndMobileSourceUnmodified=True,protectedRefs=refs),indent=2)+'\n')
 # Native immutable facade comparison and disjoint runtime windows; aesthetic quality is not inferred.

@@ -41,7 +41,7 @@ Walk/tour captures use Chromium mobile-layout emulation, **not physical-device e
 
 ## Verification and remaining decisions
 
-[Browser QA](browser-qa.json) · [Source/collision proof](source-and-collision.json) · [Immutable-input hashes](protected-before.json) · [Preservation](preservation.json) · [Native crop/ownership checks](evidence-checks.json) · [Package integrity](package.json) · [Extracted package QA](package-qa.json) · [Art/source provenance](../../assets-src/gate25-reconstruction/provenance.json).
+[Browser QA](browser-qa.json) · [Source/collision proof](source-and-collision.json) · [Immutable-input hashes](protected-before.json) · [Preservation](preservation.json) · [Native crop/ownership checks](evidence-checks.json) · [Package integrity](package.json) · [Extracted package QA](package-qa.json) · [Published download verification](published-verification.json) · [Art/source provenance](../../assets-src/gate25-reconstruction/provenance.json).
 
 Technical checks PASS; previous artistic candidate FAIL/rejected. This candidate's A–F artistic acceptance, independent human inspection and physical Android/iPhone acceptance are **NOT TESTED / pending**. This author's separate inspection is documented honestly; no independent reviewer was invented. The new background uses nearest finishing and deserves native pixel-cadence review against retained facades.
 
