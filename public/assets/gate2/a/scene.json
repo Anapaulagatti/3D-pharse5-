@@ -1,0 +1,240 @@
+{
+  "id": "a",
+  "label": "A · Palace / hanok courtyard",
+  "size": [
+    1536,
+    1024
+  ],
+  "spawn": [
+    1100,
+    790
+  ],
+  "camera": [
+    1000,
+    650
+  ],
+  "ground": "a/ground.png",
+  "mask": "a/walk.png",
+  "objects": [
+    {
+      "id": "foreground-pine",
+      "image": "a/foreground-pine.png",
+      "x": 0,
+      "y": 760,
+      "width": 536,
+      "height": 264,
+      "sortY": 1000,
+      "alphaSoftening": 0.65
+    },
+    {
+      "id": "tea-roof",
+      "image": "a/tea-roof.png",
+      "x": 550,
+      "y": 395,
+      "width": 411,
+      "height": 266,
+      "sortY": 710,
+      "alphaSoftening": 0.65
+    }
+  ],
+  "targets": [
+    {
+      "id": "academy",
+      "x": 160,
+      "y": 750,
+      "label": "Hanok academy"
+    },
+    {
+      "id": "tea",
+      "x": 730,
+      "y": 750,
+      "label": "Tea courtyard"
+    },
+    {
+      "id": "palace",
+      "x": 1408,
+      "y": 290,
+      "label": "Palace entrance"
+    }
+  ],
+  "routes": [
+    {
+      "id": "academy-entrance",
+      "points": [
+        [
+          1100,
+          790
+        ],
+        [
+          160,
+          790
+        ],
+        [
+          160,
+          750
+        ]
+      ],
+      "width": 96
+    },
+    {
+      "id": "tea-entrance",
+      "points": [
+        [
+          1100,
+          790
+        ],
+        [
+          730,
+          790
+        ],
+        [
+          730,
+          750
+        ]
+      ],
+      "width": 96
+    },
+    {
+      "id": "palace-gate",
+      "points": [
+        [
+          1100,
+          790
+        ],
+        [
+          1408,
+          790
+        ],
+        [
+          1408,
+          440
+        ],
+        [
+          1408,
+          290
+        ]
+      ],
+      "width": 96
+    }
+  ],
+  "walkAreas": [
+    [
+      0,
+      720,
+      1536,
+      160
+    ],
+    [
+      1240,
+      90,
+      280,
+      934
+    ],
+    [
+      80,
+      710,
+      300,
+      160
+    ],
+    [
+      560,
+      710,
+      360,
+      160
+    ]
+  ],
+  "solids": [
+    {
+      "rect": [
+        870,
+        -360,
+        1050,
+        460
+      ],
+      "reason": "Approved historic palace"
+    },
+    {
+      "rect": [
+        600,
+        210,
+        480,
+        180
+      ],
+      "reason": "Approved historic gate"
+    },
+    {
+      "rect": [
+        -150,
+        460,
+        530,
+        250
+      ],
+      "reason": "Approved historic academy"
+    },
+    {
+      "rect": [
+        550,
+        480,
+        350,
+        230
+      ],
+      "reason": "Approved historic teahouse"
+    },
+    {
+      "rect": [
+        470,
+        -480,
+        30,
+        870
+      ],
+      "reason": "Approved palace-west"
+    },
+    {
+      "rect": [
+        2270,
+        -480,
+        30,
+        870
+      ],
+      "reason": "Approved palace-east"
+    },
+    {
+      "rect": [
+        470,
+        -480,
+        1830,
+        30
+      ],
+      "reason": "Approved palace-north"
+    },
+    {
+      "rect": [
+        470,
+        390,
+        720,
+        25
+      ],
+      "reason": "Approved palace-south-west"
+    },
+    {
+      "rect": [
+        1620,
+        390,
+        680,
+        25
+      ],
+      "reason": "Approved palace-south-east"
+    }
+  ],
+  "source": "assets-src/gate2/native/north.png",
+  "sourceSha256": "294075716a6596c47009fca50247fd21d9bad2dd2a6267346a25dc200e85d38b",
+  "depthPolicy": "Native semantic masks / support roots Y-sorted; same RGB as base art",
+  "registration": {
+    "approvedWorldOrigin": [
+      640,
+      650
+    ],
+    "scale": 1,
+    "approvedBuildingAndWallCollidersRetained": true
+  }
+}

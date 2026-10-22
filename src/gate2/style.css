@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #20383c;
+  color: #f0eddb;
+  font: 14px system-ui;
+}
+header {
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 24px;
+}
+nav {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+a {
+  color: #bfe0d3;
+}
+a[aria-current] {
+  color: #ffe3a6;
+}
+button {
+  font: inherit;
+  background: #355459;
+  color: #f9efdb;
+  padding: 10px 15px;
+  border: 1px solid #96aea4;
+  border-radius: 5px;
+}
+#scope {
+  height: 28px;
+  text-align: center;
+  color: #d9c594;
+  font-size: 12px;
+}
+#stage {
+  height: calc(100dvh - 153px);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  max-width: none;
+}
+footer {
+  height: 50px;
+  padding: 10px 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+#dialog {
+  position: fixed;
+  left: 25%;
+  right: 20%;
+  top: 25%;
+  padding: 24px;
+  background: #233f43;
+  border: 2px solid #e1c994;
+  z-index: 10;
+}
+#joystick {
+  position: fixed;
+  left: 22px;
+  bottom: 65px;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #e2cf9f;
+  background: #24494f99;
+  border-radius: 50%;
+  touch-action: none;
+}
+.stick-knob {
+  position: absolute;
+  left: 31px;
+  top: 31px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #e2cf9f;
+}
+#touch-actions {
+  position: fixed;
+  right: 20px;
+  bottom: 65px;
+  display: flex;
+  gap: 12px;
+  touch-action: none;
+}
+@media (pointer: fine) {
+  #joystick,
+  #touch-actions {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  header {
+    height: 55px;
+    padding: 5px 10px;
+    font-size: 10px;
+    gap: 10px;
+  }
+  nav {
+    gap: 8px;
+  }
+  header b {
+    display: none;
+  }
+  #scope {
+    height: 22px;
+    font-size: 10px;
+  }
+  footer {
+    height: 32px;
+    padding: 5px;
+    font-size: 10px;
+  }
+  footer span:last-child {
+    display: none;
+  }
+  #stage {
+    height: calc(100dvh - 109px);
+  }
+  #dialog {
+    left: 15%;
+    right: 15%;
+    top: 15%;
+    padding: 12px;
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "schema": "generate2dmap.map_bundle_report.v1",
+  "status": "warn",
+  "method": "JSON Schema map.schema.json#/$defs/map_bundle_v2 (vendored copy, built-in Draft 2020-12 evaluator), file existence and sha256 of every referenced file, and cross-field rules: unique ids, tile indices against tilesets, wang/blob topology, material colours, portal targets and arrivals, slots and approach points",
+  "notProven": [
+    "reachability, portal arrivals and collision geometry (run map_nav.py check)",
+    "that collision and footprints match the painted art",
+    "engine or editor import (Tiled GUI, Godot, LDtk not verified)"
+  ],
+  "checks": [
+    {
+      "id": "schema",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "files",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "sha256",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "tilesets",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "layers",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "props_and_objects",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "collision",
+      "status": "warn",
+      "value": {
+        "errors": 0,
+        "warnings": 1
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "material_map",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "portals",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "spawns_anchors_interactions",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "document",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "hashed-bundle.json",
+      "sha256": "dd16058fadbcccec53ff13402ac08537ad732281502334740d23abdda84fcd70",
+      "bytes": 29380
+    },
+    {
+      "path": "ground.png",
+      "sha256": "4e4e8d2b2eaa5d1590fac9b0e3877c1266c1fd30c523f1cb61501fca26790249",
+      "bytes": 2785575
+    },
+    {
+      "path": "gate1-2.png",
+      "sha256": "ffc48fd134d639df4babcfcf324613ed74e8cbfdfb587ab355a70fbf9993f77a",
+      "bytes": 6447
+    },
+    {
+      "path": "gate1-3.png",
+      "sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "bytes": 40364
+    },
+    {
+      "path": "gate1-4.png",
+      "sha256": "ffc48fd134d639df4babcfcf324613ed74e8cbfdfb587ab355a70fbf9993f77a",
+      "bytes": 6447
+    },
+    {
+      "path": "gate1-5.png",
+      "sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+      "bytes": 40364
+    },
+    {
+      "path": "gate1-6.png",
+      "sha256": "e64448123e947a43d45eebec72cbd6466f4be1bd7dd3e1ab67b06634b11af7fc",
+      "bytes": 3524
+    },
+    {
+      "path": "gate1-7.png",
+      "sha256": "ecaf0664fd85d407d19552e76168b6a4b1a0b147cfe8499873eb9ae14e7b9f5c",
+      "bytes": 3871
+    },
+    {
+      "path": "gate1-8.png",
+      "sha256": "1dc04611e1e0d45089b2074279d46a7ed1113dfedb5b5580ed3303ddc74f0117",
+      "bytes": 5328
+    },
+    {
+      "path": "gate1-9.png",
+      "sha256": "1dc04611e1e0d45089b2074279d46a7ed1113dfedb5b5580ed3303ddc74f0117",
+      "bytes": 5328
+    },
+    {
+      "path": "gate1-10.png",
+      "sha256": "6e3b733b05e538f8922a7feb04b41e9bab9255ad92b47d272dd337a9331e8bc0",
+      "bytes": 12364
+    },
+    {
+      "path": "gate1-11.png",
+      "sha256": "2d560349524c9c84e83c4672cb900b4729fa6da05fd15da41d87493c89f97896",
+      "bytes": 8839
+    }
+  ],
+  "outputs": [],
+  "tool": {
+    "name": "map_bundle.py",
+    "version": "0.4.0"
+  },
+  "bundle": {
+    "id": "gate2-b",
+    "version": 2,
+    "world": [
+      1536.0,
+      1024.0
+    ],
+    "counts": {
+      "tilesets": 0,
+      "layers": 2,
+      "props": 10,
+      "objects": 10,
+      "portals": 0,
+      "spawns": 1,
+      "anchors": 5,
+      "interactions": 0
+    }
+  },
+  "problems": [
+    {
+      "severity": "warning",
+      "path": "$.collision.actorRadius",
+      "message": "actorRadius 0 treats the actor as a point",
+      "code": "rule"
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "id": "transition",
+  "label": "Transition · heritage garden to city",
+  "size": [
+    1536,
+    1024
+  ],
+  "spawn": [
+    850,
+    630
+  ],
+  "camera": [
+    850,
+    520
+  ],
+  "ground": "transition/ground.png",
+  "mask": "transition/walk.png",
+  "objects": [
+    {
+      "id": "garden-canopy",
+      "image": "transition/garden-canopy.png",
+      "x": 560,
+      "y": 150,
+      "width": 375,
+      "height": 374,
+      "sortY": 575,
+      "alphaSoftening": 0.65
+    }
+  ],
+  "targets": [
+    {
+      "id": "heritage",
+      "x": 480,
+      "y": 560,
+      "label": "Traditional threshold"
+    },
+    {
+      "id": "garden",
+      "x": 850,
+      "y": 630,
+      "label": "Shared stone / planted transition"
+    },
+    {
+      "id": "modern",
+      "x": 1100,
+      "y": 630,
+      "label": "Modern bookshop frontage"
+    }
+  ],
+  "routes": [
+    {
+      "id": "heritage-door",
+      "points": [
+        [
+          850,
+          630
+        ],
+        [
+          480,
+          630
+        ],
+        [
+          480,
+          560
+        ],
+        [
+          480,
+          480
+        ]
+      ],
+      "width": 80
+    },
+    {
+      "id": "city-door",
+      "points": [
+        [
+          850,
+          630
+        ],
+        [
+          1100,
+          630
+        ]
+      ],
+      "width": 74
+    },
+    {
+      "id": "crosswalk",
+      "points": [
+        [
+          1010,
+          630
+        ],
+        [
+          1010,
+          940
+        ],
+        [
+          1150,
+          940
+        ]
+      ],
+      "width": 90
+    }
+  ],
+  "walkAreas": [
+    [
+      0,
+      600,
+      1536,
+      155
+    ],
+    [
+      0,
+      900,
+      1536,
+      124
+    ],
+    [
+      935,
+      660,
+      150,
+      364
+    ]
+  ],
+  "solids": [
+    {
+      "rect": [
+        0,
+        0,
+        650,
+        305
+      ],
+      "reason": "Historical architecture"
+    },
+    {
+      "rect": [
+        920,
+        0,
+        616,
+        600
+      ],
+      "reason": "Modern frontage"
+    },
+    {
+      "rect": [
+        330,
+        300,
+        290,
+        215
+      ],
+      "reason": "Traditional gate piers and roof; door approach south"
+    }
+  ],
+  "source": "assets-src/gate2/native/transition.png",
+  "sourceSha256": "a68af38f79f8a7557fdd1c2684cbd2c0660c6e9cc990f75dd5f20c1a20ebf838",
+  "depthPolicy": "Native semantic masks / support roots Y-sorted; same RGB as base art"
+}

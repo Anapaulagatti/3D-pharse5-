@@ -1,0 +1,217 @@
+[
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/a/bundle.json",
+      "--output",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/a/hashed-bundle.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/a/hashed-bundle.json\", \"metadata\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/a/hashed-bundle.json\", \"files_hashed\": 3}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/a/hashed-bundle.json",
+      "--report",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/a/bundle-report.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"warn\", \"bundle\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/a/hashed-bundle.json\", \"id\": \"gate2-a\", \"version\": 2, \"errors\": 0, \"warnings\": 1, \"metadata\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/a/bundle-report.json\"}\n",
+    "stderr": "warning: $.collision.actorRadius: actorRadius 0 treats the actor as a point\n"
+  },
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/a/hashed-bundle.json",
+      "--output-dir",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/a/nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/a/nav\", \"metadata\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/a/nav/nav-report.json\", \"grid\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/a/nav/nav-grid.json\", \"debug\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/a/nav/nav-debug.png\", \"map\": \"gate2-a\", \"cell\": 1, \"targets\": 3, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/b/bundle.json",
+      "--output",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/b/hashed-bundle.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/b/hashed-bundle.json\", \"metadata\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/b/hashed-bundle.json\", \"files_hashed\": 11}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/b/hashed-bundle.json",
+      "--report",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/b/bundle-report.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"warn\", \"bundle\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/b/hashed-bundle.json\", \"id\": \"gate2-b\", \"version\": 2, \"errors\": 0, \"warnings\": 1, \"metadata\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/b/bundle-report.json\"}\n",
+    "stderr": "warning: $.collision.actorRadius: actorRadius 0 treats the actor as a point\n"
+  },
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/b/hashed-bundle.json",
+      "--output-dir",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/b/nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/b/nav\", \"metadata\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/b/nav/nav-report.json\", \"grid\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/b/nav/nav-grid.json\", \"debug\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/b/nav/nav-debug.png\", \"map\": \"gate2-b\", \"cell\": 1, \"targets\": 5, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/c/bundle.json",
+      "--output",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/c/hashed-bundle.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/c/hashed-bundle.json\", \"metadata\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/c/hashed-bundle.json\", \"files_hashed\": 8}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/c/hashed-bundle.json",
+      "--report",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/c/bundle-report.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"warn\", \"bundle\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/c/hashed-bundle.json\", \"id\": \"gate2-c\", \"version\": 2, \"errors\": 0, \"warnings\": 1, \"metadata\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/c/bundle-report.json\"}\n",
+    "stderr": "warning: $.collision.actorRadius: actorRadius 0 treats the actor as a point\n"
+  },
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/c/hashed-bundle.json",
+      "--output-dir",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/c/nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/c/nav\", \"metadata\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/c/nav/nav-report.json\", \"grid\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/c/nav/nav-grid.json\", \"debug\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/c/nav/nav-debug.png\", \"map\": \"gate2-c\", \"cell\": 1, \"targets\": 5, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/transition/bundle.json",
+      "--output",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/transition/hashed-bundle.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/transition/hashed-bundle.json\", \"metadata\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/transition/hashed-bundle.json\", \"files_hashed\": 2}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/transition/hashed-bundle.json",
+      "--report",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/transition/bundle-report.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"warn\", \"bundle\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/transition/hashed-bundle.json\", \"id\": \"gate2-transition\", \"version\": 2, \"errors\": 0, \"warnings\": 1, \"metadata\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/transition/bundle-report.json\"}\n",
+    "stderr": "warning: $.collision.actorRadius: actorRadius 0 treats the actor as a point\n"
+  },
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/transition/hashed-bundle.json",
+      "--output-dir",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/transition/nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/transition/nav\", \"metadata\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/transition/nav/nav-report.json\", \"grid\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/transition/nav/nav-grid.json\", \"debug\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/transition/nav/nav-debug.png\", \"map\": \"gate2-transition\", \"cell\": 1, \"targets\": 3, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/station/bundle.json",
+      "--output",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/station/hashed-bundle.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/station/hashed-bundle.json\", \"metadata\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/station/hashed-bundle.json\", \"files_hashed\": 1}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/station/hashed-bundle.json",
+      "--report",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/station/bundle-report.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"warn\", \"bundle\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/station/hashed-bundle.json\", \"id\": \"gate2-station\", \"version\": 2, \"errors\": 0, \"warnings\": 1, \"metadata\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/station/bundle-report.json\"}\n",
+    "stderr": "warning: $.collision.actorRadius: actorRadius 0 treats the actor as a point\n"
+  },
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/station/hashed-bundle.json",
+      "--output-dir",
+      "/workspace/korean-street-gate1/assets-src/gate2/maps/station/nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/station/nav\", \"metadata\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/station/nav/nav-report.json\", \"grid\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/station/nav/nav-grid.json\", \"debug\": \"/workspace/korean-street-gate1/assets-src/gate2/maps/station/nav/nav-debug.png\", \"map\": \"gate2-station\", \"cell\": 1, \"targets\": 2, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  }
+]

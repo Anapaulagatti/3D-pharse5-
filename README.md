@@ -1,3 +1,7 @@
+# Gate 2 playable art review
+
+Current delivery: [three slices, videos, native captures and playable ZIPs](docs/gate2/GATE2_REVIEW.md). Gate1 baseline is approved; Gate2 human artistic approval is pending. Gate3 remains locked. Jeju native reservation conflict and station fit allowance are disclosed proposals, not applied plan changes.
+
 Current Gate 1 delivery: [three targeted corrections](docs/world-gate1/TARGETED_CORRECTIONS_REVIEW.md). Final approval withheld; Gate 2 locked.
 
 Current final Gate 1 review (22 October): [revised masterplan and graybox](docs/world-gate1/FINAL_MASTERPLAN_REVIEW.md). Art direction provisionally approved; final plan pending, Gate 2 locked.

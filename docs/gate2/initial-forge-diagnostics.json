@@ -1,0 +1,2313 @@
+[
+  {
+    "file": "assets-src/gate2/maps/transition/bundle-report.json",
+    "report": {
+      "schema": "generate2dmap.map_bundle_report.v1",
+      "status": "warn",
+      "method": "JSON Schema map.schema.json#/$defs/map_bundle_v2 (vendored copy, built-in Draft 2020-12 evaluator), file existence and sha256 of every referenced file, and cross-field rules: unique ids, tile indices against tilesets, wang/blob topology, material colours, portal targets and arrivals, slots and approach points",
+      "notProven": [
+        "reachability, portal arrivals and collision geometry (run map_nav.py check)",
+        "that collision and footprints match the painted art",
+        "engine or editor import (Tiled GUI, Godot, LDtk not verified)"
+      ],
+      "checks": [
+        {
+          "id": "schema",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "files",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "sha256",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "tilesets",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "layers",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "props_and_objects",
+          "status": "warn",
+          "value": {
+            "errors": 0,
+            "warnings": 1
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "collision",
+          "status": "warn",
+          "value": {
+            "errors": 0,
+            "warnings": 1
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "material_map",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "portals",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "spawns_anchors_interactions",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "document",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "path": "hashed-bundle.json",
+          "sha256": "48350b338e7452d61a732e2b1c887f16d621a25d5ba5cd35d1da5e5f088bf70f",
+          "bytes": 18870
+        },
+        {
+          "path": "ground.png",
+          "sha256": "a68af38f79f8a7557fdd1c2684cbd2c0660c6e9cc990f75dd5f20c1a20ebf838",
+          "bytes": 3290891
+        },
+        {
+          "path": "garden-canopy.png",
+          "sha256": "a4078fe5828a202c6a3cea8b3e4e5c0f04c25665104dededeb72ac70dc6a41f3",
+          "bytes": 366848
+        }
+      ],
+      "outputs": [],
+      "tool": {
+        "name": "map_bundle.py",
+        "version": "0.4.0"
+      },
+      "bundle": {
+        "id": "gate2-transition",
+        "version": 2,
+        "world": [
+          1536.0,
+          1024.0
+        ],
+        "counts": {
+          "tilesets": 0,
+          "layers": 2,
+          "props": 1,
+          "objects": 1,
+          "portals": 0,
+          "spawns": 1,
+          "anchors": 3,
+          "interactions": 0
+        }
+      },
+      "problems": [
+        {
+          "severity": "warning",
+          "path": "$.objects[0].anchor_px",
+          "message": "anchor [187.5, 425.0] lies outside the 375x374 prop image",
+          "code": "rule"
+        },
+        {
+          "severity": "warning",
+          "path": "$.collision.actorRadius",
+          "message": "actorRadius 0 treats the actor as a point",
+          "code": "rule"
+        }
+      ]
+    }
+  },
+  {
+    "file": "assets-src/gate2/maps/transition/nav/nav-report.json",
+    "report": {
+      "schema": "generate2dmap.nav_report.v1",
+      "status": "warn",
+      "method": "plan Appendix C validity (centre + 8 footprint samples against walk regions, solids, object footprints scaled once, tile collision and material classes) on a grid of cell max(1, round(r/2)) px; 4-neighbour moves open when segmentClear holds between node centres (samples every cell/2, plus the exact thin-gap centre path and one_way direction); BFS from every spawn and portal arrival to every interaction, exit, anchor slot and approach point",
+      "notProven": [
+        "that the collision data matches the painted art",
+        "positions closer than one grid cell to a blocker (the grid samples cell centres)",
+        "runtime movement code: map-runtime.mjs parity is tested during integration",
+        "links to maps not passed with --link"
+      ],
+      "checks": [
+        {
+          "id": "starts_valid",
+          "status": "pass",
+          "value": {
+            "starts": 1,
+            "blocked": []
+          },
+          "threshold": {
+            "blocked": 0
+          }
+        },
+        {
+          "id": "targets_reachable",
+          "status": "pass",
+          "value": {
+            "reachable": 3,
+            "total": 3,
+            "unreachable": []
+          },
+          "threshold": {
+            "unreachable": 0
+          }
+        },
+        {
+          "id": "portals_inside_world",
+          "status": "pass",
+          "value": {
+            "outside": []
+          },
+          "threshold": {
+            "outside": 0
+          }
+        },
+        {
+          "id": "arrivals_outside_triggers",
+          "status": "pass",
+          "value": {
+            "problems": 0
+          },
+          "threshold": {
+            "problems": 0
+          }
+        },
+        {
+          "id": "reciprocal_links",
+          "status": "pass",
+          "value": {
+            "links": [],
+            "notChecked": []
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "thin_gaps",
+          "status": "pass",
+          "value": 0,
+          "threshold": "reported: moves the thin-gap rule closed although every footprint sample was valid"
+        },
+        {
+          "id": "unreachable_walkable_area",
+          "status": "warn",
+          "value": {
+            "pockets": 1,
+            "cells": 12672
+          },
+          "threshold": "reported"
+        },
+        {
+          "id": "blocked_rects_union",
+          "status": "pass",
+          "value": {
+            "rects": 32,
+            "blockedCells": 1136384
+          },
+          "threshold": "union == blocked cells"
+        },
+        {
+          "id": "footprints_scaled_once",
+          "status": "pass",
+          "value": {
+            "objectSolids": 0
+          },
+          "threshold": "object footprint x scale, never inflated by the actor radius"
+        }
+      ],
+      "inputs": [
+        {
+          "path": "../hashed-bundle.json",
+          "sha256": "48350b338e7452d61a732e2b1c887f16d621a25d5ba5cd35d1da5e5f088bf70f",
+          "bytes": 18870
+        },
+        {
+          "path": "../ground.png",
+          "sha256": "a68af38f79f8a7557fdd1c2684cbd2c0660c6e9cc990f75dd5f20c1a20ebf838",
+          "bytes": 3290891
+        },
+        {
+          "path": "../garden-canopy.png",
+          "sha256": "a4078fe5828a202c6a3cea8b3e4e5c0f04c25665104dededeb72ac70dc6a41f3",
+          "bytes": 366848
+        }
+      ],
+      "outputs": [
+        {
+          "path": "nav-grid.json",
+          "sha256": "d4f67e5cbd66202fcd7a2a585e98ff8496c0119b90b060d640162eec95ebad4f",
+          "bytes": 3164910
+        },
+        {
+          "path": "nav-debug.png",
+          "sha256": "3e31f19e0d9b11ae967915fabc6c76aa9a8ddbcd049c3b1b0d5c606208b868f9",
+          "bytes": 2594919
+        }
+      ],
+      "tool": {
+        "name": "map_nav.py",
+        "version": "0.4.0"
+      },
+      "map": "gate2-transition",
+      "cell": 1,
+      "starts": [
+        {
+          "kind": "spawn",
+          "id": "entry",
+          "point": [
+            850.0,
+            630.0
+          ],
+          "reachable": true,
+          "steps": 0,
+          "node": [
+            849.5,
+            629.5
+          ],
+          "reason": null
+        }
+      ],
+      "targets": [
+        {
+          "kind": "approach",
+          "id": "heritage/approach[0]",
+          "point": [
+            480.0,
+            560.0
+          ],
+          "reachable": true,
+          "steps": 432,
+          "node": [
+            482.5,
+            562.5
+          ],
+          "reason": null
+        },
+        {
+          "kind": "approach",
+          "id": "garden/approach[0]",
+          "point": [
+            850.0,
+            630.0
+          ],
+          "reachable": true,
+          "steps": 0,
+          "node": [
+            848.5,
+            628.5
+          ],
+          "reason": null
+        },
+        {
+          "kind": "approach",
+          "id": "modern/approach[0]",
+          "point": [
+            1100.0,
+            630.0
+          ],
+          "reachable": true,
+          "steps": 246,
+          "node": [
+            1098.5,
+            628.5
+          ],
+          "reason": null
+        }
+      ],
+      "links": [],
+      "thinGaps": [],
+      "unreachablePockets": [
+        {
+          "cells": 12672,
+          "at": [
+            656.5,
+            248.5
+          ]
+        }
+      ],
+      "bundleNav": {
+        "cell": 1,
+        "grid": "nav-grid.json"
+      },
+      "problems": [
+        {
+          "severity": "warning",
+          "path": "$.objects[0].anchor_px",
+          "message": "anchor [187.5, 425.0] lies outside the 375x374 prop image",
+          "code": "rule"
+        },
+        {
+          "severity": "warning",
+          "path": "$.collision.actorRadius",
+          "message": "actorRadius 0 treats the actor as a point",
+          "code": "rule"
+        }
+      ]
+    }
+  },
+  {
+    "file": "assets-src/gate2/maps/station/bundle-report.json",
+    "report": {
+      "schema": "generate2dmap.map_bundle_report.v1",
+      "status": "warn",
+      "method": "JSON Schema map.schema.json#/$defs/map_bundle_v2 (vendored copy, built-in Draft 2020-12 evaluator), file existence and sha256 of every referenced file, and cross-field rules: unique ids, tile indices against tilesets, wang/blob topology, material colours, portal targets and arrivals, slots and approach points",
+      "notProven": [
+        "reachability, portal arrivals and collision geometry (run map_nav.py check)",
+        "that collision and footprints match the painted art",
+        "engine or editor import (Tiled GUI, Godot, LDtk not verified)"
+      ],
+      "checks": [
+        {
+          "id": "schema",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "files",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "sha256",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "tilesets",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "layers",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "props_and_objects",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "collision",
+          "status": "warn",
+          "value": {
+            "errors": 0,
+            "warnings": 1
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "material_map",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "portals",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "spawns_anchors_interactions",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "document",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "path": "hashed-bundle.json",
+          "sha256": "ece6a11140bff7521a9b8d7d138191d3ce2af3cdbabc5dd93ac496d9bddc6155",
+          "bytes": 9087
+        },
+        {
+          "path": "ground.png",
+          "sha256": "2825ab81ef3fec8085e1031ae6c8e90639cd36ec53a6fcb26a4cec74ca0bb372",
+          "bytes": 1017134
+        }
+      ],
+      "outputs": [],
+      "tool": {
+        "name": "map_bundle.py",
+        "version": "0.4.0"
+      },
+      "bundle": {
+        "id": "gate2-station",
+        "version": 2,
+        "world": [
+          720.0,
+          720.0
+        ],
+        "counts": {
+          "tilesets": 0,
+          "layers": 1,
+          "props": 0,
+          "objects": 0,
+          "portals": 0,
+          "spawns": 1,
+          "anchors": 2,
+          "interactions": 0
+        }
+      },
+      "problems": [
+        {
+          "severity": "warning",
+          "path": "$.collision.actorRadius",
+          "message": "actorRadius 0 treats the actor as a point",
+          "code": "rule"
+        }
+      ]
+    }
+  },
+  {
+    "file": "assets-src/gate2/maps/station/nav/nav-report.json",
+    "report": {
+      "schema": "generate2dmap.nav_report.v1",
+      "status": "pass",
+      "method": "plan Appendix C validity (centre + 8 footprint samples against walk regions, solids, object footprints scaled once, tile collision and material classes) on a grid of cell max(1, round(r/2)) px; 4-neighbour moves open when segmentClear holds between node centres (samples every cell/2, plus the exact thin-gap centre path and one_way direction); BFS from every spawn and portal arrival to every interaction, exit, anchor slot and approach point",
+      "notProven": [
+        "that the collision data matches the painted art",
+        "positions closer than one grid cell to a blocker (the grid samples cell centres)",
+        "runtime movement code: map-runtime.mjs parity is tested during integration",
+        "links to maps not passed with --link"
+      ],
+      "checks": [
+        {
+          "id": "starts_valid",
+          "status": "pass",
+          "value": {
+            "starts": 1,
+            "blocked": []
+          },
+          "threshold": {
+            "blocked": 0
+          }
+        },
+        {
+          "id": "targets_reachable",
+          "status": "pass",
+          "value": {
+            "reachable": 2,
+            "total": 2,
+            "unreachable": []
+          },
+          "threshold": {
+            "unreachable": 0
+          }
+        },
+        {
+          "id": "portals_inside_world",
+          "status": "pass",
+          "value": {
+            "outside": []
+          },
+          "threshold": {
+            "outside": 0
+          }
+        },
+        {
+          "id": "arrivals_outside_triggers",
+          "status": "pass",
+          "value": {
+            "problems": 0
+          },
+          "threshold": {
+            "problems": 0
+          }
+        },
+        {
+          "id": "reciprocal_links",
+          "status": "pass",
+          "value": {
+            "links": [],
+            "notChecked": []
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "thin_gaps",
+          "status": "pass",
+          "value": 0,
+          "threshold": "reported: moves the thin-gap rule closed although every footprint sample was valid"
+        },
+        {
+          "id": "unreachable_walkable_area",
+          "status": "pass",
+          "value": {
+            "pockets": 0,
+            "cells": 0
+          },
+          "threshold": "reported"
+        },
+        {
+          "id": "blocked_rects_union",
+          "status": "pass",
+          "value": {
+            "rects": 7,
+            "blockedCells": 313344
+          },
+          "threshold": "union == blocked cells"
+        },
+        {
+          "id": "footprints_scaled_once",
+          "status": "pass",
+          "value": {
+            "objectSolids": 0
+          },
+          "threshold": "object footprint x scale, never inflated by the actor radius"
+        }
+      ],
+      "inputs": [
+        {
+          "path": "../hashed-bundle.json",
+          "sha256": "ece6a11140bff7521a9b8d7d138191d3ce2af3cdbabc5dd93ac496d9bddc6155",
+          "bytes": 9087
+        },
+        {
+          "path": "../ground.png",
+          "sha256": "2825ab81ef3fec8085e1031ae6c8e90639cd36ec53a6fcb26a4cec74ca0bb372",
+          "bytes": 1017134
+        }
+      ],
+      "outputs": [
+        {
+          "path": "nav-grid.json",
+          "sha256": "dd4557fb9e881a3292a5a2b0506f9af6f9c8424e87d62f9ab3d9a1da2ba3edff",
+          "bytes": 1049754
+        },
+        {
+          "path": "nav-debug.png",
+          "sha256": "6fd7ad5705e342e337ff041d2b5fa3891ad461e9c79a9a94f2d4815991a73bd5",
+          "bytes": 834415
+        }
+      ],
+      "tool": {
+        "name": "map_nav.py",
+        "version": "0.4.0"
+      },
+      "map": "gate2-station",
+      "cell": 1,
+      "starts": [
+        {
+          "kind": "spawn",
+          "id": "entry",
+          "point": [
+            360.0,
+            460.0
+          ],
+          "reachable": true,
+          "steps": 0,
+          "node": [
+            359.5,
+            459.5
+          ],
+          "reason": null
+        }
+      ],
+      "targets": [
+        {
+          "kind": "approach",
+          "id": "station/approach[0]",
+          "point": [
+            360.0,
+            430.0
+          ],
+          "reachable": true,
+          "steps": 26,
+          "node": [
+            358.5,
+            432.5
+          ],
+          "reason": null
+        },
+        {
+          "kind": "approach",
+          "id": "forecourt/approach[0]",
+          "point": [
+            360.0,
+            650.0
+          ],
+          "reachable": true,
+          "steps": 186,
+          "node": [
+            358.5,
+            648.5
+          ],
+          "reason": null
+        }
+      ],
+      "links": [],
+      "thinGaps": [],
+      "unreachablePockets": [],
+      "bundleNav": {
+        "cell": 1,
+        "grid": "nav-grid.json"
+      },
+      "problems": [
+        {
+          "severity": "warning",
+          "path": "$.collision.actorRadius",
+          "message": "actorRadius 0 treats the actor as a point",
+          "code": "rule"
+        }
+      ]
+    }
+  },
+  {
+    "file": "assets-src/gate2/maps/b/bundle-report.json",
+    "report": {
+      "schema": "generate2dmap.map_bundle_report.v1",
+      "status": "warn",
+      "method": "JSON Schema map.schema.json#/$defs/map_bundle_v2 (vendored copy, built-in Draft 2020-12 evaluator), file existence and sha256 of every referenced file, and cross-field rules: unique ids, tile indices against tilesets, wang/blob topology, material colours, portal targets and arrivals, slots and approach points",
+      "notProven": [
+        "reachability, portal arrivals and collision geometry (run map_nav.py check)",
+        "that collision and footprints match the painted art",
+        "engine or editor import (Tiled GUI, Godot, LDtk not verified)"
+      ],
+      "checks": [
+        {
+          "id": "schema",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "files",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "sha256",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "tilesets",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "layers",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "props_and_objects",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "collision",
+          "status": "warn",
+          "value": {
+            "errors": 0,
+            "warnings": 1
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "material_map",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "portals",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "spawns_anchors_interactions",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "document",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "path": "hashed-bundle.json",
+          "sha256": "dd16058fadbcccec53ff13402ac08537ad732281502334740d23abdda84fcd70",
+          "bytes": 29380
+        },
+        {
+          "path": "ground.png",
+          "sha256": "4e4e8d2b2eaa5d1590fac9b0e3877c1266c1fd30c523f1cb61501fca26790249",
+          "bytes": 2785575
+        },
+        {
+          "path": "gate1-2.png",
+          "sha256": "ffc48fd134d639df4babcfcf324613ed74e8cbfdfb587ab355a70fbf9993f77a",
+          "bytes": 6447
+        },
+        {
+          "path": "gate1-3.png",
+          "sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+          "bytes": 40364
+        },
+        {
+          "path": "gate1-4.png",
+          "sha256": "ffc48fd134d639df4babcfcf324613ed74e8cbfdfb587ab355a70fbf9993f77a",
+          "bytes": 6447
+        },
+        {
+          "path": "gate1-5.png",
+          "sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+          "bytes": 40364
+        },
+        {
+          "path": "gate1-6.png",
+          "sha256": "e64448123e947a43d45eebec72cbd6466f4be1bd7dd3e1ab67b06634b11af7fc",
+          "bytes": 3524
+        },
+        {
+          "path": "gate1-7.png",
+          "sha256": "ecaf0664fd85d407d19552e76168b6a4b1a0b147cfe8499873eb9ae14e7b9f5c",
+          "bytes": 3871
+        },
+        {
+          "path": "gate1-8.png",
+          "sha256": "1dc04611e1e0d45089b2074279d46a7ed1113dfedb5b5580ed3303ddc74f0117",
+          "bytes": 5328
+        },
+        {
+          "path": "gate1-9.png",
+          "sha256": "1dc04611e1e0d45089b2074279d46a7ed1113dfedb5b5580ed3303ddc74f0117",
+          "bytes": 5328
+        },
+        {
+          "path": "gate1-10.png",
+          "sha256": "6e3b733b05e538f8922a7feb04b41e9bab9255ad92b47d272dd337a9331e8bc0",
+          "bytes": 12364
+        },
+        {
+          "path": "gate1-11.png",
+          "sha256": "2d560349524c9c84e83c4672cb900b4729fa6da05fd15da41d87493c89f97896",
+          "bytes": 8839
+        }
+      ],
+      "outputs": [],
+      "tool": {
+        "name": "map_bundle.py",
+        "version": "0.4.0"
+      },
+      "bundle": {
+        "id": "gate2-b",
+        "version": 2,
+        "world": [
+          1536.0,
+          1024.0
+        ],
+        "counts": {
+          "tilesets": 0,
+          "layers": 2,
+          "props": 10,
+          "objects": 10,
+          "portals": 0,
+          "spawns": 1,
+          "anchors": 5,
+          "interactions": 0
+        }
+      },
+      "problems": [
+        {
+          "severity": "warning",
+          "path": "$.collision.actorRadius",
+          "message": "actorRadius 0 treats the actor as a point",
+          "code": "rule"
+        }
+      ]
+    }
+  },
+  {
+    "file": "assets-src/gate2/maps/b/nav/nav-report.json",
+    "report": {
+      "schema": "generate2dmap.nav_report.v1",
+      "status": "pass",
+      "method": "plan Appendix C validity (centre + 8 footprint samples against walk regions, solids, object footprints scaled once, tile collision and material classes) on a grid of cell max(1, round(r/2)) px; 4-neighbour moves open when segmentClear holds between node centres (samples every cell/2, plus the exact thin-gap centre path and one_way direction); BFS from every spawn and portal arrival to every interaction, exit, anchor slot and approach point",
+      "notProven": [
+        "that the collision data matches the painted art",
+        "positions closer than one grid cell to a blocker (the grid samples cell centres)",
+        "runtime movement code: map-runtime.mjs parity is tested during integration",
+        "links to maps not passed with --link"
+      ],
+      "checks": [
+        {
+          "id": "starts_valid",
+          "status": "pass",
+          "value": {
+            "starts": 1,
+            "blocked": []
+          },
+          "threshold": {
+            "blocked": 0
+          }
+        },
+        {
+          "id": "targets_reachable",
+          "status": "pass",
+          "value": {
+            "reachable": 5,
+            "total": 5,
+            "unreachable": []
+          },
+          "threshold": {
+            "unreachable": 0
+          }
+        },
+        {
+          "id": "portals_inside_world",
+          "status": "pass",
+          "value": {
+            "outside": []
+          },
+          "threshold": {
+            "outside": 0
+          }
+        },
+        {
+          "id": "arrivals_outside_triggers",
+          "status": "pass",
+          "value": {
+            "problems": 0
+          },
+          "threshold": {
+            "problems": 0
+          }
+        },
+        {
+          "id": "reciprocal_links",
+          "status": "pass",
+          "value": {
+            "links": [],
+            "notChecked": []
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "thin_gaps",
+          "status": "pass",
+          "value": 0,
+          "threshold": "reported: moves the thin-gap rule closed although every footprint sample was valid"
+        },
+        {
+          "id": "unreachable_walkable_area",
+          "status": "pass",
+          "value": {
+            "pockets": 0,
+            "cells": 0
+          },
+          "threshold": "reported"
+        },
+        {
+          "id": "blocked_rects_union",
+          "status": "pass",
+          "value": {
+            "rects": 28,
+            "blockedCells": 1057728
+          },
+          "threshold": "union == blocked cells"
+        },
+        {
+          "id": "footprints_scaled_once",
+          "status": "pass",
+          "value": {
+            "objectSolids": 0
+          },
+          "threshold": "object footprint x scale, never inflated by the actor radius"
+        }
+      ],
+      "inputs": [
+        {
+          "path": "../hashed-bundle.json",
+          "sha256": "dd16058fadbcccec53ff13402ac08537ad732281502334740d23abdda84fcd70",
+          "bytes": 29380
+        },
+        {
+          "path": "../ground.png",
+          "sha256": "4e4e8d2b2eaa5d1590fac9b0e3877c1266c1fd30c523f1cb61501fca26790249",
+          "bytes": 2785575
+        },
+        {
+          "path": "../gate1-2.png",
+          "sha256": "ffc48fd134d639df4babcfcf324613ed74e8cbfdfb587ab355a70fbf9993f77a",
+          "bytes": 6447
+        },
+        {
+          "path": "../gate1-3.png",
+          "sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+          "bytes": 40364
+        },
+        {
+          "path": "../gate1-4.png",
+          "sha256": "ffc48fd134d639df4babcfcf324613ed74e8cbfdfb587ab355a70fbf9993f77a",
+          "bytes": 6447
+        },
+        {
+          "path": "../gate1-5.png",
+          "sha256": "ff919031a72e1516125817e223954c2e39af8fb40ec2a361acfc1ed6398ff69e",
+          "bytes": 40364
+        },
+        {
+          "path": "../gate1-6.png",
+          "sha256": "e64448123e947a43d45eebec72cbd6466f4be1bd7dd3e1ab67b06634b11af7fc",
+          "bytes": 3524
+        },
+        {
+          "path": "../gate1-7.png",
+          "sha256": "ecaf0664fd85d407d19552e76168b6a4b1a0b147cfe8499873eb9ae14e7b9f5c",
+          "bytes": 3871
+        },
+        {
+          "path": "../gate1-8.png",
+          "sha256": "1dc04611e1e0d45089b2074279d46a7ed1113dfedb5b5580ed3303ddc74f0117",
+          "bytes": 5328
+        },
+        {
+          "path": "../gate1-9.png",
+          "sha256": "1dc04611e1e0d45089b2074279d46a7ed1113dfedb5b5580ed3303ddc74f0117",
+          "bytes": 5328
+        },
+        {
+          "path": "../gate1-10.png",
+          "sha256": "6e3b733b05e538f8922a7feb04b41e9bab9255ad92b47d272dd337a9331e8bc0",
+          "bytes": 12364
+        },
+        {
+          "path": "../gate1-11.png",
+          "sha256": "2d560349524c9c84e83c4672cb900b4729fa6da05fd15da41d87493c89f97896",
+          "bytes": 8839
+        }
+      ],
+      "outputs": [
+        {
+          "path": "nav-grid.json",
+          "sha256": "5a9ade49f3f4659612d29baa1d7ecaabb75ddfa17593217ff9909886a39b0e9b",
+          "bytes": 3164705
+        },
+        {
+          "path": "nav-debug.png",
+          "sha256": "349ca07d2aeb2d17e6b3b64fde8f234312c979a0dab9ff9735006b61f1737452",
+          "bytes": 2275629
+        }
+      ],
+      "tool": {
+        "name": "map_nav.py",
+        "version": "0.4.0"
+      },
+      "map": "gate2-b",
+      "cell": 1,
+      "starts": [
+        {
+          "kind": "spawn",
+          "id": "entry",
+          "point": [
+            192.0,
+            590.0
+          ],
+          "reachable": true,
+          "steps": 0,
+          "node": [
+            191.5,
+            589.5
+          ],
+          "reason": null
+        }
+      ],
+      "targets": [
+        {
+          "kind": "approach",
+          "id": "cafe/approach[0]",
+          "point": [
+            242.0,
+            580.0
+          ],
+          "reachable": true,
+          "steps": 52,
+          "node": [
+            240.5,
+            582.5
+          ],
+          "reason": null
+        },
+        {
+          "kind": "approach",
+          "id": "bookshop/approach[0]",
+          "point": [
+            598.0,
+            580.0
+          ],
+          "reachable": true,
+          "steps": 408,
+          "node": [
+            596.5,
+            582.5
+          ],
+          "reason": null
+        },
+        {
+          "kind": "approach",
+          "id": "learning/approach[0]",
+          "point": [
+            888.0,
+            580.0
+          ],
+          "reachable": true,
+          "steps": 698,
+          "node": [
+            886.5,
+            582.5
+          ],
+          "reason": null
+        },
+        {
+          "kind": "approach",
+          "id": "convenience/approach[0]",
+          "point": [
+            1288.0,
+            580.0
+          ],
+          "reachable": true,
+          "steps": 1098,
+          "node": [
+            1286.5,
+            582.5
+          ],
+          "reason": null
+        },
+        {
+          "kind": "approach",
+          "id": "court/approach[0]",
+          "point": [
+            1120.0,
+            928.0
+          ],
+          "reachable": true,
+          "steps": 1258,
+          "node": [
+            1118.5,
+            926.5
+          ],
+          "reason": null
+        }
+      ],
+      "links": [],
+      "thinGaps": [],
+      "unreachablePockets": [],
+      "bundleNav": {
+        "cell": 1,
+        "grid": "nav-grid.json"
+      },
+      "problems": [
+        {
+          "severity": "warning",
+          "path": "$.collision.actorRadius",
+          "message": "actorRadius 0 treats the actor as a point",
+          "code": "rule"
+        }
+      ]
+    }
+  },
+  {
+    "file": "assets-src/gate2/maps/a/bundle-report.json",
+    "report": {
+      "schema": "generate2dmap.map_bundle_report.v1",
+      "status": "warn",
+      "method": "JSON Schema map.schema.json#/$defs/map_bundle_v2 (vendored copy, built-in Draft 2020-12 evaluator), file existence and sha256 of every referenced file, and cross-field rules: unique ids, tile indices against tilesets, wang/blob topology, material colours, portal targets and arrivals, slots and approach points",
+      "notProven": [
+        "reachability, portal arrivals and collision geometry (run map_nav.py check)",
+        "that collision and footprints match the painted art",
+        "engine or editor import (Tiled GUI, Godot, LDtk not verified)"
+      ],
+      "checks": [
+        {
+          "id": "schema",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "files",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "sha256",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "tilesets",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "layers",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "props_and_objects",
+          "status": "warn",
+          "value": {
+            "errors": 0,
+            "warnings": 1
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "collision",
+          "status": "warn",
+          "value": {
+            "errors": 0,
+            "warnings": 1
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "material_map",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "portals",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "spawns_anchors_interactions",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "document",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "path": "hashed-bundle.json",
+          "sha256": "9026c44afcc7ebf883cf35b5dbd3a0c2abff9a8682182ad16d6a9a53581b5491",
+          "bytes": 25221
+        },
+        {
+          "path": "ground.png",
+          "sha256": "294075716a6596c47009fca50247fd21d9bad2dd2a6267346a25dc200e85d38b",
+          "bytes": 3642881
+        },
+        {
+          "path": "foreground-pine.png",
+          "sha256": "98d204ee6e46deedc67fe101314f3c6557734fc27cc9061673166002978af75a",
+          "bytes": 346826
+        },
+        {
+          "path": "tea-roof.png",
+          "sha256": "c962ece3a9bcd15f34b51c048cb41d1c6f54f30cb2548a8e23b2bc8c2cd1f9be",
+          "bytes": 243135
+        }
+      ],
+      "outputs": [],
+      "tool": {
+        "name": "map_bundle.py",
+        "version": "0.4.0"
+      },
+      "bundle": {
+        "id": "gate2-a",
+        "version": 2,
+        "world": [
+          1536.0,
+          1024.0
+        ],
+        "counts": {
+          "tilesets": 0,
+          "layers": 2,
+          "props": 2,
+          "objects": 2,
+          "portals": 0,
+          "spawns": 1,
+          "anchors": 3,
+          "interactions": 0
+        }
+      },
+      "problems": [
+        {
+          "severity": "warning",
+          "path": "$.objects[1].anchor_px",
+          "message": "anchor [205.5, 315.0] lies outside the 411x266 prop image",
+          "code": "rule"
+        },
+        {
+          "severity": "warning",
+          "path": "$.collision.actorRadius",
+          "message": "actorRadius 0 treats the actor as a point",
+          "code": "rule"
+        }
+      ]
+    }
+  },
+  {
+    "file": "assets-src/gate2/maps/a/nav/nav-report.json",
+    "report": {
+      "schema": "generate2dmap.nav_report.v1",
+      "status": "pass",
+      "method": "plan Appendix C validity (centre + 8 footprint samples against walk regions, solids, object footprints scaled once, tile collision and material classes) on a grid of cell max(1, round(r/2)) px; 4-neighbour moves open when segmentClear holds between node centres (samples every cell/2, plus the exact thin-gap centre path and one_way direction); BFS from every spawn and portal arrival to every interaction, exit, anchor slot and approach point",
+      "notProven": [
+        "that the collision data matches the painted art",
+        "positions closer than one grid cell to a blocker (the grid samples cell centres)",
+        "runtime movement code: map-runtime.mjs parity is tested during integration",
+        "links to maps not passed with --link"
+      ],
+      "checks": [
+        {
+          "id": "starts_valid",
+          "status": "pass",
+          "value": {
+            "starts": 1,
+            "blocked": []
+          },
+          "threshold": {
+            "blocked": 0
+          }
+        },
+        {
+          "id": "targets_reachable",
+          "status": "pass",
+          "value": {
+            "reachable": 3,
+            "total": 3,
+            "unreachable": []
+          },
+          "threshold": {
+            "unreachable": 0
+          }
+        },
+        {
+          "id": "portals_inside_world",
+          "status": "pass",
+          "value": {
+            "outside": []
+          },
+          "threshold": {
+            "outside": 0
+          }
+        },
+        {
+          "id": "arrivals_outside_triggers",
+          "status": "pass",
+          "value": {
+            "problems": 0
+          },
+          "threshold": {
+            "problems": 0
+          }
+        },
+        {
+          "id": "reciprocal_links",
+          "status": "pass",
+          "value": {
+            "links": [],
+            "notChecked": []
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "thin_gaps",
+          "status": "pass",
+          "value": 0,
+          "threshold": "reported: moves the thin-gap rule closed although every footprint sample was valid"
+        },
+        {
+          "id": "unreachable_walkable_area",
+          "status": "pass",
+          "value": {
+            "pockets": 0,
+            "cells": 0
+          },
+          "threshold": "reported"
+        },
+        {
+          "id": "blocked_rects_union",
+          "status": "pass",
+          "value": {
+            "rects": 8,
+            "blockedCells": 1143872
+          },
+          "threshold": "union == blocked cells"
+        },
+        {
+          "id": "footprints_scaled_once",
+          "status": "pass",
+          "value": {
+            "objectSolids": 0
+          },
+          "threshold": "object footprint x scale, never inflated by the actor radius"
+        }
+      ],
+      "inputs": [
+        {
+          "path": "../hashed-bundle.json",
+          "sha256": "9026c44afcc7ebf883cf35b5dbd3a0c2abff9a8682182ad16d6a9a53581b5491",
+          "bytes": 25221
+        },
+        {
+          "path": "../ground.png",
+          "sha256": "294075716a6596c47009fca50247fd21d9bad2dd2a6267346a25dc200e85d38b",
+          "bytes": 3642881
+        },
+        {
+          "path": "../foreground-pine.png",
+          "sha256": "98d204ee6e46deedc67fe101314f3c6557734fc27cc9061673166002978af75a",
+          "bytes": 346826
+        },
+        {
+          "path": "../tea-roof.png",
+          "sha256": "c962ece3a9bcd15f34b51c048cb41d1c6f54f30cb2548a8e23b2bc8c2cd1f9be",
+          "bytes": 243135
+        }
+      ],
+      "outputs": [
+        {
+          "path": "nav-grid.json",
+          "sha256": "77f9ee0db89f8259a246b88e36304aae452f400edb09bd7a4fad055c158ca88f",
+          "bytes": 3163604
+        },
+        {
+          "path": "nav-debug.png",
+          "sha256": "812662c0ef3c610a271c4c2be0f13bbe1cba6fbeb568be11da8ec70c87c7b756",
+          "bytes": 2842222
+        }
+      ],
+      "tool": {
+        "name": "map_nav.py",
+        "version": "0.4.0"
+      },
+      "map": "gate2-a",
+      "cell": 1,
+      "starts": [
+        {
+          "kind": "spawn",
+          "id": "entry",
+          "point": [
+            1100.0,
+            790.0
+          ],
+          "reachable": true,
+          "steps": 0,
+          "node": [
+            1099.5,
+            789.5
+          ],
+          "reason": null
+        }
+      ],
+      "targets": [
+        {
+          "kind": "approach",
+          "id": "academy/approach[0]",
+          "point": [
+            160.0,
+            750.0
+          ],
+          "reachable": true,
+          "steps": 972,
+          "node": [
+            162.5,
+            752.5
+          ],
+          "reason": null
+        },
+        {
+          "kind": "approach",
+          "id": "tea/approach[0]",
+          "point": [
+            730.0,
+            750.0
+          ],
+          "reachable": true,
+          "steps": 402,
+          "node": [
+            732.5,
+            752.5
+          ],
+          "reason": null
+        },
+        {
+          "kind": "approach",
+          "id": "palace/approach[0]",
+          "point": [
+            1408.0,
+            290.0
+          ],
+          "reachable": true,
+          "steps": 800,
+          "node": [
+            1406.5,
+            292.5
+          ],
+          "reason": null
+        }
+      ],
+      "links": [],
+      "thinGaps": [],
+      "unreachablePockets": [],
+      "bundleNav": {
+        "cell": 1,
+        "grid": "nav-grid.json"
+      },
+      "problems": [
+        {
+          "severity": "warning",
+          "path": "$.objects[1].anchor_px",
+          "message": "anchor [205.5, 315.0] lies outside the 411x266 prop image",
+          "code": "rule"
+        },
+        {
+          "severity": "warning",
+          "path": "$.collision.actorRadius",
+          "message": "actorRadius 0 treats the actor as a point",
+          "code": "rule"
+        }
+      ]
+    }
+  },
+  {
+    "file": "assets-src/gate2/maps/c/bundle-report.json",
+    "report": {
+      "schema": "generate2dmap.map_bundle_report.v1",
+      "status": "warn",
+      "method": "JSON Schema map.schema.json#/$defs/map_bundle_v2 (vendored copy, built-in Draft 2020-12 evaluator), file existence and sha256 of every referenced file, and cross-field rules: unique ids, tile indices against tilesets, wang/blob topology, material colours, portal targets and arrivals, slots and approach points",
+      "notProven": [
+        "reachability, portal arrivals and collision geometry (run map_nav.py check)",
+        "that collision and footprints match the painted art",
+        "engine or editor import (Tiled GUI, Godot, LDtk not verified)"
+      ],
+      "checks": [
+        {
+          "id": "schema",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "files",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "sha256",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "tilesets",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "layers",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "props_and_objects",
+          "status": "warn",
+          "value": {
+            "errors": 0,
+            "warnings": 7
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "collision",
+          "status": "warn",
+          "value": {
+            "errors": 0,
+            "warnings": 1
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "material_map",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "portals",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "spawns_anchors_interactions",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "document",
+          "status": "pass",
+          "value": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "threshold": {
+            "errors": 0
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "path": "hashed-bundle.json",
+          "sha256": "1cb4a4372b81206b25801c3daa05f9df74f5a3b7582e80d9ed087a9e80818ce1",
+          "bytes": 54919
+        },
+        {
+          "path": "ground.png",
+          "sha256": "2667e379f40aa0aa759c14e419245992f14404b293f7f77aacccd125a458e92a",
+          "bytes": 3268722
+        },
+        {
+          "path": "tangerine-0.png",
+          "sha256": "e91b364d6469945ab2b25b627aa7970fdd78922f3e8b47148c60de83cd4cbbde",
+          "bytes": 20550
+        },
+        {
+          "path": "tangerine-1.png",
+          "sha256": "133efca48e6805dcee8f2db5e4e2e7b610c45c5a8df6507480fd6a5a7f2935d4",
+          "bytes": 20925
+        },
+        {
+          "path": "tangerine-2.png",
+          "sha256": "4f2e6751c289cabb071228a302019fb937ecfa15f9b91606bf9bb8691099c8ee",
+          "bytes": 20819
+        },
+        {
+          "path": "tangerine-3.png",
+          "sha256": "114f9baeae5cccce0defc0d2fddc9d9c05038db7dcacf56e22c552d954758d12",
+          "bytes": 19916
+        },
+        {
+          "path": "tangerine-4.png",
+          "sha256": "472ca3786b9782554f19ced898d8cd9f29b4ac09c5ee955a5e302f2bf9a5196b",
+          "bytes": 19972
+        },
+        {
+          "path": "tangerine-5.png",
+          "sha256": "d3016dd1c46dd7530aa8f2bf15026ad3de93dea3418be291114584ca18b7df20",
+          "bytes": 20293
+        },
+        {
+          "path": "cultural-roof.png",
+          "sha256": "de1a8b5a305d990d197edb58a5c9523e57dc2f49803df16a1edb736023ba7ed2",
+          "bytes": 80882
+        }
+      ],
+      "outputs": [],
+      "tool": {
+        "name": "map_bundle.py",
+        "version": "0.4.0"
+      },
+      "bundle": {
+        "id": "gate2-c",
+        "version": 2,
+        "world": [
+          1024.0,
+          1536.0
+        ],
+        "counts": {
+          "tilesets": 0,
+          "layers": 2,
+          "props": 7,
+          "objects": 7,
+          "portals": 0,
+          "spawns": 1,
+          "anchors": 5,
+          "interactions": 0
+        }
+      },
+      "problems": [
+        {
+          "severity": "warning",
+          "path": "$.objects[0].anchor_px",
+          "message": "anchor [45.5, 90.0] lies outside the 91x85 prop image",
+          "code": "rule"
+        },
+        {
+          "severity": "warning",
+          "path": "$.objects[1].anchor_px",
+          "message": "anchor [45.5, 90.0] lies outside the 91x86 prop image",
+          "code": "rule"
+        },
+        {
+          "severity": "warning",
+          "path": "$.objects[2].anchor_px",
+          "message": "anchor [44.5, 90.0] lies outside the 89x86 prop image",
+          "code": "rule"
+        },
+        {
+          "severity": "warning",
+          "path": "$.objects[3].anchor_px",
+          "message": "anchor [45.5, 90.0] lies outside the 91x85 prop image",
+          "code": "rule"
+        },
+        {
+          "severity": "warning",
+          "path": "$.objects[4].anchor_px",
+          "message": "anchor [45.5, 90.0] lies outside the 91x86 prop image",
+          "code": "rule"
+        },
+        {
+          "severity": "warning",
+          "path": "$.objects[5].anchor_px",
+          "message": "anchor [45.5, 90.0] lies outside the 91x86 prop image",
+          "code": "rule"
+        },
+        {
+          "severity": "warning",
+          "path": "$.objects[6].anchor_px",
+          "message": "anchor [120.5, 160.0] lies outside the 241x151 prop image",
+          "code": "rule"
+        },
+        {
+          "severity": "warning",
+          "path": "$.collision.actorRadius",
+          "message": "actorRadius 0 treats the actor as a point",
+          "code": "rule"
+        }
+      ]
+    }
+  },
+  {
+    "file": "assets-src/gate2/maps/c/nav/nav-report.json",
+    "report": {
+      "schema": "generate2dmap.nav_report.v1",
+      "status": "pass",
+      "method": "plan Appendix C validity (centre + 8 footprint samples against walk regions, solids, object footprints scaled once, tile collision and material classes) on a grid of cell max(1, round(r/2)) px; 4-neighbour moves open when segmentClear holds between node centres (samples every cell/2, plus the exact thin-gap centre path and one_way direction); BFS from every spawn and portal arrival to every interaction, exit, anchor slot and approach point",
+      "notProven": [
+        "that the collision data matches the painted art",
+        "positions closer than one grid cell to a blocker (the grid samples cell centres)",
+        "runtime movement code: map-runtime.mjs parity is tested during integration",
+        "links to maps not passed with --link"
+      ],
+      "checks": [
+        {
+          "id": "starts_valid",
+          "status": "pass",
+          "value": {
+            "starts": 1,
+            "blocked": []
+          },
+          "threshold": {
+            "blocked": 0
+          }
+        },
+        {
+          "id": "targets_reachable",
+          "status": "pass",
+          "value": {
+            "reachable": 5,
+            "total": 5,
+            "unreachable": []
+          },
+          "threshold": {
+            "unreachable": 0
+          }
+        },
+        {
+          "id": "portals_inside_world",
+          "status": "pass",
+          "value": {
+            "outside": []
+          },
+          "threshold": {
+            "outside": 0
+          }
+        },
+        {
+          "id": "arrivals_outside_triggers",
+          "status": "pass",
+          "value": {
+            "problems": 0
+          },
+          "threshold": {
+            "problems": 0
+          }
+        },
+        {
+          "id": "reciprocal_links",
+          "status": "pass",
+          "value": {
+            "links": [],
+            "notChecked": []
+          },
+          "threshold": {
+            "errors": 0
+          }
+        },
+        {
+          "id": "thin_gaps",
+          "status": "pass",
+          "value": 0,
+          "threshold": "reported: moves the thin-gap rule closed although every footprint sample was valid"
+        },
+        {
+          "id": "unreachable_walkable_area",
+          "status": "pass",
+          "value": {
+            "pockets": 0,
+            "cells": 0
+          },
+          "threshold": "reported"
+        },
+        {
+          "id": "blocked_rects_union",
+          "status": "pass",
+          "value": {
+            "rects": 225,
+            "blockedCells": 1348096
+          },
+          "threshold": "union == blocked cells"
+        },
+        {
+          "id": "footprints_scaled_once",
+          "status": "pass",
+          "value": {
+            "objectSolids": 0
+          },
+          "threshold": "object footprint x scale, never inflated by the actor radius"
+        }
+      ],
+      "inputs": [
+        {
+          "path": "../hashed-bundle.json",
+          "sha256": "1cb4a4372b81206b25801c3daa05f9df74f5a3b7582e80d9ed087a9e80818ce1",
+          "bytes": 54919
+        },
+        {
+          "path": "../ground.png",
+          "sha256": "2667e379f40aa0aa759c14e419245992f14404b293f7f77aacccd125a458e92a",
+          "bytes": 3268722
+        },
+        {
+          "path": "../tangerine-0.png",
+          "sha256": "e91b364d6469945ab2b25b627aa7970fdd78922f3e8b47148c60de83cd4cbbde",
+          "bytes": 20550
+        },
+        {
+          "path": "../tangerine-1.png",
+          "sha256": "133efca48e6805dcee8f2db5e4e2e7b610c45c5a8df6507480fd6a5a7f2935d4",
+          "bytes": 20925
+        },
+        {
+          "path": "../tangerine-2.png",
+          "sha256": "4f2e6751c289cabb071228a302019fb937ecfa15f9b91606bf9bb8691099c8ee",
+          "bytes": 20819
+        },
+        {
+          "path": "../tangerine-3.png",
+          "sha256": "114f9baeae5cccce0defc0d2fddc9d9c05038db7dcacf56e22c552d954758d12",
+          "bytes": 19916
+        },
+        {
+          "path": "../tangerine-4.png",
+          "sha256": "472ca3786b9782554f19ced898d8cd9f29b4ac09c5ee955a5e302f2bf9a5196b",
+          "bytes": 19972
+        },
+        {
+          "path": "../tangerine-5.png",
+          "sha256": "d3016dd1c46dd7530aa8f2bf15026ad3de93dea3418be291114584ca18b7df20",
+          "bytes": 20293
+        },
+        {
+          "path": "../cultural-roof.png",
+          "sha256": "de1a8b5a305d990d197edb58a5c9523e57dc2f49803df16a1edb736023ba7ed2",
+          "bytes": 80882
+        }
+      ],
+      "outputs": [
+        {
+          "path": "nav-grid.json",
+          "sha256": "e4dc636f2257d5c57c975bcaf55584ccac041a600d4885b61ed55ec53a0638ba",
+          "bytes": 3183498
+        },
+        {
+          "path": "nav-debug.png",
+          "sha256": "6d24b3f6896d16582ac0624f7566f76f645fcce961594086645b7589ebebea04",
+          "bytes": 2576861
+        }
+      ],
+      "tool": {
+        "name": "map_nav.py",
+        "version": "0.4.0"
+      },
+      "map": "gate2-c",
+      "cell": 1,
+      "starts": [
+        {
+          "kind": "spawn",
+          "id": "entry",
+          "point": [
+            320.0,
+            855.0
+          ],
+          "reachable": true,
+          "steps": 0,
+          "node": [
+            319.5,
+            854.5
+          ],
+          "reason": null
+        }
+      ],
+      "targets": [
+        {
+          "kind": "approach",
+          "id": "arrival/approach[0]",
+          "point": [
+            320.0,
+            855.0
+          ],
+          "reachable": true,
+          "steps": 0,
+          "node": [
+            318.5,
+            853.5
+          ],
+          "reason": null
+        },
+        {
+          "kind": "approach",
+          "id": "basalt/approach[0]",
+          "point": [
+            460.0,
+            570.0
+          ],
+          "reachable": true,
+          "steps": 537,
+          "node": [
+            462.5,
+            572.5
+          ],
+          "reason": null
+        },
+        {
+          "kind": "approach",
+          "id": "oreum/approach[0]",
+          "point": [
+            550.0,
+            135.0
+          ],
+          "reachable": true,
+          "steps": 1120,
+          "node": [
+            548.5,
+            137.5
+          ],
+          "reason": null
+        },
+        {
+          "kind": "approach",
+          "id": "orchard/approach[0]",
+          "point": [
+            780.0,
+            880.0
+          ],
+          "reachable": true,
+          "steps": 477,
+          "node": [
+            778.5,
+            878.5
+          ],
+          "reason": null
+        },
+        {
+          "kind": "approach",
+          "id": "culture/approach[0]",
+          "point": [
+            385.0,
+            1210.0
+          ],
+          "reachable": true,
+          "steps": 918,
+          "node": [
+            387.5,
+            1212.5
+          ],
+          "reason": null
+        }
+      ],
+      "links": [],
+      "thinGaps": [],
+      "unreachablePockets": [],
+      "bundleNav": {
+        "cell": 1,
+        "grid": "nav-grid.json"
+      },
+      "problems": [
+        {
+          "severity": "warning",
+          "path": "$.objects[0].anchor_px",
+          "message": "anchor [45.5, 90.0] lies outside the 91x85 prop image",
+          "code": "rule"
+        },
+        {
+          "severity": "warning",
+          "path": "$.objects[1].anchor_px",
+          "message": "anchor [45.5, 90.0] lies outside the 91x86 prop image",
+          "code": "rule"
+        },
+        {
+          "severity": "warning",
+          "path": "$.objects[2].anchor_px",
+          "message": "anchor [44.5, 90.0] lies outside the 89x86 prop image",
+          "code": "rule"
+        },
+        {
+          "severity": "warning",
+          "path": "$.objects[3].anchor_px",
+          "message": "anchor [45.5, 90.0] lies outside the 91x85 prop image",
+          "code": "rule"
+        },
+        {
+          "severity": "warning",
+          "path": "$.objects[4].anchor_px",
+          "message": "anchor [45.5, 90.0] lies outside the 91x86 prop image",
+          "code": "rule"
+        },
+        {
+          "severity": "warning",
+          "path": "$.objects[5].anchor_px",
+          "message": "anchor [45.5, 90.0] lies outside the 91x86 prop image",
+          "code": "rule"
+        },
+        {
+          "severity": "warning",
+          "path": "$.objects[6].anchor_px",
+          "message": "anchor [120.5, 160.0] lies outside the 241x151 prop image",
+          "code": "rule"
+        },
+        {
+          "severity": "warning",
+          "path": "$.collision.actorRadius",
+          "message": "actorRadius 0 treats the actor as a point",
+          "code": "rule"
+        }
+      ]
+    }
+  }
+]

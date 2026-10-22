@@ -1,0 +1,186 @@
+{
+  "schema": "generate2dmap.map_bundle_report.v1",
+  "status": "warn",
+  "method": "JSON Schema map.schema.json#/$defs/map_bundle_v2 (vendored copy, built-in Draft 2020-12 evaluator), file existence and sha256 of every referenced file, and cross-field rules: unique ids, tile indices against tilesets, wang/blob topology, material colours, portal targets and arrivals, slots and approach points",
+  "notProven": [
+    "reachability, portal arrivals and collision geometry (run map_nav.py check)",
+    "that collision and footprints match the painted art",
+    "engine or editor import (Tiled GUI, Godot, LDtk not verified)"
+  ],
+  "checks": [
+    {
+      "id": "schema",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "files",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "sha256",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "tilesets",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "layers",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "props_and_objects",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "collision",
+      "status": "warn",
+      "value": {
+        "errors": 0,
+        "warnings": 1
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "material_map",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "portals",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "spawns_anchors_interactions",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "document",
+      "status": "pass",
+      "value": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "threshold": {
+        "errors": 0
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "hashed-bundle.json",
+      "sha256": "c20fb70ce2bef8c8559bcad42183cc2f31282fd809800d211cf7043a9749d9dc",
+      "bytes": 25221
+    },
+    {
+      "path": "ground.png",
+      "sha256": "294075716a6596c47009fca50247fd21d9bad2dd2a6267346a25dc200e85d38b",
+      "bytes": 3642881
+    },
+    {
+      "path": "foreground-pine.png",
+      "sha256": "98d204ee6e46deedc67fe101314f3c6557734fc27cc9061673166002978af75a",
+      "bytes": 346826
+    },
+    {
+      "path": "tea-roof.png",
+      "sha256": "c962ece3a9bcd15f34b51c048cb41d1c6f54f30cb2548a8e23b2bc8c2cd1f9be",
+      "bytes": 243135
+    }
+  ],
+  "outputs": [],
+  "tool": {
+    "name": "map_bundle.py",
+    "version": "0.4.0"
+  },
+  "bundle": {
+    "id": "gate2-a",
+    "version": 2,
+    "world": [
+      1536.0,
+      1024.0
+    ],
+    "counts": {
+      "tilesets": 0,
+      "layers": 2,
+      "props": 2,
+      "objects": 2,
+      "portals": 0,
+      "spawns": 1,
+      "anchors": 3,
+      "interactions": 0
+    }
+  },
+  "problems": [
+    {
+      "severity": "warning",
+      "path": "$.collision.actorRadius",
+      "message": "actorRadius 0 treats the actor as a point",
+      "code": "rule"
+    }
+  ]
+}

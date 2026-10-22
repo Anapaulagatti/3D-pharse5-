@@ -1,0 +1,109 @@
+{
+  "id": "station",
+  "label": "Station · native architectural scale study",
+  "size": [
+    720,
+    720
+  ],
+  "spawn": [
+    360,
+    460
+  ],
+  "camera": [
+    360,
+    330
+  ],
+  "ground": "station/ground.png",
+  "mask": "station/walk.png",
+  "objects": [],
+  "targets": [
+    {
+      "id": "station",
+      "x": 360,
+      "y": 430,
+      "label": "한빛역 · station ticket hall"
+    },
+    {
+      "id": "forecourt",
+      "x": 360,
+      "y": 650,
+      "label": "Station forecourt / crossing"
+    }
+  ],
+  "routes": [
+    {
+      "id": "station-entrance",
+      "points": [
+        [
+          360,
+          460
+        ],
+        [
+          360,
+          430
+        ]
+      ],
+      "width": 70
+    },
+    {
+      "id": "forecourt-crossing",
+      "points": [
+        [
+          360,
+          460
+        ],
+        [
+          360,
+          650
+        ]
+      ],
+      "width": 84
+    }
+  ],
+  "walkAreas": [
+    [
+      0,
+      415,
+      720,
+      140
+    ],
+    [
+      0,
+      560,
+      720,
+      160
+    ],
+    [
+      255,
+      440,
+      140,
+      280
+    ],
+    [
+      645,
+      300,
+      70,
+      160
+    ]
+  ],
+  "solids": [
+    {
+      "rect": [
+        84,
+        190,
+        555,
+        220
+      ],
+      "reason": "Measured station ground footprint after uniform authoring finish"
+    }
+  ],
+  "source": "assets-src/gate2/native/station.png",
+  "sourceSha256": "2825ab81ef3fec8085e1031ae6c8e90639cd36ec53a6fcb26a4cec74ca0bb372",
+  "depthPolicy": "Native semantic masks / support roots Y-sorted; same RGB as base art",
+  "authoringScale": 0.5741626794258373,
+  "measuredDoorHeightPx": 120,
+  "footprintFit": [
+    555,
+    220
+  ]
+}

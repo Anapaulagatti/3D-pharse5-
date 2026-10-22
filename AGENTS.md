@@ -1,3 +1,7 @@
+# Current authority — Gate 1 approved; Gate 2 ONLY authorized
+
+Latest user approval: docs/current/GATE2_AUTHORIZATION.md. Planning baseline e0a5c0a is approved and protected by checkpoint/gate1-approved-planning-20261022. Work branch art-gate/gate2-three-slices. Only three isolated playable art slices plus transition/station evidence. Approved plan/runtime/north/Juni stay unchanged. Muneum applies to BOTH historical/modern craft. Native Jeju footprint conflicts must be explicit localized PROPOSALS, not applied silently or resolved through miniaturization. Host image route only; no paid provider API. STOP after Gate2 delivery for human artistic approval. Gate3, full-world art, merge, deploy, separate-app changes and delegation are NOT authorized. Older pending-Gate1 instructions below are superseded history.
+
 # Current authority — three targeted Gate 1 corrections
 
 Final Gate 1 approval is WITHHELD. Latest request: docs/current/GATE1_TARGETED_CORRECTIONS.md. Only Jeju destination planning, railway-station reservation and audited exploration pacing are authorized. Current delivery: docs/world-gate1/TARGETED_CORRECTIONS_REVIEW.md. Preserve historic northern geometry, SW Namsan, SE amusement, Juni/Muneum assets and valid prior work. Gate 2 remains LOCKED. No art generation, full-world rebuild, merge, deployment or delegation. Older entries below are historical when conflicting.
