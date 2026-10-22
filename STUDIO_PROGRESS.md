@@ -1,3 +1,7 @@
+# Current authority — Gate 3 AUTHORIZED / first G3-A review checkpoint
+
+Latest: [official user authorization](docs/current/GATE3_AUTHORIZATION.md). Corrected Gate2.5 at01f4f95 is explicitly human approved, including station planters. Protected checkpoint: checkpoint/gate25-final-approved-20261022. Work only on art-gate/gate3-full-world. Start G3-A on the4352×4864 expanded working plan; submit evidence for human review before scaling an unverified pipeline across the world. Gate3B–D follow milestone review. Preserve original art, Juni, Gate1, prototype and all historical refs. No paid APIs, main merge, public deployment or separate app changes. Physical Android/iPhone remain NOT TESTED. Older prohibitions/approval-pending decisions below are retained history, superseded where conflicting.
+
 # Current status — Gate2.5 NOT fully approved / two station planters repaired for review
 
 [Current native before/after, full station frontage with Juni, gameplay and QA](docs/gate25-station-planters/README.md). Latest user decision qualifies prior prototype approval; only the two defective low station planters and local compositing/foot reservations are being repaired. Prior checkpoints/artwork/packages remain recoverable. Human visual approval pending; physical Android Chrome/iPhone Safari NOT TESTED. STOP for direct human review. Gate3/full-world/main merge/deployment remain LOCKED. Earlier approval entries below are historical.
