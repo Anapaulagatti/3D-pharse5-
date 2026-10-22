@@ -1,3 +1,11 @@
+# Current review — final Gate 1 planning corrections, 22 October 2026
+
+Art direction is provisionally approved; Muneum is mandatory for BOTH historic and modern environments. **Final masterplan approval is pending and Gate 2 remains locked.**
+
+Read [FINAL_MASTERPLAN_REVIEW.md](FINAL_MASTERPLAN_REVIEW.md) for the current findings, corrected SW Namsan / SE amusement arrangement, Jeju/boarding-pier checks, native building-scale proof and revised QA. The earlier narrative below is retained as historical context; its west-leisure/east-tower positions and 16-target/17-route counts are superseded by the revision.
+
+---
+
 # Gate 1 mới — Quy chuẩn hình ảnh + quy hoạch toàn thế giới
 
 **CHỜ NGƯỜI DÙNG DUYỆT. Chỉ Gate 1; chưa triển khai Gate 2 hoặc Gate 3.**

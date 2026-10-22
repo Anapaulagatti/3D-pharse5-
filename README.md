@@ -1,3 +1,5 @@
+Current final Gate 1 review (22 October): [revised masterplan and graybox](docs/world-gate1/FINAL_MASTERPLAN_REVIEW.md). Art direction provisionally approved; final plan pending, Gate 2 locked.
+
 # Current review: final-world Gate 1 (style + masterplan)
 
 Latest authority: [master prompt](docs/current/FINAL_WORLD_MASTER_PROMPT.md). [Review pack](docs/world-gate1/GATE1_REVIEW.md) · [style bible](docs/world-gate1/STYLE_BIBLE.png) · [zoning](docs/world-gate1/MASTERPLAN_REVIEW.png).

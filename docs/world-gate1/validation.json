@@ -4,23 +4,33 @@
   "gate2": "LOCKED",
   "gate3": "LOCKED",
   "checks": {
-    "existingAppBuild": "PASS; observed output, original large-chunk warning retained",
-    "isolatedPreviewBuild": "PASS; see logs/preview-build.log",
+    "existingAppBuild": "PASS; logs/original-build.log; known large-chunk warning retained",
+    "isolatedPreviewBuild": "PASS; logs/preview-build.log",
     "typecheck": "PASS",
     "unitTests": {
       "passed": 12,
       "files": 4,
-      "note": "Actual npm test in this task; existing foundation tests, not graybox visual approval"
+      "evidence": "logs/unit-tests.log"
     },
-    "lint": "PASS after ignoring compiled dist-* outputs",
+    "lint": "PASS",
     "format": "PASS",
-    "browserCases": 10,
+    "browserCases": 14,
     "browserErrors": [],
-    "navigationTargets": 16,
+    "navigationTargets": 18,
     "unreachable": 0,
-    "renderedRouteCenterlines": 17,
+    "renderedRouteCenterlines": 19,
     "protectedFiles": 214,
-    "portablePackage": "PASS: 28 manifest files verified, own HTTP launcher, desktop keyboard + mobile CDP touch"
+    "portablePackage": {
+      "status": "PASS",
+      "manifestFilesVerified": 35,
+      "evidence": "package-verification.json",
+      "note": "Post-pack receipt beside the ZIP; not embedded as self-verification"
+    },
+    "northGeometryExactVsPreviousReview": true,
+    "jejuLandAndBridgeExactVsPreviousReview": true,
+    "composition": "Namsan southwest; amusement southeast",
+    "commercialFacadeReserveHeight": 500,
+    "nativeDoorHeight": 100
   },
   "nativeOverview": [
     4096,
@@ -46,5 +56,9 @@
   ],
   "noMerge": true,
   "noDeploy": true,
-  "newMediaCalls": 0
+  "newMediaCalls": 0,
+  "revision": "2026-10-22 final masterplan review",
+  "artDirection": "PROVISIONALLY_APPROVED",
+  "qualityBenchmark": "Approved Muneum street for BOTH traditional and modern environments",
+  "masterplanApproval": "PENDING_FINAL_GATE1_APPROVAL"
 }

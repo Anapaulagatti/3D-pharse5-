@@ -93,11 +93,11 @@ try {
     JSON.stringify(routeAudit.filter((r) => r.blocked.length)),
   );
   rows.push({
-    case: "All 17 rendered route centerlines incl actual Phaser splines clear with 16px foot clearance",
+    case: "All 19 rendered route centerlines incl actual Phaser splines clear with 16px foot clearance",
     pass: true,
   });
   await ready(p, "?qa");
-  await place(p, 700, 2490);
+  await place(p, 700, 2690);
   await p.keyboard.press("e");
   await p.waitForTimeout(100);
   assert((await state(p)).visited.includes("cafe"));
@@ -106,12 +106,12 @@ try {
     pass: true,
   });
   await p.locator("#card").click();
-  await place(p, 700, 2435);
+  await place(p, 700, 2635);
   await p.keyboard.down("ArrowUp");
   await p.waitForTimeout(1500);
   await p.keyboard.up("ArrowUp");
   const stopped = await state(p);
-  assert(stopped.y >= 2406 && stopped.y < 2435);
+  assert(stopped.y >= 2606 && stopped.y < 2635);
   rows.push({
     case: "Real keyboard cannot enter cafe solid",
     pass: true,
@@ -151,16 +151,53 @@ try {
     pass: true,
     stopY: (await state(p)).y,
   });
+  for (const [id, x, key, target, axis] of [
+    ["Namsan southwest", 2048, "ArrowLeft", 1460, "x"],
+    ["Amusement southeast", 2048, "ArrowRight", 2440, "x"],
+    ["Mainland boarding pier", 2560, "ArrowDown", 4070, "y"],
+    ["Jeju dock arrival", 3240, "ArrowRight", 3350, "x"],
+  ]) {
+    const y =
+      id === "Mainland boarding pier"
+        ? 3900
+        : id === "Jeju dock arrival"
+          ? 4100
+          : 3260;
+    await place(p, x, y);
+    await p.keyboard.down("Shift");
+    await p.keyboard.down(key);
+    await p.waitForFunction(
+      ({ axis, target, left }) =>
+        left
+          ? window.__WORLD_PLAN__[axis] <= target + 5
+          : window.__WORLD_PLAN__[axis] >= target - 5,
+      { axis, target, left: key === "ArrowLeft" },
+      { timeout: 10000 },
+    );
+    await p.keyboard.up(key);
+    await p.keyboard.up("Shift");
+    rows.push({
+      case: `Real continuous keyboard route: ${id}`,
+      pass: true,
+      end: await state(p),
+    });
+  }
   for (const [name, x, y] of [
     ["NORTH_NATIVE_1X", 2048, 1100],
     ["TRANSITION_NATIVE_1X", 2048, 1900],
-    ["SOUTH_NATIVE_1X", 1350, 2490],
+    ["SOUTH_NATIVE_1X", 1350, 2690],
     ["COAST_NATIVE_1X", 2900, 3480],
     ["ISLAND_NATIVE_1X", 3640, 4220],
+    ["NAMSAN_SW_NATIVE_1X", 1460, 3260],
+    ["AMUSEMENT_SE_NATIVE_1X", 2440, 3260],
+    ["FERRY_PIERS_NATIVE_1X", 3240, 4100],
   ]) {
     await place(p, x, y);
     await capture(p, name);
   }
+  await ready(p, "?qa&scale");
+  await place(p, 700, 2690);
+  await capture(p, "BUILDING_SCALE_NATIVE_1X");
   await p.close();
   const m = await page({
     viewport: { width: 844, height: 390 },

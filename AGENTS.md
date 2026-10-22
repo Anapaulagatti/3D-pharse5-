@@ -1,3 +1,7 @@
+# Active revision — final Gate 1 review, 22 October 2026
+
+User provisionally approved art direction, explicitly retained Muneum as mandatory benchmark for BOTH traditional and modern environments, and requested final planning checks only. Current review: docs/world-gate1/FINAL_MASTERPLAN_REVIEW.md. Restore Namsan southwest/amusement southeast, verify Jeju and ferry boarding logic, preserve historical north, reserve full-sized native commercial elevations. Final Gate 1 plan approval is PENDING; Gate 2 remains LOCKED. No art generation, merge or deployment. Older narratives below are history when conflicting.
+
 # Korean Arena — new world Gate 1 only
 Current authority: [FINAL_WORLD_MASTER_PROMPT.md](docs/current/FINAL_WORLD_MASTER_PROMPT.md), user's latest instruction supersedes older gate numbering. Branch art-gate/final-gate1-world. Only STYLE + MASTERPLAN + PLAYABLE GRAYBOX; stop for explicit Gate 1 approval. Gate 2 (three polished slices) and Gate 3 (whole world) are locked. Previous street sample is a visual benchmark, not approval of this new plan. No merge, deploy, force push, paid APIs or separate learning app changes. No delegation requested.
 

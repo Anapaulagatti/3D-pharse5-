@@ -1,3 +1,5 @@
+Current revision: [final masterplan review](FINAL_MASTERPLAN_REVIEW.md). Art provisionally approved; final planning approval pending; Gate 2 locked. Packaging excludes its own prior ZIP/GitHub verification receipts to avoid stale self-verification claims.
+
 # Reproduce without generation or deployment
 
 Use the unchanged package-lock and Node24+. Fresh dependency setup: `npm ci --ignore-scripts --cache .cache/npm`. In this session the already verified lock-matching node_modules was reused; no fresh-install success is claimed. Python3 is required for offline navigation/packaging, Chromium at /usr/bin/chromium for browser verification. No provider keys or image tools needed.

@@ -11,7 +11,7 @@ while queue:
  for v in [(x-1,y),(x+1,y),(x,y-1),(x,y+1)]:
   if v not in seen and free(v[0]*step,v[1]*step):seen.add(v);queue.append(v)
 targets=[]
-for b in p['buildings']:
+for b in p['buildings']+[{'id':n['id'],'entry':n['point']} for n in p['accessNodes']]:
  cell=tuple(round(v/step) for v in b['entry']);targets.append({'id':b['id'],'entry':b['entry'],'reachable':cell in seen})
 assert all(t['reachable'] for t in targets),targets
 base='ee70c54e0a9be56c02736988c30556ed122c074c'
@@ -29,6 +29,16 @@ for f in (root/'src/world-gate1').glob('*.ts'):
 # No V1-V10 import or rejected-source helper in the new production source tree.
 for f in [*(root/'src/world-gate1').glob('*'),root/'assets-src/world-gate1/plan.json']:
  text=f.read_text();assert not any(s in text for s in ['v10-city','v9-world','v10-production','gate1/map','gate1_build']),str(f)
-result={'stage':p['stage'],'planSha256':hashlib.sha256((root/'assets-src/world-gate1/plan.json').read_bytes()).hexdigest(),'gridStep':step,'footClearance':16,'reachableCells':len(seen),'targets':targets,'preservedFileCount':len(protected),'preserved':protected,'imports':imports,'limits':['Reachability is geometric, not an art quality judgment.','Grid only; curved route and runtime collision tested separately in browser.','Legacy files retained as historical archive, excluded from the new entry dependency graph.']}
+prior=json.loads(subprocess.check_output(['git','show','ae5fe5f:assets-src/world-gate1/plan.json'],cwd=root,text=True))
+assert p['boundaries']==prior['boundaries']
+for group,ids in [('buildings',['palace','gate','archive','academy','teahouse','culture']),('zones',['palace','academy','culture','transition']),('paths',['heritage-spine','academy-lane','archive-access','threshold','garden-walk'])]:
+ for id in ids:assert next(x for x in p[group] if x['id']==id)==next(x for x in prior[group] if x['id']==id),(group,id)
+assert p['land'][:3]==prior['land']
+assert next(x for x in p['zones'] if x['id']=='tower')['rect'][0]<2048
+assert next(x for x in p['zones'] if x['id']=='leisure')['rect'][0]>2048
+for e in p['facadeReserves']:
+ assert e['rect'][1]>=2080 and e['rect'][3]==500 and e['nativeDoorHeight']==100
+ a=next(x for x in p['buildings'] if x['id']==e['id']);old=next(x for x in prior['buildings'] if x['id']==e['id']);assert a['rect'][2:]==old['rect'][2:]
+result={'northPlanExactVsPreviousReview':True,'jejuLandAndBridgeExactVsPreviousReview':True,'fullSizeFacadeHeight':500,'doorToJuniBodyRatio':1.25,'compositionRestored':'Namsan southwest; amusement southeast','stage':p['stage'],'planSha256':hashlib.sha256((root/'assets-src/world-gate1/plan.json').read_bytes()).hexdigest(),'gridStep':step,'footClearance':16,'reachableCells':len(seen),'targets':targets,'preservedFileCount':len(protected),'preserved':protected,'imports':imports,'limits':['Reachability is geometric, not an art quality judgment.','Grid only; curved route and runtime collision tested separately in browser.','Legacy files retained as historical archive, excluded from the new entry dependency graph.']}
 (root/'docs/world-gate1/source-and-navigation.json').write_text(json.dumps(result,indent=2)+'\n')
 print(json.dumps({'targets':len(targets),'reachable':sum(t['reachable'] for t in targets),'protected':len(protected),'planSha256':result['planSha256']}))

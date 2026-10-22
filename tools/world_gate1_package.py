@@ -9,7 +9,7 @@ for name in ['juni.png','juni.json']:
 for name in ['GATE1_NORTH_REFERENCE.png','GATE1_STREET_NATIVE.png']:
  dest=site/'docs/gate1'/name;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(root/'docs/gate1'/name,dest)
 for f in (root/'docs/world-gate1').glob('*'):
- if f.is_file() and f.suffix not in ['.zip']:
+ if f.is_file() and f.suffix not in ['.zip'] and f.name not in ['package.json','package-verification.json','github-verification.json']:
   dest=site/'docs/world-gate1'/f.name;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(f,dest)
 (folder/'start.py').write_text('''import argparse,http.server,pathlib
 p=argparse.ArgumentParser();p.add_argument("--port",type=int,default=0);a=p.parse_args()

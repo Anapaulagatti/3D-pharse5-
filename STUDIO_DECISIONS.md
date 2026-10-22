@@ -1,3 +1,7 @@
+# Active revision — final Gate 1 review, 22 October 2026
+
+User provisionally approved art direction, explicitly retained Muneum as mandatory benchmark for BOTH traditional and modern environments, and requested final planning checks only. Current review: docs/world-gate1/FINAL_MASTERPLAN_REVIEW.md. Restore Namsan southwest/amusement southeast, verify Jeju and ferry boarding logic, preserve historical north, reserve full-sized native commercial elevations. Final Gate 1 plan approval is PENDING; Gate 2 remains LOCKED. No art generation, merge or deployment. Older narratives below are history when conflicting.
+
 # Current authority — NEW final-world Gate 1
 
 User's latest `docs/current/FINAL_WORLD_MASTER_PROMPT.md` supersedes all older gate numbering below. Only STYLE + MASTERPLAN + PLAYABLE GRAYBOX on `art-gate/final-gate1-world`; review `docs/world-gate1/GATE1_REVIEW.md`, then STOP for explicit approval. Old street is the quality bible; no inherited southern coordinates/art/imports enter the new preview. New runtime uses `assets-src/world-gate1/plan.json`, `src/world-gate1` and unchanged Juni/Joystick only. Protected old north/runtime/shared files remain byte-identical. Gate 2 three polished samples and Gate 3 full-world production are not started. No merge/deploy/paid APIs/delegation. Entries below are historical, not active instructions.

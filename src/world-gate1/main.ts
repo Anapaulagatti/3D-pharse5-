@@ -6,7 +6,7 @@ const q = new URLSearchParams(location.search),
   overview = q.has("overview"),
   native = q.has("native");
 const root = document.querySelector<HTMLDivElement>("#app")!;
-root.innerHTML = `<header><b>KOREAN ARENA · GATE 1</b><span>STYLE + MASTERPLAN · GRAYBOX · CHƯA DUYỆT</span><a href="?overview">Toàn cảnh</a><a href="?">Đi bộ 1:1</a><a href="./docs/world-gate1/style-bible.html">Quy chuẩn hình ảnh</a></header><main id="stage"></main><footer><span id="status">Đang tải…</span><span>WASD / mũi tên · Shift chạy · E xem điểm đến</span></footer><aside id="card" hidden></aside><div id="joystick" aria-label="Cần di chuyển"><span class="stick-knob"></span></div><button id="inspect">E · Khám phá</button>`;
+root.innerHTML = `<header><b>KOREAN ARENA · GATE 1</b><span>ART PROVISIONAL · PLAN PENDING · GATE 2 LOCKED</span><a href="?overview">Toàn cảnh</a><a href="?">Đi bộ 1:1</a><a href="./docs/world-gate1/style-bible.html">Quy chuẩn hình ảnh</a></header><main id="stage"></main><footer><span id="status">Đang tải…</span><span>WASD / mũi tên · Shift chạy · E xem điểm đến</span></footer><aside id="card" hidden></aside><div id="joystick" aria-label="Cần di chuyển"><span class="stick-knob"></span></div><button id="inspect">E · Khám phá</button>`;
 let analog = { x: 0, y: 0 };
 attachJoystick(
   document.querySelector<HTMLElement>("#joystick")!,
@@ -111,6 +111,38 @@ class Masterplan extends Phaser.Scene {
       value: routeAudit,
       configurable: true,
     });
+    for (const reserve of plan.facadeReserves) {
+      g.lineStyle(3, 0xf3e5bb).strokeRect(
+        ...(reserve.rect as [number, number, number, number]),
+      );
+      g.lineStyle(3, 0xffd180).strokeRect(
+        ...(reserve.door as [number, number, number, number]),
+      );
+      this.add.text(
+        reserve.rect[0] + 8,
+        reserve.rect[1] + 10,
+        "500px FACADE RESERVE · NO ART",
+        { fontFamily: "monospace", fontSize: 15, color: "#31494b" },
+      );
+    }
+    for (const link of plan.seaLinks) {
+      const [a, b] = link.points;
+      g.lineStyle(8, 0xf4d39b);
+      for (let t = 0; t < 1; t += 0.06) {
+        g.beginPath();
+        g.moveTo(Phaser.Math.Linear(a[0], b[0], t), a[1]);
+        g.lineTo(Phaser.Math.Linear(a[0], b[0], Math.min(1, t + 0.03)), b[1]);
+        g.strokePath();
+      }
+    }
+    for (const n of plan.accessNodes) {
+      g.fillStyle(0xf7dc97).fillCircle(...(n.point as [number, number]), 14);
+      this.add.text(n.point[0] - 70, n.point[1] + 25, n.label, {
+        fontFamily: "monospace",
+        fontSize: 18,
+        color: "#ffffff",
+      });
+    }
     for (const b of plan.buildings) {
       const [x, y, w, h] = b.rect;
       g.fillStyle(
@@ -129,6 +161,17 @@ class Masterplan extends Phaser.Scene {
       });
       g.fillStyle(0xf7dc97).fillCircle(...(b.entry as [number, number]), 14);
     }
+    // Door guides must remain visible above the ground-footprint fill.
+    for (const reserve of plan.facadeReserves) {
+      g.lineStyle(3, 0xffd180).strokeRect(
+        ...(reserve.door as [number, number, number, number]),
+      );
+      this.add.text(reserve.door[0] + 4, reserve.door[1] + 5, "100px", {
+        fontFamily: "monospace",
+        fontSize: 15,
+        color: "#ffe5aa",
+      });
+    }
     for (const b of plan.boundaries)
       g.fillStyle(0x8b795c).fillRect(
         ...(b.rect as [number, number, number, number]),
@@ -136,7 +179,7 @@ class Masterplan extends Phaser.Scene {
     this.add.text(
       320,
       4050,
-      "WATER · mainland quay → pedestrian bridge → island garden\nFerry terminal = planned shore facility; no playable ferry claimed",
+      "JEJU · bridge at y3480 · separate ferry piers at y4100\nDashed sea link = proposal only; no operational ferry",
       { fontFamily: "monospace", fontSize: 28, color: "#ffffff" },
     );
     this.juni = this.add
@@ -164,6 +207,7 @@ class Masterplan extends Phaser.Scene {
     } else {
       this.cameras.main.setZoom(1).startFollow(this.juni, true, 1, 1);
     }
+    if (!overview && q.has("scale")) this.cameras.main.setFollowOffset(0, 180);
     if (q.has("qa"))
       Object.defineProperty(window, "__WORLD_PLAN_TEST__", {
         value: {
