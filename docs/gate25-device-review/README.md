@@ -21,7 +21,7 @@ Use your computer's LAN IP. Test with real Android Chrome and real iPhone Safari
 
 Follow the [device checklist and export workflow](DEVICE_CHECKLIST.md). Use **Options(···) → Export test report**, save JSON before switching scenes, attach actual device model/OS/browser and real screen recordings. Fill [Android report](DEVICE_REPORT_ANDROID.json) and [iPhone report](DEVICE_REPORT_IPHONE.json); all checks start NOT TESTED.
 
-[ZIP integrity and runtime equivalence](package.json) · [Packaging/export smoke test](handoff-qa.json). Automated desktop checks are packaging checks, not physical-device acceptance.
+[ZIP integrity and runtime equivalence](package.json) · [Packaging/export smoke test](handoff-qa.json) · [Published downloads and remote checkpoint verification](published-verification.json). Automated desktop checks are packaging checks, not physical-device acceptance.
 
 ## Recovery
 
