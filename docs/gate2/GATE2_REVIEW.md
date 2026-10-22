@@ -41,7 +41,7 @@ The artworks share a deliberately rich, dense style; whether that reaches the Mu
 
 ## Technical QA and provenance
 
-[Concise technical report](TECHNICAL_QA.md) · [generation/source manifest](generation-manifest.json) · [protected-source hashes](source-preservation.json) · [browser checks](browser-qa.json) · [video provenance](video-provenance.json) · [ZIP hashes](packages.json).
+[Concise technical report](TECHNICAL_QA.md) · [generation/source manifest](generation-manifest.json) · [protected-source hashes](source-preservation.json) · [browser checks](browser-qa.json) · [video provenance](video-provenance.json) · [ZIP hashes](packages.json) · [published artifact verification](published-verification.json).
 
 Original host outputs, exact prompts, references and finished sources are retained under `assets-src/gate2`. Five host image calls were used, including the Jeju correction; no paid provider API was called. The host exposes no actual model name or price, so those fields are null. New art is generated/finished artwork, not claimed as hand-drawn. The station authoring finish is explicit; A/B/C/transition retain1:1 spatial dimensions. Juni’s original atlas, identity, frame size, animation and foot anchor are unchanged.
 
