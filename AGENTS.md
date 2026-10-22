@@ -1,3 +1,7 @@
+# Current authority — Gate2.5 visual prototype APPROVED; checkpoint and device handoff ONLY
+
+Latest: docs/current/GATE25_REFINEMENT_APPROVAL.md. Human approved the artistic refinement of the district prototype at868aa60. Preserve checkpoint/gate25-refinement-approved-20261022 and existing artwork, runtime, source and original package. Prepare existing package for physical Android Chrome/iPhone Safari review only; both remain NOT TESTED until actual recorded device evidence exists. No art/runtime changes, Gate3, full-world production, main merge, deployment or large expansion. STOP after checkpoint/handoff; wait for explicit Gate3 authorization. Earlier approval-pending entries are historical when conflicting.
+
 # Current authority — final district composition refinement ONLY
 
 Latest user request: docs/current/GATE25_COMPOSITION_DIRECTIVE.md. Final artistic approval is withheld. Only refine the two pedestrian passages and subtly vary existing lower-foreground planting. Preserve every approved facade/sign/door/entrance, Juni, source scale, major coordinates and all unrelated scenes. No full-environment regeneration, building redesign, Gate3, merge, public deployment or delegation. Deliver unannotated native Phaser district, both seam close-ups and real input traversal; STOP for explicit human visual approval. Older instructions below are history when conflicting.

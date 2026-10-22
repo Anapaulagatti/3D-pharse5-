@@ -1,3 +1,7 @@
+# Current status — Gate2.5 district visual prototype APPROVED
+
+[Approved checkpoint and physical-device handoff](docs/gate25-device-review/README.md). Human approval covers the district artistic refinement only, pinned by checkpoint/gate25-refinement-approved-20261022 at868aa60. Existing game/source/artwork and approved original ZIP are unchanged; handoff-only packaging/documentation. Android Chrome and iPhone Safari remain NOT TESTED. STOP after handoff; Gate3/full-world production/main merge/deployment/large expansion remain LOCKED pending explicit authorization. Older reports below retain their historical capture-time status.
+
 # Current delivery — final district composition / human review pending
 
 [Native district, both passage close-ups, gameplay and playable ZIP](docs/gate25-refinement/README.md). Only the two connecting passages and four lower planting pockets changed; approved architecture/Juni/scale/coordinates and unrelated scenes remain protected. Technical checks do not grant artistic approval. STOP for human visual review; Gate3/merge/deploy remain LOCKED. Earlier entries below are history.

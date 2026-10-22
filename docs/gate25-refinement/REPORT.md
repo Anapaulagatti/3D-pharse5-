@@ -1,3 +1,5 @@
+> **Update: human-approved district visual prototype.** [Approval](../current/GATE25_REFINEMENT_APPROVAL.md) · [Checkpoint and device-review handoff](../gate25-device-review/README.md). Approval covers this prototype's artistic refinement only. Physical Android Chrome/iPhone Safari NOT TESTED; Gate3 LOCKED. The report below records the pre-approval capture-time state.
+
 # Final district composition refinement — human approval pending
 
 Only two pedestrian passages and four small planting pockets were refined. **225,694 ground pixels (5.839%) changed**; all pixels outside the binary local edit mask remain exact. No building redesign, complete environment regeneration, Gate3, merge or deployment.

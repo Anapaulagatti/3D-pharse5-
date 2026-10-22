@@ -1,3 +1,5 @@
+> **Update: human-approved district visual prototype.** [Approval](../current/GATE25_REFINEMENT_APPROVAL.md) · [Checkpoint and device-review handoff](../gate25-device-review/README.md). Approval covers this prototype's artistic refinement only. Physical Android Chrome/iPhone Safari NOT TESTED; Gate3 LOCKED. The report below records the pre-approval capture-time state.
+
 # Final district composition refinement — awaiting human visual approval
 
 Two purposeful pedestrian passages and four subtle planting accents; approved architecture, Juni, scale and major coordinates retained. **Gate3 LOCKED.** [Report and QA](REPORT.md) · [Authorized scope](../current/GATE25_COMPOSITION_DIRECTIVE.md).
