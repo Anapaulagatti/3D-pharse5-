@@ -46,4 +46,6 @@ Grounds remain three independent textures. Initial Muneum+bakery load is followe
 
 Native PNGs are untouched exports/crops; lightweight JPEGs are review derivatives. Video is actual normal-entry Phaser/CDP recording with real input and retained timestamps, not static artwork or a QA teleport sequence. Explicit QA placements are confined to the labelled occlusion diagnostic.
 
+[Published-file verification](published-verification.json):54 remote review files match SHA-256; images decode; playable ZIP CRC/manifest pass; main, approved planning branch and checkpoint remain intact.
+
 **STOP. Physical Android/iPhone acceptance is NOT TESTED; human cinematic/visual/UX approval is pending. No Gate3, whole-world production, main merge or public deployment.**
