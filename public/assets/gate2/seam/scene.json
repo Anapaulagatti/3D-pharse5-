@@ -1,0 +1,181 @@
+{
+  "id": "seam",
+  "label": "Join proof · Muneum ↔ station",
+  "size": [
+    2208,
+    720
+  ],
+  "spawn": [
+    1288,
+    510
+  ],
+  "camera": [
+    1500,
+    440
+  ],
+  "ground": "",
+  "grounds": [
+    {
+      "image": "seam/street-native-chunk.png",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "image": "seam/station-native-chunk.png",
+      "x": 1488,
+      "y": 0
+    }
+  ],
+  "mask": "seam/walk.png",
+  "objects": [
+    {
+      "id": "gate1-2",
+      "image": "b/prop-tree-planter.png",
+      "x": 27,
+      "y": 786,
+      "width": 74,
+      "height": 54,
+      "sortY": 840,
+      "alphaSoftening": 0.65
+    },
+    {
+      "id": "gate1-3",
+      "image": "b/prop-heritage-tree.png",
+      "x": -30,
+      "y": 640,
+      "width": 189,
+      "height": 196,
+      "sortY": 835,
+      "alphaSoftening": 0.65
+    },
+    {
+      "id": "gate1-4",
+      "image": "seam/depth-gate1-4.png",
+      "x": 1459,
+      "y": 490,
+      "width": 74,
+      "height": 54,
+      "sortY": 544,
+      "alphaSoftening": 0.65
+    },
+    {
+      "id": "gate1-5",
+      "image": "seam/depth-gate1-5.png",
+      "x": 1402,
+      "y": 344,
+      "width": 189,
+      "height": 196,
+      "sortY": 539,
+      "alphaSoftening": 0.65
+    },
+    {
+      "id": "gate1-6",
+      "image": "b/prop-bench-front.png",
+      "x": 1166,
+      "y": 742,
+      "width": 100,
+      "height": 50,
+      "sortY": 792,
+      "alphaSoftening": 0.65
+    },
+    {
+      "id": "gate1-7",
+      "image": "b/prop-bench-back.png",
+      "x": 1161,
+      "y": 858,
+      "width": 110,
+      "height": 50,
+      "sortY": 908,
+      "alphaSoftening": 0.65
+    },
+    {
+      "id": "gate1-8",
+      "image": "b/prop-light.png",
+      "x": 710,
+      "y": 352,
+      "width": 69,
+      "height": 192,
+      "sortY": 544,
+      "alphaSoftening": 0.65
+    },
+    {
+      "id": "gate1-9",
+      "image": "seam/depth-gate1-9.png",
+      "x": 1430,
+      "y": 696,
+      "width": 69,
+      "height": 192,
+      "sortY": 888,
+      "alphaSoftening": 0.65
+    },
+    {
+      "id": "gate1-10",
+      "image": "seam/depth-gate1-10.png",
+      "x": 1386,
+      "y": 465,
+      "width": 108,
+      "height": 71,
+      "sortY": 536,
+      "alphaSoftening": 0.65
+    },
+    {
+      "id": "gate1-11",
+      "image": "b/prop-flowerbox.png",
+      "x": 1031,
+      "y": 877,
+      "width": 99,
+      "height": 51,
+      "sortY": 928,
+      "alphaSoftening": 0.65
+    }
+  ],
+  "targets": [
+    {
+      "id": "commercial",
+      "x": 1288,
+      "y": 500,
+      "label": "Muneum shop frontage"
+    },
+    {
+      "id": "join",
+      "x": 1520,
+      "y": 530,
+      "label": "Street / forecourt join"
+    },
+    {
+      "id": "station",
+      "x": 1848,
+      "y": 430,
+      "label": "Station entrance"
+    }
+  ],
+  "routes": [
+    {
+      "id": "street-to-station",
+      "points": [
+        [
+          1288,
+          510
+        ],
+        [
+          1430,
+          530
+        ],
+        [
+          1580,
+          530
+        ],
+        [
+          1848,
+          530
+        ],
+        [
+          1848,
+          430
+        ]
+      ],
+      "width": 42
+    }
+  ],
+  "joinScope": "Independent approved Muneum and station sources;48px minimum-error binary ownership overlap; source pixels1:1, no new art; one small connection, not full-world integration"
+}

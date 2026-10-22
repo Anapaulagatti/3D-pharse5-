@@ -2,6 +2,7 @@ import Phaser from "phaser";
 import { JuniMotion, type JuniView } from "../engine/JuniMotion";
 import { attachJoystick } from "../engine/Joystick";
 import "./style.css";
+import { ReviewCamera } from "./ReviewCamera";
 type Obj = {
   id: string;
   image: string;
@@ -20,6 +21,14 @@ type Data = {
   spawn: number[];
   camera: number[];
   ground: string;
+  grounds?: { image: string; x: number; y: number }[];
+  engineering?: {
+    rect?: number[];
+    points?: number[][];
+    width?: number;
+    color: number;
+    label?: string;
+  }[];
   mask: string;
   objects: Obj[];
   targets: Target[];
@@ -38,6 +47,10 @@ type State = {
   samplingMode: number;
   paused: boolean;
   occluders: { id: string; depth: number; alpha: number }[];
+  camera?: ReturnType<ReviewCamera["snapshot"]>;
+  frameTimes?: number[];
+  heap?: { used: number; total: number };
+  textures?: { key: string; width: number; height: number }[];
 };
 declare global {
   interface Window {
@@ -66,7 +79,12 @@ const data: Data = await fetch(asset + id + "/scene.json").then((r) =>
   r.json(),
 );
 const root = document.querySelector<HTMLDivElement>("#app")!;
-root.innerHTML = `<header><b>KOREAN ARENA · GATE 2</b><nav>${catalog.map((s) => `<a ${s.id === id ? 'aria-current="page"' : ""} href="?scene=${s.id}">${s.label}</a>`).join("")}</nav><button id="pause">Pause</button></header><div id="scope">${id === "c" ? "Jeju native-size reservation proposal · approved planning map unchanged" : "Native-scale art review · awaiting human artistic approval"}</div><main id="stage"></main><footer><span id="near">${data.label}</span><span>WASD / arrows · Shift run · E explore · Space greet · 1:1 native</span></footer><div id="joystick" aria-label="Movement joystick"><span class="stick-knob"></span></div><div id="touch-actions"><button id="run">Hold to run</button><button id="explore">Explore</button></div><aside id="dialog" hidden role="dialog" aria-label="Environment detail"><h2 id="title"></h2><p id="copy"></p><button id="close">Return</button></aside>`;
+root.innerHTML = `<header><b>KOREAN ARENA</b><select id="scene-picker" aria-label="Review environment">${catalog.map((s) => `<option value="${s.id}" ${s.id === id ? "selected" : ""}>${s.label}</option>`).join("")}</select><span id="camera-mode">Follow · native1:1</span><button id="scenic">Scenic</button><details id="settings"><summary aria-label="Options">···</summary><div><label><input type="checkbox" id="showcases"> Landmark moments</label><button id="pause">Pause</button></div></details></header><main id="stage"></main><div id="map-labels" aria-hidden="true"></div><div id="camera-tools"><span>Drag to look · pinch to zoom</span><button id="overview-mode">Full scene</button><button id="return-juni">Return to Juni</button></div><footer><span id="near">${data.label}</span><span>WASD / arrows · Shift run · E explore · Space greet</span></footer><div id="joystick" aria-label="Movement joystick"><span class="stick-knob"></span></div><div id="touch-actions"><button id="run">Run</button><button id="explore">Explore</button></div><aside id="dialog" hidden role="dialog" aria-label="Environment detail"><h2 id="title"></h2><p id="copy"></p><button id="close">Return</button></aside>`;
+document.querySelector<HTMLSelectElement>("#scene-picker")!.onchange = (e) => {
+  location.search = "?scene=" + (e.target as HTMLSelectElement).value;
+};
+if (native) document.body.dataset.native = "true";
+let scenicLocked = false;
 let paused = false,
   heldRun = false,
   analog = { x: 0, y: 0 };
@@ -75,9 +93,12 @@ const reset = attachJoystick(
   (x, y) => {
     analog = { x, y };
   },
-  () => paused,
+  () => paused || scenicLocked,
 );
 class Slice extends Phaser.Scene {
+  private reviewCamera!: ReviewCamera;
+  private frameTimes: number[] = [];
+  private lastUpdateTime = performance.now();
   private player!: Phaser.GameObjects.Sprite;
   private motion = new JuniMotion();
   private mask!: Uint8ClampedArray;
@@ -88,7 +109,11 @@ class Slice extends Phaser.Scene {
   private occluders: { data: Obj; image: Phaser.GameObjects.Image }[] = [];
   private visited = new Set<string>();
   preload() {
-    this.load.image("foundation", asset + data.ground);
+    if (data.grounds)
+      data.grounds.forEach((g, i) =>
+        this.load.image("ground-" + i, asset + g.image),
+      );
+    else this.load.image("foundation", asset + data.ground);
     this.load.image("walk", asset + data.mask);
     this.load.atlas(
       "juni",
@@ -107,7 +132,39 @@ class Slice extends Phaser.Scene {
     );
   }
   create() {
-    this.add.image(0, 0, "foundation").setOrigin(0).setDepth(-100);
+    if (data.grounds)
+      data.grounds.forEach((g, i) =>
+        this.add
+          .image(g.x, g.y, "ground-" + i)
+          .setOrigin(0)
+          .setDepth(-100),
+      );
+    else this.add.image(0, 0, "foundation").setOrigin(0).setDepth(-100);
+    if (data.engineering) {
+      const g = this.add.graphics().setDepth(-99);
+      for (const e of data.engineering) {
+        g.fillStyle(e.color, 1);
+        if (e.rect) g.fillRect(e.rect[0], e.rect[1], e.rect[2], e.rect[3]);
+        if (e.points) {
+          g.lineStyle(e.width ?? 4, e.color);
+          g.beginPath();
+          e.points.forEach((p, i) =>
+            i ? g.lineTo(p[0], p[1]) : g.moveTo(p[0], p[1]),
+          );
+          g.strokePath();
+        }
+        if (e.label) {
+          const p = e.rect ?? e.points![0];
+          this.add
+            .text(p[0] + 8, p[1] + 8, e.label, {
+              fontSize: "15px",
+              color: "#ffffff",
+              backgroundColor: "#20383c",
+            })
+            .setDepth(-98);
+        }
+      }
+    }
     const raw = this.textures.get("walk").getSourceImage() as HTMLImageElement,
       c = document.createElement("canvas");
     c.width = data.size[0];
@@ -134,18 +191,21 @@ class Slice extends Phaser.Scene {
     this.input.keyboard!.addCapture(["SPACE", "UP", "DOWN", "LEFT", "RIGHT"]);
     this.input.keyboard!.on("keydown-E", () => this.inspect());
     this.input.keyboard!.on("keydown-SPACE", () => this.motion.gesture("wave"));
-    const cam = this.cameras.main;
-    cam.setBounds(0, 0, ...(data.size as [number, number])).setZoom(1);
-    if (overview) cam.centerOn(data.size[0] / 2, data.size[1] / 2);
-    else
-      cam.startFollow(
-        this.player,
-        true,
-        1,
-        1,
-        0,
-        Math.min(160, this.scale.height * 0.2),
-      );
+    this.reviewCamera = new ReviewCamera(
+      this,
+      data.size,
+      data.targets,
+      id,
+      (on) => {
+        scenicLocked = on;
+        reset();
+        heldRun = false;
+      },
+      native,
+      overview,
+      this.x,
+      this.y,
+    );
     if (query.has("qa"))
       window.__GATE2_TEST__ = {
         place: (x, y) => {
@@ -174,7 +234,7 @@ class Slice extends Phaser.Scene {
     };
   }
   inspect() {
-    if (paused) return;
+    if (paused || scenicLocked) return;
     const nearest = [...data.targets].sort(
       (a, b) =>
         Math.hypot(a.x - this.x, a.y - this.y) -
@@ -203,7 +263,7 @@ class Slice extends Phaser.Scene {
         Number(this.keys.S.isDown || this.keys.DOWN.isDown) -
         Number(this.keys.W.isDown || this.keys.UP.isDown) +
         analog.y;
-    if (paused || document.hidden) {
+    if (paused || scenicLocked || document.hidden) {
       dx = 0;
       dy = 0;
     }
@@ -252,7 +312,26 @@ class Slice extends Phaser.Scene {
       o.image.setAlpha(soften ? o.data.alphaSoftening : 1);
       if (near) behind.push(o.data.id);
     }
+    this.reviewCamera.update(delta, this.x, this.y, dx, dy, paused);
+    const now = performance.now();
+    this.frameTimes.push(now - this.lastUpdateTime);
+    this.lastUpdateTime = now;
+    const memory = (
+      performance as Performance & {
+        memory?: { usedJSHeapSize: number; totalJSHeapSize: number };
+      }
+    ).memory;
+    if (this.frameTimes.length > 300) this.frameTimes.shift();
     window.__GATE2__ = {
+      camera: this.reviewCamera.snapshot(),
+      frameTimes: this.frameTimes,
+      heap: memory
+        ? { used: memory.usedJSHeapSize, total: memory.totalJSHeapSize }
+        : undefined,
+      textures: this.textures.getTextureKeys().map((key) => {
+        const t = this.textures.get(key).getSourceImage() as HTMLImageElement;
+        return { key, width: t.width, height: t.height };
+      }),
       ready: true,
       scene: id,
       x: this.x,
@@ -283,12 +362,8 @@ class Slice extends Phaser.Scene {
 const stage = document.querySelector<HTMLElement>("#stage")!;
 function dimensions() {
   return {
-    width: native
-      ? data.size[0]
-      : Math.min(data.size[0], 1024, stage.clientWidth),
-    height: native
-      ? data.size[1]
-      : Math.min(data.size[1], 768, stage.clientHeight),
+    width: native ? data.size[0] : Math.min(1280, stage.clientWidth),
+    height: native ? data.size[1] : Math.min(900, stage.clientHeight),
   };
 }
 const game = new Phaser.Game({
@@ -321,7 +396,7 @@ document.querySelector("#close")!.addEventListener("click", () => {
 const run = document.querySelector<HTMLButtonElement>("#run")!;
 run.onpointerdown = (e) => {
   run.setPointerCapture(e.pointerId);
-  heldRun = true;
+  heldRun = !scenicLocked;
 };
 run.onpointerup =
   run.onpointercancel =

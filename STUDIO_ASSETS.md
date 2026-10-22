@@ -1,3 +1,7 @@
+# Five-task Gate2 acceptance delivery
+
+Current review: [acceptance package](docs/gate2/acceptance/README.md). Exactly one new bakery; separate localized Jeju candidate; station555x210 collision; one independent Muneum/station join; native-follow/scenic/overview/showcase mobile prototype. Accepted art/entrance/Juni/masterplan/checkpoint preserved. Human artistic approval pending. STOP; Gate3/full-world/merge/deploy remain locked.
+
 # Gate 2 review delivery — human approval pending
 
 Three isolated Phaser slices, transition and station supporting study: [review](docs/gate2/GATE2_REVIEW.md). Native PNGs, nearest2× reviews, Juni crops, actual gameplay videos, private local ZIPs and provenance/QA delivered. Jeju reservation fit FAIL with localized proposal only; station10px depth allowance flagged. Approved Gate1 plan, north, Juni and Muneum sources retained. STOP for explicit human artistic approval; Gate3/full-world/merge/deploy stay locked.

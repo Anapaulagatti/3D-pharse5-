@@ -1,3 +1,7 @@
+# Five-task Gate2 acceptance delivery
+
+Current review: [acceptance package](docs/gate2/acceptance/README.md). Exactly one new bakery; separate localized Jeju candidate; station555x210 collision; one independent Muneum/station join; native-follow/scenic/overview/showcase mobile prototype. Accepted art/entrance/Juni/masterplan/checkpoint preserved. Human artistic approval pending. STOP; Gate3/full-world/merge/deploy remain locked.
+
 # Final Gate2 review preparation
 
 [Lightweight review gallery and open items](docs/gate2/final-review/README.md). Localized Jeju entrance paving + walk-mask amendment only; no scene rebuild or whole-image replacement. Prior native PNGs, approved plan and checkpoints retained. New original modern commercial-building production remains unproven; fit/seams/performance unresolved. STOP for human artistic approval; Gate3 locked.

@@ -1,3 +1,7 @@
+# Current authority — five Gate2 acceptance tasks ONLY
+
+Latest directive: docs/current/GATE2_ACCEPTANCE_DIRECTIVE.md. Exactly one original commercial building, localized Jeju/station fit, one small chunk-join proof and mobile camera prototype. Preserve accepted art/entrance/Juni/checkpoints. Approved masterplan stays intact; any fit correction is an explicit separate candidate. No Gate3/full-world/merge/deploy/separate-app change/delegation. STOP after acceptance package for human approval.
+
 # Current authority — final Gate2 art review preparation
 
 Latest user request permits lightweight review derivatives, fit overlays, feasibility/originality assessment and ONLY a localized Jeju house entrance approach improvement. No scene rebuild or replacement artwork beyond that narrow access fix. Delivery: docs/gate2/final-review/README.md. Preserve native PNGs/masterplan/checkpoints. Gate2 human artistic approval pending; Gate3/integration/merge/deploy remain locked.

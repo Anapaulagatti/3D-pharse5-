@@ -1,3 +1,7 @@
+# Latest: five-task Gate2 acceptance package
+
+[Original commercial building, localized fit corrections, independent asset join and mobile camera evidence](acceptance/README.md). Direction accepted for validation; final human approval pending and Gate3 locked. Earlier review stages below are preserved history.
+
 # Latest review preparation
 
 [Accessible final review: lightweight previews, native crops, fit overlays, originality disclosure and feasibility/open items](final-review/README.md). Includes the localized Jeju entrance amendment. Original captures/videos/packages below are retained historical delivery evidence and predate that amendment. Human artistic approval remains pending; Gate3 stays locked.

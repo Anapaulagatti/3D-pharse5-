@@ -1,0 +1,362 @@
+{
+  "id": "jeju-fit",
+  "label": "Jeju fit · candidate / graybox shore",
+  "size": [
+    2002,
+    1764
+  ],
+  "spawn": [
+    760,
+    380
+  ],
+  "camera": [
+    540,
+    850
+  ],
+  "ground": "",
+  "mask": "jeju-fit/walk.png",
+  "objects": [
+    {
+      "id": "tangerine-0",
+      "image": "c/tangerine-0.png",
+      "x": 1438,
+      "y": 865,
+      "width": 90,
+      "height": 85,
+      "sortY": 955,
+      "alphaSoftening": 0.65
+    },
+    {
+      "id": "tangerine-1",
+      "image": "c/tangerine-1.png",
+      "x": 1542,
+      "y": 865,
+      "width": 91,
+      "height": 86,
+      "sortY": 955,
+      "alphaSoftening": 0.65
+    },
+    {
+      "id": "tangerine-2",
+      "image": "c/tangerine-2.png",
+      "x": 1652,
+      "y": 865,
+      "width": 90,
+      "height": 86,
+      "sortY": 955,
+      "alphaSoftening": 0.65
+    },
+    {
+      "id": "tangerine-3",
+      "image": "c/tangerine-3.png",
+      "x": 1437,
+      "y": 975,
+      "width": 91,
+      "height": 86,
+      "sortY": 1065,
+      "alphaSoftening": 0.65
+    },
+    {
+      "id": "tangerine-4",
+      "image": "c/tangerine-4.png",
+      "x": 1542,
+      "y": 975,
+      "width": 91,
+      "height": 86,
+      "sortY": 1065,
+      "alphaSoftening": 0.65
+    },
+    {
+      "id": "tangerine-5",
+      "image": "c/tangerine-5.png",
+      "x": 1652,
+      "y": 975,
+      "width": 91,
+      "height": 86,
+      "sortY": 1065,
+      "alphaSoftening": 0.65
+    },
+    {
+      "id": "cultural-roof",
+      "image": "c/cultural-roof.png",
+      "x": 1035,
+      "y": 1000,
+      "width": 416,
+      "height": 201,
+      "sortY": 1270,
+      "alphaSoftening": 0.65
+    },
+    {
+      "id": "entrance-paving",
+      "image": "c/entrance-paving.png",
+      "x": 1310,
+      "y": 975,
+      "width": 236,
+      "height": 361,
+      "sortY": -90,
+      "alphaSoftening": 1
+    }
+  ],
+  "targets": [
+    {
+      "id": "bridge",
+      "x": 1150,
+      "y": 510,
+      "label": "Bridge arrival on Jeju"
+    },
+    {
+      "id": "mainland-pier",
+      "x": 210,
+      "y": 1000,
+      "label": "Mainland ferry terminal / future ferry"
+    },
+    {
+      "id": "island-pier",
+      "x": 1150,
+      "y": 955,
+      "label": "Aligned Jeju landing"
+    },
+    {
+      "id": "house",
+      "x": 1240,
+      "y": 1290,
+      "label": "Preserved Jeju house entrance"
+    }
+  ],
+  "routes": [
+    {
+      "id": "bridge-connector",
+      "points": [
+        [
+          760,
+          380
+        ],
+        [
+          830,
+          380
+        ],
+        [
+          830,
+          460
+        ],
+        [
+          850,
+          460
+        ],
+        [
+          1150,
+          510
+        ]
+      ],
+      "width": 50
+    }
+  ],
+  "walkAreas": [
+    [
+      270,
+      1180,
+      320,
+      65
+    ]
+  ],
+  "solids": [
+    {
+      "rect": [
+        220,
+        960,
+        390,
+        210
+      ],
+      "reason": "Painted cultural pavilion ground contact"
+    },
+    {
+      "rect": [
+        644,
+        847,
+        12,
+        10
+      ],
+      "reason": "Tangerine trunk only, canopy remains walk-behind"
+    },
+    {
+      "rect": [
+        749,
+        847,
+        12,
+        10
+      ],
+      "reason": "Tangerine trunk only, canopy remains walk-behind"
+    },
+    {
+      "rect": [
+        859,
+        847,
+        12,
+        10
+      ],
+      "reason": "Tangerine trunk only, canopy remains walk-behind"
+    },
+    {
+      "rect": [
+        644,
+        957,
+        12,
+        10
+      ],
+      "reason": "Tangerine trunk only, canopy remains walk-behind"
+    },
+    {
+      "rect": [
+        749,
+        957,
+        12,
+        10
+      ],
+      "reason": "Tangerine trunk only, canopy remains walk-behind"
+    },
+    {
+      "rect": [
+        859,
+        957,
+        12,
+        10
+      ],
+      "reason": "Tangerine trunk only, canopy remains walk-behind"
+    }
+  ],
+  "source": "assets-src/gate2/native/jeju.png",
+  "sourceSha256": "9ae8fc2c1271a515e721ec4e9489fcfeb086d2f82bf24f04752a070307a20d24",
+  "depthPolicy": "Native semantic masks / support roots Y-sorted; same RGB as base art",
+  "reservation": "CONFLICT: native1024x1536 study exceeds approved720x1260; separate localized proposal, approved map unchanged",
+  "accessAmendment": "Only foreground paving patch and local foot-clearance amendment. Original foundation PNG unchanged. Exterior entrance approach; no interior gameplay.",
+  "grounds": [
+    {
+      "image": "c/ground.png",
+      "x": 830,
+      "y": 100
+    }
+  ],
+  "engineering": [
+    {
+      "rect": [
+        0,
+        0,
+        810,
+        880
+      ],
+      "color": 5860199,
+      "label": "MAINLAND / retained footprints · technical graybox"
+    },
+    {
+      "rect": [
+        146,
+        840,
+        128,
+        220
+      ],
+      "color": 9145465,
+      "label": "Terminal pier"
+    },
+    {
+      "rect": [
+        800,
+        886,
+        30,
+        68
+      ],
+      "color": 9145465
+    },
+    {
+      "points": [
+        [
+          780,
+          380
+        ],
+        [
+          830,
+          380
+        ],
+        [
+          830,
+          460
+        ]
+      ],
+      "width": 50,
+      "color": 9145465
+    },
+    {
+      "rect": [
+        -130,
+        -210,
+        390,
+        260
+      ],
+      "color": 3688006,
+      "label": "Carousel court"
+    },
+    {
+      "rect": [
+        280,
+        -220,
+        400,
+        280
+      ],
+      "color": 3688006,
+      "label": "Wheel garden"
+    },
+    {
+      "rect": [
+        -20,
+        450,
+        460,
+        190
+      ],
+      "color": 3688006,
+      "label": "Ferry terminal"
+    }
+  ],
+  "registration": {
+    "nativeFrame": [
+      3180,
+      3200,
+      1024,
+      1536
+    ],
+    "bridgeConnector": [
+      [
+        3160,
+        3480
+      ],
+      [
+        3180,
+        3480
+      ],
+      [
+        3180,
+        3560
+      ],
+      [
+        3200,
+        3560
+      ]
+    ],
+    "nativeIslandReservationIncludesWater": true,
+    "stationCollisionWorld": [
+      2322.5,
+      2380,
+      555,
+      210
+    ],
+    "stationSourceOrigin": [
+      2238.5,
+      2180
+    ],
+    "stationThresholdWorld": [
+      2598.5,
+      2610
+    ],
+    "ferryGameplay": false,
+    "approval": "CANDIDATE_ONLY",
+    "shoreline": "Foot-clearance mask rejects sea; opaque image bounds are not shoreline."
+  }
+}

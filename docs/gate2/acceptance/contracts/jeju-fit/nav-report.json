@@ -1,0 +1,269 @@
+{
+  "schema": "generate2dmap.nav_report.v1",
+  "status": "pass",
+  "method": "plan Appendix C validity (centre + 8 footprint samples against walk regions, solids, object footprints scaled once, tile collision and material classes) on a grid of cell max(1, round(r/2)) px; 4-neighbour moves open when segmentClear holds between node centres (samples every cell/2, plus the exact thin-gap centre path and one_way direction); BFS from every spawn and portal arrival to every interaction, exit, anchor slot and approach point",
+  "notProven": [
+    "that the collision data matches the painted art",
+    "positions closer than one grid cell to a blocker (the grid samples cell centres)",
+    "runtime movement code: map-runtime.mjs parity is tested during integration",
+    "links to maps not passed with --link"
+  ],
+  "checks": [
+    {
+      "id": "starts_valid",
+      "status": "pass",
+      "value": {
+        "starts": 1,
+        "blocked": []
+      },
+      "threshold": {
+        "blocked": 0
+      }
+    },
+    {
+      "id": "targets_reachable",
+      "status": "pass",
+      "value": {
+        "reachable": 4,
+        "total": 4,
+        "unreachable": []
+      },
+      "threshold": {
+        "unreachable": 0
+      }
+    },
+    {
+      "id": "portals_inside_world",
+      "status": "pass",
+      "value": {
+        "outside": []
+      },
+      "threshold": {
+        "outside": 0
+      }
+    },
+    {
+      "id": "arrivals_outside_triggers",
+      "status": "pass",
+      "value": {
+        "problems": 0
+      },
+      "threshold": {
+        "problems": 0
+      }
+    },
+    {
+      "id": "reciprocal_links",
+      "status": "pass",
+      "value": {
+        "links": [],
+        "notChecked": []
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "thin_gaps",
+      "status": "pass",
+      "value": 0,
+      "threshold": "reported: moves the thin-gap rule closed although every footprint sample was valid"
+    },
+    {
+      "id": "unreachable_walkable_area",
+      "status": "pass",
+      "value": {
+        "pockets": 0,
+        "cells": 0
+      },
+      "threshold": "reported"
+    },
+    {
+      "id": "blocked_rects_union",
+      "status": "pass",
+      "value": {
+        "rects": 232,
+        "blockedCells": 2720776
+      },
+      "threshold": "union == blocked cells"
+    },
+    {
+      "id": "footprints_scaled_once",
+      "status": "pass",
+      "value": {
+        "objectSolids": 0
+      },
+      "threshold": "object footprint x scale, never inflated by the actor radius"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../hashed.json",
+      "sha256": "7653e5a2caee4e8763c29edd0c374750ea38baa15930bca583a4c9088b2901e9",
+      "bytes": 65178
+    },
+    {
+      "path": "../ground0.png",
+      "sha256": "9ae8fc2c1271a515e721ec4e9489fcfeb086d2f82bf24f04752a070307a20d24",
+      "bytes": 2812272
+    },
+    {
+      "path": "../tangerine-0.png",
+      "sha256": "b8fc2c3f63690c8f67f4948fcca6e8bda3cc14f0cc719ebb7d8bd15c88dd8697",
+      "bytes": 18003
+    },
+    {
+      "path": "../tangerine-1.png",
+      "sha256": "0c404cd371161478987b05088e30a17d5e7e14f6901a85bed7e4f4fbc4f543b9",
+      "bytes": 17997
+    },
+    {
+      "path": "../tangerine-2.png",
+      "sha256": "a5e53916b4fd95c5aa812ed7374e67c817f220e608cee51d6bc57bfcd335f425",
+      "bytes": 19001
+    },
+    {
+      "path": "../tangerine-3.png",
+      "sha256": "4e6f0b341cd52477d82ad6e51cfa37f1908638b50da5fa74c72425cb45674fd3",
+      "bytes": 17779
+    },
+    {
+      "path": "../tangerine-4.png",
+      "sha256": "843aea09343271099f3709685a683e1db20fb5c4b975b7cbd20f48401c378e05",
+      "bytes": 17818
+    },
+    {
+      "path": "../tangerine-5.png",
+      "sha256": "9a12aba36c750b337a124317d3cd642afcd9bbea965930498c0325c0b0bf0d9d",
+      "bytes": 18034
+    },
+    {
+      "path": "../cultural-roof.png",
+      "sha256": "912e204e52ba0a8a2a15e021df2a81a6d824de74851f44bc0a66057e71148853",
+      "bytes": 175413
+    },
+    {
+      "path": "../entrance-paving.png",
+      "sha256": "a09041e38e96de7d1ef126fe8c762e6b4679444659c76a0fe59a3bbae9ca9e2d",
+      "bytes": 218386
+    }
+  ],
+  "outputs": [
+    {
+      "path": "nav-grid.json",
+      "sha256": "380306ef7f5d3b5b8bdb653c54ae52dc9f7681da15d1da69eb22615a19684aea",
+      "bytes": 7105130
+    },
+    {
+      "path": "nav-debug.png",
+      "sha256": "ea43cb883e62f445b28ce551f006f873fd4a0143da402d77cdc13425f2d1237d",
+      "bytes": 2653035
+    }
+  ],
+  "tool": {
+    "name": "map_nav.py",
+    "version": "0.4.0"
+  },
+  "map": "gate2-acceptance-jeju-fit",
+  "cell": 1,
+  "starts": [
+    {
+      "kind": "spawn",
+      "id": "entry",
+      "point": [
+        760.0,
+        380.0
+      ],
+      "reachable": true,
+      "steps": 0,
+      "node": [
+        759.5,
+        379.5
+      ],
+      "reason": null
+    }
+  ],
+  "targets": [
+    {
+      "kind": "approach",
+      "id": "bridge/approach[0]",
+      "point": [
+        1150.0,
+        510.0
+      ],
+      "reachable": true,
+      "steps": 512,
+      "node": [
+        1148.5,
+        508.5
+      ],
+      "reason": null
+    },
+    {
+      "kind": "approach",
+      "id": "mainland-pier/approach[0]",
+      "point": [
+        210.0,
+        1000.0
+      ],
+      "reachable": true,
+      "steps": 1162,
+      "node": [
+        212.5,
+        998.5
+      ],
+      "reason": null
+    },
+    {
+      "kind": "approach",
+      "id": "island-pier/approach[0]",
+      "point": [
+        1150.0,
+        955.0
+      ],
+      "reachable": true,
+      "steps": 1345,
+      "node": [
+        1152.5,
+        953.5
+      ],
+      "reason": null
+    },
+    {
+      "kind": "approach",
+      "id": "house/approach[0]",
+      "point": [
+        1240.0,
+        1290.0
+      ],
+      "reachable": true,
+      "steps": 1814,
+      "node": [
+        1242.5,
+        1288.5
+      ],
+      "reason": null
+    }
+  ],
+  "links": [],
+  "thinGaps": [],
+  "unreachablePockets": [],
+  "bundleNav": {
+    "cell": 1,
+    "grid": "nav-grid.json"
+  },
+  "problems": [
+    {
+      "severity": "warning",
+      "path": "$.layers[0].image",
+      "message": "image layer 'ground0' does not cover the world",
+      "code": "rule"
+    },
+    {
+      "severity": "warning",
+      "path": "$.collision.actorRadius",
+      "message": "actorRadius 0 treats the actor as a point",
+      "code": "rule"
+    }
+  ]
+}

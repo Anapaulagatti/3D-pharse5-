@@ -1,0 +1,172 @@
+{
+  "routes": {
+    "ok": true,
+    "speed": 60,
+    "budget": 1,
+    "tickHz": 60,
+    "cell": 1,
+    "spawns": [
+      {
+        "id": "entry",
+        "valid": true,
+        "reachableCells": 205056
+      }
+    ],
+    "results": [
+      {
+        "target": "station.approach[0]",
+        "kind": "approach",
+        "from": "entry",
+        "ok": true,
+        "reachable": true,
+        "reason": null,
+        "ticks": 30,
+        "distance": 30,
+        "maxStep": 1,
+        "zeroMotionTicks": 0,
+        "blocked": false,
+        "firedEnRoute": [],
+        "end": [
+          360,
+          430
+        ]
+      },
+      {
+        "target": "forecourt.approach[0]",
+        "kind": "approach",
+        "from": "entry",
+        "ok": true,
+        "reachable": true,
+        "reason": null,
+        "ticks": 60,
+        "distance": 60,
+        "maxStep": 1,
+        "zeroMotionTicks": 0,
+        "blocked": false,
+        "firedEnRoute": [],
+        "end": [
+          360,
+          520
+        ]
+      }
+    ],
+    "portals": []
+  },
+  "snapshot": {
+    "schema": "generate2dmap.scene_snapshot.v1",
+    "runtime": {
+      "name": "map-runtime",
+      "version": "1.1.2"
+    },
+    "world": {
+      "width": 720,
+      "height": 720,
+      "actorRadius": 0,
+      "ySquash": 1,
+      "cell": 1,
+      "tickHz": 60,
+      "solids": 75,
+      "portals": 0,
+      "oneWay": false
+    },
+    "actor": {
+      "x": 360,
+      "y": 460,
+      "valid": true,
+      "facing": [
+        0,
+        1
+      ],
+      "latched": [],
+      "travelled": 0,
+      "pathLength": 0
+    },
+    "ready": true,
+    "error": null,
+    "tick": 4,
+    "title": "hashed",
+    "source": {
+      "file": "hashed.json",
+      "sha256": "323ed104614b66bb5d7c5a697abe755072b8e085f1ed8ba9dab49981bac59052",
+      "schema": "generate2dmap.map_bundle.v2"
+    },
+    "start": "entry",
+    "speed": 60,
+    "zoom": 1,
+    "debug": false,
+    "assets": {
+      "total": 1,
+      "loaded": 1,
+      "failed": []
+    },
+    "drawOrder": [],
+    "exitsFired": [],
+    "interactionsReached": [],
+    "events": [
+      {
+        "tick": 0,
+        "type": "arrive",
+        "id": "entry"
+      },
+      {
+        "tick": 3,
+        "type": "routes",
+        "ok": true,
+        "failing": 0
+      }
+    ],
+    "routes": {
+      "ok": true,
+      "speed": 60,
+      "budget": 1,
+      "tickHz": 60,
+      "cell": 1,
+      "spawns": [
+        {
+          "id": "entry",
+          "valid": true,
+          "reachableCells": 205056
+        }
+      ],
+      "results": [
+        {
+          "target": "station.approach[0]",
+          "kind": "approach",
+          "from": "entry",
+          "ok": true,
+          "reachable": true,
+          "reason": null,
+          "ticks": 30,
+          "distance": 30,
+          "maxStep": 1,
+          "zeroMotionTicks": 0,
+          "blocked": false,
+          "firedEnRoute": [],
+          "end": [
+            360,
+            430
+          ]
+        },
+        {
+          "target": "forecourt.approach[0]",
+          "kind": "approach",
+          "from": "entry",
+          "ok": true,
+          "reachable": true,
+          "reason": null,
+          "ticks": 60,
+          "distance": 60,
+          "maxStep": 1,
+          "zeroMotionTicks": 0,
+          "blocked": false,
+          "firedEnRoute": [],
+          "end": [
+            360,
+            520
+          ]
+        }
+      ],
+      "portals": []
+    }
+  }
+}

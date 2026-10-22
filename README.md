@@ -1,3 +1,7 @@
+# Gate2 five-task acceptance review
+
+[Open current review and playable package](docs/gate2/acceptance/README.md). One new building, localized fit, one independent join and mobile camera prototype. Final human acceptance pending; Gate3 remains locked. No merge/deployment. Earlier reports below are historical.
+
 # Gate 2 playable art review
 
 Current delivery: [three slices, videos, native captures and playable ZIPs](docs/gate2/GATE2_REVIEW.md). Gate1 baseline is approved; Gate2 human artistic approval is pending. Gate3 remains locked. Jeju native reservation conflict and station fit allowance are disclosed proposals, not applied plan changes.

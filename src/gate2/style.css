@@ -1,100 +1,212 @@
 * {
   box-sizing: border-box;
 }
+html,
 body {
   margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   background: #20383c;
-  color: #f0eddb;
+  color: #f2ead7;
   font: 14px system-ui;
 }
+button,
+select,
+summary {
+  font: inherit;
+  color: #f2ead7;
+  background: #203b43e8;
+  border: 1px solid #c0c9ac88;
+  border-radius: 9px;
+  min-height: 40px;
+  padding: 8px 12px;
+  touch-action: manipulation;
+}
+button:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #ffd083;
+}
 header {
-  height: 75px;
+  position: fixed;
+  z-index: 5;
+  top: max(8px, env(safe-area-inset-top));
+  left: max(12px, env(safe-area-inset-left));
+  right: max(12px, env(safe-area-inset-right));
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 10px 24px;
+  gap: 8px;
+  pointer-events: none;
 }
-nav {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
+header > * {
+  pointer-events: auto;
 }
-a {
-  color: #bfe0d3;
+header b {
+  background: #203b43cc;
+  padding: 10px;
+  border-radius: 9px;
 }
-a[aria-current] {
-  color: #ffe3a6;
+select {
+  max-width: 290px;
 }
-button {
-  font: inherit;
-  background: #355459;
-  color: #f9efdb;
-  padding: 10px 15px;
-  border: 1px solid #96aea4;
-  border-radius: 5px;
-}
-#scope {
-  height: 28px;
-  text-align: center;
-  color: #d9c594;
+#camera-mode {
+  margin-left: auto;
+  background: #203b43cc;
+  padding: 8px;
+  border-radius: 8px;
   font-size: 12px;
 }
-#stage {
-  height: calc(100dvh - 153px);
+#settings {
+  position: relative;
+}
+summary {
+  list-style: none;
+  cursor: pointer;
+}
+#settings > div {
+  position: absolute;
+  right: 0;
+  width: 220px;
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  background: #203b43f5;
+  border-radius: 12px;
+}
+#settings label {
   display: flex;
+  gap: 8px;
+  align-items: center;
+}
+#stage {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 canvas {
   image-rendering: pixelated;
   image-rendering: crisp-edges;
+  touch-action: none;
   max-width: none;
 }
 footer {
-  height: 50px;
-  padding: 10px 24px;
+  position: fixed;
+  bottom: max(8px, env(safe-area-inset-bottom));
+  left: max(14px, env(safe-area-inset-left));
+  right: max(14px, env(safe-area-inset-right));
   display: flex;
   justify-content: space-between;
-  gap: 15px;
+  gap: 14px;
+  pointer-events: none;
+  font-size: 12px;
+}
+footer span {
+  background: #203b43c0;
+  padding: 5px 10px;
+  border-radius: 7px;
+}
+#joystick {
+  position: fixed;
+  left: max(24px, env(safe-area-inset-left));
+  bottom: max(36px, calc(env(safe-area-inset-bottom) + 18px));
+  width: 104px;
+  height: 104px;
+  border: 2px solid #e2cf9f99;
+  background: #24494f55;
+  border-radius: 50%;
+  touch-action: none;
+  z-index: 4;
+}
+.stick-knob {
+  position: absolute;
+  left: 33px;
+  top: 33px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #e2cf9fb0;
+}
+#touch-actions {
+  position: fixed;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(46px, calc(env(safe-area-inset-bottom) + 22px));
+  display: flex;
+  gap: 12px;
+  z-index: 4;
+  touch-action: none;
+}
+#touch-actions button {
+  min-width: 66px;
+  min-height: 52px;
+  background: #203b4388;
+}
+#camera-tools {
+  display: none;
+  position: fixed;
+  bottom: max(40px, env(safe-area-inset-bottom));
+  right: max(18px, env(safe-area-inset-right));
+  gap: 9px;
+  align-items: center;
+  z-index: 6;
+}
+#camera-tools span {
+  font-size: 12px;
+  background: #203b43b0;
+  padding: 8px;
+  border-radius: 8px;
+}
+body[data-camera="scenic"] #camera-tools,
+body[data-camera="overview"] #camera-tools,
+body[data-camera="showcase"] #camera-tools {
+  display: flex;
+}
+body[data-camera="showcase"] #overview-mode,
+body[data-camera="showcase"] #camera-tools span {
+  display: none;
+}
+body[data-camera="scenic"] #joystick,
+body[data-camera="overview"] #joystick,
+body[data-camera="scenic"] #touch-actions,
+body[data-camera="overview"] #touch-actions {
+  opacity: 0.25;
+  pointer-events: none;
 }
 #dialog {
   position: fixed;
+  z-index: 10;
   left: 25%;
   right: 20%;
   top: 25%;
   padding: 24px;
-  background: #233f43;
-  border: 2px solid #e1c994;
-  z-index: 10;
+  background: #233f43f2;
+  border: 1px solid #e1c994;
+  border-radius: 14px;
 }
-#joystick {
+#map-labels {
   position: fixed;
-  left: 22px;
-  bottom: 65px;
-  width: 100px;
-  height: 100px;
-  border: 2px solid #e2cf9f;
-  background: #24494f99;
-  border-radius: 50%;
-  touch-action: none;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
 }
-.stick-knob {
+#map-labels span {
   position: absolute;
-  left: 31px;
-  top: 31px;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: #e2cf9f;
+  font-size: 11px;
+  background: #163039d9;
+  color: #f2ead7;
+  border-radius: 4px;
+  padding: 3px;
+  max-width: 160px;
+  white-space: nowrap;
 }
-#touch-actions {
-  position: fixed;
-  right: 20px;
-  bottom: 65px;
-  display: flex;
-  gap: 12px;
-  touch-action: none;
+body[data-native="true"] header,
+body[data-native="true"] footer,
+body[data-native="true"] #joystick,
+body[data-native="true"] #touch-actions,
+body[data-native="true"] #camera-tools {
+  display: none !important;
 }
 @media (pointer: fine) {
   #joystick,
@@ -102,38 +214,62 @@ footer {
     display: none;
   }
 }
-@media (max-width: 900px) {
-  header {
-    height: 55px;
-    padding: 5px 10px;
-    font-size: 10px;
-    gap: 10px;
-  }
-  nav {
-    gap: 8px;
-  }
+@media (max-width: 1000px) {
   header b {
     display: none;
   }
-  #scope {
-    height: 22px;
-    font-size: 10px;
+  select {
+    max-width: 220px;
+    font-size: 12px;
   }
-  footer {
-    height: 32px;
-    padding: 5px;
+  header {
+    gap: 6px;
+  }
+  #camera-mode {
     font-size: 10px;
+    padding: 7px;
   }
   footer span:last-child {
     display: none;
   }
-  #stage {
-    height: calc(100dvh - 109px);
-  }
   #dialog {
-    left: 15%;
-    right: 15%;
-    top: 15%;
-    padding: 12px;
+    left: 18%;
+    right: 18%;
+    top: 18%;
+    padding: 16px;
   }
+}
+@media (max-height: 350px) {
+  button,
+  select,
+  summary {
+    min-height: 34px;
+    padding: 6px 9px;
+  }
+  #joystick {
+    bottom: 26px;
+    width: 92px;
+    height: 92px;
+  }
+  .stick-knob {
+    left: 27px;
+    top: 27px;
+  }
+  #touch-actions {
+    bottom: 32px;
+  }
+  #camera-tools {
+    bottom: 35px;
+  }
+}
+
+body[data-edge-focus="true"] header {
+  top: auto;
+  bottom: max(8px, env(safe-area-inset-bottom));
+  left: 140px;
+  right: 180px;
+  justify-content: center;
+}
+body[data-edge-focus="true"] header > :not(#scenic) {
+  display: none;
 }

@@ -1,0 +1,58 @@
+[
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "hash",
+      "--bundle",
+      "/workspace/korean-street-gate1/.cache/gate2/acceptance/contracts/seam/bundle.json",
+      "--output",
+      "/workspace/korean-street-gate1/.cache/gate2/acceptance/contracts/seam/hashed.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/korean-street-gate1/.cache/gate2/acceptance/contracts/seam/hashed.json\", \"metadata\": \"/workspace/korean-street-gate1/.cache/gate2/acceptance/contracts/seam/hashed.json\", \"files_hashed\": 12}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_bundle.py",
+      "validate",
+      "--bundle",
+      "/workspace/korean-street-gate1/.cache/gate2/acceptance/contracts/seam/hashed.json",
+      "--report",
+      "/workspace/korean-street-gate1/.cache/gate2/acceptance/contracts/seam/bundle-report.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"warn\", \"bundle\": \"/workspace/korean-street-gate1/.cache/gate2/acceptance/contracts/seam/hashed.json\", \"id\": \"gate2-acceptance-seam\", \"version\": 2, \"errors\": 0, \"warnings\": 9, \"metadata\": \"/workspace/korean-street-gate1/.cache/gate2/acceptance/contracts/seam/bundle-report.json\"}\n",
+    "stderr": "warning: $.layers[0].image: image layer 'ground0' does not cover the world\nwarning: $.layers[1].image: image layer 'ground1' does not cover the world\nwarning: $.objects[0]: object 'gate1-2' is anchored outside the world\nwarning: $.objects[1]: object 'gate1-3' is anchored outside the world\nwarning: $.objects[4]: object 'gate1-6' is anchored outside the world\nwarning: $.objects[5]: object 'gate1-7' is anchored outside the world\nwarning: $.objects[7]: object 'gate1-9' is anchored outside the world\nwarning: $.objects[9]: object 'gate1-11' is anchored outside the world\nwarning: $.collision.actorRadius: actorRadius 0 treats the actor as a point\n"
+  },
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/map_nav.py",
+      "check",
+      "--bundle",
+      "/workspace/korean-street-gate1/.cache/gate2/acceptance/contracts/seam/hashed.json",
+      "--output-dir",
+      "/workspace/korean-street-gate1/.cache/gate2/acceptance/contracts/seam/nav",
+      "--publish-on-fail"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"pass\", \"output\": \"/workspace/korean-street-gate1/.cache/gate2/acceptance/contracts/seam/nav\", \"metadata\": \"/workspace/korean-street-gate1/.cache/gate2/acceptance/contracts/seam/nav/nav-report.json\", \"grid\": \"/workspace/korean-street-gate1/.cache/gate2/acceptance/contracts/seam/nav/nav-grid.json\", \"debug\": \"/workspace/korean-street-gate1/.cache/gate2/acceptance/contracts/seam/nav/nav-debug.png\", \"map\": \"gate2-acceptance-seam\", \"cell\": 1, \"targets\": 3, \"unreachable\": 0, \"thinGaps\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/generate2dmap/scripts/build_scene_preview.py",
+      "--bundle",
+      "/workspace/korean-street-gate1/.cache/gate2/acceptance/contracts/seam/hashed.json",
+      "--output-dir",
+      "/workspace/korean-street-gate1/.cache/gate2/acceptance/contracts/seam/preview"
+    ],
+    "exit": 0,
+    "stdout": "{\"status\": \"warn\", \"output_dir\": \"/workspace/korean-street-gate1/.cache/gate2/acceptance/contracts/seam/preview\", \"preview\": \"/workspace/korean-street-gate1/.cache/gate2/acceptance/contracts/seam/preview/preview.html\", \"metadata\": \"/workspace/korean-street-gate1/.cache/gate2/acceptance/contracts/seam/preview/preview-qa.json\", \"bytes\": 4139929, \"verify\": \"not-requested\", \"warnings\": 2, \"failed\": []}\n",
+    "stderr": ""
+  }
+]

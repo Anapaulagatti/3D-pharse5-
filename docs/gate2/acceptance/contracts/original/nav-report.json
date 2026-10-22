@@ -1,0 +1,193 @@
+{
+  "schema": "generate2dmap.nav_report.v1",
+  "status": "pass",
+  "method": "plan Appendix C validity (centre + 8 footprint samples against walk regions, solids, object footprints scaled once, tile collision and material classes) on a grid of cell max(1, round(r/2)) px; 4-neighbour moves open when segmentClear holds between node centres (samples every cell/2, plus the exact thin-gap centre path and one_way direction); BFS from every spawn and portal arrival to every interaction, exit, anchor slot and approach point",
+  "notProven": [
+    "that the collision data matches the painted art",
+    "positions closer than one grid cell to a blocker (the grid samples cell centres)",
+    "runtime movement code: map-runtime.mjs parity is tested during integration",
+    "links to maps not passed with --link"
+  ],
+  "checks": [
+    {
+      "id": "starts_valid",
+      "status": "pass",
+      "value": {
+        "starts": 1,
+        "blocked": []
+      },
+      "threshold": {
+        "blocked": 0
+      }
+    },
+    {
+      "id": "targets_reachable",
+      "status": "pass",
+      "value": {
+        "reachable": 2,
+        "total": 2,
+        "unreachable": []
+      },
+      "threshold": {
+        "unreachable": 0
+      }
+    },
+    {
+      "id": "portals_inside_world",
+      "status": "pass",
+      "value": {
+        "outside": []
+      },
+      "threshold": {
+        "outside": 0
+      }
+    },
+    {
+      "id": "arrivals_outside_triggers",
+      "status": "pass",
+      "value": {
+        "problems": 0
+      },
+      "threshold": {
+        "problems": 0
+      }
+    },
+    {
+      "id": "reciprocal_links",
+      "status": "pass",
+      "value": {
+        "links": [],
+        "notChecked": []
+      },
+      "threshold": {
+        "errors": 0
+      }
+    },
+    {
+      "id": "thin_gaps",
+      "status": "pass",
+      "value": 0,
+      "threshold": "reported: moves the thin-gap rule closed although every footprint sample was valid"
+    },
+    {
+      "id": "unreachable_walkable_area",
+      "status": "pass",
+      "value": {
+        "pockets": 0,
+        "cells": 0
+      },
+      "threshold": "reported"
+    },
+    {
+      "id": "blocked_rects_union",
+      "status": "pass",
+      "value": {
+        "rects": 10,
+        "blockedCells": 936064
+      },
+      "threshold": "union == blocked cells"
+    },
+    {
+      "id": "footprints_scaled_once",
+      "status": "pass",
+      "value": {
+        "objectSolids": 0
+      },
+      "threshold": "object footprint x scale, never inflated by the actor radius"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../hashed.json",
+      "sha256": "35c599d6799915ba8dee4a44716e0af76a06c22064d1a79476280590a5c3cf8b",
+      "bytes": 18371
+    },
+    {
+      "path": "../ground0.png",
+      "sha256": "2105a91fd58d01d6b38d956ce61d501b6b8ea79f1f21fd2f5dddc58803820e84",
+      "bytes": 1836772
+    }
+  ],
+  "outputs": [
+    {
+      "path": "nav-grid.json",
+      "sha256": "358a924a544649e4c31c75b938f8e0c1b54c6351b0bcec52286ddfefcbd31289",
+      "bytes": 2115150
+    },
+    {
+      "path": "nav-debug.png",
+      "sha256": "ca35a649bd9a3e0cd164ba8fce4b6c2248487d99879badda6c989d681e4f33f6",
+      "bytes": 1472958
+    }
+  ],
+  "tool": {
+    "name": "map_nav.py",
+    "version": "0.4.0"
+  },
+  "map": "gate2-acceptance-original",
+  "cell": 1,
+  "starts": [
+    {
+      "kind": "spawn",
+      "id": "entry",
+      "point": [
+        510.0,
+        790.0
+      ],
+      "reachable": true,
+      "steps": 0,
+      "node": [
+        509.5,
+        789.5
+      ],
+      "reason": null
+    }
+  ],
+  "targets": [
+    {
+      "kind": "approach",
+      "id": "bakery/approach[0]",
+      "point": [
+        510.0,
+        780.0
+      ],
+      "reachable": true,
+      "steps": 6,
+      "node": [
+        508.5,
+        782.5
+      ],
+      "reason": null
+    },
+    {
+      "kind": "approach",
+      "id": "crossing/approach[0]",
+      "point": [
+        510.0,
+        965.0
+      ],
+      "reachable": true,
+      "steps": 171,
+      "node": [
+        508.5,
+        963.5
+      ],
+      "reason": null
+    }
+  ],
+  "links": [],
+  "thinGaps": [],
+  "unreachablePockets": [],
+  "bundleNav": {
+    "cell": 1,
+    "grid": "nav-grid.json"
+  },
+  "problems": [
+    {
+      "severity": "warning",
+      "path": "$.collision.actorRadius",
+      "message": "actorRadius 0 treats the actor as a point",
+      "code": "rule"
+    }
+  ]
+}
