@@ -1,3 +1,7 @@
+# Current authority — final Gate2 art review preparation
+
+Latest user request permits lightweight review derivatives, fit overlays, feasibility/originality assessment and ONLY a localized Jeju house entrance approach improvement. No scene rebuild or replacement artwork beyond that narrow access fix. Delivery: docs/gate2/final-review/README.md. Preserve native PNGs/masterplan/checkpoints. Gate2 human artistic approval pending; Gate3/integration/merge/deploy remain locked.
+
 # Current authority — Gate 1 approved; Gate 2 ONLY authorized
 
 Latest user approval: docs/current/GATE2_AUTHORIZATION.md. Planning baseline e0a5c0a is approved and protected by checkpoint/gate1-approved-planning-20261022. Work branch art-gate/gate2-three-slices. Only three isolated playable art slices plus transition/station evidence. Approved plan/runtime/north/Juni stay unchanged. Muneum applies to BOTH historical/modern craft. Native Jeju footprint conflicts must be explicit localized PROPOSALS, not applied silently or resolved through miniaturization. Host image route only; no paid provider API. STOP after Gate2 delivery for human artistic approval. Gate3, full-world art, merge, deploy, separate-app changes and delegation are NOT authorized. Older pending-Gate1 instructions below are superseded history.

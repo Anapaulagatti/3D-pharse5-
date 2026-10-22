@@ -1,3 +1,7 @@
+# Latest review preparation
+
+[Accessible final review: lightweight previews, native crops, fit overlays, originality disclosure and feasibility/open items](final-review/README.md). Includes the localized Jeju entrance amendment. Original captures/videos/packages below are retained historical delivery evidence and predate that amendment. Human artistic approval remains pending; Gate3 stays locked.
+
 # Gate 2 artistic review — three playable slices
 
 Gate 1 baseline `e0a5c0a` remains unchanged. Work is isolated on `art-gate/gate2-three-slices`. **Human artistic approval is pending. Gate 3 stays locked.** No whole-world rebuild, merge, public deployment or separate application change.

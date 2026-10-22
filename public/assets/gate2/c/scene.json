@@ -85,6 +85,16 @@
       "height": 201,
       "sortY": 1170,
       "alphaSoftening": 0.65
+    },
+    {
+      "id": "entrance-paving",
+      "image": "c/entrance-paving.png",
+      "x": 480,
+      "y": 875,
+      "width": 236,
+      "height": 361,
+      "sortY": -90,
+      "alphaSoftening": 1
     }
   ],
   "targets": [
@@ -381,6 +391,52 @@
         ]
       ],
       "width": 64
+    },
+    {
+      "id": "house-direct-approach",
+      "points": [
+        [
+          540,
+          865
+        ],
+        [
+          560,
+          915
+        ],
+        [
+          628,
+          984
+        ],
+        [
+          650,
+          1050
+        ],
+        [
+          650,
+          1130
+        ],
+        [
+          635,
+          1185
+        ],
+        [
+          560,
+          1205
+        ],
+        [
+          500,
+          1205
+        ],
+        [
+          410,
+          1210
+        ],
+        [
+          410,
+          1190
+        ]
+      ],
+      "width": 64
     }
   ],
   "walkAreas": [
@@ -459,5 +515,6 @@
   "source": "assets-src/gate2/native/jeju.png",
   "sourceSha256": "9ae8fc2c1271a515e721ec4e9489fcfeb086d2f82bf24f04752a070307a20d24",
   "depthPolicy": "Native semantic masks / support roots Y-sorted; same RGB as base art",
-  "reservation": "CONFLICT: native1024x1536 study exceeds approved720x1260; separate localized proposal, approved map unchanged"
+  "reservation": "CONFLICT: native1024x1536 study exceeds approved720x1260; separate localized proposal, approved map unchanged",
+  "accessAmendment": "Only foreground paving patch and local foot-clearance amendment. Original foundation PNG unchanged. Exterior entrance approach; no interior gameplay."
 }

@@ -1,3 +1,7 @@
+# Final Gate2 review preparation
+
+[Lightweight review gallery and open items](docs/gate2/final-review/README.md). Localized Jeju entrance paving + walk-mask amendment only; no scene rebuild or whole-image replacement. Prior native PNGs, approved plan and checkpoints retained. New original modern commercial-building production remains unproven; fit/seams/performance unresolved. STOP for human artistic approval; Gate3 locked.
+
 # Gate 2 review delivery — human approval pending
 
 Three isolated Phaser slices, transition and station supporting study: [review](docs/gate2/GATE2_REVIEW.md). Native PNGs, nearest2× reviews, Juni crops, actual gameplay videos, private local ZIPs and provenance/QA delivered. Jeju reservation fit FAIL with localized proposal only; station10px depth allowance flagged. Approved Gate1 plan, north, Juni and Muneum sources retained. STOP for explicit human artistic approval; Gate3/full-world/merge/deploy stay locked.
