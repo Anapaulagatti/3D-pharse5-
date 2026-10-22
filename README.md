@@ -1,3 +1,5 @@
+Current Gate 1 delivery: [three targeted corrections](docs/world-gate1/TARGETED_CORRECTIONS_REVIEW.md). Final approval withheld; Gate 2 locked.
+
 Current final Gate 1 review (22 October): [revised masterplan and graybox](docs/world-gate1/FINAL_MASTERPLAN_REVIEW.md). Art direction provisionally approved; final plan pending, Gate 2 locked.
 
 # Current review: final-world Gate 1 (style + masterplan)

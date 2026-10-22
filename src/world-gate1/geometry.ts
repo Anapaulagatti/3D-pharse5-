@@ -11,8 +11,10 @@ export function inside(x: number, y: number, r: number[], margin = 0) {
 export function walkable(x: number, y: number) {
   return (
     plan.land.some((r) => inside(x, y, r, -16)) &&
-    ![...plan.buildings, ...plan.boundaries].some((b) =>
-      inside(x, y, b.rect, 16),
-    )
+    ![...plan.buildings, ...plan.boundaries, ...plan.landscapeSolids].some(
+      (b) => inside(x, y, b.rect, 16),
+    ) &&
+    (!plan.railKeepouts.some((r) => inside(x, y, r, 16)) ||
+      plan.overpasses.some((r) => inside(x, y, r, -16)))
   );
 }

@@ -1,3 +1,7 @@
+# Current authority — three targeted Gate 1 corrections
+
+Final Gate 1 approval is WITHHELD. Latest request: docs/current/GATE1_TARGETED_CORRECTIONS.md. Only Jeju destination planning, railway-station reservation and audited exploration pacing are authorized. Current delivery: docs/world-gate1/TARGETED_CORRECTIONS_REVIEW.md. Preserve historic northern geometry, SW Namsan, SE amusement, Juni/Muneum assets and valid prior work. Gate 2 remains LOCKED. No art generation, full-world rebuild, merge, deployment or delegation. Older entries below are historical when conflicting.
+
 # Active revision — final Gate 1 review, 22 October 2026
 
 User provisionally approved art direction, explicitly retained Muneum as mandatory benchmark for BOTH traditional and modern environments, and requested final planning checks only. Current review: docs/world-gate1/FINAL_MASTERPLAN_REVIEW.md. Restore Namsan southwest/amusement southeast, verify Jeju and ferry boarding logic, preserve historical north, reserve full-sized native commercial elevations. Final Gate 1 plan approval is PENDING; Gate 2 remains LOCKED. No art generation, merge or deployment. Older narratives below are history when conflicting.

@@ -1,6 +1,6 @@
 {
   "stage": "GATE_1_STYLE_MASTERPLAN_ONLY",
-  "humanApproval": "PENDING",
+  "humanApproval": "WITHHELD",
   "gate2": "LOCKED",
   "gate3": "LOCKED",
   "checks": {
@@ -8,29 +8,46 @@
     "isolatedPreviewBuild": "PASS; logs/preview-build.log",
     "typecheck": "PASS",
     "unitTests": {
-      "passed": 12,
-      "files": 4,
+      "passed": 18,
+      "files": 5,
+      "newMeaningfulCollisionTests": 6,
       "evidence": "logs/unit-tests.log"
     },
     "lint": "PASS",
     "format": "PASS",
-    "browserCases": 14,
+    "browserCases": 17,
     "browserErrors": [],
-    "navigationTargets": 18,
+    "navigationTargets": 25,
     "unreachable": 0,
-    "renderedRouteCenterlines": 19,
+    "renderedRouteCenterlines": 25,
     "protectedFiles": 214,
     "portablePackage": {
       "status": "PASS",
-      "manifestFilesVerified": 35,
+      "manifestFilesVerified": 46,
       "evidence": "package-verification.json",
-      "note": "Post-pack receipt beside the ZIP; not embedded as self-verification"
+      "note": "Own ZIP extracted; hashes, desktop keyboard and mobile CDP touch verified. Post-pack receipt beside archive."
     },
     "northGeometryExactVsPreviousReview": true,
-    "jejuLandAndBridgeExactVsPreviousReview": true,
     "composition": "Namsan southwest; amusement southeast",
     "commercialFacadeReserveHeight": 500,
-    "nativeDoorHeight": 100
+    "nativeDoorHeight": 100,
+    "jejuOutlineBridgeAndFerryPiersPreserved": true,
+    "namsanAndAmusementGeometryPreserved": true,
+    "stationPlatforms": 2,
+    "stationTracks": 2,
+    "walkingInputTiming": {
+      "cafeToNamsanSeconds": [
+        41.71,
+        21.54
+      ],
+      "marketToFerrySeconds": [
+        30.27,
+        26.07
+      ],
+      "configuredWalkSpeed": 60,
+      "operationalFerryCounted": false,
+      "note": "Signed itineraries measured with actual keys; collision-grid minima reported separately"
+    }
   },
   "nativeOverview": [
     4096,
@@ -45,20 +62,21 @@
     304
   ],
   "limits": [
-    "Code-drawn graybox, not final production art",
-    "No operational ferry/interiors/NPC/gesture integration claimed",
-    "Physical phones and GitHub CI untested",
-    "Full road-width clearance and final-art collider alignment remain Gate2/3 work"
+    "Planning graybox only; no production art, operating railway/ferry or completed quests.",
+    "All-pairs grid travel estimates distinct from real-keyboard itinerary timing.",
+    "Physical phone, final-art occlusion and complete road-width clearance unproven.",
+    "Gate1 final approval withheld; Gate2 locked."
   ],
   "diagnostics": [
     "Initial lint erroneously included minified dist-gate1: 4917 errors; added generated-directory ignore, no source rules weakened",
-    "Initial global Canvas-context smoothing assertion failed after text rendering; final assertion checks actual Juni texture source scaleMode1 used by Phaser CanvasRenderer at each sprite draw; original diagnostic retained"
+    "Initial global Canvas-context smoothing assertion failed after text rendering; final assertion checks actual Juni texture source scaleMode1 used by Phaser CanvasRenderer at each sprite draw; original diagnostic retained",
+    "Initial Jeju culture-return spline grazed expanded pavilion collider at 4 samples; western bend moved outward; final25 centerlines clear. Original diagnostic retained, foot clearance unchanged."
   ],
   "noMerge": true,
   "noDeploy": true,
   "newMediaCalls": 0,
-  "revision": "2026-10-22 final masterplan review",
+  "revision": "2026-10-22 three targeted corrections: Jeju, railway station, exploration pacing",
   "artDirection": "PROVISIONALLY_APPROVED",
   "qualityBenchmark": "Approved Muneum street for BOTH traditional and modern environments",
-  "masterplanApproval": "PENDING_FINAL_GATE1_APPROVAL"
+  "masterplanApproval": "WITHHELD_PENDING_FINAL_USER_REVIEW"
 }

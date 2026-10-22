@@ -93,7 +93,7 @@ try {
     JSON.stringify(routeAudit.filter((r) => r.blocked.length)),
   );
   rows.push({
-    case: "All 19 rendered route centerlines incl actual Phaser splines clear with 16px foot clearance",
+    case: "All 25 rendered route centerlines incl actual Phaser splines clear with 16px foot clearance",
     pass: true,
   });
   await ready(p, "?qa");
@@ -182,12 +182,53 @@ try {
       end: await state(p),
     });
   }
+  await place(p, 3000, 2530);
+  await p.keyboard.down("ArrowRight");
+  await p.waitForTimeout(800);
+  await p.keyboard.up("ArrowRight");
+  assert((await state(p)).x < 3015);
+  rows.push({ case: "Rail bed is not walkable at platform level", pass: true });
+  await place(p, 2970, 2680);
+  await p.keyboard.down("Shift");
+  await p.keyboard.down("ArrowRight");
+  await p.waitForFunction(() => window.__WORLD_PLAN__.x > 3290, null, {
+    timeout: 7000,
+  });
+  await p.keyboard.up("ArrowRight");
+  await p.keyboard.up("Shift");
+  rows.push({
+    case: "Real keyboard traverses station pedestrian overpass to platform 2",
+    pass: true,
+  });
+  for (const [id, x, y] of [
+    ["oreum-rim", 3910, 3530],
+    ["basalt-story", 3550, 3780],
+    ["tangerine-orchard", 3650, 4050],
+    ["jeju-culture", 3490, 4460],
+    ["station-platform-1", 2970, 2530],
+    ["station-platform-2", 3300, 2530],
+  ]) {
+    await place(p, x, y);
+    await p.keyboard.press("e");
+    await p.waitForTimeout(50);
+    assert((await state(p)).visited.includes(id), id);
+    await p.locator("#card").click();
+  }
+  rows.push({
+    case: "Jeju oreum/basalt/orchard/culture and both station platforms have accessible E exploration markers",
+    pass: true,
+  });
   for (const [name, x, y] of [
     ["NORTH_NATIVE_1X", 2048, 1100],
     ["TRANSITION_NATIVE_1X", 2048, 1900],
     ["SOUTH_NATIVE_1X", 1350, 2690],
     ["COAST_NATIVE_1X", 2900, 3480],
-    ["ISLAND_NATIVE_1X", 3640, 4220],
+    ["ISLAND_NATIVE_1X", 3680, 4180],
+    ["JEJU_OREUM_NATIVE_1X", 3910, 3530],
+    ["JEJU_BASALT_NATIVE_1X", 3550, 3780],
+    ["JEJU_ORCHARD_NATIVE_1X", 3650, 4050],
+    ["JEJU_CULTURE_NATIVE_1X", 3490, 4460],
+    ["STATION_NATIVE_1X", 2970, 2530],
     ["NAMSAN_SW_NATIVE_1X", 1460, 3260],
     ["AMUSEMENT_SE_NATIVE_1X", 2440, 3260],
     ["FERRY_PIERS_NATIVE_1X", 3240, 4100],
@@ -225,6 +266,16 @@ try {
     pass: true,
   });
   await m.close();
+  const jeju = await page({ viewport: { width: 1024, height: 1656 } });
+  await ready(jeju, "?qa");
+  await place(jeju, 3550, 3780);
+  await capture(jeju, "JEJU_SPATIAL_NATIVE_1X");
+  await jeju.close();
+  const station = await page({ viewport: { width: 2048, height: 1250 } });
+  await ready(station, "?qa");
+  await place(station, 3300, 2530);
+  await capture(station, "STATION_SPATIAL_NATIVE_1X");
+  await station.close();
   const overview = await page({ viewport: { width: 1300, height: 1480 } });
   await ready(overview, "?overview");
   await capture(overview, "MASTERPLAN_ZONING");

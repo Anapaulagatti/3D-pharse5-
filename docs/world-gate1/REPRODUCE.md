@@ -1,3 +1,9 @@
+`node tools/world_gate1_capture.mjs` refreshes native/screenshots after label-only changes, retaining the separate 17-case behavioral report. `capture-refresh.json` records fresh PNG hashes.
+
+Current targeted review: [Jeju, railway and pacing](TARGETED_CORRECTIONS_REVIEW.md). Gate 1 approval withheld; Gate 2 locked.
+
+`python3 tools/world_gate1_pacing.py` uses the installed numpy/scipy to audit old/new collision-grid distances at baseline commit 21554fa. `node tools/world_gate1_walk_timing.mjs` additionally requires that unchanged baseline served on port4242 and current preview on4240; it performs actual normal-speed keyboard journeys and saves raw positions. The optional detached `/workspace/gate1-pacing-baseline` worktree contains original source with technical dependency reuse only, not new art or another world rebuild. No provider/API or new dependency installation was used.
+
 Current revision: [final masterplan review](FINAL_MASTERPLAN_REVIEW.md). Art provisionally approved; final planning approval pending; Gate 2 locked. Packaging excludes its own prior ZIP/GitHub verification receipts to avoid stale self-verification claims.
 
 # Reproduce without generation or deployment

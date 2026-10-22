@@ -39,6 +39,18 @@
       4036,
       180,
       128
+    ],
+    [
+      3050,
+      2090,
+      340,
+      700
+    ],
+    [
+      3350,
+      2090,
+      746,
+      250
     ]
   ],
   "zones": [
@@ -99,12 +111,12 @@
     },
     {
       "id": "civic",
-      "label": "06 \u00b7 Civic / transit frontage",
+      "label": "06 \u00b7 Railway station / entrance forecourt",
       "rect": [
         2230,
         2090,
-        860,
-        670
+        1160,
+        690
       ],
       "color": "#99b8c5"
     },
@@ -143,7 +155,7 @@
     },
     {
       "id": "island",
-      "label": "10 \u00b7 Jeju observatory garden",
+      "label": "10 \u00b7 Jeju exploration district",
       "rect": [
         3320,
         3300,
@@ -276,7 +288,7 @@
     },
     {
       "id": "civic",
-      "label": "Civic hall",
+      "label": "Railway station / ticket hall",
       "rect": [
         2320,
         2380,
@@ -285,21 +297,6 @@
       ],
       "entry": [
         2570,
-        2690
-      ],
-      "kind": "modern"
-    },
-    {
-      "id": "transit",
-      "label": "Transit platform / canopy",
-      "rect": [
-        2910,
-        2400,
-        160,
-        210
-      ],
-      "entry": [
-        2980,
         2690
       ],
       "kind": "modern"
@@ -380,17 +377,17 @@
       "kind": "modern"
     },
     {
-      "id": "observatory",
-      "label": "Jeju island observatory",
+      "id": "jeju-culture",
+      "label": "Jeju stone culture pavilion",
       "rect": [
-        3510,
-        3820,
-        300,
-        280
+        3370,
+        4250,
+        260,
+        170
       ],
       "entry": [
-        3640,
-        4220
+        3490,
+        4460
       ],
       "kind": "island"
     }
@@ -549,21 +546,6 @@
         ],
         [
           2048,
-          2690
-        ],
-        [
-          2980,
-          2690
-        ]
-      ]
-    },
-    {
-      "id": "transit-access",
-      "kind": "local",
-      "width": 96,
-      "points": [
-        [
-          2900,
           2690
         ],
         [
@@ -747,64 +729,6 @@
       ]
     },
     {
-      "id": "island-scenic-loop",
-      "kind": "scenic",
-      "width": 100,
-      "points": [
-        [
-          3600,
-          3570
-        ],
-        [
-          3810,
-          3650
-        ],
-        [
-          3890,
-          3940
-        ],
-        [
-          3850,
-          4270
-        ],
-        [
-          3640,
-          4370
-        ],
-        [
-          3420,
-          4220
-        ],
-        [
-          3380,
-          3910
-        ],
-        [
-          3420,
-          3690
-        ],
-        [
-          3600,
-          3570
-        ]
-      ]
-    },
-    {
-      "id": "observatory-entry",
-      "kind": "local",
-      "width": 80,
-      "points": [
-        [
-          3640,
-          4370
-        ],
-        [
-          3640,
-          4220
-        ]
-      ]
-    },
-    {
       "id": "mainland-boarding-access",
       "kind": "local",
       "width": 80,
@@ -820,6 +744,183 @@
       ]
     },
     {
+      "id": "station-platform-west",
+      "kind": "local",
+      "width": 80,
+      "points": [
+        [
+          2980,
+          2690
+        ],
+        [
+          2970,
+          2530
+        ]
+      ]
+    },
+    {
+      "id": "station-overpass",
+      "kind": "local",
+      "width": 80,
+      "points": [
+        [
+          2970,
+          2680
+        ],
+        [
+          3300,
+          2680
+        ],
+        [
+          3300,
+          2530
+        ]
+      ]
+    },
+    {
+      "id": "jeju-oreum-rim",
+      "kind": "scenic",
+      "width": 72,
+      "points": [
+        [
+          3600,
+          3570
+        ],
+        [
+          3550,
+          3420
+        ],
+        [
+          3620,
+          3340
+        ],
+        [
+          3860,
+          3340
+        ],
+        [
+          3940,
+          3540
+        ],
+        [
+          3900,
+          3700
+        ],
+        [
+          3660,
+          3720
+        ],
+        [
+          3600,
+          3570
+        ]
+      ]
+    },
+    {
+      "id": "jeju-basalt-trail",
+      "kind": "scenic",
+      "width": 72,
+      "points": [
+        [
+          3600,
+          3570
+        ],
+        [
+          3540,
+          3670
+        ],
+        [
+          3550,
+          3780
+        ],
+        [
+          3570,
+          3950
+        ],
+        [
+          3520,
+          4100
+        ]
+      ]
+    },
+    {
+      "id": "jeju-orchard-trail",
+      "kind": "scenic",
+      "width": 72,
+      "points": [
+        [
+          3660,
+          3720
+        ],
+        [
+          3830,
+          3810
+        ],
+        [
+          3650,
+          3860
+        ],
+        [
+          3650,
+          4050
+        ],
+        [
+          3680,
+          4180
+        ]
+      ]
+    },
+    {
+      "id": "jeju-culture-trail",
+      "kind": "local",
+      "width": 80,
+      "points": [
+        [
+          3520,
+          4100
+        ],
+        [
+          3680,
+          4180
+        ],
+        [
+          3700,
+          4460
+        ],
+        [
+          3490,
+          4460
+        ]
+      ]
+    },
+    {
+      "id": "jeju-culture-landing-link",
+      "kind": "scenic",
+      "width": 72,
+      "points": [
+        [
+          3520,
+          4100
+        ],
+        [
+          3330,
+          4180
+        ],
+        [
+          3330,
+          4350
+        ],
+        [
+          3330,
+          4465
+        ],
+        [
+          3490,
+          4465
+        ]
+      ]
+    },
+    {
       "id": "jeju-dock-access",
       "kind": "local",
       "width": 80,
@@ -829,12 +930,61 @@
           4100
         ],
         [
-          3380,
+          3520,
+          4100
+        ]
+      ]
+    },
+    {
+      "id": "jeju-orchard-dock-link",
+      "kind": "local",
+      "width": 72,
+      "points": [
+        [
+          3520,
           4100
         ],
         [
-          3420,
-          4220
+          3650,
+          4050
+        ]
+      ]
+    },
+    {
+      "id": "cafe-namsan-shortcut",
+      "kind": "local",
+      "width": 88,
+      "points": [
+        [
+          700,
+          2690
+        ],
+        [
+          940,
+          2790
+        ],
+        [
+          940,
+          2910
+        ],
+        [
+          950,
+          3280
+        ]
+      ]
+    },
+    {
+      "id": "market-waterfront-shortcut",
+      "kind": "local",
+      "width": 88,
+      "points": [
+        [
+          1440,
+          3740
+        ],
+        [
+          2048,
+          3480
         ]
       ]
     }
@@ -955,6 +1105,73 @@
         3240,
         4100
       ]
+    },
+    {
+      "id": "oreum-rim",
+      "label": "Oreum crater-rim lookout",
+      "point": [
+        3910,
+        3530
+      ],
+      "note": "Planned volcanic cone, rim interpretation and view; climb represented by walkable contour route, not finished elevation physics."
+    },
+    {
+      "id": "basalt-story",
+      "label": "Basalt coast exploration",
+      "point": [
+        3550,
+        3780
+      ],
+      "note": "Planned lava geology, stone landscape and sheltered coastal discovery stops."
+    },
+    {
+      "id": "tangerine-orchard",
+      "label": "Tangerine orchard walk",
+      "point": [
+        3650,
+        4050
+      ],
+      "note": "Planned orchard rows with clear aisles and harvest interpretation; no farming economy implemented."
+    },
+    {
+      "id": "jeju-arrival",
+      "label": "Jeju arrival / route choice",
+      "point": [
+        3530,
+        3570
+      ]
+    },
+    {
+      "id": "station-platform-1",
+      "label": "Station platform 1",
+      "point": [
+        2970,
+        2530
+      ]
+    },
+    {
+      "id": "station-platform-2",
+      "label": "Station platform 2",
+      "point": [
+        3300,
+        2530
+      ]
+    },
+    {
+      "id": "namsan-threshold",
+      "label": "Namsan garden entrance",
+      "point": [
+        940,
+        2910
+      ]
+    },
+    {
+      "id": "waterfront-meeting",
+      "label": "Waterfront meeting point",
+      "point": [
+        2048,
+        3480
+      ]
     }
   ],
   "seaLinks": [
@@ -976,9 +1193,253 @@
   "reviewState": {
     "artDirection": "PROVISIONALLY_APPROVED",
     "qualityBenchmark": "Muneum street for BOTH traditional and modern environments",
-    "masterplanApproval": "PENDING_FINAL_GATE1_REVIEW",
+    "masterplanApproval": "WITHHELD_PENDING_THREE_TARGETED_CORRECTIONS",
     "gate2": "LOCKED",
-    "revision": "2026-10-22 final masterplan checks",
+    "revision": "2026-10-22 Jeju, railway station and pacing correction",
     "compositionReason": "No documented compelling navigation reason for east Namsan / west amusement; restored SW / SE preference."
+  },
+  "railKeepouts": [
+    [
+      3030,
+      2090,
+      190,
+      690
+    ],
+    [
+      3030,
+      2090,
+      1066,
+      250
+    ]
+  ],
+  "overpasses": [
+    [
+      2960,
+      2630,
+      400,
+      100
+    ]
+  ],
+  "station": {
+    "buildingId": "civic",
+    "entrancePlaza": [
+      2290,
+      2610,
+      700,
+      160
+    ],
+    "platforms": [
+      {
+        "id": "platform-1",
+        "rect": [
+          2920,
+          2350,
+          100,
+          400
+        ]
+      },
+      {
+        "id": "platform-2",
+        "rect": [
+          3250,
+          2350,
+          100,
+          400
+        ]
+      }
+    ],
+    "tracks": [
+      {
+        "id": "track-1",
+        "points": [
+          [
+            4096,
+            2160
+          ],
+          [
+            3500,
+            2160
+          ],
+          [
+            3260,
+            2160
+          ],
+          [
+            3070,
+            2280
+          ],
+          [
+            3070,
+            2760
+          ]
+        ]
+      },
+      {
+        "id": "track-2",
+        "points": [
+          [
+            4096,
+            2250
+          ],
+          [
+            3500,
+            2250
+          ],
+          [
+            3320,
+            2250
+          ],
+          [
+            3180,
+            2340
+          ],
+          [
+            3180,
+            2760
+          ]
+        ]
+      }
+    ],
+    "note": "Reserved terminal railway with eastern off-map rail approach on engineered embankment; two southern buffer stops. No train operation. Pedestrian overpass is a walkable graybox abstraction."
+  },
+  "features": [
+    {
+      "id": "oreum",
+      "kind": "oreum",
+      "label": "Oreum cone + crater rim",
+      "rect": [
+        3540,
+        3300,
+        420,
+        460
+      ]
+    },
+    {
+      "id": "basalt",
+      "kind": "basalt",
+      "label": "Basalt coast / lava story",
+      "rect": [
+        3320,
+        3620,
+        260,
+        370
+      ]
+    },
+    {
+      "id": "orchard",
+      "kind": "orchard",
+      "label": "Tangerine orchard / harvest walk",
+      "rect": [
+        3630,
+        3880,
+        340,
+        270
+      ]
+    },
+    {
+      "id": "jeju-culture",
+      "kind": "culture",
+      "label": "Stone walls / haenyeo culture court",
+      "rect": [
+        3320,
+        4200,
+        380,
+        290
+      ]
+    }
+  ],
+  "landscapeSolids": [
+    {
+      "id": "oreum-core",
+      "rect": [
+        3660,
+        3410,
+        200,
+        180
+      ]
+    },
+    {
+      "id": "basalt-a",
+      "rect": [
+        3350,
+        3660,
+        120,
+        110
+      ]
+    },
+    {
+      "id": "basalt-b",
+      "rect": [
+        3350,
+        3840,
+        120,
+        100
+      ]
+    },
+    {
+      "id": "orchard-tree-0-0",
+      "rect": [
+        3696,
+        3936,
+        28,
+        28
+      ]
+    },
+    {
+      "id": "orchard-tree-0-1",
+      "rect": [
+        3806,
+        3936,
+        28,
+        28
+      ]
+    },
+    {
+      "id": "orchard-tree-0-2",
+      "rect": [
+        3916,
+        3936,
+        28,
+        28
+      ]
+    },
+    {
+      "id": "orchard-tree-1-0",
+      "rect": [
+        3696,
+        4046,
+        28,
+        28
+      ]
+    },
+    {
+      "id": "orchard-tree-1-1",
+      "rect": [
+        3806,
+        4046,
+        28,
+        28
+      ]
+    },
+    {
+      "id": "orchard-tree-1-2",
+      "rect": [
+        3916,
+        4046,
+        28,
+        28
+      ]
+    }
+  ],
+  "pacingPolicy": {
+    "walkSpeed": 60,
+    "runSpeed": 100,
+    "targetLocalDiscoveryGapSeconds": [
+      5,
+      15
+    ],
+    "localDiscoveryGap": "Design target, not art approval. Preserve intentional regional journey lengths; expose unavoidable longer links honestly.",
+    "speedChange": false,
+    "shortcuts": "Pave existing collision-clear public ground rather than falsely claim its geometric minimum was reduced."
   }
 }

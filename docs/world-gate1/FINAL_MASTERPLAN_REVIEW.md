@@ -1,3 +1,9 @@
+# Current delivery — three targeted Gate 1 corrections
+
+Final Gate 1 approval is explicitly WITHHELD. Read [TARGETED_CORRECTIONS_REVIEW.md](TARGETED_CORRECTIONS_REVIEW.md) for the current Jeju volcanic/orchard/cultural plan, complete railway reservation, real walking audit and QA. Gate 2 remains LOCKED. Earlier observatory/canopy descriptions and 18-target/19-route counts below are superseded history.
+
+---
+
 # Final Gate 1 planning review — 22 October 2026 (Asia/Saigon)
 
 **Art direction: provisionally approved. Masterplan: pending final user approval. Gate 2: locked.** The approved Muneum street sample is the mandatory craftsmanship benchmark for **both** traditional and modern environments. This review changes planning and the actual Phaser graybox only; it does not generate production art.

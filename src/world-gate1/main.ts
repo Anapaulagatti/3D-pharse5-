@@ -32,6 +32,8 @@ let snapshot = {
   frame: "",
   visited: [] as string[],
   stage: plan.stage,
+  distanceWalked: 0,
+  simulationMs: 0,
 };
 Object.defineProperty(window, "__WORLD_PLAN__", {
   get: () => ({ ...snapshot }),
@@ -67,6 +69,126 @@ class Masterplan extends Phaser.Scene {
         })
         .setDepth(5);
     }
+    // Planning symbols only: contours, orchard rows and rail reservations, no production art.
+    for (const f of plan.features) {
+      const colors: Record<string, number> = {
+        oreum: 0xb1a58a,
+        basalt: 0x7f8e8a,
+        orchard: 0xb6c481,
+        culture: 0xb9b29a,
+      };
+      g.fillStyle(colors[f.kind]).fillRoundedRect(
+        ...(f.rect as [number, number, number, number]),
+        24,
+      );
+      this.add
+        .text(
+          f.rect[0] + 10,
+          f.rect[1] + (f.kind === "oreum" ? 60 : 10),
+          f.label,
+          {
+            fontFamily: "monospace",
+            fontSize: 18,
+            color: "#263d3b",
+            wordWrap: { width: f.rect[2] - 20 },
+          },
+        )
+        .setDepth(6);
+      if (f.kind === "oreum")
+        for (let n = 0; n < 4; n++)
+          g.lineStyle(3, 0x7e7766).strokeEllipse(
+            3750,
+            3520,
+            380 - n * 60,
+            340 - n * 55,
+          );
+    }
+    for (const obstacle of plan.landscapeSolids) {
+      const [x, y, w, h] = obstacle.rect;
+      if (obstacle.id.startsWith("orchard-tree")) {
+        g.fillStyle(0x71895e).fillCircle(x + w / 2, y + h / 2, 23);
+        g.fillStyle(0xd6a363).fillCircle(x + w / 2, y + h / 2, 6);
+      } else
+        g.fillStyle(
+          obstacle.id === "oreum-core" ? 0x938574 : 0x536663,
+        ).fillRoundedRect(x, y, w, h, 16);
+    }
+    for (const r of plan.railKeepouts)
+      g.fillStyle(0x7c8581).fillRect(
+        ...(r as [number, number, number, number]),
+      );
+    for (const track of plan.station.tracks) {
+      const pts = new Phaser.Curves.Spline(
+        track.points.map(([x, y]) => new Phaser.Math.Vector2(x, y)),
+      ).getPoints(180);
+      for (let i = 1; i < pts.length; i++) {
+        const a = pts[i - 1],
+          b = pts[i],
+          d = b.clone().subtract(a).normalize(),
+          nx = -d.y,
+          ny = d.x;
+        if (i % 3 === 0) {
+          g.lineStyle(5, 0x415052).lineBetween(
+            b.x + nx * 26,
+            b.y + ny * 26,
+            b.x - nx * 26,
+            b.y - ny * 26,
+          );
+        }
+        for (const side of [-1, 1])
+          g.lineStyle(3, 0xe3e0cf).lineBetween(
+            a.x + nx * 14 * side,
+            a.y + ny * 14 * side,
+            b.x + nx * 14 * side,
+            b.y + ny * 14 * side,
+          );
+      }
+      const last = track.points.at(-1)!;
+      g.lineStyle(9, 0x603f3a).lineBetween(
+        last[0] - 30,
+        last[1],
+        last[0] + 30,
+        last[1],
+      );
+    }
+    for (const platform of plan.station.platforms) {
+      g.fillStyle(0xd7d3ba).fillRect(
+        ...(platform.rect as [number, number, number, number]),
+      );
+      g.lineStyle(5, 0xe7c47a).strokeRect(
+        ...(platform.rect as [number, number, number, number]),
+      );
+      this.add.text(
+        platform.rect[0] + 10,
+        platform.rect[1] + 15,
+        platform.id + "\n100 × 400",
+        { fontFamily: "monospace", fontSize: 16, color: "#31464a" },
+      );
+    }
+    g.fillStyle(0xa9c1bd).fillRect(
+      ...(plan.station.entrancePlaza as [number, number, number, number]),
+    );
+    for (const r of plan.overpasses) {
+      g.fillStyle(0xd5d1bb).fillRect(
+        ...(r as [number, number, number, number]),
+      );
+      g.lineStyle(4, 0xf3e8bd).strokeRect(
+        ...(r as [number, number, number, number]),
+      );
+    }
+    this.add
+      .text(2980, 2650, "PEDESTRIAN OVERPASS", {
+        fontFamily: "monospace",
+        fontSize: 16,
+        color: "#304f51",
+      })
+      .setDepth(6);
+    this.add.text(
+      3490,
+      2320,
+      "RAIL APPROACH → OFF MAP\nReserved engineering corridor · no train operation",
+      { fontFamily: "monospace", fontSize: 18, color: "#ffffff" },
+    );
     for (const p of plan.paths) {
       g.lineStyle(p.width, palette[p.kind], 1);
       const pts = p.points.map(([x, y]) => new Phaser.Math.Vector2(x, y));
@@ -137,9 +259,10 @@ class Masterplan extends Phaser.Scene {
     }
     for (const n of plan.accessNodes) {
       g.fillStyle(0xf7dc97).fillCircle(...(n.point as [number, number]), 14);
-      this.add.text(n.point[0] - 70, n.point[1] + 25, n.label, {
+      this.add.text(n.point[0] - 90, n.point[1] + 25, n.label, {
         fontFamily: "monospace",
         fontSize: 18,
+        wordWrap: { width: 180 },
         color: "#ffffff",
       });
     }
@@ -221,7 +344,24 @@ class Masterplan extends Phaser.Scene {
     snapshot.ready = true;
   }
   private inspect() {
-    const b = [...plan.buildings].sort(
+    const places = [
+      ...plan.buildings.map((b) => ({
+        id: b.id,
+        label: b.label,
+        entry: b.entry,
+        note: "Planned building / entrance; no interior or finished art.",
+      })),
+      ...plan.accessNodes.map((n) => ({
+        id: n.id,
+        label: n.label,
+        entry: n.point,
+        note:
+          "note" in n
+            ? String(n.note)
+            : "Planned exploration or transport access point.",
+      })),
+    ];
+    const b = places.sort(
       (a, b) =>
         Math.hypot(this.juni.x - a.entry[0], this.juni.y - a.entry[1]) -
         Math.hypot(this.juni.x - b.entry[0], this.juni.y - b.entry[1]),
@@ -231,7 +371,7 @@ class Masterplan extends Phaser.Scene {
     const card = document.querySelector<HTMLElement>("#card")!;
     card.hidden = false;
     card.textContent = close
-      ? `${b.label} · Điểm đến quy hoạch, chưa có nội thất hoặc mỹ thuật sản xuất.`
+      ? `${b.label} · ${b.note}`
       : "Đến gần chấm vàng để xem điểm đến.";
     if (close) this.visited.add(b.id);
     card.onclick = () => {
@@ -253,6 +393,8 @@ class Masterplan extends Phaser.Scene {
     dy /= norm;
     const speed = this.keys.SHIFT.isDown ? 100 : 60,
       step = (speed * Math.min(delta, 50)) / 1000;
+    const beforeX = this.juni.x,
+      beforeY = this.juni.y;
     this.moving = Math.hypot(dx, dy) > 0.1;
     if (this.moving) {
       this.facing =
@@ -273,6 +415,10 @@ class Masterplan extends Phaser.Scene {
     if (this.textures.get("juni").has(frame)) this.juni.setFrame(frame);
     snapshot = {
       ...snapshot,
+      distanceWalked:
+        snapshot.distanceWalked +
+        Math.hypot(this.juni.x - beforeX, this.juni.y - beforeY),
+      simulationMs: snapshot.simulationMs + Math.min(delta, 50),
       x: this.juni.x,
       y: this.juni.y,
       zoom: this.cameras.main.zoom,
