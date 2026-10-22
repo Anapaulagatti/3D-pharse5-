@@ -27,6 +27,6 @@ The video is actual normal-input Phaser play in desktop Chromium using mobile la
 
 [Download the updated review ZIP](GATE25_STATION_PLANTERS_REVIEW.zip). Extract, run `python3 start.py`, then open the printed local URL. Current scene: `district-planter-repair`. No public deployment. On a private LAN use `python3 start.py --lan` and your computer's LAN IP.
 
-This package reuses the existing compiled application; only the scene catalog and five new scene assets/data files are applied. Earlier checkpoints, artwork and packages remain unchanged. [Package integrity](package.json) · [Extracted package smoke check](package-qa.json) · [Source provenance](../../assets-src/gate25-station-planters/provenance.json).
+This package reuses the existing compiled application; only the scene catalog and five new scene assets/data files are applied. Earlier checkpoints, artwork and packages remain unchanged. [Package integrity](package.json) · [Extracted package smoke check](package-qa.json) · [Source provenance](../../assets-src/gate25-station-planters/provenance.json) · [Published downloads and preserved checkpoints](published-verification.json).
 
 Technical evidence is supplied separately from artistic judgment. **Planter craftsmanship and integration await direct human approval; the task is not marked artistically PASS.** Please inspect both native objects and the full frontage before approving. **STOP: Gate3, full-world generation, main merge and deployment stay locked.**
