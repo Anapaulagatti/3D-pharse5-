@@ -1,3 +1,7 @@
+# Current authority — Gate2.5 FINAL VISUAL POLISH ONLY
+
+Latest user directive: docs/current/GATE25_POLISH_DIRECTIVE.md. Localized district background continuation and both seam-object repairs are authorized, preserving every approved facade/entrance/Juni/world coordinate and native chunk architecture. Polish existing Jeju tour composition and collapsible accessible controls, retain real-device handoff. No Jeju redesign, full world, Gate3, main merge, public deployment, paid API or delegation. Preserve original artwork/checkpoints. STOP with before/after, native/crossing/tour evidence, one ZIP, PASS/FAIL/NOT TESTED and request explicit approval. Older no-new-art constraints are superseded ONLY for the specifically authorized missing backgrounds and seam objects.
+
 # Current authority — Gate 2.5 validation ONLY
 
 Latest: docs/current/GATE25_AUTHORIZATION.md. Existing visual foundation and localized Jeju candidate are approved for validation. Implement optional cinematic Jeju tour, versioned expanded working plan, three-source modular district and device-test handoff. Preserve all approved art/Juni/entrance/checkpoints. No new artwork, ferry/train operation, Gate3, main merge, public deployment, separate app changes or delegation. Physical-device results only from accessible real devices; otherwise NOT TESTED. STOP after review package.

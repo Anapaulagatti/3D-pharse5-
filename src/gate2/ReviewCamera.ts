@@ -46,6 +46,26 @@ export class ReviewCamera {
   private tourComplete = false;
   private tourHistory: { id: string; zoom: number }[] = [];
   private pendingTour = false;
+  private tourControlsCollapsed = false;
+  private lastTourInteraction = performance.now();
+  private setTourControls(collapsed: boolean) {
+    this.tourControlsCollapsed = collapsed;
+    this.lastTourInteraction = performance.now();
+    document.body.dataset.tourCollapsed = String(collapsed);
+    document
+      .querySelector("#camera-tools")!
+      .setAttribute("aria-hidden", String(this.mode === "tour" && collapsed));
+    const button = document.querySelector<HTMLButtonElement>("#tour-controls")!;
+    button.setAttribute("aria-expanded", String(!collapsed));
+    const title = this.stops[this.tourIndex]?.label ?? "Tour";
+    button.textContent = collapsed
+      ? title.replace(" · ", " / ") + " · Controls"
+      : "Hide controls";
+    button.setAttribute(
+      "aria-label",
+      (collapsed ? "Show" : "Hide") + " tour controls · " + title,
+    );
+  }
   constructor(
     private scene: Phaser.Scene,
     private world: number[],
@@ -120,6 +140,21 @@ export class ReviewCamera {
     document
       .querySelector("#tour-next")!
       .addEventListener("click", () => this.nextTourStop());
+    document
+      .querySelector("#tour-controls")!
+      .addEventListener("click", () =>
+        this.setTourControls(!this.tourControlsCollapsed),
+      );
+    const tools = document.querySelector<HTMLElement>("#camera-tools")!;
+    tools.addEventListener("pointerdown", () => {
+      this.lastTourInteraction = performance.now();
+    });
+    tools.addEventListener("focusin", () => {
+      this.setTourControls(false);
+    });
+    document.addEventListener("keydown", (event) => {
+      if (this.mode === "tour" && event.key === "Escape") this.returnToJuni();
+    });
     const enabled = document.querySelector<HTMLInputElement>("#showcases")!;
     const accessibility = () => {
       enabled.disabled = this.reduce.matches;
@@ -148,8 +183,10 @@ export class ReviewCamera {
         this.returnToJuni();
         return;
       }
-      if (this.mode === "tour" && !this.tourPaused && !this.tourComplete)
+      if (this.mode === "tour" && !this.tourPaused && !this.tourComplete) {
+        this.setTourControls(false);
         return;
+      }
       if (!["scenic", "overview", "tour"].includes(this.mode)) return;
       e.preventDefault();
       canvas.setPointerCapture(e.pointerId);
@@ -230,6 +267,7 @@ export class ReviewCamera {
       this.followView = this.view();
     }
     this.mode = "tour";
+    this.setTourControls(false);
     this.lock(true);
     this.pointers.clear();
     this.tourIndex = 0;
@@ -381,6 +419,7 @@ export class ReviewCamera {
     const top = Math.round((this.cy - vh / 2) * z) / z;
     c.setScroll(left + (vw - c.width) / 2, top + (vh - c.height) / 2);
     c.roundPixels = true;
+    document.body.dataset.tourSideRail = String(c.x >= 104);
   }
   private view() {
     const c = this.scene.cameras.main;
@@ -394,6 +433,26 @@ export class ReviewCamera {
   private updateHud() {
     document.body.dataset.camera = this.mode;
     const touring = this.mode === "tour";
+    if (!touring) {
+      this.tourControlsCollapsed = false;
+      document.body.dataset.tourCollapsed = "false";
+      document
+        .querySelector("#camera-tools")!
+        .setAttribute("aria-hidden", "false");
+    }
+    const toggle = document.querySelector<HTMLButtonElement>("#tour-controls")!;
+    if (touring) {
+      const title = this.stops[this.tourIndex].label;
+      toggle.textContent = this.tourControlsCollapsed
+        ? title + " · Controls"
+        : "Hide controls";
+      toggle.setAttribute(
+        "aria-label",
+        (this.tourControlsCollapsed ? "Show" : "Hide") +
+          " tour controls · " +
+          title,
+      );
+    }
     document.querySelector<HTMLElement>("#tour-caption")!.textContent = touring
       ? this.stops[this.tourIndex].label +
         (this.tourComplete
@@ -434,6 +493,16 @@ export class ReviewCamera {
   ) {
     if (this.native) return;
     const moving = Math.hypot(dx, dy) > 0.01;
+    if (
+      this.mode === "tour" &&
+      !this.tourPaused &&
+      !this.reduce.matches &&
+      !this.tourComplete &&
+      !this.tourControlsCollapsed &&
+      performance.now() - this.lastTourInteraction > 2400 &&
+      !document.activeElement?.matches(":focus-visible")
+    )
+      this.setTourControls(true);
     if (
       this.mode === "showcase" &&
       (moving ||
@@ -571,6 +640,7 @@ export class ReviewCamera {
       reducedMotion: this.reduce.matches,
       tour: {
         available: this.stops.length > 0,
+        controlsCollapsed: this.tourControlsCollapsed,
         index: this.tourIndex,
         paused: this.tourPaused,
         complete: this.tourComplete,

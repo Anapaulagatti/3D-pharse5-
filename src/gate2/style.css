@@ -308,3 +308,74 @@ body[data-camera="tour"] footer {
 body[data-camera="tour"] #tour-caption {
   font-size: 12px;
 }
+
+/* Tour chrome stays in the letterbox gutters when available; tiny restore control never disappears. */
+#tour-controls {
+  display: none;
+  position: fixed;
+  z-index: 8;
+  right: max(12px, env(safe-area-inset-right));
+  bottom: max(12px, env(safe-area-inset-bottom));
+  font-size: 11px;
+  max-width: 140px;
+  min-height: 36px;
+  background: #203b43b8;
+}
+body[data-camera="tour"] header,
+body[data-camera="tour"] #touch-actions {
+  display: none;
+}
+body[data-camera="tour"] #tour-controls {
+  display: block;
+}
+body[data-camera="tour"] #camera-tools {
+  bottom: max(56px, calc(env(safe-area-inset-bottom) + 48px));
+  gap: 6px;
+  transition: opacity 0.22s ease;
+}
+body[data-camera="tour"] #camera-tools button {
+  font-size: 12px;
+  min-height: 40px;
+  padding: 7px 10px;
+}
+body[data-camera="tour"] #tour-caption {
+  background: #203b43b8;
+  font-size: 11px;
+}
+body[data-camera="tour"][data-tour-side-rail="true"] #camera-tools {
+  left: auto;
+  right: max(12px, env(safe-area-inset-right));
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+  width: calc((100vw - 512px) / 2 - 18px);
+  min-width: 90px;
+  max-width: 140px;
+  flex-direction: column;
+  align-items: stretch;
+}
+body[data-camera="tour"][data-tour-side-rail="true"] #tour-caption {
+  white-space: normal;
+  text-align: center;
+}
+body[data-camera="tour"][data-tour-side-rail="true"] #tour-controls {
+  width: calc((100vw - 512px) / 2 - 18px);
+  min-width: 90px;
+  max-width: 140px;
+}
+body[data-camera="tour"][data-tour-collapsed="true"] #camera-tools {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+body[data-camera="tour"] #joystick {
+  opacity: 0.08;
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-camera="tour"] #camera-tools {
+    transition: none;
+  }
+}
+body[data-native="true"] #tour-controls {
+  display: none !important;
+}

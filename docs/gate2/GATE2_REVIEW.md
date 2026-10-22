@@ -1,3 +1,7 @@
+# Current delivery — Gate2.5 final visual polish
+
+[Polish review](../gate25-polish/README.md): localized margins/seams and tour UI/composition only. Approved art/Juni/coordinates/checkpoints retained. Physical-device acceptance NOT TESTED; STOP for explicit human approval. Gate3/merge/deployment locked. Earlier deliveries below remain historical.
+
 # Current delivery — Gate2.5 validation
 
 [Review package](../gate25/README.md). Visual foundation and localized Jeju planning amendment approved; tour, three-source district and device handoff only. Physical acceptance NOT TESTED; Gate3/merge/public deployment remain locked. Earlier deliveries below remain recoverable history.

@@ -10,8 +10,8 @@ export type TourStop = {
 /** Authored camera centers in unchanged native source pixels, never player destinations. */
 export function tourStops(sceneId: string): TourStop[] {
   const c = [
-    { id: "coast", label: "1 / 4 · Coastal Arrival", x: 280, y: 435 },
-    { id: "oreum", label: "2 / 4 · Volcanic Oreum", x: 670, y: 265 },
+    { id: "coast", label: "1 / 4 · Coastal Arrival", x: 280, y: 650 },
+    { id: "oreum", label: "2 / 4 · Volcanic Oreum", x: 670, y: 205 },
     { id: "orchard", label: "3 / 4 · Tangerine Orchard", x: 760, y: 860 },
     { id: "house", label: "4 / 4 · Traditional Jeju House", x: 455, y: 1100 },
   ];
