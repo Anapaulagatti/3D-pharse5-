@@ -1,0 +1,54 @@
+{
+  "passedCommands": [
+    "npm run typecheck",
+    "npm run lint",
+    "npm run format:check",
+    "npm run assets:check",
+    "npm test",
+    "npx vite build --config gate2.vite.config.ts",
+    "node tools/gate25_refinement_qa.mjs"
+  ],
+  "unitTests": 18,
+  "unitTestFiles": 5,
+  "normalEntryTraversalCases": 2,
+  "physicalDevices": "NOT TESTED",
+  "humanArtApproval": "PENDING",
+  "videos": [
+    {
+      "file": "DISTRICT_TRAVERSAL.mp4",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 844,
+            "height": 390
+          }
+        ],
+        "format": {
+          "duration": "30.720000",
+          "size": "6165039"
+        }
+      }
+    },
+    {
+      "file": "PEDESTRIAN_PASSAGES.mp4",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 844,
+            "height": 390
+          }
+        ],
+        "format": {
+          "duration": "49.080000",
+          "size": "9825483"
+        }
+      }
+    }
+  ]
+}

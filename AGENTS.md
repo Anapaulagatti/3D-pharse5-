@@ -1,3 +1,7 @@
+# Current authority — final district composition refinement ONLY
+
+Latest user request: docs/current/GATE25_COMPOSITION_DIRECTIVE.md. Final artistic approval is withheld. Only refine the two pedestrian passages and subtly vary existing lower-foreground planting. Preserve every approved facade/sign/door/entrance, Juni, source scale, major coordinates and all unrelated scenes. No full-environment regeneration, building redesign, Gate3, merge, public deployment or delegation. Deliver unannotated native Phaser district, both seam close-ups and real input traversal; STOP for explicit human visual approval. Older instructions below are history when conflicting.
+
 # Current authority — rejected polish / Gate2.5 environment reconstruction ONLY
 
 Latest: docs/current/GATE25_RECONSTRUCTION_DIRECTIVE.md. Prior polish REJECTED. Diagnose both runtime joins full-height, reconstruct coherent environmental compositions with explicit protected facade/door/signage masks, derived clean ground and complete Y-sorted foreground. Wider landscaping/environment changes authorized only for this district. Preserve approved architecture/Juni/tour/mobile/source originals/checkpoints. No unrelated building/world expansion, Gate3, merge, public deployment, paid API or delegation. Independent human visual approval remains mandatory; STOP with annotated defects, native before/after upper/middle/lower crops, actual pan/walk videos, one ZIP, hashes and honest PASS/FAIL/NOT TESTED.

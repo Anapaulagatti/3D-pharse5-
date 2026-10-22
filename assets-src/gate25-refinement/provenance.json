@@ -1,0 +1,87 @@
+{
+  "method": "built-in host local image editing; no external paid generation API",
+  "calls": 5,
+  "model": null,
+  "price": null,
+  "modelAndPriceNotExposed": true,
+  "sourceGround": "../gate25-reconstruction/reconstructed-ground.png",
+  "approvedArchitectureMask": "../gate25-reconstruction/architecture-protection-final.png",
+  "finishing": "Nearest-neighbor only on local new edits; binary masks exclude approved architecture and all areas outside the local scope. Original sources not modified.",
+  "editMask": "combined-edit-mask.png",
+  "outputs": [
+    {
+      "file": "west-host.png",
+      "sha256": "da68925a483353321c187a6d2d1083c3d72af99af5f102f93eef0d6dd3f54d38",
+      "dimensions": [
+        1020,
+        1542
+      ],
+      "prompt": "west-prompt.txt",
+      "references": [
+        "west-before.png",
+        "west-protection-guide.png"
+      ],
+      "hostOutput": "/workspace/generated_images/exec-32bde8b2-aa80-4227-b2a3-2f76d701c093.png",
+      "selected": true
+    },
+    {
+      "file": "east-host.png",
+      "sha256": "28c1efc2ad4cbcb100dd32a8a00fc1bf99d96b4f12b43166484eed9547843ad0",
+      "dimensions": [
+        1008,
+        1561
+      ],
+      "prompt": "east-prompt.txt",
+      "references": [
+        "east-before.png",
+        "east-protection-guide.png"
+      ],
+      "hostOutput": "/workspace/generated_images/exec-e564bb80-05cd-47cb-b30d-ab90e3bd7661.png",
+      "selected": false
+    },
+    {
+      "file": "planting-host.png",
+      "sha256": "a573852f22928b18d161feba412fad85ca29e98bd34de6362bbd391c66cfc3f7",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "prompt": "planting-prompt.txt",
+      "references": [
+        "planting-before-sheet.png"
+      ],
+      "hostOutput": "/workspace/generated_images/exec-4ee70db6-9545-406b-ac49-485c205e0a7b.png",
+      "selected": false
+    },
+    {
+      "file": "east-context-host.png",
+      "sha256": "b301b877c7c179710ddf3e793d073dfbfdf5962495cb8f33e33a16c063785990",
+      "dimensions": [
+        1072,
+        1467
+      ],
+      "prompt": "east-context-prompt.txt",
+      "references": [
+        "east-context-before.png",
+        "east-context-guide.png",
+        "east-finished.png"
+      ],
+      "hostOutput": "/workspace/generated_images/exec-4d773a27-0720-43f4-9175-c45a3fac1553.png",
+      "selected": true
+    },
+    {
+      "file": "planting-variation-host.png",
+      "sha256": "ed625aadee09fddf8944cff0e07f55c0ca3db55327b47b8760923fa5f51dc81f",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "prompt": "planting-variation-prompt.txt",
+      "references": [
+        "planting-before-sheet.png"
+      ],
+      "hostOutput": "/workspace/generated_images/exec-2315b0a0-38af-4608-b180-b90b335e3efe.png",
+      "selected": true
+    }
+  ]
+}

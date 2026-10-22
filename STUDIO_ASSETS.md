@@ -1,3 +1,7 @@
+# Current delivery — final district composition / human review pending
+
+[Native district, both passage close-ups, gameplay and playable ZIP](docs/gate25-refinement/README.md). Only the two connecting passages and four lower planting pockets changed; approved architecture/Juni/scale/coordinates and unrelated scenes remain protected. Technical checks do not grant artistic approval. STOP for human visual review; Gate3/merge/deploy remain LOCKED. Earlier entries below are history.
+
 # Current delivery — Gate2.5 environment reconstruction / human review pending
 
 [Current review, native before/after, pan/walk videos and single playable ZIP](docs/gate25-reconstruction/README.md). Previous polish is REJECTED history. Shared environmental composition replaces its joins; approved facades/Juni/coordinates, sources, Gate1 and Jeju/tour remain protected. Technical verification is not artistic approval. Independent human art review and physical-device acceptance pending. Gate3/merge/public deployment stay LOCKED. Earlier entries below are history.
