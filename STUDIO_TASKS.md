@@ -1,3 +1,7 @@
+# Current delivery — Gate2.5 validation
+
+[Review package](docs/gate25/README.md). Visual foundation and localized Jeju planning amendment approved; tour, three-source district and device handoff only. Physical acceptance NOT TESTED; Gate3/merge/public deployment remain locked. Earlier deliveries below remain recoverable history.
+
 # Five-task Gate2 acceptance delivery
 
 Current review: [acceptance package](docs/gate2/acceptance/README.md). Exactly one new bakery; separate localized Jeju candidate; station555x210 collision; one independent Muneum/station join; native-follow/scenic/overview/showcase mobile prototype. Accepted art/entrance/Juni/masterplan/checkpoint preserved. Human artistic approval pending. STOP; Gate3/full-world/merge/deploy remain locked.

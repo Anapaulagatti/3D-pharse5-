@@ -3,6 +3,8 @@ import { JuniMotion, type JuniView } from "../engine/JuniMotion";
 import { attachJoystick } from "../engine/Joystick";
 import "./style.css";
 import { ReviewCamera } from "./ReviewCamera";
+import { SessionMetrics } from "./SessionMetrics";
+import { ChunkCache, type GroundChunk } from "./ChunkCache";
 type Obj = {
   id: string;
   image: string;
@@ -21,7 +23,8 @@ type Data = {
   spawn: number[];
   camera: number[];
   ground: string;
-  grounds?: { image: string; x: number; y: number }[];
+  grounds?: GroundChunk[];
+  chunkLoading?: boolean;
   engineering?: {
     rect?: number[];
     points?: number[][];
@@ -50,6 +53,8 @@ type State = {
   camera?: ReturnType<ReviewCamera["snapshot"]>;
   frameTimes?: number[];
   heap?: { used: number; total: number };
+  chunks?: ReturnType<ChunkCache["snapshot"]>;
+  session?: ReturnType<SessionMetrics["snapshot"]>;
   textures?: { key: string; width: number; height: number }[];
 };
 declare global {
@@ -79,7 +84,7 @@ const data: Data = await fetch(asset + id + "/scene.json").then((r) =>
   r.json(),
 );
 const root = document.querySelector<HTMLDivElement>("#app")!;
-root.innerHTML = `<header><b>KOREAN ARENA</b><select id="scene-picker" aria-label="Review environment">${catalog.map((s) => `<option value="${s.id}" ${s.id === id ? "selected" : ""}>${s.label}</option>`).join("")}</select><span id="camera-mode">Follow · native1:1</span><button id="scenic">Scenic</button><details id="settings"><summary aria-label="Options">···</summary><div><label><input type="checkbox" id="showcases"> Landmark moments</label><button id="pause">Pause</button></div></details></header><main id="stage"></main><div id="map-labels" aria-hidden="true"></div><div id="camera-tools"><span>Drag to look · pinch to zoom</span><button id="overview-mode">Full scene</button><button id="return-juni">Return to Juni</button></div><footer><span id="near">${data.label}</span><span>WASD / arrows · Shift run · E explore · Space greet</span></footer><div id="joystick" aria-label="Movement joystick"><span class="stick-knob"></span></div><div id="touch-actions"><button id="run">Run</button><button id="explore">Explore</button></div><aside id="dialog" hidden role="dialog" aria-label="Environment detail"><h2 id="title"></h2><p id="copy"></p><button id="close">Return</button></aside>`;
+root.innerHTML = `<header><b>KOREAN ARENA</b><select id="scene-picker" aria-label="Review environment">${catalog.map((s) => `<option value="${s.id}" ${s.id === id ? "selected" : ""}>${s.label}</option>`).join("")}</select><span id="camera-mode">Follow · native1:1</span><button id="scenic">Scenic</button><details id="settings"><summary aria-label="Options">···</summary><div><label><input type="checkbox" id="showcases"> Landmark moments</label><button id="pause">Pause</button><button id="export-session">Export test report</button></div></details></header><main id="stage"></main><div id="map-labels" aria-hidden="true"></div><div id="camera-tools"><span>Drag to look · pinch to zoom</span><button id="start-tour">Start Tour</button><span id="tour-caption" role="status" aria-live="polite"></span><button id="tour-pause">Pause</button><button id="tour-next">Skip landmark</button><button id="overview-mode">Full scene</button><button id="return-juni">Return to Juni</button></div><footer><span id="near">${data.label}</span><span>WASD / arrows · Shift run · E explore · Space greet</span></footer><div id="joystick" aria-label="Movement joystick"><span class="stick-knob"></span></div><div id="touch-actions"><button id="run">Run</button><button id="explore">Explore</button></div><aside id="dialog" hidden role="dialog" aria-label="Environment detail"><h2 id="title"></h2><p id="copy"></p><button id="close">Return</button></aside>`;
 document.querySelector<HTMLSelectElement>("#scene-picker")!.onchange = (e) => {
   location.search = "?scene=" + (e.target as HTMLSelectElement).value;
 };
@@ -97,7 +102,9 @@ const reset = attachJoystick(
 );
 class Slice extends Phaser.Scene {
   private reviewCamera!: ReviewCamera;
+  private chunkCache?: ChunkCache;
   private frameTimes: number[] = [];
+  private sessionMetrics = new SessionMetrics();
   private lastUpdateTime = performance.now();
   private player!: Phaser.GameObjects.Sprite;
   private motion = new JuniMotion();
@@ -110,9 +117,10 @@ class Slice extends Phaser.Scene {
   private visited = new Set<string>();
   preload() {
     if (data.grounds)
-      data.grounds.forEach((g, i) =>
-        this.load.image("ground-" + i, asset + g.image),
-      );
+      data.grounds.forEach((g, i) => {
+        if (!data.chunkLoading || native || i < 2)
+          this.load.image("ground-" + i, asset + g.image);
+      });
     else this.load.image("foundation", asset + data.ground);
     this.load.image("walk", asset + data.mask);
     this.load.atlas(
@@ -124,6 +132,7 @@ class Slice extends Phaser.Scene {
   }
   walkable(x: number, y: number) {
     return (
+      (!this.chunkCache || this.chunkCache.readyAt(x, y)) &&
       x >= 8 &&
       y >= 8 &&
       x < data.size[0] - 8 &&
@@ -132,7 +141,14 @@ class Slice extends Phaser.Scene {
     );
   }
   create() {
-    if (data.grounds)
+    if (data.chunkLoading && data.grounds)
+      this.chunkCache = new ChunkCache(
+        this,
+        data.grounds,
+        asset,
+        native ? [0, 1, 2] : [0, 1],
+      );
+    else if (data.grounds)
       data.grounds.forEach((g, i) =>
         this.add
           .image(g.x, g.y, "ground-" + i)
@@ -205,7 +221,11 @@ class Slice extends Phaser.Scene {
       overview,
       this.x,
       this.y,
+      () => this.chunkCache?.prepareAll() ?? Promise.resolve(),
     );
+    document
+      .querySelector("#joystick")!
+      .addEventListener("pointerdown", () => this.reviewCamera.interruptTour());
     if (query.has("qa"))
       window.__GATE2_TEST__ = {
         place: (x, y) => {
@@ -263,6 +283,7 @@ class Slice extends Phaser.Scene {
         Number(this.keys.S.isDown || this.keys.DOWN.isDown) -
         Number(this.keys.W.isDown || this.keys.UP.isDown) +
         analog.y;
+    if (Math.hypot(dx, dy) > 0.01) this.reviewCamera.interruptTour();
     if (paused || scenicLocked || document.hidden) {
       dx = 0;
       dy = 0;
@@ -313,7 +334,13 @@ class Slice extends Phaser.Scene {
       if (near) behind.push(o.data.id);
     }
     this.reviewCamera.update(delta, this.x, this.y, dx, dy, paused);
+    this.chunkCache?.update(
+      this.x,
+      this.reviewCamera.snapshot().worldView,
+      this.reviewCamera.mode === "overview",
+    );
     const now = performance.now();
+    this.sessionMetrics.add(now - this.lastUpdateTime);
     this.frameTimes.push(now - this.lastUpdateTime);
     this.lastUpdateTime = now;
     const memory = (
@@ -323,6 +350,8 @@ class Slice extends Phaser.Scene {
     ).memory;
     if (this.frameTimes.length > 300) this.frameTimes.shift();
     window.__GATE2__ = {
+      session: this.sessionMetrics.snapshot(),
+      chunks: this.chunkCache?.snapshot(),
       camera: this.reviewCamera.snapshot(),
       frameTimes: this.frameTimes,
       heap: memory
@@ -407,4 +436,26 @@ run.onpointerup =
 window.addEventListener("blur", () => {
   reset();
   heldRun = false;
+});
+
+document.querySelector("#export-session")!.addEventListener("click", () => {
+  const report = {
+    physicalDeviceVerification:
+      "NOT AUTOMATICALLY VERIFIED / tester must record real model, OS and browser",
+    userAgent: navigator.userAgent,
+    platform: navigator.platform,
+    viewport: [innerWidth, innerHeight],
+    screen: [screen.width, screen.height],
+    dpr: devicePixelRatio,
+    recordedAt: new Date().toISOString(),
+    state: window.__GATE2__,
+  };
+  const url = URL.createObjectURL(
+    new Blob([JSON.stringify(report, null, 2)], { type: "application/json" }),
+  );
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "gate25-test-report.json";
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
 });

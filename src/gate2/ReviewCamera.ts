@@ -1,5 +1,6 @@
 import Phaser from "phaser";
-export type CameraMode = "follow" | "scenic" | "overview" | "showcase";
+import { tourStops, type TourStop } from "./TourStops";
+export type CameraMode = "follow" | "scenic" | "overview" | "showcase" | "tour";
 type Destination = { id: string; x: number; y: number; label: string };
 const levels = [0.25, 1 / 3, 0.5, 1];
 export function fittedZoom(width: number, height: number, world: number[]) {
@@ -37,6 +38,14 @@ export class ReviewCamera {
   private labels = document.querySelector<HTMLElement>("#map-labels")!;
   private reduce = matchMedia("(prefers-reduced-motion: reduce)");
   private returning = false;
+  private stops: TourStop[] = [];
+  private tourIndex = 0;
+  private tourElapsed = 0;
+  private tourFrom = [0, 0];
+  private tourPaused = false;
+  private tourComplete = false;
+  private tourHistory: { id: string; zoom: number }[] = [];
+  private pendingTour = false;
   constructor(
     private scene: Phaser.Scene,
     private world: number[],
@@ -47,7 +56,9 @@ export class ReviewCamera {
     overview: boolean,
     x: number,
     y: number,
+    private prepareOverview?: () => Promise<void>,
   ) {
+    this.stops = tourStops(sceneId);
     this.graphics = scene.add.graphics().setDepth(100000);
     this.cx = x;
     this.cy = y - Math.min(160, scene.scale.height * 0.18);
@@ -64,16 +75,62 @@ export class ReviewCamera {
       .addEventListener("click", () => this.enter("scenic"));
     document
       .querySelector("#overview-mode")!
-      .addEventListener("click", () => this.enter("overview"));
+      .addEventListener("click", async () => {
+        const button =
+          document.querySelector<HTMLButtonElement>("#overview-mode")!;
+        button.disabled = true;
+        const previous = this.mode;
+        try {
+          await this.prepareOverview?.();
+          if (this.mode === previous) this.enter("overview");
+        } finally {
+          button.disabled = false;
+        }
+      });
     document
       .querySelector("#return-juni")!
       .addEventListener("click", () => this.returnToJuni());
+    document.querySelector<HTMLButtonElement>("#start-tour")!.hidden =
+      this.stops.length === 0;
+    document
+      .querySelector("#start-tour")!
+      .addEventListener("click", () => this.startTour());
+    document.querySelector("#tour-pause")!.addEventListener("click", () => {
+      this.tourPaused = !this.tourPaused;
+      if (!this.tourPaused) {
+        const resume = () => {
+          this.zoom = this.stops[this.tourIndex].zoom;
+          this.apply();
+          this.tourFrom = [this.cx, this.cy];
+          this.tourElapsed = 0;
+          this.pendingTour = false;
+          this.updateHud();
+        };
+        if (this.zoom !== this.stops[this.tourIndex].zoom) {
+          this.pendingTour = true;
+          this.scene.cameras.main.fadeOut(90, 14, 32, 39);
+          this.scene.time.delayedCall(100, () => {
+            if (this.mode === "tour") resume();
+            this.scene.cameras.main.fadeIn(160, 14, 32, 39);
+          });
+        } else resume();
+      }
+      this.updateHud();
+    });
+    document
+      .querySelector("#tour-next")!
+      .addEventListener("click", () => this.nextTourStop());
     const enabled = document.querySelector<HTMLInputElement>("#showcases")!;
     const accessibility = () => {
       enabled.disabled = this.reduce.matches;
       if (this.reduce.matches) {
         enabled.checked = false;
         if (this.mode === "showcase") this.enter("follow");
+        if (this.mode === "tour") {
+          this.tourPaused = true;
+          this.frameTourStop();
+          this.updateHud();
+        }
       }
     };
     accessibility();
@@ -91,7 +148,9 @@ export class ReviewCamera {
         this.returnToJuni();
         return;
       }
-      if (!["scenic", "overview"].includes(this.mode)) return;
+      if (this.mode === "tour" && !this.tourPaused && !this.tourComplete)
+        return;
+      if (!["scenic", "overview", "tour"].includes(this.mode)) return;
       e.preventDefault();
       canvas.setPointerCapture(e.pointerId);
       if (this.mode === "overview") {
@@ -136,7 +195,11 @@ export class ReviewCamera {
     canvas.addEventListener(
       "wheel",
       (e) => {
-        if (this.mode !== "scenic") return;
+        if (
+          this.mode !== "scenic" &&
+          !(this.mode === "tour" && (this.tourPaused || this.tourComplete))
+        )
+          return;
         e.preventDefault();
         const index = levels.indexOf(this.zoom);
         this.setZoom(
@@ -152,6 +215,77 @@ export class ReviewCamera {
       { passive: false },
     );
     this.updateHud();
+  }
+  private frameTourStop() {
+    const stop = this.stops[this.tourIndex];
+    this.zoom = stop.zoom;
+    this.cx = stop.x;
+    this.cy = stop.y;
+    this.apply();
+  }
+  startTour() {
+    if (!this.stops.length || this.returning || this.pendingTour) return;
+    if (this.mode === "follow") {
+      this.followCenter = [this.cx, this.cy];
+      this.followView = this.view();
+    }
+    this.mode = "tour";
+    this.lock(true);
+    this.pointers.clear();
+    this.tourIndex = 0;
+    this.tourElapsed = 0;
+    this.tourComplete = false;
+    this.tourPaused = this.reduce.matches;
+    this.tourHistory = [];
+    const begin = () => {
+      this.zoom = this.stops[0].zoom;
+      this.apply();
+      this.tourFrom = [this.cx, this.cy];
+      if (this.reduce.matches) this.frameTourStop();
+      this.tourHistory.push({ id: this.stops[0].id, zoom: this.zoom });
+      this.pendingTour = false;
+      this.updateHud();
+    };
+    if (this.reduce.matches) begin();
+    else {
+      this.pendingTour = true;
+      this.scene.cameras.main.fadeOut(90, 14, 32, 39);
+      this.scene.time.delayedCall(100, () => {
+        if (this.mode !== "tour") {
+          this.pendingTour = false;
+          return;
+        }
+        begin();
+        this.scene.cameras.main.fadeIn(160, 14, 32, 39);
+      });
+    }
+    this.updateHud();
+  }
+  private nextTourStop() {
+    if (this.mode !== "tour") return;
+    if (this.tourIndex >= this.stops.length - 1) {
+      this.tourComplete = true;
+      this.tourPaused = true;
+      this.updateHud();
+      return;
+    }
+    this.tourIndex++;
+    this.tourElapsed = 0;
+    this.tourFrom = [this.cx, this.cy];
+    this.zoom = this.stops[this.tourIndex].zoom;
+    this.tourHistory.push({
+      id: this.stops[this.tourIndex].id,
+      zoom: this.zoom,
+    });
+    if (this.reduce.matches) this.frameTourStop();
+    this.updateHud();
+  }
+  /** Called on intent before movement is suppressed; no autonomous player motion. */
+  interruptTour() {
+    if (this.mode === "tour") {
+      this.pendingTour = false;
+      this.returnToJuni();
+    }
   }
   private seedGesture() {
     const p = [...this.pointers.values()];
@@ -189,6 +323,8 @@ export class ReviewCamera {
       this.followView = this.view();
     }
     this.pointers.clear();
+    if (this.pendingTour) this.scene.cameras.main.resetFX();
+    this.pendingTour = false;
     this.mode = mode;
     this.lock(mode === "scenic" || mode === "overview");
     if (mode === "overview") {
@@ -257,8 +393,28 @@ export class ReviewCamera {
   }
   private updateHud() {
     document.body.dataset.camera = this.mode;
-    document.querySelector<HTMLElement>("#camera-mode")!.textContent =
-      this.mode === "follow"
+    const touring = this.mode === "tour";
+    document.querySelector<HTMLElement>("#tour-caption")!.textContent = touring
+      ? this.stops[this.tourIndex].label +
+        (this.tourComplete
+          ? " · Complete"
+          : this.reduce.matches
+            ? " · Static / reduced motion"
+            : this.tourPaused
+              ? " · Paused"
+              : "")
+      : "";
+    document.querySelector<HTMLElement>("#tour-pause")!.textContent = this
+      .tourPaused
+      ? "Resume"
+      : "Pause";
+    document.querySelector<HTMLButtonElement>("#tour-pause")!.disabled =
+      this.reduce.matches || this.tourComplete;
+    document.querySelector<HTMLButtonElement>("#tour-next")!.disabled =
+      this.tourComplete;
+    document.querySelector<HTMLElement>("#camera-mode")!.textContent = touring
+      ? `Tour · ${Math.round(this.zoom * 100)}%`
+      : this.mode === "follow"
         ? "Follow · native1:1"
         : this.mode === "overview"
           ? `Full scene · ${Math.round(this.zoom * 100)}%`
@@ -287,6 +443,21 @@ export class ReviewCamera {
     ) {
       this.mode = "follow";
       this.updateHud();
+    }
+    if (
+      this.mode === "tour" &&
+      !this.pendingTour &&
+      !this.tourPaused &&
+      !paused &&
+      !this.tourComplete
+    ) {
+      this.tourElapsed += Math.min(delta, 50);
+      const stop = this.stops[this.tourIndex];
+      const t = Math.min(1, this.tourElapsed / stop.travelMs),
+        ease = t * t * (3 - 2 * t);
+      this.cx = this.tourFrom[0] + (stop.x - this.tourFrom[0]) * ease;
+      this.cy = this.tourFrom[1] + (stop.y - this.tourFrom[1]) * ease;
+      if (this.tourElapsed >= stop.travelMs + stop.holdMs) this.nextTourStop();
     }
     if (this.mode === "follow") {
       const k = this.reduce.matches
@@ -398,6 +569,15 @@ export class ReviewCamera {
       levels,
       showcased: [...this.showcased],
       reducedMotion: this.reduce.matches,
+      tour: {
+        available: this.stops.length > 0,
+        index: this.tourIndex,
+        paused: this.tourPaused,
+        complete: this.tourComplete,
+        elapsed: this.tourElapsed,
+        history: this.tourHistory,
+        stops: this.stops,
+      },
     };
   }
 }

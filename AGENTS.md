@@ -1,3 +1,7 @@
+# Current authority — Gate 2.5 validation ONLY
+
+Latest: docs/current/GATE25_AUTHORIZATION.md. Existing visual foundation and localized Jeju candidate are approved for validation. Implement optional cinematic Jeju tour, versioned expanded working plan, three-source modular district and device-test handoff. Preserve all approved art/Juni/entrance/checkpoints. No new artwork, ferry/train operation, Gate3, main merge, public deployment, separate app changes or delegation. Physical-device results only from accessible real devices; otherwise NOT TESTED. STOP after review package.
+
 # Current authority — five Gate2 acceptance tasks ONLY
 
 Latest directive: docs/current/GATE2_ACCEPTANCE_DIRECTIVE.md. Exactly one original commercial building, localized Jeju/station fit, one small chunk-join proof and mobile camera prototype. Preserve accepted art/entrance/Juni/checkpoints. Approved masterplan stays intact; any fit correction is an explicit separate candidate. No Gate3/full-world/merge/deploy/separate-app change/delegation. STOP after acceptance package for human approval.

@@ -1,3 +1,7 @@
+# Current delivery — Gate2.5 validation
+
+[Review package](docs/gate25/README.md). Visual foundation and localized Jeju planning amendment approved; tour, three-source district and device handoff only. Physical acceptance NOT TESTED; Gate3/merge/public deployment remain locked. Earlier deliveries below remain recoverable history.
+
 # Gate2 five-task acceptance review
 
 [Open current review and playable package](docs/gate2/acceptance/README.md). One new building, localized fit, one independent join and mobile camera prototype. Final human acceptance pending; Gate3 remains locked. No merge/deployment. Earlier reports below are historical.

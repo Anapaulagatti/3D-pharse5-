@@ -273,3 +273,38 @@ body[data-edge-focus="true"] header {
 body[data-edge-focus="true"] header > :not(#scenic) {
   display: none;
 }
+
+#tour-pause,
+#tour-next,
+#tour-caption {
+  display: none;
+}
+body[data-camera="tour"] #camera-tools {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: calc(100vw - 24px);
+  left: 12px;
+  right: 12px;
+  justify-content: center;
+  bottom: max(24px, env(safe-area-inset-bottom));
+}
+body[data-camera="tour"] #tour-pause,
+body[data-camera="tour"] #tour-next,
+body[data-camera="tour"] #tour-caption {
+  display: block;
+}
+body[data-camera="tour"] #start-tour,
+body[data-camera="tour"] #overview-mode,
+body[data-camera="tour"] #camera-tools > span:first-child {
+  display: none;
+}
+body[data-camera="tour"] #joystick,
+body[data-camera="tour"] #touch-actions {
+  opacity: 0.18;
+}
+body[data-camera="tour"] footer {
+  display: none;
+}
+body[data-camera="tour"] #tour-caption {
+  font-size: 12px;
+}
