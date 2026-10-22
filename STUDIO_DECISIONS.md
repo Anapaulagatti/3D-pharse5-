@@ -1,3 +1,7 @@
+# Current status — Gate2.5 NOT fully approved / two station planters repaired for review
+
+[Current native before/after, full station frontage with Juni, gameplay and QA](docs/gate25-station-planters/README.md). Latest user decision qualifies prior prototype approval; only the two defective low station planters and local compositing/foot reservations are being repaired. Prior checkpoints/artwork/packages remain recoverable. Human visual approval pending; physical Android Chrome/iPhone Safari NOT TESTED. STOP for direct human review. Gate3/full-world/main merge/deployment remain LOCKED. Earlier approval entries below are historical.
+
 # Current status — Gate2.5 district visual prototype APPROVED
 
 [Approved checkpoint and physical-device handoff](docs/gate25-device-review/README.md). Human approval covers the district artistic refinement only, pinned by checkpoint/gate25-refinement-approved-20261022 at868aa60. Existing game/source/artwork and approved original ZIP are unchanged; handoff-only packaging/documentation. Android Chrome and iPhone Safari remain NOT TESTED. STOP after handoff; Gate3/full-world production/main merge/deployment/large expansion remain LOCKED pending explicit authorization. Older reports below retain their historical capture-time status.

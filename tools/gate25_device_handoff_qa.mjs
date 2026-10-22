@@ -18,7 +18,9 @@ try {
   for (let n = 0; n < 30; n++) {
     try {
       if ((await fetch("http://127.0.0.1:4286/")).ok) break;
-    } catch {}
+    } catch {
+      // Retry while the local test server starts.
+    }
     await new Promise((r) => setTimeout(r, 100));
   }
   for (const id of ["district-refinement", "c"]) {

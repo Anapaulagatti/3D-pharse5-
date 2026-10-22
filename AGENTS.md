@@ -1,3 +1,7 @@
+# Current authority — Gate2.5 NOT fully approved / station planters ONLY
+
+Latest: docs/current/GATE25_PLANTER_DEFECT.md. User qualifies the previous prototype approval: both low station entrance planters have visible defects; final human quality approval is withheld. Inspect exact source/render/composite causes and repair ONLY these two objects and associated ground/shadow/foot solids. Preserve all architecture, entrance path, yellow tactile/crosswalk, Juni, scale, major coordinates and historical checkpoints (including the prior approval tag as history). No full-background replacement, decorative concealment, Gate3, merge or public deployment. Deliver actual before/after/native/frontage+Juni, collision clearance and sampling/alpha evidence; STOP for human visual approval. Earlier approval claims remain historical, superseded by this decision.
+
 # Current authority — Gate2.5 visual prototype APPROVED; checkpoint and device handoff ONLY
 
 Latest: docs/current/GATE25_REFINEMENT_APPROVAL.md. Human approved the artistic refinement of the district prototype at868aa60. Preserve checkpoint/gate25-refinement-approved-20261022 and existing artwork, runtime, source and original package. Prepare existing package for physical Android Chrome/iPhone Safari review only; both remain NOT TESTED until actual recorded device evidence exists. No art/runtime changes, Gate3, full-world production, main merge, deployment or large expansion. STOP after checkpoint/handoff; wait for explicit Gate3 authorization. Earlier approval-pending entries are historical when conflicting.

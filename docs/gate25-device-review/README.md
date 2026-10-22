@@ -1,3 +1,5 @@
+> **Latest decision: Gate2.5 is NOT fully approved.** The user identified two defective station entrance planters and qualified the earlier prototype approval. [Current targeted repair review](../gate25-station-planters/README.md). Earlier checkpoint/approval/package records below remain recoverable historical evidence; they do not grant final visual approval or Gate3 authorization.
+
 # Accepted Gate2.5 prototype — real-device handoff only
 
 **Human artistic approval recorded.** The approval covers the current district prototype refinement only. **Android Chrome: NOT TESTED. iPhone Safari: NOT TESTED. Gate3: LOCKED.**
