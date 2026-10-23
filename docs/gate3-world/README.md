@@ -4,6 +4,8 @@ A4352×4864 continuous Phaser prototype now covers all ten planned regions with 
 
 [![World overview](world-overview-review.jpg)](VISUAL_INDEX.md)
 
+Verified downloads: [immutable direct links](NATIVE_LINKS.md), including all native originals and the playable ZIP.
+
 Start with the [lightweight visual gallery](VISUAL_REVIEW.html), [world overview](world-overview-review.jpg), or [actual Phaser overview](world-overview-phaser.png). Regional original1:1 Phaser PNGs are linked from the gallery, alongside under1MB JPEG viewing copies. [Original native composite](world-composite-native.png) is an offline scene assembly, explicitly not a Phaser screenshot.
 
 ## Playable review
