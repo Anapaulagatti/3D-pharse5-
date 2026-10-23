@@ -5,3 +5,12 @@ header b {
 #near {
   max-width: 65vw;
 }
+
+/* Avoid flex centering's half-CSS-pixel translation on odd viewport sizes.
+ * Backing dimensions and source/world coordinates are unchanged. */
+#stage {
+  display: block;
+}
+#stage > canvas {
+  position: absolute;
+}

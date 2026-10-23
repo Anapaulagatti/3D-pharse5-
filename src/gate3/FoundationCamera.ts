@@ -423,7 +423,10 @@ export class FoundationCamera {
     const left = Math.round((this.cx - vw / 2) * z) / z;
     const top = Math.round((this.cy - vh / 2) * z) / z;
     c.setScroll(left + (vw - c.width) / 2, top + (vh - c.height) / 2);
-    c.roundPixels = true;
+    // CanvasRenderer.batchSprite expands drawImage destination by 0.5px when
+    // roundPixels is true (Phaser4.2.1). Our camera and native objects already
+    // snap explicitly; avoid that implicit resize in the Canvas fallback.
+    c.roundPixels = this.scene.game.renderer.type !== Phaser.CANVAS;
     document.body.dataset.tourSideRail = String(c.x >= 104);
   }
   private view() {

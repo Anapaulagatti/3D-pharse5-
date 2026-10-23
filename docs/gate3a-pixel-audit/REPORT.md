@@ -1,0 +1,37 @@
+# Diagnosis
+
+The reported appearance has **three distinct causes**, not a single GPU filtering fault. We verified native screenshots against approved PNG pixels instead of inferring a renderer issue from appearance.
+
+1. **Confirmed Canvas fallback resampling defect, fixed.** In Phaser 4.2.1 `CanvasRenderer.batchSprite`, `camera.roundPixels` adds `0.5` to both `fw` and `fh` immediately before `drawImage`. A 512×512 chunk therefore draws into 512.5×512.5; a 190×87 planter draws into 190.5×87.5. Nearest sampling remains enabled, but the unwanted resize changes texel selection and edge placement. Before: 2,943 of 1,108,756 unoccluded ground pixels differed from the approved source; passage 79, lower planting 478, curb 39, left planter box 23. After: **zero differences in all these comparisons**, including both complete planter boxes (16,530 and 15,770 pixels). Actual draw-call instrumentation confirms destination sizes now equal source sizes, with smoothing disabled. This is Canvas-specific; it did not cause the existing WebGL screenshot's local softness.
+2. **Confirmed browser placement defect, fixed.** Flex centering a 1280×900 canvas in a 1281×1001 window yielded CSS origin `(0.5,50.5)`. Explicit whole-CSS-pixel positioning now yields `(0,50)`, with identical backing dimensions and source/world coordinates. Previous odd-window element screenshots had an extra rounded boundary column/row. This removes a presentation phase hazard, not baked source blur; nearest CSS scaling was already enabled.
+3. **Confirmed source-level softness, preserved and unresolved artistically.** Native WebGL before and after reproduce **1,108,756 unoccluded ground pixels exactly**, including the soft forecourt, bakery/station passage, lower planting and curb samples. Both planters' complete boxes also match their approved composite exactly. Chunk derivation preserves every source pixel. Existing authoring resizes and painted soft edges remain in those PNGs; renderer changes cannot restore missing native detail without changing approved artwork. The source / before / after board intentionally shows this remaining limitation. Visual acceptance stays open.
+
+## Source provenance
+
+- `tools/gate25_reconstruction_assets.py`: host background **2030×775 → 3184×1214, NEAREST**; protected architecture pixels restored separately from the original source. This explains crisp facades beside a different level of environmental detail.
+- `tools/gate25_refinement_assets.py`: east passage host **1072×1467 → 570×780, NEAREST**; planting variation host **1774×887 → 640×320, NEAREST**; bounded edit masks preserve facades.
+- `tools/gate25_planter_assets.py`: floor host **2170×725 → 608×188, NEAREST**, localized ownership masks; separate planter sprites cropped, resized to 190px width with NEAREST, reduced to 128 colors without dithering and given binary body alpha plus separately authored shadow alpha. Those historical authoring operations are not new runtime processing. We preserved them byte for byte.
+- G3-A runtime chunks are exact integer crops, **21/21 verified**, without scaling or interpolation. Current approved sources, Juni and 1,341 protected inventory files remain unchanged; hashes are in `pixel-proof.json` and the previous protected inventory.
+
+## Ten-point audit
+
+| Check | Finding / action | Status |
+|---|---|---|
+| Half-pixel world placement | Every loaded ground/foreground image uses integer origin and scale1; loader rejects fractional raster positions. Logical collision coordinates remain continuous. | PASS |
+| Camera / render-texture offsets | Actual post-render matrices have integer screen translations during follow, movement, scenic and Jeju tour. This runtime uses directly streamed textures, no intermediate RenderTexture compositor. | PASS |
+| Station 0.5px registration | Protected anchor2238.5 remains unchanged. Explicit pivot0.5 resolves source edge2238; body2313.5−0.5=2313. Canopy, ground and planters use the same declared convention. Opaque station-body/canopy/planter engine pixels match original source exactly. **Pivot was not a blur cause.** Prior human approval of candidate registration remains separate/pending. | PASS fidelity |
+| Follow / scenic / tour | Centers may interpolate continuously; adapter snaps actual visible edges to screen pixels before rendering. Native stationary and moving-camera readbacks are pixel-exact in both renderers. | PASS |
+| Zoom | Native follow=1; scenic/tour=0.5. At0.5, alternate source texels are discarded with nearest sampling: this is not 1:1 detail. Arbitrary fitted zoom is reserved for the separate overview proxy, not native art review. No zoom policy changed. | PASS with stated limit |
+| Phaser / WebGL / Canvas smoothing | All observed GL MIN/MAG filter calls use NEAREST9728. Actual loaded layers report nearest. Canvas draw calls report smoothing=false and now no destination expansion. Camera roundPixels remains true for WebGL, intentionally false for Canvas because the adapter already snaps positions and Phaser's flag triggers resizing. | PASS |
+| CSS / browser scaling | Canvas backing dimensions equal CSS display dimensions at DPR1 / browser100%; pixelated rendering retained. Odd-window origin fixed. Fractional browser zoom/DPR may map one CSS pixel unevenly to physical pixels; no physical-device or fractional-zoom visual acceptance is claimed. | PASS tested; devices NOT TESTED |
+| Chunk compositing | Exact 512-grid crops plus edge chunks; native integer placement, no runtime resize, no RenderTexture offsets. | PASS |
+| Foreground / ground pixel phase | Actual post-render matrices, integer origins, unit scales and native screen origins agree for all loaded layers across all captured modes. Existing softening under occluding objects is opacity-only, not filtering; foreground alpha does not explain the opaque ground readback. | PASS |
+| Source resampling / alpha | Historical authoring resizes documented above; no new source resampling. Full planter boxes exact after correction; original body binary alpha / owned shadows preserved. | PASS renderer; source softness OPEN |
+
+## Verification and limits
+
+Fresh production build and TypeScript pass; 28 unit tests pass. Native readback regression covers WebGL and Canvas, both planters, full unoccluded ground, stationary and moving-camera frames, station pivot and chunk integrity. Read-only `?pixelAudit` captures after Phaser POST_RENDER so camera matrices and backing PNG refer to the same rendered frame; it performs no per-frame work unless requested. Screenshot capture scripts also retain separate browser-display PNGs and renderer state. Diagnostic hooks do not modify source pixels, sampling settings or placement.
+
+`before-*` comes from unchanged checkpoint20c7a9e's frozen runtime at port4271. `after-*` comes from the corrected build. The native source proof excludes Juni and occluding foreground for the ground comparison, then tests both entire planter boxes separately; moving frames are captured while the A key is held, not after camera settling. CPU timing/FPS is outside this audit.
+
+**Visual verdict: OPEN / human review required.** Technical fidelity passes for sampled native rendered pixels. Existing softness remains visible in approved source artwork and is not relabeled as a renderer fix. No regeneration, sharpening, protected structure move, G3-B, merge or public deployment occurred. Physical Android/iPhone acceptance remains NOT TESTED.

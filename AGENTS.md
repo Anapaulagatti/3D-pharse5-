@@ -1,3 +1,7 @@
+# Current authority — G3-A pixel-crisp rendering audit ONLY
+
+Latest: [user directive](docs/current/G3A_PIXEL_CRISP_AUDIT.md). Correct renderer/display defects locally; preserve all approved source art, world coordinates and Juni. Do not regenerate or sharpen artwork. Diagnose baked source limits separately from renderer defects. Deliver native/static/moving comparisons and explicit station-pivot result. G3-B remains BLOCKED pending human pixel-quality review. No merge/deployment or unrelated production.
+
 # Current authority — targeted G3-A registration and performance corrections
 
 Latest: [user directive](docs/current/G3A_TARGETED_CORRECTIONS.md). Preliminary engineering foundation accepted; final G3-A withheld. Preserve immutable district/reference and approved artwork/Juni. Propose individual building registration, retain station anchor/canvas/native scale, explicitly resolve half-pixel convention and disclose all reservation conflicts; limited playable proof only. Controlled non-recorded WebGL/Canvas diagnostics, measured optimizations, evidence and updated ZIP. No G3-B mass art, main merge, public deployment, paid APIs or separate app changes. STOP for explicit final-registration approval. Earlier authority remains historical where conflicting.

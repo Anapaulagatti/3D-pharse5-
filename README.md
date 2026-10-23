@@ -1,3 +1,5 @@
+> Current review: [G3-A pixel-fidelity audit](docs/gate3a-pixel-audit/README.md). Canvas half-pixel destination expansion and odd-window CSS centering corrected; approved artwork unchanged. Source softness and human visual acceptance remain open. **G3-B blocked.**
+
 # Current authority — targeted G3-A registration and performance corrections
 
 Latest: [user directive](docs/current/G3A_TARGETED_CORRECTIONS.md). Preliminary engineering foundation accepted; final G3-A withheld. Preserve immutable district/reference and approved artwork/Juni. Propose individual building registration, retain station anchor/canvas/native scale, explicitly resolve half-pixel convention and disclose all reservation conflicts; limited playable proof only. Controlled non-recorded WebGL/Canvas diagnostics, measured optimizations, evidence and updated ZIP. No G3-B mass art, main merge, public deployment, paid APIs or separate app changes. STOP for explicit final-registration approval. Earlier authority remains historical where conflicting.

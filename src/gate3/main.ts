@@ -1,4 +1,6 @@
 import Phaser from "phaser";
+import { nativeCanvasOffset } from "./PixelGrid";
+import { installPixelAudit } from "./PixelAudit";
 import { Diagnostics } from "./Diagnostics";
 import { JuniMotion, type JuniView } from "../engine/JuniMotion";
 import { attachJoystick } from "../engine/Joystick";
@@ -181,6 +183,7 @@ class Slice extends Phaser.Scene {
       .querySelector("#joystick")!
       .addEventListener("pointerdown", () => this.reviewCamera.interruptTour());
     window.__GATE3_TEST__ = { walkable: (x, y) => this.walkable(x, y) };
+    if (query.has("pixelAudit")) installPixelAudit(this);
     document
       .querySelector("#explore")!
       .addEventListener("click", () => this.inspect());
@@ -356,11 +359,16 @@ const game = new Phaser.Game({
   banner: false,
   input: { activePointers: 4 },
 });
-if (!native)
-  new ResizeObserver(() => {
-    const s = dimensions();
-    game.scale.resize(s.width, s.height);
-  }).observe(stage);
+function alignCanvas() {
+  const s = dimensions();
+  if (!native) game.scale.resize(s.width, s.height);
+  game.canvas.style.left =
+    nativeCanvasOffset(stage.clientWidth, s.width) + "px";
+  game.canvas.style.top =
+    nativeCanvasOffset(stage.clientHeight, s.height) + "px";
+}
+alignCanvas();
+new ResizeObserver(alignCanvas).observe(stage);
 document.querySelector("#pause")!.addEventListener("click", () => {
   paused = !paused;
   reset();
