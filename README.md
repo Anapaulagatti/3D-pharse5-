@@ -1,3 +1,5 @@
+> Final approval handoff: [G3-A individual-building registration proposal and direct native evidence](docs/g3a-final-registration/README.md). Renderer corrections are provisionally accepted technically; registration and planning amendments await human approval. **G3-B remains blocked.**
+
 > Current review: [G3-A pixel-fidelity audit](docs/gate3a-pixel-audit/README.md). Canvas half-pixel destination expansion and odd-window CSS centering corrected; approved artwork unchanged. Source softness and human visual acceptance remain open. **G3-B blocked.**
 
 # Current authority — targeted G3-A registration and performance corrections

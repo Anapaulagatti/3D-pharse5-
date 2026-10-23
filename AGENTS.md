@@ -1,3 +1,7 @@
+# Current authority — rendering provisionally accepted; final G3-A registration review ONLY
+
+Latest: [user acceptance and directive](docs/current/G3A_FINAL_REGISTRATION_REVIEW.md). Preserve corrected renderer/checkpoints/native evidence without art or runtime changes. Consolidate individual-building registrations, station pivot policy, bakery/pedestrian amendments and masterplan conflicts. Keep source softness separate; WebGL performance unresolved and physical devices NOT TESTED. STOP for final G3-A world-registration approval. G3-B, merge, deployment and protected checkpoint modifications remain prohibited.
+
 # Current authority — G3-A pixel-crisp rendering audit ONLY
 
 Latest: [user directive](docs/current/G3A_PIXEL_CRISP_AUDIT.md). Correct renderer/display defects locally; preserve all approved source art, world coordinates and Juni. Do not regenerate or sharpen artwork. Diagnose baked source limits separately from renderer defects. Deliver native/static/moving comparisons and explicit station-pivot result. G3-B remains BLOCKED pending human pixel-quality review. No merge/deployment or unrelated production.
