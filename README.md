@@ -1,3 +1,5 @@
+> Current focused review: [station forecourt fidelity audit](docs/g3a-forecourt-audit/README.md). Visible paving softness remains **FAIL/open**; source lineage and native transport are verified. A crisp native recovery source exists; localized non-destructive restoration is proposed only. **G3-B blocked.**
+
 > Current G3-A spatial review: [bakery alternatives, revised Maru access, native screenshots and verified rendering links](docs/g3a-spatial-review/README.md). Architecture accepted in principle; spatial approval withheld. Quay land/pacing, Maru allocation and easements remain explicit decisions. **G3-B blocked.**
 
 > Final approval handoff: [G3-A individual-building registration proposal and direct native evidence](docs/g3a-final-registration/README.md). Renderer corrections are provisionally accepted technically; registration and planning amendments await human approval. **G3-B remains blocked.**

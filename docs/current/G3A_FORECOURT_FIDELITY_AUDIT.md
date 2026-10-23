@@ -1,0 +1,3 @@
+# Focused station forecourt fidelity audit
+
+User reports the forecourt ground, especially entrance-to-curb paving, remains softer than station facade/signage/doors/plants. Treat visual blur as unresolved. Audit ground separately: source softness, extraction, scaling, compositing and runtime resampling. Compare native1:1 against crisp adjacent elements. Fix any runtime defect; if baked into source, document explicitly and propose a non-destructive fix path. Provide before/after native crops for entrance ground, tactile strip and both planter-adjacent paving zones. Do not claim resolved while softer paving remains. G3-B blocked.

@@ -1,3 +1,7 @@
+# Current authority — station forecourt fidelity audit ONLY
+
+Latest: [user request](docs/current/G3A_FORECOURT_FIDELITY_AUDIT.md). Audit ground patch independently, distinguish source/extraction/resizing/compositing/runtime and provide four native before/after crop pairs. Preserve approved source assets/checkpoints/station/Juni. If baked, propose a non-destructive localized source fix; do not silently author replacement art or claim pixel-exact rendering resolves visual softness. G3-B remains blocked.
+
 # Current authority — targeted G3-A spatial corrections / approval withheld
 
 Latest: [user decision](docs/current/G3A_SPATIAL_CORRECTIONS.md). Compare full-native bakery alternatives preserving approved main/amusement routes, validate Maru/Namsan/land and facade easements, capture native Phaser placements, fix inaccessible GitHub evidence links. Keep approved masterplan/art/Juni/protected station/checkpoints unchanged. Candidate-only amendments must be explicit. No G3-B, merge or deployment; STOP for final G3-A approval.
