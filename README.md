@@ -1,5 +1,7 @@
 # Current authority — G3-B/G3-C full-world production authorized
 
+Current prototype review: [world evidence and coverage](docs/gate3-world/README.md). Production finishing remains incomplete; preserve the central defect register and consolidated G3-D plan. No final acceptance or deployment.
+
 Latest: [official transition approval](docs/current/G3BC_WORLD_PRODUCTION_AUTHORIZATION.md). Complete independent world districts and playable integration; preserve approved foundations and original platform BEFORE scenery. G3-B restrictions below are superseded. Minor defects belong in GATE3_MASTER_DEFECT_REGISTER.md; do not pause after individual assets. Bakery remains required but unplaced; W0 rejected/Q1 land unallocated. G3-D consolidated inspection/preparation authorized. No main merge, deployment, paid provider APIs, checkpoint rewrites or separate app changes. Physical devices remain NOT TESTED without evidence.
 
 # Current authority — restore original station-platform appearance
