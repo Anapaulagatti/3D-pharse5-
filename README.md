@@ -1,5 +1,7 @@
 # Current authority — accepted spatial amendments / controlled G3-A finalization
 
+Review delivery: [working V3 plan, exact diff, native evidence and remaining decisions](docs/g3a-controlled-finalization/README.md) · [verified direct downloads](docs/g3a-controlled-finalization/NATIVE_LINKS.md).
+
 Latest: [human decision](docs/current/G3A_SPATIAL_DECISION.md). Version Maru and conditional retail amendments explicitly; retire W0 and defer Q1 without land allocation or deleting bakery content. Preserve canonical forecourt and all historical plans/art/tags. One localized canopy-platform engineering/native detail is authorized. Final G3-A acceptance pending; G3-B BLOCKED; no main merge/deployment. Review: docs/g3a-controlled-finalization/README.md.
 
 # Current authority — station forecourt APPROVED; final spatial review only
