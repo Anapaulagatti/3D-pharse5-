@@ -1,5 +1,7 @@
 # Current authority — conditional G3-D system approval / consolidated world recovery
 
+Consolidated candidate and final-review handoff: [ten-region evidence](docs/gate3-recovery-world/README.md). Controlled propagation is authorized; individual art/spatial acceptance, required Bakery, remaining navigation/projection issues and physical hardware/device evidence are not inferred from builds or traversal. Do not resume expansion after this handoff without the human consolidated review.
+
 Latest: [human world-recovery authorization](docs/current/G3D_WORLD_RECOVERY_AUTHORIZATION.md). Propagation to all ten regions is authorized as ONE batch. Prior three-pilot stop is superseded; pilot scenes/landmarks are not blanket approved. Correct palace, tower/retail projection, bookshop visibility and remaining landmarks. Preserve protected sources/plans/positions/engine/checkpoints, canonical floor/original canopy, Jeju and Juni. Keep Bakery unplaced, station8px strip and real P1s explicit. Use versioned derivatives/internal checkpoints, no micro-approval pauses, paid provider APIs, main merge or deployment. STOP for one consolidated final art review.
 
 # Current authority — G3-D unified art recovery / three pilots only

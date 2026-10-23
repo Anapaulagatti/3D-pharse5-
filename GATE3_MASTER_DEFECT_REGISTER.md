@@ -1,5 +1,24 @@
 # Gate 3 master defect register
 
+## Current consolidated G3-D recovery checkpoint
+
+Authority: [conditional system approval](docs/current/G3D_WORLD_RECOVERY_AUTHORIZATION.md). [Current consolidated evidence and remaining decisions](docs/gate3-recovery-world/README.md) supersede the historical pilot-only states below. A production pass is not final artistic acceptance.
+
+| ID | Current state |
+|---|---|
+| REC-001 / MAT-001 / TER-001 | Shared material/landscape direction propagated across all ten regions. Original A/C/floor exact; rejected giant repeating atlas not used for new ground. Final regional joins and native material-density judgment remain under human review. |
+| REC-002 / ART-003 / ART-004 | One complete palace roof and native timber/right-facade continuation installed; no second stacked foundation. Native before/after supplied. Final roof/detail/junction craftsmanship remains reviewable, not self-approved. |
+| REC-005 | Technically corrected: protected cafe/bookshop/learning/Maru source textures and collisions unchanged; foreground alpha0.35 only while Juni is behind, otherwise1. Native Phaser evidence shows Juni. |
+| REC-004 / COL-001 | Earlier archive/tower approach ownership retained; explicit104×80 market approach clears old placeholder margin outside fixed root3660. Full native support/49px body clearance remains separately audited. |
+| SCALE-001 / VIS-002 | Accepted105px tower entrance/body preserved with COMPLETE original antenna at fixed root1200,3240. Compact trials with undersized doors rejected. **P1 OPEN:** complete tower projects into retail street; no protected move or arbitrary tip crop applied. |
+| NAV-001 | **P1 OPEN:** original canopy/pivot and8px strip[2950,2626,8,129] retained. East approach is narrow; no safe full-body platform-transfer acceptance or visual connector claimed. |
+| NAV-002 | **P1 OPEN:** six inherited planned-centerline failures remain within protected historical/station/Jeju ownership. Real successful foot-point traversal does not close them or certify49px clearance. |
+| PLAN-001 | **P1 DEFERRED:** required original Bakery preserved/unplaced. W0 retired, Q1 land not allocated. No repeated exhaustive site search or route diversion. |
+| VIS-001 / COL-001 / ART-002 | New native landmark profiles and collision/contact envelopes require consolidated native review; current measured findings are in projection/navigation reports. No older generated candidate is automatically accepted. |
+| PERF-001 / DEVICE-001 | **P1 UNRESOLVED / NOT TESTED:** hardware WebGL performance and physical Android Chrome/iPhone Safari lack recorded device evidence. Touch emulation is separate. |
+
+### Historical diagnoses and pilot-stage records
+
 ## G3-D human rejection and scoped recovery update
 
 Latest authority: [G3-D recovery directive](docs/current/G3D_ART_RECOVERY_AUTHORIZATION.md). **Full-world artistic quality is HUMAN REJECTED.** Older P2 wording below does not downgrade this systemic P1. [Three-pilot handoff](docs/gate3-recovery/README.md), [ten-region audit](GATE3_WORLD_ART_DIRECTION_AUDIT.md), [canonical Bible](KOREAN_ARENA_ART_DIRECTION_BIBLE.md). One unified human approval is required before full-world propagation.

@@ -1,0 +1,26 @@
+# Direct immutable review evidence
+
+These exact paths refer to checkpoint/g3d-world-recovery-review-20261023. Native PNGs are actual1280×900 Phaser POST_RENDER exports; overview/video viewing copies are separately labelled. No browser-scaled screenshot substitutes for a native PNG.
+
+- [G3D_WORLD_RECOVERY_REVIEW.zip](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/G3D_WORLD_RECOVERY_REVIEW.zip)
+- [world-overview-phaser.png](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/world-overview-phaser.png)
+- [world-traversal-review.mp4](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/world-traversal-review.mp4)
+- [world-traversal-native-resolution.mp4](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/world-traversal-native-resolution.mp4)
+- [academy-after-native.png](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/academy-after-native.png)
+- [amusement-after-native.png](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/amusement-after-native.png)
+- [archive-after-native.png](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/archive-after-native.png)
+- [bookshop-occlusion-after-native.png](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/bookshop-occlusion-after-native.png)
+- [culture-after-native.png](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/culture-after-native.png)
+- [ferry-after-native.png](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/ferry-after-native.png)
+- [jeju-arrival-after-native.png](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/jeju-arrival-after-native.png)
+- [jeju-culture-after-native.png](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/jeju-culture-after-native.png)
+- [jeju-oreum-after-native.png](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/jeju-oreum-after-native.png)
+- [market-after-native.png](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/market-after-native.png)
+- [maru-after-native.png](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/maru-after-native.png)
+- [namsan-after-native.png](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/namsan-after-native.png)
+- [palace-after-native.png](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/palace-after-native.png)
+- [platform-after-native.png](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/platform-after-native.png)
+- [retail-after-native.png](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/retail-after-native.png)
+- [station-after-native.png](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/station-after-native.png)
+- [transition-after-native.png](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/transition-after-native.png)
+- [waterfront-after-native.png](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/g3d-world-recovery-review-20261023/docs/gate3-recovery-world/waterfront-after-native.png)

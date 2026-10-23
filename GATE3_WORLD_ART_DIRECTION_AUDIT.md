@@ -1,5 +1,7 @@
 # G3-D world art-direction audit — rejected baseline, recovery review
 
+**Current status:** the shared art system has conditional human approval for controlled ten-region propagation. See [current authority](docs/current/G3D_WORLD_RECOVERY_AUTHORIZATION.md) and [consolidated recovery review](docs/gate3-recovery-world/README.md). The audit below is the preserved diagnosis of the rejected baseline and the earlier three-pilot scope; its former propagation lock is superseded. It does not establish acceptance of the new world candidate.
+
 Authority: [human recovery directive](docs/current/G3D_ART_RECOVERY_AUTHORIZATION.md). The G3-B/C engine milestone is retained; its **full-world art is rejected**. This audit is not production acceptance. The approved plan, old sources and checkpoints remain immutable. Only three representative recovery pilots are authorized before one unified-system approval.
 
 ## Evidence and method

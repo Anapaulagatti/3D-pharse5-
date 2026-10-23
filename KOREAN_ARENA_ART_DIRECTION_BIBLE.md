@@ -1,6 +1,8 @@
 # Korean Arena Art Direction Bible — recovery version1
 
-**Authority:** approved Gate1 planning/style references and accepted Gate2/2.5 native artwork. The G3-B/C engine is retained; its new visual system is HUMAN REJECTED. This document defines one recovery system for three representative pilots. It is not approval to propagate new art across the world.
+**Current authority:** [conditional shared-system approval and controlled world recovery](docs/current/G3D_WORLD_RECOVERY_AUTHORIZATION.md). The three pilots established the shared direction; controlled propagation to all ten regions is authorized. Individual scenes/landmarks and the consolidated world still require human artistic acceptance. The G3-B/C engine is retained; its rejected giant repeating material atlas remains a historical comparison, never a style reference.
+
+The consolidated implementation uses [versioned native sources and provenance](assets-src/gate3/recovery-world-v1/integration-provenance.json) and [review evidence](docs/gate3-recovery-world/README.md). Native regional plates have binary ownership masks; all runtime chunks remain1:1. Original historical A, Jeju C and canonical station floor remain exact. Deep open water alone reuses the approved Jeju128px fine-wave component at native scale/global phase, excluding the entire original island and authored coast within160px of land; it is not the rejected landscape atlas. Ordinary native trees are extracted independently and placed in documented clusters. Complete tower/ride silhouettes are never shrunk or arbitrarily cropped to force a fit; projection and native entrance-scale conflicts remain explicit review items. The Bakery remains required/unplaced.
 
 ## Canonical sources, precedence and evidence
 
