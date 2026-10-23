@@ -1,0 +1,222 @@
+{
+  "base": "assets-src/gate25/world-plan-v1.json",
+  "baseSha256": "a4775e83f6f8885a96f55e2f9926a5e3eab76c7c1804d5be20a252f2c9214379",
+  "result": "assets-src/gate3/production-plan-v3-working.json#/plan",
+  "operations": [
+    {
+      "op": "add",
+      "path": "/buildings/15",
+      "value": {
+        "id": "convenience",
+        "label": "Maru convenience store",
+        "rect": [
+          180,
+          3120,
+          421,
+          210
+        ],
+        "entry": [
+          326,
+          3343
+        ],
+        "kind": "modern",
+        "approval": "HUMAN_APPROVED_LOCATION_AND_APPROACH"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/buildings/6/rect/2",
+      "before": 390,
+      "value": 415
+    },
+    {
+      "op": "add",
+      "path": "/contentAllocations",
+      "value": [
+        {
+          "id": "bakery",
+          "label": "오월제과 Bakery",
+          "requiredWorldContent": true,
+          "artAsset": "assets/gate3/registration/bakery.png",
+          "nativeSize": [
+            905,
+            763
+          ],
+          "assetSha256": "61db33763e56fd441e01cead9c1e35b44e17cfc644098474cc19c4dce1492041",
+          "allocation": "DEFERRED / no production coordinates allocated",
+          "W0": "RETIRED_AS_PRODUCTION_LOCATION",
+          "Q1": "CANDIDATE_ONLY / land not allocated",
+          "candidateRecord": "assets-src/gate3/registration/proposal-v2-comparison.json",
+          "checkpointRequirement": "At waterfront production planning present a coherent quay destination: public-space purpose, landscape composition, useful return circulation and measured pacing. No repeated exhaustive unchanged-plan site search."
+        }
+      ]
+    },
+    {
+      "op": "add",
+      "path": "/paths/29",
+      "value": {
+        "id": "maru-front-access",
+        "kind": "local",
+        "width": 80,
+        "points": [
+          [
+            700,
+            3140
+          ],
+          [
+            700,
+            3380
+          ],
+          [
+            326,
+            3380
+          ],
+          [
+            326,
+            3343
+          ]
+        ]
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/paths/9/points/4/0",
+      "before": 540,
+      "value": 700
+    },
+    {
+      "op": "replace",
+      "path": "/paths/9/points/5/0",
+      "before": 500,
+      "value": 700
+    },
+    {
+      "op": "add",
+      "path": "/publicExclusions",
+      "value": [
+        {
+          "id": "maru-west-shore-gap",
+          "rect": [
+            160,
+            2818,
+            20,
+            512
+          ],
+          "public": false
+        },
+        {
+          "id": "retail-service-recess",
+          "rect": [
+            925,
+            2380,
+            55,
+            210
+          ],
+          "public": false
+        }
+      ]
+    },
+    {
+      "op": "add",
+      "path": "/registrationEasements",
+      "value": [
+        {
+          "id": "cafe",
+          "contact": [
+            510,
+            2380,
+            415,
+            210
+          ],
+          "visualEnvelope": [
+            510,
+            2035,
+            415,
+            556
+          ],
+          "eastContactEasementPx": 25,
+          "northSouthProjection": [
+            55,
+            1
+          ],
+          "transitionProjectionPx": 45,
+          "status": "CONDITIONAL_APPROVAL / heritage and circulation checks required"
+        },
+        {
+          "id": "bookshop",
+          "contact": [
+            980,
+            2380,
+            330,
+            210
+          ],
+          "visualEnvelope": [
+            980,
+            2070,
+            330,
+            521
+          ],
+          "northSouthProjection": [
+            20,
+            1
+          ],
+          "transitionProjectionPx": 10,
+          "status": "CONDITIONAL_APPROVAL / heritage and circulation checks required"
+        },
+        {
+          "id": "learning",
+          "contact": [
+            1310,
+            2380,
+            300,
+            210
+          ],
+          "visualEnvelope": [
+            1310,
+            2030,
+            300,
+            561
+          ],
+          "northSouthProjection": [
+            60,
+            1
+          ],
+          "transitionProjectionPx": 50,
+          "status": "CONDITIONAL_APPROVAL / heritage and circulation checks required"
+        }
+      ]
+    },
+    {
+      "op": "replace",
+      "path": "/reviewState/gate3",
+      "before": "LOCKED",
+      "value": "G3-A_FINAL_REVIEW_PENDING / G3-B_BLOCKED"
+    },
+    {
+      "op": "replace",
+      "path": "/reviewState/revision",
+      "before": "Gate2.5 working version1 / localized approved Jeju expansion",
+      "value": "G3-A working version3 / controlled finalization; final acceptance pending"
+    },
+    {
+      "op": "replace",
+      "path": "/stage",
+      "before": "GATE2.5 APPROVED LOCALIZED PLANNING AMENDMENT / WORKING V1",
+      "value": "G3-A WORKING V3 / accepted amendments only; final registration review pending"
+    },
+    {
+      "op": "add",
+      "path": "/workingAmendment",
+      "value": {
+        "version": 3,
+        "authority": "docs/current/G3A_SPATIAL_DECISION.md",
+        "historicalBase": "assets-src/gate25/world-plan-v1.json",
+        "historicalBaseSha256": "a4775e83f6f8885a96f55e2f9926a5e3eab76c7c1804d5be20a252f2c9214379",
+        "finalG3A": "PENDING",
+        "G3B": "BLOCKED",
+        "stationGroundRegistry": "assets-src/gate3/approved-station-forecourt.json",
+        "noNewLandAllocated": true
+      }
+    }
+  ]
+}

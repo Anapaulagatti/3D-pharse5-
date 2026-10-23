@@ -43,18 +43,25 @@ const base = import.meta.env.BASE_URL,
   overview = query.has("overview");
 const catalog = [
   {
+    id: "registration-working-v3",
+    label: "G3-A working V3 · accepted Maru / bakery deferred",
+  },
+  {
     id: "registration-review",
-    label: "G3-A review · approved station ground / sites pending",
+    label: "HISTORY · prior Q1 / forecourt review",
   },
   {
     id: "registration-forecourt",
-    label: "Approved station ground · preserved acceptance candidate",
+    label: "Approved forecourt · Q1 context remains historical",
   },
   { id: "world", label: "G3-A · 4352×4864 world foundation" },
-  { id: "registration", label: "Candidate · original waterfront placement" },
+  {
+    id: "registration",
+    label: "HISTORY · W0 retired / original registrations",
+  },
   {
     id: "registration-refined",
-    label: "Candidate · southwest quay / Maru access",
+    label: "Q1 comparison only · quay allocation deferred",
   },
   { id: "district", label: "G3-A · approved district / isolated cache lab" },
 ];
@@ -64,6 +71,7 @@ const id = [
   "registration-refined",
   "registration-forecourt",
   "registration-review",
+  "registration-working-v3",
 ].includes(query.get("scene") ?? "")
   ? query.get("scene")!
   : "world";
