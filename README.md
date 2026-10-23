@@ -1,3 +1,7 @@
+# Current authority — restore original station-platform appearance
+
+Latest: [visual rejection](docs/current/G3A_PLATFORM_VISUAL_REJECTION.md). Prior platform detail is REJECTED. Original artwork restored; accepted Maru/Namsan/retail amendments preserved exactly. Current review: [restoration evidence](docs/g3a-platform-restoration/README.md). Collision-only proposal remains unimplemented; transfer BLOCKED. G3-B BLOCKED; no merge/deployment.
+
 # Current authority — accepted spatial amendments / controlled G3-A finalization
 
 Review delivery: [working V3 plan, exact diff, native evidence and remaining decisions](docs/g3a-controlled-finalization/README.md) · [verified direct downloads](docs/g3a-controlled-finalization/NATIVE_LINKS.md).

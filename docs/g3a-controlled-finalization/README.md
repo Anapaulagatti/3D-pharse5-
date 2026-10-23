@@ -1,3 +1,5 @@
+> HISTORICAL REJECTED PLATFORM DETAIL. The visual connector and modified canopy below are superseded by [original-appearance restoration](../g3a-platform-restoration/README.md). Other accepted V3 planning amendments remain active. Old opening/traversal results do not certify the restored scene.
+
 # G3-A controlled finalization — checkpoint review
 
 **Working V3 records the accepted Maru and conditional retail amendments. Bakery allocation remains deferred. Final G3-A acceptance and G3-B production remain blocked.**

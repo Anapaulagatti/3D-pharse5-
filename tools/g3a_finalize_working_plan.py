@@ -5,6 +5,8 @@ from pathlib import Path
 from PIL import Image,ImageDraw
 import numpy as np,json,hashlib,copy
 R=Path(__file__).resolve().parents[1];D=R/'docs/g3a-controlled-finalization';S=R/'assets-src/gate3/station-platform-resolution';O=R/'public/assets/gate3/registration-working-v3'
+if (R/'docs/current/G3A_PLATFORM_VISUAL_REJECTION.md').exists():
+ raise SystemExit('Historical rejected platform generator disabled. Use g3a_restore_platform_appearance.py; preserve accepted amendments.')
 for p in [D,S,O]:p.mkdir(parents=True,exist_ok=True)
 def read(p):return json.loads((R/p).read_text())
 def write(p,v):p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n')

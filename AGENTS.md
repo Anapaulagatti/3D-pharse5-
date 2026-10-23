@@ -1,3 +1,7 @@
+# Current authority — restore original station-platform appearance
+
+Latest: [visual rejection](docs/current/G3A_PLATFORM_VISUAL_REJECTION.md). Prior platform detail is REJECTED. Original artwork restored; accepted Maru/Namsan/retail amendments preserved exactly. Current review: [restoration evidence](docs/g3a-platform-restoration/README.md). Collision-only proposal remains unimplemented; transfer BLOCKED. G3-B BLOCKED; no merge/deployment.
+
 # Current authority — accepted spatial amendments / controlled G3-A finalization
 
 Latest: [human decision](docs/current/G3A_SPATIAL_DECISION.md). Version Maru and conditional retail amendments explicitly; retire W0 and defer Q1 without land allocation or deleting bakery content. Preserve canonical forecourt and all historical plans/art/tags. One localized canopy-platform engineering/native detail is authorized. Final G3-A acceptance pending; G3-B BLOCKED; no main merge/deployment. Review: docs/g3a-controlled-finalization/README.md.

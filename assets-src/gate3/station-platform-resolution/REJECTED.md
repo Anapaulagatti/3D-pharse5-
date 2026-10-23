@@ -1,0 +1,1 @@
+Historical rejected proposal only. All derived platform visuals and support-mask additions are removed from the active Working V3 manifest. Preserve files for provenance; do not activate or regenerate. Original unsplit canopy restored. See docs/g3a-platform-restoration/README.md.
