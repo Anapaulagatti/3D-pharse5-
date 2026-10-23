@@ -2,6 +2,10 @@
 
 Latest: [user directive](docs/current/G3A_TARGETED_CORRECTIONS.md). Preliminary engineering foundation accepted; final G3-A withheld. Preserve immutable district/reference and approved artwork/Juni. Propose individual building registration, retain station anchor/canvas/native scale, explicitly resolve half-pixel convention and disclose all reservation conflicts; limited playable proof only. Controlled non-recorded WebGL/Canvas diagnostics, measured optimizations, evidence and updated ZIP. No G3-B mass art, main merge, public deployment, paid APIs or separate app changes. STOP for explicit final-registration approval. Earlier authority remains historical where conflicting.
 
+## Targeted G3-A evidence delivered
+
+Recoverable review: checkpoint/g3a-targeted-review-20261023 at ee9e222. Package/evidence: docs/gate3a-corrections/README.md. All69 immutable review downloads verified by SHA256, image decoding, video streams and ZIP CRC/internal manifest; records: docs/gate3a-corrections/published-verification.json. Protected art/Juni hashes unchanged;26 tests pass. Individual plots, path/easement changes and explicit station source pivot remain CANDIDATE ONLY. Software WebGL60Hz and physical-device acceptance are not granted. No G3-B mass art, main merge or public deployment. STOP for explicit human final-registration approval.
+
 # Current authority — Gate 3 AUTHORIZED / first G3-A review checkpoint
 
 Latest: [official user authorization](docs/current/GATE3_AUTHORIZATION.md). Corrected Gate2.5 at01f4f95 is explicitly human approved, including station planters. Protected checkpoint: checkpoint/gate25-final-approved-20261022. Work only on art-gate/gate3-full-world. Start G3-A on the4352×4864 expanded working plan; submit evidence for human review before scaling an unverified pipeline across the world. Gate3B–D follow milestone review. Preserve original art, Juni, Gate1, prototype and all historical refs. No paid APIs, main merge, public deployment or separate app changes. Physical Android/iPhone remain NOT TESTED. Older prohibitions/approval-pending decisions below are retained history, superseded where conflicting.
