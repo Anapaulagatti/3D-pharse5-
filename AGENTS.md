@@ -1,3 +1,7 @@
+# Consolidated zoning handoff — stop for human review
+
+[Latest coordinated correction candidate](docs/gate3-zoned-world/README.md) includes the global zoning/material registry, native before/after and real traversal evidence. Technical checks do not grant artistic acceptance. Missing exact reviewer screenshots, retained spatial/collision/Bakery/device P1s remain explicit. Do not continue expansion, merge or deploy after this handoff without the consolidated human review.
+
 # Current authority — coordinated G3-D urban/landscape zoning correction
 
 Latest user directive: [zoning correction](docs/current/G3D_ZONING_CORRECTION.md). Earlier ten-region handoff stop is superseded only for five coordinated correction batches. Use one global land-use/material registry, reduce urban forest cover, preserve protected architecture/native sources/canonical Jeju/station/forecourt/Juni/roots/plans/checkpoints. No silent reservation changes or rejected platform connector. Bakery remains unresolved, physical devices untested. No paid APIs, main merge, public deployment or delegation. STOP for one consolidated review. Six marked reviewer images are currently absent; do not claim their exact resolution without receiving them.

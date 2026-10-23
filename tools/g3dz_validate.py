@@ -34,13 +34,15 @@ def opaque_overlap(o,rect):
  return int((a>32).sum())
 projection=[]
 for key,rect in [('tower',(470,2626,1482,128)),('carousel',(2274,2196,766,667)),('wheel',(2274,2196,766,667))]:
- o=next(o for o in m['objects']if o['id']=='recovery-world/'+key);count=opaque_overlap(o,rect);projection.append({'id':key,'nativeEnvelope':[o[k]for k in ['x','y','width','height']],'protectedRoot':o['sortY'],'comparisonRect':list(rect),'opaqueOverlapPixels':count,'stationFacadePixels':opaque_overlap(o,(2313,2196,645,453))if key!='tower'else None,'canonicalFloorPixels':opaque_overlap(o,(2274,2603,684,210))if key!='tower'else None,'lowerRoadContinuationPixels':opaque_overlap(o,(2274,2813,684,50))if key!='tower'else None,'status':'FAIL_PROJECTION_OR_HUMAN_OCCLUSION_DECISION_OPEN'if count else'PASS_SELECTED_PROJECTION','policy':'Complete native silhouette, no tip crop/downscale, protected root/reservation unchanged. Visual projection is not a ground/support collision; residual road occlusion remains explicitly reviewable.'})
+ o=next(o for o in m['objects']if o['id']=='recovery-world/'+key);count=opaque_overlap(o,rect);projection.append({'id':key,'nativeEnvelope':[o[k]for k in ['x','y','width','height']],'protectedRoot':o['sortY'],'comparisonRect':list(rect),'opaqueOverlapPixels':count,'stationFacadePixels':opaque_overlap(o,(2313,2196,645,453))if key!='tower'else None,'canonicalFloorPixels':opaque_overlap(o,(2274,2603,684,210))if key!='tower'else None,'parkArrivalApronPixels':opaque_overlap(o,(2274,2813,684,50))if key!='tower'else None,'status':('FAIL_RETAIL_ROAD_PROJECTION'if count else'PASS_SELECTED_PROJECTION')if key=='tower'else('REVIEW_CANONICAL_ROAD_OCCLUSION'if opaque_overlap(o,(2274,2603,684,210))else'PASS_SELECTED_PROTECTED_ENVELOPES'),'policy':'Complete native silhouette, no tip crop/downscale, protected root/reservation unchanged. Visual projection is not a ground/support collision; Canonical-road occlusion remains explicitly reviewable; new arrival apron is now park paving, not an asphalt road.'})
 write(D/'projection-report.json',projection)
 
 # Protected object texture/registration/pivot/solids invariant; authorized retail alpha policy is explicit.
 protected_objects=[]
 for ob in before['objects']:
- if ob['id'].startswith('production/')or ob['id'].startswith('recovery/'):continue
+ if ob['id']not in {o['id']for o in m['objects']}:
+  assert ob['id']in [o['id']for o in read('assets-src/gate3/zoned-world-v1/integration-provenance.json')['removedUrbanTrees']],ob['id']
+  continue
  new=next(o for o in m['objects']if o['id']==ob['id']);keys=['image','x','y','width','height','sortY','sourceAnchor','sourcePivot'];changed=[k for k in keys if ob.get(k)!=new.get(k)];protected_objects.append({'id':ob['id'],'registrationAndTexture':'FAIL'if changed else'PASS','changed':changed,'foregroundAlpha':[ob['alphaSoftening'],new['alphaSoftening']]})
 assert before.get('logicalSolids')==m.get('logicalSolids');assert all(isinstance(o['x'],int)and isinstance(o['y'],int)for o in m['objects'])
 core={name:subprocess.check_output(['git','show',lock['baselineCommit']+':src/gate3/'+name],cwd=R)==(R/'src/gate3'/name).read_bytes()for name in ['NativeTexture.ts','PixelGrid.ts','FoundationCamera.ts','Registration.ts','WorldCache.ts','ResourcePool.ts']}

@@ -34,3 +34,5 @@ The machine-readable single source is [land-use-registry.json](../../assets-src/
 ## Reviewer evidence availability
 
 The six marked screenshots were not attached or found in the workspace at batch start; reattachment was requested. Native baseline evidence and the human textual defect list are usable. Until the marked images arrive, defect crops are identified by text/world coordinates, not invented red/blue screenshot correspondences. Exact marked-image coverage remains NOT TESTED.
+
+A narrow western commercial quay wall at[160,1740,30,1024] formalizes the existing engineered shoreline; shadow/foam ownership extends seaward without allocating land. It has an explicit native support contact and ends before protected Maru geometry. The source and mask are independently versioned.

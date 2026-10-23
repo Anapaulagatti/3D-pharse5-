@@ -96,6 +96,15 @@ eMask=outside&(ed<180)&cb&db&((hashNoise%np.uint32(65536))/65536.0<weight)
 a[eMask]=donor[eMask];ground=Image.fromarray(a)
 Image.fromarray(eMask.astype('uint8')*255).save(S/'jeju-external-water-ownership.png',optimize=True)
 
+# Narrow constructed western city seawall on existing land, not new quay land.
+wallSource=S/'west-quay-edge-authored.png'
+if wallSource.exists():
+ wall=Image.open(wallSource).convert('RGBA');oldpart=np.array(ground.crop((0,1740,1536,2764)));newpart=np.array(wall)
+ cost=np.abs(oldpart[:,:,[0,1,2]].astype(np.float32)-newpart[:,:,[0,1,2]]).mean(2)+1
+ left=96+mincut(cost[:,96:150]);wallMask=(np.arange(1536)[None,:]>=left[:,None])&(np.arange(1536)[None,:]<196)
+ wi=Image.fromarray(wallMask.astype('uint8')*255);wi.save(S/'west-quay-edge-ownership.png',optimize=True);ground.paste(wall,(0,1740),wi)
+ records.append({'id':'western-city-constructed-seawall','source':str(wallSource.relative_to(R)),'sha256':sha(wallSource),'worldRect':[96,1740,100,1024],'supportRect':[160,1740,30,1024],'mask':str((S/'west-quay-edge-ownership.png').relative_to(R)),'nativeScale':1,'resampling':'NONE','landAllocated':0,'purpose':'Low native granite/basalt seawall defines existing straight engineered city coast; only native water/shadow/foam on seaward side. Maru20px nonpublic gap outside this y-range remains unchanged.'})
+
 # Remove only new noncanonical landscape trees obstructing urban/service/transit/quay space.
 remove=['recovery-world/planted-tree-'+str(i).zfill(2)for i in [12,13,14,15,16,20,24]]
 objects=copy.deepcopy(m['objects']);removed=[o for o in objects if o['id']in remove];objects=[o for o in objects if o['id']not in remove]
@@ -107,6 +116,7 @@ for o in removed:
 # envelopes and outside every approved public-path width. Do not use foliage alpha
 # as a collider or silently force a route through a garden bed.
 environmentContacts=[
+ {'id':'western-city-quay-wall','rect':[160,1740,30,1024]},
  {'id':'west-service-low-bed','rect':[172,1950,80,205]},
  {'id':'west-retail-alley-low-bed','rect':[424,2100,38,380]},
  {'id':'retail-east-alley-low-bed','rect':[1790,2310,110,160]},
@@ -137,8 +147,8 @@ for c0 in m['chunks']:
  chunks.append(c)
 review=copy.deepcopy(m);review.update(id='zoned-world',chunks=chunks,objects=objects,artStatus='ZONED ENVIRONMENT CORRECTION CANDIDATE / HUMAN ART AND SPATIAL REVIEW PENDING / BAKERY UNPLACED / P1S OPEN')
 for o in objects:assert o==next(v for v in m['objects']if v['id']==o['id'])
-extraEntries={'urban-density':[1780,2190],'station-amusement':[2598.5,2760],'rail-coast':[2970,2680],'jeju-bridge':[3300,3560],'ocean-transition':[3300,3560]}
-extraFrames={'urban-density':[1184,1930],'station-amusement':[2598,2810],'rail-coast':[3340,2350],'jeju-bridge':[3180,3520],'ocean-transition':[3540,3100]}
+extraEntries={'urban-service-west':[330,2300],'urban-service-east':[1780,2440],'urban-density':[1780,2190],'station-amusement':[2598.5,2760],'rail-coast':[2970,2680],'jeju-bridge':[3300,3560],'ocean-transition':[3300,3560]}
+extraFrames={'urban-service-west':[640,2280],'urban-service-east':[1840,2260],'urban-density':[1184,1930],'station-amusement':[2598,2810],'rail-coast':[3340,2350],'jeju-bridge':[3180,3520],'ocean-transition':[3540,3100]}
 review['reviewEntries'].update(extraEntries);review['nativeFrames'].update(extraFrames)
 # Same framing/entries as prior world, supporting exact before-after evidence.
 O.mkdir(exist_ok=True);overview=ground.copy()

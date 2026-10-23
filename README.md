@@ -1,3 +1,7 @@
+# Current G3-D review — coordinated Korean urban/landscape zoning
+
+[Consolidated visual gallery and native before/after](docs/gate3-zoned-world/VISUAL_REVIEW.md) · [Playable package, QA and unresolved decisions](docs/gate3-zoned-world/README.md). Full-world artistic acceptance remains pending. Protected sources/checkpoints preserved; Bakery/platform/projection/routes/hardware requirements remain explicit. No main merge or public deployment.
+
 # Current authority — conditional G3-D system approval / consolidated world recovery
 
 Current delivery: [consolidated ten-region visual review and playable package](docs/gate3-recovery-world/README.md). Shared direction conditionally approved; final artistic/spatial acceptance and physical devices remain pending. The historical sections below retain their original stage context.

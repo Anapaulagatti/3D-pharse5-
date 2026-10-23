@@ -3,10 +3,12 @@ import fs from "node:fs/promises";
 const D = "docs/gate3-zoned-world",
   phase = process.env.PHASE,
   prior =
-    phase === "after"
+    phase === "after" || process.env.APPEND
       ? JSON.parse(await fs.readFile(`${D}/native-captures.json`, "utf8"))
       : null,
-  rows = prior?.rows.filter((r) => r.name.includes("-before-native")) ?? [],
+  rows = process.env.APPEND
+    ? prior.rows
+    : (prior?.rows.filter((r) => r.name.includes("-before-native")) ?? []),
   errors = [];
 const b = await chromium.launch({
   executablePath: "/usr/bin/chromium",
@@ -38,6 +40,11 @@ try {
           ? -1
           : 0),
     )) {
+      if (
+        process.env.CAPTURE_ENTRIES &&
+        !process.env.CAPTURE_ENTRIES.split(",").includes(entry)
+      )
+        continue;
       await p.goto(
         `http://127.0.0.1:4302/gate3-review.html?scene=${scene}&entry=${entry}&native&pixelAudit`,
       );
@@ -57,6 +64,8 @@ try {
         Buffer.from(a.png.split(",")[1], "base64"),
       );
       delete a.png;
+      const previous = rows.findIndex((r) => r.name === name);
+      if (previous >= 0) rows.splice(previous, 1);
       rows.push({
         name,
         audit: a,
