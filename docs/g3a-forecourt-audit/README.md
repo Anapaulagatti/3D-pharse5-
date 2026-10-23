@@ -2,7 +2,7 @@
 
 **Forecourt visual quality: FAIL / OPEN.** The paving is still softer than the preserved facade, doors and corrected planters. Pixel-exact texture transport does not resolve that appearance. No source repair, sharpening, upscaling, recoloring or renderer change was applied in this audit. **G3-B remains blocked.**
 
-[Exact lineage, extraction and native readback](proof.json) · [Non-destructive repair proposal](FIX_PLAN.md)
+[Verified direct native PNG links](NATIVE_LINKS.md) · [Exact lineage, extraction and native readback](proof.json) · [Non-destructive repair proposal](FIX_PLAN.md)
 
 ## Native1:1 before/after crops
 

@@ -1,0 +1,15 @@
+# Verified direct native1x evidence
+
+Every PNG below was downloaded from its immutable GitHub raw URL, decoded and matched to committed bytes. Before/after refers to this audit: no source repair was applied, and these pairs remain identical. Earlier native source is a reference only, not a repaired gameplay image.
+
+| Area | Before audit | After audit / unchanged | Earlier source / NOT applied |
+|---|---|---|---|
+| entrance-ground | [PNG](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/9975319ff74fc8f60afef5a02e54797e2e43088a/docs/g3a-forecourt-audit/entrance-ground-before-1x.png) | [PNG](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/9975319ff74fc8f60afef5a02e54797e2e43088a/docs/g3a-forecourt-audit/entrance-ground-after-1x.png) | [PNG](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/9975319ff74fc8f60afef5a02e54797e2e43088a/docs/g3a-forecourt-audit/entrance-ground-original-recovery-reference-1x.png) |
+| tactile-strip | [PNG](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/9975319ff74fc8f60afef5a02e54797e2e43088a/docs/g3a-forecourt-audit/tactile-strip-before-1x.png) | [PNG](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/9975319ff74fc8f60afef5a02e54797e2e43088a/docs/g3a-forecourt-audit/tactile-strip-after-1x.png) | [PNG](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/9975319ff74fc8f60afef5a02e54797e2e43088a/docs/g3a-forecourt-audit/tactile-strip-original-recovery-reference-1x.png) |
+| left-planter-pavement | [PNG](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/9975319ff74fc8f60afef5a02e54797e2e43088a/docs/g3a-forecourt-audit/left-planter-pavement-before-1x.png) | [PNG](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/9975319ff74fc8f60afef5a02e54797e2e43088a/docs/g3a-forecourt-audit/left-planter-pavement-after-1x.png) | [PNG](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/9975319ff74fc8f60afef5a02e54797e2e43088a/docs/g3a-forecourt-audit/left-planter-pavement-original-recovery-reference-1x.png) |
+| right-planter-pavement | [PNG](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/9975319ff74fc8f60afef5a02e54797e2e43088a/docs/g3a-forecourt-audit/right-planter-pavement-before-1x.png) | [PNG](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/9975319ff74fc8f60afef5a02e54797e2e43088a/docs/g3a-forecourt-audit/right-planter-pavement-after-1x.png) | [PNG](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/9975319ff74fc8f60afef5a02e54797e2e43088a/docs/g3a-forecourt-audit/right-planter-pavement-original-recovery-reference-1x.png) |
+
+[Source/before/after native contact sheet](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/9975319ff74fc8f60afef5a02e54797e2e43088a/docs/g3a-forecourt-audit/NATIVE_1X_COMPARISON.png).
+[Current versus earlier crisp native source — NOT applied](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/9975319ff74fc8f60afef5a02e54797e2e43088a/docs/g3a-forecourt-audit/NATIVE_RECOVERY_REFERENCE_NOT_APPLIED.png).
+
+[Download verification](published-links.json). Forecourt softness remains FAIL/open; G3-B blocked.

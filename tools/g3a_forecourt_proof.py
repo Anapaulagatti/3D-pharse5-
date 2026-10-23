@@ -54,7 +54,7 @@ for r in captures['rows']:
   if r['scene']=='district'and r['renderer']=='auto':
    crop.save(D/f'{name}-{r["phase"]}-1x.png',optimize=True)
    if r['phase']=='after':source.save(D/f'{name}-source-composite-1x.png',optimize=True)
- assert all(o['position'][0].is_integer()if isinstance(o['position'][0],float)else isinstance(o['position'][0],int)for o in r['audit']['layers'])
+ assert all(all(float(v).is_integer() for v in o['position']) for o in r['audit']['layers'])
  assert all(o['scale']==[1,1]and o['scaleMode']==1 and o.get('minFilter',9728)==9728 and o.get('magFilter',9728)==9728 for o in r['audit']['layers'])
 for name in rois:
  assert (D/f'{name}-before-1x.png').read_bytes()==(D/f'{name}-after-1x.png').read_bytes()
