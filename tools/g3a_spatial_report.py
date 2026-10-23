@@ -48,6 +48,7 @@ for col,(label,proposal)in enumerate([('W0 / existing waterfront - reject',old),
  d.text((ox,850),'Gold: contact / pink: visual envelope / grey: approved paths',font=font,fill='white')
  d.text((ox,878),'Mint: proposed links / quay is engineering geometry only'if col else'Bakery blocks 5 paths; projection overlaps carousel38x90',font=font,fill='#7ce7d0'if col else'#ff9aac')
  d.text((ox,920),'No source artwork shown or rescaled. Native Phaser screenshots are separate.',font=small,fill='#cad4dc')
+ d.rectangle((0,0,899,47),fill='#17242e');d.text((ox,15),label,font=font,fill='white')
  board.paste(panel,(col*900,0))
 board.save(D/'SITE_COMPARISON.png',optimize=True)
 # Original-resolution door crop, no resizing/sharpening/overlay.
