@@ -1,5 +1,7 @@
 # Current authority — authorized isolated native forecourt restoration
 
+Review: [repaired candidate and evidence](docs/g3a-forecourt-restoration/README.md) · [verified direct downloads](docs/g3a-forecourt-restoration/NATIVE_LINKS.md). Human visual approval pending.
+
 Latest: [user authorization](docs/current/G3A_FORECOURT_RESTORATION.md). Implement native ground restoration in a separate candidate namespace; preserve approved sources/default world/renderer/collision/station/Juni/checkpoints. Earlier audit-only limits are superseded for this localized repair. G3-B remains BLOCKED; STOP for human visual approval.
 
 > Current focused review: [station forecourt fidelity audit](docs/g3a-forecourt-audit/README.md). Visible paving softness remains **FAIL/open**; source lineage and native transport are verified. A crisp native recovery source exists; localized non-destructive restoration is proposed only. **G3-B blocked.**
