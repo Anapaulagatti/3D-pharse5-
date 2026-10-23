@@ -1,6 +1,6 @@
 # G3-A targeted spatial corrections — final approval withheld
 
-[Revised registration and bakery comparison](REGISTRATION.md) · [Technical/visual PASS–FAIL](QA.md) · [Geometric comparison board](SITE_COMPARISON.png) · [Exact candidate JSON](proposal-v2-comparison.json)
+[Verified direct PNG/ZIP links](NATIVE_LINKS.md) · [Revised registration and bakery comparison](REGISTRATION.md) · [Technical/visual PASS–FAIL](QA.md) · [Geometric comparison board](SITE_COMPARISON.png) · [Exact candidate JSON](proposal-v2-comparison.json)
 
 The original waterfront bakery is rejected as the preferred registration: it cuts five approved route corridors and projects into amusement access/carousel space. The alternative southwest quay preserves those corridors and the carousel, but requires explicit new land allocation and a25.43s access spur. **It is a comparison candidate, not a resolved final site.** If the quay/pacing cost is unacceptable, defer bakery registration rather than shrink the building or divert the approved main network.
 
