@@ -1,5 +1,19 @@
 # Gate 3 master defect register
 
+## G3-D human rejection and scoped recovery update
+
+Latest authority: [G3-D recovery directive](docs/current/G3D_ART_RECOVERY_AUTHORIZATION.md). **Full-world artistic quality is HUMAN REJECTED.** Older P2 wording below does not downgrade this systemic P1. [Three-pilot handoff](docs/gate3-recovery/README.md), [ten-region audit](GATE3_WORLD_ART_DIRECTION_AUDIT.md), [canonical Bible](KOREAN_ARENA_ART_DIRECTION_BIBLE.md). One unified human approval is required before full-world propagation.
+
+| ID | Severity | State / evidence |
+|---|---|---|
+| REC-001 | P1 | OPEN: shared terrain/material/scale inconsistency. Three opt-in pilots delivered; no whole-world approval or propagation. |
+| REC-002 | P1 | OPEN: palace continuation has duplicate-plinth/registration defect. Two new trials rejected internally, not installed; upper compound incomplete in recovery view. |
+| REC-003 | P1 | OPEN: boundaries against unrecovered regions, secondary terrace/furniture ownership, five remaining landmark candidates require consolidated production correction after unified approval. |
+| REC-005 | P1 | OPEN: original protected retail foreground alpha1 can completely hide Juni behind its tall visual envelope. [Native depth case](docs/gate3-recovery/south-occlusion-native.png). Source/occlusion policy preserved; no player-visibility PASS or full public-back-route certification. |
+| REC-004 | P1 | PILOT ONLY RESOLVED: archive62px/tower17px placeholder margins outside fixed roots; two explicit public-approach mask repairs, selected real movement retested. Historical masks and station strip unchanged; no blanket route clearance. |
+| SCALE-001 update | P1 | NEW CANDIDATE: tower native clear doorway~105px, fixed root and Juni unchanged; not yet human-approved or propagated. |
+
+
 Authority: [G3-B/G3-C transition authorization](docs/current/G3BC_WORLD_PRODUCTION_AUTHORIZATION.md). P0 blocks independent progress; P1 must be resolved before final acceptance; P2 is consolidated visual repair; P3 optional polish. No known issue is marked PASS merely because production advances. Full-world coverage remains partial until evidence verifies every required destination. Physical devices have no recorded evidence.
 
 | ID | Severity | Location / affected assets | Evidence | State / proposed action |

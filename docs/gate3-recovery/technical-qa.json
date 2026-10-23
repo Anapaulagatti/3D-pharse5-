@@ -1,0 +1,239 @@
+{
+  "method": "Meaningful native renderer/source/mask preservation + actual movement; not artistic acceptance",
+  "protectedHashRegistries": {
+    "approved": {
+      "count": 1352,
+      "failures": [],
+      "status": "PASS"
+    },
+    "rejected-baseline": {
+      "count": 219,
+      "failures": [],
+      "status": "PASS"
+    }
+  },
+  "historicalTagsUnchanged": true,
+  "engineCore": [
+    {
+      "file": "src/gate3/NativeTexture.ts",
+      "unchanged": true
+    },
+    {
+      "file": "src/gate3/PixelGrid.ts",
+      "unchanged": true
+    },
+    {
+      "file": "src/gate3/FoundationCamera.ts",
+      "unchanged": true
+    },
+    {
+      "file": "src/gate3/Registration.ts",
+      "unchanged": true
+    },
+    {
+      "file": "src/gate3/WorldCache.ts",
+      "unchanged": true
+    },
+    {
+      "file": "src/gate3/ResourcePool.ts",
+      "unchanged": true
+    }
+  ],
+  "nativeGroundReadback": [
+    {
+      "pilot": "north",
+      "comparedOpaqueGroundPixels": 670046,
+      "excludedLegacyTranslucentPixels": 0,
+      "scope": "Opaque native ground, excluding foreground/avatar. Legacy translucent unedited paving uses ordinary premultiplied blending, not a new renderer defect.",
+      "mismatchedPixels": 0,
+      "status": "PASS",
+      "camera": {
+        "zoom": 1,
+        "scroll": [
+          1666,
+          650
+        ],
+        "viewport": [
+          0,
+          0,
+          1280,
+          900
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1,
+          -1666,
+          -650,
+          0,
+          0,
+          1
+        ],
+        "roundPixels": true
+      },
+      "layerSamplingAndScaleExact": true
+    },
+    {
+      "pilot": "south",
+      "comparedOpaqueGroundPixels": 478575,
+      "excludedLegacyTranslucentPixels": 0,
+      "scope": "Opaque native ground, excluding foreground/avatar. Legacy translucent unedited paving uses ordinary premultiplied blending, not a new renderer defect.",
+      "mismatchedPixels": 0,
+      "status": "PASS",
+      "camera": {
+        "zoom": 1,
+        "scroll": [
+          544,
+          1960
+        ],
+        "viewport": [
+          0,
+          0,
+          1280,
+          900
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1,
+          -544,
+          -1960,
+          0,
+          0,
+          1
+        ],
+        "roundPixels": true
+      },
+      "layerSamplingAndScaleExact": true
+    },
+    {
+      "pilot": "namsan",
+      "comparedOpaqueGroundPixels": 650972,
+      "excludedLegacyTranslucentPixels": 29400,
+      "scope": "Opaque native ground, excluding foreground/avatar. Legacy translucent unedited paving uses ordinary premultiplied blending, not a new renderer defect.",
+      "mismatchedPixels": 0,
+      "status": "PASS",
+      "camera": {
+        "zoom": 1,
+        "scroll": [
+          544,
+          2490
+        ],
+        "viewport": [
+          0,
+          0,
+          1280,
+          900
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1,
+          -544,
+          -2490,
+          0,
+          0,
+          1
+        ],
+        "roundPixels": true
+      },
+      "layerSamplingAndScaleExact": true
+    }
+  ],
+  "protectedStationPixelComparison": {
+    "pixelsDifferentExcludingJuni": 0,
+    "regionWorld": [
+      2274,
+      2196,
+      684,
+      617
+    ],
+    "status": "PASS"
+  },
+  "collisionOwnership": {
+    "pilotOwnershipRepairs": [
+      {
+        "id": "archive-step-approach",
+        "rect": [
+          2508,
+          1020,
+          104,
+          90
+        ],
+        "reason": "Old placeholder blocks until1082,62px beyond fixed archive root1020; clear only104px stair approach to1110 public path."
+      },
+      {
+        "id": "tower-step-approach",
+        "rect": [
+          1160,
+          3240,
+          80,
+          20
+        ],
+        "reason": "Old placeholder blocks until3257,17px beyond fixed tower root3240; clear existing80px threshold approach."
+      }
+    ],
+    "removedRejectedTreeFeetAndTwoApprovedTreeFeet": true,
+    "addedTreeFeet": [
+      [
+        1589,
+        2974,
+        23,
+        14
+      ],
+      [
+        1739,
+        3094,
+        23,
+        14
+      ]
+    ],
+    "serviceRecess": [
+      925,
+      2380,
+      55,
+      210
+    ],
+    "serviceRecessPolicy": "Explicitly accepted non-public service recess; no public route allocation.",
+    "changedPixelCount": 12826,
+    "protectedStationStrip": "UNCHANGED / CLOSED",
+    "newTowerCollision": "Fixed240x240 building foot unchanged; only17px inherited margin outside root cleared in80px public approach. Body clearance remains separate.",
+    "masterplanChange": false
+  },
+  "station8pxStrip": "UNCHANGED/CLOSED",
+  "approvedObjectRegistration": "ALL sources/coordinates/pivots unchanged",
+  "worldSize": [
+    4352,
+    4864
+  ],
+  "chunksChanged": 22,
+  "actualMovement": [
+    {
+      "pilot": "north",
+      "status": "PASS_SELECTED_FOOTPOINT_MOVEMENT",
+      "legs": 4
+    },
+    {
+      "pilot": "south",
+      "status": "PASS_SELECTED_FOOTPOINT_MOVEMENT",
+      "legs": 5
+    },
+    {
+      "pilot": "namsan",
+      "status": "PASS_SELECTED_FOOTPOINT_MOVEMENT",
+      "legs": 4
+    }
+  ],
+  "pageErrors": [],
+  "occlusion": "North/tower selected softening cases supplied; protected retail alpha1 fully hides Juni behind its visual envelope, OPEN P1, not visibility acceptance.",
+  "physicalAndroidChrome": "NOT TESTED",
+  "physicalIPhoneSafari": "NOT TESTED",
+  "hardwareWebGLPerformance": "NOT TESTED",
+  "fullWorldArt": "FAIL/HUMAN REJECTED; unchanged outside pilots",
+  "unifiedPilotArtApproval": "PENDING HUMAN REVIEW",
+  "bakery": "REQUIRED/UNPLACED; W0 retired, Q1 land not allocated",
+  "noFullWorldPropagation": true
+}

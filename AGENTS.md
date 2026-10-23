@@ -1,5 +1,7 @@
 # Current authority — G3-D unified art recovery / three pilots only
 
+Current handoff: [three-pilot review, native evidence and open issues](docs/gate3-recovery/README.md). Shared-system artistic approval remains pending; no propagation.
+
 The G3-B/C visual system is HUMAN REJECTED; retain the engine and recoverable prototype. Latest: [recovery directive](docs/current/G3D_ART_RECOVERY_AUTHORIZATION.md). Deliver a canonical Art Direction Bible, ten-region audit and native Historical North / Modern South / Namsan pilots of ONE shared system. STOP ONCE for unified human approval before full-world propagation. Preserve approved sources, floor, original canopy, Jeju, Juni, plans and checkpoints; no paid provider APIs, main merge or deployment. Bakery remains deferred; P1 issues remain visible.
 
 # Current authority — G3-B/G3-C full-world production authorized

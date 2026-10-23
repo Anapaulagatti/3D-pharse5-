@@ -42,7 +42,18 @@ const base = import.meta.env.BASE_URL,
   native = query.has("native"),
   overview = query.has("overview");
 const catalog = [
-  {id: "production", label: "G3-B/C · full-world prototype / QA pending"},
+  {
+    id: "recovery-pilots",
+    label: "G3-D · three shared-style pilots / human review pending",
+  },
+  {
+    id: "recovery-before",
+    label: "G3-D BEFORE · rejected baseline / matching cameras",
+  },
+  {
+    id: "production",
+    label: "HISTORY · G3-B/C art REJECTED / engine retained",
+  },
   {
     id: "registration-working-v3",
     label: "G3-A working V3 · accepted Maru / bakery deferred",
@@ -66,7 +77,14 @@ const catalog = [
   },
   { id: "district", label: "G3-A · approved district / isolated cache lab" },
 ];
+const availableCatalog = query.has("pilotsOnly")
+  ? catalog.filter((s) =>
+      ["recovery-pilots", "recovery-before", "production"].includes(s.id),
+    )
+  : catalog;
 const id = [
+  "recovery-pilots",
+  "recovery-before",
   "production",
   "district",
   "registration",
@@ -100,15 +118,22 @@ const entries: Record<string, number[]> =
 if (entries[query.get("entry") ?? ""])
   data.spawn = entries[query.get("entry")!];
 const label =
-  id === "world"
-    ? "G3-A foundation · engineering terrain is NOT final art"
-    : id.startsWith("registration")
-      ? "CANDIDATE ONLY · native registration / engineering routes · final approval pending"
-      : "Approved district · local coordinates · world registration pending";
+  id === "production" || id === "recovery-before"
+    ? "HISTORY · full-world art rejected / engine retained"
+    : id === "world"
+      ? "G3-A foundation · engineering terrain is NOT final art"
+      : id.startsWith("registration")
+        ? "CANDIDATE ONLY · native registration / engineering routes · final approval pending"
+        : id === "recovery-pilots"
+          ? "G3-D three pilot regions only · unified art approval pending"
+          : "Approved district · local coordinates · world registration pending";
 const root = document.querySelector<HTMLDivElement>("#app")!;
-root.innerHTML = `<header><b>G3-C WORLD PROTOTYPE</b><select id="scene-picker" aria-label="Review environment">${catalog.map((s) => `<option value="${s.id}" ${s.id === id ? "selected" : ""}>${s.label}</option>`).join("")}</select><span id="camera-mode">Follow · native1:1</span><button id="scenic">Scenic</button><details id="settings"><summary aria-label="Options">···</summary><div><label><input type="checkbox" id="showcases"> Landmark moments</label><button id="pause">Pause</button><button id="export-session">Export test report</button></div></details></header><main id="stage"></main><div id="map-labels" aria-hidden="true"></div><div id="camera-tools"><span>Drag to look · pinch to zoom</span><button id="start-tour">Start Tour</button><span id="tour-caption" role="status" aria-live="polite"></span><button id="tour-pause">Pause</button><button id="tour-next">Skip landmark</button><button id="overview-mode">Full scene</button><button id="return-juni">Return to Juni</button></div><button id="tour-controls" aria-controls="camera-tools" aria-expanded="true">Tour controls</button><footer><span id="near">${label}</span><span>WASD / arrows · Shift run · E explore · Space greet</span></footer><div id="joystick" aria-label="Movement joystick"><span class="stick-knob"></span></div><div id="touch-actions"><button id="run">Run</button><button id="explore">Explore</button></div><aside id="dialog" hidden role="dialog" aria-label="Environment detail"><h2 id="title"></h2><p id="copy"></p><button id="close">Return</button></aside>`;
+root.innerHTML = `<header><b>${id.startsWith("recovery-") ? "G3-D STYLE REVIEW" : "G3-C HISTORY PROTOTYPE"}</b><select id="scene-picker" aria-label="Review environment">${availableCatalog.map((s) => `<option value="${s.id}" ${s.id === id ? "selected" : ""}>${s.label}</option>`).join("")}</select><span id="camera-mode">Follow · native1:1</span><button id="scenic">Scenic</button><details id="settings"><summary aria-label="Options">···</summary><div><label><input type="checkbox" id="showcases"> Landmark moments</label><button id="pause">Pause</button><button id="export-session">Export test report</button></div></details></header><main id="stage"></main><div id="map-labels" aria-hidden="true"></div><div id="camera-tools"><span>Drag to look · pinch to zoom</span><button id="start-tour">Start Tour</button><span id="tour-caption" role="status" aria-live="polite"></span><button id="tour-pause">Pause</button><button id="tour-next">Skip landmark</button><button id="overview-mode">Full scene</button><button id="return-juni">Return to Juni</button></div><button id="tour-controls" aria-controls="camera-tools" aria-expanded="true">Tour controls</button><footer><span id="near">${label}</span><span>WASD / arrows · Shift run · E explore · Space greet</span></footer><div id="joystick" aria-label="Movement joystick"><span class="stick-knob"></span></div><div id="touch-actions"><button id="run">Run</button><button id="explore">Explore</button></div><aside id="dialog" hidden role="dialog" aria-label="Environment detail"><h2 id="title"></h2><p id="copy"></p><button id="close">Return</button></aside>`;
 document.querySelector<HTMLSelectElement>("#scene-picker")!.onchange = (e) => {
-  location.search = "?scene=" + (e.target as HTMLSelectElement).value;
+  location.search =
+    "?scene=" +
+    (e.target as HTMLSelectElement).value +
+    (query.has("pilotsOnly") ? "&pilotsOnly" : "");
 };
 if (native) document.body.dataset.native = "true";
 let scenicLocked = false;
@@ -197,7 +222,12 @@ class Slice extends Phaser.Scene {
       async () => {},
       data.stops,
     );
-    if (native && (id.startsWith("registration") || id === "production")) {
+    if (
+      native &&
+      (id.startsWith("registration") ||
+        id === "production" ||
+        id.startsWith("recovery-"))
+    ) {
       const centres: Record<string, [number, number]> = data.nativeFrames ?? {
         station: [2598.5, 2460],
         bakery: [1814, 3500],

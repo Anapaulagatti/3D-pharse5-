@@ -1,0 +1,246 @@
+{
+  "generator": "tools/g3d_build_pilots.py",
+  "onlyThreePilotRegions": true,
+  "fullWorldPropagation": false,
+  "canonicalFloorExact": true,
+  "historicalGroundExact": true,
+  "jejuGroundExact": true,
+  "approvedObjectSourcesAndCoordinates": "UNCHANGED",
+  "nativeScale": 1,
+  "resampling": "NONE",
+  "regions": [
+    {
+      "pilot": "north",
+      "worldOrigin": [
+        1536,
+        576
+      ],
+      "source": "assets-src/gate3/recovery/north-ground-derived.png",
+      "ownershipMask": "assets-src/gate3/recovery/north-edit-mask.png",
+      "ownedPixels": 851200,
+      "resampling": "NONE",
+      "otherRegionsRemainRejected": true
+    },
+    {
+      "pilot": "south",
+      "worldOrigin": [
+        416,
+        1960
+      ],
+      "source": "assets-src/gate3/recovery/south-ground-derived.png",
+      "ownershipMask": "assets-src/gate3/recovery/south-edit-mask.png",
+      "ownedPixels": 1228800,
+      "resampling": "NONE",
+      "otherRegionsRemainRejected": true
+    },
+    {
+      "pilot": "namsan",
+      "worldOrigin": [
+        416,
+        2470
+      ],
+      "source": "assets-src/gate3/recovery/namsan-ground-derived.png",
+      "ownershipMask": "assets-src/gate3/recovery/namsan-edit-mask.png",
+      "ownedPixels": 890880,
+      "resampling": "NONE",
+      "otherRegionsRemainRejected": true
+    }
+  ],
+  "architectureUnderpaintOwnership": {
+    "north": "Entire cleanplate behind independent archive/culture; approved A exact mask wins.",
+    "south": "south-architecture-underpaint-mask.png clears only original storefront envelopes; native55px service strip separately sorted at925,2035, root2591, source crop[509,75,55,556].",
+    "namsan": "namsan-architecture-underpaint-mask.png clears partial Maru/market guide imagery; original sprites/pivots retained.",
+    "resampling": "NONE"
+  },
+  "changedChunks": [
+    "4-1",
+    "5-1",
+    "4-2",
+    "5-2",
+    "0-3",
+    "1-3",
+    "2-3",
+    "3-3",
+    "4-3",
+    "5-3",
+    "0-4",
+    "1-4",
+    "2-4",
+    "3-4",
+    "0-5",
+    "1-5",
+    "2-5",
+    "3-5",
+    "0-6",
+    "1-6",
+    "2-6",
+    "3-6"
+  ],
+  "reusedChunks": [
+    "0-0",
+    "1-0",
+    "2-0",
+    "3-0",
+    "4-0",
+    "5-0",
+    "6-0",
+    "7-0",
+    "8-0",
+    "0-1",
+    "1-1",
+    "2-1",
+    "3-1",
+    "6-1",
+    "7-1",
+    "8-1",
+    "0-2",
+    "1-2",
+    "2-2",
+    "3-2",
+    "6-2",
+    "7-2",
+    "8-2",
+    "6-3",
+    "7-3",
+    "8-3",
+    "4-4",
+    "5-4",
+    "6-4",
+    "7-4",
+    "8-4",
+    "4-5",
+    "5-5",
+    "6-5",
+    "7-5",
+    "8-5",
+    "4-6",
+    "5-6",
+    "6-6",
+    "7-6",
+    "8-6",
+    "0-7",
+    "1-7",
+    "2-7",
+    "3-7",
+    "4-7",
+    "5-7",
+    "6-7",
+    "7-7",
+    "8-7",
+    "0-8",
+    "1-8",
+    "2-8",
+    "3-8",
+    "4-8",
+    "5-8",
+    "6-8",
+    "7-8",
+    "8-8",
+    "0-9",
+    "1-9",
+    "2-9",
+    "3-9",
+    "4-9",
+    "5-9",
+    "6-9",
+    "7-9",
+    "8-9"
+  ],
+  "removedRejectedObjects": [
+    "production/tower",
+    "production/palace",
+    "production/tree-006",
+    "production/tree-011",
+    "production/tree-012",
+    "production/tree-013",
+    "production/tree-014",
+    "production/tree-015",
+    "production/tree-016",
+    "production/tree-017",
+    "production/tree-018"
+  ],
+  "newTower": {
+    "id": "recovery/tower",
+    "image": "assets/gate3/recovery-pilots/tower-native.png",
+    "x": 1050,
+    "y": 2597,
+    "width": 283,
+    "height": 638,
+    "sortY": 3240,
+    "alphaSoftening": 0.65,
+    "bytes": 722216
+  },
+  "newCandidateAntennaAssembly": "Tip translated down30px;30px rod removed at native1x, no resampling. Approved retail facade envelope ends2591; candidate antenna begins2597.",
+  "towerSourceCrop": [
+    708,
+    123,
+    991,
+    761
+  ],
+  "towerSourceRoot": [
+    858,
+    766
+  ],
+  "fixedWorldRoot": [
+    1200,
+    3240
+  ],
+  "doorClearOpeningSource": [
+    814,
+    552,
+    79,
+    105
+  ],
+  "towerGroundOwnership": "Original240x240 building foot retained; extraction excludes outer garden planters. Native stair/plinth projection reviewed separately from fixed collision, no physical expansion.",
+  "palace": "Two new continuation authoring trials REJECTED internally; not installed. Rejected duplicate-plinth foreground omitted in review only; incomplete upper compound remains outside pilot A owned area, not presented as repaired.",
+  "collisionChanges": {
+    "pilotOwnershipRepairs": [
+      {
+        "id": "archive-step-approach",
+        "rect": [
+          2508,
+          1020,
+          104,
+          90
+        ],
+        "reason": "Old placeholder blocks until1082,62px beyond fixed archive root1020; clear only104px stair approach to1110 public path."
+      },
+      {
+        "id": "tower-step-approach",
+        "rect": [
+          1160,
+          3240,
+          80,
+          20
+        ],
+        "reason": "Old placeholder blocks until3257,17px beyond fixed tower root3240; clear existing80px threshold approach."
+      }
+    ],
+    "removedRejectedTreeFeetAndTwoApprovedTreeFeet": true,
+    "addedTreeFeet": [
+      [
+        1589,
+        2974,
+        23,
+        14
+      ],
+      [
+        1739,
+        3094,
+        23,
+        14
+      ]
+    ],
+    "serviceRecess": [
+      925,
+      2380,
+      55,
+      210
+    ],
+    "serviceRecessPolicy": "Explicitly accepted non-public service recess; no public route allocation.",
+    "changedPixelCount": 12826,
+    "protectedStationStrip": "UNCHANGED / CLOSED",
+    "newTowerCollision": "Fixed240x240 building foot unchanged; only17px inherited margin outside root cleared in80px public approach. Body clearance remains separate.",
+    "masterplanChange": false
+  }
+}

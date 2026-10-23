@@ -1,0 +1,21 @@
+from pathlib import Path
+from PIL import Image,ImageDraw,ImageFont
+import json,hashlib
+R=Path(__file__).resolve().parents[1];S=R/'assets-src/gate3/recovery';D=R/'docs/gate3-recovery';m=json.loads((R/'public/assets/gate3/production/manifest.json').read_text());base=json.loads((R/'public/assets/gate3/registration-working-v3/manifest.json').read_text());W,H=m['size'];ground=Image.new('RGBA',(W,H))
+for c in m['chunks']:ground.paste(Image.open(R/'public'/c['image']),(c['x'],c['y']))
+if (S/'authoring-prompts.json').exists():raise SystemExit('Frozen authoring references exist. Use a new versioned guide namespace; do not overwrite referenced inputs.')
+# Guides remove rejected giant trees; current building candidates remain as registration guides only.
+composite=ground.copy()
+for o in sorted([o for o in m['objects']if not o['id'].startswith('production/tree-') and o['id']!='production/palace'],key=lambda o:o['sortY']):composite.alpha_composite(Image.open(R/'public'/o['image']).convert('RGBA'),(o['x'],o['y']))
+regions={'palace':[1280,0,1536,1024],'north':[1536,576,1536,1024],'south':[416,1960,1536,1024],'namsan':[416,2470,1536,1024]}
+for name,(x,y,w,h)in regions.items():composite.crop((x,y,x+w,y+h)).save(S/(name+'-guide.png'),optimize=True);ground.crop((x,y,x+w,y+h)).save(S/(name+'-ground-before.png'),optimize=True)
+# Actual approved pixels, at native scale. This is a calibration board, not new concept art.
+refs=[('Historical courtyard','public/assets/gate2/a/ground.png',(910,680,1230,890)),('Muneum pavement','public/assets/gate2/b/ground.png',(330,565,650,775)),('Muneum stone garden','public/assets/gate2/b/ground.png',(310,790,630,1000)),('Native station floor','assets-src/gate3/forecourt-restoration/restored-ground.png',(180,0,500,210)),('Jeju grass basalt','public/assets/gate2/c/ground.png',(430,390,750,600)),('Historical roof and facade','public/assets/gate2/a/ground.png',(580,420,900,630))]
+board=Image.new('RGB',(1536,1024),'#243634');d=ImageDraw.Draw(board);d.text((20,14),'CANONICAL APPROVED NATIVE PIXELS / no scaling / one shared art system',fill='white');records=[]
+for i,(label,path,box)in enumerate(refs):
+ im=Image.open(R/path).convert('RGB').crop(box);x=20+(i%3)*505;y=55+(i//3)*285;board.paste(im,(x,y+24));d.text((x,y),label,fill='white');im.save(S/(f'approved-material-{i}.png'),optimize=True);records.append({'label':label,'source':path,'sourceBox':list(box),'sha256':hashlib.sha256((R/path).read_bytes()).hexdigest(),'nativeSample':f'approved-material-{i}.png','sampleUsedAsRepeatedTile':False})
+# Native architectural and avatar size references, original pixels only.
+for path,xy in [('public/assets/gate2/b/prop-heritage-tree.png',(25,680)),('public/assets/gate2/b/prop-bench-front.png',(250,850))]:board.paste(Image.open(R/path).convert('RGBA'),xy,Image.open(R/path).getchannel('A'))
+atlas=json.loads((R/'public/assets/juni/juni.json').read_text());frames=atlas['frames'];f=frames['idle-front-0']['frame']if isinstance(frames,dict)else next(f['frame']for f in frames if f['filename']=='idle-front-0');im=Image.open(R/'public/assets/juni/juni.png').crop((f['x'],f['y'],f['x']+f['w'],f['y']+f['h']));board.paste(im,(420,780),im.getchannel('A'));d.text((400,910),'Juni atlas96x112, visible body about80px',fill='white');d.text((650,690),'DOOR100-120px / BENCH100x50 / TREE189x196 exemplar',fill='white');d.text((650,725),'Stone joints1-2px; typical stones about12-32px wide',fill='white');d.text((650,760),'Warm upper-left light / shadows down-right / complete silhouettes',fill='white');d.text((650,795),'NO giant slabs, tiled flower grass, noise, blur or scale tricks',fill='white');board.save(S/'canonical-native-board.png',optimize=True)
+(S/'canonical-references.json').write_text(json.dumps({'regions':regions,'nativeMaterialReferences':records,'mandatoryWholeReferences':['docs/world-gate1/style-bible.html','docs/gate1/GATE1_STREET_NATIVE.png','public/assets/gate2/a/ground.png','public/assets/gate2/b/ground.png','public/assets/gate3/registration/bakery.png','assets-src/gate3/forecourt-restoration/restored-ground.png','public/assets/gate3/registration/station.png','public/assets/gate2/c/ground.png','assets-src/gate25-station-planters/final-clean-ground.png']},indent=2)+'\n')
+print('Prepared three1536x1024 registered guides and native canonical board')
