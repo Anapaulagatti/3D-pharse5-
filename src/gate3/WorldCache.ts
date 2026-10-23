@@ -1,6 +1,10 @@
 import Phaser from "phaser";
+import { rasterOrigin } from "./Registration";
+import { addNativeTexture } from "./NativeTexture";
+import type { Diagnostics } from "./Diagnostics";
 import { ResourcePool, type Resource } from "./ResourcePool";
 import {
+  containsPoint,
   bounds,
   intersects,
   type Manifest,
@@ -18,10 +22,17 @@ type Value = {
 export class WorldCache {
   readonly pool: ResourcePool<Value>;
   private items: Item[];
+  private unculled = new URLSearchParams(location.search).has("unculled");
+  private legacy = new URLSearchParams(location.search).has("baseline");
+  private lookup = new Map<string, Chunk>();
+  private dependencies = new Map<string, Foreground[]>();
+  private admissionKey = "";
+  private lastAdmission = 0;
   constructor(
     private scene: Phaser.Scene,
     readonly data: Manifest,
     private base: string,
+    private diagnostics?: Diagnostics,
   ) {
     this.items = [
       ...data.chunks.map((chunk) => ({
@@ -35,20 +46,32 @@ export class WorldCache {
         object,
       })),
     ];
+    for (const c of data.chunks) {
+      this.lookup.set(`${Math.floor(c.x / 512)},${Math.floor(c.y / 512)}`, c);
+      this.dependencies.set(
+        c.id,
+        data.objects.filter((o) => intersects(bounds(o), bounds(c))),
+      );
+    }
     this.pool = new ResourcePool(
       data.budgetBytes,
       data.maxConcurrent,
       (r, s) => this.load(r as Item, s),
       (r, v) => {
+        const t = performance.now();
         v.image.destroy();
         scene.textures.remove(r.id);
         v.source.src = "";
+        diagnostics?.sample("resource.dispose", performance.now() - t);
+        diagnostics?.count("resource.evictions");
       },
     );
     scene.events.once("shutdown", () => this.pool.close());
   }
   private async load(r: Item, signal: AbortSignal): Promise<Value> {
     const source = new Image();
+    const loadStarted = performance.now();
+    this.diagnostics?.count("resource.admissions");
     let url: string | undefined;
     let texture = false;
     const abort = () => {
@@ -75,6 +98,7 @@ export class WorldCache {
       ]);
       url = URL.createObjectURL(blob);
       source.src = url;
+      const decodeStarted = performance.now();
       await Promise.race([
         source.decode(),
         new Promise<never>((_, reject) =>
@@ -85,23 +109,56 @@ export class WorldCache {
           ),
         ),
       ]);
+      this.diagnostics?.sample(
+        "resource.decode",
+        performance.now() - decodeStarted,
+      );
       if (combined.aborted) throw Error("cancelled");
       if (source.width !== spec.width || source.height !== spec.height)
         throw Error("native dimension mismatch");
       if (r.chunk && buffer?.byteLength !== r.chunk.width * r.chunk.height)
         throw Error("collision size mismatch");
-      this.scene.textures.addImage(r.id, source);
+      const uploadStarted = performance.now();
+      if (this.legacy) this.scene.textures.addImage(r.id, source);
+      else addNativeTexture(this.scene, r.id, source);
+      this.diagnostics?.sample(
+        "resource.addTexture",
+        performance.now() - uploadStarted,
+      );
       texture = true;
-      this.scene.textures
-        .get(r.id)
-        .setFilter(Phaser.Textures.FilterMode.NEAREST);
+      const native = this.scene.textures.get(r.id);
+      if (
+        this.legacy ||
+        native.source[0].scaleMode !== Phaser.Textures.FilterMode.NEAREST
+      )
+        native.setFilter(Phaser.Textures.FilterMode.NEAREST);
+      const position = r.object?.sourceAnchor
+        ? rasterOrigin(r.object.sourceAnchor, r.object.sourcePivot ?? [0, 0])
+        : [spec.x, spec.y];
+      if (!position.every(Number.isInteger))
+        throw Error(
+          "Fractional native raster placement requires an explicit source pivot",
+        );
+      if (position[0] !== spec.x || position[1] !== spec.y)
+        throw Error("Manifest source pivot/raster mismatch");
       const image = this.scene.add
-        .image(spec.x, spec.y, r.id)
+        .image(position[0], position[1], r.id)
         .setOrigin(0)
         .setDepth(r.object?.sortY ?? -100);
+      this.diagnostics?.trackImage(image, r.chunk ? "ground" : "foreground");
+      const maskStarted = performance.now(),
+        mask = buffer ? new Uint8Array(buffer) : undefined;
+      this.diagnostics?.sample(
+        "resource.maskView",
+        performance.now() - maskStarted,
+      );
+      this.diagnostics?.sample(
+        "resource.load",
+        performance.now() - loadStarted,
+      );
       return {
         image,
-        mask: buffer ? new Uint8Array(buffer) : undefined,
+        mask,
         source,
       };
     } catch (error) {
@@ -124,50 +181,80 @@ export class WorldCache {
       visible[2] + 768,
       visible[3] + 768,
     ];
-    const chunks = this.items.filter(
-      (r) =>
-        r.chunk &&
-        (intersects(bounds(r.chunk), prefetch) ||
-          intersects(bounds(r.chunk), player)),
-    );
-    const groundPriority = (r: Item) =>
-      intersects(bounds(r.chunk!), player)
-        ? 0
-        : intersects(bounds(r.chunk!), visible)
-          ? 1
-          : 2;
-    // A chunk's full foreground dependencies must be requested even when their roots
-    // lie beyond prefetch. Otherwise collision readiness could wait forever at an edge.
-    const specs = this.items.filter((r) =>
-      r.chunk
-        ? chunks.includes(r)
-        : chunks.some((c) => intersects(bounds(r.object!), bounds(c.chunk!))),
-    );
-    const priority = (r: Item) =>
-      r.chunk
-        ? groundPriority(r)
-        : Math.min(
-            ...chunks
-              .filter((c) => intersects(bounds(r.object!), bounds(c.chunk!)))
-              .map(groundPriority),
-          );
-    specs.sort(
-      (a, b) =>
-        priority(a) - priority(b) ||
-        Math.hypot((a.chunk ?? a.object!).x - x, (a.chunk ?? a.object!).y - y) -
+    const spans = (r: Rect) =>
+      [
+        Math.floor(r[0] / 512),
+        Math.floor(r[1] / 512),
+        Math.floor((r[0] + r[2] - 1e-6) / 512),
+        Math.floor((r[1] + r[3] - 1e-6) / 512),
+      ].join(",");
+    const key = spans(player) + "/" + spans(visible) + "/" + spans(prefetch);
+    if (
+      this.legacy ||
+      key !== this.admissionKey ||
+      performance.now() - this.lastAdmission > 250
+    ) {
+      this.admissionKey = key;
+      this.lastAdmission = performance.now();
+      const chunks = this.items.filter(
+        (r) =>
+          r.chunk &&
+          (intersects(bounds(r.chunk), prefetch) ||
+            intersects(bounds(r.chunk), player)),
+      );
+      const groundPriority = (r: Item) =>
+        intersects(bounds(r.chunk!), player)
+          ? 0
+          : intersects(bounds(r.chunk!), visible)
+            ? 1
+            : 2;
+      // A chunk's full foreground dependencies must be requested even when their roots
+      // lie beyond prefetch. Otherwise collision readiness could wait forever at an edge.
+      const specs = this.items.filter((r) =>
+        r.chunk
+          ? chunks.includes(r)
+          : chunks.some((c) => intersects(bounds(r.object!), bounds(c.chunk!))),
+      );
+      const priority = (r: Item) =>
+        r.chunk
+          ? groundPriority(r)
+          : Math.min(
+              ...chunks
+                .filter((c) => intersects(bounds(r.object!), bounds(c.chunk!)))
+                .map(groundPriority),
+            );
+      specs.sort(
+        (a, b) =>
+          priority(a) - priority(b) ||
           Math.hypot(
-            (b.chunk ?? b.object!).x - x,
-            (b.chunk ?? b.object!).y - y,
-          ),
-    );
-    const pinned = new Set(
-      specs.filter((r) => priority(r) < 2).map((r) => r.id),
-    );
-    this.pool.update(specs, pinned);
+            (a.chunk ?? a.object!).x - x,
+            (a.chunk ?? a.object!).y - y,
+          ) -
+            Math.hypot(
+              (b.chunk ?? b.object!).x - x,
+              (b.chunk ?? b.object!).y - y,
+            ),
+      );
+      const pinned = new Set(
+        specs.filter((r) => priority(r) < 2).map((r) => r.id),
+      );
+      this.pool.update(specs, pinned);
+    }
     for (const e of this.pool.resident.values()) {
       const item = e.resource as Item,
         o = item.object;
-      e.value.image.setVisible(!overview);
+      const painted: Rect = [
+        view[0] - 2,
+        view[1] - 2,
+        view[2] + 4,
+        view[3] + 4,
+      ];
+      e.value.image.setVisible(
+        !overview &&
+          (this.legacy ||
+            this.unculled ||
+            intersects(bounds(item.chunk ?? o!), painted)),
+      );
       if (o)
         e.value.image.setAlpha(
           x > o.x - 30 &&
@@ -181,21 +268,24 @@ export class WorldCache {
     }
   }
   walkable(x: number, y: number) {
+    if (this.data.logicalSolids?.some((s) => containsPoint(x, y, s.rect)))
+      return false;
     x = Math.round(x);
     y = Math.round(y);
-    const c = this.data.chunks.find(
-      (c) => x >= c.x && y >= c.y && x < c.x + c.width && y < c.y + c.height,
-    );
+    const c = this.legacy
+      ? this.data.chunks.find(
+          (c) =>
+            x >= c.x && y >= c.y && x < c.x + c.width && y < c.y + c.height,
+        )
+      : this.lookup.get(`${Math.floor(x / 512)},${Math.floor(y / 512)}`);
     if (!c) return false;
     const entry = this.pool.resident.get("g/" + c.id);
     if (!entry?.value.mask) return false;
     // Don't enter a chunk before all touching foreground is ready (no invisible tree/planter).
     if (
-      this.data.objects.some(
-        (o) =>
-          intersects(bounds(o), bounds(c)) &&
-          !this.pool.resident.has("f/" + o.id),
-      )
+      this.dependencies
+        .get(c.id)!
+        .some((o) => !this.pool.resident.has("f/" + o.id))
     )
       return false;
     return entry.value.mask[(y - c.y) * c.width + x - c.x] > 127;

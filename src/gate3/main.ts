@@ -1,4 +1,5 @@
 import Phaser from "phaser";
+import { Diagnostics } from "./Diagnostics";
 import { JuniMotion, type JuniView } from "../engine/JuniMotion";
 import { attachJoystick } from "../engine/Joystick";
 import "../gate2/style.css";
@@ -25,6 +26,11 @@ type State = {
 };
 declare global {
   interface Window {
+    __GATE3_PROFILE__?: {
+      reset: () => void;
+      layer: (mode: string) => void;
+      snapshot: () => ReturnType<Diagnostics["snapshot"]>;
+    };
     __GATE3__?: State;
     __GATE3_TEST__?: { walkable: (x: number, y: number) => boolean };
   }
@@ -35,9 +41,12 @@ const base = import.meta.env.BASE_URL,
   overview = query.has("overview");
 const catalog = [
   { id: "world", label: "G3-A · 4352×4864 world foundation" },
+  { id: "registration", label: "Candidate · individual building registration" },
   { id: "district", label: "G3-A · approved district / isolated cache lab" },
 ];
-const id = query.get("scene") === "district" ? "district" : "world";
+const id = ["district", "registration"].includes(query.get("scene") ?? "")
+  ? query.get("scene")!
+  : "world";
 const data: Manifest = await fetch(
   base + "assets/gate3/" + id + "/manifest.json",
 ).then((r) => {
@@ -49,13 +58,22 @@ if (query.has("stress")) data.budgetBytes = 24 * 1024 * 1024;
 const entries: Record<string, number[]> =
   id === "world"
     ? { north: [1740, 1440], jeju: [3500, 4055] }
-    : { station: [2824, 857], alley: [1470, 850] };
+    : id === "registration"
+      ? {
+          station: [2598.5, 2760],
+          bakery: [1814, 3900],
+          retail: [1128, 2690],
+          convenience: [368, 3220],
+        }
+      : { station: [2824, 857], alley: [1470, 850] };
 if (entries[query.get("entry") ?? ""])
   data.spawn = entries[query.get("entry")!];
 const label =
   id === "world"
     ? "G3-A foundation · engineering terrain is NOT final art"
-    : "Approved district · local coordinates · world registration pending";
+    : id === "registration"
+      ? "CANDIDATE ONLY · native registration / engineering routes · final approval pending"
+      : "Approved district · local coordinates · world registration pending";
 const root = document.querySelector<HTMLDivElement>("#app")!;
 root.innerHTML = `<header><b>G3-A FOUNDATION</b><select id="scene-picker" aria-label="Review environment">${catalog.map((s) => `<option value="${s.id}" ${s.id === id ? "selected" : ""}>${s.label}</option>`).join("")}</select><span id="camera-mode">Follow · native1:1</span><button id="scenic">Scenic</button><details id="settings"><summary aria-label="Options">···</summary><div><label><input type="checkbox" id="showcases"> Landmark moments</label><button id="pause">Pause</button><button id="export-session">Export test report</button></div></details></header><main id="stage"></main><div id="map-labels" aria-hidden="true"></div><div id="camera-tools"><span>Drag to look · pinch to zoom</span><button id="start-tour">Start Tour</button><span id="tour-caption" role="status" aria-live="polite"></span><button id="tour-pause">Pause</button><button id="tour-next">Skip landmark</button><button id="overview-mode">Full scene</button><button id="return-juni">Return to Juni</button></div><button id="tour-controls" aria-controls="camera-tools" aria-expanded="true">Tour controls</button><footer><span id="near">${label}</span><span>WASD / arrows · Shift run · E explore · Space greet</span></footer><div id="joystick" aria-label="Movement joystick"><span class="stick-knob"></span></div><div id="touch-actions"><button id="run">Run</button><button id="explore">Explore</button></div><aside id="dialog" hidden role="dialog" aria-label="Environment detail"><h2 id="title"></h2><p id="copy"></p><button id="close">Return</button></aside>`;
 document.querySelector<HTMLSelectElement>("#scene-picker")!.onchange = (e) => {
@@ -77,9 +95,14 @@ class Slice extends Phaser.Scene {
   private reviewCamera!: FoundationCamera;
   private worldCache!: WorldCache;
   private overviewImage!: Phaser.GameObjects.Image;
-  private frameTimes: number[] = [];
+  private diagnostics = query.has("profile") ? new Diagnostics() : undefined;
   private sessionMetrics = new SessionMetrics();
   private lastUpdateTime = performance.now();
+  private lastMetrics = 0;
+  private metrics = this.sessionMetrics.snapshot();
+  private textureGeneration = -1;
+  private textureInfo: State["textures"] = [];
+  private legacy = query.has("baseline");
   private player!: Phaser.GameObjects.Sprite;
   private motion = new JuniMotion();
   private x = 0;
@@ -99,7 +122,15 @@ class Slice extends Phaser.Scene {
     return this.worldCache.walkable(x, y);
   }
   create() {
-    this.worldCache = new WorldCache(this, data, base);
+    this.worldCache = new WorldCache(this, data, base, this.diagnostics);
+    if (this.diagnostics) {
+      this.diagnostics.attach(this);
+      window.__GATE3_PROFILE__ = {
+        reset: () => this.diagnostics!.reset(),
+        layer: (mode) => this.diagnostics!.layer(mode),
+        snapshot: () => this.diagnostics!.snapshot(),
+      };
+    }
     this.overviewImage = this.add
       .image(0, 0, "overview")
       .setOrigin(0)
@@ -135,6 +166,17 @@ class Slice extends Phaser.Scene {
       async () => {},
       data.stops,
     );
+    if (native && id === "registration") {
+      const centres: Record<string, [number, number]> = {
+        station: [2598.5, 2460],
+        bakery: [1814, 3500],
+        retail: [1128, 2360],
+        convenience: [640, 2910],
+      };
+      const centre =
+        centres[query.get("entry") ?? "station"] ?? centres.station;
+      this.reviewCamera.frameNative(...centre);
+    }
     document
       .querySelector("#joystick")!
       .addEventListener("pointerdown", () => this.reviewCamera.interruptTour());
@@ -165,6 +207,8 @@ class Slice extends Phaser.Scene {
   }
   update(_t: number, delta: number) {
     if (!this.player) return;
+    const updateStarted = performance.now();
+    const collisionStarted = performance.now();
     let dx =
         Number(this.keys.D.isDown || this.keys.RIGHT.isDown) -
         Number(this.keys.A.isDown || this.keys.LEFT.isDown) +
@@ -194,6 +238,10 @@ class Slice extends Phaser.Scene {
       if (this.walkable(this.x, this.y + (dy * step) / substeps))
         this.y += (dy * step) / substeps;
     }
+    this.diagnostics?.sample(
+      "update.inputCollision",
+      performance.now() - collisionStarted,
+    );
     const distance = Math.hypot(this.x - oldX, this.y - oldY);
     if (distance > 0.01)
       this.facing =
@@ -217,20 +265,23 @@ class Slice extends Phaser.Scene {
       .setPosition(Math.round(this.x), Math.round(this.y))
       .setFrame(frame)
       .setDepth(Math.round(this.y) + 0.1);
+    const cameraStarted = performance.now();
     this.reviewCamera.update(delta, this.x, this.y, dx, dy, paused);
+    this.diagnostics?.sample(
+      "update.camera",
+      performance.now() - cameraStarted,
+    );
+    const cacheStarted = performance.now();
     const isOverview = this.reviewCamera.mode === "overview";
     this.overviewImage.setVisible(isOverview);
+    const cameraSnapshot = this.reviewCamera.snapshot();
     this.worldCache.update(
-      this.reviewCamera.snapshot().worldView as [
-        number,
-        number,
-        number,
-        number,
-      ],
+      cameraSnapshot.worldView as [number, number, number, number],
       this.x,
       this.y,
       isOverview,
     );
+    this.diagnostics?.sample("update.cache", performance.now() - cacheStarted);
     const behind = data.objects
       .filter(
         (o) =>
@@ -242,8 +293,21 @@ class Slice extends Phaser.Scene {
       .map((o) => o.id);
     const now = performance.now();
     this.sessionMetrics.add(now - this.lastUpdateTime);
-    this.frameTimes.push(now - this.lastUpdateTime);
+    this.diagnostics?.sample("frame.interval", now - this.lastUpdateTime);
     this.lastUpdateTime = now;
+    const stats = this.worldCache.pool.snapshot(),
+      generation = stats.loads + stats.evictions;
+    if (this.legacy || generation !== this.textureGeneration) {
+      this.textureGeneration = generation;
+      this.textureInfo = this.textures.getTextureKeys().map((key) => {
+        const t = this.textures.get(key).getSourceImage() as HTMLImageElement;
+        return { key, width: t.width, height: t.height };
+      });
+    }
+    if (this.legacy || now - this.lastMetrics > 100) {
+      this.lastMetrics = now;
+      this.metrics = this.sessionMetrics.snapshot();
+    }
     window.__GATE3__ = {
       renderer: this.game.renderer.type === Phaser.WEBGL ? "WebGL" : "Canvas",
       ready: this.walkable(this.x, this.y),
@@ -252,16 +316,13 @@ class Slice extends Phaser.Scene {
       y: this.y,
       frame,
       zoom: this.cameras.main.zoom,
-      camera: this.reviewCamera.snapshot(),
-      chunks: this.worldCache.pool.snapshot(),
-      session: this.sessionMetrics.snapshot(),
+      camera: cameraSnapshot,
+      chunks: stats,
+      session: this.metrics,
       behind,
       paused,
       samplingMode: this.player.frame.source.scaleMode,
-      textures: this.textures.getTextureKeys().map((key) => {
-        const t = this.textures.get(key).getSourceImage() as HTMLImageElement;
-        return { key, width: t.width, height: t.height };
-      }),
+      textures: this.textureInfo,
     };
     const near = [...data.targets].sort(
       (a, b) =>
@@ -272,6 +333,7 @@ class Slice extends Phaser.Scene {
       near && Math.hypot(near.x - this.x, near.y - this.y) < 120
         ? near.label
         : label;
+    this.diagnostics?.sample("update.total", performance.now() - updateStarted);
   }
 }
 const stage = document.querySelector<HTMLElement>("#stage")!;

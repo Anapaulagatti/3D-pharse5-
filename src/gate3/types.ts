@@ -10,6 +10,8 @@ export type Chunk = {
   bytes: number;
 };
 export type Foreground = {
+  sourceAnchor?: [number, number];
+  sourcePivot?: [number, number];
   id: string;
   x: number;
   y: number;
@@ -22,6 +24,7 @@ export type Foreground = {
 };
 export type Target = { id: string; x: number; y: number; label: string };
 export type Manifest = {
+  logicalSolids?: { id: string; rect: Rect }[];
   id: string;
   size: number[];
   spawn: number[];
@@ -47,3 +50,13 @@ export const bounds = (r: {
   width: number;
   height: number;
 }): Rect => [r.x, r.y, r.width, r.height];
+
+/** Continuous protected geometry: never snap fractional station coordinates to the raster. */
+export function containsPoint(x: number, y: number, rect: Rect) {
+  return (
+    x >= rect[0] &&
+    y >= rect[1] &&
+    x < rect[0] + rect[2] &&
+    y < rect[1] + rect[3]
+  );
+}

@@ -1,3 +1,7 @@
+# Current authority — targeted G3-A registration and performance corrections
+
+Latest: [user directive](docs/current/G3A_TARGETED_CORRECTIONS.md). Preliminary engineering foundation accepted; final G3-A withheld. Preserve immutable district/reference and approved artwork/Juni. Propose individual building registration, retain station anchor/canvas/native scale, explicitly resolve half-pixel convention and disclose all reservation conflicts; limited playable proof only. Controlled non-recorded WebGL/Canvas diagnostics, measured optimizations, evidence and updated ZIP. No G3-B mass art, main merge, public deployment, paid APIs or separate app changes. STOP for explicit final-registration approval. Earlier authority remains historical where conflicting.
+
 # Current authority — Gate 3 AUTHORIZED / first G3-A review checkpoint
 
 Latest: [official user authorization](docs/current/GATE3_AUTHORIZATION.md). Corrected Gate2.5 at01f4f95 is explicitly human approved, including station planters. Protected checkpoint: checkpoint/gate25-final-approved-20261022. Work only on art-gate/gate3-full-world. Start G3-A on the4352×4864 expanded working plan; submit evidence for human review before scaling an unverified pipeline across the world. Gate3B–D follow milestone review. Preserve original art, Juni, Gate1, prototype and all historical refs. No paid APIs, main merge, public deployment or separate app changes. Physical Android/iPhone remain NOT TESTED. Older prohibitions/approval-pending decisions below are retained history, superseded where conflicting.

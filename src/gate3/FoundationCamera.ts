@@ -36,6 +36,8 @@ export class FoundationCamera {
   private showcaseTarget?: Destination;
   private followView = [0, 0, 0, 0];
   private followCenter = [0, 0];
+  private legacy = new URLSearchParams(location.search).has("baseline");
+  private renderedOverview = false;
   private graphics: Phaser.GameObjects.Graphics;
   private labels = document.querySelector<HTMLElement>("#map-labels")!;
   private reduce = matchMedia("(prefers-reduced-motion: reduce)");
@@ -592,12 +594,20 @@ export class FoundationCamera {
         this.scene.scale.height < 500 &&
         playerScreenY - 80 < 58,
     );
-    this.graphics.clear();
-    this.labels.replaceChildren();
-    const canvasBounds = this.scene.game.canvas.getBoundingClientRect();
-    this.labels.style.left = canvasBounds.left + "px";
-    this.labels.style.top = canvasBounds.top + "px";
+    if (this.legacy || this.mode === "overview" || this.renderedOverview) {
+      this.graphics.clear();
+      this.labels.replaceChildren();
+    }
+    if (this.legacy && this.mode !== "overview") {
+      const rect = this.scene.game.canvas.getBoundingClientRect();
+      this.labels.style.left = rect.left + "px";
+      this.labels.style.top = rect.top + "px";
+    }
+    this.renderedOverview = this.mode === "overview";
     if (this.mode === "overview") {
+      const canvasBounds = this.scene.game.canvas.getBoundingClientRect();
+      this.labels.style.left = canvasBounds.left + "px";
+      this.labels.style.top = canvasBounds.top + "px";
       const c = this.scene.cameras.main,
         z = this.zoom;
       this.graphics
@@ -620,6 +630,12 @@ export class FoundationCamera {
         this.labels.append(label);
       }
     }
+  }
+  frameNative(x: number, y: number) {
+    if (!this.native) return;
+    this.cx = x;
+    this.cy = y;
+    this.apply();
   }
   snapshot() {
     const c = this.scene.cameras.main;

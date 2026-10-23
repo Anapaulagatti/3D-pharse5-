@@ -1,0 +1,42 @@
+# Controlled renderer diagnostics
+
+Two trials per renderer/phase, no recording, one browser page at a time. Renderer order reverses in trial2. Baseline and optimized modes share the same instrumented build and exact source assets. Values below average the two trial p95 values; they are not pooled p95 estimates.
+
+| Phase | WebGL baseline / optimized interval p95 ms | Canvas baseline / optimized interval p95 ms |
+| --- | --- | --- |
+| cold | 54.5 / 53.9 | 29.9 / 46.05 |
+| warm-stationary | 30.4 / 28.15 | 17.05 / 17.5 |
+| movement-across-chunks | 28.45 / 28.3 | 17.1 / 17.1 |
+| scenic-and-tour | 36.6 / 36.15 | 17.1 / 17.25 |
+| stress24MiB | 27.7 / 30.15 | 17.05 / 17.55 |
+
+## Identified work and result
+
+- Cold station load:30 admitted images,90 `texImage2D` calls in each baseline trial;30 calls after optimization. The previous code uploaded during image creation, repeated filter setup in Phaser TextureSource, then repeated NEAREST in WorldCache. The new scoped ownership-transfer helper creates NEAREST once and skips only identical synchronous filter changes. No library or approved prototype is patched. TextureManager retains disposal/context-restoration ownership.
+- WebGL texture-admission CPU p95 decreases from9.1ms to5.1ms in cold trials; moving admissions7.4→3.9ms. An asynchronous image decode await is wall time, not pure main-thread decode CPU cost. Original PNG resolution, palette and alpha are preserved.
+- Repeated desired-set sorting/dependency scans were unnecessary while camera/player chunk spans stayed the same. Admission refresh now keys actual512px spans, with250ms refresh for retry/backoff. Collision chunk lookup and static dependencies are indexed. No walk into an unready chunk is allowed.
+- Unused unbounded raw frame-time retention was removed; bounded histograms remain. Session histograms refresh at10Hz; texture diagnostics refresh when resource generation changes. Camera snapshots are shared within an update. Overview DOM/layout work runs only for overview and cleanup, rather than every follow frame.
+- Warm WebGL update CPU p95~0.5ms and render submission~sub-millisecond do not explain all observed frame intervals. Actual shared GL batches, layer-isolated draws, main-thread traces and native-viewport area tests are separate evidence. SwiftShader presentation/raster scheduling remains a limitation, not proof of a JavaScript-only bottleneck.
+- Warm WebGL interval remains~28ms; Canvas~17.5ms. Stress WebGL p95 did not improve (27.7→30.15ms), and cold Canvas timing is noisy/regressed in these two trials. No universal FPS improvement or resolved mobile GPU performance is claimed. No artwork downsampling, automatic hardware policy or blanket batching redesign was introduced.
+
+## Evidence and limits
+
+See diagnostics-baseline.json / diagnostics-optimized.json for phase-level counters and CPU distributions; render-isolation.json for true GL/Canvas calls in ground-only/foreground-only/blank/all diagnostic renders; trace-summary.json and trace-*.json.gz for GC/layout/paint/decode/main-thread evidence. Layer-isolated batch counts are not additive production layer costs: normal WebGL can combine ground and foreground into shared batches.
+
+Cold navigation includes script/bootstrap/loading and prefetch settling; warm stationary begins after resident loads settle. Movement uses real keyboard input from the same alley entry. Scenic/tour measures camera transitions across world chunks. Stress uses an explicit24MiB logical decoded-byte budget. No recording runs contribute to these metrics.
+
+All tests use Chromium desktop software rendering in this environment. GPU timer-query availability is reported separately. API return time is not GPU completion. Trace category durations overlap and must not be summed. Decoder/network/GPU copies exceed the logical streamed-byte budget. Physical Android Chrome/iPhone Safari remain NOT TESTED and mandatory for release acceptance.
+
+Additional limits: instrumentation attaches at Scene.create, so fixed Juni-atlas and overview preload uploads are outside the streamed-texture call counts. Both1280px stress trials deliberately exceed the24MiB visible working set and report admissionBlocked=true; normal64MiB trials reportfalse. Budget enforcement is PASS, but complete visible admission at24MiB is FAIL, not a successful low-memory-device certification. The original small-landscape24MiB resilience run has different conditions and must not be substituted for this result.
+
+The native-area probe keeps the same source texels and zoom1: WebGL1280×900 p95~28.2ms versus640×550~16.9ms. Ground-only~23.2ms, foreground-only~17.1ms, blank~16.9ms, combined~26.2ms; combined uses about2 shared GL draws/frame. This supports a software raster/fill/texture-bandwidth contribution without proving one hardware GPU cause. Canvas stays near17ms.
+
+Separate main-thread traces: WebGL had3 MinorGC events totaling2.42ms with maximum1.05ms; Canvas6 totaling3.863ms, maximum0.835ms. Layout totals95.182/120.849ms across the roughly8s trace, max6.839/3.245ms. Nested GC category durations overlap; these are the top-level MinorGC events only. Neither trace has GPU timer-query support, so GPU execution timing is NOT TESTED.
+
+## Final culling ablation (separate stage2)
+
+`culling-ablation.json` compares full cache rendering against camera-bounds rendering on the same recorded instrumented build, with2 trials and reversed flag order. No recording or concurrent browser work contributes.
+
+At the station, ground submissions fall15→12 per frame and foreground15→10; GL stays2 shared draws/frame. During Tour, ground submissions drop roughly48–55→25–28 per frame and shared GL draws roughly5→3.4. Assets remain whole, native-size and resident for prefetch/collision; only off-camera submissions stop.
+
+This work reduction is verified, but an FPS gain is not: WebGL stationary p95 averages28.55ms unculled /28.6ms culled, Tour33.4/34.45ms. Canvas stationary17.15/16.9ms, Tour17.35/17.25ms. Small differences are noisy; final culling does not resolve SwiftShader frame-time acceptance. Native readback was repeated after culling and remains exact. Both conditions use padded full object bounds rather than support-root-only culling, preventing clipped foreground at chunk edges.
