@@ -24,6 +24,8 @@ export type Foreground = {
 };
 export type Target = { id: string; x: number; y: number; label: string };
 export type Manifest = {
+  reviewEntries?: Record<string, [number, number]>;
+  nativeFrames?: Record<string, [number, number]>;
   logicalSolids?: { id: string; rect: Rect }[];
   id: string;
   size: number[];

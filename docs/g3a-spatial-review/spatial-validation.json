@@ -1,0 +1,436 @@
+{
+  "routeImpacts": [
+    {
+      "variant": "waterfront-v1",
+      "building": "convenience",
+      "contact": [
+        220,
+        2910,
+        421,
+        210
+      ],
+      "envelope": [
+        220,
+        2608,
+        421,
+        512
+      ],
+      "contactPathIntersections": [
+        {
+          "id": "tower-approach",
+          "pixels": 23382
+        }
+      ],
+      "visualPathIntersections": [
+        {
+          "id": "retail-street",
+          "pixels": 21888
+        },
+        {
+          "id": "tower-approach",
+          "pixels": 35782
+        }
+      ]
+    },
+    {
+      "variant": "waterfront-v1",
+      "building": "bakery",
+      "contact": [
+        1380,
+        3370,
+        875,
+        442
+      ],
+      "envelope": [
+        1353,
+        3060,
+        905,
+        763
+      ],
+      "contactPathIntersections": [
+        {
+          "id": "urban-avenue",
+          "pixels": 74096
+        },
+        {
+          "id": "promenade",
+          "pixels": 81375
+        },
+        {
+          "id": "harbor-link",
+          "pixels": 42100
+        },
+        {
+          "id": "island-arrival",
+          "pixels": 23184
+        },
+        {
+          "id": "market-waterfront-shortcut",
+          "pixels": 57819
+        }
+      ],
+      "visualPathIntersections": [
+        {
+          "id": "urban-avenue",
+          "pixels": 128656
+        },
+        {
+          "id": "leisure-access",
+          "pixels": 25200
+        },
+        {
+          "id": "leisure-garden-loop",
+          "pixels": 23400
+        },
+        {
+          "id": "tower-approach",
+          "pixels": 69512
+        },
+        {
+          "id": "promenade",
+          "pixels": 94120
+        },
+        {
+          "id": "harbor-link",
+          "pixels": 53100
+        },
+        {
+          "id": "island-arrival",
+          "pixels": 23520
+        },
+        {
+          "id": "market-waterfront-shortcut",
+          "pixels": 57819
+        }
+      ]
+    },
+    {
+      "variant": "quay-maru-v2",
+      "building": "convenience",
+      "contact": [
+        180,
+        3120,
+        421,
+        210
+      ],
+      "envelope": [
+        180,
+        2818,
+        421,
+        512
+      ],
+      "contactPathIntersections": [
+        {
+          "id": "tower-approach",
+          "pixels": 8010
+        }
+      ],
+      "visualPathIntersections": [
+        {
+          "id": "tower-approach",
+          "pixels": 39196
+        }
+      ]
+    },
+    {
+      "variant": "quay-maru-v2",
+      "building": "bakery",
+      "contact": [
+        550,
+        4300,
+        875,
+        442
+      ],
+      "envelope": [
+        523,
+        3990,
+        905,
+        763
+      ],
+      "contactPathIntersections": [],
+      "visualPathIntersections": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "maru-front",
+      "points": [
+        [
+          700,
+          3140
+        ],
+        [
+          700,
+          3380
+        ],
+        [
+          326,
+          3380
+        ],
+        [
+          326,
+          3343
+        ]
+      ],
+      "lengthPx": 651.0,
+      "walkSeconds": 10.85,
+      "status": "PASS",
+      "failedSamples": [],
+      "method": "actual continuous logical solids + mask at JS-round; <=1px centreline steps including exact endpoints; not exhaustive navigation/visual acceptance"
+    },
+    {
+      "id": "namsan-west-loop",
+      "points": [
+        [
+          950,
+          3280
+        ],
+        [
+          700,
+          3140
+        ],
+        [
+          700,
+          2920
+        ],
+        [
+          750,
+          2800
+        ]
+      ],
+      "lengthPx": 636.531,
+      "walkSeconds": 10.609,
+      "status": "PASS",
+      "failedSamples": [],
+      "method": "actual continuous logical solids + mask at JS-round; <=1px centreline steps including exact endpoints; not exhaustive navigation/visual acceptance"
+    },
+    {
+      "id": "bakery-quay-approach",
+      "points": [
+        [
+          1490,
+          3790
+        ],
+        [
+          1490,
+          4790
+        ],
+        [
+          984,
+          4790
+        ],
+        [
+          984,
+          4770
+        ]
+      ],
+      "lengthPx": 1526.0,
+      "walkSeconds": 25.433,
+      "status": "PASS",
+      "failedSamples": [],
+      "method": "actual continuous logical solids + mask at JS-round; <=1px centreline steps including exact endpoints; not exhaustive navigation/visual acceptance"
+    },
+    {
+      "id": "amusement-main-access",
+      "points": [
+        [
+          2048,
+          3260
+        ],
+        [
+          2440,
+          3260
+        ],
+        [
+          2440,
+          3200
+        ]
+      ],
+      "lengthPx": 452.0,
+      "walkSeconds": 7.533,
+      "status": "PASS",
+      "failedSamples": [],
+      "method": "actual continuous logical solids + mask at JS-round; <=1px centreline steps including exact endpoints; not exhaustive navigation/visual acceptance"
+    },
+    {
+      "id": "main-avenue-south",
+      "points": [
+        [
+          2048,
+          3260
+        ],
+        [
+          2048,
+          3790
+        ]
+      ],
+      "lengthPx": 530.0,
+      "walkSeconds": 8.833,
+      "status": "PASS",
+      "failedSamples": [],
+      "method": "actual continuous logical solids + mask at JS-round; <=1px centreline steps including exact endpoints; not exhaustive navigation/visual acceptance"
+    },
+    {
+      "id": "island-arrival-main",
+      "points": [
+        [
+          2048,
+          3480
+        ],
+        [
+          2900,
+          3480
+        ],
+        [
+          3160,
+          3480
+        ]
+      ],
+      "lengthPx": 1112.0,
+      "walkSeconds": 18.533,
+      "status": "PASS",
+      "failedSamples": [],
+      "method": "actual continuous logical solids + mask at JS-round; <=1px centreline steps including exact endpoints; not exhaustive navigation/visual acceptance"
+    },
+    {
+      "id": "station-threshold",
+      "points": [
+        [
+          2598.5,
+          2760
+        ],
+        [
+          2598.5,
+          2610
+        ]
+      ],
+      "lengthPx": 150.0,
+      "walkSeconds": 2.5,
+      "status": "PASS",
+      "failedSamples": [],
+      "method": "actual continuous logical solids + mask at JS-round; <=1px centreline steps including exact endpoints; not exhaustive navigation/visual acceptance"
+    }
+  ],
+  "clearances": {
+    "maruFrontGap": {
+      "physicalGapPx": 90,
+      "JuniMaxVisibleWidthPx": 49,
+      "centreAtY": 3380,
+      "northSideVisualMarginPx": 25.5,
+      "southSideVisualMarginPx": 15.5,
+      "fieldAtX560": {
+        "first": 3356,
+        "last": 3394,
+        "centreFieldWidthPx": 39
+      }
+    },
+    "maruDoor": {
+      "sourceCropLocalOpening": [
+        112,
+        395,
+        68,
+        117
+      ],
+      "conservativeVisualClearWidthPx": 68,
+      "JuniMaxVisibleWidthPx": 49,
+      "nominalEachSidePx": 9.5,
+      "threshold": [
+        326,
+        3343
+      ],
+      "centreField": {
+        "first": 308,
+        "last": 344,
+        "centreFieldWidthPx": 37
+      },
+      "limitation": "Opening identified by native visual inspection; a clear approach to existing door, not an implemented interior."
+    },
+    "maruEastScenic": {
+      "reservedWidthPx": 100,
+      "envelopeEastX": 601,
+      "pathCentreX": 700,
+      "envelopeToReservationGapPx": 49
+    },
+    "maruWest": {
+      "shoreGapPx": 20,
+      "publicAccess": false
+    },
+    "bakeryEastAccess": {
+      "reservedWidthPx": 96,
+      "wallToCentrePx": 65,
+      "JuniSideToWallPx": 40.5,
+      "fieldAtY4500": {
+        "first": 1468,
+        "last": 1513,
+        "centreFieldWidthPx": 46
+      }
+    },
+    "bakeryThreshold": {
+      "point": [
+        984,
+        4770
+      ],
+      "walkable": true,
+      "field": {
+        "first": 977,
+        "last": 1513,
+        "centreFieldWidthPx": 537
+      }
+    },
+    "station": {
+      "logicalAnchor": [
+        2238.5,
+        2180
+      ],
+      "collider": [
+        2322.5,
+        2380,
+        555,
+        210
+      ],
+      "threshold": [
+        2598.5,
+        2610
+      ],
+      "sourceAisleWidthPx": 89,
+      "JuniWidthPx": 49,
+      "sideMarginPx": 20,
+      "continuousLeftInside": true
+    }
+  },
+  "protectedInputs": 1341,
+  "coreRendererAndOriginalPlansUnchanged": true,
+  "fullNativeSizePreserved": true,
+  "approvedMasterplanChanged": false,
+  "landProposal": {
+    "plot": [
+      550,
+      4300,
+      875,
+      442
+    ],
+    "nativeEnvelope": [
+      523,
+      3990,
+      905,
+      763
+    ],
+    "threshold": [
+      984,
+      4770
+    ],
+    "candidateLandExtension": [
+      460,
+      3940,
+      1120,
+      908
+    ],
+    "extensionAreaPx": 1016960,
+    "approvedPlanChanged": false,
+    "majorRoutesDiverted": [],
+    "newAccessLengthPx": 1526,
+    "newAccessWalkSeconds": 25.433333333333334,
+    "limitation": "Requires explicit land/quay allocation; long new access and quay composition not accepted. If rejected, leave bakery unallocated rather than force waterfront diversion."
+  },
+  "scope": "Targeted candidate only; geometry PASS is not artistic approval"
+}

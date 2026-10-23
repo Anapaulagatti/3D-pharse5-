@@ -43,10 +43,16 @@ const base = import.meta.env.BASE_URL,
   overview = query.has("overview");
 const catalog = [
   { id: "world", label: "G3-A · 4352×4864 world foundation" },
-  { id: "registration", label: "Candidate · individual building registration" },
+  { id: "registration", label: "Candidate · original waterfront placement" },
+  {
+    id: "registration-refined",
+    label: "Candidate · southwest quay / Maru access",
+  },
   { id: "district", label: "G3-A · approved district / isolated cache lab" },
 ];
-const id = ["district", "registration"].includes(query.get("scene") ?? "")
+const id = ["district", "registration", "registration-refined"].includes(
+  query.get("scene") ?? "",
+)
   ? query.get("scene")!
   : "world";
 const data: Manifest = await fetch(
@@ -58,22 +64,23 @@ const data: Manifest = await fetch(
 // Diagnostic stress profile only; normal review uses the manifest64MiB budget.
 if (query.has("stress")) data.budgetBytes = 24 * 1024 * 1024;
 const entries: Record<string, number[]> =
-  id === "world"
+  data.reviewEntries ??
+  (id === "world"
     ? { north: [1740, 1440], jeju: [3500, 4055] }
-    : id === "registration"
+    : id.startsWith("registration")
       ? {
           station: [2598.5, 2760],
           bakery: [1814, 3900],
           retail: [1128, 2690],
           convenience: [368, 3220],
         }
-      : { station: [2824, 857], alley: [1470, 850] };
+      : { station: [2824, 857], alley: [1470, 850] });
 if (entries[query.get("entry") ?? ""])
   data.spawn = entries[query.get("entry")!];
 const label =
   id === "world"
     ? "G3-A foundation · engineering terrain is NOT final art"
-    : id === "registration"
+    : id.startsWith("registration")
       ? "CANDIDATE ONLY · native registration / engineering routes · final approval pending"
       : "Approved district · local coordinates · world registration pending";
 const root = document.querySelector<HTMLDivElement>("#app")!;
@@ -168,8 +175,8 @@ class Slice extends Phaser.Scene {
       async () => {},
       data.stops,
     );
-    if (native && id === "registration") {
-      const centres: Record<string, [number, number]> = {
+    if (native && id.startsWith("registration")) {
+      const centres: Record<string, [number, number]> = data.nativeFrames ?? {
         station: [2598.5, 2460],
         bakery: [1814, 3500],
         retail: [1128, 2360],

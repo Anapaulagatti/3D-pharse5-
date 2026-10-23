@@ -1,3 +1,7 @@
+# Current authority — targeted G3-A spatial corrections / approval withheld
+
+Latest: [user decision](docs/current/G3A_SPATIAL_CORRECTIONS.md). Compare full-native bakery alternatives preserving approved main/amusement routes, validate Maru/Namsan/land and facade easements, capture native Phaser placements, fix inaccessible GitHub evidence links. Keep approved masterplan/art/Juni/protected station/checkpoints unchanged. Candidate-only amendments must be explicit. No G3-B, merge or deployment; STOP for final G3-A approval.
+
 # Current authority — rendering provisionally accepted; final G3-A registration review ONLY
 
 Latest: [user acceptance and directive](docs/current/G3A_FINAL_REGISTRATION_REVIEW.md). Preserve corrected renderer/checkpoints/native evidence without art or runtime changes. Consolidate individual-building registrations, station pivot policy, bakery/pedestrian amendments and masterplan conflicts. Keep source softness separate; WebGL performance unresolved and physical devices NOT TESTED. STOP for final G3-A world-registration approval. G3-B, merge, deployment and protected checkpoint modifications remain prohibited.
