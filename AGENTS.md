@@ -1,3 +1,7 @@
+# Current authority — G3-B/G3-C full-world production authorized
+
+Latest: [official transition approval](docs/current/G3BC_WORLD_PRODUCTION_AUTHORIZATION.md). Complete independent world districts and playable integration; preserve approved foundations and original platform BEFORE scenery. G3-B restrictions below are superseded. Minor defects belong in GATE3_MASTER_DEFECT_REGISTER.md; do not pause after individual assets. Bakery remains required but unplaced; W0 rejected/Q1 land unallocated. G3-D consolidated inspection/preparation authorized. No main merge, deployment, paid provider APIs, checkpoint rewrites or separate app changes. Physical devices remain NOT TESTED without evidence.
+
 # Current authority — restore original station-platform appearance
 
 Latest: [visual rejection](docs/current/G3A_PLATFORM_VISUAL_REJECTION.md). Prior platform detail is REJECTED. Original artwork restored; accepted Maru/Namsan/retail amendments preserved exactly. Current review: [restoration evidence](docs/g3a-platform-restoration/README.md). Collision-only proposal remains unimplemented; transfer BLOCKED. G3-B BLOCKED; no merge/deployment.
