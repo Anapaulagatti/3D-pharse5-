@@ -2,7 +2,7 @@
 
 This is an environmental working registry, not an amendment to protected building contacts, public route centerlines, island land or historical plans. The current world remains a review candidate. Authority: [human directive](../current/G3D_ZONING_CORRECTION.md). Baseline checkpoint: `checkpoint/g3d-world-recovery-review-20261023`; pre-correction safety checkpoint: `checkpoint/g3d-before-zoning-correction-20261024`.
 
-The machine-readable single source is [land-use-registry.json](../../assets-src/gate3/zoned-world-v1/land-use-registry.json). All regional edits use its common fine granite, native asphalt, traditional stone, low garden boundaries and coherent offshore water program. New source PNGs and explicit ownership masks live in a separate namespace; unchanged chunks retain their baseline paths/hashes.
+[Current zoning diagram](ZONING_BOARD.svg) is a planning visualization, not gameplay evidence. The machine-readable single source is [land-use-registry.json](../../assets-src/gate3/zoned-world-v1/land-use-registry.json). All regional edits use its common fine granite, native asphalt, traditional stone, low garden boundaries and coherent offshore water program. New source PNGs and explicit ownership masks live in a separate namespace; unchanged chunks retain their baseline paths/hashes.
 
 | Zone | Spatial purpose | Greenery and boundaries |
 |---|---|---|

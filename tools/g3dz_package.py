@@ -13,10 +13,13 @@ html=(B/'gate3-review.html').read_text();redirect='<script>if(!new URLSearchPara
 files['gate3-review.html']=html.replace('<head>','<head>'+redirect,1).encode()
 for n in re.findall(r'(?:src|href)="\./([^"]+)"',html):files[n]=(B/n).read_bytes()
 core=['palace','academy','culture','transition','retail','station','namsan','amusement','market','jeju-culture']
-pngs={n+'-after-native.png'for n in core}|{'world-after-overview-phaser.png','world-before-overview-phaser.png','native-benchmark-board.png'}
+pngs={n+'-after-native.png'for n in core}|{'native-benchmark-board.png'}
+usedJpg=set()
+for page in [D/'VISUAL_REVIEW.md',D/'VISUAL_REVIEW.html']:
+ usedJpg.update(re.findall(r'([A-Za-z0-9_-]+\.jpg)',page.read_text()))
 for p in D.iterdir():
  if not p.is_file()or p.name.startswith(('package-','published-','NATIVE_LINKS')):continue
- if p.suffix in ['.md','.json','.html','.jpg']or p.name in pngs or p.name=='world-traversal-review.mp4':files[str(p.relative_to(R))]=p.read_bytes()
+ if p.suffix in ['.md','.json','.html','.svg']or(p.suffix=='.jpg'and p.name in usedJpg)or p.name in pngs or p.name=='world-traversal-review.mp4':files[str(p.relative_to(R))]=p.read_bytes()
 for n in ['KOREAN_ARENA_ART_DIRECTION_BIBLE.md','GATE3_MASTER_DEFECT_REGISTER.md','GATE3_WORLD_ART_DIRECTION_AUDIT.md','assets-src/gate3/approved-station-forecourt.json','assets-src/gate3/production-plan-v3.1-restored.json','docs/current/G3D_ZONING_CORRECTION.md','package.json','package-lock.json','gate3.vite.config.ts']:
  files[n]=(R/n).read_bytes()
 for p in (R/'assets-src/gate3/zoned-world-v1').glob('*.json'):files[str(p.relative_to(R))]=p.read_bytes()
