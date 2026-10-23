@@ -3,6 +3,8 @@ from pathlib import Path
 from PIL import Image,ImageDraw
 import numpy as np,json,hashlib
 R=Path(__file__).resolve().parents[1];S=R/'assets-src/gate3/forecourt-restoration';P=R/'public/assets/gate3/registration-forecourt';D=R/'docs/g3a-forecourt-restoration'
+if (R/'assets-src/gate3/approved-station-forecourt.json').exists():
+ raise SystemExit('Approved forecourt is frozen. Reuse approved-station-forecourt.json; do not regenerate accepted pixels. Historical reproduction: use the pre-approval checkpoint in a separate checkout.')
 for p in [S,P,D]:p.mkdir(parents=True,exist_ok=True)
 box=(2500,690,3184,900);W,H=684,210
 old=np.array(Image.open(R/'assets-src/gate25-station-planters/final-clean-ground.png').convert('RGB'));native=np.array(Image.open(R/'assets-src/gate25-reconstruction/original-ground.png').convert('RGB'))

@@ -1,3 +1,7 @@
+# Current authority — station forecourt APPROVED; final spatial review only
+
+Latest: [human approval](docs/current/G3A_FORECOURT_APPROVAL.md). Preserve the accepted native floor, masks, chunks and historical sources. Canonical registry: assets-src/gate3/approved-station-forecourt.json. Current review: [remaining decisions](docs/g3a-final-spatial-review/README.md). No further forecourt art revision; final G3-A spatial approval withheld, G3-B BLOCKED. No main merge or deployment. Older pending-forecourt status is historical.
+
 # Current authority — authorized isolated native forecourt restoration
 
 Review: [repaired candidate and evidence](docs/g3a-forecourt-restoration/README.md) · [verified direct downloads](docs/g3a-forecourt-restoration/NATIVE_LINKS.md). Human visual approval pending.

@@ -43,8 +43,12 @@ const base = import.meta.env.BASE_URL,
   overview = query.has("overview");
 const catalog = [
   {
+    id: "registration-review",
+    label: "G3-A review · approved station ground / sites pending",
+  },
+  {
     id: "registration-forecourt",
-    label: "Candidate · native forecourt restoration",
+    label: "Approved station ground · preserved acceptance candidate",
   },
   { id: "world", label: "G3-A · 4352×4864 world foundation" },
   { id: "registration", label: "Candidate · original waterfront placement" },
@@ -59,6 +63,7 @@ const id = [
   "registration",
   "registration-refined",
   "registration-forecourt",
+  "registration-review",
 ].includes(query.get("scene") ?? "")
   ? query.get("scene")!
   : "world";

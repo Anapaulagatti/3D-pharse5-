@@ -1,3 +1,7 @@
+# Current authority — station forecourt APPROVED; final spatial review only
+
+Latest: [human approval](docs/current/G3A_FORECOURT_APPROVAL.md). Preserve the accepted native floor, masks, chunks and historical sources. Canonical registry: assets-src/gate3/approved-station-forecourt.json. Current review: [remaining decisions](docs/g3a-final-spatial-review/README.md). No further forecourt art revision; final G3-A spatial approval withheld, G3-B BLOCKED. No main merge or deployment. Older pending-forecourt status is historical.
+
 # Current authority — authorized isolated native forecourt restoration
 
 Latest: [user authorization](docs/current/G3A_FORECOURT_RESTORATION.md). Implement native ground restoration in a separate candidate namespace; preserve approved sources/default world/renderer/collision/station/Juni/checkpoints. Earlier audit-only limits are superseded for this localized repair. G3-B remains BLOCKED; STOP for human visual approval.
