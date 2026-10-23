@@ -1,0 +1,50 @@
+{
+  "provider": "Built-in image_gen tool; no paid provider API",
+  "model": null,
+  "cost": null,
+  "nativeResampling": "NONE",
+  "note": "Generated production candidates, not claimed hand-drawn; initial alpha sheets archived, opaque magenta finishes used for technical extraction. Full-size generation prompts requested certain dimensions; actual native dimensions are recorded in extracted-assets.json and never resized. All generation done through built-in image_gen; no provider API credentials or paid endpoint calls. Actual outputs and initial attempts are archived.",
+  "prompts": {
+    "north": "NEW Korean historical RPG production sprite atlas on TRANSPARENT background, 1536x1536 pixels. Match the reference's premium craft, crisp tiny pixel clusters, warm sun upper left, fixed orthographic top-down 3/4 front view without vanishing point, intricate gray-blue Korean giwa tiles, dark timber, dancheong brackets, latticed100px doorways, stone foundations, no people. Three isolated architectural sprites ONLY, generous transparent gutters and natural small ground contact shadows. TOP region x20..1510,y20..720: monumental Korean royal palace hall approx1050px wide and600px high, entirely visible including magnificent double-tier sweeping eaves, red timber columns, traditional multicolor dancheong, carved stone terrace and central broad stairs, dignified straight frontal symmetry. It is a full scale building, not miniature. BOTTOM LEFT region x20..710,y850..1510: royal archive approx400px wide and380px high with restrained dark wooden structure, blue gray tiled roof, stone terrace, double entry doors and protected scroll cabinets visible inside, little decorative pine at side but no standalone ground rectangle. BOTTOM RIGHT region x820..1510,y850..1510: Korean cultural workshop pavilion approx460px wide and400px high, open timber and glazed paper doors with hints of ceramics/hanji displays, elegant blue-gray roof, foundation steps, traditional materials only. NO shared scene or underpainting; no modern architecture; all three buildings separated cleanly with alpha for extraction. Every structure entire with no cropped roof/props. Do not copy or modify reference buildings; produce new compatible architecture.",
+    "materials": "New premium Korean pixel-art RPG environment texture and vegetation atlas 1536x1024 pixels, transparent canvas. Fixed overhead 3/4 perspective and warm upper-left sunlight matching references. Precise tiny 1px texture detail, no blur, no gradient airbrush, no labels, no people. TOP HALF six seamless square ground material samples each256x256 arranged exactly at x0,256,512,768,1024,1280 all y0: (1) lush varied fine Korean garden grass, (2) warm buff Korean sandstone courtyard with irregular crisp block joints, (3) cool gray urban pavement rectangular stone slabs, (4) rich dark asphalt, very subtle granular texture without lines, (5) sandy ochre garden gravel, (6) weathered wooden dock decking. Samples square fully opaque, filling each256 square. Rest of upper half blank transparent gutter. BOTTOM HALF four independent, completely separated full trees x20..350,y490..1010; x400..740,y490..1010; x780..1110,y490..1010; x1150..1510,y490..1010: Korean spreading red pine with sculptural trunk; lovely irregular ginkgo with yellowgreen leaves; rich green broadleaf tree with tiny blossoms; coastal windswept pine and basalt foot. Each tree approx200px wide and240px tall, not fill whole assigned cell. Natural intricate foliage with visible separate leaf clusters and graceful branching, clean alpha, delicate contact shadows. No planted square patch under trees. Native-scale reusable assets. New content only, no copied buildings.",
+    "landmarksFinish": "Finish this NEW production asset sheet, preserving its five separate sprite composition and native level of detail. Output1536x1536, entirely FLAT PURE MAGENTA #ff00ff background in all empty pixels, also between Ferris wheel spokes and between branches. NO transparent background, NO shadow gradients into background, NO red or yellow edge fringe. Clean hard pixel-art contours. Every sprite completely visible, generous margins to avoid clipped edges. Replace ONLY the LEFT TOWER design with recognizable white N SEOUL TOWER at Namsan: pale concrete narrow shaft, broad round multi-tier observation disc, slender WHITE antenna mast with tiny red aviation beacon only, no red Tokyo Tower lattice. Keep its beautiful stone garden base. Keep Ferris wheel, carousel, market and ferry building artistically rich and separate. Change no layout from reference except give all objects20px margins. Sharp tiny pixel clusters, nonblurry. All five buildings are newly generated candidates; no protected artwork is being modified."
+  },
+  "outputs": [
+    {
+      "file": "landmarks-host.png",
+      "status": "ARCHIVED / initial transparency artifacts and tower identity corrected in finish"
+    },
+    {
+      "file": "historical-host.png",
+      "status": "ARCHIVED / transparency artifacts; opaque finish used"
+    },
+    {
+      "file": "materials-host.png",
+      "status": "Native cropped materials only; generated gradient background unused"
+    },
+    {
+      "file": "landmarks-finished.png",
+      "status": "Native isolated landmark sprites; pure-magenta mask extraction"
+    },
+    {
+      "file": "historical-finished.png",
+      "status": "Native isolated historical sprites; pure-magenta mask extraction"
+    },
+    {
+      "file": "trees-finished.png",
+      "status": "ARCHIVED / native tree dimensions exceed useful regional planting spacing"
+    },
+    {
+      "file": "trees-native.png",
+      "status": "Native12-variant atlas; actual1254x1254 output, extraction unchanged scale"
+    }
+  ],
+  "references": [
+    "public/assets/gate2/a/ground.png",
+    "public/assets/gate3/registration-platform-restored/overview.png",
+    "public/assets/gate2/b/prop-heritage-tree.png"
+  ],
+  "protectedSourcesModified": false,
+  "hostCalls": 7,
+  "technicalAlphaCorrection": "Tower cell: remove only detached right-edge neighbor-wheel components at x>=330, y<550 in source cell; all native visible RGB retained, no crop-size/registration change."
+}
