@@ -1,3 +1,7 @@
+# Current authority — authorized isolated native forecourt restoration
+
+Latest: [user authorization](docs/current/G3A_FORECOURT_RESTORATION.md). Implement native ground restoration in a separate candidate namespace; preserve approved sources/default world/renderer/collision/station/Juni/checkpoints. Earlier audit-only limits are superseded for this localized repair. G3-B remains BLOCKED; STOP for human visual approval.
+
 # Current authority — station forecourt fidelity audit ONLY
 
 Latest: [user request](docs/current/G3A_FORECOURT_FIDELITY_AUDIT.md). Audit ground patch independently, distinguish source/extraction/resizing/compositing/runtime and provide four native before/after crop pairs. Preserve approved source assets/checkpoints/station/Juni. If baked, propose a non-destructive localized source fix; do not silently author replacement art or claim pixel-exact rendering resolves visual softness. G3-B remains blocked.

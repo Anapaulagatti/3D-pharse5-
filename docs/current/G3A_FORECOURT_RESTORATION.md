@@ -1,0 +1,3 @@
+# User authorization — native forecourt restoration
+
+Implement one isolated playable candidate using original-ground.png at native scale, restoring station paving and tactile material only. Preserve architecture, corrected planters and independent shadows, Juni, source files, station logical coordinates/pivot, collision, curb/crosswalk geometry and approved default world. Separate derived ground and explicit masks; only affected chunks. No resizing, sharpening, paid APIs, G3-B, merge or deployment. Deliver actual native before/after, four close-ups, frontage with Juni, gameplay video, source/current/restored comparison, playable ZIP and honest QA. STOP for human visual approval.

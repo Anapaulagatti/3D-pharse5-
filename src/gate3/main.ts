@@ -42,6 +42,10 @@ const base = import.meta.env.BASE_URL,
   native = query.has("native"),
   overview = query.has("overview");
 const catalog = [
+  {
+    id: "registration-forecourt",
+    label: "Candidate · native forecourt restoration",
+  },
   { id: "world", label: "G3-A · 4352×4864 world foundation" },
   { id: "registration", label: "Candidate · original waterfront placement" },
   {
@@ -50,9 +54,12 @@ const catalog = [
   },
   { id: "district", label: "G3-A · approved district / isolated cache lab" },
 ];
-const id = ["district", "registration", "registration-refined"].includes(
-  query.get("scene") ?? "",
-)
+const id = [
+  "district",
+  "registration",
+  "registration-refined",
+  "registration-forecourt",
+].includes(query.get("scene") ?? "")
   ? query.get("scene")!
   : "world";
 const data: Manifest = await fetch(
