@@ -1,0 +1,135 @@
+import { chromium } from "@playwright/test";
+import fs from "node:fs/promises";
+const D = "docs/gate3-zoned-world",
+  plan = JSON.parse(await fs.readFile(`${D}/walk-plan.json`, "utf8")),
+  legs = [],
+  samples = [],
+  errors = [];
+const b = await chromium.launch({
+  executablePath: "/usr/bin/chromium",
+  args: ["--no-sandbox"],
+});
+const ctx = await b.newContext({
+  viewport: { width: 1280, height: 1000 },
+  deviceScaleFactor: 1,
+  recordVideo: { dir: "/tmp/g3dz-video", size: { width: 1280, height: 1000 } },
+});
+const p = await ctx.newPage();
+p.on("pageerror", (e) => errors.push(e.message));
+let held = null;
+async function up() {
+  if (held) await p.keyboard.up(held);
+  held = null;
+}
+async function axis(axis, target) {
+  const end = Date.now() + 35000;
+  let last = Date.now(),
+    prior = null;
+  while (Date.now() < end) {
+    const s = await p.evaluate(() => window.__GATE3__);
+    const d = target - s[axis];
+    if (Math.abs(d) <= 3) {
+      await up();
+      return;
+    }
+    const key = axis === "x" ? (d > 0 ? "d" : "a") : d > 0 ? "s" : "w";
+    if (key !== held) {
+      await up();
+      await p.keyboard.down(key);
+      held = key;
+    }
+    if (prior === null || Math.abs(s[axis] - prior) > 0.2) {
+      last = Date.now();
+      prior = s[axis];
+    }
+    if (Date.now() - last > 4500)
+      throw Error(`Stalled ${axis} target${target} at${s.x},${s.y}`);
+    samples.push({
+      t: Date.now(),
+      x: s.x,
+      y: s.y,
+      ready: s.ready,
+      chunks: s.chunks,
+      session: s.session,
+    });
+    await p.waitForTimeout(12);
+  }
+  throw Error("Movement timed out");
+}
+try {
+  await p.goto(
+    "http://127.0.0.1:4302/gate3-review.html?scene=zoned-world&entry=transition&pixelAudit",
+  );
+  await p.waitForFunction(
+    () => window.__GATE3__?.ready && window.__GATE3__.chunks.inflight === 0,
+  );
+  await p.keyboard.down("Shift");
+  for (const leg of plan.legs) {
+    const start = await p.evaluate(() => ({
+      x: window.__GATE3__.x,
+      y: window.__GATE3__.y,
+    }));
+    let failure = null;
+    try {
+      for (const [x, y] of leg.points) {
+        await axis("x", x);
+        await axis("y", y);
+      }
+    } catch (e) {
+      failure = e.message;
+      await up();
+    }
+    const end = await p.evaluate(() => ({
+      x: window.__GATE3__.x,
+      y: window.__GATE3__.y,
+    }));
+    legs.push({
+      id: leg.id,
+      start,
+      end,
+      status: failure ? "FAIL" : "PASS_REAL_KEYBOARD_FOOT_MOVEMENT",
+      failure,
+      requested: leg.requestedTarget,
+      gridTarget: leg.reachedGridTarget,
+    });
+    console.log(
+      leg.id,
+      legs.at(-1).status,
+      Math.round(end.x),
+      Math.round(end.y),
+    );
+    const a = await p.evaluate(() => window.__GATE3_PIXEL_AUDIT__());
+    await fs.writeFile(
+      `${D}/walk-${leg.id}-native.png`,
+      Buffer.from(a.png.split(",")[1], "base64"),
+    );
+    if (failure) break;
+    await p.waitForTimeout(200);
+  }
+  await p.keyboard.up("Shift");
+  await up();
+  const final = await p.evaluate(() => window.__GATE3__);
+  const video = p.video();
+  await ctx.close();
+  await video.saveAs(`${D}/world-traversal.webm`);
+  await fs.writeFile(
+    `${D}/movement-report.json`,
+    JSON.stringify(
+      {
+        method:
+          "Real WASD+Shift controls, continuous start at approved transition spawn; no teleport, no collision override; A* only supplies intended waypoints; foot-point motion is not full-body clearance certification",
+        legs,
+        samples,
+        errors,
+        final,
+        complete:
+          legs.length === plan.legs.length && legs.every((x) => !x.failure),
+        physicalDeviceEvidence: false,
+      },
+      null,
+      2,
+    ),
+  );
+} finally {
+  await b.close();
+}

@@ -1,3 +1,7 @@
+# Active refinement — regional land use and urban landscape zoning
+
+The full G3-D composition remains human REJECTED pending zoning correction. [Shared landscape plan](docs/gate3-zoned-world/LANDSCAPE_MASTERPLAN.md) and [global native material registry](assets-src/gate3/zoned-world-v1/land-use-registry.json) govern adjacent environment ownership. Commercial/transit/attraction spaces use open fine granite paving and restrained formal beds, not forest carpet. Namsan retains accepted layered forest; historic north retains Korean courts/gardens; canonical Jeju stays immutable. New water transitions operate outside its original rectangle with native source-texel ownership; no landscape-atlas filling or source filtering. Technical readback never grants artistic acceptance.
+
 # Korean Arena Art Direction Bible — recovery version1
 
 **Current authority:** [conditional shared-system approval and controlled world recovery](docs/current/G3D_WORLD_RECOVERY_AUTHORIZATION.md). The three pilots established the shared direction; controlled propagation to all ten regions is authorized. Individual scenes/landmarks and the consolidated world still require human artistic acceptance. The G3-B/C engine is retained; its rejected giant repeating material atlas remains a historical comparison, never a style reference.

@@ -1,3 +1,7 @@
+# Current review — coordinated urban/landscape correction, 24 October 2026
+
+[Zoning candidate](docs/gate3-zoned-world/README.md) supersedes the prior ten-region composition handoff, not its protected sources or checkpoints. Full-world artistic acceptance remains withheld. Modern ground vegetation and public-space purpose, transit/park circulation and external ocean seams are under coordinated correction; native evidence and real movement are required. Six marked reviewer screenshots were not provided and exact matching remains NOT TESTED. Tower/retail projection, residual ride/road projection, station8px strip, inherited route/body-clearance issues, Bakery and physical hardware/device performance remain explicit P1s until evidence or a planning decision closes them. Historical findings below remain recoverable.
+
 # Gate 3 master defect register
 
 ## Current consolidated G3-D recovery checkpoint
