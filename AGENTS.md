@@ -1,3 +1,7 @@
+# Current authority — coordinated G3-D urban/landscape zoning correction
+
+Latest user directive: [zoning correction](docs/current/G3D_ZONING_CORRECTION.md). Earlier ten-region handoff stop is superseded only for five coordinated correction batches. Use one global land-use/material registry, reduce urban forest cover, preserve protected architecture/native sources/canonical Jeju/station/forecourt/Juni/roots/plans/checkpoints. No silent reservation changes or rejected platform connector. Bakery remains unresolved, physical devices untested. No paid APIs, main merge, public deployment or delegation. STOP for one consolidated review. Six marked reviewer images are currently absent; do not claim their exact resolution without receiving them.
+
 # Current authority — conditional G3-D system approval / consolidated world recovery
 
 Consolidated candidate and final-review handoff: [ten-region evidence](docs/gate3-recovery-world/README.md). Controlled propagation is authorized; individual art/spatial acceptance, required Bakery, remaining navigation/projection issues and physical hardware/device evidence are not inferred from builds or traversal. Do not resume expansion after this handoff without the human consolidated review.
