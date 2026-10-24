@@ -1,0 +1,298 @@
+{
+  "baseline": "public/assets/gate3/zoned-world/manifest.json",
+  "sources": [
+    {
+      "id": "palacewest",
+      "source": "assets-src/gate3/reconciliation-v1/palacewest-authored.png",
+      "rect": [
+        1000,
+        120,
+        1536,
+        1024
+      ],
+      "mask": "assets-src/gate3/reconciliation-v1/palacewest-ownership.png",
+      "nativeScale": 1,
+      "resampling": "NONE"
+    },
+    {
+      "id": "palaceeast",
+      "source": "assets-src/gate3/reconciliation-v1/palaceeast-authored.png",
+      "rect": [
+        1664,
+        120,
+        1536,
+        1024
+      ],
+      "mask": "assets-src/gate3/reconciliation-v1/palaceeast-ownership.png",
+      "nativeScale": 1,
+      "resampling": "NONE"
+    },
+    {
+      "id": "commercial",
+      "source": "assets-src/gate3/reconciliation-v1/commercial-authored.png",
+      "rect": [
+        1280,
+        1740,
+        1536,
+        1024
+      ],
+      "mask": "assets-src/gate3/reconciliation-v1/commercial-ownership.png",
+      "nativeScale": 1,
+      "resampling": "NONE"
+    },
+    {
+      "id": "station",
+      "source": "assets-src/gate3/reconciliation-v1/station-authored.png",
+      "rect": [
+        1792,
+        1920,
+        1536,
+        1024
+      ],
+      "mask": "assets-src/gate3/reconciliation-v1/station-ownership.png",
+      "nativeScale": 1,
+      "resampling": "NONE"
+    },
+    {
+      "id": "ceremonial-court",
+      "worldRect": [
+        1830,
+        790,
+        430,
+        275
+      ],
+      "source": "assets-src/gate3/zoned-world-v1/urbanwest-authored.png",
+      "sourceRect": [
+        740,
+        470,
+        430,
+        340
+      ],
+      "trialRejected": "court-authored.png introduced forbidden new piers; not installed",
+      "retiredLeftPierFringe": [
+        1810,
+        900,
+        20,
+        230
+      ],
+      "policy": "Explicit reversible terrain ownership inside old A, not source PNG mutation. Architectural pixels above790 and west pavilion outside court preserved."
+    },
+    {
+      "id": "gate-pier-left",
+      "source": "public/assets/gate2/a/ground.png",
+      "sourceRect": [
+        1170,
+        260,
+        1250,
+        445
+      ],
+      "worldOrigin": [
+        1760,
+        892
+      ],
+      "supportPlane": "Original Gate1 south wall ends; native RGB copied exactly, new mask/registration explicit. No scale/architecture repaint."
+    },
+    {
+      "id": "gate-pier-right",
+      "source": "public/assets/gate2/a/ground.png",
+      "sourceRect": [
+        1380,
+        260,
+        1490,
+        450
+      ],
+      "worldOrigin": [
+        2233,
+        890
+      ],
+      "supportPlane": "Original Gate1 south wall ends; native RGB copied exactly, new mask/registration explicit. No scale/architecture repaint."
+    }
+  ],
+  "walls": [
+    {
+      "id": "palace-west",
+      "supportRect": [
+        1110,
+        170,
+        30,
+        870
+      ],
+      "nativeSourceFamily": "palaceeast horizontal49px / support last25px / palaceeast vertical36px native course / support offset3px / native roof overhang3px",
+      "resampling": "NONE",
+      "visualProjection": "Roof courses may project above/left of ground support. No footprint inferred from roof bbox."
+    },
+    {
+      "id": "palace-east",
+      "supportRect": [
+        2910,
+        170,
+        30,
+        870
+      ],
+      "nativeSourceFamily": "palaceeast horizontal49px / support last25px / palaceeast vertical36px native course / support offset3px / native roof overhang3px",
+      "resampling": "NONE",
+      "visualProjection": "Roof courses may project above/left of ground support. No footprint inferred from roof bbox."
+    },
+    {
+      "id": "palace-north",
+      "supportRect": [
+        1110,
+        170,
+        1830,
+        30
+      ],
+      "nativeSourceFamily": "palaceeast horizontal49px / support last25px / palaceeast vertical36px native course / support offset3px / native roof overhang3px",
+      "resampling": "NONE",
+      "visualProjection": "Roof courses may project above/left of ground support. No footprint inferred from roof bbox."
+    },
+    {
+      "id": "palace-south-west",
+      "supportRect": [
+        1110,
+        1040,
+        720,
+        25
+      ],
+      "nativeSourceFamily": "palaceeast horizontal49px / support last25px / palaceeast vertical36px native course / support offset3px / native roof overhang3px",
+      "resampling": "NONE",
+      "visualProjection": "Roof courses may project above/left of ground support. No footprint inferred from roof bbox."
+    },
+    {
+      "id": "palace-south-east",
+      "supportRect": [
+        2260,
+        1040,
+        680,
+        25
+      ],
+      "nativeSourceFamily": "palaceeast horizontal49px / support last25px / palaceeast vertical36px native course / support offset3px / native roof overhang3px",
+      "resampling": "NONE",
+      "visualProjection": "Roof courses may project above/left of ground support. No footprint inferred from roof bbox."
+    }
+  ],
+  "changedGroundChunks": [
+    "0-0",
+    "1-0",
+    "2-0",
+    "3-0",
+    "4-0",
+    "5-0",
+    "6-0",
+    "7-0",
+    "8-0",
+    "0-1",
+    "1-1",
+    "2-1",
+    "3-1",
+    "4-1",
+    "5-1",
+    "6-1",
+    "7-1",
+    "8-1",
+    "0-2",
+    "2-2",
+    "3-2",
+    "4-2",
+    "5-2",
+    "6-2",
+    "7-2",
+    "8-2",
+    "0-3",
+    "2-3",
+    "3-3",
+    "4-3",
+    "5-3",
+    "6-3",
+    "7-3",
+    "8-3",
+    "0-4",
+    "2-4",
+    "3-4",
+    "4-4",
+    "5-4",
+    "6-4",
+    "7-4",
+    "8-4",
+    "0-5",
+    "2-5",
+    "3-5",
+    "4-5",
+    "5-5",
+    "6-5",
+    "7-5",
+    "8-5",
+    "0-6",
+    "6-6",
+    "7-6",
+    "8-6",
+    "0-7",
+    "1-7",
+    "2-7",
+    "3-7",
+    "4-7",
+    "5-7",
+    "6-7",
+    "8-7",
+    "0-8",
+    "1-8",
+    "2-8",
+    "3-8",
+    "4-8",
+    "5-8",
+    "6-8",
+    "7-8",
+    "8-8",
+    "0-9",
+    "1-9",
+    "2-9",
+    "3-9",
+    "4-9",
+    "5-9",
+    "6-9",
+    "7-9",
+    "8-9"
+  ],
+  "changedMaskChunks": [
+    "3-1",
+    "4-1",
+    "3-2",
+    "4-2",
+    "5-2"
+  ],
+  "stationDerived": {
+    "source": "public/assets/gate3/registration/station.png",
+    "retirementMask": "assets-src/gate3/reconciliation-v1/station-background-retirement.png",
+    "nativeRGBExact": true,
+    "facadeAlphaExactOutsideExplicitBackground": true,
+    "registrationPivotUnchanged": true,
+    "floor": "EXACT / independent canonical owner"
+  },
+  "jejuException": {
+    "mask": "assets-src/gate3/reconciliation-v1/jeju-water-boundary-exception.png",
+    "protectedLandMask": "assets-src/gate3/reconciliation-v1/jeju-protected-land-nearshore.png",
+    "protectedPixelsExact": true,
+    "sourcePNGUnchanged": true,
+    "authorized": "Explicit reversible water-boundary exception in latest directive",
+    "changedSourceFramePixels": 227492,
+    "reflectionDonors": "NONE / retired prior reflection system",
+    "nativeWaterFamily": {
+      "source": "assets-src/gate3/reconciliation-v1/ocean-authored.png",
+      "nativeExtent": [
+        1536,
+        1024
+      ],
+      "transform": "Integer native translation/phase only, no reflection or RGB filtering",
+      "trialPolicy": "Final revision selects the clean1536x1024 authored offshore family at native1:1 rather than visibly repeating128px samples. Contextual waternorth/watersouth RGB with ghost fragments remains rejected; only physical-shore foam recovered. Canonical Jeju nearshore is protected.",
+      "externalSourceEdgeCleanup": [
+        3180,
+        3180,
+        1024,
+        20
+      ]
+    }
+  },
+  "collisionOwnership": "Approved northern building supports/wall supports and430px ceremonial south opening/court reclaimed. Modern colliders, native Jeju field and station8px strip unchanged.",
+  "protectedArchitecture": "All original building registrations unchanged; Gate1 gate-pier correction explicitly source-preserving",
+  "planningAmendments": [],
+  "artAcceptance": "PENDING HUMAN / plinth/cropped-source conflicts remain"
+}
