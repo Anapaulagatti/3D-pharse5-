@@ -3,7 +3,8 @@ Additional original/crop/source evidence links resolve to the immutable review t
 """
 from pathlib import Path
 from zipfile import ZipFile,ZIP_DEFLATED
-import json,re,hashlib,posixpath
+import json,re,hashlib,posixpath,io
+from PIL import Image
 R=Path(__file__).resolve().parents[1];D=R/'docs/gate3-alignment';B=Path('/tmp/g3df-review');files={}
 TAG='checkpoint/g3d-alignment-review-20261024';RAW='https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/'+TAG+'/'
 rel='assets/gate3/aligned-world/manifest.json';m=json.loads((R/'public'/rel).read_text())
@@ -38,10 +39,10 @@ p=argparse.ArgumentParser();p.add_argument('--lan',action='store_true');p.add_ar
 files['START_REVIEW.txt']=('Extract completely. Run python3 start_review.py and open http://127.0.0.1:4300/ . No Node needed for playback. --lan is optional only for trusted private Wi-Fi physical review. Final world art acceptance pending; Bakery and P1s remain. No main merge/public deployment. Two wide original native PNGs and lightweight actual gameplay included. Extra originals/crops/native-resolution video/source masters are immutable repository links. Physical Android/iPhone and hardware performance NOT TESTED. Source reproduction requires the full repository checkout at '+TAG+'; scripts included here document the pipeline, not all historical authoring inputs.\n').encode()
 core+=['palace-compound','palace-entrance','palace-east','palace-route','station-precinct','station-upper','station-front','station-right','retail-block','cafe-roof','bookshop-roof','learning-roof','bridge-mainland','bridge-island','bridge-full']
 links=''.join(f'<li>{key}: <a href="gate3-review.html?scene=aligned-world&entry={key}&worldOnly">PLAY</a> · <a href="gate3-review.html?scene=aligned-world&entry={key}&native&worldOnly">NATIVE framing</a></li>'for key in core)
-files['index.html']=('''<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>G3-D final alignment review</title><style>body{font:18px/1.5 system-ui;max-width:1100px;margin:2em auto;padding:0 1em;background:#162e31;color:#f4e9d1}a{color:#99e3dd}li{margin:.6em 0}</style><h1>G3-D · five-area architectural alignment candidate</h1><p><strong>Human artistic/spatial approval pending.</strong> Bakery unplaced; tower/ride projections, station strip, inherited routes, station source clipping, protected asphalt material phase, public circulation and physical-device performance remain open. This is a review world, not an accepted release.</p><p><a href="docs/gate3-alignment/VISUAL_REVIEW.html">OPEN VISUAL GALLERY / native originals / actual gameplay / QA</a></p><ul>'''+links+'''</ul><p><a href="docs/gate3-alignment/DEVICE_REVIEW.md">Real-device checklist and export</a> · <a href="docs/gate3-alignment/COVERAGE.md">Actual coverage</a> · <a href="docs/gate3-alignment/README.md">Remaining decisions</a></p><p><a href="gate3-review.html?scene=aligned-road-proposal&entry=station-front&native&worldOnly">PROTECTED ROAD PROPOSAL ONLY — not adopted</a></p><p>WASD/arrows · Shift run · mobile landscape joystick · Scenic/Tour/Return. Original Juni/assets/checkpoints preserved. No main merge, public deployment or unsupported physical-device PASS.</p>''').encode()
+files['index.html']=('''<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>G3-D final alignment review</title><style>body{font:18px/1.5 system-ui;max-width:1100px;margin:2em auto;padding:0 1em;background:#162e31;color:#f4e9d1}a{color:#99e3dd}li{margin:.6em 0}</style><h1>G3-D · five-area architectural alignment candidate</h1><p><strong>Human artistic/spatial approval pending.</strong> Bakery unplaced; tower/ride projections, station strip, inherited routes, bridge stop/turn contact clearance FAIL, station source clipping, protected asphalt material phase, public circulation and physical-device performance remain open. This is a review world, not an accepted release.</p><p><a href="docs/gate3-alignment/VISUAL_REVIEW.html">OPEN VISUAL GALLERY / native originals / actual gameplay / QA</a></p><ul>'''+links+'''</ul><p><a href="docs/gate3-alignment/DEVICE_REVIEW.md">Real-device checklist and export</a> · <a href="docs/gate3-alignment/COVERAGE.md">Actual coverage</a> · <a href="docs/gate3-alignment/README.md">Remaining decisions</a></p><p><a href="gate3-review.html?scene=aligned-road-proposal&entry=station-front&native&worldOnly">PROTECTED ROAD PROPOSAL ONLY — not adopted</a></p><p>WASD/arrows · Shift run · mobile landscape joystick · Scenic/Tour/Return. Original Juni/assets/checkpoints preserved. No main merge, public deployment or unsupported physical-device PASS.</p>''').encode()
 
 # Keep local playable files self-contained; extra evidence/source references use
-# immutable raw links rather than missing local files. Original PNGs stay untouched.
+# immutable raw links rather than missing local files. Original PNGs stay untouched. Offline JPEG copies are max900px/quality68; full review copies remain in repository.
 def fix_link(n,match):
  href=match.group(1)
  if href.startswith(('http:','https:','#','data:','mailto:')):return match.group(0)
@@ -51,6 +52,12 @@ def fix_link(n,match):
 for n in list(files):
  if not n.endswith(('.md','.html')):continue
  text=files[n].decode();text=re.sub(r'(?:href|src)="([^"]+)"',lambda match:fix_link(n,match),text);text=re.sub(r'\]\(([^)]+)\)',lambda match:fix_link(n,match),text);files[n]=text.encode()
+# Extra-light offline JPEG derivatives only. Native PNGs and original gallery files unchanged.
+for n in list(files):
+ if n.endswith('.jpg'):
+  im=Image.open(io.BytesIO(files[n])).convert('RGB')
+  if im.width>900:im=im.resize((900,round(im.height*900/im.width)),Image.Resampling.NEAREST)
+  outJpg=io.BytesIO();im.save(outJpg,format='JPEG',quality=68,optimize=True);files[n]=outJpg.getvalue()
 files['PACKAGE_SHA256.json']=(json.dumps({n:hashlib.sha256(b).hexdigest()for n,b in sorted(files.items())},indent=2)+'\n').encode()
 out=D/'G3D_FINAL_ALIGNMENT_REVIEW.zip'
 with ZipFile(out,'w',ZIP_DEFLATED,compresslevel=9)as z:

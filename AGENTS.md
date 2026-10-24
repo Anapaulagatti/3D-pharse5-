@@ -1,6 +1,6 @@
 # Five-area alignment handoff — STOP for consolidated human review
 
-[Current candidate / evidence / unresolved decisions](docs/gate3-alignment/README.md). One authorized batch delivered; no further expansion or revisions without consolidated human direction. Source originals/plans/canonical station raw ground/planters/canopy/Juni/historical checkpoints preserved. Archive88px gate and protected-road material candidate are PROPOSALS ONLY, not adopted. Station source-tree clipping/road phase,8px strip, inherited routes/projections/Bakery and hardware/device evidence remain OPEN. No main merge/deploy/paid provider API/delegation. Older stops are retained history.
+[Current candidate / evidence / unresolved decisions](docs/gate3-alignment/README.md). One authorized batch delivered; no further expansion or revisions without consolidated human direction. Source originals/plans/canonical station raw ground/planters/canopy/Juni/historical checkpoints preserved. Archive88px gate and protected-road material candidate are PROPOSALS ONLY, not adopted. Bridge stop/turn foot clearance FAIL despite locomotion crossing. Station source-tree clipping/road phase,8px strip, inherited routes/projections/Bakery and hardware/device evidence remain OPEN. No main merge/deploy/paid provider API/delegation. Older stops are retained history.
 
 # Current authority — five-area final alignment correction
 

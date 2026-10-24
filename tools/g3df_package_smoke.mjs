@@ -63,6 +63,25 @@ try {
         throw Error("WASD did not move Juni");
     }
   }
+  await p.goto(
+    `${base}/gate3-review.html?scene=aligned-road-proposal&entry=station-front&native&worldOnly&pixelAudit`,
+  );
+  await p.waitForFunction(
+    () => window.__GATE3__?.ready && window.__GATE3__.chunks.inflight === 0,
+    {},
+    { timeout: 45000 },
+  );
+  const proposal = await p.evaluate(() => window.__GATE3__);
+  if ((await p.locator("#scene-picker option").count()) !== 1)
+    throw Error("Proposal exposes missing scenes");
+  rows.push({
+    entry: "station-road-PROPOSAL-ONLY",
+    renderer: proposal.renderer,
+    ready: proposal.ready,
+    zoom: proposal.zoom,
+    errors: proposal.chunks.errors,
+    notAdopted: true,
+  });
   const ctx = await b.newContext({
     viewport: { width: 844, height: 390 },
     deviceScaleFactor: 3,
@@ -149,9 +168,12 @@ try {
   };
   await ctx.close();
   await p.goto(base + "/docs/gate3-alignment/VISUAL_REVIEW.html");
-  await p.locator("video").evaluate((v) => v.load());
+  await p
+    .locator("video")
+    .evaluateAll((videos) => videos.forEach((v) => v.load()));
   await p.waitForFunction(
-    () => document.querySelector("video").readyState >= 1,
+    () =>
+      [...document.querySelectorAll("video")].every((v) => v.readyState >= 1),
     {},
     { timeout: 30000 },
   );
