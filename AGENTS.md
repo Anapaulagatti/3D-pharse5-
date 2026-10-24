@@ -1,3 +1,11 @@
+# Consolidated reconciliation handoff — stop for human review
+
+[Current native evidence / decisions](docs/gate3-reconciliation/README.md). Candidate sources are checkpointed separately from final artifacts. Approved geometry governs supports; protected source-fit conflicts and residual station/water/route issues remain explicit, not automatically accepted. Main-hall derived proposal is NOT adopted. Do not expand, merge, deploy or silently change protected planning/art after this handoff. Wait for the consolidated human visual/spatial decision. Physical devices/hardware WebGL NOT TESTED.
+
+# Current authority — G3-D spatial fidelity and shared-ownership reconciliation
+
+Latest: [human reconciliation directive](docs/current/G3D_SPATIAL_RECONCILIATION.md). Prior zoning handoff stop is superseded for one consolidated correction pass. Gate1 approved graybox plus explicitly accepted later amendments govern geometry; approved art governs craftsmanship. Prioritize palace geometry and full station precinct ownership, then shared road/garden and Jeju water/bridge. Preserve sources/roots/canonical station/floor/canopy/props/Juni. Narrow reversible derived water-boundary exceptions inside canonical Jeju source frame are expressly authorized for review; original PNG stays immutable and all land/architecture/paths stay exact. Where protected art cannot fit approved geometry, deliver a localized derived-layer proposal and document the conflict rather than silently overwriting. Eight reviewer images are not attached; exact markings unexamined. No arbitrary relocations/new land/paid API/main merge/deployment/delegation. STOP for consolidated human visual approval.
+
 # Consolidated zoning handoff — stop for human review
 
 [Latest coordinated correction candidate](docs/gate3-zoned-world/README.md) includes the global zoning/material registry, native before/after and real traversal evidence. Technical checks do not grant artistic acceptance. Missing exact reviewer screenshots, retained spatial/collision/Bakery/device P1s remain explicit. Do not continue expansion, merge or deploy after this handoff without the consolidated human review.

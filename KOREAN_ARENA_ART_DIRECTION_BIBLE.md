@@ -1,3 +1,7 @@
+# Current reconciliation ownership note
+
+The [G3-D reconciliation candidate](docs/gate3-reconciliation/README.md) follows approved Gate1 geometry plus explicit amendments, with approved art as craftsmanship authority. Do not infer footprints from roofs or doors from public approach dots. Exact wall supports, native court/pier ownership and shared station/ocean layers are review candidates; palace protected-source conflicts and residual joins remain OPEN. Main-hall proposal is separate, not adopted. No automatic artistic acceptance from hashes/readback.
+
 # Active refinement — regional land use and urban landscape zoning
 
 The full G3-D composition remains human REJECTED pending zoning correction. [Shared landscape plan](docs/gate3-zoned-world/LANDSCAPE_MASTERPLAN.md) and [global native material registry](assets-src/gate3/zoned-world-v1/land-use-registry.json) govern adjacent environment ownership. Commercial/transit/attraction spaces use open fine granite paving and restrained formal beds, not forest carpet. Namsan retains accepted layered forest; historic north retains Korean courts/gardens; canonical Jeju stays immutable. New water transitions operate outside its original rectangle with native source-texel ownership; no landscape-atlas filling or source filtering. Technical readback never grants artistic acceptance.

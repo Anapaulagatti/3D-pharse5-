@@ -1,3 +1,7 @@
+# Current G3-D consolidated reconciliation review
+
+[Accessible native before/after and planning decisions](docs/gate3-reconciliation/README.md). Candidate only, world not artistically approved. Original sources/checkpoints retained; palace source-fit conflicts, station residual joins, platform/routes/Bakery/device evidence remain OPEN. No main merge or deployment.
+
 # Current G3-D review — coordinated Korean urban/landscape zoning
 
 [Consolidated visual gallery and native before/after](docs/gate3-zoned-world/VISUAL_REVIEW.md) · [Playable package, QA and unresolved decisions](docs/gate3-zoned-world/README.md). Full-world artistic acceptance remains pending. Protected sources/checkpoints preserved; Bakery/platform/projection/routes/hardware requirements remain explicit. No main merge or public deployment.

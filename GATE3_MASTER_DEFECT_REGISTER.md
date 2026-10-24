@@ -1,3 +1,22 @@
+# Current consolidated reconciliation review — 2026-10-24
+
+[Native review and actual status](docs/gate3-reconciliation/README.md). This supersedes earlier closure claims only for the new candidate. No final artistic acceptance.
+
+| ID | Priority | Current status |
+|---|---|---|
+|G3DR-PALACE-FIT|P1|OPEN: protected hall plinth extends40px; separate native proposal not adopted; academy source is clipped; pavilion support/door needs measured extraction. Exact approved wall supports and430px opening are restored.|
+|G3DR-STATION-JOINS|P1|OPEN: shared precinct/alpha ownership improved; residual upper baked background and canonical-road material join visible. Preserve canonical forecourt/planters/canopy.|
+|G3DR-OCEAN|P1 OPEN|Shared offshore family/physical-shore masks and reversible water-frame exception installed. Major regional override fixed, but a residual island-water source-phase mismatch remains visible at native scale: FAIL seamless criterion.|
+|G3DR-ROOFTOP|P2|Protected facade planting remains; repetition not silently repainted or declared solved.|
+|G3DR-PLATFORM|P1|8px strip CLOSED; no rejected connector. Real platform transfer unverified.|
+|G3DR-ROUTES|P1|Five approved route centerlines retain blocked samples; selected actual movement/body-envelope results separate.|
+|G3DR-PROJECTIONS|P1|Tower6957 retail-road pixels, carousel95 canonical-floor pixels unchanged; protected roots retained.|
+|G3DR-BAKERY|P1 content|Required/unplaced, W0 rejected, Q1 land unallocated.|
+|G3DR-EVIDENCE|P2|Eight marked screenshots not supplied; exact annotation match NOT TESTED.|
+|G3DR-DEVICES|P1 validation|Physical Android/iPhone and hardware WebGL performance NOT TESTED.|
+
+Historical register follows unchanged.
+
 # Current review — coordinated urban/landscape correction, 24 October 2026
 
 [Zoning candidate](docs/gate3-zoned-world/README.md) supersedes the prior ten-region composition handoff, not its protected sources or checkpoints. Full-world artistic acceptance remains withheld. Modern ground vegetation and public-space purpose, transit/park circulation and external ocean seams are under coordinated correction; native evidence and real movement are required. Six marked reviewer screenshots were not provided and exact matching remains NOT TESTED. Tower/retail projection, residual ride/road projection, station8px strip, inherited route/body-clearance issues, Bakery and physical hardware/device performance remain explicit P1s until evidence or a planning decision closes them. Historical findings below remain recoverable.

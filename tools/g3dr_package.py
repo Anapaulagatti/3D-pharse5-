@@ -15,7 +15,7 @@ html=(B/'gate3-review.html').read_text();redirect='<script>if(!new URLSearchPara
 files['gate3-review.html']=html.replace('<head>','<head>'+redirect,1).encode()
 for n in re.findall(r'(?:src|href)="\./([^"]+)"',html):files[n]=(B/n).read_bytes()
 core=['palace','academy','culture','transition','retail','station','namsan','amusement','market','jeju-culture']
-pngs={n+'-after-native.png'for n in ['palace-compound','palace-court','palace-east','station-precinct','station-forecourt','station-amusement','modern','jeju-bridge','jeju-south']}
+pngs={n+'-after-native.png'for n in ['palace-compound','station-precinct','jeju-bridge']}
 usedJpg=set()
 for page in [D/'VISUAL_REVIEW.md',D/'VISUAL_REVIEW.html']:
  usedJpg.update(re.findall(r'([A-Za-z0-9_-]+\.jpg)',page.read_text()))
@@ -35,7 +35,7 @@ from pathlib import Path
 import os,argparse
 p=argparse.ArgumentParser();p.add_argument('--lan',action='store_true');p.add_argument('--port',type=int,default=4300);a=p.parse_args();os.chdir(Path(__file__).resolve().parent);print(f'Open http://127.0.0.1:{a.port}/');print('Consolidated candidate only. Bakery/P1s open. Physical devices NOT TESTED.');ThreadingHTTPServer(('0.0.0.0'if a.lan else'127.0.0.1',a.port),SimpleHTTPRequestHandler).serve_forever()
 '''
-files['START_REVIEW.txt']=('Extract completely. Run python3 start_review.py and open http://127.0.0.1:4300/ . No Node needed for playback. --lan is optional only for trusted private Wi-Fi physical review. Final world art acceptance pending; Bakery and P1s remain. No main merge/public deployment. Nine original native PNGs and lightweight actual gameplay included. Extra originals/crops/native-resolution video/source masters are immutable repository links. Physical Android/iPhone and hardware performance NOT TESTED. Source reproduction requires the full repository checkout at '+TAG+'; scripts included here document the pipeline, not all historical authoring inputs.\n').encode()
+files['START_REVIEW.txt']=('Extract completely. Run python3 start_review.py and open http://127.0.0.1:4300/ . No Node needed for playback. --lan is optional only for trusted private Wi-Fi physical review. Final world art acceptance pending; Bakery and P1s remain. No main merge/public deployment. Three original native PNGs and lightweight actual gameplay included. Extra originals/crops/native-resolution video/source masters are immutable repository links. Physical Android/iPhone and hardware performance NOT TESTED. Source reproduction requires the full repository checkout at '+TAG+'; scripts included here document the pipeline, not all historical authoring inputs.\n').encode()
 links=''.join(f'<li>{key}: <a href="gate3-review.html?scene=reconciled-world&entry={key}&worldOnly">PLAY</a> · <a href="gate3-review.html?scene=reconciled-world&entry={key}&native&worldOnly">NATIVE framing</a></li>'for key in core)
 files['index.html']=('''<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>G3-D consolidated recovery review</title><style>body{font:18px/1.5 system-ui;max-width:1100px;margin:2em auto;padding:0 1em;background:#162e31;color:#f4e9d1}a{color:#99e3dd}li{margin:.6em 0}</style><h1>G3-D · spatial and shared-ownership reconciliation candidate</h1><p><strong>Human artistic/spatial approval pending.</strong> Bakery unplaced; tower/ride projections, station strip, inherited routes, full-body clearance and physical-device performance remain open. This is a review world, not an accepted release.</p><p><a href="docs/gate3-reconciliation/VISUAL_REVIEW.html">OPEN VISUAL GALLERY / native originals / actual gameplay / QA</a></p><ul>'''+links+'''</ul><p><a href="docs/gate3-reconciliation/DEVICE_REVIEW.md">Real-device checklist and export</a> · <a href="docs/gate3-reconciliation/COVERAGE.md">Actual coverage</a> · <a href="docs/gate3-reconciliation/README.md">Remaining decisions</a></p><p><a href="gate3-review.html?scene=reconciled-palace-proposal&entry=palace-compound&native&wideNative&worldOnly">PALACE PROPOSAL ONLY — not adopted</a></p><p>WASD/arrows · Shift run · mobile landscape joystick · Scenic/Tour/Return. Original Juni/assets/checkpoints preserved. No main merge, public deployment or unsupported physical-device PASS.</p>''').encode()
 
@@ -45,7 +45,7 @@ def fix_link(n,match):
  href=match.group(1)
  if href.startswith(('http:','https:','#','data:','mailto:')):return match.group(0)
  target=posixpath.normpath(posixpath.join(posixpath.dirname(n),href.split('?')[0].split('#')[0]))
- if target.endswith('G3D_SPATIAL_RECONCILIATION_REVIEW.zip') or (target not in files and (R/target).is_file()):return match.group(0).replace(href,RAW+target)
+ if target.endswith('G3D_SPATIAL_RECONCILIATION_REVIEW.zip') or (posixpath.basename(target).startswith('package-') and target not in files) or (target not in files and (R/target).is_file()):return match.group(0).replace(href,RAW+target)
  return match.group(0)
 for n in list(files):
  if not n.endswith(('.md','.html')):continue
@@ -62,4 +62,4 @@ with ZipFile(out)as z:
    if href.startswith(('http:','https:','#')):continue
    target=posixpath.normpath(posixpath.join(posixpath.dirname(n),href.split('?')[0]));assert target in files,(n,target)
 assert out.stat().st_size<100000000,out.stat().st_size
-(D/'package-proof.json').write_text(json.dumps({'file':out.name,'bytes':out.stat().st_size,'sha256':hashlib.sha256(out.read_bytes()).hexdigest(),'CRC':'PASS','allFileHashes':'PASS','entryAndGalleryLocalLinks':'PASS','nativeCoreScreenshots':'Nine untouched native Phaser PNGs, including2048x1280 palace/station','extraEvidence':'Immutable repository links; no source PNG overwritten','artAcceptance':'PENDING HUMAN','physicalDevices':'NOT TESTED'},indent=2)+'\n');print(out.name,out.stat().st_size,'bytes',len(files),'files')
+(D/'package-proof.json').write_text(json.dumps({'file':out.name,'bytes':out.stat().st_size,'sha256':hashlib.sha256(out.read_bytes()).hexdigest(),'CRC':'PASS','allFileHashes':'PASS','entryAndGalleryLocalLinks':'PASS','nativeCoreScreenshots':'Three untouched native Phaser PNGs: full2048x1280 palace/station and1280x900 bridge; all other originals via immutable links','extraEvidence':'Immutable repository links; no source PNG overwritten','artAcceptance':'PENDING HUMAN','physicalDevices':'NOT TESTED'},indent=2)+'\n');print(out.name,out.stat().st_size,'bytes',len(files),'files')
