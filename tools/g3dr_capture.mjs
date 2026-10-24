@@ -1,11 +1,21 @@
 import { chromium } from "@playwright/test";
 import fs from "node:fs/promises";
 const D = "docs/gate3-reconciliation",
-  rows = process.env.AFTER_ONLY
+  rows = process.env.UPDATE_ENTRIES
     ? JSON.parse(
         await fs.readFile(`${D}/native-captures.json`, "utf8"),
-      ).rows.filter((r) => r.name.includes("-before-native"))
-    : [],
+      ).rows.filter(
+        (r) =>
+          !(
+            r.scene === "reconciled-world" &&
+            process.env.UPDATE_ENTRIES.split(",").includes(r.entry)
+          ),
+      )
+    : process.env.AFTER_ONLY
+      ? JSON.parse(
+          await fs.readFile(`${D}/native-captures.json`, "utf8"),
+        ).rows.filter((r) => r.name.includes("-before-native"))
+      : [],
   errors = [];
 const entries = [
   "palace-compound",
@@ -42,9 +52,15 @@ try {
     "reconciled-palace-proposal",
   ]) {
     if (process.env.AFTER_ONLY && scene === "reconciled-before") continue;
+    if (process.env.UPDATE_ENTRIES && scene !== "reconciled-world") continue;
     for (const entry of scene.endsWith("proposal")
       ? ["palace-compound", "palace-court"]
       : entries) {
+      if (
+        process.env.UPDATE_ENTRIES &&
+        !process.env.UPDATE_ENTRIES.split(",").includes(entry)
+      )
+        continue;
       const wide = ["palace-compound", "station-precinct"].includes(entry);
       await p.setViewportSize(
         wide ? { width: 2048, height: 1380 } : { width: 1280, height: 1000 },
