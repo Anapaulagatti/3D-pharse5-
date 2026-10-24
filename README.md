@@ -1,3 +1,7 @@
+# Current G3-D consolidated residual review
+
+[Native before/after gallery](docs/gate3-residual/VISUAL_REVIEW.md) · [Playable candidate, actual video and remaining decisions](docs/gate3-residual/README.md) · [Technical/visual QA](docs/gate3-residual/QA.md). Targeted palace/station/retail ownership and shared-water continuity repairs preserve the canonical frontage, Jeju, native Juni, geometry and historical sources. Human artistic acceptance remains pending. Separate road/archive-gate/bridge-support proposals are not adopted; bridge full-pose contact remains FAIL. No main merge or public deployment. Older handoffs below are historical.
+
 # Current G3-D five-area architectural alignment review
 
 [Native before/after gallery](docs/gate3-alignment/VISUAL_REVIEW.md) · [Playable candidate, QA and protected decisions](docs/gate3-alignment/README.md). Palace threshold, three retail silhouettes and both bridge landings corrected as one localized candidate. Station final seamlessness remains FAIL due protected asphalt/source-tree clipping; archive20px corridor and inherited P1s remain. No full-world artistic acceptance, merge or deployment.

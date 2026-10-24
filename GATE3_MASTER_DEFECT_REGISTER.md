@@ -1,3 +1,22 @@
+# Current consolidated residual review — 2026-10-25
+
+[Native evidence, source ownership and decisions](docs/gate3-residual/README.md). Supersedes old candidate diagnoses only for measured residual corrections; original sources and all historical entries remain. No final artistic acceptance.
+
+| ID | Priority | Current status |
+|---|---|---|
+|G3DE-PALACE|P2 visual review|IMPLEMENTED: axis2048/threshold685 fixed; bounded native stone apron and retired misplaced source-side return detail. Central original rails/treads/portal/roof unchanged. Human composition review pending.|
+|G3DE-ARCHIVE|P1 spatial|OPEN: existing20px corridor not accepted. Separate88px gateway visual/collision proposal; actual main wall blocks, proposal reaches door. Main wall/field unchanged; cap/roof/public composition decision remains.|
+|G3DE-STATION|P2 visual review|IMPLEMENTED: explicit rear/source-floor/tree ownership, native crown completion outside2958, protected HVAC/canopy roof/post/native facade RGB and canonical forecourt exact. Human visual review pending.|
+|G3DE-ROAD|P1 decision|OPEN: canonical protected asphalt phase/softness retained. Isolated native-road candidate2274,2755,684,58 shown at native/full precinct, not adopted.|
+|G3DE-RETAIL|P2 visual review|IMPLEMENTED: cafe background strip and bookshop/learning obsolete rooftop background alpha retired; original facade RGB/native geometry exact. No architecture regeneration.|
+|G3DE-WATER|P2 visual review|IMPLEMENTED: source repeat-edge root cause repaired by native overlap ownership; shared offshore phase fixed. Original Jeju protected bitmap exact; broader water trial rejected. Southern retaining edge/prom/ferry/land unchanged. Native artistic review pending.|
+|G3DE-BRIDGE|P1 spatial|FAIL full physical contact: real nine-leg route crosses both ways,12 genuine stop/turn poses.18 outward/8 return sampled failures under corrected below-anchor-toe contact model. Separate bounded25px shoulder/4866px² visible-support proposal; not live geometry, not global structural optimum. Previous13/6 normalized model is superseded.|
+|G3DE-PLATFORM|P1 navigation|FAIL:8px strip closed; actual input blocks at native pixel2958. No90×36 connector or platform-transfer claim.|
+|G3DE-ROUTES|P1 navigation|OPEN: seven inherited planned centerlines contain blocked samples. Selected actual traversal PASS does not close the full route network.|
+|G3DE-PROJECTIONS|P1 spatial|OPEN: tower6957px retail-road and carousel95px canonical-floor projections; protected roots unchanged.|
+|G3DE-BAKERY|P1 content|Required/unplaced. W0 rejected; Q1 land unallocated. No repeated unchanged exhaustive site search.|
+|G3DE-EVIDENCE|P1 review|Six marked reviewer screenshots not supplied/requested; exact annotation closure NOT TESTED. Physical Android/iPhone and hardware WebGL performance NOT TESTED.|
+
 # Current five-area architectural alignment review — 2026-10-24
 
 [Consolidated evidence / exact measurements](docs/gate3-alignment/README.md). Candidate implementation does not imply human approval. Older statements below are historical diagnoses when explicitly superseded here.
