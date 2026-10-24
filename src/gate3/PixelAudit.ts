@@ -22,6 +22,8 @@ export function installPixelAudit(scene: Phaser.Scene) {
             )
             .map((o) => ({
               key: o.texture.key,
+              alpha: o.alpha,
+              depth: o.depth,
               visible: o.visible,
               position: [o.x, o.y],
               origin: [o.originX, o.originY],

@@ -1,3 +1,7 @@
+# Current native architectural ownership rule
+
+[Five-area alignment handoff](docs/gate3-alignment/README.md): support reservations, painted plinth, roof projection, visible doorway and public approach are distinct. Native upper-source recovery/explicit alpha takes precedence over rectangular illustration ownership. Bounded derived palace portal/canopy/bridge completion uses separate sources/masks; protected originals remain immutable. Native source readback and hash preservation do not prove artistic success. Station protected asphalt phase/softness and clipped potted-tree crown remain visible-source defects; no concealment or full-world acceptance.
+
 # Current reconciliation ownership note
 
 The [G3-D reconciliation candidate](docs/gate3-reconciliation/README.md) follows approved Gate1 geometry plus explicit amendments, with approved art as craftsmanship authority. Do not infer footprints from roofs or doors from public approach dots. Exact wall supports, native court/pier ownership and shared station/ocean layers are review candidates; palace protected-source conflicts and residual joins remain OPEN. Main-hall proposal is separate, not adopted. No automatic artistic acceptance from hashes/readback.

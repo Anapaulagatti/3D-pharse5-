@@ -1,3 +1,18 @@
+# Current five-area architectural alignment review — 2026-10-24
+
+[Consolidated evidence / exact measurements](docs/gate3-alignment/README.md). Candidate implementation does not imply human approval. Older statements below are historical diagnoses when explicitly superseded here.
+
+| ID | Priority | Current status |
+|---|---|---|
+|G3DF-PALACE|P1 review|IMPLEMENTED: source axis1921→2048 through native derived front, plinth790→750, measured actual threshold2048,685. Real traversal evidence; original roof/root/plan protected. Human composition approval pending.|
+|G3DF-ARCHIVE|P1 spatial|OPEN: reserve150px/roof46px/podium~52px east clearances distinct. Native stairs/depth corrected; actual door2580,923 reached.20px front public corridor remains tight.88px secondary gate PROPOSAL ONLY; original wall unchanged.|
+|G3DF-STATION|P1 art|PARTIAL: background alpha/roof ownership corrected, original canopy plus bounded terminal cap. Final seamless criterion FAIL: canonical asphalt source softness/material phase and clipped right potted-tree crown remain. Main canonical ground/planters exact. Separate protected-road native-material proposal not adopted.|
+|G3DF-RETAIL|P2 review|IMPLEMENTED: verified source expansion/alpha restores cafe/bookshop/learning upper silhouettes, lower facade guards exact. No new-building authorship claim. Human visual review pending.|
+|G3DF-BRIDGE|P1 review|IMPLEMENTED: two bounded native abutments/local water ownership, existing near-rail foreground/static RGB exact, atlas-native local contact guard. Actual full crossing evidence; visual review required, not collision-only acceptance.|
+|G3DF-PLATFORM|P1|OPEN:8px strip remains closed;90×36 connector absent. No platform-transfer PASS.|
+|G3DF-INHERITED|P1|OPEN: planned route findings, tower6957px retail-road/carousel95px canonical-floor projections, required unplaced Bakery (W0 rejected,Q1 unallocated). No silent reservation changes.|
+|G3DF-EVIDENCE|P1 review|Seven marked screenshots NOT PROVIDED/requested; annotation-specific validation NOT TESTED. Hardware WebGL and physical Android/iPhone NOT TESTED.|
+
 # Current consolidated reconciliation review — 2026-10-24
 
 [Native review and actual status](docs/gate3-reconciliation/README.md). This supersedes earlier closure claims only for the new candidate. No final artistic acceptance.

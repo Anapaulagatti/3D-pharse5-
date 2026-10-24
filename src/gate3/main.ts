@@ -1,3 +1,4 @@
+import { loadNativeContact, type ContactSpec } from "./NativeContact";
 import Phaser from "phaser";
 import { nativeCanvasOffset } from "./PixelGrid";
 import { installPixelAudit } from "./PixelAudit";
@@ -42,6 +43,15 @@ const base = import.meta.env.BASE_URL,
   native = query.has("native"),
   overview = query.has("overview");
 const catalog = [
+  {
+    id: "aligned-road-proposal",
+    label: "PROPOSAL ONLY · native asphalt exception / not adopted",
+  },
+  {
+    id: "aligned-world",
+    label: "G3-D five-area architectural correction / human review pending",
+  },
+  { id: "aligned-before", label: "G3-D BEFORE five-area correction" },
   {
     id: "reconciled-world",
     label: "G3-D · spatial/shared-ownership reconciliation / review pending",
@@ -106,11 +116,15 @@ const availableCatalog = query.has("worldOnly")
   ? catalog.filter(
       (s) =>
         s.id ===
-        (query.get("scene")?.startsWith("reconciled-")
-          ? "reconciled-world"
-          : query.get("scene") === "zoned-world"
-            ? "zoned-world"
-            : "recovery-world"),
+        (query.get("scene") === "aligned-road-proposal"
+          ? "aligned-road-proposal"
+          : query.get("scene")?.startsWith("aligned-")
+            ? "aligned-world"
+            : query.get("scene")?.startsWith("reconciled-")
+              ? "reconciled-world"
+              : query.get("scene") === "zoned-world"
+                ? "zoned-world"
+                : "recovery-world"),
     )
   : query.has("pilotsOnly")
     ? catalog.filter((s) =>
@@ -118,6 +132,9 @@ const availableCatalog = query.has("worldOnly")
       )
     : catalog;
 const id = [
+  "aligned-road-proposal",
+  "aligned-world",
+  "aligned-before",
   "reconciled-world",
   "reconciled-before",
   "reconciled-palace-proposal",
@@ -143,6 +160,10 @@ const data: Manifest = await fetch(
   if (!r.ok) throw Error("Missing G3 manifest");
   return r.json();
 });
+const nativeContact = await loadNativeContact(
+  (data as Manifest & { contactCollision?: ContactSpec }).contactCollision,
+  base,
+);
 // Diagnostic stress profile only; normal review uses the manifest64MiB budget.
 if (query.has("stress")) data.budgetBytes = 24 * 1024 * 1024;
 const entries: Record<string, number[]> =
@@ -175,7 +196,7 @@ const label = id.startsWith("zoned-")
             ? "G3-D three pilot regions only · unified art approval pending"
             : "Approved district · local coordinates · world registration pending";
 const root = document.querySelector<HTMLDivElement>("#app")!;
-root.innerHTML = `<header><b>${id.startsWith("recovery-") || id.startsWith("zoned-") || id.startsWith("reconciled-") ? "G3-D STYLE REVIEW" : "G3-C HISTORY PROTOTYPE"}</b><select id="scene-picker" aria-label="Review environment">${availableCatalog.map((s) => `<option value="${s.id}" ${s.id === id ? "selected" : ""}>${s.label}</option>`).join("")}</select><span id="camera-mode">Follow · native1:1</span><button id="scenic">Scenic</button><details id="settings"><summary aria-label="Options">···</summary><div><label><input type="checkbox" id="showcases"> Landmark moments</label><button id="pause">Pause</button><button id="export-session">Export test report</button></div></details></header><main id="stage"></main><div id="map-labels" aria-hidden="true"></div><div id="camera-tools"><span>Drag to look · pinch to zoom</span><button id="start-tour">Start Tour</button><span id="tour-caption" role="status" aria-live="polite"></span><button id="tour-pause">Pause</button><button id="tour-next">Skip landmark</button><button id="overview-mode">Full scene</button><button id="return-juni">Return to Juni</button></div><button id="tour-controls" aria-controls="camera-tools" aria-expanded="true">Tour controls</button><footer><span id="near">${label}</span><span>WASD / arrows · Shift run · E explore · Space greet</span></footer><div id="joystick" aria-label="Movement joystick"><span class="stick-knob"></span></div><div id="touch-actions"><button id="run">Run</button><button id="explore">Explore</button></div><aside id="dialog" hidden role="dialog" aria-label="Environment detail"><h2 id="title"></h2><p id="copy"></p><button id="close">Return</button></aside>`;
+root.innerHTML = `<header><b>${id.startsWith("recovery-") || id.startsWith("zoned-") || id.startsWith("reconciled-") || id.startsWith("aligned-") ? "G3-D STYLE REVIEW" : "G3-C HISTORY PROTOTYPE"}</b><select id="scene-picker" aria-label="Review environment">${availableCatalog.map((s) => `<option value="${s.id}" ${s.id === id ? "selected" : ""}>${s.label}</option>`).join("")}</select><span id="camera-mode">Follow · native1:1</span><button id="scenic">Scenic</button><details id="settings"><summary aria-label="Options">···</summary><div><label><input type="checkbox" id="showcases"> Landmark moments</label><button id="pause">Pause</button><button id="export-session">Export test report</button></div></details></header><main id="stage"></main><div id="map-labels" aria-hidden="true"></div><div id="camera-tools"><span>Drag to look · pinch to zoom</span><button id="start-tour">Start Tour</button><span id="tour-caption" role="status" aria-live="polite"></span><button id="tour-pause">Pause</button><button id="tour-next">Skip landmark</button><button id="overview-mode">Full scene</button><button id="return-juni">Return to Juni</button></div><button id="tour-controls" aria-controls="camera-tools" aria-expanded="true">Tour controls</button><footer><span id="near">${label}</span><span>WASD / arrows · Shift run · E explore · Space greet</span></footer><div id="joystick" aria-label="Movement joystick"><span class="stick-knob"></span></div><div id="touch-actions"><button id="run">Run</button><button id="explore">Explore</button></div><aside id="dialog" hidden role="dialog" aria-label="Environment detail"><h2 id="title"></h2><p id="copy"></p><button id="close">Return</button></aside>`;
 document.querySelector<HTMLSelectElement>("#scene-picker")!.onchange = (e) => {
   location.search =
     "?scene=" +
@@ -279,7 +300,8 @@ class Slice extends Phaser.Scene {
         id === "production" ||
         id.startsWith("recovery-") ||
         id.startsWith("zoned-") ||
-        id.startsWith("reconciled-"))
+        id.startsWith("reconciled-") ||
+        id.startsWith("aligned-"))
     ) {
       const centres: Record<string, [number, number]> = data.nativeFrames ?? {
         station: [2598.5, 2460],
@@ -345,12 +367,29 @@ class Slice extends Phaser.Scene {
       step = (Math.min(delta, 50) * speed) / 1000,
       oldX = this.x,
       oldY = this.y;
+    const contactFacing =
+      Math.abs(dx) > Math.abs(dy)
+        ? dx > 0
+          ? "right"
+          : "left"
+        : dy > 0
+          ? "front"
+          : "back";
+    const contactAllows = (x: number, y: number) =>
+      !nativeContact ||
+      nativeContact.allows(x, y, running ? "run" : "walk", contactFacing);
     // Sweep in <=1px increments: no wall tunnelling after a slow frame.
     const substeps = Math.max(1, Math.ceil(step));
     for (let i = 0; i < substeps; i++) {
-      if (this.walkable(this.x + (dx * step) / substeps, this.y))
+      if (
+        this.walkable(this.x + (dx * step) / substeps, this.y) &&
+        contactAllows(this.x + (dx * step) / substeps, this.y)
+      )
         this.x += (dx * step) / substeps;
-      if (this.walkable(this.x, this.y + (dy * step) / substeps))
+      if (
+        this.walkable(this.x, this.y + (dy * step) / substeps) &&
+        contactAllows(this.x, this.y + (dy * step) / substeps)
+      )
         this.y += (dy * step) / substeps;
     }
     this.diagnostics?.sample(

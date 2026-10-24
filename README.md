@@ -1,3 +1,7 @@
+# Current G3-D five-area architectural alignment review
+
+[Native before/after gallery](docs/gate3-alignment/VISUAL_REVIEW.md) · [Playable candidate, QA and protected decisions](docs/gate3-alignment/README.md). Palace threshold, three retail silhouettes and both bridge landings corrected as one localized candidate. Station final seamlessness remains FAIL due protected asphalt/source-tree clipping; archive20px corridor and inherited P1s remain. No full-world artistic acceptance, merge or deployment.
+
 # Current G3-D consolidated reconciliation review
 
 [Accessible native before/after and planning decisions](docs/gate3-reconciliation/README.md). Candidate only, world not artistically approved. Original sources/checkpoints retained; palace source-fit conflicts, station residual joins, platform/routes/Bakery/device evidence remain OPEN. No main merge or deployment.

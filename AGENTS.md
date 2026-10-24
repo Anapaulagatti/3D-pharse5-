@@ -1,3 +1,11 @@
+# Five-area alignment handoff — STOP for consolidated human review
+
+[Current candidate / evidence / unresolved decisions](docs/gate3-alignment/README.md). One authorized batch delivered; no further expansion or revisions without consolidated human direction. Source originals/plans/canonical station raw ground/planters/canopy/Juni/historical checkpoints preserved. Archive88px gate and protected-road material candidate are PROPOSALS ONLY, not adopted. Station source-tree clipping/road phase,8px strip, inherited routes/projections/Bakery and hardware/device evidence remain OPEN. No main merge/deploy/paid provider API/delegation. Older stops are retained history.
+
+# Current authority — five-area final alignment correction
+
+Latest [human directive](docs/current/G3D_FINAL_ALIGNMENT.md) supersedes prior review stop for ONE coordinated Palace main hall/east building, station, retail-rooftops and both bridge-landings pass. Non-destructive derived correction/roof completion/ground ownership and bounded bridge-abutment details authorized; originals, approved walls/Namsan/Jeju/internal paths/roots/station floor/planters/canopy preserved. Measure doorway/support versus roof; no arbitrary protected relocation or plan rewrite. Seven marked images absent, requested; continue source/native evidence without claiming annotation review. Document genuine footprint conflicts separately. No delegation, paid provider API, main merge/deploy/full-world rebuild. STOP once for consolidated review.
+
 # Consolidated reconciliation handoff — stop for human review
 
 [Current native evidence / decisions](docs/gate3-reconciliation/README.md). Candidate sources are checkpointed separately from final artifacts. Approved geometry governs supports; protected source-fit conflicts and residual station/water/route issues remain explicit, not automatically accepted. Main-hall derived proposal is NOT adopted. Do not expand, merge, deploy or silently change protected planning/art after this handoff. Wait for the consolidated human visual/spatial decision. Physical devices/hardware WebGL NOT TESTED.
