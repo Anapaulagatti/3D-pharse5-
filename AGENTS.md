@@ -1,3 +1,7 @@
+# Final palace cleanup handoff — STOP for human visual review
+
+[Current local evidence/QA/package](docs/gate3-palace-cleanup/README.md). Three scoped palace repairs delivered. Western hanok, Hanbit and BOTH bridges approved/locked.3041 historical assets exact;0 out-of-scope ground/static/native Phaser pixels. Only2358 old branch-floor cells opened after actual foot-contact evidence; all other collision/contact fields exact.2 consecutive original-control movement legs,0 unsupported native contacts. Physical hardware/devices NOT TESTED. Finish package/link/checkpoint metadata only then STOP; no further art/expansion, main merge or deployment without human direction.
+
 # Current authority — final palace-area cleanup ONLY
 
 Latest [human directive](docs/current/G3D_PALACE_CLEANUP.md) APPROVES western hanok repair; Hanbit and BOTH bridges locked. Only straight ceremonial axis, right-corner house approach and small main-hall front details authorized. Freeze exact masks, preserve native artwork elsewhere, minimal justified local collision only. No delegation, screenshot requests, global generation, main merge/deploy. Deliver actual native before/after, combined palace, QA/package/checkpoint; STOP for human review.

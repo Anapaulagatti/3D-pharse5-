@@ -1,3 +1,7 @@
+# Current local palace cleanup — human review pending
+
+The western hanok repair is now HUMAN APPROVED and checkpointed; Hanbit and BOTH Jeju bridges remain approved/locked. Current local candidate only straightens the ceremonial approach, connects the right-corner house exterior steps and repairs2 main-front details. [Native evidence / local QA](docs/gate3-palace-cleanup/README.md). All inherited Bakery/spatial/route/device questions remain separate; no blanket world artistic acceptance.
+
 # Latest local finishing review — western house / lower courtyard
 
 [Candidate](docs/gate3-west-hanok/README.md) replaces cropped roof-fragment composition with one whole native hanok and finishes the existing low-walled pine garden. Same modest scale, historic language, original site and public circulation. Human artistic review remains pending. Hanbit and BOTH Jeju bridge visuals are now HUMAN APPROVED AND LOCKED; no edits to those or other district artwork.

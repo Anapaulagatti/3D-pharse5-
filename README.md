@@ -1,3 +1,7 @@
+# Current local review — final palace cleanup
+
+[Native BEFORE/AFTER, combined palace, playable ZIP, gameplay and QA](docs/gate3-palace-cleanup/README.md). Straight ceremonial axis, short right-house approach and2 front-detail repairs. Western hanok, Hanbit and BOTH bridges now human approved/locked. Palace candidate awaits human visual approval.2358 exterior ground-contact cells opened; no other collision or unrelated pixels changed. Physical devices NOT TESTED. No main merge or deployment.
+
 # Current local review — western hanok and lower courtyard
 
 [Native before/after, combined local view, playable ZIP and short QA](docs/gate3-west-hanok/README.md). Whole coherent hanok silhouette and finished enclosed garden; human visual approval pending. Hanbit and Jeju bridge visuals are approved/locked. All collision fields and unrelated pixels remain unchanged. No main merge or deployment.
