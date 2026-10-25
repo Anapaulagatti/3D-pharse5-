@@ -1,3 +1,7 @@
+# Current Hanbit Station — full clean rebuild
+
+[BEFORE / CLEAN / AFTER native gallery](docs/gate3-station-clean/VISUAL_REVIEW.md) · [Active fresh world, playable ZIP, provenance and QA](docs/gate3-station-clean/README.md). All legacy station art is purged from the active composition, including old ground/shadows/canopy/props. The new blue-roof/arched masonry station is created only from a genuinely clean map and non-station Gate1 reference. Default review uses the fresh station; historical BEFORE assets remain evidence only. No main merge or public deployment; human art approval pending.
+
 # Current G3-D final surgical review
 
 [Native before/after gallery](docs/gate3-final/VISUAL_REVIEW.md) · [Playable candidate, source/scope QA and remaining decisions](docs/gate3-final/README.md). Western historical house/garden, compact six-plot NW farm and bounded landing/asphalt joins corrected; an independently layered new Hanbit Station is an isolated PENDING candidate. The main review retains the old station. Every unrelated pixel is protected by explicit scope checks; source originals/checkpoints remain exact. No full-world artistic acceptance, main merge or public deployment. Older handoffs below remain history.

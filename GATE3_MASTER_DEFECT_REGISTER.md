@@ -1,3 +1,18 @@
+# Current Hanbit clean rebuild — 2026-10-25
+
+[Native BEFORE/CLEAN/AFTER and strict source/scope evidence](docs/gate3-station-clean/README.md). Latest human override retires prior station visual baselines in the ACTIVE world. Historical sources remain immutable; that does not preserve their active artwork.
+
+| ID | Priority | Current status |
+|---|---|---|
+|G3SC-OLD-STATION|P1 source ownership|PURGED:6 legacy foreground owners removed; old lot floor/props/shadows fully replaced.0 old station texture requests/dependencies in active default scene. Actual empty-site evidence before fresh construction.|
+|G3SC-NEW-STATION|P1 visual review|Fresh blue hipped roof/central clock/ivory masonry/3 arched bays/new sign/interior, authored only from clean site +non-station Muneum. ACTIVE, not a preserved old-station fallback. Human artistic acceptance pending.|
+|G3SC-SITE|P2 review|100% new native floor ownership including hidden area beneath building. New-only contact shadow; no old canonical road/floor retained. Planned road/entry alignment preserved.|
+|G3SC-PLATFORM|Resolved local navigation|Actual original controls cross the formerly blocked8px strip and return on visible fresh paving. Four continuous route legs PASS, actual sampled native contact0 failures; no new land or moved platform. Supersedes older closed-strip status.|
+|G3SC-ROUTE-REGRESSION|Technical PASS|No newly blocked approved centerline samples. Local legacy collider purge resolves old retail-street364/leisure-loop235 blocked samples. Five inherited Jeju route failures remain.|
+|G3SC-PROTECTION|Technical PASS|2,931 historical asset files unchanged; all non-station objects exact;0 ground/static/field changes outside explicit station masks.15 actual native frames,0 source/ground readback mismatches.|
+|G3SC-GLOBAL-P1|OPEN inherited|Bakery required/unplaced,W0 rejected,Q1 unallocated; full bridge stop/turn contact, remaining Jeju routes, tower/retail and protected amusement projections unchanged. No whole-world acceptance.|
+|G3SC-DEVICES|NOT TESTED|Physical Android/iPhone and hardware WebGL performance require actual recorded device evidence.|
+
 # Current final surgical review — 2026-10-25
 
 [Consolidated native evidence / strict scope / source ownership](docs/gate3-final/README.md). Self-contained repository evidence; no user screenshot attachment required. Earlier missing-image qualifications are historical and do not block this directive.
