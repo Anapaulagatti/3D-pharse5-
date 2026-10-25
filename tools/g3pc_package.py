@@ -2,7 +2,7 @@
 from pathlib import Path
 from zipfile import ZipFile,ZIP_DEFLATED
 import json,re,hashlib,posixpath
-R=Path(__file__).resolve().parents[1];D=R/'docs/gate3-palace-cleanup';B=Path('/tmp/g3pc-review');files={};TAG='checkpoint/g3d-palace-cleanup-review-20261025';RAW='https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/'+TAG+'/'
+R=Path(__file__).resolve().parents[1];D=R/'docs/gate3-palace-cleanup';B=Path('/tmp/g3pc-review');files={};TAG='checkpoint/g3d-palace-cleanup-delivery-20261025';RAW='https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/'+TAG+'/'
 rel='assets/gate3/palace-cleanup-world/manifest.json';m=json.loads((R/'public'/rel).read_text())
 for n in [rel,m['overview'],m['farmMetadata'],m['contactCollision']['physical']]+[c[k]for c in m['chunks']for k in ['image','mask']]+[o['image']for o in m['objects']]+['assets/juni/juni.png','assets/juni/juni.json']:files[n]=(R/'public'/n).read_bytes()
 text=(B/'gate3-review.html').read_text();redirect='<script>if(!new URLSearchParams(location.search).has("scene"))location.replace(location.pathname+"?scene=palace-cleanup-world&entry=palace-combined-local&worldOnly")</script>';files['gate3-review.html']=text.replace('<head>','<head>'+redirect,1).encode()

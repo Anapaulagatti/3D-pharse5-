@@ -24,3 +24,5 @@ Combined palace image joins2 genuine native Phaser readbacks at worldy1040 witho
 No main merge, deployment, original source overwrite or separate-app change. Historical checkpoints retained; before checkpoint `checkpoint/g3d-before-palace-cleanup-20261025`. Final review checkpoint `checkpoint/g3d-palace-cleanup-review-20261025`. STOP for human approval.
 
 Extracted playable ZIP:8 active-world entries plus unchanged native-station preservation proof, original WASD, emulated mobile joystick/tour/return/reduced-motion/export regression PASS;0 page/chunk errors. [Package smoke](package-smoke.json) · [Exported emulated session](package-emulated-session.json). Physical phones remain NOT TESTED.
+
+Complete downloadable package/video checkpoint: `checkpoint/g3d-palace-cleanup-delivery-20261025`. The original source/review checkpoints are preserved unmoved.
