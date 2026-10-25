@@ -1,3 +1,7 @@
+# Current review — approved Hanbit / TWO Jeju crossings
+
+[Native bridge gallery, actual gameplay, playable package and QA](docs/gate3-jeju-bridges/README.md). Hanbit art is officially approved and locked. Both independent crossings pass the selected8 real walking/running legs and3755 native foot samples. Human bridge art approval remains pending; historical Jeju route-guide reconciliation and physical hardware/device tests remain open. No main merge/deployment.
+
 # Current Hanbit Station — full clean rebuild
 
 [BEFORE / CLEAN / AFTER native gallery](docs/gate3-station-clean/VISUAL_REVIEW.md) · [Active fresh world, playable ZIP, provenance and QA](docs/gate3-station-clean/README.md). All legacy station art is purged from the active composition, including old ground/shadows/canopy/props. The new blue-roof/arched masonry station is created only from a genuinely clean map and non-station Gate1 reference. Default review uses the fresh station; historical BEFORE assets remain evidence only. No main merge or public deployment; human art approval pending.

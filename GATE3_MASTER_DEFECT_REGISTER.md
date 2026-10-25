@@ -1,3 +1,7 @@
+# Latest two-bridge checkpoint — consolidated review
+
+[Current QA](docs/gate3-jeju-bridges/QA.md). Hanbit HUMAN APPROVED AND LOCKED; canonical new design/source/registration/access exact. Upper/lower local bridge native top-plane and post ownership pass8 selected actual walk/run legs and3755 native contact samples; bridge artistic review PENDING. No full-world acceptance. OPEN: historical Jeju centreline guides (including ferry/main-coast/bridge connector) require explicit reconciliation with source-aligned tested corridors; unchanged internal Jeju/house routes, Bakery required/unplaced/W0 rejected/Q1 unallocated, protected tower/retail/amusement projection questions and physical Android/iPhone/hardware WebGL tests remain.0 unrelated source/collision changes. Older open bridge pose reports below are historical, not the current final8-leg result.
+
 # Current Hanbit clean rebuild — 2026-10-25
 
 [Native BEFORE/CLEAN/AFTER and strict source/scope evidence](docs/gate3-station-clean/README.md). Latest human override retires prior station visual baselines in the ACTIVE world. Historical sources remain immutable; that does not preserve their active artwork.

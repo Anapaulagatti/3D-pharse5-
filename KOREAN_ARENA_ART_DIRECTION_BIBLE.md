@@ -1,3 +1,7 @@
+# Latest human lock — NEW Hanbit Station / two-bridge review
+
+Human approval locks the fresh ivory masonry, blue hipped roof,3 arches, clock/sign, native forecourt and entrance/platform registration at checkpoint/g3d-hanbit-approved-20261025. Never regenerate or reactivate legacy station art. [Two localized bridge candidates](docs/gate3-jeju-bridges/README.md) follow the same fine native stone/timber language, paired railings and visible supports; technical evidence does not grant artistic approval. Jeju landmarks and rest of world remain canonical/exact.
+
 # Human override — fresh Hanbit visual identity
 
 [Full clean rebuild](docs/current/G3D_STATION_CLEAN_REBUILD.md) supersedes every older station-art preservation rule. Keep only non-art planning/access/neighbor constraints. [Current fresh station](docs/gate3-station-clean/README.md) is authored from an empty native map lot plus original Muneum Gate1 benchmark; no old station image/mask/roof/facade/sign/props/floor/shadow donor is allowed. Historical files are preserved for recovery, never active visual reuse. One coherent fresh painting provides independent native engine owners. Default review now uses this fresh station. Do not restore the old station while interpreting old approval notes below. Human artistic acceptance still pending.
