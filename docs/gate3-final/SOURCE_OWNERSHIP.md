@@ -1,0 +1,23 @@
+# Native ownership and surgical provenance
+
+Baseline: `aad3b3c`, visual `residual-world`. [Source SHA lock](../../assets-src/gate3/final-surgical-v1/baseline-lock.json) freezes every pre-existing assets-src/public asset (2,870 files). [Changed assets](changed-assets.json) and [exact masks/provenance](../../assets-src/gate3/final-surgical-v1/integration-provenance.json) document every derivative. Original sources and checkpoints are immutable.
+
+| Target | Installed ownership | Preserved |
+|---|---|---|
+| Western house | Original-scale 170×260 source continuation at550,880; minimum-error binary join along existing roof. Separate native eave owner handles Juni occlusion. Only original-left corner/background changes. | Original facade/doors/stairs; original roof to east720; world position and scale; palace walls |
+| Associated garden | Narrow90×264 west-return at605,1410; binary source/ground/foreground separation. Existing pine only retires alpha under that return; native core unchanged. | Original pine/bench/fence/garden core, pedestrian court and western lane |
+| New garden corner collision |25×22 ground support at610,1652; not its painted vertical height | Working public lane centered580 and full approved route findings; no main plan rewrite |
+| Farm | One local native plate at160,80, selected strictly within300,230,760,570. Northern woodland remains original; the central tree01 entirely within envelope retires. Six plot metadata reservations180×128, soil140×88 and wide horizontal access aisles. | Original border trees00/02/03, coast, palace western wall1107, buildings/academy/public main paths |
+| Main station | No architectural adoption in main scene | Old station,0.5 pivot, canonical frontage, planters, canopy, tree, shadows and all station collision |
+| Isolated new station | Old active facade removed. Ground stage clears ONLY old pre-2603 foundation/side tactile remnants. New image600×423 decomposes into roof, elevated architecture and facade, binary alpha. Old canopy/props/platform remain independent. | Existing logical station reservation/entrance, canonical ground at/below2603, road/curb/crosswalk, planters, original canopy,8px collision strip |
+| Native station registration | Exact source-canvas translation(-19,-15), no resizing. Source crop380,276,600,423; logical anchor2313.5,2196; explicit candidate pivot32.5,15 gives integer raster2281,2181. New doorway aligns2598; feet stop above2603. | Old main asset remains2313,2196 / pivot0.5,0. No default coordinate silently shifted |
+| Mainland landing | Blue-water-only native donor+64px at sameY inside3090,3430,160,160, semantic structure/foam guard. Old protected Jeju bitmap wins. | Bridge endpoints/deck/posts/rails/piers, real physical contact field and canonical island land/nearshore |
+| Southern asphalt | Native adjacent asphalt donor at1730,3768,200,94; constrained mask at1510,3768 follows actual1664 ownership join. | Curbs, markings, promenade, ferry, actual coast/land/roads |
+
+Isolated station ground is already substantially clean in the baseline; it does not contain a second old building. The ground stage visibly proves the old active facade is absent before new architecture is installed. Do not place a new full-scene background over an old station.
+
+Image authoring used the built-in host tool only, no external paid API. [Job prompts/outputs](../../assets-src/gate3/final-surgical-v1/authoring-jobs.json) retain all raw outputs. The initial square farm output1254×1254 was rejected; it was NEVER resized or installed. The installed farm is1536×1024 source at native scale. First house/court output supplies only the roof continuation; the second courtyard output supplies the narrow west return. The new farm jar exceeded the allowed boundary and was retired rather than leaving a half prop. No unrelated generated pixels were selected.
+
+Native minimum-error ownership chooses original integer texels; it never blends, sharpens, recolors, stretches or filters source art. Binary masks are separately versioned. Source PNGs, layered source boards and geometric overlays are clearly distinguished from genuine Phaser POST_RENDER screenshots.
+
+Canonical source readback, scope and hash PASS do not grant human artistic acceptance. New station remains PENDING and isolated because superiority of the new architectural candidate has not been established by human inspection; it is not force-installed merely for being new. Current island landing/palace/retail contact inspection found no independent defect requiring another paint pass, so they remain pixel-identical. Bakery and planning decisions remain explicit.
