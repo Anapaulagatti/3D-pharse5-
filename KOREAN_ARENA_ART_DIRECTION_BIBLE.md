@@ -1,3 +1,7 @@
+# Latest local finishing review — western house / lower courtyard
+
+[Candidate](docs/gate3-west-hanok/README.md) replaces cropped roof-fragment composition with one whole native hanok and finishes the existing low-walled pine garden. Same modest scale, historic language, original site and public circulation. Human artistic review remains pending. Hanbit and BOTH Jeju bridge visuals are now HUMAN APPROVED AND LOCKED; no edits to those or other district artwork.
+
 # Latest human lock — NEW Hanbit Station / two-bridge review
 
 Human approval locks the fresh ivory masonry, blue hipped roof,3 arches, clock/sign, native forecourt and entrance/platform registration at checkpoint/g3d-hanbit-approved-20261025. Never regenerate or reactivate legacy station art. [Two localized bridge candidates](docs/gate3-jeju-bridges/README.md) follow the same fine native stone/timber language, paired railings and visible supports; technical evidence does not grant artistic approval. Jeju landmarks and rest of world remain canonical/exact.

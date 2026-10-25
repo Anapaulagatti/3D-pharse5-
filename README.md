@@ -1,3 +1,7 @@
+# Current local review — western hanok and lower courtyard
+
+[Native before/after, combined local view, playable ZIP and short QA](docs/gate3-west-hanok/README.md). Whole coherent hanok silhouette and finished enclosed garden; human visual approval pending. Hanbit and Jeju bridge visuals are approved/locked. All collision fields and unrelated pixels remain unchanged. No main merge or deployment.
+
 # Current review — approved Hanbit / TWO Jeju crossings
 
 [Native bridge gallery, actual gameplay, playable package and QA](docs/gate3-jeju-bridges/README.md). Hanbit art is officially approved and locked. Both independent crossings pass the selected8 real walking/running legs and3755 native foot samples. Human bridge art approval remains pending; historical Jeju route-guide reconciliation and physical hardware/device tests remain open. No main merge/deployment.
