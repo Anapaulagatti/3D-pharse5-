@@ -1,3 +1,7 @@
+# Current G3-D final surgical review
+
+[Native before/after gallery](docs/gate3-final/VISUAL_REVIEW.md) · [Playable candidate, source/scope QA and remaining decisions](docs/gate3-final/README.md). Western historical house/garden, compact six-plot NW farm and bounded landing/asphalt joins corrected; an independently layered new Hanbit Station is an isolated PENDING candidate. The main review retains the old station. Every unrelated pixel is protected by explicit scope checks; source originals/checkpoints remain exact. No full-world artistic acceptance, main merge or public deployment. Older handoffs below remain history.
+
 # Current G3-D consolidated residual review
 
 [Native before/after gallery](docs/gate3-residual/VISUAL_REVIEW.md) · [Playable candidate, actual video and remaining decisions](docs/gate3-residual/README.md) · [Technical/visual QA](docs/gate3-residual/QA.md). Targeted palace/station/retail ownership and shared-water continuity repairs preserve the canonical frontage, Jeju, native Juni, geometry and historical sources. Human artistic acceptance remains pending. Separate road/archive-gate/bridge-support proposals are not adopted; bridge full-pose contact remains FAIL. No main merge or public deployment. Older handoffs below are historical.

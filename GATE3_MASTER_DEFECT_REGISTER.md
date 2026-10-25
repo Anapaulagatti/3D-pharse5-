@@ -1,3 +1,24 @@
+# Current final surgical review — 2026-10-25
+
+[Consolidated native evidence / strict scope / source ownership](docs/gate3-final/README.md). Self-contained repository evidence; no user screenshot attachment required. Earlier missing-image qualifications are historical and do not block this directive.
+
+| ID | Priority | Current status |
+|---|---|---|
+|G3DS-HOUSE|P2 review|IMPLEMENTED: original western house left roof/eave continued at native scale; facade/doors/position preserved. Local foreground eave handles unchanged public-path occlusion. Human architectural review pending.|
+|G3DS-COURT|P2 review|IMPLEMENTED: narrow western stone/fence return, native garden core preserved;25×22 support at610,1652. Actual public lane movement and collision readback PASS.|
+|G3DS-FARM|P2 review|IMPLEMENTED: six plot IDs/native reservations/crop+interaction anchors/state/collision metadata; local NW forest conversion only. Actual aisle loop/6 anchors/6 blocked soils PASS; no farming game system.|
+|G3DS-STATION|P1 visual decision|NEW station is PENDING / isolated; old main active station exact. Independent architecture/roof/elevated owners, architecture-free ground stage; actual entrance/crosswalk PASS and canonical forecourt exact. Human superiority decision still required; no forced replacement.|
+|G3DS-STATION-ROAD|P1 material decision|OPEN: canonical protected asphalt source phase retained; prior native-road candidate unadopted. New architecture alone does not establish district seamlessness.|
+|G3DS-JOINS|P2 review|IMPLEMENTED: local mainland blue-water ownership/native southern asphalt join1664. Canonical island/nearshore and endpoints unchanged. No blanket claim that every offshore color boundary is seamless.|
+|G3DS-BRIDGE|P1 physical|FAIL: selected route crosses both directions;13 sampled outward failures plus5/12 genuine captured stop/turn pose failures, including return poses. Zero failures in sampled return trace does NOT certify full return-pose clearance. Existing25px/4866px² visible-support proposal unadopted; physical field unchanged.|
+|G3DS-PLATFORM|P1 navigation|FAIL: live new-station test blocks at nativeX2958;8px strip remains closed; no90×36 connector.|
+|G3DS-ROUTES|P1 navigation|FAIL inherited: same seven centerlines and exact blocked sample counts as residual baseline. No route regression from localized farm/garden fields.|
+|G3DS-PROJECTIONS|P1 spatial|OPEN: protected tower/retail-road and carousel/station projections unchanged.|
+|G3DS-ARCHIVE|P1 spatial|OPEN:20px corridor not accepted;88px gateway only prior proposal, wall/field not altered.|
+|G3DS-BAKERY|P1 content|Required/unplaced,W0 rejected,Q1 unallocated. No new land or exhaustive unchanged site search.|
+|G3DS-SCOPE|P2 technical|PASS: all2,870 baseline source assets exact,0 pixels outside explicit target regions;36 native Phaser frames/22 pairs,0 ground/source/out-of-scope differences;23 gameplay body frames,0 unexplained Juni pixels. Technical evidence is not art approval.|
+|G3DS-DEVICE|P1 validation|Hardware WebGL and physical Android Chrome/iPhone Safari NOT TESTED. No unsupported mobile-performance PASS.|
+
 # Current consolidated residual review — 2026-10-25
 
 [Native evidence, source ownership and decisions](docs/gate3-residual/README.md). Supersedes old candidate diagnoses only for measured residual corrections; original sources and all historical entries remain. No final artistic acceptance.
