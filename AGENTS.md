@@ -1,3 +1,7 @@
+# Current authority — final palace-area cleanup ONLY
+
+Latest [human directive](docs/current/G3D_PALACE_CLEANUP.md) APPROVES western hanok repair; Hanbit and BOTH bridges locked. Only straight ceremonial axis, right-corner house approach and small main-hall front details authorized. Freeze exact masks, preserve native artwork elsewhere, minimal justified local collision only. No delegation, screenshot requests, global generation, main merge/deploy. Deliver actual native before/after, combined palace, QA/package/checkpoint; STOP for human review.
+
 # Western hanok +lower courtyard handoff — STOP for human review
 
 [Current local gallery / QA / playable package](docs/gate3-west-hanok/README.md). One coherent whole-house roof/facade/foundation and complete enclosed garden delivered. Hanbit and BOTH Jeju bridge visuals are human approved/locked and exact.3020 historical assets unchanged;0 out-of-scope pixels;ALL world collision/contact fields/logical solids unchanged.2 consecutive real-control public-route legs /1539 native foot samples /0 unsupported /0 unexplained Juni pixels. Only6 local ground chunks and target foreground ownership changed. Finish package/link/checkpoint metadata only, then STOP. No further art/expansion, paid external API, main merge, deployment or separate-app changes without new human direction. Physical hardware/devices NOT TESTED; global inherited planning requirements remain separate.
