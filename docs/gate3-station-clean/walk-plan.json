@@ -1,0 +1,121 @@
+{
+  "method": "One continuous original-control station route. Initial review spawn only; no in-movement teleport/frame/speed/collision override. New visible floor/legacy prop removal plus genuine platform transfer tested.",
+  "legs": [
+    {
+      "id": "fresh-station-entrance",
+      "points": [
+        [
+          2599,
+          2760
+        ],
+        [
+          2599,
+          2610
+        ]
+      ],
+      "scene": "station-clean-world",
+      "entry": "station",
+      "sceneResetBefore": true,
+      "gridTarget": [
+        2599,
+        2610
+      ]
+    },
+    {
+      "id": "platform-transfer-out",
+      "points": [
+        [
+          2599,
+          2610
+        ],
+        [
+          2599,
+          2680
+        ],
+        [
+          2930,
+          2680
+        ],
+        [
+          2970,
+          2680
+        ],
+        [
+          2970,
+          2530
+        ]
+      ],
+      "scene": "station-clean-world",
+      "entry": "station",
+      "sceneResetBefore": false,
+      "gridTarget": [
+        2970,
+        2530
+      ]
+    },
+    {
+      "id": "platform-side-passage-and-return",
+      "points": [
+        [
+          2970,
+          2530
+        ],
+        [
+          2970,
+          2680
+        ],
+        [
+          2930,
+          2680
+        ],
+        [
+          2930,
+          2300
+        ],
+        [
+          2930,
+          2680
+        ],
+        [
+          2599,
+          2680
+        ],
+        [
+          2599,
+          2760
+        ]
+      ],
+      "scene": "station-clean-world",
+      "entry": "station",
+      "sceneResetBefore": false,
+      "gridTarget": [
+        2599,
+        2760
+      ]
+    },
+    {
+      "id": "fresh-road-crossing-and-return",
+      "points": [
+        [
+          2599,
+          2760
+        ],
+        [
+          2599,
+          2840
+        ],
+        [
+          2599,
+          2760
+        ]
+      ],
+      "scene": "station-clean-world",
+      "entry": "station",
+      "sceneResetBefore": false,
+      "gridTarget": [
+        2599,
+        2760
+      ]
+    }
+  ]
+}
