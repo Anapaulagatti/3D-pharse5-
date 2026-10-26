@@ -94,12 +94,14 @@ function setup(load = async () => {}) {
   return { manager, store, sprites };
 }
 describe("character registry and atlas boundary", () => {
-  it("registers four identities with Juni as safe playable fallback", () => {
+  it("registers six identities with Juni as safe playable fallback", () => {
     expect(characterRegistry.all.map((c) => c.id)).toEqual([
       "juni",
       "haneul",
       "bomi",
       "minjun",
+      "ara",
+      "doyun",
     ]);
     expect(characterRegistry.resolve("missing").id).toBe("juni");
     expect(characterRegistry.resolve("bomi").id).toBe("bomi");

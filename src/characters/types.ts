@@ -112,3 +112,12 @@ export function validateAtlas(def: CharacterDefinition, data: AtlasData) {
         throw Error(`Out-of-atlas frame ${name}`);
     }
 }
+export type {
+  CosmeticItem,
+  CosmeticCategory,
+  CosmeticCompatibility,
+  CosmeticVariant,
+  CharacterAppearance,
+  AppearancePreset,
+  AppearanceManifest,
+} from "./appearanceTypes";

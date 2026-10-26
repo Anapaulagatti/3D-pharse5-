@@ -80,6 +80,26 @@ export class RegistryMotion {
     this.frame = clip.frames[index];
     return this.frame;
   }
+  /** Retain travel phase across identity changes when clip names are compatible. */
+  adopt(previous: {
+    phase: number;
+    view: Direction;
+    action: string;
+    frame: string;
+  }) {
+    this.phase = previous.phase;
+    this.view = previous.view;
+    if (
+      ["idle", "walk", "run"].includes(previous.action) &&
+      this.def.animations[
+        `${previous.action}-${previous.view}`
+      ]?.frames.includes(previous.frame)
+    ) {
+      this.action = previous.action;
+      this.frame = previous.frame;
+      this.moving = previous.action !== "idle";
+    }
+  }
   get snapshot() {
     return {
       action: this.action,

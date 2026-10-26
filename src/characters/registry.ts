@@ -1,3 +1,5 @@
+import { futureRoster, type FutureRosterSlot } from "./futureRoster";
+import { phase2aCharacters } from "./newCharacters";
 import haneulClips from "../../assets-src/characters/phase1b/haneul/clips.json";
 import bomiClips from "../../assets-src/characters/phase1b/bomi/clips.json";
 import minjunClips from "../../assets-src/characters/phase1b/minjun/clips.json";
@@ -120,15 +122,27 @@ const definitions: CharacterDefinition[] = [
       status: "playable" as const,
       unlock: "free" as const,
       reason:
-        "Phase 1B native layered pack: 112 frames, four-direction gait; human art review pending",
+        "Human-approved Phase1B native pack,112 frames including final Juni-referenced front/back corrections",
     },
   })),
 ];
+definitions.push(...phase2aCharacters);
 export class CharacterRegistry {
   readonly all: readonly CharacterDefinition[];
+  readonly planned: readonly FutureRosterSlot[];
   constructor(defs: readonly CharacterDefinition[] = definitions) {
     this.all = defs.map((d) => characterSchema.parse(d));
-    if (new Set(this.all.map((d) => d.id)).size !== this.all.length)
+    if (
+      new Set(futureRoster.map((slot) => slot.id)).size !== futureRoster.length
+    )
+      throw Error("Duplicate planned character ID");
+    this.planned = futureRoster.filter(
+      (slot) => !this.all.some((def) => def.id === slot.id),
+    );
+    if (
+      new Set([...this.all, ...this.planned].map((d) => d.id)).size !==
+      this.all.length + this.planned.length
+    )
       throw Error("Duplicate character ID");
     if (
       !this.all.some(

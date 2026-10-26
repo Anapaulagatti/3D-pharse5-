@@ -7,6 +7,7 @@ import { CharacterSession } from "../characters/session";
 import { characterRegistry } from "../characters/registry";
 import {
   CharacterPreferences,
+  AppearancePreferences,
   browserPreferenceStorage,
 } from "../characters/preferences";
 import { PlayerCharacterManager } from "../characters/PlayerCharacterManager";
@@ -14,6 +15,8 @@ import { PhaserCharacterAssets } from "../characters/PhaserCharacterAssets";
 import { CharacterSelection } from "../characters/CharacterSelection";
 import type { RegistryMotion } from "../characters/RegistryMotion";
 import "../characters/selection.css";
+import { appearanceIsDefault } from "../characters/appearance";
+import type { CharacterAppearance } from "../characters/appearanceTypes";
 import { loadNativeContact, type ContactSpec } from "./NativeContact";
 import Phaser from "phaser";
 import { nativeCanvasOffset } from "./PixelGrid";
@@ -32,12 +35,18 @@ const preferences = new CharacterPreferences(
   browserPreferenceStorage(),
   characterRegistry,
 );
+const appearances = new AppearancePreferences(
+  browserPreferenceStorage(),
+  characterRegistry,
+);
 const preference = preferences.read();
 const characterSession = new CharacterSession(
   production ? preference : { characterId: "juni", needsSelection: false },
 );
 type State = {
   characterId: string;
+  appearance: CharacterAppearance;
+  characterAssets: ReturnType<PhaserCharacterAssets["snapshot"]>;
   playerSprites: number;
   visited: string[];
   renderer: string;
@@ -353,7 +362,7 @@ const label = id.startsWith("palace-cleanup-")
                     ? "G3-D three pilot regions only · unified art approval pending"
                     : "Approved district · local coordinates · world registration pending";
 const root = document.querySelector<HTMLDivElement>("#app")!;
-root.innerHTML = `<header><b>${production ? "KOREAN ARENA" : id.startsWith("recovery-") || id.startsWith("zoned-") || id.startsWith("reconciled-") || id.startsWith("aligned-") || id.startsWith("residual-") || id.startsWith("final-") || id.startsWith("station-clean-") || id.startsWith("jeju-bridges-") || id.startsWith("west-hanok-") || id.startsWith("palace-cleanup-") ? "G3-D STYLE REVIEW" : "G3-C HISTORY PROTOTYPE"}</b><select id="scene-picker" aria-label="Review environment">${availableCatalog.map((s) => `<option value="${s.id}" ${s.id === id ? "selected" : ""}>${s.label}</option>`).join("")}</select><span id="camera-mode">Follow · native1:1</span><button id="scenic">Scenic</button><details id="settings"><summary aria-label="Options">···</summary><div>${production ? '<button id="character-open">Chọn nhân vật</button><button id="celebrate-desktop">Ăn mừng · C</button>' : ""}<label><input type="checkbox" id="showcases"> Landmark moments</label><button id="pause">Pause</button><button id="export-session">Export test report</button></div></details></header><main id="stage"></main><div id="map-labels" aria-hidden="true"></div><div id="camera-tools"><span>Drag to look · pinch to zoom</span><button id="start-tour">Start Tour</button><span id="tour-caption" role="status" aria-live="polite"></span><button id="tour-pause">Pause</button><button id="tour-next">Skip landmark</button><button id="overview-mode">Full scene</button><button id="return-juni">Return to Juni</button></div><button id="tour-controls" aria-controls="camera-tools" aria-expanded="true">Tour controls</button><footer><span id="near">${label}</span><span>WASD / arrows · Shift run · E explore · Space greet${production ? " · C celebrate" : ""}</span></footer><div id="joystick" aria-label="Movement joystick"><span class="stick-knob"></span></div><div id="touch-actions"><button id="run">Run</button><button id="explore">Explore</button>${production ? '<button id="wave-emote">Chào</button><button id="celebrate-emote">Vui</button>' : ""}</div><aside id="dialog" hidden role="dialog" aria-label="Environment detail"><h2 id="title"></h2><p id="copy"></p><button id="close">Return</button></aside>`;
+root.innerHTML = `<header><b>${production ? "KOREAN ARENA" : id.startsWith("recovery-") || id.startsWith("zoned-") || id.startsWith("reconciled-") || id.startsWith("aligned-") || id.startsWith("residual-") || id.startsWith("final-") || id.startsWith("station-clean-") || id.startsWith("jeju-bridges-") || id.startsWith("west-hanok-") || id.startsWith("palace-cleanup-") ? "G3-D STYLE REVIEW" : "G3-C HISTORY PROTOTYPE"}</b><select id="scene-picker" aria-label="Review environment">${availableCatalog.map((s) => `<option value="${s.id}" ${s.id === id ? "selected" : ""}>${s.label}</option>`).join("")}</select><span id="camera-mode">Follow · native1:1</span><button id="scenic">Scenic</button><details id="settings"><summary aria-label="Options">···</summary><div>${production ? '<button id="character-open">Character Studio</button><button id="celebrate-desktop">Ăn mừng · C</button>' : ""}<label><input type="checkbox" id="showcases"> Landmark moments</label><button id="pause">Pause</button><button id="export-session">Export test report</button></div></details></header><main id="stage"></main><div id="map-labels" aria-hidden="true"></div><div id="camera-tools"><span>Drag to look · pinch to zoom</span><button id="start-tour">Start Tour</button><span id="tour-caption" role="status" aria-live="polite"></span><button id="tour-pause">Pause</button><button id="tour-next">Skip landmark</button><button id="overview-mode">Full scene</button><button id="return-juni">Return to Juni</button></div><button id="tour-controls" aria-controls="camera-tools" aria-expanded="true">Tour controls</button><footer><span id="near">${label}</span><span>WASD / arrows · Shift run · E explore · Space greet${production ? " · C celebrate" : ""}</span></footer><div id="joystick" aria-label="Movement joystick"><span class="stick-knob"></span></div><div id="touch-actions"><button id="run">Run</button><button id="explore">Explore</button>${production ? '<button id="wave-emote">Chào</button><button id="celebrate-emote">Vui</button>' : ""}</div><aside id="dialog" hidden role="dialog" aria-label="Environment detail"><h2 id="title"></h2><p id="copy"></p><button id="close">Return</button></aside>`;
 if (production)
   document.querySelector<HTMLElement>("#scene-picker")!.hidden = true;
 document.querySelector<HTMLSelectElement>("#scene-picker")!.onchange = (e) => {
@@ -394,6 +403,7 @@ class Slice extends Phaser.Scene {
   private motion: JuniMotion | RegistryMotion = new JuniMotion();
   private characters?: PlayerCharacterManager<Phaser.GameObjects.Sprite>;
   private selection?: CharacterSelection;
+  private characterAssets!: PhaserCharacterAssets;
   private selectionBindings?: AbortController;
   private x = 0;
   private y = 0;
@@ -434,8 +444,9 @@ class Slice extends Phaser.Scene {
       : data.spawn;
     this.visited = new Set(reloadState?.visited ?? []);
     // Initial movement waits for native chunk + local foreground + collision readiness.
+    this.characterAssets = new PhaserCharacterAssets(this, base);
     this.characters = new PlayerCharacterManager(
-      new PhaserCharacterAssets(this, base),
+      this.characterAssets,
       (def, position) =>
         this.add
           .sprite(
@@ -453,6 +464,8 @@ class Slice extends Phaser.Scene {
       preferences,
       characterSession.selected,
       { x: this.x, y: this.y },
+      characterRegistry,
+      production ? appearances : undefined,
     );
     this.player = this.characters.sprite;
     this.motion = this.characters.motion;
@@ -519,6 +532,7 @@ class Slice extends Phaser.Scene {
       this.selection = new CharacterSelection(
         {
           current: () => this.characters!.selected.id,
+          appearance: () => this.characters!.appearance,
           canOpen: () =>
             !this.characters!.busy && this.reviewCamera.mode === "follow",
           lock: () => {
@@ -549,11 +563,16 @@ class Slice extends Phaser.Scene {
             reset();
             heldRun = false;
           },
-          confirm: async (characterId) => {
-            const result = await this.characters!.select(characterId, {
-              x: this.x,
-              y: this.y,
-            });
+          confirm: async (characterId, appearance, presetName) => {
+            const result = await this.characters!.select(
+              characterId,
+              {
+                x: this.x,
+                y: this.y,
+              },
+              appearance,
+              presetName,
+            );
             characterSession.commit(result.characterId);
             this.player = this.characters!.sprite;
             this.motion = this.characters!.motion;
@@ -561,6 +580,7 @@ class Slice extends Phaser.Scene {
           },
         },
         base,
+        appearances,
       );
       document.querySelector("#character-open")!.addEventListener(
         "click",
@@ -593,6 +613,34 @@ class Slice extends Phaser.Scene {
         { signal },
       );
       if (characterSession.needsSelection) this.selection.open(true);
+      else {
+        const savedAppearance = appearances.read(this.characters.selected.id);
+        if (!appearanceIsDefault(savedAppearance)) {
+          const beforeRestorePause = paused;
+          paused = true;
+          this.player.setVisible(false);
+          void this.characters
+            .select(
+              this.characters.selected.id,
+              { x: this.x, y: this.y },
+              savedAppearance,
+            )
+            .then(() => {
+              this.player = this.characters!.sprite;
+              this.motion = this.characters!.motion;
+            })
+            .catch(() => {
+              document.querySelector("#near")!.textContent =
+                "Chưa tải được ngoại hình đã lưu; bản nguyên gốc vẫn sẵn sàng.";
+            })
+            .finally(() => {
+              if (this.scene.isActive()) {
+                this.player.setVisible(true);
+                paused = beforeRestorePause;
+              }
+            });
+        }
+      }
     }
     this.events.once("shutdown", () => {
       this.selectionBindings?.abort();
@@ -751,6 +799,8 @@ class Slice extends Phaser.Scene {
     }
     window.__GATE3__ = {
       characterId: this.characters!.selected.id,
+      appearance: this.characters!.appearance,
+      characterAssets: this.characterAssets.snapshot(),
       playerSprites: this.children.list.filter(
         (o) =>
           o instanceof Phaser.GameObjects.Sprite &&
@@ -758,7 +808,7 @@ class Slice extends Phaser.Scene {
       ).length,
       visited: [...this.visited],
       renderer: this.game.renderer.type === Phaser.WEBGL ? "WebGL" : "Canvas",
-      ready: this.walkable(this.x, this.y),
+      ready: this.walkable(this.x, this.y) && !this.characters!.busy,
       scene: id,
       x: this.x,
       y: this.y,
