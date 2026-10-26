@@ -1,12 +1,10 @@
-# Korean Arena — Phase2A Character Studio
+# Korean Arena — Phase2B roster expansion
 
-Read docs/current/PROJECT_STATE.md. The human Phase2A directive explicitly approves Phase1B and supersedes all historical Phase1B review STOP instructions. Work on feature/phase2-character-studio; no delegation unless the user explicitly requests it.
+Read docs/current/PROJECT_STATE.md. Human approval explicitly accepts Phase2A at ed75734d0e0865274ca0b82bab2495d78878d24b and supersedes its STOP. Work on feature/phase2b-roster-expansion. No delegation unless explicitly requested by user.
 
-- Permanent approved four-character baseline: checkpoint/phase1b-four-characters-approved-20261026 at51ac4b4f20f0af2f26d1566988580d92c0612356. Verify docs/phase2a/approved-four-characters.json. Original Juni/Haneul/Bomi/Minjun art, animations, anchors, speeds and default appearances are immutable. Preserve every source layer/tool/checkpoint.
-- World is frozen at checkpoint/world-art-approved-phase1-20261026; canonical palace-cleanup-world. No world art/coordinates/collision/camera/tour changes. Verify docs/phase1/protected-world.json and protected-juni.json. Thin Character Studio integration in the current scene is authorized; do not rebuild the engine.
-- Extend existing registry, types, manager, RegistryMotion, preferences and selection UI. Cosmetics must be independent/reversible, frame-registered and work in gameplay, with bounded lazy caches. Preserve v1 selections, position/visited state and single sprite ownership.
-- Complete/inspect Ara before authoring Doyun. New characters/items remain unavailable until native art and locomotion validation pass. Prepare future roster metadata only; no playable placeholder sprites.
-- Phase2A includes customization/presets, two new playable identities, honest QA and playable review package. No Phase2B, economy/shop purchases, ads, learning integration, authenticated account, main merge, public deployment, paid external art API or separate Korean Arena learning-site changes.
-- Human approval does not certify physical devices, hardware WebGL performance or inherited navigation/planning defects. Preserve limitations and original validator warnings. Stop after the complete Phase2A review package for human review.
-
-Phase2A implementation is now a complete review candidate: see docs/phase2a/README.md and QA.md. Preserve the new source/review checkpoints. New Ara/Doyun/cosmetics await human Phase2A artistic acceptance; do not begin Phase2B or further production expansion without explicit authorization.
+- Six approved identities, atlases, animation packs, native96×112/48,100 registration and60/100 speeds are immutable. Freeze docs/phase2b/approved-six.json. Ten cosmetics, four suggested looks, local preset/schema and original source/tools remain unchanged.
+- World/collision/controls/camera/tour frozen: verify docs/phase1/protected-world.json and protected-juni.json. No map edits, collision patches or separate learning-site changes.
+- Extend existing Registry and Studio; no second character or animation engine. Promote planned slots only after native art/locomotion validation. Three controlled pairs: Sori/Jiwon, Nari/Taeyang, Yuna/Hyunwoo; actual Phaser movement checks and checkpoint after each pair. Follow the accepted Phase2A own-layer native authoring workflow with host image masters; no paid external API.
+- Preserve lazy/bounded caches, one active sprite, v1/v2 appearance persistence and position/visited state. New six default outfits only; incompatible cosmetics remain hidden.
+- Six Phase2A and eleven historical numerical motion warnings remain documented. Do not weaken validators or call browser emulation physical-device PASS.
+- Deliver all twelve, native/playable/video/QA/provenance review package, then STOP for human artistic approval. No Phase2C, NPC/quests/shops/farming/learning/ads/multiplayer, main merge or public deployment.
