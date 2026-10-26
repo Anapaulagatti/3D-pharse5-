@@ -23,9 +23,9 @@ test("production starts in frozen world with honest four-card selection", async 
   await expect(page.locator("[data-character]")).toHaveCount(4);
   for (const id of ["haneul", "bomi", "minjun"]) {
     await page.locator(`[data-character="${id}"]`).click();
-    await expect(page.locator("#character-confirm")).toBeDisabled();
+    await expect(page.locator("#character-confirm")).toBeEnabled();
     await expect(page.locator("#character-art-status")).toContainText(
-      "Chưa đủ hoạt ảnh",
+      "Người bạn nguyên bản",
     );
   }
   await chooseJuni(page);
@@ -101,7 +101,7 @@ test("corrupt, unknown and unavailable storage recover to Juni without crashing"
   for (const value of [
     "{",
     '{"version":1,"characterId":"removed"}',
-    '{"version":1,"characterId":"haneul"}',
+    '{"version":1,"characterId":"unfinished"}',
     null,
   ]) {
     const ctx = await browser.newContext();
@@ -207,3 +207,86 @@ test("Canvas native Juni and Scenic Tour survive the production bootstrap", asyn
   ).toEqual(before);
   expect(await page.evaluate(() => window.__GATE3__!.playerSprites)).toBe(1);
 });
+
+for (const id of ["haneul", "bomi", "minjun"]) {
+  test(`native pack ${id} plays, switches and restores without position/state loss`, async ({
+    page,
+  }) => {
+    const errors: string[] = [];
+    page.on("pageerror", (e) => errors.push(e.message));
+    await page.goto("?entry=station-all&pixelAudit");
+    await page.locator(`[data-character="${id}"]`).click();
+    await page.locator('[data-action="walk"]').click();
+    await page.locator("#character-confirm").click();
+    await ready(page);
+    await page.waitForFunction(
+      (id) => window.__GATE3__!.characterId === id,
+      id,
+    );
+    expect(await page.evaluate(() => window.__GATE3__!.characterId)).toBe(id);
+    await page.keyboard.down("w");
+    await page.waitForFunction(() => window.__GATE3__!.y < 2720);
+    await page.keyboard.up("w");
+    await page.waitForTimeout(250);
+    await page.keyboard.press("e");
+    await expect(page.locator("#dialog")).toBeVisible();
+    await page.locator("#close").click();
+    const before = await page.evaluate(() => ({
+      x: window.__GATE3__!.x,
+      y: window.__GATE3__!.y,
+      visited: window.__GATE3__!.visited,
+    }));
+    for (const key of ["a", "d", "w", "s"]) {
+      await page.keyboard.down(key);
+      await page.waitForTimeout(700);
+      await page.keyboard.up(key);
+      await page.waitForTimeout(220);
+    }
+    for (const emote of ["Space", "c"]) {
+      await page.keyboard.press(emote);
+      await page.waitForFunction(
+        (prefix) => window.__GATE3__!.frame.startsWith(prefix),
+        emote === "c" ? "celebrate-front" : "wave-front",
+      );
+      await page.waitForFunction(() =>
+        window.__GATE3__!.frame.startsWith("idle-"),
+      );
+    }
+    const atSwitch = await page.evaluate(() => ({
+      x: window.__GATE3__!.x,
+      y: window.__GATE3__!.y,
+      visited: window.__GATE3__!.visited,
+    }));
+    await page.locator("#settings summary").click();
+    await page.locator("#character-open").click();
+    await chooseJuni(page);
+    expect(
+      await page.evaluate(() => ({
+        x: window.__GATE3__!.x,
+        y: window.__GATE3__!.y,
+        visited: window.__GATE3__!.visited,
+      })),
+    ).toEqual(atSwitch);
+    await page.locator("#character-open").click();
+    await page.locator(`[data-character="${id}"]`).click();
+    await page.locator("#character-confirm").click();
+    await expect(page.locator("#character-selection")).not.toBeVisible();
+    expect(await page.evaluate(() => window.__GATE3__!.playerSprites)).toBe(1);
+    await page.reload();
+    await ready(page);
+    await page.waitForFunction(
+      (id) => window.__GATE3__!.characterId === id,
+      id,
+    );
+    expect(await page.evaluate(() => window.__GATE3__!.characterId)).toBe(id);
+    expect(
+      await page.evaluate(() => ({
+        x: window.__GATE3__!.x,
+        y: window.__GATE3__!.y,
+        visited: window.__GATE3__!.visited,
+      })),
+    ).toEqual(atSwitch);
+    expect(before.visited.length).toBeGreaterThan(0);
+    expect(errors).toEqual([]);
+  });
+}

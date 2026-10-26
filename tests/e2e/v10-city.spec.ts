@@ -30,10 +30,18 @@ async function place(p: Page, x: number, y: number) {
   );
 }
 async function axis(p: Page, axis: "x" | "y", target: number) {
-  const start = await p.evaluate((axis) => window.__SEOUL__![axis], axis);
-  if (Math.abs(start - target) < 4) return;
-  const sign = Math.sign(target - start),
-    key =
+  // The approved controller decelerates after keyup. Starting the next axis
+  // before it settles introduced ~8px perpendicular drift and flaky corners.
+  // Wait for real velocity; no placement, speed or collision overrides.
+  const settle = () =>
+    p.waitForFunction(() =>
+      window.__FULL_WORLD__!.velocity.every((v) => Math.abs(v) < 0.1),
+    );
+  await settle();
+  const position = () => p.evaluate((axis) => window.__SEOUL__![axis], axis);
+  const move = async (start: number, stopBefore: number) => {
+    const sign = Math.sign(target - start);
+    const key =
       axis === "x"
         ? sign > 0
           ? "ArrowRight"
@@ -41,19 +49,37 @@ async function axis(p: Page, axis: "x" | "y", target: number) {
         : sign > 0
           ? "ArrowDown"
           : "ArrowUp";
-  await p.keyboard.down(key);
+    await p.keyboard.down(key);
+    try {
+      await p.waitForFunction(
+        ({ axis, target, sign, stopBefore }) =>
+          (target - window.__SEOUL__![axis]) * sign <= stopBefore,
+        { axis, target, sign, stopBefore },
+        { timeout: Math.max(8000, Math.abs(target - start) * 22) },
+      );
+    } finally {
+      await p.keyboard.up(key);
+    }
+    await settle();
+  };
+  let current = await position();
+  if (Math.abs(current - target) < 4) return;
+  if (Math.abs(current - target) > 24) await move(current, 12);
+  // Use original walking input for the braking-distance approach, then restore
+  // the caller's run key. The waypoint/obstacle/final-distance gates are retained.
+  await p.keyboard.up("Shift");
   try {
-    await p.waitForFunction(
-      ({ axis, target, sign }) =>
-        (window.__SEOUL__![axis] - target) * sign >= -2,
-      { axis, target, sign },
-      { timeout: Math.max(8000, Math.abs(target - start) * 22) },
-    );
+    for (let attempt = 0; attempt < 5; attempt++) {
+      current = await position();
+      if (Math.abs(current - target) < 4) break;
+      await move(current, 3);
+    }
+    expect(Math.abs((await position()) - target)).toBeLessThan(4);
   } finally {
-    await p.keyboard.up(key);
+    await p.keyboard.down("Shift");
   }
 }
-// Each route uses one QA start, then real keyboard movement at unchanged run speed.
+// Each route uses one QA start, real running keys and native walk-speed final approaches.
 for (const [name, points] of [
   [
     "historic gateway to high street",

@@ -1,3 +1,8 @@
+import {
+  WorldSessionCheckpoint,
+  browserSessionCheckpointStorage,
+  checkpointGroundIsWalkable,
+} from "../platform/WorldSessionCheckpoint";
 import { CharacterSession } from "../characters/session";
 import { characterRegistry } from "../characters/registry";
 import {
@@ -304,6 +309,26 @@ const entries: Record<string, number[]> =
       : { station: [2824, 857], alley: [1470, 850] });
 if (entries[query.get("entry") ?? ""])
   data.spawn = entries[query.get("entry")!];
+// Resume only an actual browser reload. Explicit review-entry navigation keeps its declared spawn.
+const worldCheckpoint = production
+  ? new WorldSessionCheckpoint(
+      browserSessionCheckpointStorage(),
+      location.pathname + location.search,
+      data,
+    )
+  : null;
+let reloadState =
+  (
+    performance.getEntriesByType("navigation")[0] as
+      PerformanceNavigationTiming | undefined
+  )?.type === "reload"
+    ? (worldCheckpoint?.read() ?? null)
+    : null;
+if (
+  reloadState &&
+  !(await checkpointGroundIsWalkable(data, reloadState.x, reloadState.y, base))
+)
+  reloadState = null;
 const label = id.startsWith("palace-cleanup-")
   ? "Palace cleanup review · western hanok, Hanbit and both Jeju bridges approved/locked"
   : id.startsWith("west-hanok-")
@@ -404,7 +429,10 @@ class Slice extends Phaser.Scene {
       .setDisplaySize(data.size[0], data.size[1])
       .setDepth(-101)
       .setVisible(false);
-    [this.x, this.y] = data.spawn;
+    [this.x, this.y] = reloadState
+      ? [reloadState.x, reloadState.y]
+      : data.spawn;
+    this.visited = new Set(reloadState?.visited ?? []);
     // Initial movement waits for native chunk + local foreground + collision readiness.
     this.characters = new PlayerCharacterManager(
       new PhaserCharacterAssets(this, base),
@@ -482,6 +510,11 @@ class Slice extends Phaser.Scene {
     if (production) {
       this.selectionBindings = new AbortController();
       const signal = this.selectionBindings.signal;
+      window.addEventListener(
+        "pagehide",
+        () => worldCheckpoint?.save(this.x, this.y, this.visited),
+        { signal },
+      );
       let previousPause = false;
       this.selection = new CharacterSelection(
         {

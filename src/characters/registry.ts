@@ -1,3 +1,6 @@
+import haneulClips from "../../assets-src/characters/phase1b/haneul/clips.json";
+import bomiClips from "../../assets-src/characters/phase1b/bomi/clips.json";
+import minjunClips from "../../assets-src/characters/phase1b/minjun/clips.json";
 import juni from "../../assets-src/juni-animation/runtime.json";
 import { characterSchema, directions, type CharacterDefinition } from "./types";
 const clips: CharacterDefinition["animations"] = {};
@@ -37,6 +40,11 @@ const shared = {
     walkStride: 44,
     runStride: 64,
   },
+};
+const authoredClips = {
+  haneul: haneulClips,
+  bomi: bomiClips,
+  minjun: minjunClips,
 };
 const definitions: CharacterDefinition[] = [
   {
@@ -96,15 +104,23 @@ const definitions: CharacterDefinition[] = [
     id,
     names: { ko, vi },
     description,
-    preview: `assets/characters/${id}/preview.png`,
-    assets: null,
-    animations: {},
+    preview: `assets/characters/${id}/preview-native.png`,
+    collision: {
+      ...shared.collision,
+      footprint: "approved-native-envelope" as const,
+    },
+    assets: {
+      texture: `assets/characters/${id}/atlas.png`,
+      atlas: `assets/characters/${id}/atlas.json`,
+      key: `character-${id}`,
+    },
+    animations: authoredClips[id],
     cosmetics: { palette: [...palette], outfit, tags: ["original-design"] },
     availability: {
-      status: "incomplete" as const,
+      status: "playable" as const,
       unlock: "free" as const,
       reason:
-        "Artwork/animation validation incomplete; not a playable placeholder",
+        "Phase 1B native layered pack: 112 frames, four-direction gait; human art review pending",
     },
   })),
 ];

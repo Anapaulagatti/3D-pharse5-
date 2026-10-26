@@ -23,6 +23,20 @@ const fixture = {
   names: { ko: "테스트", vi: "Pipeline fixture only" },
 };
 const registry = new CharacterRegistry([juni, fixture]);
+const incompleteRegistry = new CharacterRegistry([
+  juni,
+  {
+    ...juni,
+    id: "unfinished",
+    assets: null,
+    animations: {},
+    availability: {
+      status: "incomplete",
+      unlock: "free",
+      reason: "Test incomplete rejection only",
+    },
+  },
+]);
 function storage() {
   const map = new Map<string, string>();
   return {
@@ -88,7 +102,10 @@ describe("character registry and atlas boundary", () => {
       "minjun",
     ]);
     expect(characterRegistry.resolve("missing").id).toBe("juni");
-    expect(characterRegistry.resolve("bomi").id).toBe("juni");
+    expect(characterRegistry.resolve("bomi").id).toBe("bomi");
+    expect(
+      characterRegistry.all.every((c) => c.availability.status === "playable"),
+    ).toBe(true);
   });
   it("rejects duplicate identities and broken required gait definitions", () => {
     expect(() => new CharacterRegistry([juni, juni])).toThrow("Duplicate");
@@ -120,7 +137,7 @@ describe("preferences protect unrelated progress", () => {
       "{",
       '{"version":2,"characterId":"juni"}',
       '{"version":1,"characterId":"unknown"}',
-      '{"version":1,"characterId":"haneul"}',
+      '{"version":1,"characterId":"unfinished"}',
     ]) {
       s.map.set(PREFERENCES_KEY, raw);
       expect(p.read()).toMatchObject({
@@ -138,7 +155,9 @@ describe("preferences protect unrelated progress", () => {
       { characterId: "juni", needsSelection: false },
     );
     expect(s.map.get("learning-progress-fixture")).toBe("KEEP");
-    expect(p.save("minjun")).toBe(false);
+    expect(p.save("minjun")).toBe(true);
+    expect(p.read().characterId).toBe("minjun");
+    expect(p.save("unknown")).toBe(false);
   });
   it("unavailable/throwing browser storage never prevents session play", () => {
     const p = new CharacterPreferences(
@@ -197,11 +216,12 @@ describe("transactional sprite ownership", () => {
     const r = new PlayerCharacterManager(
       { ensure: async () => {} },
       () => new Sprite(),
-      new CharacterPreferences(storage(), characterRegistry),
+      new CharacterPreferences(storage(), incompleteRegistry),
       juni,
       { x: 0, y: 0 },
+      incompleteRegistry,
     );
-    await expect(r.select("haneul", { x: 0, y: 0 })).rejects.toThrow(
+    await expect(r.select("unfinished", { x: 0, y: 0 })).rejects.toThrow(
       "incomplete",
     );
   });
@@ -233,8 +253,11 @@ describe("generic future atlas playback", () => {
   it("advances gait only by actual travel and resolves emotes then idle", () => {
     const m = new RegistryMotion(fixture);
     m.step(16, 10, true, false, "right", false, false);
-    const phase = m.phase;
+    expect(m.frame).toMatch(/^start-right-/);
+    for (let i = 0; i < 5; i++)
+      m.step(100, 1, true, false, "right", false, false);
     expect(m.frame).toMatch(/^walk-right-/);
+    const phase = m.phase;
     m.step(16, 0, true, false, "right", false, false);
     expect(m.phase).toBe(phase);
     m.step(16, 0, false, false, "right", false, false);
@@ -266,11 +289,14 @@ describe("avatar identity across scene lifetimes", () => {
     ).toBe("juni");
   });
   it("cannot promote an incomplete character through session state", () => {
-    const session = new CharacterSession({
-      characterId: "haneul",
-      needsSelection: true,
-    });
+    const session = new CharacterSession(
+      {
+        characterId: "unfinished",
+        needsSelection: true,
+      },
+      incompleteRegistry,
+    );
     expect(session.selected.id).toBe("juni");
-    expect(() => session.commit("haneul")).toThrow("Incomplete");
+    expect(() => session.commit("unfinished")).toThrow("Incomplete");
   });
 });

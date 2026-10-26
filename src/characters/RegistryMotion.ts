@@ -1,7 +1,7 @@
 import type { CharacterDefinition, Direction } from "./types";
 import type { JuniGesture } from "../engine/JuniMotion";
-/** Generic pose playback for future completed atlases. World movement remains
- * entirely in the original scene controller, shared by every avatar. */
+/** Playback only: world travel/collision/camera remain in the accepted controller.
+ * Native locomotion phase follows actual distance, never wall-clock input time. */
 export class RegistryMotion {
   action = "idle";
   view: Direction = "front";
@@ -9,6 +9,8 @@ export class RegistryMotion {
   phase = 0;
   private elapsed = 0;
   private requested: JuniGesture | null = null;
+  private moving = false;
+  private transition: string | null = null;
   constructor(private def: CharacterDefinition) {
     this.frame = def.animations["idle-front"].frames[0];
   }
@@ -35,33 +37,43 @@ export class RegistryMotion {
               ? this.def.movement.runStride
               : this.def.movement.walkStride)) %
         1;
+    const enter = (action: string, transition: string | null = null) => {
+      this.action = action;
+      this.transition = transition;
+      this.elapsed = 0;
+    };
     if (input) {
-      this.action = gait;
-      this.view = view;
       this.requested = null;
+      const turn = `turn-${this.view}-${view}`;
+      if (this.view !== view && this.def.animations[turn]) enter("turn", turn);
+      else if (!this.moving && this.def.animations[`start-${view}`])
+        enter("start", `start-${view}`);
+      else if (!this.transition) this.action = gait;
+      this.view = view;
     } else if (this.requested) {
-      this.action = this.requested;
+      enter(this.requested);
       this.requested = null;
       this.view = "front";
-      this.elapsed = 0;
-    } else if (this.action === "walk" || this.action === "run") {
-      this.action = "idle";
-      this.elapsed = 0;
+    } else if (this.moving) {
+      if (this.def.animations[`stop-${this.view}`])
+        enter("stop", `stop-${this.view}`);
+      else enter("idle");
     }
-    let clip =
-      this.def.animations[`${this.action}-${this.view}`] ??
+    this.moving = input;
+    const current = () =>
+      this.def.animations[this.transition ?? `${this.action}-${this.view}`] ??
       this.def.animations[`idle-${this.view}`];
-    const total = clip.durationsMs.reduce((a, b) => a + b, 0);
-    if (!clip.loop && this.elapsed >= total) {
-      this.action = "idle";
-      this.elapsed = 0;
-      clip = this.def.animations[`idle-${this.view}`];
+    let clip = current();
+    const duration = () => clip.durationsMs.reduce((a, b) => a + b, 0);
+    if (!clip.loop && this.elapsed >= duration()) {
+      enter(input ? gait : "idle");
+      clip = current();
     }
     let index = 0;
-    if (input)
+    if (input && !this.transition)
       index = Math.floor(this.phase * clip.frames.length) % clip.frames.length;
-    else if (!reduced) {
-      let t = this.elapsed % clip.durationsMs.reduce((a, b) => a + b, 0);
+    else if (!reduced || !clip.loop) {
+      let t = this.elapsed % duration();
       while (index < clip.frames.length - 1 && t >= clip.durationsMs[index])
         t -= clip.durationsMs[index++];
     }
