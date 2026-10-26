@@ -1,4 +1,5 @@
 import { futureRoster, type FutureRosterSlot } from "./futureRoster";
+import { phase2bCharacters } from "./phase2bCharacters";
 import { phase2aCharacters } from "./newCharacters";
 import haneulClips from "../../assets-src/characters/phase1b/haneul/clips.json";
 import bomiClips from "../../assets-src/characters/phase1b/bomi/clips.json";
@@ -126,7 +127,7 @@ const definitions: CharacterDefinition[] = [
     },
   })),
 ];
-definitions.push(...phase2aCharacters);
+definitions.push(...phase2aCharacters, ...phase2bCharacters);
 export class CharacterRegistry {
   readonly all: readonly CharacterDefinition[];
   readonly planned: readonly FutureRosterSlot[];

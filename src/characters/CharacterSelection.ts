@@ -97,6 +97,7 @@ export class CharacterSelection {
     this.el("#future-roster p").textContent = characterRegistry.planned
       .map((slot) => `${slot.names.ko} · ${slot.names.vi}`)
       .join(" / ");
+    this.el("#future-roster").hidden = characterRegistry.planned.length === 0;
     this.el("#character-close").addEventListener("click", () => {
       if (!this.pending) this.close();
     });
@@ -209,6 +210,9 @@ export class CharacterSelection {
       "[data-character]",
     ))
       b.setAttribute("aria-pressed", String(b.dataset.character === def.id));
+    this.dialog
+      .querySelector(`[data-character="${def.id}"]`)
+      ?.scrollIntoView({ block: "nearest", inline: "nearest" });
     this.el("#character-name").textContent =
       `${def.names.ko} · ${def.names.vi}`;
     this.el("#character-description").textContent = def.description;

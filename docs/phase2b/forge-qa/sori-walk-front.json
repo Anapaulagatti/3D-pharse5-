@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 0.811,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 4.7679,
+        "adjacent_median": 5.8777
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-front-0.png",
+      "sha256": "38a20e22272a0161686c22d951158e988f06f31d8437be6dc1e2abce651e3e7f",
+      "bytes": 5045
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-front-1.png",
+      "sha256": "074c7efdf55c97a73eabb0519a66630eef39f1b448630553dea3a57090e88812",
+      "bytes": 5073
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-front-2.png",
+      "sha256": "30df7d180f79d8fa0c47a4f388494aa3211d68a382fd1ca72cece4cec115386b",
+      "bytes": 4978
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-front-3.png",
+      "sha256": "1b723c5f1885eaf5b0070cbd5be5047c90033dda9abe937383caac8f4a3a1832",
+      "bytes": 5071
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-front-4.png",
+      "sha256": "61cdec3dee7ade32591df1fdd6df096549dc64a2955c753c05bfd42868c48c57",
+      "bytes": 5002
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-front-5.png",
+      "sha256": "e09976519b8ffbd310cfd6400634f64eebeda672a6b03614c6ac4ac4daa7d385",
+      "bytes": 5017
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-front-6.png",
+      "sha256": "2df07ee451a9ea28d544d26190016c89ffd7aab9cca595a2b8b7cdd3abf91d5a",
+      "bytes": 5040
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-front-7.png",
+      "sha256": "11dbf5fc77f0d12e310719357cf28bf1fc378ec921b27f30d2c31d40675beb35",
+      "bytes": 4971
+    }
+  ],
+  "outputs": [
+    {
+      "path": "sori-walk-front.png",
+      "sha256": "001f4d8b0fa1aabc0f999bac1b1cca288e4dd00390f042bf2b7f901ee61aa870",
+      "bytes": 109939
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-front-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1456,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 914,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-front-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1473,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 933,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-front-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1444,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 904,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-front-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1466,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 902,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        20,
+        66,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-front-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1453,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 910,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        20,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-front-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1457,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 889,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        21,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-front-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1459,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 910,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        20,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-front-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1434,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 903,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        21,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    }
+  ]
+}
