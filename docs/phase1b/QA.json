@@ -1,0 +1,210 @@
+{
+  "status": "FOUR-CHARACTER PLAYABLE REVIEW CANDIDATE; HUMAN ART APPROVAL PENDING",
+  "scope": "Phase1B only; Phase2 LOCKED; no main merge or deployment",
+  "checks": [
+    [
+      "Four genuinely playable character packs",
+      "PASS",
+      "Original Juni144;3new112-slot atlases,64 distinct gait images each."
+    ],
+    [
+      "Four-direction walk/run in actual Phaser",
+      "PASS",
+      "All8 frames of all32 character/action/direction clips observed via real input."
+    ],
+    [
+      "Wave / celebrate / start-stop-turn",
+      "PASS",
+      "Native clips and actual emote recording; turn clips reuse authored directional poses."
+    ],
+    [
+      "Selection / switching / one player / persistence",
+      "PASS",
+      "Real UI switches, saved choice, exact position and nonempty existing visited marker preserved across refresh."
+    ],
+    [
+      "Mobile landscape browser input/UI",
+      "PASS",
+      "Chromium844\u00d7390/DPR3 touch emulation, all4 avatars; not physical devices."
+    ],
+    [
+      "Both Jeju bridge routes",
+      "PASS",
+      "16out/return legs;8628 sampled poses,0unsupported contacts; source-body readback exact."
+    ],
+    [
+      "World / Juni / collision / camera preservation",
+      "PASS",
+      "3082world and224Juni manifest entries unchanged;6868992 paired native world pixels,0changed."
+    ],
+    [
+      "Native1:1 rendering and sampling",
+      "PASS",
+      "Canvas and software-WebGL smoke;4player station readbacks exact, nearest textures/integer native camera."
+    ],
+    [
+      "Unit / E2E / build / lint / assets",
+      "PASS",
+      "50unit tests,23E2E tests (8production,15retained historical tests); all required commands pass."
+    ],
+    [
+      "Existing production interior transition",
+      "NOT TESTED",
+      "Canonical frozen outdoor world has no supported interior; historical V10 tests do not prove this requirement."
+    ],
+    [
+      "Physical Android Chrome / iPhone Safari",
+      "NOT TESTED",
+      "No recorded physical-device evidence."
+    ],
+    [
+      "Hardware/WebGL sustained performance",
+      "NOT TESTED",
+      "Software-rendered browser evidence is not device certification."
+    ],
+    [
+      "Final human character-art acceptance",
+      "NOT TESTED",
+      "Awaiting review.0final Forge FAIL;11auto-luminance leg-alternation WARNs remain documented, not relabelled PASS."
+    ]
+  ],
+  "bridgeContactSamples": 8628,
+  "unsupportedContactSamples": 0,
+  "worldPixelComparison": 6868992,
+  "worldChangedPixels": 0,
+  "forgeWarningCount": 11,
+  "finalForgeFailCount": 0,
+  "contacts": [
+    {
+      "id": "juni",
+      "bridgeA": {
+        "representativeTraversal": "PASS",
+        "testedMode": "walk",
+        "outAndReturn": true,
+        "stopTurnPoseSupport": "PASS",
+        "sampledNativeContacts": 1518,
+        "unsupportedSampleCount": 0,
+        "CharacterNativeReadback": "PASS",
+        "posesObserved": [
+          "idle",
+          "stop",
+          "turn"
+        ],
+        "artAcceptance": "APPROVED WORLD BASELINE; tested character juni human art approval pending"
+      },
+      "bridgeB": {
+        "representativeTraversal": "PASS",
+        "testedMode": "run",
+        "outAndReturn": true,
+        "stopTurnPoseSupport": "PASS",
+        "sampledNativeContacts": 610,
+        "unsupportedSampleCount": 0,
+        "CharacterNativeReadback": "PASS",
+        "posesObserved": [
+          "idle",
+          "stop",
+          "turn"
+        ],
+        "artAcceptance": "APPROVED WORLD BASELINE; tested character juni human art approval pending"
+      }
+    },
+    {
+      "id": "haneul",
+      "bridgeA": {
+        "representativeTraversal": "PASS",
+        "testedMode": "walk",
+        "outAndReturn": true,
+        "stopTurnPoseSupport": "PASS",
+        "sampledNativeContacts": 1558,
+        "unsupportedSampleCount": 0,
+        "CharacterNativeReadback": "PASS",
+        "posesObserved": [
+          "idle",
+          "stop"
+        ],
+        "artAcceptance": "APPROVED WORLD BASELINE; tested character haneul human art approval pending"
+      },
+      "bridgeB": {
+        "representativeTraversal": "PASS",
+        "testedMode": "run",
+        "outAndReturn": true,
+        "stopTurnPoseSupport": "PASS",
+        "sampledNativeContacts": 629,
+        "unsupportedSampleCount": 0,
+        "CharacterNativeReadback": "PASS",
+        "posesObserved": [
+          "idle",
+          "stop"
+        ],
+        "artAcceptance": "APPROVED WORLD BASELINE; tested character haneul human art approval pending"
+      }
+    },
+    {
+      "id": "bomi",
+      "bridgeA": {
+        "representativeTraversal": "PASS",
+        "testedMode": "walk",
+        "outAndReturn": true,
+        "stopTurnPoseSupport": "PASS",
+        "sampledNativeContacts": 1531,
+        "unsupportedSampleCount": 0,
+        "CharacterNativeReadback": "PASS",
+        "posesObserved": [
+          "idle",
+          "stop"
+        ],
+        "artAcceptance": "APPROVED WORLD BASELINE; tested character bomi human art approval pending"
+      },
+      "bridgeB": {
+        "representativeTraversal": "PASS",
+        "testedMode": "run",
+        "outAndReturn": true,
+        "stopTurnPoseSupport": "PASS",
+        "sampledNativeContacts": 630,
+        "unsupportedSampleCount": 0,
+        "CharacterNativeReadback": "PASS",
+        "posesObserved": [
+          "idle",
+          "stop"
+        ],
+        "artAcceptance": "APPROVED WORLD BASELINE; tested character bomi human art approval pending"
+      }
+    },
+    {
+      "id": "minjun",
+      "bridgeA": {
+        "representativeTraversal": "PASS",
+        "testedMode": "walk",
+        "outAndReturn": true,
+        "stopTurnPoseSupport": "PASS",
+        "sampledNativeContacts": 1538,
+        "unsupportedSampleCount": 0,
+        "CharacterNativeReadback": "PASS",
+        "posesObserved": [
+          "idle",
+          "stop"
+        ],
+        "artAcceptance": "APPROVED WORLD BASELINE; tested character minjun human art approval pending"
+      },
+      "bridgeB": {
+        "representativeTraversal": "PASS",
+        "testedMode": "run",
+        "outAndReturn": true,
+        "stopTurnPoseSupport": "PASS",
+        "sampledNativeContacts": 614,
+        "unsupportedSampleCount": 0,
+        "CharacterNativeReadback": "PASS",
+        "posesObserved": [
+          "idle",
+          "stop"
+        ],
+        "artAcceptance": "APPROVED WORLD BASELINE; tested character minjun human art approval pending"
+      }
+    }
+  ],
+  "source": "SOURCE_PROVENANCE.md",
+  "technicalChanges": "TECHNICAL_CHANGES.md",
+  "native": "native-pixel-qa.json",
+  "protected": "protected-hashes.json",
+  "pipelineChecks": "checks.json"
+}

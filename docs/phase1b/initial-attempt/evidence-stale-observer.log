@@ -1,0 +1,17 @@
+juni walk-back- 5
+juni walk-left- 3
+juni walk-front- 8
+juni walk-right- 7
+juni run-back- 8
+juni run-left- 8
+juni run-front- 8
+juni run-right- 8
+file:///workspace/korean-street-gate1/tools/phase1b/evidence.mjs:11
+async function switchTo(id,first=false){if(!first){if(!await p.locator('#character-open').isVisible())await p.locator('#settings summary').click();await p.locator('#character-open').click();}await p.locator(`[data-character="${id}"]`).click();await p.locator('[data-action="walk"]').click();await p.waitForTimeout(500);await p.screenshot({path:`${D}/selection-${id}-desktop.jpg`,type:'jpeg',quality:82});const before=await p.evaluate(()=>({x:window.__GATE3__.x,y:window.__GATE3__.y,visited:window.__GATE3__.visited}));await p.locator('#character-confirm').click();await p.locator('#character-selection').waitFor({state:'hidden'});await ready();const after=await p.evaluate(()=>({x:window.__GATE3__.x,y:window.__GATE3__.y,visited:window.__GATE3__.visited,characterId:window.__GATE3__.characterId,playerSprites:window.__GATE3__.playerSprites}));if(after.characterId!==id||after.playerSprites!==1||before.x!==after.x||before.y!==after.y||JSON.stringify(before.visited)!==JSON.stringify(after.visited))throw Error('Switch state loss');switches.push({id,before,after});if(await p.locator('#settings[open]').count())await p.locator('#settings summary').click();}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ^
+
+Error: Switch state loss
+    at switchTo (file:///workspace/korean-street-gate1/tools/phase1b/evidence.mjs:11:1005)
+    at async file:///workspace/korean-street-gate1/tools/phase1b/evidence.mjs:15:3
+
+Node.js v24.19.0

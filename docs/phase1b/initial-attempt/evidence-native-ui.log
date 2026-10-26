@@ -1,0 +1,53 @@
+juni walk-back- 4
+juni walk-left- 3
+juni walk-front- 8
+juni walk-right- 8
+juni run-back- 8
+juni run-left- 8
+juni run-front- 8
+juni run-right- 7
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.click: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#settings summary')[22m
+[2m    - locator resolved to <summary aria-label="Options">···</summary>[22m
+[2m  - attempting click action[22m
+[2m    2 × waiting for element to be visible, enabled and stable[22m
+[2m      - element is not visible[22m
+[2m    - retrying click action[22m
+[2m    - waiting 20ms[22m
+[2m    2 × waiting for element to be visible, enabled and stable[22m
+[2m      - element is not visible[22m
+[2m    - retrying click action[22m
+[2m      - waiting 100ms[22m
+[2m    39 × waiting for element to be visible, enabled and stable[22m
+[2m       - element is not visible[22m
+[2m     - retrying click action[22m
+[2m       - waiting 500ms[22m
+
+    at switchTo (/workspace/korean-street-gate1/tools/phase1b/evidence.mjs:11:140)
+    at async file:///workspace/korean-street-gate1/tools/phase1b/evidence.mjs:15:3 {
+  log: [
+    "  - waiting for locator('#settings summary')",
+    '    - locator resolved to <summary aria-label="Options">···</summary>',
+    '  - attempting click action',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is not visible',
+    '    - retrying click action',
+    '    - waiting 20ms',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is not visible',
+    '    - retrying click action',
+    '      - waiting 100ms',
+    '    39 × waiting for element to be visible, enabled and stable',
+    '       - element is not visible',
+    '     - retrying click action',
+    '       - waiting 500ms'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.19.0

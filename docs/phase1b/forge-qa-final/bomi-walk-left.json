@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.275,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 5.8202,
+        "adjacent_median": 4.5649
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase1b/bomi/frames/walk-left-0.png",
+      "sha256": "2c356be9dbc1308389ff362a3408d8c86c33782d189e3a5fb4519c5b80787582",
+      "bytes": 5313
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/bomi/frames/walk-left-1.png",
+      "sha256": "7900c2db9c33c54cc0e86a9ba791a7d6c38c8fa0af24cae56b23260a538e80b1",
+      "bytes": 5534
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/bomi/frames/walk-left-2.png",
+      "sha256": "1fab0608704142a17a2316cd5baca8349d6e9047ce484a9ceff651c9e97ea742",
+      "bytes": 5726
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/bomi/frames/walk-left-3.png",
+      "sha256": "758294b52c915c49a2f656f2ffa4fe4b29e36a51126110706e005e9362eca184",
+      "bytes": 5775
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/bomi/frames/walk-left-4.png",
+      "sha256": "6c11a0486b4a4d7305b283468ab4a8d6d4cfc204c7df455ac7f57172cb8fe2aa",
+      "bytes": 5822
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/bomi/frames/walk-left-5.png",
+      "sha256": "5f640ba1e95c17b9a100abc33c578a0e4c9cc901192bcba425f60ace2dd0f12c",
+      "bytes": 5566
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/bomi/frames/walk-left-6.png",
+      "sha256": "a20542e65df6c89c2c2c02222c7986e2adc295a07365645f2f3b1266266f8264",
+      "bytes": 5291
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/bomi/frames/walk-left-7.png",
+      "sha256": "b1bc380b9b5580bcd9a0b08a15818271b83cad6a3fbdf4404211d430962b1ee4",
+      "bytes": 5130
+    }
+  ],
+  "outputs": [
+    {
+      "path": "bomi-walk-left.png",
+      "sha256": "9f415c239e49a96200f8cca905c1e4970c764c901bac82d3133cb36556aeca22",
+      "bytes": 130217
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase1b/bomi/frames/walk-left-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1502,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 150,
+      "orphans": 1039,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        20,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/bomi/frames/walk-left-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1577,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 161,
+      "orphans": 1073,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        19,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/bomi/frames/walk-left-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1619,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 168,
+      "orphans": 1132,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        19,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/bomi/frames/walk-left-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1627,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 167,
+      "orphans": 1097,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        19,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/bomi/frames/walk-left-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1636,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 169,
+      "orphans": 1153,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        20,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/bomi/frames/walk-left-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1586,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 168,
+      "orphans": 1076,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        19,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/bomi/frames/walk-left-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1510,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 163,
+      "orphans": 1039,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        19,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/bomi/frames/walk-left-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1451,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 150,
+      "orphans": 1000,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        19,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    }
+  ]
+}

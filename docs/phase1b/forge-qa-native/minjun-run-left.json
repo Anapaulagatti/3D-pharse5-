@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.158,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 7.3378,
+        "adjacent_median": 6.3368
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/run-left-0.png",
+      "sha256": "42e305e525abcc5a0efda63991d5a6ca8e2bc5287468eed2965696a10ab67e2a",
+      "bytes": 5244
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/run-left-1.png",
+      "sha256": "27aedd3f3abe7b92a61956487bda9ad394ff7aa54d17f7b87af635df0fd542d4",
+      "bytes": 5003
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/run-left-2.png",
+      "sha256": "50cad6a3a7fe59833bfdaa4eb5a355a61770ea4b1ce897f5994a72f086e81e46",
+      "bytes": 4958
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/run-left-3.png",
+      "sha256": "ba51849c3549600239512b2ec5a661e809cba90407d66a3ff512c5659031b34d",
+      "bytes": 5300
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/run-left-4.png",
+      "sha256": "ae09ac1fac99506000cc7699a05480b5f4617ce21851fea605b298b5fb0caf77",
+      "bytes": 5272
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/run-left-5.png",
+      "sha256": "0e6c8e8204c486f380f6883a6c58ed05accf73c3d166c107d0c38ecb5d3287cb",
+      "bytes": 5014
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/run-left-6.png",
+      "sha256": "b3c1678e1937939cfde0ecacd73a45fb902e257a3f9ea0d3a0cf2bf72e7709e1",
+      "bytes": 4897
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/run-left-7.png",
+      "sha256": "1cc81829025dd0d71e0cff77dcf21ebd202b954d761d6f0a8359549a5d0e30b7",
+      "bytes": 5192
+    }
+  ],
+  "outputs": [
+    {
+      "path": "minjun-run-left.png",
+      "sha256": "865ac3ce8753bee0a1127c73dcd329f88fc387f87a2b06f28478886a87a43535",
+      "bytes": 131089
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/run-left-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1505,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 138,
+      "orphans": 969,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        18,
+        64,
+        101
+      ],
+      "ground_gap_px": -1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/run-left-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1415,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 124,
+      "orphans": 959,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        17,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/run-left-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1428,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 151,
+      "orphans": 964,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        16,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/run-left-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1502,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 159,
+      "orphans": 992,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        17,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/run-left-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1504,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 160,
+      "orphans": 1002,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        18,
+        65,
+        101
+      ],
+      "ground_gap_px": -1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/run-left-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1420,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 143,
+      "orphans": 941,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        17,
+        63,
+        101
+      ],
+      "ground_gap_px": -1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/run-left-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1388,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 134,
+      "orphans": 950,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        16,
+        63,
+        101
+      ],
+      "ground_gap_px": -1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/run-left-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1473,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 143,
+      "orphans": 973,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        17,
+        63,
+        101
+      ],
+      "ground_gap_px": -1.0
+    }
+  ]
+}

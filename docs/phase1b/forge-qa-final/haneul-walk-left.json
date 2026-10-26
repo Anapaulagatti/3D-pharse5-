@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.175,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 5.5997,
+        "adjacent_median": 4.7638
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/walk-left-0.png",
+      "sha256": "df5b94f3c27b33c2f86f69ab09182528e8869a4c5ae7825cb766b48667383cfb",
+      "bytes": 4629
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/walk-left-1.png",
+      "sha256": "622e53b63ef15e2f0bf6ea1e93bc4795aecc950ff80de24b5076d35d9e9d723e",
+      "bytes": 4845
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/walk-left-2.png",
+      "sha256": "74645e5b08f120a6db3207990c32d8b7e2ff9bb793567f6f25da3b5a5c762e29",
+      "bytes": 5074
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/walk-left-3.png",
+      "sha256": "5bf382d2f238b667a4a8187cb4d321c758e9a1ae2cacd0df62f15bd9ce8fc191",
+      "bytes": 5275
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/walk-left-4.png",
+      "sha256": "627698ae669d5c8f88ae8453d3b12a6281e856e26f20628b3d83bfed3595206e",
+      "bytes": 5247
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/walk-left-5.png",
+      "sha256": "b00275fbad0db70743bc4b706a657a7ff5c07ae7e541e0d4baf6a97545c83acc",
+      "bytes": 5038
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/walk-left-6.png",
+      "sha256": "e8bb85628c71d6890e16b365535c27056f9ccc65913176f4e53600d36b61d172",
+      "bytes": 4696
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/walk-left-7.png",
+      "sha256": "7f3b5981d9010f3a40b6851ba1c64d62e52683c651136104ecb12ff24d18f5a8",
+      "bytes": 4548
+    }
+  ],
+  "outputs": [
+    {
+      "path": "haneul-walk-left.png",
+      "sha256": "0a1d32562a4540aea95b5de28d6330bdf8424ad886641d9dbf8b7e1f3c411d7c",
+      "bytes": 118253
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/walk-left-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1352,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 115,
+      "orphans": 830,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        21,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/walk-left-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1426,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 130,
+      "orphans": 854,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/walk-left-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1511,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 139,
+      "orphans": 904,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        20,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/walk-left-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1555,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 146,
+      "orphans": 918,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        20,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/walk-left-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1557,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 148,
+      "orphans": 955,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        29,
+        21,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/walk-left-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1505,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 144,
+      "orphans": 876,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        20,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/walk-left-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1382,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 128,
+      "orphans": 848,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/walk-left-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1316,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 109,
+      "orphans": 817,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    }
+  ]
+}

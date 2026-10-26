@@ -1,0 +1,36 @@
+
+> hangeul-pixel-town@3.1.0 test:e2e
+> playwright test --grep leisure campus and ride approaches --output .cache/phase1b-legacy-recheck
+
+[WebServer] (node:12410) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:12462) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 tests/e2e/v10-city.spec.ts:142:3 › V10 real input route: leisure campus and ride approaches (14.6s)
+
+
+  1) tests/e2e/v10-city.spec.ts:142:3 › V10 real input route: leisure campus and ride approaches ───
+
+    TimeoutError: page.waitForFunction: Timeout 8000ms exceeded.
+
+      44 |   await p.keyboard.down(key);
+      45 |   try {
+    > 46 |     await p.waitForFunction(
+         |             ^
+      47 |       ({ axis, target, sign }) =>
+      48 |         (window.__SEOUL__![axis] - target) * sign >= -2,
+      49 |       { axis, target, sign },
+        at axis (/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:46:13)
+        at /workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:150:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .cache/phase1b-legacy-recheck/v10-city-V10-real-input-ro-19339--campus-and-ride-approaches/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .cache/phase1b-legacy-recheck/v10-city-V10-real-input-ro-19339--campus-and-ride-approaches/error-context.md
+
+  1 failed
+    tests/e2e/v10-city.spec.ts:142:3 › V10 real input route: leisure campus and ride approaches ────

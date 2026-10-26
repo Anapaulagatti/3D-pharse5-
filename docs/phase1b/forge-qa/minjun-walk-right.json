@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.446,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 6.1948,
+        "adjacent_median": 4.2851
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-right-0.png",
+      "sha256": "5df5b7ca9855b3d76c78cd74729bda30195d302df997fdad1f005f7da0c9f2fd",
+      "bytes": 5132
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-right-1.png",
+      "sha256": "ef9114b89ffc7a4e2117336e4794e3910b77d85c09e0e43b4c22b1cdd0a26e99",
+      "bytes": 5223
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-right-2.png",
+      "sha256": "d2df4bf001b540b27ece46999c9d2eafb4d28c919df374f6baada8540a9f5ac6",
+      "bytes": 5116
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-right-3.png",
+      "sha256": "e360e827292bdb741ffaffbb5734294b374d3fcd44503722be9a97d4372b3261",
+      "bytes": 4883
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-right-4.png",
+      "sha256": "0571ac63efa72fb33a56512f661a92c74cbe0a0be13f55cc4399873e8bdf9e8b",
+      "bytes": 4647
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-right-5.png",
+      "sha256": "c9e4f0beaa3dd283331fc6fc4c1e00e26edea8bedc18168dbd114e6dc50005a0",
+      "bytes": 4671
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-right-6.png",
+      "sha256": "3736794fd4d79a036751bf3b44271e48d83b0c51b0cd055cc9272c5aaeb31e84",
+      "bytes": 4799
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-right-7.png",
+      "sha256": "b672598b751f88f11781b611396c8688b36b0fd29d49b27f1d158545b629b61c",
+      "bytes": 5036
+    }
+  ],
+  "outputs": [
+    {
+      "path": "minjun-walk-right.png",
+      "sha256": "14dd442233353610a42274aac6c891fd3b9a2c8b14a89d8cd2bfd99e6f08656f",
+      "bytes": 117673
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-right-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1517,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 995,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        18,
+        68,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-right-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1515,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 998,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        17,
+        67,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-right-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1490,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 995,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        17,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-right-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1422,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 948,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        17,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-right-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1341,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 904,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        18,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-right-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1327,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 921,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        17,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-right-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1390,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 972,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        17,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-right-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1465,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 970,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        17,
+        67,
+        99
+      ],
+      "ground_gap_px": 1.0
+    }
+  ]
+}

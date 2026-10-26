@@ -1,0 +1,88 @@
+
+> hangeul-pixel-town@3.1.0 test:e2e
+> playwright test
+
+[WebServer] (node:4341) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 23 tests using 1 worker
+
+(node:4370) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/e2e/characters.spec.ts:16:1 › production starts in frozen world with honest four-card selection (16.0s)
+  ✓   2 tests/e2e/characters.spec.ts:42:1 › saved Juni restores and settings round-trip preserves location, emotes, progress and body ownership (43.5s)
+  ✓   3 tests/e2e/characters.spec.ts:98:1 › corrupt, unknown and unavailable storage recover to Juni without crashing (25.7s)
+  ✓   4 tests/e2e/characters.spec.ts:128:1 › mobile landscape preview fits; modal isolates joystick and original touch movement returns (4.0s)
+  ✓   5 tests/e2e/characters.spec.ts:178:1 › Canvas native Juni and Scenic Tour survive the production bootstrap (1.6s)
+  ✓   6 tests/e2e/characters.spec.ts:212:3 › native pack haneul plays, switches and restores without position/state loss (20.3s)
+  ✓   7 tests/e2e/characters.spec.ts:212:3 › native pack bomi plays, switches and restores without position/state loss (20.4s)
+  ✓   8 tests/e2e/characters.spec.ts:212:3 › native pack minjun plays, switches and restores without position/state loss (52.7s)
+  ✓   9 tests/e2e/foundation.spec.ts:18:1 › preserved north normal entry: actual Juni walk and gesture recover (6.5s)
+  ✓  10 tests/e2e/foundation.spec.ts:38:1 › approved Academy lesson and return remain functional after cleanup (5.3s)
+  ✓  11 tests/e2e/foundation.spec.ts:53:1 › palace intent toggles retained gate and prevents closing on Juni (4.7s)
+  ✓  12 tests/e2e/foundation.spec.ts:66:1 › mobile analog movement, reduced motion and portrait pause survive cleanup (5.2s)
+  ✓  13 tests/e2e/v10-city.spec.ts:142:3 › V10 real input route: historic gateway to high street (14.4s)
+  ✘  14 tests/e2e/v10-city.spec.ts:142:3 › V10 real input route: entire high street and station forecourt (29.9s)
+(node:5852) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  15 tests/e2e/v10-city.spec.ts:142:3 › V10 real input route: urban block circuit (55.8s)
+  ✓  16 tests/e2e/v10-city.spec.ts:142:3 › V10 real input route: west scenic loop and tower approach (45.7s)
+Killed
+ary").click();
+          |                                             ^
+      250 |     await page.locator("#character-open").click();
+      251 |     await chooseJuni(page);
+      252 |     expect(
+        at /workspace/korean-street-gate1/tests/e2e/characters.spec.ts:249:45
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/characters-native-pack-han-42ee7-without-position-state-loss/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/characters-native-pack-han-42ee7-without-position-state-loss/error-context.md
+
+  2) tests/e2e/characters.spec.ts:212:3 › native pack bomi plays, switches and restores without position/state loss 
+
+    Test was interrupted.
+
+    Error: locator.click: Test ended.
+    Call log:
+      - waiting for locator('#settings summary')
+        - locator resolved to <summary aria-label="Options">···</summary>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is not visible
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is not visible
+        - retrying click action
+          - waiting 100ms
+        59 × waiting for element to be visible, enabled and stable
+           - element is not visible
+         - retrying click action
+           - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+
+
+      247 |       visited: window.__GATE3__!.visited,
+      248 |     }));
+    > 249 |     await page.locator("#settings summary").click();
+          |                                             ^
+      250 |     await page.locator("#character-open").click();
+      251 |     await chooseJuni(page);
+      252 |     expect(
+        at /workspace/korean-street-gate1/tests/e2e/characters.spec.ts:249:45
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/characters-native-pack-bom-62315-without-position-state-loss/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/characters-native-pack-bom-62315-without-position-state-loss/error-context.md
+
+  1 failed
+    tests/e2e/characters.spec.ts:212:3 › native pack haneul plays, switches and restores without position/state loss 
+  1 interrupted
+    tests/e2e/characters.spec.ts:212:3 › native pack bomi plays, switches and restores without position/state loss 
+  16 did not run
+  5 passed (4.3m)

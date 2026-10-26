@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 0.669,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 4.455,
+        "adjacent_median": 6.6598
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/run-back-0.png",
+      "sha256": "2afff863a1774b829c2e6333c06ef671dcbbed88d971ba0eaae199ec4dfb94d4",
+      "bytes": 5286
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/run-back-1.png",
+      "sha256": "e975668abb476156c3d4cea6ed5624a18820b23e9d19deedf295ad29d678f712",
+      "bytes": 5292
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/run-back-2.png",
+      "sha256": "319e28f53c8806349150055b506229b5ca86e390d7bfd81ea81e1544271e0f64",
+      "bytes": 5306
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/run-back-3.png",
+      "sha256": "09eed46b9378ae9c402455ad18b48fdd7c13630d310778e5b915d17b3c627910",
+      "bytes": 5365
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/run-back-4.png",
+      "sha256": "d8e5385ba8eb6035c69369499807aa009e648dcc5a5209fd49557ea209ac4f46",
+      "bytes": 5372
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/run-back-5.png",
+      "sha256": "fb3ce55465bbd23080ae5a78742bc77623b5ea063fa95c155be3b935d2e9bbed",
+      "bytes": 5362
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/run-back-6.png",
+      "sha256": "5b04801a9dd833854b6745def1c1d040d0250534e5ed6c3b63183641d9416cc4",
+      "bytes": 5382
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/run-back-7.png",
+      "sha256": "a67df00a7f97edfcdc7da224ac8d60672bfbd3abef83a8ea28a571c7d8881aa3",
+      "bytes": 5299
+    }
+  ],
+  "outputs": [
+    {
+      "path": "minjun-run-back.png",
+      "sha256": "e7d1dce25f22dbd4a10299656c1c155f3d167aef4af9081b577e30b575841b26",
+      "bytes": 118389
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/run-back-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1621,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 987,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        20,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/run-back-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1637,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1005,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        19,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/run-back-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1633,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1062,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        18,
+        64,
+        95
+      ],
+      "ground_gap_px": 5.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/run-back-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1636,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1025,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        19,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/run-back-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1629,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1021,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        20,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/run-back-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1639,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1024,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        19,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/run-back-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1649,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1067,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        18,
+        64,
+        95
+      ],
+      "ground_gap_px": 5.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/run-back-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1637,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1002,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        19,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    }
+  ]
+}

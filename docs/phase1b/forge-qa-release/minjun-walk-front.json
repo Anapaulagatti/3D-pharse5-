@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.295,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 5.1349,
+        "adjacent_median": 3.9651
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-front-0.png",
+      "sha256": "1d9c5cd0377721ba070a7cc785e37ef8a40b5432ba7c2285b762b351714b3d05",
+      "bytes": 5933
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-front-1.png",
+      "sha256": "4533b32de43e146f44d32b180b7aad343328fd69e1f346bbc611fa093e8bdc42",
+      "bytes": 5976
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-front-2.png",
+      "sha256": "88585e37b3b0d4728801ed508a1c9ce9ee51c5213de6fe205b304ba44891cd1c",
+      "bytes": 5924
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-front-3.png",
+      "sha256": "887af6be6be9c0201616091de363e55594986a1d0f4954c54ff3d9febae44cd1",
+      "bytes": 5948
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-front-4.png",
+      "sha256": "7ff4a2e7c6d7b4f38848d983b7dacc1f6d1226f4a1acc9a4e2012885f9608178",
+      "bytes": 5898
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-front-5.png",
+      "sha256": "40b3017b0372555c110af861eb4b4aba162896c96dcec0d20c6cc0d83025b889",
+      "bytes": 6021
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-front-6.png",
+      "sha256": "12738f8ff28992e0d4370e33ba33c212dbbf4762b472e4da03f5cfc383a985a5",
+      "bytes": 6002
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-front-7.png",
+      "sha256": "82eaf0e6b79cc116c5f489f11142c92c8c1150e763f7b285556229c50cbd1f1e",
+      "bytes": 6019
+    }
+  ],
+  "outputs": [
+    {
+      "path": "minjun-walk-front.png",
+      "sha256": "998e1b3f43136d3511a576435bb42efa50d16991946ff27e7fdb9926926685cd",
+      "bytes": 117447
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-front-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1758,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1159,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        20,
+        66,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-front-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1765,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1187,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        19,
+        66,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-front-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1747,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1201,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        19,
+        65,
+        97
+      ],
+      "ground_gap_px": 3.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-front-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1762,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1182,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        19,
+        66,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-front-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1748,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1167,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        20,
+        66,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-front-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1771,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1179,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        19,
+        66,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-front-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1762,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1214,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        19,
+        65,
+        97
+      ],
+      "ground_gap_px": 3.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-front-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1776,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1177,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        19,
+        66,
+        99
+      ],
+      "ground_gap_px": 1.0
+    }
+  ]
+}

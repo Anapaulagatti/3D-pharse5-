@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 0.862,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 6.8601,
+        "adjacent_median": 7.9579
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/run-left-0.png",
+      "sha256": "3242de02f79f1480e54035041c54afba06936f0a51f252cb21b79cb048672ffa",
+      "bytes": 4714
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/run-left-1.png",
+      "sha256": "dc8ce40c5661fa377e1ec328a6f8b294c52c1fa653240329ccd091e847c03125",
+      "bytes": 4796
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/run-left-2.png",
+      "sha256": "ad797d8e165a4d1f76abeebb7e9d155611f6693daab536bf4af8058e10b4e073",
+      "bytes": 5148
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/run-left-3.png",
+      "sha256": "6de6056e1c0f1886b26e2f49adb34af8bdae8f1f2a187d63dac8d37ce009b0db",
+      "bytes": 5278
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/run-left-4.png",
+      "sha256": "20ad26708ca85caf2f833da58b545358955490a7a9ef05026b77c4ab4351319a",
+      "bytes": 5389
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/run-left-5.png",
+      "sha256": "b478ea1eaafcc8e41e23ee7d95e69fa330d935f9ee0e74ca91f2691d072cf2ac",
+      "bytes": 5102
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/run-left-6.png",
+      "sha256": "bb0f11fed466eae14a0ad134b898c24b91698f9ea51182ffaae91da0218e4604",
+      "bytes": 4692
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/run-left-7.png",
+      "sha256": "60e01ab1d940ccc0f0af87631511960ddca3ee7fa0594846e53e0330b510851f",
+      "bytes": 4626
+    }
+  ],
+  "outputs": [
+    {
+      "path": "haneul-run-left.png",
+      "sha256": "ba864ea968451605f91b33b980ee627028ca359162703e3987fb1f0ac332f520",
+      "bytes": 126812
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/run-left-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1386,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 115,
+      "orphans": 821,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        21,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/run-left-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1412,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 121,
+      "orphans": 848,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        20,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/run-left-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1533,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 141,
+      "orphans": 917,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        29,
+        19,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/run-left-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1561,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 144,
+      "orphans": 923,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        29,
+        20,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/run-left-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1591,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 148,
+      "orphans": 916,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        27,
+        21,
+        66,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/run-left-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1517,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 144,
+      "orphans": 883,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        29,
+        20,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/run-left-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1388,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 129,
+      "orphans": 820,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        19,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/run-left-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1351,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 124,
+      "orphans": 815,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    }
+  ]
+}

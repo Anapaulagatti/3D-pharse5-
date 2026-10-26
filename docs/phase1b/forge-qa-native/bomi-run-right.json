@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 0.975,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 6.9163,
+        "adjacent_median": 7.0916
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase1b/bomi/frames/run-right-0.png",
+      "sha256": "e6346c6b9de804c0cdc7c5e42bdcb6c3ab398199ad41aef6f629e5ed30f0207e",
+      "bytes": 5631
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/bomi/frames/run-right-1.png",
+      "sha256": "99b49896826b6ecb62754d66a4cd753cf23fbc7c33653d22cb2a4eab82533833",
+      "bytes": 5605
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/bomi/frames/run-right-2.png",
+      "sha256": "7de758035422c158338ab246b2f1f56ac959e8824bc99f1e8da0d44e597166b2",
+      "bytes": 5154
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/bomi/frames/run-right-3.png",
+      "sha256": "1f0947f846a330e887836b63ad3e5c06ff1a963073e083fe7d793e522224244f",
+      "bytes": 5059
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/bomi/frames/run-right-4.png",
+      "sha256": "8b26eaccedb76a797580943d7de55de705059f68806936fb73069dbbfd82f3fd",
+      "bytes": 5256
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/bomi/frames/run-right-5.png",
+      "sha256": "409e626dbad038ee8f92dc8d5685978ef7c3b21f4ba61fbeee01cca0be6e1115",
+      "bytes": 5172
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/bomi/frames/run-right-6.png",
+      "sha256": "81feb162f05feed87355c2daf6d24863b79431ad9b4c56b5434be0ed4b96ca83",
+      "bytes": 4913
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/bomi/frames/run-right-7.png",
+      "sha256": "0c4bb891100362ca1e50e9e64ad16f5497f0ea54d7d8eb6d1f45237e2fc0554e",
+      "bytes": 5247
+    }
+  ],
+  "outputs": [
+    {
+      "path": "bomi-run-right.png",
+      "sha256": "739a4c052a8641a09e990cee2cd6413896e19200cdac23d8223b4e65184f5c05",
+      "bytes": 134074
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase1b/bomi/frames/run-right-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1629,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 172,
+      "orphans": 1036,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        20,
+        63,
+        101
+      ],
+      "ground_gap_px": -1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/bomi/frames/run-right-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1602,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 171,
+      "orphans": 1053,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        19,
+        66,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/bomi/frames/run-right-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1498,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 160,
+      "orphans": 976,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        18,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/bomi/frames/run-right-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1454,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 148,
+      "orphans": 919,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        19,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/bomi/frames/run-right-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1504,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 160,
+      "orphans": 935,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        67,
+        101
+      ],
+      "ground_gap_px": -1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/bomi/frames/run-right-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1469,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 161,
+      "orphans": 920,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        19,
+        65,
+        101
+      ],
+      "ground_gap_px": -1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/bomi/frames/run-right-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1406,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 152,
+      "orphans": 922,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        18,
+        62,
+        101
+      ],
+      "ground_gap_px": -1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/bomi/frames/run-right-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1515,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 169,
+      "orphans": 977,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        19,
+        62,
+        101
+      ],
+      "ground_gap_px": -1.0
+    }
+  ]
+}

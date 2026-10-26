@@ -1,0 +1,871 @@
+[
+  {
+    "file": "docs/phase1b/forge-qa-release/minjun-walk-left-motion/sheet-qc.json",
+    "check": {
+      "id": "leg_alternation",
+      "status": "warn",
+      "value": [
+        "near",
+        "far",
+        "far",
+        "far",
+        "far",
+        "far",
+        "far",
+        "near"
+      ],
+      "threshold": "lead differs between i and i+n/2",
+      "verdict": "mixed: some half-cycle pairs repeat the lead",
+      "pairs": [
+        [
+          0,
+          4,
+          false
+        ],
+        [
+          1,
+          5,
+          true
+        ],
+        [
+          2,
+          6,
+          true
+        ],
+        [
+          3,
+          7,
+          false
+        ]
+      ],
+      "mode": "auto-luminance",
+      "near_leading": 2,
+      "unclear": 0,
+      "half_cycle": {
+        "pairs": [
+          {
+            "pair": [
+              0,
+              4
+            ],
+            "iou_best_shift": 0.8968
+          },
+          {
+            "pair": [
+              1,
+              5
+            ],
+            "iou_best_shift": 0.9221
+          },
+          {
+            "pair": [
+              2,
+              6
+            ],
+            "iou_best_shift": 0.9152
+          },
+          {
+            "pair": [
+              3,
+              7
+            ],
+            "iou_best_shift": 0.8928
+          }
+        ],
+        "adjacent_iou_median": 0.9015,
+        "half_cycle_iou_median": 0.906
+      },
+      "fix": "regenerate frames 4-7 with NEAR and FAR swapped (attach frames 0-3 and the guide)"
+    }
+  },
+  {
+    "file": "docs/phase1b/forge-qa-release/haneul-walk-right-motion/sheet-qc.json",
+    "check": {
+      "id": "leg_alternation",
+      "status": "warn",
+      "value": [
+        "far",
+        "far",
+        "near",
+        "near",
+        "near",
+        "near",
+        "near",
+        "far"
+      ],
+      "threshold": "lead differs between i and i+n/2",
+      "verdict": "mixed: some half-cycle pairs repeat the lead",
+      "pairs": [
+        [
+          0,
+          4,
+          false
+        ],
+        [
+          1,
+          5,
+          false
+        ],
+        [
+          2,
+          6,
+          true
+        ],
+        [
+          3,
+          7,
+          false
+        ]
+      ],
+      "mode": "auto-luminance",
+      "near_leading": 5,
+      "unclear": 0,
+      "half_cycle": {
+        "pairs": [
+          {
+            "pair": [
+              0,
+              4
+            ],
+            "iou_best_shift": 0.8808
+          },
+          {
+            "pair": [
+              1,
+              5
+            ],
+            "iou_best_shift": 0.8736
+          },
+          {
+            "pair": [
+              2,
+              6
+            ],
+            "iou_best_shift": 0.9052
+          },
+          {
+            "pair": [
+              3,
+              7
+            ],
+            "iou_best_shift": 0.9108
+          }
+        ],
+        "adjacent_iou_median": 0.8975,
+        "half_cycle_iou_median": 0.893
+      },
+      "fix": "regenerate frames 4-7 with NEAR and FAR swapped (attach frames 0-3 and the guide)"
+    }
+  },
+  {
+    "file": "docs/phase1b/forge-qa-release/minjun-walk-right-motion/sheet-qc.json",
+    "check": {
+      "id": "leg_alternation",
+      "status": "warn",
+      "value": [
+        "far",
+        "far",
+        "far",
+        "far",
+        "near",
+        "near",
+        "far",
+        "far"
+      ],
+      "threshold": "lead differs between i and i+n/2",
+      "verdict": "mixed: some half-cycle pairs repeat the lead",
+      "pairs": [
+        [
+          0,
+          4,
+          false
+        ],
+        [
+          1,
+          5,
+          false
+        ],
+        [
+          2,
+          6,
+          true
+        ],
+        [
+          3,
+          7,
+          true
+        ]
+      ],
+      "mode": "auto-luminance",
+      "near_leading": 2,
+      "unclear": 0,
+      "half_cycle": {
+        "pairs": [
+          {
+            "pair": [
+              0,
+              4
+            ],
+            "iou_best_shift": 0.8914
+          },
+          {
+            "pair": [
+              1,
+              5
+            ],
+            "iou_best_shift": 0.8847
+          },
+          {
+            "pair": [
+              2,
+              6
+            ],
+            "iou_best_shift": 0.911
+          },
+          {
+            "pair": [
+              3,
+              7
+            ],
+            "iou_best_shift": 0.9184
+          }
+        ],
+        "adjacent_iou_median": 0.8959,
+        "half_cycle_iou_median": 0.9012
+      },
+      "fix": "regenerate frames 4-7 with NEAR and FAR swapped (attach frames 0-3 and the guide)"
+    }
+  },
+  {
+    "file": "docs/phase1b/forge-qa-release/haneul-run-right-motion/sheet-qc.json",
+    "check": {
+      "id": "leg_alternation",
+      "status": "warn",
+      "value": [
+        "far",
+        "far",
+        "near",
+        "near",
+        "near",
+        "near",
+        "near",
+        "far"
+      ],
+      "threshold": "lead differs between i and i+n/2",
+      "verdict": "mixed: some half-cycle pairs repeat the lead",
+      "pairs": [
+        [
+          0,
+          4,
+          false
+        ],
+        [
+          1,
+          5,
+          false
+        ],
+        [
+          2,
+          6,
+          true
+        ],
+        [
+          3,
+          7,
+          false
+        ]
+      ],
+      "mode": "auto-luminance",
+      "near_leading": 5,
+      "unclear": 0,
+      "half_cycle": {
+        "pairs": [
+          {
+            "pair": [
+              0,
+              4
+            ],
+            "iou_best_shift": 0.834
+          },
+          {
+            "pair": [
+              1,
+              5
+            ],
+            "iou_best_shift": 0.8608
+          },
+          {
+            "pair": [
+              2,
+              6
+            ],
+            "iou_best_shift": 0.9058
+          },
+          {
+            "pair": [
+              3,
+              7
+            ],
+            "iou_best_shift": 0.8884
+          }
+        ],
+        "adjacent_iou_median": 0.8358,
+        "half_cycle_iou_median": 0.8746
+      },
+      "fix": "regenerate frames 4-7 with NEAR and FAR swapped (attach frames 0-3 and the guide)"
+    }
+  },
+  {
+    "file": "docs/phase1b/forge-qa-release/bomi-walk-left-motion/sheet-qc.json",
+    "check": {
+      "id": "leg_alternation",
+      "status": "warn",
+      "value": [
+        "near",
+        "near",
+        "far",
+        "far",
+        "far",
+        "far",
+        "far",
+        "near"
+      ],
+      "threshold": "lead differs between i and i+n/2",
+      "verdict": "mixed: some half-cycle pairs repeat the lead",
+      "pairs": [
+        [
+          0,
+          4,
+          false
+        ],
+        [
+          1,
+          5,
+          false
+        ],
+        [
+          2,
+          6,
+          true
+        ],
+        [
+          3,
+          7,
+          false
+        ]
+      ],
+      "mode": "auto-luminance",
+      "near_leading": 3,
+      "unclear": 0,
+      "half_cycle": {
+        "pairs": [
+          {
+            "pair": [
+              0,
+              4
+            ],
+            "iou_best_shift": 0.8638
+          },
+          {
+            "pair": [
+              1,
+              5
+            ],
+            "iou_best_shift": 0.919
+          },
+          {
+            "pair": [
+              2,
+              6
+            ],
+            "iou_best_shift": 0.8975
+          },
+          {
+            "pair": [
+              3,
+              7
+            ],
+            "iou_best_shift": 0.8503
+          }
+        ],
+        "adjacent_iou_median": 0.9032,
+        "half_cycle_iou_median": 0.8806
+      },
+      "fix": "regenerate frames 4-7 with NEAR and FAR swapped (attach frames 0-3 and the guide)"
+    }
+  },
+  {
+    "file": "docs/phase1b/forge-qa-release/minjun-run-left-motion/sheet-qc.json",
+    "check": {
+      "id": "leg_alternation",
+      "status": "warn",
+      "value": [
+        "near",
+        "far",
+        "near",
+        "near",
+        "far",
+        "far",
+        "far",
+        "near"
+      ],
+      "threshold": "lead differs between i and i+n/2",
+      "verdict": "mixed: some half-cycle pairs repeat the lead",
+      "pairs": [
+        [
+          0,
+          4,
+          false
+        ],
+        [
+          1,
+          5,
+          true
+        ],
+        [
+          2,
+          6,
+          false
+        ],
+        [
+          3,
+          7,
+          true
+        ]
+      ],
+      "mode": "auto-luminance",
+      "near_leading": 4,
+      "unclear": 0,
+      "half_cycle": {
+        "pairs": [
+          {
+            "pair": [
+              0,
+              4
+            ],
+            "iou_best_shift": 0.8671
+          },
+          {
+            "pair": [
+              1,
+              5
+            ],
+            "iou_best_shift": 0.9118
+          },
+          {
+            "pair": [
+              2,
+              6
+            ],
+            "iou_best_shift": 0.9187
+          },
+          {
+            "pair": [
+              3,
+              7
+            ],
+            "iou_best_shift": 0.9078
+          }
+        ],
+        "adjacent_iou_median": 0.8466,
+        "half_cycle_iou_median": 0.9098
+      },
+      "fix": "regenerate frames 4-7 with NEAR and FAR swapped (attach frames 0-3 and the guide)"
+    }
+  },
+  {
+    "file": "docs/phase1b/forge-qa-release/bomi-run-right-motion/sheet-qc.json",
+    "check": {
+      "id": "leg_alternation",
+      "status": "warn",
+      "value": [
+        "far",
+        "far",
+        "far",
+        "near",
+        "near",
+        "near",
+        "far",
+        "far"
+      ],
+      "threshold": "lead differs between i and i+n/2",
+      "verdict": "mixed: some half-cycle pairs repeat the lead",
+      "pairs": [
+        [
+          0,
+          4,
+          false
+        ],
+        [
+          1,
+          5,
+          false
+        ],
+        [
+          2,
+          6,
+          true
+        ],
+        [
+          3,
+          7,
+          false
+        ]
+      ],
+      "mode": "auto-luminance",
+      "near_leading": 3,
+      "unclear": 0,
+      "half_cycle": {
+        "pairs": [
+          {
+            "pair": [
+              0,
+              4
+            ],
+            "iou_best_shift": 0.8133
+          },
+          {
+            "pair": [
+              1,
+              5
+            ],
+            "iou_best_shift": 0.8563
+          },
+          {
+            "pair": [
+              2,
+              6
+            ],
+            "iou_best_shift": 0.923
+          },
+          {
+            "pair": [
+              3,
+              7
+            ],
+            "iou_best_shift": 0.8864
+          }
+        ],
+        "adjacent_iou_median": 0.8537,
+        "half_cycle_iou_median": 0.8713
+      },
+      "fix": "regenerate frames 4-7 with NEAR and FAR swapped (attach frames 0-3 and the guide)"
+    }
+  },
+  {
+    "file": "docs/phase1b/forge-qa-release/bomi-run-left-motion/sheet-qc.json",
+    "check": {
+      "id": "leg_alternation",
+      "status": "warn",
+      "value": [
+        "near",
+        "near",
+        "far",
+        "far",
+        "far",
+        "far",
+        "far",
+        "near"
+      ],
+      "threshold": "lead differs between i and i+n/2",
+      "verdict": "mixed: some half-cycle pairs repeat the lead",
+      "pairs": [
+        [
+          0,
+          4,
+          false
+        ],
+        [
+          1,
+          5,
+          false
+        ],
+        [
+          2,
+          6,
+          true
+        ],
+        [
+          3,
+          7,
+          false
+        ]
+      ],
+      "mode": "auto-luminance",
+      "near_leading": 3,
+      "unclear": 0,
+      "half_cycle": {
+        "pairs": [
+          {
+            "pair": [
+              0,
+              4
+            ],
+            "iou_best_shift": 0.8139
+          },
+          {
+            "pair": [
+              1,
+              5
+            ],
+            "iou_best_shift": 0.8887
+          },
+          {
+            "pair": [
+              2,
+              6
+            ],
+            "iou_best_shift": 0.9251
+          },
+          {
+            "pair": [
+              3,
+              7
+            ],
+            "iou_best_shift": 0.8558
+          }
+        ],
+        "adjacent_iou_median": 0.8549,
+        "half_cycle_iou_median": 0.8722
+      },
+      "fix": "regenerate frames 4-7 with NEAR and FAR swapped (attach frames 0-3 and the guide)"
+    }
+  },
+  {
+    "file": "docs/phase1b/forge-qa-release/haneul-walk-left-motion/sheet-qc.json",
+    "check": {
+      "id": "leg_alternation",
+      "status": "warn",
+      "value": [
+        "near",
+        "near",
+        "near",
+        "far",
+        "far",
+        "far",
+        "near",
+        "near"
+      ],
+      "threshold": "lead differs between i and i+n/2",
+      "verdict": "mixed: some half-cycle pairs repeat the lead",
+      "pairs": [
+        [
+          0,
+          4,
+          false
+        ],
+        [
+          1,
+          5,
+          false
+        ],
+        [
+          2,
+          6,
+          true
+        ],
+        [
+          3,
+          7,
+          false
+        ]
+      ],
+      "mode": "auto-luminance",
+      "near_leading": 5,
+      "unclear": 0,
+      "half_cycle": {
+        "pairs": [
+          {
+            "pair": [
+              0,
+              4
+            ],
+            "iou_best_shift": 0.8853
+          },
+          {
+            "pair": [
+              1,
+              5
+            ],
+            "iou_best_shift": 0.9126
+          },
+          {
+            "pair": [
+              2,
+              6
+            ],
+            "iou_best_shift": 0.9051
+          },
+          {
+            "pair": [
+              3,
+              7
+            ],
+            "iou_best_shift": 0.8736
+          }
+        ],
+        "adjacent_iou_median": 0.8978,
+        "half_cycle_iou_median": 0.8952
+      },
+      "fix": "regenerate frames 4-7 with NEAR and FAR swapped (attach frames 0-3 and the guide)"
+    }
+  },
+  {
+    "file": "docs/phase1b/forge-qa-release/bomi-walk-right-motion/sheet-qc.json",
+    "check": {
+      "id": "leg_alternation",
+      "status": "warn",
+      "value": [
+        "far",
+        "far",
+        "far",
+        "near",
+        "near",
+        "near",
+        "far",
+        "far"
+      ],
+      "threshold": "lead differs between i and i+n/2",
+      "verdict": "mixed: some half-cycle pairs repeat the lead",
+      "pairs": [
+        [
+          0,
+          4,
+          false
+        ],
+        [
+          1,
+          5,
+          false
+        ],
+        [
+          2,
+          6,
+          true
+        ],
+        [
+          3,
+          7,
+          false
+        ]
+      ],
+      "mode": "auto-luminance",
+      "near_leading": 3,
+      "unclear": 0,
+      "half_cycle": {
+        "pairs": [
+          {
+            "pair": [
+              0,
+              4
+            ],
+            "iou_best_shift": 0.8633
+          },
+          {
+            "pair": [
+              1,
+              5
+            ],
+            "iou_best_shift": 0.8501
+          },
+          {
+            "pair": [
+              2,
+              6
+            ],
+            "iou_best_shift": 0.9027
+          },
+          {
+            "pair": [
+              3,
+              7
+            ],
+            "iou_best_shift": 0.9188
+          }
+        ],
+        "adjacent_iou_median": 0.9002,
+        "half_cycle_iou_median": 0.883
+      },
+      "fix": "regenerate frames 4-7 with NEAR and FAR swapped (attach frames 0-3 and the guide)"
+    }
+  },
+  {
+    "file": "docs/phase1b/forge-qa-release/minjun-run-right-motion/sheet-qc.json",
+    "check": {
+      "id": "leg_alternation",
+      "status": "warn",
+      "value": [
+        "far",
+        "near",
+        "near",
+        "far",
+        "near",
+        "near",
+        "far",
+        "far"
+      ],
+      "threshold": "lead differs between i and i+n/2",
+      "verdict": "mixed: some half-cycle pairs repeat the lead",
+      "pairs": [
+        [
+          0,
+          4,
+          false
+        ],
+        [
+          1,
+          5,
+          true
+        ],
+        [
+          2,
+          6,
+          false
+        ],
+        [
+          3,
+          7,
+          true
+        ]
+      ],
+      "mode": "auto-luminance",
+      "near_leading": 4,
+      "unclear": 0,
+      "half_cycle": {
+        "pairs": [
+          {
+            "pair": [
+              0,
+              4
+            ],
+            "iou_best_shift": 0.8484
+          },
+          {
+            "pair": [
+              1,
+              5
+            ],
+            "iou_best_shift": 0.8991
+          },
+          {
+            "pair": [
+              2,
+              6
+            ],
+            "iou_best_shift": 0.9162
+          },
+          {
+            "pair": [
+              3,
+              7
+            ],
+            "iou_best_shift": 0.9008
+          }
+        ],
+        "adjacent_iou_median": 0.8438,
+        "half_cycle_iou_median": 0.9
+      },
+      "fix": "regenerate frames 4-7 with NEAR and FAR swapped (attach frames 0-3 and the guide)"
+    }
+  }
+]

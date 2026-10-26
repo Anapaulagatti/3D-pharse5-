@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.251,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 5.6078,
+        "adjacent_median": 4.4823
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-left-0.png",
+      "sha256": "aaa928eea40d560bcd65731d700458e4d368fb2b9eae33d468c4b7c9ab022738",
+      "bytes": 4774
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-left-1.png",
+      "sha256": "439e43edd88008287b219eceb8121cd41150ff9f1d7bcf1c8296d98bdb70f1b2",
+      "bytes": 4965
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-left-2.png",
+      "sha256": "b3323b7d7bb101741471878f4b34dfcdca7c5d024294775493b89042e8585319",
+      "bytes": 5278
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-left-3.png",
+      "sha256": "58a40143f6a6618b7edc428d49c9922ed8546fcfc905a54fa197a6683d024033",
+      "bytes": 5358
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-left-4.png",
+      "sha256": "142f0bdb2c17cc64340974062976b032dd14bc7dff40a34708a9f2a3a610a3aa",
+      "bytes": 5332
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-left-5.png",
+      "sha256": "0c01171928de48bf4e2679ace881f258b1fc89b599dc8afaa018193ab4758cee",
+      "bytes": 5158
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-left-6.png",
+      "sha256": "1db366395e2f9db4837da1ed2e87e3aad9b51b7e56457aa5427ba4ae41992068",
+      "bytes": 4933
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-left-7.png",
+      "sha256": "fc2f90534c6db173c38845f83f5d92814b5a5674cb8230335c8be052007b63e2",
+      "bytes": 4740
+    }
+  ],
+  "outputs": [
+    {
+      "path": "minjun-walk-left.png",
+      "sha256": "9d2130b92a99a87f738b4b895060e713d9e402ab27a889101830be50d1e1f031",
+      "bytes": 121360
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-left-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1353,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 121,
+      "orphans": 922,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        18,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-left-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1427,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 151,
+      "orphans": 949,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        17,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-left-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1495,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 153,
+      "orphans": 1021,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        17,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-left-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1509,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 157,
+      "orphans": 996,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        17,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-left-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1508,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 161,
+      "orphans": 1014,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        28,
+        18,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-left-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1469,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 156,
+      "orphans": 979,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        17,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-left-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1397,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 139,
+      "orphans": 990,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        17,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-left-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1336,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 117,
+      "orphans": 934,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        17,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    }
+  ]
+}

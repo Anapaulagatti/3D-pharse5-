@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.253,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 5.4722,
+        "adjacent_median": 4.3677
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/walk-back-0.png",
+      "sha256": "53b5cf1c0d116c799f7c66198bf00a4d85c26ec9da35eb8547017f10a812fedd",
+      "bytes": 5490
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/walk-back-1.png",
+      "sha256": "adf86f6130eb7f8a79cbc212237183ba85964e36c826c62f0b48958b910155d8",
+      "bytes": 5500
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/walk-back-2.png",
+      "sha256": "e2918e73d6376a20d5fa81805d3eeb1eba5f29950a547493b360c0268aa81477",
+      "bytes": 5402
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/walk-back-3.png",
+      "sha256": "47f00a03dfb327d96e4986078e61a043756390ffd384c00fecb262ee5bf6574a",
+      "bytes": 5494
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/walk-back-4.png",
+      "sha256": "6a3b646fc3940bbd319b057fb30a6dc74e5e51c1e52685fd66b7ff48c2187745",
+      "bytes": 5474
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/walk-back-5.png",
+      "sha256": "29a412b5fa4a96e0f28f9bb0a54c4316d4c67888f1656ddb60dc7babc103909a",
+      "bytes": 5571
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/walk-back-6.png",
+      "sha256": "a41a071549a1be948c081c6aa76b5af08c51066665548f27fb3f58f905ab810f",
+      "bytes": 5562
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/haneul/frames/walk-back-7.png",
+      "sha256": "3ff46585810b06a671321ea3d6f9f2b9f0a9f8ed179a4a7189f33c0b1eb1a12f",
+      "bytes": 5558
+    }
+  ],
+  "outputs": [
+    {
+      "path": "haneul-walk-back.png",
+      "sha256": "09587b721607bab594ade6ee94ab1e3ca88120fc5d2812f1ec83623cd6404600",
+      "bytes": 114959
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/walk-back-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1776,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 971,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        21,
+        66,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/walk-back-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1783,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 997,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        20,
+        66,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/walk-back-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1743,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 992,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        20,
+        65,
+        97
+      ],
+      "ground_gap_px": 3.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/walk-back-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1779,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 1001,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        20,
+        66,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/walk-back-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1769,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 966,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        21,
+        66,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/walk-back-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1800,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 988,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        20,
+        66,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/walk-back-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1785,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 1015,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        20,
+        65,
+        97
+      ],
+      "ground_gap_px": 3.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/haneul/frames/walk-back-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1798,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 978,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        20,
+        66,
+        99
+      ],
+      "ground_gap_px": 1.0
+    }
+  ]
+}

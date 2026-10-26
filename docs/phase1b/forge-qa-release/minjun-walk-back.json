@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.182,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 4.5125,
+        "adjacent_median": 3.8168
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-back-0.png",
+      "sha256": "be95c73eb249b71e595a6cfea2edf90b64c8189861c8e5fc81c4e87d584a729e",
+      "bytes": 5383
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-back-1.png",
+      "sha256": "f6087e9b44cf40de590241e92e40a4b887254f89338a9a6bb5d53e27019f6a5a",
+      "bytes": 5416
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-back-2.png",
+      "sha256": "fb0d26683c1a697eefbbc74cbe3b39444ba8419e3d6a9288c93ea26ad0469f25",
+      "bytes": 5365
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-back-3.png",
+      "sha256": "df2ec00576d16630956790f59958708a027814737981ea5ed5f8da226a01b9e0",
+      "bytes": 5465
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-back-4.png",
+      "sha256": "37125fb31b5f5709d9c4abc75b757f3ecbfa630f8e014a197c8adb90c8083a79",
+      "bytes": 5431
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-back-5.png",
+      "sha256": "36afa9e1648ecfcb9ad1f071338055b8d1c2ef5efda78c5e6c6b0fd8bb51ac8a",
+      "bytes": 5523
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-back-6.png",
+      "sha256": "4b862d77369b7805defd3ebdce6c8616cacebe1f61d2aab0e239c20ec79fe5be",
+      "bytes": 5436
+    },
+    {
+      "path": "../../../assets-src/characters/phase1b/minjun/frames/walk-back-7.png",
+      "sha256": "677b7760652b3bf15d1169f605ab1e750bcc7f96a737d2145d87487b4b0a615c",
+      "bytes": 5474
+    }
+  ],
+  "outputs": [
+    {
+      "path": "minjun-walk-back.png",
+      "sha256": "40a2d496a0dfe0810a264f0c59e305576ffe418bccdb280ece002526e86701e5",
+      "bytes": 109120
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-back-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1655,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1030,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        20,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-back-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1669,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1044,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        19,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-back-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1647,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1075,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        19,
+        64,
+        97
+      ],
+      "ground_gap_px": 3.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-back-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1666,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1045,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        19,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-back-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1657,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1039,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        20,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-back-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1672,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1052,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        19,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-back-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1662,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1069,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        19,
+        64,
+        97
+      ],
+      "ground_gap_px": 3.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase1b/minjun/frames/walk-back-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1673,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1053,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        19,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    }
+  ]
+}

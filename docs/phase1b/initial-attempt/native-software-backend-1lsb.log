@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/korean-street-gate1/tools/phase1b/native_audit.py", line 10, in <module>
+    count=int((np.any(im0!=im1,2)&ok).sum());assert count==0,(row['file'],count);assert all(l['scaleMode']==1 for l in b['layers']);rows.append({'entry':row['entry'],'renderer':b['state']['renderer'],'pixelsCompared':int(ok.sum()),'worldChangedPixels':count,'sameNativeCamera':True,'nearest':True})
+                                                    ^^^^^^^^
+AssertionError: ('regression-palace-front-local-canvas-native-1x.png', 127325)
