@@ -6,6 +6,26 @@ R=Path(__file__).resolve().parents[2];S=R/'assets-src/characters/phase2b';D=R/'d
 spec=importlib.util.spec_from_file_location('approved_native_authoring',R/'tools/phase2a/art.py')
 art=importlib.util.module_from_spec(spec);spec.loader.exec_module(art);art.S=S;art.D=D
 IDS=['sori','jiwon','nari','taeyang','yuna','hyunwoo']
+def opposing_profile(parts,cfg,phase,action='walk'):
+    """New identities only: near arm opposes the near leg, not the same phase.
+    Accepted original tooling/art remains untouched. Lower-limb IK and root are
+    reused; only the extracted native forearm is projected with opposite phase.
+    """
+    import animate,math
+    # The preserved function draws limbs/body; supply no forearms for that pass.
+    out=approved_profile({k:v for k,v in parts.items()if 'forearm'not in k},cfg,phase,action)
+    t=phase*math.tau;run=action=='run';bob=round(-abs(math.sin(t))*(2 if run else 1))
+    if action=='idle':bob=-round((1-math.cos(t))/2)
+    for side in ['L','R']:
+        if side+'forearm'not in parts:continue
+        a,b,c=cfg['arms'][side];swing=-math.cos(t+(0 if side=='L'else math.pi))
+        elbow=[b[0],b[1]+bob];wrist=[c[0]+round(swing*(7 if run else 4)),c[1]+bob-round(abs(swing)*2)]
+        if action=='idle':wrist=[c[0],c[1]+bob]
+        art.bone(out,parts[side+'forearm'],b,c,elbow,wrist)
+    return out
+import animate
+approved_profile=animate.render_side
+animate.render_side=opposing_profile
 def build(id):
     assert id in IDS
     art.prepare(id);art.rig(id)

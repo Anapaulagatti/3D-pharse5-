@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 0.623,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 4.241,
+        "adjacent_median": 6.8022
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-back-0.png",
+      "sha256": "17465a34cb01d962275d7d03ed0e235c24ec60c51feefdfcf338e8d272e83360",
+      "bytes": 4677
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-back-1.png",
+      "sha256": "da6b3d0f7b09ab9a454e3a89b343453b2cc04c00f27c6987d2f7adef44904e7f",
+      "bytes": 4621
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-back-2.png",
+      "sha256": "adc65cecedb7f41a6345f7a3df01145ea96d94eab257426d0bee4bbf3a5459dd",
+      "bytes": 4710
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-back-3.png",
+      "sha256": "454e13d7bd6b42a25a5009d405caf65f1373b8ace21107a6ac05bb6b990d3ba7",
+      "bytes": 4939
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-back-4.png",
+      "sha256": "df7989174a4d9a47a7c26575d17ce7174ebae05987ae983f982b07bdee6147d4",
+      "bytes": 4752
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-back-5.png",
+      "sha256": "86a80acd97d74886852c79a40f605c959ea6e56caf502911b379adad2ea1cfe7",
+      "bytes": 4858
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-back-6.png",
+      "sha256": "d95a451615d32e94d3d7ca02d14333e9aba5ccf872da4df6e07ad3445817fc42",
+      "bytes": 4527
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-back-7.png",
+      "sha256": "c3018645c9ea75e05862f17d52a5e4717c1df194dd2b180f052b94104910b033",
+      "bytes": 4678
+    }
+  ],
+  "outputs": [
+    {
+      "path": "yuna-walk-back.png",
+      "sha256": "3afc6d66e5f22b45796bd15fe7efc10ea0877edd7e157c2c2cfee2adefb34080",
+      "bytes": 114162
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-back-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1476,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 826,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        21,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-back-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1469,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 94,
+      "orphans": 826,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        22,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-back-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1496,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 94,
+      "orphans": 833,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        21,
+        63,
+        95
+      ],
+      "ground_gap_px": 5.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-back-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1587,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 887,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        22,
+        67,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-back-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1501,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 854,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        21,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-back-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1523,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 845,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        21,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-back-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1432,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 94,
+      "orphans": 790,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        22,
+        63,
+        98
+      ],
+      "ground_gap_px": 2.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-back-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1490,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 830,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        21,
+        63,
+        95
+      ],
+      "ground_gap_px": 5.0
+    }
+  ]
+}

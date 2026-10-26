@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 0.971,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 12.2116,
+        "adjacent_median": 12.5758
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-front-0.png",
+      "sha256": "8dbf2154024aac157b69e4af52830a3db44e03ce6a308fb979f82a7eb00b1885",
+      "bytes": 5053
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-front-1.png",
+      "sha256": "932f1952b0c8fd4e7bc9ef3c05c4b019ea51e52c37a2bdb4299d771b033d7f59",
+      "bytes": 4933
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-front-2.png",
+      "sha256": "414d38f7066213e3d8dc51c03b1e09f0bada5b9065e2c13dd0aa3c7e0051fa43",
+      "bytes": 5242
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-front-3.png",
+      "sha256": "218742da31b9081b265785dc00fb85d72077e3a1947549602ed9864297c478ae",
+      "bytes": 4755
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-front-4.png",
+      "sha256": "97b6f1c679f8bb8466e0e6f90a6eed03a878fb02e7179a8ad719e9ef1db73973",
+      "bytes": 5164
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-front-5.png",
+      "sha256": "ee5df39c54ef7bf53e48e5963ecf831a1bf58c6a9f69a1e378a8a91482ac1bf3",
+      "bytes": 4967
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-front-6.png",
+      "sha256": "3a26c1514bfa400fc6d38325f9c80e70ed45ce60a397c889720faf4692f1edf3",
+      "bytes": 5316
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-front-7.png",
+      "sha256": "31283ab4b2e61363b4b85ffd3d543e771cea705ae762d477f34e39482bc7fa6f",
+      "bytes": 5027
+    }
+  ],
+  "outputs": [
+    {
+      "path": "yuna-run-front.png",
+      "sha256": "b6995b04cb25d004d473420ce7dd19c977695a46fdd7928b5917cbbb8cf6c7ed",
+      "bytes": 161221
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-front-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1477,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 945,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-front-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1443,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 935,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        25,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-front-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1544,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 980,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        17,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-front-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1398,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 896,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        13,
+        63,
+        85
+      ],
+      "ground_gap_px": 15.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-front-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1520,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 979,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        19,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-front-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1465,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 941,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        25,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-front-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1568,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 978,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        17,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-front-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1500,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 971,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        13,
+        63,
+        88
+      ],
+      "ground_gap_px": 12.0
+    }
+  ]
+}

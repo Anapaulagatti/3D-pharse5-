@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.772,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 4.7888,
+        "adjacent_median": 2.7024
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/hyunwoo/frames/walk-left-0.png",
+      "sha256": "a65593cd721114213983cf2afd23477c84471f7992436ea5e0e27fcb4f929f84",
+      "bytes": 4556
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/hyunwoo/frames/walk-left-1.png",
+      "sha256": "0257e7419edf180b324b0fedaf267959286d663cea1f659a8f39467cacb882dd",
+      "bytes": 4342
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/hyunwoo/frames/walk-left-2.png",
+      "sha256": "8f83b34b3c4f70f262557f7af6de553532dc9081c2d15f6899e15596b2ef0f44",
+      "bytes": 4267
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/hyunwoo/frames/walk-left-3.png",
+      "sha256": "caa0cd9136919ee83b9a16cbd5b1321ef55a777bf8f35da1f4794f484d71e850",
+      "bytes": 4632
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/hyunwoo/frames/walk-left-4.png",
+      "sha256": "3d8c7c1dfb00ad23b95d8eeaf8ab88f4c29240bed4dee52ec2bc46d4c2952e81",
+      "bytes": 4649
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/hyunwoo/frames/walk-left-5.png",
+      "sha256": "c10e1d34d20e8ca37f275078c890363f22bacf6a1c5042ca2da820a46c27c0e9",
+      "bytes": 4384
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/hyunwoo/frames/walk-left-6.png",
+      "sha256": "620543750f26c66181e29d65b0b37686f4e9e00ecc6ef8388002fdea84a2b998",
+      "bytes": 4307
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/hyunwoo/frames/walk-left-7.png",
+      "sha256": "1d5bdc08c650fd981f5982a13c8af85ca871e86e1374a78cf4d1151e79bbce0c",
+      "bytes": 4534
+    }
+  ],
+  "outputs": [
+    {
+      "path": "hyunwoo-walk-left.png",
+      "sha256": "9d8c39928c798ee18b77275f5897817b0f59944e6c842c75b1209ad98ed9f3c8",
+      "bytes": 112640
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/hyunwoo/frames/walk-left-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1386,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 144,
+      "orphans": 880,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        21,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/hyunwoo/frames/walk-left-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1333,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 132,
+      "orphans": 854,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        20,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/hyunwoo/frames/walk-left-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1319,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 122,
+      "orphans": 830,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        36,
+        20,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/hyunwoo/frames/walk-left-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1411,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 145,
+      "orphans": 913,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        36,
+        20,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/hyunwoo/frames/walk-left-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1420,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 151,
+      "orphans": 929,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        36,
+        21,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/hyunwoo/frames/walk-left-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1309,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 129,
+      "orphans": 850,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        36,
+        20,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/hyunwoo/frames/walk-left-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1295,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 134,
+      "orphans": 851,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        36,
+        20,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/hyunwoo/frames/walk-left-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1364,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 145,
+      "orphans": 908,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        20,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    }
+  ]
+}

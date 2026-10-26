@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 0.98,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 10.0213,
+        "adjacent_median": 10.2235
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/hyunwoo/frames/run-front-0.png",
+      "sha256": "17fd0cf36ed9ea9611a10c9c94c7e62a6d2328fd12ae11e455fd4a0cd08211ed",
+      "bytes": 4856
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/hyunwoo/frames/run-front-1.png",
+      "sha256": "7f0ef799fad8767f5f0c6361aefeaf44ae2d832b08ce79f3457e63b560da897d",
+      "bytes": 4791
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/hyunwoo/frames/run-front-2.png",
+      "sha256": "29078c42d1fa3d65f72b85291396b0cb715f56ede9276a4d1b9236d5152f654b",
+      "bytes": 5032
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/hyunwoo/frames/run-front-3.png",
+      "sha256": "d9a7c9786ae71ea066021aebec03483f0378001fd634102400e5a962ab3a95c5",
+      "bytes": 4545
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/hyunwoo/frames/run-front-4.png",
+      "sha256": "7bf7b960b8036e8f61e9243abd74458fb8c134daf197c4e3d2e2fbb0a3ff657c",
+      "bytes": 4944
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/hyunwoo/frames/run-front-5.png",
+      "sha256": "c06896e527482b2195a091de6ee9c92c8c1222afcefead99ae029f06d0927744",
+      "bytes": 4817
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/hyunwoo/frames/run-front-6.png",
+      "sha256": "5e85914c6826b970c731cd6f533cd7781687a218c08f3516853034104273ab6c",
+      "bytes": 5070
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/hyunwoo/frames/run-front-7.png",
+      "sha256": "e38673b1fa998a29aed1a60fdbffbaeb5cda3ab013a1b3eb8e9bf04c53601cca",
+      "bytes": 4835
+    }
+  ],
+  "outputs": [
+    {
+      "path": "hyunwoo-run-front.png",
+      "sha256": "c409da1920c463282fa2fcbbd431d88389b9fd7a261ba72981ac13661e0ef51d",
+      "bytes": 156434
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/hyunwoo/frames/run-front-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1474,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 944,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/hyunwoo/frames/run-front-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1458,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 931,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        25,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/hyunwoo/frames/run-front-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1535,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 951,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        17,
+        66,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/hyunwoo/frames/run-front-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1362,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 894,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        13,
+        63,
+        85
+      ],
+      "ground_gap_px": 15.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/hyunwoo/frames/run-front-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1509,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 953,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        19,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/hyunwoo/frames/run-front-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1449,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 945,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        25,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/hyunwoo/frames/run-front-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1555,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 955,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        17,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/hyunwoo/frames/run-front-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1473,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 943,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        13,
+        64,
+        88
+      ],
+      "ground_gap_px": 12.0
+    }
+  ]
+}

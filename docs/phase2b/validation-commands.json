@@ -1,0 +1,67 @@
+[
+  {
+    "name": "typecheck",
+    "command": [
+      "npm",
+      "run",
+      "typecheck"
+    ],
+    "exit": 2,
+    "result": "FAIL",
+    "log": "validation-logs/typecheck.txt"
+  },
+  {
+    "name": "assets-check",
+    "command": [
+      "npm",
+      "run",
+      "assets:check"
+    ],
+    "exit": 0,
+    "result": "PASS",
+    "log": "validation-logs/assets-check.txt"
+  },
+  {
+    "name": "lint",
+    "command": [
+      "npm",
+      "run",
+      "lint"
+    ],
+    "exit": 1,
+    "result": "FAIL",
+    "log": "validation-logs/lint.txt"
+  },
+  {
+    "name": "format-check",
+    "command": [
+      "npm",
+      "run",
+      "format:check"
+    ],
+    "exit": 1,
+    "result": "FAIL",
+    "log": "validation-logs/format-check.txt"
+  },
+  {
+    "name": "unit",
+    "command": [
+      "npm",
+      "test"
+    ],
+    "exit": 1,
+    "result": "FAIL",
+    "log": "validation-logs/unit.txt"
+  },
+  {
+    "name": "build",
+    "command": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "exit": 2,
+    "result": "FAIL",
+    "log": "validation-logs/build.txt"
+  }
+]

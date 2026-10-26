@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.522,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 5.391,
+        "adjacent_median": 3.5431
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-right-0.png",
+      "sha256": "86bdf860795f2474e0a3f656499d611ce72e7bb9720d2be076a5e37de9e1cc88",
+      "bytes": 4620
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-right-1.png",
+      "sha256": "fa20186f618492eb6650359b014bf0c18287d7c38ce655900b124e5f547102e3",
+      "bytes": 4664
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-right-2.png",
+      "sha256": "38ebdfb5701fde2c0c37f3a09b01cd9cbb1e7cb74568d364ec35aa54c98fa5b7",
+      "bytes": 4346
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-right-3.png",
+      "sha256": "954d0886884ef1ebb4dc645eef40d450df34ecc79fc13a6e1f95854104e13382",
+      "bytes": 4365
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-right-4.png",
+      "sha256": "5d215c8f289c89fed7573c1332dead1cba2b10afc00d7d22f4f009de791457ab",
+      "bytes": 4533
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-right-5.png",
+      "sha256": "5d372ef97abcbeb527e3197667a93f2877b4dfe449e28eb185c0abee8bb3ae1a",
+      "bytes": 4434
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-right-6.png",
+      "sha256": "2bffaf9cd9815c67fb86b425d3feca60425316a92f68f695b2f3012801931519",
+      "bytes": 4241
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-right-7.png",
+      "sha256": "2773f57842c5b940e9726ae69cd60d8a50588af5584d41506f4b4225b4318846",
+      "bytes": 4357
+    }
+  ],
+  "outputs": [
+    {
+      "path": "yuna-walk-right.png",
+      "sha256": "9d0ff7cdadca5578652a5c45c004ada531912ded272073e494adaed03da5b213",
+      "bytes": 112425
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-right-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1386,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 143,
+      "orphans": 809,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        22,
+        61,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-right-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1374,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 143,
+      "orphans": 797,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        21,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-right-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1298,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 125,
+      "orphans": 753,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        21,
+        61,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-right-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1292,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 117,
+      "orphans": 745,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        21,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-right-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1328,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 126,
+      "orphans": 764,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        22,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-right-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1302,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 131,
+      "orphans": 766,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        21,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-right-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1244,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 116,
+      "orphans": 732,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        21,
+        61,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-right-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1270,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 123,
+      "orphans": 740,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        21,
+        61,
+        100
+      ],
+      "ground_gap_px": 0.0
+    }
+  ]
+}
