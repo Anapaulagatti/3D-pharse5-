@@ -6,8 +6,8 @@
       "run",
       "typecheck"
     ],
-    "exit": 2,
-    "result": "FAIL",
+    "exit": 0,
+    "result": "PASS",
     "log": "validation-logs/typecheck.txt"
   },
   {
@@ -28,8 +28,8 @@
       "run",
       "lint"
     ],
-    "exit": 1,
-    "result": "FAIL",
+    "exit": 0,
+    "result": "PASS",
     "log": "validation-logs/lint.txt"
   },
   {
@@ -39,8 +39,8 @@
       "run",
       "format:check"
     ],
-    "exit": 1,
-    "result": "FAIL",
+    "exit": 0,
+    "result": "PASS",
     "log": "validation-logs/format-check.txt"
   },
   {
@@ -49,8 +49,8 @@
       "npm",
       "test"
     ],
-    "exit": 1,
-    "result": "FAIL",
+    "exit": 0,
+    "result": "PASS",
     "log": "validation-logs/unit.txt"
   },
   {
@@ -60,8 +60,9 @@
       "run",
       "build"
     ],
-    "exit": 2,
-    "result": "FAIL",
-    "log": "validation-logs/build.txt"
+    "exit": 0,
+    "result": "PASS",
+    "log": "validation-logs/build.txt",
+    "note": "Final production build completed before targeted post-caption regression; portable runtime then rebuilt from same final source."
   }
 ]

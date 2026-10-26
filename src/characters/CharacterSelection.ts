@@ -240,7 +240,11 @@ export class CharacterSelection {
     if (!all.length) {
       const p = document.createElement("p");
       p.className = "studio-empty";
-      p.textContent = this.copy.unavailable;
+      p.textContent = characterRegistry
+        .get(this.candidate)
+        ?.cosmetics.tags.includes("default-only")
+        ? this.copy.default
+        : this.copy.unavailable;
       area.append(p);
       return;
     }

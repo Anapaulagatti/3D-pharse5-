@@ -1,0 +1,104 @@
+{
+  "requiredCommands": [
+    {
+      "name": "typecheck",
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "exit": 0,
+      "result": "PASS",
+      "log": "validation-logs/typecheck.txt"
+    },
+    {
+      "name": "assets-check",
+      "command": [
+        "npm",
+        "run",
+        "assets:check"
+      ],
+      "exit": 0,
+      "result": "PASS",
+      "log": "validation-logs/assets-check.txt"
+    },
+    {
+      "name": "lint",
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "exit": 0,
+      "result": "PASS",
+      "log": "validation-logs/lint.txt"
+    },
+    {
+      "name": "format-check",
+      "command": [
+        "npm",
+        "run",
+        "format:check"
+      ],
+      "exit": 0,
+      "result": "PASS",
+      "log": "validation-logs/format-check.txt"
+    },
+    {
+      "name": "unit",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "result": "PASS",
+      "log": "validation-logs/unit.txt"
+    },
+    {
+      "name": "build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exit": 0,
+      "result": "PASS",
+      "log": "validation-logs/build.txt",
+      "note": "Final production build completed before targeted post-caption regression; portable runtime then rebuilt from same final source."
+    },
+    {
+      "name": "test:e2e",
+      "result": "PASS",
+      "passed": 40,
+      "failed": 0,
+      "canonicalWorldStudio": 29,
+      "retainedHistoricalV10": 11
+    }
+  ],
+  "unitPassed": 85,
+  "nativeCaptures": 85,
+  "nativePixelMismatch": 0,
+  "worldNativePixelsCompared": 6868992,
+  "worldChangedPixels": 0,
+  "originalNativeBodyReadbacks": 6,
+  "sixtySwitches": "PASS",
+  "bridgeRepresentatives": {
+    "A": "Nari,walk,out/return",
+    "B": "Hyunwoo,run,out/return",
+    "samples": 1688,
+    "unsupportedFootSamples": 0
+  },
+  "forgeHardFailures": 0,
+  "newForgeWarnings": {
+    "seam": 7,
+    "leg_alternation": 11
+  },
+  "historicalWarningsRetained": 17,
+  "hardwareWebGLPerformance": "NOT TESTED",
+  "physicalAndroidChrome": "NOT TESTED",
+  "physicalIPhoneSafari": "NOT TESTED",
+  "humanArtApproval": "PENDING",
+  "phase2C": "LOCKED",
+  "mainMerge": "NONE",
+  "publicDeployment": "NONE"
+}

@@ -19,19 +19,22 @@ const canonical = (text) => {
     true,
     ts.ScriptKind.JS,
   );
-  const visit = (n) => ({
-    kind: ts.SyntaxKind[n.kind],
-    ...(typeof n.text === "string" && !ts.isSourceFile(n)
-      ? { text: n.text }
-      : {}),
-    children: (() => {
-      const out = [];
-      ts.forEachChild(n, (q) => {
-        out.push(visit(q));
-      });
-      return out;
-    })(),
-  });
+  const visit = (n) =>
+    ts.isParenthesizedExpression(n)
+      ? visit(n.expression)
+      : {
+          kind: ts.SyntaxKind[n.kind],
+          ...(typeof n.text === "string" && !ts.isSourceFile(n)
+            ? { text: n.text }
+            : {}),
+          children: (() => {
+            const out = [];
+            ts.forEachChild(n, (q) => {
+              out.push(visit(q));
+            });
+            return out;
+          })(),
+        };
   return JSON.stringify(visit(ast));
 };
 const hash = (s) => crypto.createHash("sha256").update(s).digest("hex"),
@@ -52,13 +55,7 @@ cp.execFileSync("node_modules/.bin/prettier", ["--write", ...files], {
 const rows = [];
 for (let i = 0; i < files.length; i++) {
   const p = files[i],
-    after = await Promise.resolve(
-      cp.execFileSync(
-        "git",
-        ["show", "ed75734d0e0865274ca0b82bab2495d78878d24b:" + p],
-        { encoding: "utf8" },
-      ),
-    );
+    after = await fs.readFile(p, "utf8");
   if (canonical(before[i]) !== canonical(after)) {
     await fs.writeFile(p, before[i]);
     throw Error("Unexpected AST change " + p);

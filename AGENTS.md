@@ -8,3 +8,5 @@ Read docs/current/PROJECT_STATE.md. Human approval explicitly accepts Phase2A at
 - Preserve lazy/bounded caches, one active sprite, v1/v2 appearance persistence and position/visited state. New six default outfits only; incompatible cosmetics remain hidden.
 - Six Phase2A and eleven historical numerical motion warnings remain documented. Do not weaken validators or call browser emulation physical-device PASS.
 - Deliver all twelve, native/playable/video/QA/provenance review package, then STOP for human artistic approval. No Phase2C, NPC/quests/shops/farming/learning/ads/multiplayer, main merge or public deployment.
+
+Phase2B is now a complete twelve-character review candidate. Preserve checkpoint/phase2b-twelve-characters-review-20261026, source art/layers and intermediate wave refs. See docs/phase2b/README.md, QA.md and PROTECTED_AUDIT.md. Six new identities await human artistic approval. STOP; do not begin Phase2C, merge or deploy without explicit new authorization.

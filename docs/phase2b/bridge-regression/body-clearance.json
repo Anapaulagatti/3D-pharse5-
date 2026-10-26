@@ -1,0 +1,169 @@
+{
+  "method": "Two separate review spawns, two uninterrupted actual-control legs per crossing: A walk, B run, original WASD/Shift/joystick. All native opaque lowest4 rows, raised feet projected to anchor, actual below-anchor toes retained. Collision centre field has1px phase safety. Floor TOP PLANE excludes vertical pier faces; raised railing/post shafts have original-source foreground ownership. No speed/pose/position/collision overrides.",
+  "summary": {
+    "A": {
+      "representativeTraversal": "PASS",
+      "testedMode": "walk",
+      "outAndReturn": true,
+      "stopTurnPoseSupport": "PASS",
+      "sampledNativeContacts": 1241,
+      "unsupportedSampleCount": 0,
+      "ActorNativeReadback": "PASS",
+      "posesObserved": [
+        "idle",
+        "stop"
+      ],
+      "artAcceptance": "FROZEN WORLD / new native characters, human art acceptance pending"
+    },
+    "B": {
+      "representativeTraversal": "PASS",
+      "testedMode": "run",
+      "outAndReturn": true,
+      "stopTurnPoseSupport": "PASS",
+      "sampledNativeContacts": 447,
+      "unsupportedSampleCount": 0,
+      "ActorNativeReadback": "PASS",
+      "posesObserved": [
+        "idle",
+        "stop"
+      ],
+      "artAcceptance": "FROZEN WORLD / new native characters, human art acceptance pending"
+    }
+  },
+  "contact": [
+    {
+      "leg": "bridge-a-walk-out",
+      "actualMovement": "PASS_REAL_KEYBOARD_AND_JOYSTICK_MOVEMENT",
+      "samples": 928,
+      "failureSamples": 0,
+      "firstFailures": [],
+      "sampledActions": [
+        "idle",
+        "start",
+        "stop",
+        "walk"
+      ]
+    },
+    {
+      "leg": "bridge-a-walk-return",
+      "actualMovement": "PASS_REAL_KEYBOARD_AND_JOYSTICK_MOVEMENT",
+      "samples": 313,
+      "failureSamples": 0,
+      "firstFailures": [],
+      "sampledActions": [
+        "idle",
+        "stop",
+        "walk"
+      ]
+    },
+    {
+      "leg": "bridge-b-run-out",
+      "actualMovement": "PASS_REAL_KEYBOARD_AND_JOYSTICK_MOVEMENT",
+      "samples": 219,
+      "failureSamples": 0,
+      "firstFailures": [],
+      "sampledActions": [
+        "idle",
+        "run",
+        "start",
+        "stop"
+      ]
+    },
+    {
+      "leg": "bridge-b-run-return",
+      "actualMovement": "PASS_REAL_KEYBOARD_AND_JOYSTICK_MOVEMENT",
+      "samples": 228,
+      "failureSamples": 0,
+      "firstFailures": [],
+      "sampledActions": [
+        "idle",
+        "run",
+        "start",
+        "stop"
+      ]
+    }
+  ],
+  "nativeVisibility": [
+    {
+      "frame": "walk-bridge-a-walk-out-native",
+      "nativeAtlasFrame": "idle-front-0",
+      "unexplainedActorPixelChanges": 0,
+      "foregroundCoveredNativePixels": 0,
+      "unsupportedFootPixels": []
+    },
+    {
+      "frame": "walk-bridge-a-walk-return-native",
+      "nativeAtlasFrame": "idle-right-0",
+      "unexplainedActorPixelChanges": 0,
+      "foregroundCoveredNativePixels": 0,
+      "unsupportedFootPixels": []
+    },
+    {
+      "frame": "walk-bridge-b-run-out-native",
+      "nativeAtlasFrame": "idle-right-0",
+      "unexplainedActorPixelChanges": 0,
+      "foregroundCoveredNativePixels": 0,
+      "unsupportedFootPixels": []
+    },
+    {
+      "frame": "walk-bridge-b-run-return-native",
+      "nativeAtlasFrame": "idle-front-0",
+      "unexplainedActorPixelChanges": 0,
+      "foregroundCoveredNativePixels": 0,
+      "unsupportedFootPixels": []
+    },
+    {
+      "frame": "pose-01-bridge-a-walk-out-stop-native",
+      "nativeAtlasFrame": "stop-right-0",
+      "unexplainedActorPixelChanges": 0,
+      "foregroundCoveredNativePixels": 0,
+      "unsupportedFootPixels": []
+    },
+    {
+      "frame": "pose-02-bridge-a-walk-out-stop-native",
+      "nativeAtlasFrame": "stop-right-0",
+      "unexplainedActorPixelChanges": 0,
+      "foregroundCoveredNativePixels": 0,
+      "unsupportedFootPixels": []
+    },
+    {
+      "frame": "pose-03-bridge-a-walk-return-stop-native",
+      "nativeAtlasFrame": "stop-left-0",
+      "unexplainedActorPixelChanges": 0,
+      "foregroundCoveredNativePixels": 0,
+      "unsupportedFootPixels": []
+    },
+    {
+      "frame": "pose-04-bridge-a-walk-return-stop-native",
+      "nativeAtlasFrame": "stop-back-0",
+      "unexplainedActorPixelChanges": 0,
+      "foregroundCoveredNativePixels": 0,
+      "unsupportedFootPixels": []
+    },
+    {
+      "frame": "pose-05-bridge-a-walk-return-stop-native",
+      "nativeAtlasFrame": "stop-back-0",
+      "unexplainedActorPixelChanges": 0,
+      "foregroundCoveredNativePixels": 0,
+      "unsupportedFootPixels": []
+    },
+    {
+      "frame": "pose-06-bridge-b-run-out-stop-native",
+      "nativeAtlasFrame": "stop-back-0",
+      "unexplainedActorPixelChanges": 0,
+      "foregroundCoveredNativePixels": 0,
+      "unsupportedFootPixels": []
+    },
+    {
+      "frame": "pose-07-bridge-b-run-return-stop-native",
+      "nativeAtlasFrame": "stop-left-0",
+      "unexplainedActorPixelChanges": 0,
+      "foregroundCoveredNativePixels": 0,
+      "unsupportedFootPixels": []
+    }
+  ],
+  "physicalAndroidChrome": "NOT TESTED",
+  "physicalIPhoneSafari": "NOT TESTED",
+  "hardwarePerformance": "NOT TESTED",
+  "artAcceptance": "FROZEN WORLD / new native characters, human art acceptance pending"
+}

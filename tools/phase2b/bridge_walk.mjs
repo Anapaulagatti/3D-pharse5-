@@ -219,7 +219,7 @@ try {
       await stopTouch();
       if (posePending) await posePending;
       await p.goto(
-        `http://127.0.0.1:4325/3D-pharse5-/?native&renderer=canvas&entry=${leg.entry}&pixelAudit`,
+        `http://127.0.0.1:4325/3D-pharse5-/?renderer=canvas&entry=${leg.entry}&pixelAudit`,
       );
       await p.waitForFunction(
         () => window.__GATE3__?.ready && window.__GATE3__.chunks.inflight === 0,

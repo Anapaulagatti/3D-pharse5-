@@ -5,50 +5,14 @@
 
  RUN  v5.0.4 /workspace/korean-street-gate1
 
- ❯ tests/unit/characters/foundation.test.ts (14 tests | 1 failed) 119ms
-   ❯ character registry and atlas boundary (3)
-     × registers six identities with Juni as safe playable fallback 42ms
 
-⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ Test Files  14 passed (14)
+      Tests  85 passed (85)
+   Start at  17:38:44
+   Duration  3.10s (tests 57%, import 27%, transform 14%, worker 2%)
 
- FAIL  tests/unit/characters/foundation.test.ts > character registry and atlas boundary > registers six identities with Juni as safe playable fallback
-AssertionError: expected [ 'juni', 'haneul', 'bomi', …(9) ] to deeply equal [ 'juni', 'haneul', 'bomi', …(3) ]
-
-- Expected
-+ Received
-
-@@ -3,6 +3,12 @@
-    "haneul",
-    "bomi",
-    "minjun",
-    "ara",
-    "doyun",
-+   "sori",
-+   "jiwon",
-+   "nari",
-+   "taeyang",
-+   "yuna",
-+   "hyunwoo",
-  ]
-
- ❯ tests/unit/characters/foundation.test.ts:98:52
-     96| describe("character registry and atlas boundary", () => {
-     97|   it("registers six identities with Juni as safe playable fallback", (…
-     98|     expect(characterRegistry.all.map((c) => c.id)).toEqual([
-       |                                                    ^
-     99|       "juni",
-    100|       "haneul",
-
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
-
-
- Test Files  1 failed | 13 passed (14)
-      Tests  1 failed | 84 passed (85)
-   Start at  17:07:46
-   Duration  4.89s (tests 50%, import 26%, transform 22%, worker 1%)
-
-    Isolate  14 workers spawned · ~270ms startup each (spawn + environment, per file)
-             at least ~989ms faster with isolate: false — reuses workers across files instead of one per file
+    Isolate  14 workers spawned · ~169ms startup each (spawn + environment, per file)
+             at least ~618ms faster with isolate: false — reuses workers across files instead of one per file
 
 npm notice
 npm notice New major version of npm available! 11.9.0 -> 12.2.1

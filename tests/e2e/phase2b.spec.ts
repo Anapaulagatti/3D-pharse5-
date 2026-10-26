@@ -18,6 +18,7 @@ test("twelve-entry mobile landscape gallery reaches the final identity, restores
   }
   await expect(page.locator("#future-roster")).toBeHidden();
   await expect(page.locator("[data-cosmetic]")).toHaveCount(0);
+  await expect(page.locator("#cosmetic-items")).toHaveText("Nguyên bản");
   await page.setViewportSize({ width: 390, height: 844 });
   await page.setViewportSize({ width: 667, height: 375 });
   await page.waitForTimeout(250);
