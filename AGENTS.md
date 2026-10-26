@@ -1,15 +1,10 @@
-# Korean Arena — Phase 1B character roster
+# Korean Arena — Phase2A Character Studio
 
-Read [PROJECT_STATE](docs/current/PROJECT_STATE.md) and [Phase 1B directive](docs/current/PHASE1B_DIRECTIVE.md). Preserve the accepted Phase 1 foundation; complete only the three missing character packs. No repeated cleanup. These supersede historical Gate3 STOP instructions.
+Read docs/current/PROJECT_STATE.md. The human Phase2A directive explicitly approves Phase1B and supersedes all historical Phase1B review STOP instructions. Work on feature/phase2-character-studio; no delegation unless the user explicitly requests it.
 
-- Work on `feature/phase1-character-foundation`. No delegation unless explicitly requested by the user.
-- Approved world baseline `checkpoint/world-art-approved-phase1-20261026` is immutable. Canonical world is `palace-cleanup-world`, never V10 graybox.
-- No map art/coordinates/collision/camera/tour changes. Preserve Juni source/native atlas/animations/movement. Verify `docs/phase1/protected-world.json` and `protected-juni.json`.
-- Extend the accepted shared character registry/manager/controller, selection UI and versioned local preferences; do not build another engine. New art must pass native animation/identity gates; unfinished characters stay explicitly incomplete and unplayable, never placeholders or Juni recolors.
-- Preserve original source art, Sprite Forge/animation tooling, tests, licenses and all checkpoints. Cleanup only via documented inventory, unknown ownership means KEEP.
-- No paid external artwork APIs, separate learning-app changes, Phase2 gameplay, main merge or public deployment. Stop after the Phase1B four-character playable package and honest QA for human review.
-- Historical engineering/instruction records live in docs/history/pre-phase1 and Git. They are not current authority.
-
-Phase1B review candidate is delivered:4 real playable identities,3 new 112-slot native packs,50 unit/23 E2E PASS. Sources checkpoint: checkpoint/phase1b-roster-sources-20261026. Review checkpoint: checkpoint/phase1b-roster-review-20261026. Final human art approval remains pending,11 Forge motion WARNs retained. Physical devices/hardware performance and unsupported canonical interiors remain NOT TESTED. Do not regenerate or expand beyond review corrections without a new human directive; Phase2 is locked.
-
-Current narrow correction authority: docs/current/PHASE1B_FRONTBACK_DIRECTIVE.md. Only32 front/back walk/run atlas cells per new character may change; keep all other source/runtime/world/UI files and character frames exact. Evidence: docs/phase1b-frontback-juni. Stop for human motion review.
+- Permanent approved four-character baseline: checkpoint/phase1b-four-characters-approved-20261026 at51ac4b4f20f0af2f26d1566988580d92c0612356. Verify docs/phase2a/approved-four-characters.json. Original Juni/Haneul/Bomi/Minjun art, animations, anchors, speeds and default appearances are immutable. Preserve every source layer/tool/checkpoint.
+- World is frozen at checkpoint/world-art-approved-phase1-20261026; canonical palace-cleanup-world. No world art/coordinates/collision/camera/tour changes. Verify docs/phase1/protected-world.json and protected-juni.json. Thin Character Studio integration in the current scene is authorized; do not rebuild the engine.
+- Extend existing registry, types, manager, RegistryMotion, preferences and selection UI. Cosmetics must be independent/reversible, frame-registered and work in gameplay, with bounded lazy caches. Preserve v1 selections, position/visited state and single sprite ownership.
+- Complete/inspect Ara before authoring Doyun. New characters/items remain unavailable until native art and locomotion validation pass. Prepare future roster metadata only; no playable placeholder sprites.
+- Phase2A includes customization/presets, two new playable identities, honest QA and playable review package. No Phase2B, economy/shop purchases, ads, learning integration, authenticated account, main merge, public deployment, paid external art API or separate Korean Arena learning-site changes.
+- Human approval does not certify physical devices, hardware WebGL performance or inherited navigation/planning defects. Preserve limitations and original validator warnings. Stop after the complete Phase2A review package for human review.
