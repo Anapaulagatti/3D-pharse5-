@@ -10,3 +10,7 @@ Read docs/current/PROJECT_STATE.md. Human approval explicitly accepts Phase2A at
 - Deliver all twelve, native/playable/video/QA/provenance review package, then STOP for human artistic approval. No Phase2C, NPC/quests/shops/farming/learning/ads/multiplayer, main merge or public deployment.
 
 Phase2B is now a complete twelve-character review candidate. Preserve checkpoint/phase2b-twelve-characters-review-20261026, source art/layers and intermediate wave refs. See docs/phase2b/README.md, QA.md and PROTECTED_AUDIT.md. Six new identities await human artistic approval. STOP; do not begin Phase2C, merge or deploy without explicit new authorization.
+
+## Active human direction2026-10-27 — critical motion correction
+
+Six new Phase2B character DESIGNS are accepted as the basis; their front/back/right locomotion is REJECTED. This supersedes the prior review STOP only for a focused six-character motion repair. Preserve checkpoint/phase2b-motion-before-20261027 and docs/phase2b-motion/before-manifest.json. Do not redesign identities, change any of the approved six, edit UI/runtime/controls/camera/world/collision or begin Phase2C. Author only affected own motion frames and derived guides; audit related runs, preserve left and all non-motion cells. Juni's actual phases are the benchmark. Require genuine positive-X forward stance, three consecutive actual gameplay loops and synchronized comparisons, not just eight hashes. Original Forge thresholds/WARN history remain unchanged. Deliver the corrected candidate and STOP for human motion review.

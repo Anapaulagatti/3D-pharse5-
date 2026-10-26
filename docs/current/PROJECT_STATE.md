@@ -23,3 +23,9 @@ All12 stable identities are now playable. New Sori/Jiwon, Nari/Taeyang, Yuna/Hyu
 New-profile forearm phase was corrected and re-recorded in three controlled pairs; early drafts/checkpoints remain recoverable. Seven pre-existing helper formatting failures were normalized with unchanged actual syntax trees; no validator was weakened.18 new numerical Forge WARNs (11leg luminance/7seam) and17 historical diagnostics remain explicit. Physical Android/iPhone and hardware performance remain NOT TESTED.
 
 [Phase2B review](../phase2b/README.md), [QA](../phase2b/QA.md), [visual gallery](../phase2b/VISUAL_REVIEW.md). Recoverable review checkpoint: `checkpoint/phase2b-twelve-characters-review-20261026`. This is TECHNICAL PASS / ARTISTIC REVIEW PENDING. STOP for human review; Phase2C, main merge and public deployment remain forbidden.
+
+## Human motion review2026-10-27
+
+The Phase2B six new designs are accepted as the basis, but front/back stepping and backward-looking right walk are artistically rejected. Prior85/40 test results did not establish locomotion quality. Active task: surgical source-motion repair for Sori/Jiwon/Nari/Taeyang/Yuna/Hyunwoo on the existing branch, using actual Juni motion phases. Related run clips must be audited and only confirmed defects repaired.
+
+All six earlier characters, their cosmetics, source designs, Character Studio, persistence, shared controller, world/collision/camera/tour remain frozen. Before reference: checkpoint/phase2b-motion-before-20261027 at bcdbf17; broader SHA freeze in docs/phase2b-motion/before-manifest.json. Phase2C remains locked. Current work is a motion candidate, not human-approved locomotion.

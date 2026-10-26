@@ -1,0 +1,42 @@
+from pathlib import Path
+import json
+D=Path('docs/phase2b-motion');ids=['sori','jiwon','nari','taeyang','yuna','hyunwoo'];qa=json.loads((D/'actual-motion-qa.json').read_text());frame=json.loads((D/'frame-change-manifest.json').read_text());forge=json.loads((D/'forge-diagnostics.json').read_text())
+readme='''# Phase2B — focused locomotion correction review
+
+Six character designs preserved. Corrected motion is a **review candidate**, not human-approved. Phase2C remains LOCKED. No main merge or public deployment.
+
+Open [visual review](REVIEW.html) for six synchronized Juni comparisons and separate unretimed actual Phaser recordings. Download [playable review ZIP](PHASE2B_MOTION_CORRECTION_REVIEW.zip), extract, run `python3 start_review.py`, open `REVIEW.html`. The package contains the real compiled canonical Phaser world and twelve playable characters, with existing cosmetics and persistence. Use WASD / Shift; the existing mobile joystick remains unchanged.
+
+Only Sori, Jiwon, Nari, Taeyang, Yuna and Hyunwoo motion pixels changed: front/back/right walk/run and matching starts/stops,66 cells each. All left clips, idle/emotes and character designs remain exact. Juni, Haneul, Bomi, Minjun, Ara, Doyun, cosmetics, world, UI, controller, camera, collision and progress code are byte-identical.
+
+The old right-foot stance moved along with positiveX travel. The repair changes limb construction and support trajectory, **not clip reversal or runtime speed**. Front/rear corrections add real knee articulation and appropriate own-foot heel/sole views using Juni's actual phase indices. Related runs showed the same source defects and are repaired. See [diagnosis](MOTION_DIAGNOSIS.md).
+
+Evidence:1,008 exact native opaque-pixel readbacks,42 actual clips (Juni plus6),126 sampled consecutive loops. Source contact tracking rejects the old right motion (34px walk/48px run drift), corrected keyposes are within1px. Actual sampled support drift is1–8px from8-pose hold/phase sampling; this is not continuous subpixel foot locking. Visual naturalness remains for human review.
+
+- [QA and unresolved items](QA.md)
+- [Native/source/gameplay evidence index](VISUAL_REVIEW.md)
+- [Exact changed frame/pixel hashes](frame-change-manifest.json)
+- [Protected-asset verification](protected-audit.json)
+- [Actual motion and contact evidence](actual-motion-qa.json)
+- [Original Forge thresholds and retained warnings](FORGE_WARNINGS.md)
+- [Source provenance](source-provenance.json)
+
+Review references: `checkpoint/phase2b-motion-before-20261027` (bcdbf17 baseline); `checkpoint/phase2b-motion-corrected-review-20261027` (new review). Original rejected review and all historical checkpoints preserved. Checkpoint IDs and package hashes are recorded in the handoff receipt.
+
+Physical Android Chrome/iPhone Safari, hardware WebGL performance and human artistic motion acceptance remain NOT TESTED / PENDING. No Phase2C work authorized.
+'''
+(D/'README.md').write_text(readme)
+s='# Visual evidence index\n\nNative PNG links contain original1:1 pixels. Enlarging the review page uses nearest-neighbor presentation; PNG files are never rescaled. Source-only sheets/GIFs are labeled separately from actual Phaser captures.\n\nThe synchronized video panels are192×224 unscaled crops from actual game captures, aligned by original phase0..7 for3 consecutive loops per clip. Nominal gait timing44/60s or64/100s per cycle is used; this is a phase-aligned comparison montage, **not an unretimed simultaneous recording**. Full1280×1000 actual gameplay recordings below run at recorded speed with real WASD/Shift, start/stop/turn and Studio entry. Native full-canvas PNG is1280×900. MP4 is lossy review media; PNG is fidelity authority.\n\n'
+for id in ids:
+ s+=f'## Juni vs {id.title()}\n\n- [Synchronized Phaser comparison](juni-vs-{id}-synchronized-phaser.mp4) — front/back/right walk/run;3 consecutive loops each.\n- [Actual unretimed gameplay]({id}-actual-gameplay.mp4), [input/world/frame trace]({id}-gameplay.json), [native full right-walk Phaser screenshot]({id}-walk-right-full-phaser-native.png).\n- [Walk native before/after]({id}-walk-before-after-native.png) · [Run native before/after]({id}-run-before-after-native.png).\n\n| Clip | Actual first-loop8-frame PNG | Source-only before/after animation | Joint/foot annotations |\n|---|---|---|---|\n'
+ for action in ['walk','run']:
+  for view in ['front','back','right']:
+   c=action+'-'+view;s+=f'|{c}|[native]({id}-{c}-actual-native.png)|[preview]({id}-{c}-source-before-after.gif)|[guide]({id}-{c}-foot-guide-native.png)|\n'
+ s+=f'\nActual support-foot annotations: [walk]({id}-walk-right-actual-contact-native.png) · [run]({id}-run-right-actual-contact-native.png). Orange marks track raster sole and actual worldX; source guide markers alone are not ground-truth support proof.\n\n'
+s+='## Capture coverage and provenance\n\n[All1,008 native readbacks](readbacks-juni-sori-jiwon-nari-taeyang-yuna-hyunwoo.json) · [full-canvas frame hashes and lossless body/context crop names](actual-frame-provenance.json) · [media provenance](media-provenance.json). All body/context crops,42 full-canvas key images and source before/after boards are retained in the repository. Full raw capture PNGs live in the execution workspace; their SHA256 hashes are recorded. WebM originals remain local, MP4 copies are supplied.\n\nThe portable ZIP includes six synchronized videos and two full gameplay recordings (Sori/Hyunwoo). Four other full videos and the exhaustive crop set remain separate linked review evidence, so the ZIP stays below100MB. It is fully playable offline.\n\nCapture note: one initial Yuna recording failed an overly tight4px index0-distance check. Because index0 occupies1/8stride, two samples of that phase can differ within that interval; the corrected capture bound is stride/8, documented in the recorder. This changes no Forge threshold. The incomplete attempt is excluded; the delivered Yuna/Hyunwoo captures were recorded afresh and all final126 loops pass the stated bound.\n'
+(D/'VISUAL_REVIEW.md').write_text(s)
+h='''<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Phase2B · Duyệt chuyển động</title><style>body{background:#213c35;color:#fff0ce;font:16px/1.55 system-ui;max-width:1200px;margin:auto;padding:20px}a{color:#a8e3cc}img{max-width:100%;image-rendering:pixelated}video{max-width:100%;background:#162721;image-rendering:pixelated}section{border-top:1px solid #71806b;padding:22px 0}p{max-width:1000px}.compare{width:768px}summary{cursor:pointer;padding:8px}</style><h1>Phase2B · Sửa chuyển động sáu nhân vật</h1><p>Ứng viên chờ duyệt chuyển động. Thiết kế được giữ nguyên. Phase2C LOCKED. Thiết bị thật NOT TESTED.</p><p><a href="../../index.html">Vào game Phaser</a> · <a href="QA.md">QA</a> · <a href="VISUAL_REVIEW.md">Toàn bộ ảnh native và nguồn</a> · <a href="FORGE_WARNINGS.md">Forge WARN</a></p><p>Video đối chiếu dùng ảnh Phaser thật, ghép cùng pha0–7, ba vòng liên tiếp cho mỗi clip. Video gameplay riêng giữ tốc độ ghi thực. Ảnh PNG native là bằng chứng pixel; MP4 chỉ dùng xem chuyển động.</p>'''
+for id in ids:
+ h+=f'<section><h2>Juni ↔ {id.title()}</h2><video class="compare" controls preload="none" src="juni-vs-{id}-synchronized-phaser.mp4"></video><p>Front/back/right walk + run ·3 loops/clip · phase-aligned actual Phaser captures.</p><p><a href="{id}-actual-gameplay.mp4">Gameplay nguyên tốc độ</a> · <a href="{id}-walk-right-full-phaser-native.png">Phaser native1280×900</a> · <a href="{id}-gameplay.json">Trace thực</a></p><details><summary>Ảnh native trước/sau (source only)</summary><a href="{id}-walk-before-after-native.png"><img loading="lazy" src="{id}-walk-before-after-native.png" alt="{id} walk before/after native source"></a><p><a href="{id}-run-before-after-native.png">Run trước/sau native</a></p></details><details><summary>Chân chống trong Phaser / ảnh native</summary><a href="{id}-walk-right-actual-contact-native.png"><img loading="lazy" src="{id}-walk-right-actual-contact-native.png" alt="actual foot/world contact"></a><p><a href="{id}-run-right-actual-contact-native.png">Run contact</a> · <a href="{id}-walk-front-actual-native.png">Front walk</a> · <a href="{id}-walk-back-actual-native.png">Back walk</a> · <a href="{id}-walk-right-actual-native.png">Right walk</a></p></details></section>'
+h+='<p>STOP for human motion review. No Phase2C / main merge / deployment.</p></html>'
+(D/'REVIEW.html').write_text(h)
