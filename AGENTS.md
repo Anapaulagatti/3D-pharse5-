@@ -11,3 +11,5 @@ Read [PROJECT_STATE](docs/current/PROJECT_STATE.md) and [Phase 1B directive](doc
 - Historical engineering/instruction records live in docs/history/pre-phase1 and Git. They are not current authority.
 
 Phase1B review candidate is delivered:4 real playable identities,3 new 112-slot native packs,50 unit/23 E2E PASS. Sources checkpoint: checkpoint/phase1b-roster-sources-20261026. Review checkpoint: checkpoint/phase1b-roster-review-20261026. Final human art approval remains pending,11 Forge motion WARNs retained. Physical devices/hardware performance and unsupported canonical interiors remain NOT TESTED. Do not regenerate or expand beyond review corrections without a new human directive; Phase2 is locked.
+
+Current narrow correction authority: docs/current/PHASE1B_FRONTBACK_DIRECTIVE.md. Only32 front/back walk/run atlas cells per new character may change; keep all other source/runtime/world/UI files and character frames exact. Evidence: docs/phase1b-frontback-juni. Stop for human motion review.

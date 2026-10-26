@@ -1,4 +1,8 @@
-# Current authority — Phase 1B
+# Current authority — Phase1B front/back motion correction
+
+The newer human [front/back Juni motion directive](PHASE1B_FRONTBACK_DIRECTIVE.md) authorizes only32 front/back walk/run frames per Haneul/Bomi/Minjun. Preserve all other frames, original sources, Juni, runtime/UI and world. New evidence lives in [the focused review](../phase1b-frontback-juni/README.md). Earlier roster review and checkpoints stay recoverable. Corrected candidate:96 changed frames total,240 other frames unchanged,16 exact native Phaser readbacks,50 unit/8 production character E2E PASS. All4 identities play in the extracted package. Human motion approval PENDING; STOP after delivery. Phase2 remains locked.
+
+## Accepted Phase1B foundation and prior review
 
 Human directive: [PHASE1B_DIRECTIVE.md](PHASE1B_DIRECTIVE.md). Phase 1 technical foundation is accepted at checkpoint/phase1-foundation-accepted-20261026. Complete Haneul, Bomi and Minjun using controlled frame-by-frame or accurately layered animation; validate the Haneul eight-frame front-walk pilot first. Do not rebuild the engine or repeat cleanup. Map development is frozen. The full current palace-cleanup world, fresh Hanbit, both bridges, western hanok/garden, NW farm and all other regions are artistically accepted as the gameplay baseline. This does not assert resolution of inherited non-art navigation/planning defects or physical-device tests.
 
