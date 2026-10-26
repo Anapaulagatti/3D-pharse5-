@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 0.577,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 3.611,
+        "adjacent_median": 6.2562
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/walk-back-0.png",
+      "sha256": "a6ce92ffcbcda266c480df736876b39926d653c1327bfe55f2e80ea61ab5f868",
+      "bytes": 4536
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/walk-back-1.png",
+      "sha256": "18a51ebdfe8bb87f985d36f959e063be6a89ef99245908c39b118ad9d4efaa9f",
+      "bytes": 4539
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/walk-back-2.png",
+      "sha256": "5379fcd62a3d484b38f8b4d88cdf8c26f53c676e5202d385d217ab2f818e556e",
+      "bytes": 4594
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/walk-back-3.png",
+      "sha256": "ebd07256a278f51ebd6d83ed0b9d78851e520e9914cebcd86dd1278e89f4538f",
+      "bytes": 4855
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/walk-back-4.png",
+      "sha256": "b10ff805bfd2cdeac341b9bd64e033c5486b14d3eac541f6288163a556355f6a",
+      "bytes": 4580
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/walk-back-5.png",
+      "sha256": "6390918eb2c72abbbcee8ef10616827f0b09c402171c6c667f0ba38900f1ffd7",
+      "bytes": 4694
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/walk-back-6.png",
+      "sha256": "f39b8556bd5b7151f94358e64a50986691579133ae9624ce54fced5752b3ae8d",
+      "bytes": 4449
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/walk-back-7.png",
+      "sha256": "442fe1d217e2d605aea812556e982c664ddf3ba370e26b030ce8a942f657176e",
+      "bytes": 4565
+    }
+  ],
+  "outputs": [
+    {
+      "path": "taeyang-walk-back.png",
+      "sha256": "95cf81d117f5e75db5f37ff808e7955c6eac54def902c6e9a8b515b2c18cc4e6",
+      "bytes": 114250
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/walk-back-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1411,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 882,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        20,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/walk-back-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1417,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 881,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        21,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/walk-back-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1424,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 878,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        20,
+        64,
+        95
+      ],
+      "ground_gap_px": 5.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/walk-back-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1525,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 941,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        21,
+        68,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/walk-back-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1431,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 894,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        20,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/walk-back-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1454,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 894,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        66,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/walk-back-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1379,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 850,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        21,
+        64,
+        98
+      ],
+      "ground_gap_px": 2.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/walk-back-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1416,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 873,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        20,
+        64,
+        95
+      ],
+      "ground_gap_px": 5.0
+    }
+  ]
+}
