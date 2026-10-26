@@ -1,6 +1,6 @@
 # Current authority — Phase1B front/back motion correction
 
-The newer human [front/back Juni motion directive](PHASE1B_FRONTBACK_DIRECTIVE.md) authorizes only32 front/back walk/run frames per Haneul/Bomi/Minjun. Preserve all other frames, original sources, Juni, runtime/UI and world. New evidence lives in [the focused review](../phase1b-frontback-juni/README.md). Earlier roster review and checkpoints stay recoverable. Corrected candidate:96 changed frames total,240 other frames unchanged,16 exact native Phaser readbacks,50 unit/8 production character E2E PASS. All4 identities play in the extracted package. Human motion approval PENDING; STOP after delivery. Phase2 remains locked.
+The newer human [front/back Juni motion directive](PHASE1B_FRONTBACK_DIRECTIVE.md) authorizes only32 front/back walk/run frames per Haneul/Bomi/Minjun. Preserve all other frames, original sources, Juni, runtime/UI and world. New evidence lives in [the focused review](../phase1b-frontback-juni/README.md). Earlier roster review and checkpoints stay recoverable. Recoverable correction review: `checkpoint/phase1b-frontback-juni-review-20261026` at `51ac4b4f20f0af2f26d1566988580d92c0612356`;30 accessible immutable evidence links and the ZIP were verified after push. Corrected candidate:96 changed frames total,240 other frames unchanged,16 exact native Phaser readbacks,50 unit/8 production character E2E PASS. All4 identities play in the extracted package. Human motion approval PENDING; STOP after delivery. Phase2 remains locked.
 
 ## Accepted Phase1B foundation and prior review
 
