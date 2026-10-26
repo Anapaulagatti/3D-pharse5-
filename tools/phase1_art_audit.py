@@ -1,0 +1,19 @@
+"""Diagnose generated motion; no gameplay atlases are published on failed gates."""
+from pathlib import Path
+from PIL import Image
+import numpy as np,importlib.util,json,subprocess,hashlib
+R=Path(__file__).resolve().parents[1];S=R/'assets-src/characters/phase1';D=R/'docs/phase1';skill=Path('/workspace/tooling-cache/character-animation-creator-skill');spec=importlib.util.spec_from_file_location('creator_assemble',skill/'scripts/assemble_action_sheet.py');mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod);rows=[];commands=[]
+for trial,requested_height in [('trial',160),('repair',320)]:
+ source=S/'animation-pilot/raw'/f'haneul-walk-front-{trial}.png';im=Image.open(source).convert('RGBA');keyed=mod.remove_edge_key(im,(255,0,255),105);a=np.array(keyed);p=keyed.load()
+ # Creator's exact-key cleanup, preserving character colours.
+ near=(a[:,:,0]>190)&(a[:,:,2]>190)&(a[:,:,1]<70);a[near,3]=0;keyed=Image.fromarray(a);keyed.save(S/'animation-pilot'/f'{trial}-keyed.png');frames=[];contacts=[];bboxes=[]
+ for i in range(8):
+  frame=keyed.crop((i*192,0,(i+1)*192,1024));bbox=frame.getbbox();bboxes.append(bbox);aa=np.array(frame.getchannel('A'))>0;yy,xx=np.where(aa);bottom=int(yy.max());toeX=float(xx[yy>=bottom-12].mean()-96);contacts.append({'pose':i,'bottomY':bottom,'leadingFootXFromCellCenter':toeX,'bodyHeight':bbox[3]-bbox[1]})
+  # Source-native integer4 reduction only. No bbox scale/registration per frame.
+  native=frame.crop((0,308,192,756)).resize((48,112),Image.Resampling.NEAREST);out=Image.new('RGBA',(96,112));out.alpha_composite(native,(24,0));frames.append(out)
+ board=Image.new('RGBA',(96*8,112))
+ for i,frame in enumerate(frames):board.paste(frame,(96*i,0))
+ out=S/'animation-pilot'/f'{trial}-diagnostic-native-sheet.png';board.save(out)
+ cmd=['python3',str(skill/'scripts/audit_sprite_motion.py'),'--input',str(out),'--rows','1','--columns','8','--cell','96','--row-names','south','--json-out',str(S/'animation-pilot'/f'{trial}-creator-motion.json'),'--fail-on-warnings'];p=subprocess.run(cmd,text=True,capture_output=True);commands.append({'command':cmd,'exit':p.returncode,'stdout':p.stdout,'stderr':p.stderr,'meaning':'Diagnostic only:96x112 fixed cells differ from tool square96 expectation; raw-source visual/foot gates decisive, no threshold weakened'})
+ signs=[q['leadingFootXFromCellCenter']>0 for q in contacts];row={'trial':trial,'source':str(source.relative_to(R)),'sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'actualSize':list(im.size),'requestedBodyHeight':requested_height,'measuredContacts':contacts,'alternateLeadingFoot':'FAIL'if all(signs)or not any(signs)else'NEEDS_VISUAL_REVIEW','assistantVisualReview':'FAIL:all8front poses lead with same leg; second half repeats first-half leg hierarchy even after targeted repair','nativeRegistration':'FAIL:requested body/ground guide not respected; integer-only extraction is taller than Juni','gameplayAtlasPublished':False};rows.append(row)
+(D/'character-art-status.json').write_text(json.dumps({'Juni':'PLAYABLE / original approved atlas144frames exact','Haneul':'INCOMPLETE / failed alternating gait and source registration; no runtime atlas','Bomi':'INCOMPLETE / original design reference only; actions/directions not authored','Minjun':'INCOMPLETE / original design reference only; actions/directions not authored','hostGenerationCalls':5,'paidExternalAPICalls':0,'videoRoute':'NONE as recorded by Forge doctor','pilot':rows,'phase1Acceptance':'INCOMPLETE:technical foundation can be reviewed, four-playable-character milestone not fulfilled'},indent=2)+'\n');(S/'animation-pilot/creator-commands.json').write_text(json.dumps(commands,indent=2)+'\n');print([(x['trial'],x['alternateLeadingFoot'],[round(q['leadingFootXFromCellCenter'],1)for q in x['measuredContacts']])for x in rows])

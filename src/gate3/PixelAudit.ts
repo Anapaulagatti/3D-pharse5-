@@ -54,7 +54,8 @@ export function installPixelAudit(scene: Phaser.Scene) {
       const capture = () => {
         const player = scene.children.list.find(
           (o): o is Phaser.GameObjects.Sprite =>
-            o instanceof Phaser.GameObjects.Sprite && o.texture.key === "juni",
+            o instanceof Phaser.GameObjects.Sprite &&
+            (!!o.getData("playerCharacter") || o.texture.key === "juni"),
         );
         if (!player || !String(player.frame.name).startsWith(prefix)) return;
         cleanup();

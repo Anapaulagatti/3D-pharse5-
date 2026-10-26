@@ -1,0 +1,117 @@
+{
+  "scope": {
+    "cell": [
+      96,
+      112
+    ],
+    "directions": [
+      "front",
+      "back",
+      "left",
+      "right"
+    ],
+    "actions": {
+      "idle": 6,
+      "walk": 8,
+      "run": 8,
+      "wave": 8,
+      "celebrate": 8
+    },
+    "runtimeScaling": 1
+  },
+  "reference": {
+    "source": "assets-src/characters/phase1/juni-style-reference.png",
+    "used_for_generation": true,
+    "role": "STYLE/scale only; new identities distinct from Juni"
+  },
+  "generation": {
+    "method": "imagegen",
+    "procedural": false,
+    "artStatus": "INCOMPLETE until per-action gates pass"
+  },
+  "characters": {
+    "haneul": {
+      "ko": "하늘",
+      "vi": "Haneul",
+      "identity": "Cheerful young Korean adventurer, short wavy asymmetric dark chestnut hair, small triangular side tuft, light blue roomy denim jacket with navy seam trim, cobalt T-shirt, warm sand cargo joggers, white/blue trainers, compact orange wrist strap; lively athletic silhouette, no twin buns or Juni outfit"
+    },
+    "bomi": {
+      "ko": "보미",
+      "vi": "Bomi",
+      "identity": "Friendly modern Korean traveler, deep brown smooth hair in one low braided coil with cream ribbon, coral cropped hanbok-inspired wrap jacket and cream ties, short cream flowing culotte silhouette with burgundy trim, practical coral/ivory flat shoes, small bronze floral pin; elegant restrained detail, no long skirt blocking legs"
+    },
+    "minjun": {
+      "ko": "민준",
+      "vi": "Minjun",
+      "identity": "Calm curious Korean student explorer, tousled dark charcoal side-parted hair, round thin bronze glasses, sage green knit vest over cream rolled-sleeve shirt, dark olive tapered shorts to knee with cream socks, brown walking shoes, tiny tan notebook satchel; distinct square-ish hair silhouette, relaxed stance"
+    }
+  },
+  "generationRecords": [
+    {
+      "character": "haneul",
+      "role": "Original full-body design MASTER REFERENCE ONLY; not native gameplay sprite",
+      "tool": "image_gen.imagegen",
+      "route": "host_image",
+      "rawOutput": "/workspace/generated_images/exec-d22e6ee2-622a-4d2d-b5f1-88a703d88609.png",
+      "retained": "assets-src/characters/phase1/haneul/raw/frame_0000.png",
+      "sha256": "c7b27714ff4fe8a23f24c76f8053dead8981dc2bd9f543ccacd119e2d49a6e55",
+      "referenceUsed": [
+        "assets-src/character-reboot/B/source-front.png",
+        "assets-src/characters/phase1/juni-style-reference.png"
+      ],
+      "identity": "Cheerful young Korean adventurer, short wavy asymmetric dark chestnut hair, small triangular side tuft, light blue roomy denim jacket with navy seam trim, cobalt T-shirt, warm sand cargo joggers, white/blue trainers, compact orange wrist strap; lively athletic silhouette, no twin buns or Juni outfit",
+      "promptScope": "Single front-facing full-body original figure, peer Juni style only, distinct identity/outfit/silhouette; flat magenta, upper-left light, generous margins; art reference, no gameplay atlas claim",
+      "modelAndCost": "Not exposed by built-in tool",
+      "humanApproval": false
+    },
+    {
+      "character": "bomi",
+      "role": "Original full-body design MASTER REFERENCE ONLY; not native gameplay sprite",
+      "tool": "image_gen.imagegen",
+      "route": "host_image",
+      "rawOutput": "/workspace/generated_images/exec-ebefce68-fecc-45dd-bb93-834dfe55b75b.png",
+      "retained": "assets-src/characters/phase1/bomi/raw/frame_0000.png",
+      "sha256": "1a5469478531c73291e26ae641d35d8494e14e66832a11527d124a25411337b4",
+      "referenceUsed": [
+        "assets-src/character-reboot/B/source-front.png",
+        "assets-src/characters/phase1/juni-style-reference.png"
+      ],
+      "identity": "Friendly modern Korean traveler, deep brown smooth hair in one low braided coil with cream ribbon, coral cropped hanbok-inspired wrap jacket and cream ties, short cream flowing culotte silhouette with burgundy trim, practical coral/ivory flat shoes, small bronze floral pin; elegant restrained detail, no long skirt blocking legs",
+      "promptScope": "Single front-facing full-body original figure, peer Juni style only, distinct identity/outfit/silhouette; flat magenta, upper-left light, generous margins; art reference, no gameplay atlas claim",
+      "modelAndCost": "Not exposed by built-in tool",
+      "humanApproval": false
+    },
+    {
+      "character": "minjun",
+      "role": "Original full-body design MASTER REFERENCE ONLY; not native gameplay sprite",
+      "tool": "image_gen.imagegen",
+      "route": "host_image",
+      "rawOutput": "/workspace/generated_images/exec-5126944c-0fe5-42f6-b1ba-c277ca897a8c.png",
+      "retained": "assets-src/characters/phase1/minjun/raw/frame_0000.png",
+      "sha256": "de6a2c66e5646150739fa8747f3584710852ddd04328c45c775867d08d4b55a9",
+      "referenceUsed": [
+        "assets-src/character-reboot/B/source-front.png",
+        "assets-src/characters/phase1/juni-style-reference.png"
+      ],
+      "identity": "Calm curious Korean student explorer, tousled dark charcoal side-parted hair, round thin bronze glasses, sage green knit vest over cream rolled-sleeve shirt, dark olive tapered shorts to knee with cream socks, brown walking shoes, tiny tan notebook satchel; distinct square-ish hair silhouette, relaxed stance",
+      "promptScope": "Single front-facing full-body original figure, peer Juni style only, distinct identity/outfit/silhouette; flat magenta, upper-left light, generous margins; art reference, no gameplay atlas claim",
+      "modelAndCost": "Not exposed by built-in tool",
+      "humanApproval": false
+    }
+  ],
+  "animationPilot": {
+    "source": "animation-pilot/raw/haneul-walk-front-trial.png",
+    "targetedRepair": "animation-pilot/raw/haneul-walk-front-repair.png",
+    "references": [
+      "Haneul master",
+      "eight-frame-native2x-guide.png"
+    ],
+    "promptScope": "Eight front walk poses, explicit alternating contact/down/passing/up phases, fixed160sourcepx height; repair specifies opposite leading leg in last4 and320sourcepx height for integer4 reduction",
+    "result": "FAIL:all8poses lead with same side; requested height/root guide not honored; new runtime atlas not published",
+    "scopeNotCompleted": [
+      "all Haneul other action/directions",
+      "all Bomi and Minjun animations"
+    ]
+  },
+  "newArtStatus": "INCOMPLETE / not playable or human-approved"
+}

@@ -1,0 +1,126 @@
+{
+  "schema": "video2dsprite.matte_report.v1",
+  "mode": "binary",
+  "key": [
+    252,
+    3,
+    251
+  ],
+  "key_request": "magenta",
+  "key_declared": "magenta",
+  "key_mode": "always",
+  "despill_mode": "off",
+  "despill_applied": "off",
+  "opaque_key_px": 30,
+  "outer_ring_spill_fraction": 0.9113369546171368,
+  "semitransparent_fraction": 0.0,
+  "enclosed_key_pockets": 0,
+  "pockets": "remove",
+  "pockets_removed": 6,
+  "key_hued_px": 2047,
+  "key_estimate": {
+    "declared": "magenta",
+    "declared_rgb": [
+      255,
+      0,
+      255
+    ],
+    "key": [
+      252.0,
+      3.0,
+      251.0
+    ],
+    "source": "border_median",
+    "valid": true,
+    "ring_share": 1.0,
+    "coverage": 0.80778,
+    "distance_from_declared": 5.83,
+    "spread": 0.0,
+    "frames_estimated": 1,
+    "invalid_frames": []
+  },
+  "local_background": 0,
+  "erode": 0,
+  "unmix": false,
+  "temporal": {
+    "mode": "off",
+    "requested": "auto",
+    "band": [
+      0.4,
+      0.6
+    ],
+    "max_step": 0.25,
+    "loop": false,
+    "active": false
+  },
+  "frames_total": 1,
+  "passthrough_frames": [],
+  "warnings": [],
+  "legacy": {
+    "dist": 55.0,
+    "despill": 0.0
+  },
+  "frames": [
+    {
+      "index": 0,
+      "key": [
+        252,
+        3,
+        251
+      ],
+      "passthrough": false,
+      "opaque_key_px": 30,
+      "outer_ring_spill_fraction": 0.9113369546171368,
+      "semitransparent_fraction": 0.0,
+      "enclosed_key_pockets": 0,
+      "key_hued_px": 2047,
+      "visible_px": 300232,
+      "pockets_removed": 6,
+      "protected_px": 0
+    }
+  ],
+  "status": "fail",
+  "method": "forge_matte.matte_qa on every frame against that frame's key: opaque key px (alpha >= 128 within RGB 48 of the key), enclosed key-coloured regions of >= 16 px and key-hued px are counted after the matte, pockets, erosion and hysteresis but before any despill pass (which could hide residue as an opaque grey blob); the outer visible ring's share with key dominance > 20 and the semi-transparent share are measured on the published frame. Flips are pixels whose alpha changes by more than 0.25 while the raw colour changes by at most 20 (forge_matte.flip_count). Counts are sums over frames, fractions the worst frame.",
+  "notProven": [
+    "Matte QA counts key residue only; edge quality, colour fidelity and identity need a visual review over light and dark backgrounds.",
+    "The soft matte and these thresholds were tuned and verified on one clip (report v2 section 7); other keys, outline-free art and codecs are covered by synthetic tests only."
+  ],
+  "checks": [
+    {
+      "id": "opaque_key_px",
+      "status": "fail",
+      "value": 30,
+      "threshold": 0
+    },
+    {
+      "id": "enclosed_key_pockets",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "outer_ring_spill_fraction",
+      "status": "fail",
+      "value": 0.911337,
+      "threshold": 0.01
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../raw/frame_0000.png",
+      "sha256": "de6a2c66e5646150739fa8747f3584710852ddd04328c45c775867d08d4b55a9",
+      "bytes": 1520587
+    }
+  ],
+  "outputs": [
+    {
+      "path": "clean_0000.png",
+      "sha256": "e1a78b4bb45f8951ad704fa0b4eb7230a3d142c0915e452dd8267f856a81605a",
+      "bytes": 638418
+    }
+  ],
+  "tool": {
+    "name": "video2dsprite.py clean",
+    "version": "0.4.0"
+  }
+}

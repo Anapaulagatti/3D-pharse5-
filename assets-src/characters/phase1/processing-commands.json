@@ -1,0 +1,78 @@
+[
+  {
+    "status": "INITIAL_FAILED",
+    "reason": "Forge binary matte accepts magenta enum, not custom hex; no output published"
+  },
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/video2dsprite/scripts/video2dsprite.py",
+      "clean",
+      "--raw-dir",
+      "assets-src/characters/phase1/haneul/raw",
+      "--output-dir",
+      "assets-src/characters/phase1/haneul/keyed",
+      "--matte",
+      "binary",
+      "--key",
+      "magenta",
+      "--key-mode",
+      "always",
+      "--despill-mode",
+      "off",
+      "--pockets",
+      "remove"
+    ],
+    "exit": 0,
+    "stdout": "{\"output\": \"/workspace/korean-street-gate1/assets-src/characters/phase1/haneul/keyed\", \"metadata\": \"/workspace/korean-street-gate1/assets-src/characters/phase1/haneul/keyed/matte-report.json\", \"frames\": 1, \"matte\": \"binary\", \"key\": [252, 3, 251], \"status\": \"fail\", \"flips_per_frame_pair\": null, \"seconds_per_frame\": 0.693}\n",
+    "stderr": "  keyed 1/1\nwarning: matte QA failed: opaque_key_px 56 (limit 0); outer_ring_spill_fraction 0.908074 (limit 0.01); the frames are published for review (--strict refuses them)\n"
+  },
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/video2dsprite/scripts/video2dsprite.py",
+      "clean",
+      "--raw-dir",
+      "assets-src/characters/phase1/bomi/raw",
+      "--output-dir",
+      "assets-src/characters/phase1/bomi/keyed",
+      "--matte",
+      "binary",
+      "--key",
+      "magenta",
+      "--key-mode",
+      "always",
+      "--despill-mode",
+      "off",
+      "--pockets",
+      "remove"
+    ],
+    "exit": 0,
+    "stdout": "{\"output\": \"/workspace/korean-street-gate1/assets-src/characters/phase1/bomi/keyed\", \"metadata\": \"/workspace/korean-street-gate1/assets-src/characters/phase1/bomi/keyed/matte-report.json\", \"frames\": 1, \"matte\": \"binary\", \"key\": [252, 3, 251], \"status\": \"fail\", \"flips_per_frame_pair\": null, \"seconds_per_frame\": 0.619}\n",
+    "stderr": "  keyed 1/1\nwarning: matte QA failed: opaque_key_px 51 (limit 0); outer_ring_spill_fraction 0.921655 (limit 0.01); the frames are published for review (--strict refuses them)\n"
+  },
+  {
+    "command": [
+      "python3",
+      "/workspace/tooling-cache/agent-sprite-forge/skills/video2dsprite/scripts/video2dsprite.py",
+      "clean",
+      "--raw-dir",
+      "assets-src/characters/phase1/minjun/raw",
+      "--output-dir",
+      "assets-src/characters/phase1/minjun/keyed",
+      "--matte",
+      "binary",
+      "--key",
+      "magenta",
+      "--key-mode",
+      "always",
+      "--despill-mode",
+      "off",
+      "--pockets",
+      "remove"
+    ],
+    "exit": 0,
+    "stdout": "{\"output\": \"/workspace/korean-street-gate1/assets-src/characters/phase1/minjun/keyed\", \"metadata\": \"/workspace/korean-street-gate1/assets-src/characters/phase1/minjun/keyed/matte-report.json\", \"frames\": 1, \"matte\": \"binary\", \"key\": [252, 3, 251], \"status\": \"fail\", \"flips_per_frame_pair\": null, \"seconds_per_frame\": 0.644}\n",
+    "stderr": "  keyed 1/1\nwarning: matte QA failed: opaque_key_px 30 (limit 0); outer_ring_spill_fraction 0.911337 (limit 0.01); the frames are published for review (--strict refuses them)\n"
+  }
+]

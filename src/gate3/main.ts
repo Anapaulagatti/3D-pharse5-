@@ -1,3 +1,14 @@
+import { CharacterSession } from "../characters/session";
+import { characterRegistry } from "../characters/registry";
+import {
+  CharacterPreferences,
+  browserPreferenceStorage,
+} from "../characters/preferences";
+import { PlayerCharacterManager } from "../characters/PlayerCharacterManager";
+import { PhaserCharacterAssets } from "../characters/PhaserCharacterAssets";
+import { CharacterSelection } from "../characters/CharacterSelection";
+import type { RegistryMotion } from "../characters/RegistryMotion";
+import "../characters/selection.css";
 import { loadNativeContact, type ContactSpec } from "./NativeContact";
 import Phaser from "phaser";
 import { nativeCanvasOffset } from "./PixelGrid";
@@ -11,7 +22,19 @@ import { FoundationCamera } from "./FoundationCamera";
 import { SessionMetrics } from "../gate2/SessionMetrics";
 import { WorldCache } from "./WorldCache";
 import type { Manifest } from "./types";
+const production = document.documentElement.dataset.phase === "1";
+const preferences = new CharacterPreferences(
+  browserPreferenceStorage(),
+  characterRegistry,
+);
+const preference = preferences.read();
+const characterSession = new CharacterSession(
+  production ? preference : { characterId: "juni", needsSelection: false },
+);
 type State = {
+  characterId: string;
+  playerSprites: number;
+  visited: string[];
   renderer: string;
   ready: boolean;
   scene: string;
@@ -161,13 +184,14 @@ const catalog = [
   },
   { id: "district", label: "G3-A · approved district / isolated cache lab" },
 ];
-const availableCatalog =
-  query.has("worldOnly") ||
-  !query.get("scene") ||
-  query.get("scene")?.startsWith("station-clean-") ||
-  query.get("scene")?.startsWith("jeju-bridges-") ||
-  query.get("scene")?.startsWith("west-hanok-") ||
-  query.get("scene")?.startsWith("palace-cleanup-")
+const availableCatalog = production
+  ? catalog.filter((s) => s.id === "palace-cleanup-world")
+  : query.has("worldOnly") ||
+      !query.get("scene") ||
+      query.get("scene")?.startsWith("station-clean-") ||
+      query.get("scene")?.startsWith("jeju-bridges-") ||
+      query.get("scene")?.startsWith("west-hanok-") ||
+      query.get("scene")?.startsWith("palace-cleanup-")
     ? catalog.filter(
         (s) =>
           s.id ===
@@ -211,47 +235,49 @@ const availableCatalog =
           ["recovery-pilots", "recovery-before", "production"].includes(s.id),
         )
       : catalog;
-const id = [
-  "palace-cleanup-world",
-  "palace-cleanup-before",
-  "west-hanok-world",
-  "west-hanok-before",
-  "jeju-bridges-world",
-  "jeju-bridges-before",
-  "station-clean-world",
-  "station-clean-site",
-  "station-clean-before",
-  "final-station-ground",
-  "final-world",
-  "final-before",
-  "final-station-candidate",
-  "residual-world",
-  "residual-before",
-  "residual-road-proposal",
-  "residual-gate-proposal",
-  "residual-bridge-proposal",
-  "aligned-road-proposal",
-  "aligned-world",
-  "aligned-before",
-  "reconciled-world",
-  "reconciled-before",
-  "reconciled-palace-proposal",
-  "zoned-world",
-  "zoned-before",
-  "recovery-world",
-  "recovery-world-before",
-  "recovery-pilots",
-  "recovery-before",
-  "production",
-  "district",
-  "registration",
-  "registration-refined",
-  "registration-forecourt",
-  "registration-review",
-  "registration-working-v3",
-].includes(query.get("scene") ?? "")
-  ? query.get("scene")!
-  : "palace-cleanup-world";
+const id = production
+  ? "palace-cleanup-world"
+  : [
+        "palace-cleanup-world",
+        "palace-cleanup-before",
+        "west-hanok-world",
+        "west-hanok-before",
+        "jeju-bridges-world",
+        "jeju-bridges-before",
+        "station-clean-world",
+        "station-clean-site",
+        "station-clean-before",
+        "final-station-ground",
+        "final-world",
+        "final-before",
+        "final-station-candidate",
+        "residual-world",
+        "residual-before",
+        "residual-road-proposal",
+        "residual-gate-proposal",
+        "residual-bridge-proposal",
+        "aligned-road-proposal",
+        "aligned-world",
+        "aligned-before",
+        "reconciled-world",
+        "reconciled-before",
+        "reconciled-palace-proposal",
+        "zoned-world",
+        "zoned-before",
+        "recovery-world",
+        "recovery-world-before",
+        "recovery-pilots",
+        "recovery-before",
+        "production",
+        "district",
+        "registration",
+        "registration-refined",
+        "registration-forecourt",
+        "registration-review",
+        "registration-working-v3",
+      ].includes(query.get("scene") ?? "")
+    ? query.get("scene")!
+    : "palace-cleanup-world";
 const data: Manifest = await fetch(
   base + "assets/gate3/" + id + "/manifest.json",
 ).then((r) => {
@@ -302,7 +328,9 @@ const label = id.startsWith("palace-cleanup-")
                     ? "G3-D three pilot regions only · unified art approval pending"
                     : "Approved district · local coordinates · world registration pending";
 const root = document.querySelector<HTMLDivElement>("#app")!;
-root.innerHTML = `<header><b>${id.startsWith("recovery-") || id.startsWith("zoned-") || id.startsWith("reconciled-") || id.startsWith("aligned-") || id.startsWith("residual-") || id.startsWith("final-") || id.startsWith("station-clean-") || id.startsWith("jeju-bridges-") || id.startsWith("west-hanok-") || id.startsWith("palace-cleanup-") ? "G3-D STYLE REVIEW" : "G3-C HISTORY PROTOTYPE"}</b><select id="scene-picker" aria-label="Review environment">${availableCatalog.map((s) => `<option value="${s.id}" ${s.id === id ? "selected" : ""}>${s.label}</option>`).join("")}</select><span id="camera-mode">Follow · native1:1</span><button id="scenic">Scenic</button><details id="settings"><summary aria-label="Options">···</summary><div><label><input type="checkbox" id="showcases"> Landmark moments</label><button id="pause">Pause</button><button id="export-session">Export test report</button></div></details></header><main id="stage"></main><div id="map-labels" aria-hidden="true"></div><div id="camera-tools"><span>Drag to look · pinch to zoom</span><button id="start-tour">Start Tour</button><span id="tour-caption" role="status" aria-live="polite"></span><button id="tour-pause">Pause</button><button id="tour-next">Skip landmark</button><button id="overview-mode">Full scene</button><button id="return-juni">Return to Juni</button></div><button id="tour-controls" aria-controls="camera-tools" aria-expanded="true">Tour controls</button><footer><span id="near">${label}</span><span>WASD / arrows · Shift run · E explore · Space greet</span></footer><div id="joystick" aria-label="Movement joystick"><span class="stick-knob"></span></div><div id="touch-actions"><button id="run">Run</button><button id="explore">Explore</button></div><aside id="dialog" hidden role="dialog" aria-label="Environment detail"><h2 id="title"></h2><p id="copy"></p><button id="close">Return</button></aside>`;
+root.innerHTML = `<header><b>${production ? "KOREAN ARENA" : id.startsWith("recovery-") || id.startsWith("zoned-") || id.startsWith("reconciled-") || id.startsWith("aligned-") || id.startsWith("residual-") || id.startsWith("final-") || id.startsWith("station-clean-") || id.startsWith("jeju-bridges-") || id.startsWith("west-hanok-") || id.startsWith("palace-cleanup-") ? "G3-D STYLE REVIEW" : "G3-C HISTORY PROTOTYPE"}</b><select id="scene-picker" aria-label="Review environment">${availableCatalog.map((s) => `<option value="${s.id}" ${s.id === id ? "selected" : ""}>${s.label}</option>`).join("")}</select><span id="camera-mode">Follow · native1:1</span><button id="scenic">Scenic</button><details id="settings"><summary aria-label="Options">···</summary><div>${production ? '<button id="character-open">Chọn nhân vật</button><button id="celebrate-desktop">Ăn mừng · C</button>' : ""}<label><input type="checkbox" id="showcases"> Landmark moments</label><button id="pause">Pause</button><button id="export-session">Export test report</button></div></details></header><main id="stage"></main><div id="map-labels" aria-hidden="true"></div><div id="camera-tools"><span>Drag to look · pinch to zoom</span><button id="start-tour">Start Tour</button><span id="tour-caption" role="status" aria-live="polite"></span><button id="tour-pause">Pause</button><button id="tour-next">Skip landmark</button><button id="overview-mode">Full scene</button><button id="return-juni">Return to Juni</button></div><button id="tour-controls" aria-controls="camera-tools" aria-expanded="true">Tour controls</button><footer><span id="near">${label}</span><span>WASD / arrows · Shift run · E explore · Space greet${production ? " · C celebrate" : ""}</span></footer><div id="joystick" aria-label="Movement joystick"><span class="stick-knob"></span></div><div id="touch-actions"><button id="run">Run</button><button id="explore">Explore</button>${production ? '<button id="wave-emote">Chào</button><button id="celebrate-emote">Vui</button>' : ""}</div><aside id="dialog" hidden role="dialog" aria-label="Environment detail"><h2 id="title"></h2><p id="copy"></p><button id="close">Return</button></aside>`;
+if (production)
+  document.querySelector<HTMLElement>("#scene-picker")!.hidden = true;
 document.querySelector<HTMLSelectElement>("#scene-picker")!.onchange = (e) => {
   location.search =
     "?scene=" +
@@ -338,18 +366,23 @@ class Slice extends Phaser.Scene {
   private textureInfo: State["textures"] = [];
   private legacy = query.has("baseline");
   private player!: Phaser.GameObjects.Sprite;
-  private motion = new JuniMotion();
+  private motion: JuniMotion | RegistryMotion = new JuniMotion();
+  private characters?: PlayerCharacterManager<Phaser.GameObjects.Sprite>;
+  private selection?: CharacterSelection;
+  private selectionBindings?: AbortController;
   private x = 0;
   private y = 0;
   private facing: JuniView = "front";
   private keys!: Record<string, Phaser.Input.Keyboard.Key>;
   private visited = new Set<string>();
   preload() {
-    this.load.atlas(
-      "juni",
-      base + "assets/juni/juni.png",
-      base + "assets/juni/juni.json",
-    );
+    const selected = characterSession.selected;
+    if (!this.textures.exists(selected.assets!.key))
+      this.load.atlas(
+        selected.assets!.key,
+        base + selected.assets!.texture,
+        base + selected.assets!.atlas,
+      );
     this.load.image("overview", base + data.overview);
   }
   walkable(x: number, y: number) {
@@ -373,16 +406,37 @@ class Slice extends Phaser.Scene {
       .setVisible(false);
     [this.x, this.y] = data.spawn;
     // Initial movement waits for native chunk + local foreground + collision readiness.
-    this.player = this.add
-      .sprite(this.x, this.y, "juni", "idle-front-0")
-      .setOrigin(0.5, 100 / 112)
-      .setDepth(this.y + 0.1);
+    this.characters = new PlayerCharacterManager(
+      new PhaserCharacterAssets(this, base),
+      (def, position) =>
+        this.add
+          .sprite(
+            position.x,
+            position.y,
+            def.assets!.key,
+            def.animations["idle-front"].frames[0],
+          )
+          .setOrigin(
+            def.native.anchor[0] / def.native.width,
+            def.native.anchor[1] / def.native.height,
+          )
+          .setDepth(position.y + 0.1)
+          .setData("playerCharacter", def.id),
+      preferences,
+      characterSession.selected,
+      { x: this.x, y: this.y },
+    );
+    this.player = this.characters.sprite;
+    this.motion = this.characters.motion;
     this.keys = this.input.keyboard!.addKeys(
       "W,A,S,D,UP,DOWN,LEFT,RIGHT,SHIFT,E,SPACE",
     ) as typeof this.keys;
     this.input.keyboard!.addCapture(["SPACE", "UP", "DOWN", "LEFT", "RIGHT"]);
     this.input.keyboard!.on("keydown-E", () => this.inspect());
     this.input.keyboard!.on("keydown-SPACE", () => this.motion.gesture("wave"));
+    this.input.keyboard!.on("keydown-C", () => {
+      if (production && !paused) this.motion.gesture("celebrate");
+    });
     this.reviewCamera = new FoundationCamera(
       this,
       data.size,
@@ -425,6 +479,94 @@ class Slice extends Phaser.Scene {
         centres[query.get("entry") ?? "station"] ?? centres.station;
       this.reviewCamera.frameNative(...centre);
     }
+    if (production) {
+      this.selectionBindings = new AbortController();
+      const signal = this.selectionBindings.signal;
+      let previousPause = false;
+      this.selection = new CharacterSelection(
+        {
+          current: () => this.characters!.selected.id,
+          canOpen: () =>
+            !this.characters!.busy && this.reviewCamera.mode === "follow",
+          lock: () => {
+            previousPause = paused;
+            paused = true;
+            reset();
+            heldRun = false;
+            this.input.keyboard!.enabled = false;
+            this.input.keyboard!.removeCapture([
+              "SPACE",
+              "UP",
+              "DOWN",
+              "LEFT",
+              "RIGHT",
+            ]);
+          },
+          unlock: () => {
+            paused = previousPause;
+            this.input.keyboard!.resetKeys();
+            this.input.keyboard!.enabled = true;
+            this.input.keyboard!.addCapture([
+              "SPACE",
+              "UP",
+              "DOWN",
+              "LEFT",
+              "RIGHT",
+            ]);
+            reset();
+            heldRun = false;
+          },
+          confirm: async (characterId) => {
+            const result = await this.characters!.select(characterId, {
+              x: this.x,
+              y: this.y,
+            });
+            characterSession.commit(result.characterId);
+            this.player = this.characters!.sprite;
+            this.motion = this.characters!.motion;
+            return result;
+          },
+        },
+        base,
+      );
+      document.querySelector("#character-open")!.addEventListener(
+        "click",
+        () => {
+          if (!this.selection!.open())
+            document.querySelector("#near")!.textContent =
+              "Trở về chế độ theo nhân vật trước khi đổi người đồng hành.";
+        },
+        { signal },
+      );
+      document.querySelector("#wave-emote")!.addEventListener(
+        "click",
+        () => {
+          if (!paused) this.motion.gesture("wave");
+        },
+        { signal },
+      );
+      document.querySelector("#celebrate-emote")!.addEventListener(
+        "click",
+        () => {
+          if (!paused) this.motion.gesture("celebrate");
+        },
+        { signal },
+      );
+      document.querySelector("#celebrate-desktop")!.addEventListener(
+        "click",
+        () => {
+          if (!paused) this.motion.gesture("celebrate");
+        },
+        { signal },
+      );
+      if (characterSession.needsSelection) this.selection.open(true);
+    }
+    this.events.once("shutdown", () => {
+      this.selectionBindings?.abort();
+      this.characters?.setTransitioning(true);
+      this.selection?.dispose();
+      this.characters?.dispose();
+    });
     document
       .querySelector("#joystick")!
       .addEventListener("pointerdown", () => this.reviewCamera.interruptTour());
@@ -575,6 +717,13 @@ class Slice extends Phaser.Scene {
       this.metrics = this.sessionMetrics.snapshot();
     }
     window.__GATE3__ = {
+      characterId: this.characters!.selected.id,
+      playerSprites: this.children.list.filter(
+        (o) =>
+          o instanceof Phaser.GameObjects.Sprite &&
+          !!o.getData("playerCharacter"),
+      ).length,
+      visited: [...this.visited],
       renderer: this.game.renderer.type === Phaser.WEBGL ? "WebGL" : "Canvas",
       ready: this.walkable(this.x, this.y),
       scene: id,

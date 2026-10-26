@@ -7,7 +7,11 @@ export default defineConfig({
     target: "es2022",
     chunkSizeWarningLimit: 1600,
     rolldownOptions: {
-      input: { game: "index.html", v10Review: "v10-city-review.html" },
+      input: {
+        game: "index.html",
+        worldReview: "gate3-review.html",
+        v10Review: "v10-city-review.html",
+      },
     },
   },
 });

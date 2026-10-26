@@ -1,0 +1,48 @@
+[
+  {
+    "command": [
+      "python3",
+      "/tmp/phase1-animation-creator/scripts/audit_sprite_motion.py",
+      "--input",
+      "/workspace/korean-street-gate1/assets-src/characters/phase1/animation-pilot/trial-diagnostic-native-sheet.png",
+      "--rows",
+      "1",
+      "--columns",
+      "8",
+      "--cell",
+      "96",
+      "--row-names",
+      "south",
+      "--json-out",
+      "/workspace/korean-street-gate1/assets-src/characters/phase1/animation-pilot/trial-creator-motion.json",
+      "--fail-on-warnings"
+    ],
+    "exit": 0,
+    "stdout": "{\n  \"ok\": false,\n  \"errors\": [\n    \"atlas is 768x112; expected 768x96\"\n  ],\n  \"warnings\": 0\n}\n",
+    "stderr": "",
+    "meaning": "Diagnostic only:96x112 fixed cells differ from tool square96 expectation; raw-source visual/foot gates decisive, no threshold weakened"
+  },
+  {
+    "command": [
+      "python3",
+      "/tmp/phase1-animation-creator/scripts/audit_sprite_motion.py",
+      "--input",
+      "/workspace/korean-street-gate1/assets-src/characters/phase1/animation-pilot/repair-diagnostic-native-sheet.png",
+      "--rows",
+      "1",
+      "--columns",
+      "8",
+      "--cell",
+      "96",
+      "--row-names",
+      "south",
+      "--json-out",
+      "/workspace/korean-street-gate1/assets-src/characters/phase1/animation-pilot/repair-creator-motion.json",
+      "--fail-on-warnings"
+    ],
+    "exit": 0,
+    "stdout": "{\n  \"ok\": false,\n  \"errors\": [\n    \"atlas is 768x112; expected 768x96\"\n  ],\n  \"warnings\": 0\n}\n",
+    "stderr": "",
+    "meaning": "Diagnostic only:96x112 fixed cells differ from tool square96 expectation; raw-source visual/foot gates decisive, no threshold weakened"
+  }
+]
