@@ -1,0 +1,1053 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/korean-street-gate1/node_modules/.bin/playwright",
+      "test"
+    ],
+    "configFile": "/workspace/korean-street-gate1/playwright.config.ts",
+    "rootDir": "/workspace/korean-street-gate1/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/korean-street-gate1/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/workspace/korean-street-gate1/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/workspace/korean-street-gate1/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/workspace/korean-street-gate1/tests/e2e",
+        "snapshotDir": "/workspace/korean-street-gate1/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 120000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4201/3D-pharse5-/",
+          "headless": true,
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--disable-gpu-compositing",
+              "--use-gl=angle",
+              "--use-angle=swiftshader",
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "screenshot": "only-on-failure",
+          "video": "off"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": ".cache/browser/e2e-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview -- --port 4201",
+      "url": "http://127.0.0.1:4201/3D-pharse5-/",
+      "reuseExistingServer": true,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "characters.spec.ts",
+      "file": "characters.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "production starts in frozen world with honest four-card selection",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4331,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:06:59.418Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-ee307d66fbb556615254",
+          "file": "characters.spec.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "saved Juni restores and settings round-trip preserves location, emotes, progress and body ownership",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 13320,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:07:03.957Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-431442a0a5ff3d390cec",
+          "file": "characters.spec.ts",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "corrupt, unknown and unavailable storage recover to Juni without crashing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17815,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:07:17.301Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-5750e998f3d1e94b2291",
+          "file": "characters.spec.ts",
+          "line": 98,
+          "column": 1
+        },
+        {
+          "title": "mobile landscape preview fits; modal isolates joystick and original touch movement returns",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2431,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:07:35.134Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-dc42a5b81894dba97a89",
+          "file": "characters.spec.ts",
+          "line": 128,
+          "column": 1
+        },
+        {
+          "title": "Canvas native Juni and Scenic Tour survive the production bootstrap",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1295,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:07:37.575Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-54b84ea39fa53e80e531",
+          "file": "characters.spec.ts",
+          "line": 178,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "foundation.spec.ts",
+      "file": "foundation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "preserved north normal entry: actual Juni walk and gesture recover",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2335,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:07:38.908Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b60d0cacd30be8ae473-6e3307419c1f4fe87eaa",
+          "file": "foundation.spec.ts",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "approved Academy lesson and return remain functional after cleanup",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1492,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:07:41.251Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b60d0cacd30be8ae473-21a396c160eb3faf7552",
+          "file": "foundation.spec.ts",
+          "line": 38,
+          "column": 1
+        },
+        {
+          "title": "palace intent toggles retained gate and prevents closing on Juni",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1233,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:07:42.757Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b60d0cacd30be8ae473-1d0e7ac8d2e7bc5a4366",
+          "file": "foundation.spec.ts",
+          "line": 53,
+          "column": 1
+        },
+        {
+          "title": "mobile analog movement, reduced motion and portrait pause survive cleanup",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1881,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:07:44.004Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b60d0cacd30be8ae473-5fe019e0686d8d9f22be",
+          "file": "foundation.spec.ts",
+          "line": 66,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "v10-city.spec.ts",
+      "file": "v10-city.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "V10 real input route: historic gateway to high street",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10206,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:07:45.914Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-658ad274f87bda7a58e0",
+          "file": "v10-city.spec.ts",
+          "line": 142,
+          "column": 3
+        },
+        {
+          "title": "V10 real input route: entire high street and station forecourt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 25952,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:07:56.133Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-a8f0a87af5d2bfdbb27d",
+          "file": "v10-city.spec.ts",
+          "line": 142,
+          "column": 3
+        },
+        {
+          "title": "V10 real input route: urban block circuit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 38823,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:08:22.132Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-519b693c46b3c9be9902",
+          "file": "v10-city.spec.ts",
+          "line": 142,
+          "column": 3
+        },
+        {
+          "title": "V10 real input route: west scenic loop and tower approach",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 38728,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:09:00.977Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-d574f607197e76e81dd5",
+          "file": "v10-city.spec.ts",
+          "line": 142,
+          "column": 3
+        },
+        {
+          "title": "V10 real input route: leisure campus and ride approaches",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 244,
+                  "error": {
+                    "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\", waiting until \"load\"\u001b[22m\n",
+                    "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\", waiting until \"load\"\u001b[22m\n\n    at boot (/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:16:11)\n    at /workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:143:28",
+                    "location": {
+                      "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                      "column": 11,
+                      "line": 16
+                    },
+                    "snippet": "  14 |     if (/\\/assets\\/world\\/|\\/v9-world\\//.test(r.url())) legacy.push(r.url());\n  15 |   });\n> 16 |   await p.goto(`v10-city-review.html?qa&renderer=${renderer}`);\n     |           ^\n  17 |   await p.waitForFunction(\n  18 |     () =>\n  19 |       window.__SEOUL__?.ready &&"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                        "column": 11,
+                        "line": 16
+                      },
+                      "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\", waiting until \"load\"\u001b[22m\n\n\n  14 |     if (/\\/assets\\/world\\/|\\/v9-world\\//.test(r.url())) legacy.push(r.url());\n  15 |   });\n> 16 |   await p.goto(`v10-city-review.html?qa&renderer=${renderer}`);\n     |           ^\n  17 |   await p.waitForFunction(\n  18 |     () =>\n  19 |       window.__SEOUL__?.ready &&\n    at boot (/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:16:11)\n    at /workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:143:28"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:09:39.720Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/korean-street-gate1/test-results/v10-city-V10-real-input-ro-19339--campus-and-ride-approaches/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                    "column": 11,
+                    "line": 16
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-6d4b822bb160cf34727e",
+          "file": "v10-city.spec.ts",
+          "line": 142,
+          "column": 3
+        },
+        {
+          "title": "V10 real input route: coastal neighborhood to boarding pier",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 324,
+                  "error": {
+                    "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\", waiting until \"load\"\u001b[22m\n",
+                    "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\", waiting until \"load\"\u001b[22m\n\n    at boot (/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:16:11)\n    at /workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:143:28",
+                    "location": {
+                      "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                      "column": 11,
+                      "line": 16
+                    },
+                    "snippet": "  14 |     if (/\\/assets\\/world\\/|\\/v9-world\\//.test(r.url())) legacy.push(r.url());\n  15 |   });\n> 16 |   await p.goto(`v10-city-review.html?qa&renderer=${renderer}`);\n     |           ^\n  17 |   await p.waitForFunction(\n  18 |     () =>\n  19 |       window.__SEOUL__?.ready &&"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                        "column": 11,
+                        "line": 16
+                      },
+                      "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\", waiting until \"load\"\u001b[22m\n\n\n  14 |     if (/\\/assets\\/world\\/|\\/v9-world\\//.test(r.url())) legacy.push(r.url());\n  15 |   });\n> 16 |   await p.goto(`v10-city-review.html?qa&renderer=${renderer}`);\n     |           ^\n  17 |   await p.waitForFunction(\n  18 |     () =>\n  19 |       window.__SEOUL__?.ready &&\n    at boot (/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:16:11)\n    at /workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:143:28"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:09:40.406Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/korean-street-gate1/test-results/v10-city-V10-real-input-ro-8ea4a-ighborhood-to-boarding-pier/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/korean-street-gate1/test-results/v10-city-V10-real-input-ro-8ea4a-ighborhood-to-boarding-pier/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                    "column": 11,
+                    "line": 16
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-ba23dadb1d5c81439f3c",
+          "file": "v10-city.spec.ts",
+          "line": 142,
+          "column": 3
+        },
+        {
+          "title": "V10 real input route: Jeju olle and village circuit",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 252,
+                  "error": {
+                    "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\", waiting until \"load\"\u001b[22m\n",
+                    "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\", waiting until \"load\"\u001b[22m\n\n    at boot (/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:16:11)\n    at /workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:143:28",
+                    "location": {
+                      "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                      "column": 11,
+                      "line": 16
+                    },
+                    "snippet": "  14 |     if (/\\/assets\\/world\\/|\\/v9-world\\//.test(r.url())) legacy.push(r.url());\n  15 |   });\n> 16 |   await p.goto(`v10-city-review.html?qa&renderer=${renderer}`);\n     |           ^\n  17 |   await p.waitForFunction(\n  18 |     () =>\n  19 |       window.__SEOUL__?.ready &&"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                        "column": 11,
+                        "line": 16
+                      },
+                      "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\", waiting until \"load\"\u001b[22m\n\n\n  14 |     if (/\\/assets\\/world\\/|\\/v9-world\\//.test(r.url())) legacy.push(r.url());\n  15 |   });\n> 16 |   await p.goto(`v10-city-review.html?qa&renderer=${renderer}`);\n     |           ^\n  17 |   await p.waitForFunction(\n  18 |     () =>\n  19 |       window.__SEOUL__?.ready &&\n    at boot (/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:16:11)\n    at /workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:143:28"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:09:41.346Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/korean-street-gate1/test-results/v10-city-V10-real-input-route-Jeju-olle-and-village-circuit/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                    "column": 11,
+                    "line": 16
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-1d5c96ee11f39f5f1145",
+          "file": "v10-city.spec.ts",
+          "line": 142,
+          "column": 3
+        },
+        {
+          "title": "all 23 entrances are walkable and identify their intended venue",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 281,
+                  "error": {
+                    "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\", waiting until \"load\"\u001b[22m\n",
+                    "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\", waiting until \"load\"\u001b[22m\n\n    at boot (/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:16:11)\n    at /workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:169:26",
+                    "location": {
+                      "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                      "column": 11,
+                      "line": 16
+                    },
+                    "snippet": "  14 |     if (/\\/assets\\/world\\/|\\/v9-world\\//.test(r.url())) legacy.push(r.url());\n  15 |   });\n> 16 |   await p.goto(`v10-city-review.html?qa&renderer=${renderer}`);\n     |           ^\n  17 |   await p.waitForFunction(\n  18 |     () =>\n  19 |       window.__SEOUL__?.ready &&"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                        "column": 11,
+                        "line": 16
+                      },
+                      "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\", waiting until \"load\"\u001b[22m\n\n\n  14 |     if (/\\/assets\\/world\\/|\\/v9-world\\//.test(r.url())) legacy.push(r.url());\n  15 |   });\n> 16 |   await p.goto(`v10-city-review.html?qa&renderer=${renderer}`);\n     |           ^\n  17 |   await p.waitForFunction(\n  18 |     () =>\n  19 |       window.__SEOUL__?.ready &&\n    at boot (/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:16:11)\n    at /workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:169:26"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:09:42.174Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/korean-street-gate1/test-results/v10-city-all-23-entrances--789da-entify-their-intended-venue/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/korean-street-gate1/test-results/v10-city-all-23-entrances--789da-entify-their-intended-venue/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                    "column": 11,
+                    "line": 16
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-9ff6ad68c10758563546",
+          "file": "v10-city.spec.ts",
+          "line": 166,
+          "column": 1
+        },
+        {
+          "title": "two ferry journeys land outside triggers and allow subsequent walking",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 234,
+                  "error": {
+                    "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\", waiting until \"load\"\u001b[22m\n",
+                    "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\", waiting until \"load\"\u001b[22m\n\n    at boot (/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:16:11)\n    at /workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:181:26",
+                    "location": {
+                      "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                      "column": 11,
+                      "line": 16
+                    },
+                    "snippet": "  14 |     if (/\\/assets\\/world\\/|\\/v9-world\\//.test(r.url())) legacy.push(r.url());\n  15 |   });\n> 16 |   await p.goto(`v10-city-review.html?qa&renderer=${renderer}`);\n     |           ^\n  17 |   await p.waitForFunction(\n  18 |     () =>\n  19 |       window.__SEOUL__?.ready &&"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                        "column": 11,
+                        "line": 16
+                      },
+                      "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\", waiting until \"load\"\u001b[22m\n\n\n  14 |     if (/\\/assets\\/world\\/|\\/v9-world\\//.test(r.url())) legacy.push(r.url());\n  15 |   });\n> 16 |   await p.goto(`v10-city-review.html?qa&renderer=${renderer}`);\n     |           ^\n  17 |   await p.waitForFunction(\n  18 |     () =>\n  19 |       window.__SEOUL__?.ready &&\n    at boot (/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:16:11)\n    at /workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:181:26"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:09:43.031Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/korean-street-gate1/test-results/v10-city-two-ferry-journey-fda3c-nd-allow-subsequent-walking/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                    "column": 11,
+                    "line": 16
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-4296b1ce13f3bb294277",
+          "file": "v10-city.spec.ts",
+          "line": 178,
+          "column": 1
+        },
+        {
+          "title": "station tracks and building masses block input; marked crossing is clear",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 292,
+                  "error": {
+                    "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\", waiting until \"load\"\u001b[22m\n",
+                    "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\", waiting until \"load\"\u001b[22m\n\n    at boot (/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:16:11)\n    at /workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:219:9",
+                    "location": {
+                      "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                      "column": 11,
+                      "line": 16
+                    },
+                    "snippet": "  14 |     if (/\\/assets\\/world\\/|\\/v9-world\\//.test(r.url())) legacy.push(r.url());\n  15 |   });\n> 16 |   await p.goto(`v10-city-review.html?qa&renderer=${renderer}`);\n     |           ^\n  17 |   await p.waitForFunction(\n  18 |     () =>\n  19 |       window.__SEOUL__?.ready &&"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                        "column": 11,
+                        "line": 16
+                      },
+                      "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=canvas\", waiting until \"load\"\u001b[22m\n\n\n  14 |     if (/\\/assets\\/world\\/|\\/v9-world\\//.test(r.url())) legacy.push(r.url());\n  15 |   });\n> 16 |   await p.goto(`v10-city-review.html?qa&renderer=${renderer}`);\n     |           ^\n  17 |   await p.waitForFunction(\n  18 |     () =>\n  19 |       window.__SEOUL__?.ready &&\n    at boot (/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:16:11)\n    at /workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:219:9"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:09:43.842Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/korean-street-gate1/test-results/v10-city-station-tracks-an-b7452-ut-marked-crossing-is-clear/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/korean-street-gate1/test-results/v10-city-station-tracks-an-b7452-ut-marked-crossing-is-clear/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                    "column": 11,
+                    "line": 16
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-4da575fa0cdc99e37023",
+          "file": "v10-city.spec.ts",
+          "line": 216,
+          "column": 1
+        },
+        {
+          "title": "forced WebGL renders V10 without fetching rejected assets",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 322,
+                  "error": {
+                    "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=webgl\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=webgl\", waiting until \"load\"\u001b[22m\n",
+                    "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=webgl\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=webgl\", waiting until \"load\"\u001b[22m\n\n    at boot (/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:16:11)\n    at /workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:240:26",
+                    "location": {
+                      "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                      "column": 11,
+                      "line": 16
+                    },
+                    "snippet": "  14 |     if (/\\/assets\\/world\\/|\\/v9-world\\//.test(r.url())) legacy.push(r.url());\n  15 |   });\n> 16 |   await p.goto(`v10-city-review.html?qa&renderer=${renderer}`);\n     |           ^\n  17 |   await p.waitForFunction(\n  18 |     () =>\n  19 |       window.__SEOUL__?.ready &&"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                        "column": 11,
+                        "line": 16
+                      },
+                      "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=webgl\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4201/3D-pharse5-/v10-city-review.html?qa&renderer=webgl\", waiting until \"load\"\u001b[22m\n\n\n  14 |     if (/\\/assets\\/world\\/|\\/v9-world\\//.test(r.url())) legacy.push(r.url());\n  15 |   });\n> 16 |   await p.goto(`v10-city-review.html?qa&renderer=${renderer}`);\n     |           ^\n  17 |   await p.waitForFunction(\n  18 |     () =>\n  19 |       window.__SEOUL__?.ready &&\n    at boot (/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:16:11)\n    at /workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts:240:26"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:09:44.747Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/korean-street-gate1/test-results/v10-city-forced-WebGL-rend-d101b-ut-fetching-rejected-assets/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/korean-street-gate1/test-results/v10-city-forced-WebGL-rend-d101b-ut-fetching-rejected-assets/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/korean-street-gate1/tests/e2e/v10-city.spec.ts",
+                    "column": 11,
+                    "line": 16
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-2957310cf9b4ae850368",
+          "file": "v10-city.spec.ts",
+          "line": 237,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-26T05:06:58.961Z",
+    "duration": 166363.326,
+    "expected": 13,
+    "skipped": 0,
+    "unexpected": 7,
+    "flaky": 0
+  }
+}

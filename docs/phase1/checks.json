@@ -1,0 +1,67 @@
+[
+  {
+    "command": [
+      "npm",
+      "run",
+      "typecheck"
+    ],
+    "exit": 0,
+    "elapsedSeconds": 2.46,
+    "stdout": "\n> hangeul-pixel-town@3.1.0 typecheck\n> tsc --noEmit\n\n",
+    "stderr": "npm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.1\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1\nnpm notice To update run: npm install -g npm@12.2.1\nnpm notice\n"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "assets:check"
+    ],
+    "exit": 0,
+    "elapsedSeconds": 4.12,
+    "stdout": "\n> hangeul-pixel-town@3.1.0 assets:check\n> python3 tools/check_actors.py && python3 tools/check_juni_animation.py && python3 tools/check_preservation.py\n\n[{\"actor\": \"hero\", \"frames\": 284, \"layers\": 11, \"source_equals_runtime_and_regeneration\": true, \"binary_alpha\": true, \"max64colors_per_layer\": true, \"no_frame_clipping\": true}, {\"actor\": \"sejong\", \"frames\": 196, \"layers\": 1, \"source_equals_runtime_and_regeneration\": true, \"binary_alpha\": true, \"max64colors_per_layer\": true, \"no_frame_clipping\": true}, {\"actor\": \"jang\", \"frames\": 196, \"layers\": 1, \"source_equals_runtime_and_regeneration\": true, \"binary_alpha\": true, \"max64colors_per_layer\": true, \"no_frame_clipping\": true}, {\"actor\": \"saimdang\", \"frames\": 196, \"layers\": 1, \"source_equals_runtime_and_regeneration\": true, \"binary_alpha\": true, \"max64colors_per_layer\": true, \"no_frame_clipping\": true}, {\"actor\": \"yi\", \"frames\": 196, \"layers\": 1, \"source_equals_runtime_and_regeneration\": true, \"binary_alpha\": true, \"max64colors_per_layer\": true, \"no_frame_clipping\": true}]\n{\"status\": \"PASS\", \"source_strips\": 20, \"host_image_calls\": 23, \"runtime_frames\": 144, \"cell\": [96, 112], \"anchor\": [48, 100], \"palette_colors\": 64, \"binary_alpha\": true, \"source_atlas_equal\": true, \"gaits\": [{\"action\": \"walk\", \"direction\": \"south\", \"unique\": 8, \"lower_body_changed_pixels\": [582, 514, 572, 577, 409, 638, 611, 331]}, {\"action\": \"walk\", \"direction\": \"north\", \"unique\": 8, \"lower_body_changed_pixels\": [357, 576, 570, 549, 621, 629, 554, 557]}, {\"action\": \"walk\", \"direction\": \"west\", \"unique\": 8, \"lower_body_changed_pixels\": [861, 718, 637, 932, 876, 749, 713, 946]}, {\"action\": \"walk\", \"direction\": \"east\", \"unique\": 8, \"lower_body_changed_pixels\": [953, 910, 619, 931, 931, 887, 644, 956]}, {\"action\": \"run\", \"direction\": \"south\", \"unique\": 8, \"lower_body_changed_pixels\": [683, 731, 514, 552, 681, 651, 506, 543]}, {\"action\": \"run\", \"direction\": \"north\", \"unique\": 8, \"lower_body_changed_pixels\": [630, 599, 589, 624, 634, 664, 556, 666]}, {\"action\": \"run\", \"direction\": \"west\", \"unique\": 8, \"lower_body_changed_pixels\": [995, 1023, 849, 1009, 1046, 997, 740, 989]}, {\"action\": \"run\", \"direction\": \"east\", \"unique\": 8, \"lower_body_changed_pixels\": [914, 771, 891, 1083, 1043, 833, 859, 1033]}], \"notProven\": [\"Visual appeal, identity/anatomy, planted-foot contact and loop quality require real visual review; hashes and differences are not artistic approval.\"]}\n{\"status\": \"PASS\", \"northObjects\": 273, \"northSolids\": 253, \"protectedFiles\": 336, \"northGroundExact\": true, \"runtimeTiledReadbackExact\": true, \"runtimeCollidersExact\": true, \"noLegacySouthernRuntimeImports\": true}\n",
+    "stderr": "npm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.1\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1\nnpm notice To update run: npm install -g npm@12.2.1\nnpm notice\n"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "lint"
+    ],
+    "exit": 0,
+    "elapsedSeconds": 2.28,
+    "stdout": "\n> hangeul-pixel-town@3.1.0 lint\n> eslint .\n\n",
+    "stderr": "npm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.1\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1\nnpm notice To update run: npm install -g npm@12.2.1\nnpm notice\n"
+  },
+  {
+    "command": [
+      "npm",
+      "test"
+    ],
+    "exit": 0,
+    "elapsedSeconds": 0.92,
+    "stdout": "\n> hangeul-pixel-town@3.1.0 test\n> vitest run\n\n\n RUN  v5.0.4 /workspace/korean-street-gate1\n\n\n Test Files  10 passed (10)\n      Tests  44 passed (44)\n   Start at  06:03:21\n   Duration  461ms (import 53%, transform 22%, tests 15%, worker 10%)\n\n",
+    "stderr": "npm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.1\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1\nnpm notice To update run: npm install -g npm@12.2.1\nnpm notice\n"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "exit": 0,
+    "elapsedSeconds": 8.51,
+    "stdout": "\n> hangeul-pixel-town@3.1.0 build\n> npm run typecheck && npm run assets:check && vite build\n\n\n> hangeul-pixel-town@3.1.0 typecheck\n> tsc --noEmit\n\n\n> hangeul-pixel-town@3.1.0 assets:check\n> python3 tools/check_actors.py && python3 tools/check_juni_animation.py && python3 tools/check_preservation.py\n\n[{\"actor\": \"hero\", \"frames\": 284, \"layers\": 11, \"source_equals_runtime_and_regeneration\": true, \"binary_alpha\": true, \"max64colors_per_layer\": true, \"no_frame_clipping\": true}, {\"actor\": \"sejong\", \"frames\": 196, \"layers\": 1, \"source_equals_runtime_and_regeneration\": true, \"binary_alpha\": true, \"max64colors_per_layer\": true, \"no_frame_clipping\": true}, {\"actor\": \"jang\", \"frames\": 196, \"layers\": 1, \"source_equals_runtime_and_regeneration\": true, \"binary_alpha\": true, \"max64colors_per_layer\": true, \"no_frame_clipping\": true}, {\"actor\": \"saimdang\", \"frames\": 196, \"layers\": 1, \"source_equals_runtime_and_regeneration\": true, \"binary_alpha\": true, \"max64colors_per_layer\": true, \"no_frame_clipping\": true}, {\"actor\": \"yi\", \"frames\": 196, \"layers\": 1, \"source_equals_runtime_and_regeneration\": true, \"binary_alpha\": true, \"max64colors_per_layer\": true, \"no_frame_clipping\": true}]\n{\"status\": \"PASS\", \"source_strips\": 20, \"host_image_calls\": 23, \"runtime_frames\": 144, \"cell\": [96, 112], \"anchor\": [48, 100], \"palette_colors\": 64, \"binary_alpha\": true, \"source_atlas_equal\": true, \"gaits\": [{\"action\": \"walk\", \"direction\": \"south\", \"unique\": 8, \"lower_body_changed_pixels\": [582, 514, 572, 577, 409, 638, 611, 331]}, {\"action\": \"walk\", \"direction\": \"north\", \"unique\": 8, \"lower_body_changed_pixels\": [357, 576, 570, 549, 621, 629, 554, 557]}, {\"action\": \"walk\", \"direction\": \"west\", \"unique\": 8, \"lower_body_changed_pixels\": [861, 718, 637, 932, 876, 749, 713, 946]}, {\"action\": \"walk\", \"direction\": \"east\", \"unique\": 8, \"lower_body_changed_pixels\": [953, 910, 619, 931, 931, 887, 644, 956]}, {\"action\": \"run\", \"direction\": \"south\", \"unique\": 8, \"lower_body_changed_pixels\": [683, 731, 514, 552, 681, 651, 506, 543]}, {\"action\": \"run\", \"direction\": \"north\", \"unique\": 8, \"lower_body_changed_pixels\": [630, 599, 589, 624, 634, 664, 556, 666]}, {\"action\": \"run\", \"direction\": \"west\", \"unique\": 8, \"lower_body_changed_pixels\": [995, 1023, 849, 1009, 1046, 997, 740, 989]}, {\"action\": \"run\", \"direction\": \"east\", \"unique\": 8, \"lower_body_changed_pixels\": [914, 771, 891, 1083, 1043, 833, 859, 1033]}], \"notProven\": [\"Visual appeal, identity/anatomy, planted-foot contact and loop quality require real visual review; hashes and differences are not artistic approval.\"]}\n{\"status\": \"PASS\", \"northObjects\": 273, \"northSolids\": 253, \"protectedFiles\": 336, \"northGroundExact\": true, \"runtimeTiledReadbackExact\": true, \"runtimeCollidersExact\": true, \"noLegacySouthernRuntimeImports\": true}\nvite v8.3.4 building client environment for production...\ntransforming...\n\u2713 152 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                                     0.52 kB \u2502 gzip:   0.32 kB\ndist/gate3-review.html                              0.60 kB \u2502 gzip:   0.33 kB\ndist/v10-city-review.html                           0.75 kB \u2502 gzip:   0.41 kB\ndist/assets/v10Review-C2DbXclr.css                  9.26 kB \u2502 gzip:   2.71 kB\ndist/assets/main-5TWn7LVc.css                      10.50 kB \u2502 gzip:   2.81 kB\ndist/assets/main-CHv-TA0L.js                        0.02 kB \u2502 gzip:   0.04 kB\ndist/assets/modulepreload-polyfill-P2Xu9kJm.js      0.67 kB \u2502 gzip:   0.38 kB\ndist/assets/game-C6L7a0TQ.js                        1.86 kB \u2502 gzip:   0.99 kB\ndist/assets/main-DRM1nxnH.js                       61.11 kB \u2502 gzip:  20.05 kB\ndist/assets/v10Review-Bllnl0j-.js                 258.32 kB \u2502 gzip:  45.38 kB\ndist/assets/Joystick-BQ5LYtl3.js                1,479.40 kB \u2502 gzip: 386.29 kB\n\n\u2713 built in 1.61s\n",
+    "stderr": "npm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.1\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1\nnpm notice To update run: npm install -g npm@12.2.1\nnpm notice\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.1\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1\nnpm notice To update run: npm install -g npm@12.2.1\nnpm notice\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.1\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1\nnpm notice To update run: npm install -g npm@12.2.1\nnpm notice\n"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:e2e"
+    ],
+    "exit": 0,
+    "elapsedSeconds": 259.15,
+    "stdout": "\n> hangeul-pixel-town@3.1.0 test:e2e\n> playwright test\n\n\nRunning 20 tests using 1 worker\n\n  \u2713   1 tests/e2e/characters.spec.ts:16:1 \u203a production starts in frozen world with honest four-card selection (4.0s)\n  \u2713   2 tests/e2e/characters.spec.ts:42:1 \u203a saved Juni restores and settings round-trip preserves location, emotes, progress and body ownership (12.3s)\n  \u2713   3 tests/e2e/characters.spec.ts:98:1 \u203a corrupt, unknown and unavailable storage recover to Juni without crashing (15.9s)\n  \u2713   4 tests/e2e/characters.spec.ts:128:1 \u203a mobile landscape preview fits; modal isolates joystick and original touch movement returns (2.1s)\n  \u2713   5 tests/e2e/characters.spec.ts:178:1 \u203a Canvas native Juni and Scenic Tour survive the production bootstrap (1.2s)\n  \u2713   6 tests/e2e/foundation.spec.ts:18:1 \u203a preserved north normal entry: actual Juni walk and gesture recover (2.1s)\n  \u2713   7 tests/e2e/foundation.spec.ts:38:1 \u203a approved Academy lesson and return remain functional after cleanup (1.5s)\n  \u2713   8 tests/e2e/foundation.spec.ts:53:1 \u203a palace intent toggles retained gate and prevents closing on Juni (1.1s)\n  \u2713   9 tests/e2e/foundation.spec.ts:66:1 \u203a mobile analog movement, reduced motion and portrait pause survive cleanup (1.8s)\n  \u2713  10 tests/e2e/v10-city.spec.ts:142:3 \u203a V10 real input route: historic gateway to high street (10.2s)\n  \u2713  11 tests/e2e/v10-city.spec.ts:142:3 \u203a V10 real input route: entire high street and station forecourt (25.6s)\n  \u2713  12 tests/e2e/v10-city.spec.ts:142:3 \u203a V10 real input route: urban block circuit (38.7s)\n  \u2713  13 tests/e2e/v10-city.spec.ts:142:3 \u203a V10 real input route: west scenic loop and tower approach (38.5s)\n  \u2713  14 tests/e2e/v10-city.spec.ts:142:3 \u203a V10 real input route: leisure campus and ride approaches (35.9s)\n  \u2713  15 tests/e2e/v10-city.spec.ts:142:3 \u203a V10 real input route: coastal neighborhood to boarding pier (23.8s)\n  \u2713  16 tests/e2e/v10-city.spec.ts:142:3 \u203a V10 real input route: Jeju olle and village circuit (27.9s)\n  \u2713  17 tests/e2e/v10-city.spec.ts:166:1 \u203a all 23 entrances are walkable and identify their intended venue (4.4s)\n  \u2713  18 tests/e2e/v10-city.spec.ts:178:1 \u203a two ferry journeys land outside triggers and allow subsequent walking (2.0s)\n  \u2713  19 tests/e2e/v10-city.spec.ts:216:1 \u203a station tracks and building masses block input; marked crossing is clear (6.8s)\n  \u2713  20 tests/e2e/v10-city.spec.ts:237:1 \u203a forced WebGL renders V10 without fetching rejected assets (1.6s)\n\n  20 passed (4.3m)\n",
+    "stderr": "[WebServer] (node:24449) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)\n(node:24473) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+  }
+]
