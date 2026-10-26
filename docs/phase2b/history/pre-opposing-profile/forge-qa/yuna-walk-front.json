@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 0.843,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 4.5655,
+        "adjacent_median": 5.4183
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-front-0.png",
+      "sha256": "573dc2d4bf54c6621d9391e5299ab4ffaa2202ed60d5d2d687c2c9c497aa6b33",
+      "bytes": 5339
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-front-1.png",
+      "sha256": "c30b91aecdd2d165653093ae75d9e9375440d268420ba3036542631211b09435",
+      "bytes": 5478
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-front-2.png",
+      "sha256": "e1ff97d017f8235a2930cf7d378df1a0f069e46cd3364b0ecc19ff385c054dc6",
+      "bytes": 5341
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-front-3.png",
+      "sha256": "314c6393be7434b7fe94bdd40ffabbd0876655abded6eef1ceb78458e34d96d8",
+      "bytes": 5351
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-front-4.png",
+      "sha256": "d357c15c666874807473eaeb4d7d903232b71fddc6727840eca43fbf02dfe93a",
+      "bytes": 5359
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-front-5.png",
+      "sha256": "9fea89ec40d477f8fa59db211ee049ba901ddb6a8154aa5920a501e9516dcfd6",
+      "bytes": 5389
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-front-6.png",
+      "sha256": "eb68c07a28a8e5d5265ed3d9eb5f6fe66de0087042ca3f817c1e303eb6aaa5e8",
+      "bytes": 5341
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/walk-front-7.png",
+      "sha256": "b2c91804c149c28dab87ce43c8b2c5903ae2ac638c7e8679cf895841d0d0cb12",
+      "bytes": 5246
+    }
+  ],
+  "outputs": [
+    {
+      "path": "yuna-walk-front.png",
+      "sha256": "2cccb821b6a93486331b28de0cd7f7c301ffe74833e6b0fbba4bc1403a623331",
+      "bytes": 118643
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-front-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1603,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 1005,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-front-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1645,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 1050,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        20,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-front-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1597,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 1025,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        20,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-front-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1604,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 1002,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        20,
+        67,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-front-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1603,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 999,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        20,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-front-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1617,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 1023,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        21,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-front-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1601,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 1023,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        20,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/walk-front-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1560,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 998,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        21,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    }
+  ]
+}

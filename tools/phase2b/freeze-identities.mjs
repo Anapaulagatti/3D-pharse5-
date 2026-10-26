@@ -1,7 +1,6 @@
 import ts from "typescript";
 import vm from "node:vm";
 import fs from "node:fs";
-import crypto from "node:crypto";
 const root = "docs/phase2b/approved-source-snapshots/",
   file = root + "src/characters/registry.ts";
 const raw = fs.readFileSync(file, "utf8"),
@@ -16,11 +15,36 @@ const code = ts.transpileModule(stripped, {
     target: ts.ScriptTarget.ES2022,
   },
 }).outputText;
-const peerRaw=fs.readFileSync(root+'src/characters/newCharacters.ts','utf8');
-const peerAst=ts.createSourceFile('newCharacters.ts',peerRaw,ts.ScriptTarget.Latest,true);
-const peerCode=ts.transpileModule(peerAst.statements.filter(n=>!ts.isImportDeclaration(n)).map(n=>peerRaw.slice(n.pos,n.end)).join('\n'),{compilerOptions:{module:ts.ModuleKind.CommonJS}}).outputText;
-const peer={exports:{},araClips:JSON.parse(fs.readFileSync('assets-src/characters/phase2a/ara/clips.json','utf8')),doyunClips:JSON.parse(fs.readFileSync('assets-src/characters/phase2a/doyun/clips.json','utf8'))};vm.runInNewContext(peerCode,peer);
-const context = {futureRoster:[],phase2aCharacters:peer.exports.phase2aCharacters,
+const peerRaw = fs.readFileSync(
+  root + "src/characters/newCharacters.ts",
+  "utf8",
+);
+const peerAst = ts.createSourceFile(
+  "newCharacters.ts",
+  peerRaw,
+  ts.ScriptTarget.Latest,
+  true,
+);
+const peerCode = ts.transpileModule(
+  peerAst.statements
+    .filter((n) => !ts.isImportDeclaration(n))
+    .map((n) => peerRaw.slice(n.pos, n.end))
+    .join("\n"),
+  { compilerOptions: { module: ts.ModuleKind.CommonJS } },
+).outputText;
+const peer = {
+  exports: {},
+  araClips: JSON.parse(
+    fs.readFileSync("assets-src/characters/phase2a/ara/clips.json", "utf8"),
+  ),
+  doyunClips: JSON.parse(
+    fs.readFileSync("assets-src/characters/phase2a/doyun/clips.json", "utf8"),
+  ),
+};
+vm.runInNewContext(peerCode, peer);
+const context = {
+  futureRoster: [],
+  phase2aCharacters: peer.exports.phase2aCharacters,
   exports: {},
   characterSchema: { parse: (v) => v },
   directions: ["front", "back", "left", "right"],

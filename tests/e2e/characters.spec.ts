@@ -13,15 +13,27 @@ async function chooseJuni(page: Page) {
   await expect(page.locator("#character-selection")).not.toBeVisible();
   await ready(page);
 }
-test("production starts in frozen world with six-character selection", async ({
+test("production starts in frozen world with twelve-character selection", async ({
   page,
 }) => {
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("");
   await expect(page.locator("#character-selection")).toBeVisible();
-  await expect(page.locator("[data-character]")).toHaveCount(6);
-  for (const id of ["haneul", "bomi", "minjun", "ara", "doyun"]) {
+  await expect(page.locator("[data-character]")).toHaveCount(12);
+  for (const id of [
+    "haneul",
+    "bomi",
+    "minjun",
+    "ara",
+    "doyun",
+    "sori",
+    "jiwon",
+    "nari",
+    "taeyang",
+    "yuna",
+    "hyunwoo",
+  ]) {
     await page.locator(`[data-character="${id}"]`).click();
     await expect(page.locator("#character-confirm")).toBeEnabled();
     await expect(page.locator("#character-art-status")).toContainText(
@@ -208,7 +220,19 @@ test("Canvas native Juni and Scenic Tour survive the production bootstrap", asyn
   expect(await page.evaluate(() => window.__GATE3__!.playerSprites)).toBe(1);
 });
 
-for (const id of ["haneul", "bomi", "minjun", "ara", "doyun"]) {
+for (const id of [
+  "haneul",
+  "bomi",
+  "minjun",
+  "ara",
+  "doyun",
+  "sori",
+  "jiwon",
+  "nari",
+  "taeyang",
+  "yuna",
+  "hyunwoo",
+]) {
   test(`native pack ${id} plays, switches and restores without position/state loss`, async ({
     page,
   }) => {

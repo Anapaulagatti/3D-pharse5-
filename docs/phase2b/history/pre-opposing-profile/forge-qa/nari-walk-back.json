@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 0.607,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 4.0652,
+        "adjacent_median": 6.694
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/walk-back-0.png",
+      "sha256": "ce1bd8ab290d7a8820ad04dd75d9a600db3d21438000709c3ca1ef7de59f53c9",
+      "bytes": 4823
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/walk-back-1.png",
+      "sha256": "b3c14027df244894ae1b2b6193912e8d10141d94939c6316447da8dea19f0b6a",
+      "bytes": 4823
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/walk-back-2.png",
+      "sha256": "c6fdc24608cead2373119d76c8ef356fc2ceadd52ebac3f93599125c1f0de6c5",
+      "bytes": 4847
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/walk-back-3.png",
+      "sha256": "6602ff7f65664f5fc9b33e3bd8c0532bce9a68197eda34381a6753ef7e3c6f52",
+      "bytes": 5056
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/walk-back-4.png",
+      "sha256": "64e8e880b6776a0abd430a9d3030305fea8e8beaae2801d79d41b03ff77f1775",
+      "bytes": 4879
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/walk-back-5.png",
+      "sha256": "72aaf39758edb20c52010f329fecb12c10f896c09dbe3d87cbda456e06f34fac",
+      "bytes": 4911
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/walk-back-6.png",
+      "sha256": "3b51e85bd1862aee24a585acac41116ffd08c11a25cb55affdcb5cdd3d5d61cd",
+      "bytes": 4690
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/walk-back-7.png",
+      "sha256": "4f54781cc6e514dcb3755a4c2c82640863b1d0bfcb0e31f55dfc9b87add32cda",
+      "bytes": 4815
+    }
+  ],
+  "outputs": [
+    {
+      "path": "nari-walk-back.png",
+      "sha256": "09340acfe24bc8945ce5e6c0d8f1f2eddd02b9a510cffcf2b51395a930bc6b91",
+      "bytes": 113289
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/walk-back-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1550,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 94,
+      "orphans": 924,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        20,
+        62,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/walk-back-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1548,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 94,
+      "orphans": 912,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        21,
+        62,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/walk-back-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1571,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 925,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        20,
+        62,
+        95
+      ],
+      "ground_gap_px": 5.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/walk-back-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1656,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 94,
+      "orphans": 965,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        21,
+        66,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/walk-back-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1576,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 94,
+      "orphans": 943,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        20,
+        62,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/walk-back-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1597,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 937,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/walk-back-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1509,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 94,
+      "orphans": 902,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        21,
+        62,
+        98
+      ],
+      "ground_gap_px": 2.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/walk-back-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1563,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 923,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        20,
+        62,
+        95
+      ],
+      "ground_gap_px": 5.0
+    }
+  ]
+}

@@ -22,7 +22,14 @@ const ctx = await b.newContext({
 await ctx.addInitScript(() =>
   localStorage.setItem(
     "korean-arena-player-preferences-v1",
-    JSON.stringify({ version: 1, characterId: new URLSearchParams(window.location.search).get("entry")?.startsWith("bridge-b") ? "hyunwoo" : "nari" }),
+    JSON.stringify({
+      version: 1,
+      characterId: new window.URLSearchParams(window.location.search)
+        .get("entry")
+        ?.startsWith("bridge-b")
+        ? "hyunwoo"
+        : "nari",
+    }),
   ),
 );
 const recordingRequestedAt = Date.now();
@@ -96,7 +103,7 @@ async function fineTouch(axis, direction, strength) {
 function record(s) {
   samples.push({
     t: Date.now(),
-    characterId:s.characterId,
+    characterId: s.characterId,
     x: s.x,
     y: s.y,
     ready: s.ready,
@@ -190,8 +197,8 @@ async function axis(axis, target) {
     }
     samples.push({
       t: Date.now(),
-      characterId:s.characterId,
-    x: s.x,
+      characterId: s.characterId,
+      x: s.x,
       y: s.y,
       ready: s.ready,
       chunks: s.chunks,
@@ -212,7 +219,7 @@ try {
       await stopTouch();
       if (posePending) await posePending;
       await p.goto(
-        `http://127.0.0.1:4325/3D-pharse5-/?entry=${leg.entry}&pixelAudit`,
+        `http://127.0.0.1:4325/3D-pharse5-/?native&renderer=canvas&entry=${leg.entry}&pixelAudit`,
       );
       await p.waitForFunction(
         () => window.__GATE3__?.ready && window.__GATE3__.chunks.inflight === 0,

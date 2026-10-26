@@ -78,7 +78,7 @@ test("Studio previews and applies each category, resets, and persists a named lo
   const before = await state(page);
   expect(before.visited.length).toBeGreaterThan(0);
   await open(page);
-  await expect(page.locator("[data-character]")).toHaveCount(6);
+  await expect(page.locator("[data-character]")).toHaveCount(12);
   await page.locator('[data-character="ara"]').click();
   await item(page, "hairstyle", "ara-braided-bun");
   await item(page, "outfit", "ara-sunlit-linen");

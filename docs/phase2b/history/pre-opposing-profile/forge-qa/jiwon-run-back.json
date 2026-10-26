@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.079,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 12.165,
+        "adjacent_median": 11.2712
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/run-back-0.png",
+      "sha256": "3b4f4f9246cc2b246256feb3ec01d0e1e3610bc2ce144cda14bab1d0c81edf68",
+      "bytes": 4729
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/run-back-1.png",
+      "sha256": "ac1f31d8f4d15684f1d8b861eec62eb6f020c0b1501dae8912200dda32f8c6b9",
+      "bytes": 4499
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/run-back-2.png",
+      "sha256": "610d4f06c2d4bfd0b17f14f5bc93ee952d9bd04b1ed9d3e89e7a76fa2ff6ef96",
+      "bytes": 4503
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/run-back-3.png",
+      "sha256": "7fda718ba463e2f57dc7793cc9cc0caa2528cea997d93433a7f91ddfaf58acab",
+      "bytes": 4598
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/run-back-4.png",
+      "sha256": "3a500c43834323a799d1a07e6987d73b4c49f0bace1818e8fbd6876ceafe49d0",
+      "bytes": 4473
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/run-back-5.png",
+      "sha256": "7bb62492c33f32d038927b0aa9c1b64e238bdbfa4bfe665e113724dc375024c7",
+      "bytes": 4310
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/run-back-6.png",
+      "sha256": "df545ac20ec51ddb736b0b6c9d4896d688612b3f0de43e060d080df672cd0cdf",
+      "bytes": 4492
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/run-back-7.png",
+      "sha256": "e0351cde5b615a55f94fe34eb053c5c349e8f2fb8f2dcf839a9220df0c32b3dd",
+      "bytes": 4565
+    }
+  ],
+  "outputs": [
+    {
+      "path": "jiwon-run-back.png",
+      "sha256": "2937a96c80b6bdff67696a612d44960034dda1d47c6316a4decd3e1424562c86",
+      "bytes": 124254
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/run-back-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1472,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 92,
+      "orphans": 878,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        20,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/run-back-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1405,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 92,
+      "orphans": 829,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        22,
+        64,
+        97
+      ],
+      "ground_gap_px": 3.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/run-back-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1405,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 92,
+      "orphans": 822,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        18,
+        62,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/run-back-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1426,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 92,
+      "orphans": 832,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        15,
+        64,
+        92
+      ],
+      "ground_gap_px": 8.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/run-back-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1390,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 91,
+      "orphans": 818,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        22,
+        64,
+        97
+      ],
+      "ground_gap_px": 3.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/run-back-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1325,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 789,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        24,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/run-back-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1404,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 92,
+      "orphans": 807,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        16,
+        62,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/run-back-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1418,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 92,
+      "orphans": 847,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        15,
+        64,
+        93
+      ],
+      "ground_gap_px": 7.0
+    }
+  ]
+}

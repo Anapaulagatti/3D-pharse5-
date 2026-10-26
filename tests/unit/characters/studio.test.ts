@@ -102,10 +102,10 @@ describe("Phase2A immutable approval baseline", () => {
       expect(digest(p), p).toBe(h);
   }, 20000); // Cold CI storage may need more than5s to hash the full frozen archive.
 });
-describe("six genuine identities, twelve catalog slots", () => {
-  it("has six playable identities and six future metadata-only slots; no duplicate IDs or fake playable future art", () => {
-    expect(characterRegistry.all).toHaveLength(6);
-    expect(characterRegistry.planned).toHaveLength(6);
+describe("twelve genuine identities, completed planned catalog", () => {
+  it("has twelve playable identities and no remaining planned-only placeholders; no duplicate IDs", () => {
+    expect(characterRegistry.all).toHaveLength(12);
+    expect(characterRegistry.planned).toHaveLength(0);
     expect(
       new Set(
         [...characterRegistry.all, ...characterRegistry.planned].map(

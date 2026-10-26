@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 0.992,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 11.6215,
+        "adjacent_median": 11.7094
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/run-front-0.png",
+      "sha256": "210a5bed4d425fab14a5b7f2624bdddc58e3fbba45c9eec6e1922ea4f8fc24c4",
+      "bytes": 4746
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/run-front-1.png",
+      "sha256": "509698a801d805f80b7439068c2fe277a5f379466c7148771dda4869011e327a",
+      "bytes": 4702
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/run-front-2.png",
+      "sha256": "0e5ec075c8e6d7d7933eeeb8f2d3e8246b9b6219332dc9d20cb531ba4b0580d8",
+      "bytes": 4812
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/run-front-3.png",
+      "sha256": "fa27750756e0fc097964d0a66bfe11f344ef98fc613d0f056bb38e374b6a3b44",
+      "bytes": 4404
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/run-front-4.png",
+      "sha256": "16ac3ed7aa5c9cb1b4f150e9c1d90af46253509019c1c5325e35e8f58734bde0",
+      "bytes": 4825
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/run-front-5.png",
+      "sha256": "9680d313f3065755b1f574b30cb3d11a2a15fbe7ce8621841a4ef3affac43ee8",
+      "bytes": 4658
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/run-front-6.png",
+      "sha256": "4f81a90771b1dd5c7933b89f7192533be3c9efe15759e3b957abaec0d3daf4f5",
+      "bytes": 4920
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/run-front-7.png",
+      "sha256": "d4a06be27a99753fe95964ee8772ea97065d6880073841b9c7bc77f5d97ecbf7",
+      "bytes": 4682
+    }
+  ],
+  "outputs": [
+    {
+      "path": "taeyang-run-front.png",
+      "sha256": "3e292adbc874c622c56409fe4262c7fbfdd59aedfe85778c3b98a7bfb8c4c12c",
+      "bytes": 155181
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/run-front-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1414,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 896,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/run-front-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1396,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 911,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        25,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/run-front-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1471,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 919,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        17,
+        66,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/run-front-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1315,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 846,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        13,
+        63,
+        85
+      ],
+      "ground_gap_px": 15.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/run-front-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1450,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 913,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        19,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/run-front-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1394,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 914,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        25,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/run-front-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1495,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 916,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        17,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/run-front-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1417,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 911,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        13,
+        64,
+        88
+      ],
+      "ground_gap_px": 12.0
+    }
+  ]
+}

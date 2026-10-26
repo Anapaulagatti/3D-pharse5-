@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.043,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 13.2447,
+        "adjacent_median": 12.6974
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/run-front-0.png",
+      "sha256": "f70b6a912f094bef02d9a2bda9ca723cd3d414d64f3b08083a175fcb0380ba59",
+      "bytes": 4779
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/run-front-1.png",
+      "sha256": "3295bd6f9a98168cce60e595fc219fc828d798663829cda25cbc01686aec7c64",
+      "bytes": 4647
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/run-front-2.png",
+      "sha256": "b4083b72daeace280d63e9d3b2721b8bbdd477e91cfec9dddbf0be8ee7c69c8b",
+      "bytes": 4888
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/run-front-3.png",
+      "sha256": "e67c52690419d62cc2950eb96b5ad65afd3162780dff445332764b6173a43351",
+      "bytes": 4561
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/run-front-4.png",
+      "sha256": "91c23f48e1d4e7e4cde4742f08b4cb406513f5d8c0a92beb135c67ce4b6eef3c",
+      "bytes": 4799
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/run-front-5.png",
+      "sha256": "90b3b500f925ec13a8e7891406491ae4c5750c2c4454aa4d02bee4e272458fcd",
+      "bytes": 4729
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/run-front-6.png",
+      "sha256": "33e7e87ee8b167450264d1c5968ffba569e6385f94c91dc8df49d89a783dbebd",
+      "bytes": 4976
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/run-front-7.png",
+      "sha256": "b65161b8833b4229d8ddc534625d1b68d2ff93d1fc58e2d015bfe98ba510c384",
+      "bytes": 4730
+    }
+  ],
+  "outputs": [
+    {
+      "path": "sori-run-front.png",
+      "sha256": "073b55355904f60816d42046a8cd22c606a23aef3c6809233a8262495403a2a0",
+      "bytes": 152411
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/run-front-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1369,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 857,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/run-front-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1323,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 833,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        25,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/run-front-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1414,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 867,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        17,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/run-front-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1300,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 828,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        13,
+        63,
+        85
+      ],
+      "ground_gap_px": 15.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/run-front-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1379,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 858,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        19,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/run-front-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1366,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 860,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        25,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/run-front-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1430,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 887,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        17,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/run-front-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1379,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 852,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        13,
+        63,
+        88
+      ],
+      "ground_gap_px": 12.0
+    }
+  ]
+}

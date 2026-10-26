@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.146,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 7.9985,
+        "adjacent_median": 6.9823
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-left-0.png",
+      "sha256": "7d5ce7b0296df00db30c239450448eff105642af0001c2e2133f76dab01662f2",
+      "bytes": 4905
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-left-1.png",
+      "sha256": "747e330980ab72dfe57d33cba102bf0849c4e476209668003eb80da4d88786dc",
+      "bytes": 4616
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-left-2.png",
+      "sha256": "d842b88760a567b0118485a80cc708ebea8f2479e34c39f2607fc332a949b2b4",
+      "bytes": 4666
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-left-3.png",
+      "sha256": "95ebe930b64cfa3cdb6d97a4767cf0252a4db338df75197b3244f3136b918dbc",
+      "bytes": 5006
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-left-4.png",
+      "sha256": "7ceae9da2a3cfb1f6c96957ca2cb620e6630f8fc6ec613f9fc52059f99af446f",
+      "bytes": 5110
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-left-5.png",
+      "sha256": "8215552835da033b1f5412f4d2e32fc6f1bf694b460badef47034dfbcee8b12c",
+      "bytes": 4692
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-left-6.png",
+      "sha256": "ef5850c78e6ddfbe1195957b0705c590be6a51afdc2d0a1c30100a8cb16d8e86",
+      "bytes": 4472
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-left-7.png",
+      "sha256": "450fea6eeae300f8d12cd6b26a33a3604c20d71c0ae918b253e84f931579d65b",
+      "bytes": 4770
+    }
+  ],
+  "outputs": [
+    {
+      "path": "yuna-run-left.png",
+      "sha256": "99a5993455356eee71fc3d0edb457660ed5e97670b5613ada25a3b4fa7231759",
+      "bytes": 123966
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-left-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1457,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 126,
+      "orphans": 807,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        22,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-left-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1378,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 124,
+      "orphans": 796,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        21,
+        62,
+        98
+      ],
+      "ground_gap_px": 2.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-left-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1375,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 132,
+      "orphans": 825,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        62,
+        97
+      ],
+      "ground_gap_px": 3.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-left-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1478,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 140,
+      "orphans": 840,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        21,
+        63,
+        98
+      ],
+      "ground_gap_px": 2.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-left-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1538,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 144,
+      "orphans": 848,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        22,
+        65,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-left-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1384,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 131,
+      "orphans": 800,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        36,
+        21,
+        63,
+        98
+      ],
+      "ground_gap_px": 2.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-left-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1318,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 119,
+      "orphans": 767,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        20,
+        62,
+        97
+      ],
+      "ground_gap_px": 3.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-left-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1400,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 135,
+      "orphans": 782,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        21,
+        62,
+        98
+      ],
+      "ground_gap_px": 2.0
+    }
+  ]
+}
