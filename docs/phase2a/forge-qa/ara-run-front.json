@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 0.929,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 12.9239,
+        "adjacent_median": 13.9132
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/run-front-0.png",
+      "sha256": "51b5b5cd3369c618d1ddd9fe084d77ad8f19fe9bbfe6e0a99db712ee3dbd93b2",
+      "bytes": 5246
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/run-front-1.png",
+      "sha256": "347cd057a33d331d3a1348517ad4a11211757ae22f0e38b61f6fc308e3eec5c0",
+      "bytes": 5180
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/run-front-2.png",
+      "sha256": "626fcfdb083bbe99361ed60556e9a0b3e068714c95f2187f15c049ea84d78ff6",
+      "bytes": 5404
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/run-front-3.png",
+      "sha256": "3c9c2f132672615fa7b2df4cc281202872021a5f1fba23e6c18a828ab1451b45",
+      "bytes": 5036
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/run-front-4.png",
+      "sha256": "5036cd0cd5c3c6d8720f73e06e868b354f3b37e606ea1d050225368e4f318ef2",
+      "bytes": 5371
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/run-front-5.png",
+      "sha256": "dfa12c5b7a0545192ba65409ab1f3a2f3d0abe6e18dc46b34d217fec750b3036",
+      "bytes": 5153
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/run-front-6.png",
+      "sha256": "c43f7552956e4c992fc269d90cde7168e040af2ca8a65a717713ef1151097dfe",
+      "bytes": 5447
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/run-front-7.png",
+      "sha256": "2c9ffbbf14ecd43844ee45bfd7142cb6ea69e00289f076e37b0b2c93c0b4c5fd",
+      "bytes": 5273
+    }
+  ],
+  "outputs": [
+    {
+      "path": "ara-run-front.png",
+      "sha256": "040af17b5bc245994ebecf4bbdac91d8d0f040728356c0d79eb411125b413134",
+      "bytes": 168168
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/run-front-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1570,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1000,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        20,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/run-front-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1550,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1002,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        25,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/run-front-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1644,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 999,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        17,
+        66,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/run-front-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1496,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 970,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        13,
+        64,
+        85
+      ],
+      "ground_gap_px": 15.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/run-front-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1618,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1026,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        19,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/run-front-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1559,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 984,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        25,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/run-front-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1667,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1032,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        17,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/run-front-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1597,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1030,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        13,
+        64,
+        88
+      ],
+      "ground_gap_px": 12.0
+    }
+  ]
+}

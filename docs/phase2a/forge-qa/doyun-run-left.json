@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.164,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 7.4636,
+        "adjacent_median": 6.4132
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/run-left-0.png",
+      "sha256": "47d7bde473f2548a2a5975b6e7852fdb60cac8a8cd427c187972aaf7cdf0503b",
+      "bytes": 4864
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/run-left-1.png",
+      "sha256": "43c964be6e7880bc7c60760403fc9ef77da0b4fc1d5b82922dc962f63a5c274c",
+      "bytes": 4576
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/run-left-2.png",
+      "sha256": "2c87d10dadb0899cea1ffc1ed2792d535260f4e56a3f1f7bb1b8f6c1f3916423",
+      "bytes": 4550
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/run-left-3.png",
+      "sha256": "6f190deecdd4973b92b7946773d1b3f03023ea8e0aa8dc600fa6174e9188d55d",
+      "bytes": 4904
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/run-left-4.png",
+      "sha256": "68f2a66f8de2a8396305519c7a26085929a714da89bcc85bc44cd5d900f49730",
+      "bytes": 5037
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/run-left-5.png",
+      "sha256": "adf05d081d41974208c4305799e40126c79f58a7b66e2d5373791019b9752295",
+      "bytes": 4666
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/run-left-6.png",
+      "sha256": "114d8d0e2e75deb08e763b59ba4257778a6ee27a0c12df323388401aef2590ad",
+      "bytes": 4427
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/run-left-7.png",
+      "sha256": "520642731e9477d851b1f4ac12fec8274d17020ccc5d464360ac66f26c7c7a93",
+      "bytes": 4745
+    }
+  ],
+  "outputs": [
+    {
+      "path": "doyun-run-left.png",
+      "sha256": "507330e3786eb64397e9af083188c4c837318ad21df3173eea1ce4bf78c9ec54",
+      "bytes": 125274
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/run-left-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1517,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 133,
+      "orphans": 827,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        21,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/run-left-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1427,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 130,
+      "orphans": 833,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        63,
+        98
+      ],
+      "ground_gap_px": 2.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/run-left-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1412,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 124,
+      "orphans": 831,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        19,
+        63,
+        97
+      ],
+      "ground_gap_px": 3.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/run-left-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1527,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 137,
+      "orphans": 861,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        20,
+        63,
+        98
+      ],
+      "ground_gap_px": 2.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/run-left-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1593,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 139,
+      "orphans": 892,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        21,
+        65,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/run-left-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1443,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 134,
+      "orphans": 821,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        63,
+        98
+      ],
+      "ground_gap_px": 2.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/run-left-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1359,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 123,
+      "orphans": 793,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        19,
+        63,
+        97
+      ],
+      "ground_gap_px": 3.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/run-left-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1456,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 134,
+      "orphans": 835,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        63,
+        98
+      ],
+      "ground_gap_px": 2.0
+    }
+  ]
+}

@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.536,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 5.1637,
+        "adjacent_median": 3.3612
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/walk-right-0.png",
+      "sha256": "249175c17fe7981122afd2f9ea748e0f8dca668acd5d686e5640eb3c5cb43011",
+      "bytes": 4824
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/walk-right-1.png",
+      "sha256": "842f2c716faae4258a0ba1b57c88b748ea5d635f3ad40fbd4958fce560b88248",
+      "bytes": 4849
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/walk-right-2.png",
+      "sha256": "0aaa2a3738b48c273ef0836dd2d021e07f4189527a59f582795b02d9b4c63e17",
+      "bytes": 4533
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/walk-right-3.png",
+      "sha256": "26d8e0bc2906acdea599741fc9942aa5e7f80719d8331e75e18d3e3db71bc605",
+      "bytes": 4597
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/walk-right-4.png",
+      "sha256": "92c71ee312b12444ffbb953735975937b16d0da7a8d1bff328f47e8bf615d16b",
+      "bytes": 4730
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/walk-right-5.png",
+      "sha256": "362b0e44cc07240442d424271b424c5201d7d6ce925f4989277b17c641c34096",
+      "bytes": 4695
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/walk-right-6.png",
+      "sha256": "d3a089d6821c03f7b53a4164d1f2d8a3936d7b289f9c949a67e4c5542ead5b07",
+      "bytes": 4455
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/walk-right-7.png",
+      "sha256": "03427904fca6c8651f5cd0bbd553d7330c0887286921643c7e951ed5b719d1f8",
+      "bytes": 4538
+    }
+  ],
+  "outputs": [
+    {
+      "path": "doyun-walk-right.png",
+      "sha256": "7fd708fe2105d9bd886a2b0e9e400e97f0e098cb8e2dc71c24ac0e5739294f9a",
+      "bytes": 116126
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/walk-right-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1514,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 142,
+      "orphans": 943,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        21,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/walk-right-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1504,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 138,
+      "orphans": 908,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/walk-right-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1420,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 120,
+      "orphans": 874,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/walk-right-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1423,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 132,
+      "orphans": 875,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/walk-right-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1465,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 134,
+      "orphans": 906,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        21,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/walk-right-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1431,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 138,
+      "orphans": 906,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/walk-right-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1364,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 116,
+      "orphans": 848,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/walk-right-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1391,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 125,
+      "orphans": 848,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    }
+  ]
+}

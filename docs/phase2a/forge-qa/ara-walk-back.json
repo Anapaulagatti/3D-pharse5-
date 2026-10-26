@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 0.634,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 4.9621,
+        "adjacent_median": 7.8228
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/walk-back-0.png",
+      "sha256": "428ae7d196414526134b9086afafce0c2fe957f01be46d916c7e7f38741a57f6",
+      "bytes": 4675
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/walk-back-1.png",
+      "sha256": "76309548370194a140d65b33d9f48e9ff92a139f7acd9a60946212de569ff612",
+      "bytes": 4723
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/walk-back-2.png",
+      "sha256": "13a06f0d81c9a32bad18161b3d4604df0ef53f44eb9d457606a8882858b2c82f",
+      "bytes": 4873
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/walk-back-3.png",
+      "sha256": "335562952f5c7c22f4e1a32515c517ad8c3477174eaa6e5f6a15f0e4a817d76e",
+      "bytes": 5035
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/walk-back-4.png",
+      "sha256": "e6ada157fe3bada35c79e0909d44c917b431809dcef1bdde0c22c642f7ac44c4",
+      "bytes": 4775
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/walk-back-5.png",
+      "sha256": "c0ebc48b884b0053912e8ff9597476e857cd04a8043fd665a71fa768fd081a6c",
+      "bytes": 4885
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/walk-back-6.png",
+      "sha256": "56590c070f930cd2b0aba0c0d58766b85dae49e3b75472c54a6ab6448c782553",
+      "bytes": 4595
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/walk-back-7.png",
+      "sha256": "59a9655c4be2483bb7769941612529274b0daf09a16c5d574478a6089c29b63c",
+      "bytes": 4844
+    }
+  ],
+  "outputs": [
+    {
+      "path": "ara-walk-back.png",
+      "sha256": "2cb45d831ddfa2dbb72580d51b0724bd709b8cfb36d384dda8845726de3eea62",
+      "bytes": 116130
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/walk-back-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1558,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 844,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        20,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/walk-back-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1568,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 853,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        21,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/walk-back-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1596,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 871,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        20,
+        63,
+        95
+      ],
+      "ground_gap_px": 5.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/walk-back-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1696,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 899,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        21,
+        67,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/walk-back-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1583,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 857,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        20,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/walk-back-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1625,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 875,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/walk-back-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1527,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 815,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        21,
+        63,
+        98
+      ],
+      "ground_gap_px": 2.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/walk-back-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1589,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 866,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        20,
+        63,
+        95
+      ],
+      "ground_gap_px": 5.0
+    }
+  ]
+}

@@ -22,14 +22,12 @@ try {
     await p.screenshot({ path: `/tmp/phase2a-studio-${name}.png` });
     console.log(
       name,
-      await p
-        .locator("#character-selection")
-        .evaluate((d) => ({
-          width: d.clientWidth,
-          height: d.clientHeight,
-          scroll: d.scrollHeight,
-          screen: [innerWidth, innerHeight],
-        })),
+      await p.locator("#character-selection").evaluate((d) => ({
+        width: d.clientWidth,
+        height: d.clientHeight,
+        scroll: d.scrollHeight,
+        screen: [window.innerWidth, window.innerHeight],
+      })),
     );
     await c.close();
   }

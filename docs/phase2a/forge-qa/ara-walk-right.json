@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.533,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 5.9082,
+        "adjacent_median": 3.8546
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/walk-right-0.png",
+      "sha256": "c9304d67d36da7469fdbcd5eb091b256e6f0fd931769e4f825c3b31b2fe108e1",
+      "bytes": 4715
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/walk-right-1.png",
+      "sha256": "2a102accf8f39b06a1b1fcd334c5cc37c7df3d20a26477179f6280cd263c7ede",
+      "bytes": 4730
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/walk-right-2.png",
+      "sha256": "b1bdd261bbaaf05c9b25cc67b64405604e53adf311d4bd95f1268b212a114bed",
+      "bytes": 4428
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/walk-right-3.png",
+      "sha256": "cc5559b7bf1525392e943546cdd52cf25baf7f51c71c25abbcb4d3085d4718bd",
+      "bytes": 4497
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/walk-right-4.png",
+      "sha256": "7748a649f6e43860a91814a551909b0790c6a9ff1258798a45351acee4cae056",
+      "bytes": 4658
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/walk-right-5.png",
+      "sha256": "6056a71757f03c65c72797533b004eebf9b7010704f4bc09a73d493025663fe4",
+      "bytes": 4600
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/walk-right-6.png",
+      "sha256": "47ef7840a00504ebb8df988a0b74e072a824acb0433c270e477dedd080dad906",
+      "bytes": 4382
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/ara/frames/walk-right-7.png",
+      "sha256": "068697f9e491d0712cc7ad3f980e99fc93395e0ae4ce4b643b845702b3725c70",
+      "bytes": 4435
+    }
+  ],
+  "outputs": [
+    {
+      "path": "ara-walk-right.png",
+      "sha256": "12cc6328cecbc6a79e741b113d3952ea932d21e0474e727c037b1cbb389c6c9c",
+      "bytes": 114974
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/walk-right-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1402,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 149,
+      "orphans": 864,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        22,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/walk-right-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1391,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 145,
+      "orphans": 841,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        21,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/walk-right-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1300,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 127,
+      "orphans": 789,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        21,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/walk-right-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1318,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 129,
+      "orphans": 791,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        21,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/walk-right-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1344,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 136,
+      "orphans": 821,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        22,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/walk-right-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1331,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 142,
+      "orphans": 823,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        21,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/walk-right-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1261,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 131,
+      "orphans": 782,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        21,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/ara/frames/walk-right-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1284,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 129,
+      "orphans": 773,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        21,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    }
+  ]
+}

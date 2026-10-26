@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 0.801,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 3.7441,
+        "adjacent_median": 4.6759
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/walk-front-0.png",
+      "sha256": "e7d4f117fbfdb98560a6b5a47e3924da80490be95bbe626fe6b4c08ed97e9b03",
+      "bytes": 5277
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/walk-front-1.png",
+      "sha256": "1fa5506383556316f2f98f0abf733a35f277077a7174a14b4ea9e1e48c45e385",
+      "bytes": 5415
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/walk-front-2.png",
+      "sha256": "f017dc7de5e4b467a828b756e34246618a5884b67befad5fcbadc203f923814f",
+      "bytes": 5271
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/walk-front-3.png",
+      "sha256": "2e7b41232100f629670d08691e550d4fea78edc82e924829d1942283e578f8c9",
+      "bytes": 5288
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/walk-front-4.png",
+      "sha256": "d35e39d39e35ed44d2beeaa372156ac38fb77f0daafde963e5f21322d96767d3",
+      "bytes": 5235
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/walk-front-5.png",
+      "sha256": "42ad8fc4e3212726e5c128e192825e220ca4aaa311fdf49baf4751e5b8b58d3f",
+      "bytes": 5358
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/walk-front-6.png",
+      "sha256": "efd6a741b0c06e636b458bf4656da65a25b75b18ab5ef7e1e5e91eec27ec4d7e",
+      "bytes": 5292
+    },
+    {
+      "path": "../../../assets-src/characters/phase2a/doyun/frames/walk-front-7.png",
+      "sha256": "8b64ede94f3255505d54aa933fc5ea53f43939eb3ef15d2afb910ddb338a0c34",
+      "bytes": 5163
+    }
+  ],
+  "outputs": [
+    {
+      "path": "doyun-walk-front.png",
+      "sha256": "13e4ca9c4e9364c3bd60255917fa9709cc973ca9a7d1fd7aa35563408bec7608",
+      "bytes": 119964
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/walk-front-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1682,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1003,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        67,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/walk-front-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1710,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 1069,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        20,
+        67,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/walk-front-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1659,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 1058,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        20,
+        67,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/walk-front-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1687,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 988,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        20,
+        69,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/walk-front-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1665,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 987,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        20,
+        67,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/walk-front-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1681,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 1057,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        21,
+        67,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/walk-front-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1675,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 1063,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        20,
+        67,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2a/doyun/frames/walk-front-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1644,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 974,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        21,
+        67,
+        99
+      ],
+      "ground_gap_px": 1.0
+    }
+  ]
+}

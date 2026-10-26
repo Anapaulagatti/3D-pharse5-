@@ -1,0 +1,95 @@
+{
+  "artSource": "Seven actual built-in host_image calls, no paid external API/key route. Static identity/costume turnarounds and prop views are sources; animation is independently registered own-PNG-layer authoring, not generated animation sheets.",
+  "sourceFiles": [
+    {
+      "id": "ara",
+      "file": "assets-src/characters/phase2a/ara/turnaround-source.png",
+      "sha256": "d61838050749c406c661213df9523e374a5d0058e76b7c0d34b1b1ca8c51fd86",
+      "authoringBrief": "assets-src/characters/phase2a/ara/identity-prompt.txt",
+      "reference": "assets-src/characters/phase1b/haneul/turnaround-source.png",
+      "route": "host_image: image_gen.imagegen",
+      "model": "not supplied by host",
+      "estimateUsd": null
+    },
+    {
+      "id": "doyun",
+      "file": "assets-src/characters/phase2a/doyun/turnaround-source.png",
+      "sha256": "d563587e0e11f0691377b4ac5e6d59c5331d6496dbe7403f6d18b17559e1d317",
+      "authoringBrief": "assets-src/characters/phase2a/doyun/identity-prompt.txt",
+      "reference": "assets-src/characters/phase1b/haneul/turnaround-source.png",
+      "route": "host_image: image_gen.imagegen",
+      "model": "not supplied by host",
+      "estimateUsd": null
+    },
+    {
+      "id": "ara-harbor",
+      "file": "assets-src/characters/phase2a/cosmetics/sources/ara-harbor/turnaround-source.png",
+      "sha256": "ed5ff47be3716d97c2e17b443cb4ef71c80228801682482a8da466cbb03953a4",
+      "prompt": "assets-src/characters/phase2a/cosmetics/sources/ara-harbor/prompt.txt",
+      "reference": "assets-src/characters/phase2a/ara/turnaround-source.png",
+      "route": "host_image: image_gen.imagegen",
+      "model": "not supplied by host",
+      "estimateUsd": null
+    },
+    {
+      "id": "ara-sunlit",
+      "file": "assets-src/characters/phase2a/cosmetics/sources/ara-sunlit/turnaround-source.png",
+      "sha256": "f0313dbc4d1961cdb0edcea7ddb4ab57bcb073684f41bf2803f3ad5f1f5116de",
+      "prompt": "assets-src/characters/phase2a/cosmetics/sources/ara-sunlit/prompt.txt",
+      "reference": "assets-src/characters/phase2a/ara/turnaround-source.png",
+      "route": "host_image: image_gen.imagegen",
+      "model": "not supplied by host",
+      "estimateUsd": null
+    },
+    {
+      "id": "doyun-utility",
+      "file": "assets-src/characters/phase2a/cosmetics/sources/doyun-utility/turnaround-source.png",
+      "sha256": "5ff004b819d255f5c1663ec08dfed1753913439c75d1df0d5ab836b81ef6467c",
+      "prompt": "assets-src/characters/phase2a/cosmetics/sources/doyun-utility/prompt.txt",
+      "reference": "assets-src/characters/phase2a/doyun/turnaround-source.png",
+      "route": "host_image: image_gen.imagegen",
+      "model": "not supplied by host",
+      "estimateUsd": null
+    },
+    {
+      "id": "doyun-varsity",
+      "file": "assets-src/characters/phase2a/cosmetics/sources/doyun-varsity/turnaround-source.png",
+      "sha256": "6fcedf9750af0adc61276450f93178e33eb51cafe971c4d6154dcbd85677dc18",
+      "prompt": "assets-src/characters/phase2a/cosmetics/sources/doyun-varsity/prompt.txt",
+      "reference": "assets-src/characters/phase2a/doyun/turnaround-source.png",
+      "route": "host_image: image_gen.imagegen",
+      "model": "not supplied by host",
+      "estimateUsd": null
+    },
+    {
+      "id": "accessories",
+      "file": "assets-src/characters/phase2a/cosmetics/sources/accessories/source.png",
+      "sha256": "6906df396a30801a14e53500a843fa924e78060d074176535d724c6241fd5504",
+      "prompt": "assets-src/characters/phase2a/cosmetics/sources/accessories/prompt.txt",
+      "reference": "assets-src/characters/phase2a/doyun/turnaround-source.png",
+      "route": "host_image: image_gen.imagegen",
+      "model": "not supplied by host",
+      "estimateUsd": null
+    }
+  ],
+  "animationCompiler": [
+    "tools/phase2a/art.py",
+    "tools/phase2a/cosmetics.py"
+  ],
+  "registration": "96x112 cells,48,100 anchor; approved Juni same-index motion landmarks for front/back; accepted native profile IK method. One fixed rest source-to-native scale, binary alpha/shared palette; native limbs projected offline with nearest sampling. Runtime sparse composition is1:1, never runtime body/limb stretching.",
+  "catalog": {
+    "items": 10,
+    "interactions": 4,
+    "presets": 4
+  },
+  "sourceTooling": {
+    "spriteForge": "https://github.com/0x0funky/agent-sprite-forge",
+    "commit": "5324342fdfab72430f4e9604f3fe427009f8596d",
+    "method": "Existing approved project own-layer authoring plus Forge pixel/motion QA; all original tooling unchanged"
+  },
+  "preservedOriginals": "docs/phase2a/approved-four-characters.json",
+  "artApproval": {
+    "originalFour": "HUMAN APPROVED",
+    "araDoyunCosmetics": "PENDING HUMAN PHASE2A REVIEW"
+  }
+}

@@ -8,3 +8,5 @@ Read docs/current/PROJECT_STATE.md. The human Phase2A directive explicitly appro
 - Complete/inspect Ara before authoring Doyun. New characters/items remain unavailable until native art and locomotion validation pass. Prepare future roster metadata only; no playable placeholder sprites.
 - Phase2A includes customization/presets, two new playable identities, honest QA and playable review package. No Phase2B, economy/shop purchases, ads, learning integration, authenticated account, main merge, public deployment, paid external art API or separate Korean Arena learning-site changes.
 - Human approval does not certify physical devices, hardware WebGL performance or inherited navigation/planning defects. Preserve limitations and original validator warnings. Stop after the complete Phase2A review package for human review.
+
+Phase2A implementation is now a complete review candidate: see docs/phase2a/README.md and QA.md. Preserve the new source/review checkpoints. New Ara/Doyun/cosmetics await human Phase2A artistic acceptance; do not begin Phase2B or further production expansion without explicit authorization.

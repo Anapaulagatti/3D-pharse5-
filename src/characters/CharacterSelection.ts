@@ -35,6 +35,7 @@ export class CharacterSelection {
   private look = defaultAppearance("juni");
   private previewToken = 0;
   private previewAbort?: AbortController;
+  private lifecycle = new AbortController();
   private animation: number | undefined;
   private copy;
   constructor(
@@ -169,6 +170,13 @@ export class CharacterSelection {
       },
     );
     this.presets();
+    window.addEventListener(
+      "resize",
+      () => {
+        if (this.dialog.open && !this.pending) void this.preview();
+      },
+      { signal: this.lifecycle.signal },
+    );
   }
   private el<T extends HTMLElement = HTMLElement>(selector: string) {
     return this.dialog.querySelector<T>(selector)!;
@@ -433,6 +441,7 @@ export class CharacterSelection {
     this.host.unlock();
   }
   dispose() {
+    this.lifecycle.abort();
     this.close();
     this.dialog.remove();
     this.drafts.clear();
