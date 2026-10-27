@@ -43,6 +43,7 @@ export class BoundedCache<K, V> {
   }
 }
 interface BaseImage {
+  digest?: string;
   image: HTMLImageElement;
   atlas: AtlasData;
 }
@@ -57,6 +58,7 @@ export interface RenderedAppearance {
  * frame. Packed erase/paint rectangles already own anatomical depth/visibility. */
 export class AppearanceRenderer {
   private bases = new BoundedCache<string, BaseImage>(2);
+  private digests = new WeakMap<HTMLImageElement,string>();
   private composites = new BoundedCache<string, RenderedAppearance>(2);
   private pendingBases = new Map<string, Promise<BaseImage>>();
   private queue: Promise<unknown> = Promise.resolve();
@@ -75,11 +77,11 @@ export class AppearanceRenderer {
       if (!response.ok) throw Error("Missing native preview atlas");
       const atlas: AtlasData = await response.json();
       validateAtlas(def, atlas);
-      const image = await this.image(base + def.assets!.texture);
+      const image = await this.image(base + def.assets!.texture, undefined, true);
       for (const { frame: f } of Object.values(atlas.frames))
         if (f.x + f.w > image.naturalWidth || f.y + f.h > image.naturalHeight)
           throw Error("Frame outside native texture");
-      const asset = { image, atlas };
+      const asset = { image, atlas, digest: this.digests.get(image) };
       this.bases.set(id, asset);
       return asset;
     })();
@@ -90,14 +92,17 @@ export class AppearanceRenderer {
       this.pendingBases.delete(id);
     }
   }
-  private async image(path: string, signal?: AbortSignal) {
+  private async image(path: string, signal?: AbortSignal, trackDigest = false) {
     const response = await fetch(path, {
       signal: signal ?? AbortSignal.timeout(15000),
     });
     if (!response.ok) throw Error("Missing native cosmetic image");
-    const url = URL.createObjectURL(await response.blob());
+    const blob = await response.blob();
+    const digest = trackDigest ? Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256",await blob.arrayBuffer())),v=>v.toString(16).padStart(2,"0")).join("") : undefined;
+    const url = URL.createObjectURL(blob);
     try {
       const image = new Image();
+      if(digest) this.digests.set(image,digest);
       image.src = url;
       await image.decode();
       return image;
@@ -120,7 +125,8 @@ export class AppearanceRenderer {
       appearance: defaultAppearance(def.id),
     };
     if (!appearanceItemIds(appearance).length) return original;
-    const key = `studio-${appearanceKey(appearance)}`,
+    const revision = appearanceItemIds(appearance).map(id=>this.manifest.items.find(i=>i.id===id)!.variants.find(v=>v.characterId===def.id)!.assetRevision ?? "legacy").join("-");
+    const key = `studio-${appearanceKey(appearance)}-${revision}`,
       cached = this.composites.get(base + key);
     if (cached) return cached;
     const work = async () => {
@@ -160,6 +166,7 @@ export class AppearanceRenderer {
             .map((i) => i.patch),
         ];
         for (const variant of variants) {
+          if(variant.baseAtlasSHA256 && variant.baseAtlasSHA256 !== source.digest) throw Error("Cosmetic pose revision mismatch");
           signal?.throwIfAborted();
           const response = await fetch(base + variant.mapping, {
             signal: signal ?? AbortSignal.timeout(15000),

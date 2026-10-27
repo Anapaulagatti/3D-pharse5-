@@ -22,3 +22,7 @@ Recover existing d988e12; do not repeat animation production. Finish validation,
 ## Walk-front-only hotfix2026-10-27
 
 Human approves walk-right and authorizes only walk-front fixes for active Ara/Doyun/Sori/Jiwon/Nari/Taeyang/Yuna/Hyunwoo as needed. This supersedes the freeze only for those8-cell clips; all other art, world, cosmetics, UI,engine,clip semantics remain immutable. Preserve checkpoint/phase2b-walkfront-before-20261027. No Phase2C, main merge or deployment. Deliver a candidate and STOP for human walk-front review.
+
+## Phase2C explicit human authorization2026-10-27
+
+All12 identities andlatestwalkfront8ef1980 are APPROVED; prior Phase2B STOP superseded. Work on feature/phase2c-fashion-studio. Protect docs/phase2c/approved-baseline.json. Extend existing Studio/paint-erase/manager; preserve all base atlases,clip definitions,world,collision,camera,speeds,old source checkpoints. First repair10old cosmetics against approved poses and validate in Phaser before18newitems. Then6hair/6outfits/6accessories with real registered variants and12curatedlooks; truthful compatibility. No delegation unless user requests. Full commands and native/gameplay/mobile/cache evidence required. No shops,economy,NPCs,learning-site changes,main merge,public deployment or Phase3. STOP for human Phase2C artistic review.

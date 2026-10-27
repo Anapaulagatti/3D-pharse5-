@@ -39,3 +39,7 @@ Recovery validation completed:93unit/46E2E PASS (0skipped/0flaky),1,008 native r
 ## Human walk-right approval and walk-front-only hotfix2026-10-27
 
 Walk-right is HUMAN APPROVED and remains byte-identical. Current targeted candidate changes only64walk-front frames for active Ara/Doyun/Sori/Jiwon/Nari/Taeyang/Yuna/Hyunwoo, including explicit8-cell exceptions to Ara/Doyun earlier freeze. All832other atlas cells,source designs,world,UI,engine,cosmetics and timings preserved.102unit tests and248actualPhaser native readbacks (216default+32preset) pass. Human walk-front acceptance pending; see docs/phase2b-motion/WALK_FRONT_FIX.md. Phase2C LOCKED; no main merge/deployment.
+
+## Human Phase2B approval; Phase2C authorized2026-10-27
+
+All12 andwalkfront hotfix8ef1980 now HUMAN APPROVED. Approval checkpoint checkpoint/phase2b-twelve-characters-approved-20261027; immutable SHA manifest docs/phase2c/approved-baseline.json. Phase2C extends existing customization; repair outdated cosmetic pose patches before adding18items. Phase3 locked. Physical devices/hardware performance and historical WARNs remain unresolved. No main merge or deployment.

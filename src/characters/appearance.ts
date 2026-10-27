@@ -1,4 +1,4 @@
-import rawManifest from "../../assets-src/characters/phase2a/cosmetics/catalog.json";
+import rawManifest from "../../assets-src/characters/phase2c/catalog.json";
 import type {
   AppearanceManifest,
   CharacterAppearance,

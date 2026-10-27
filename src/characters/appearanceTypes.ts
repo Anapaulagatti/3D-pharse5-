@@ -5,6 +5,10 @@ export interface CosmeticCompatibility {
   excludes?: string[];
 }
 export interface CosmeticVariant {
+  /** Binds patches to an exact approved base; mismatch safely falls back. */
+  baseAtlasSHA256?: string;
+  poseRevision?: string;
+  assetRevision?: string;
   characterId: string;
   paint: string;
   erase: string;
@@ -67,6 +71,7 @@ export interface CosmeticPatchMapping {
   schemaVersion: 1;
   characterId: string;
   frames: Record<string, CosmeticPatchRect | null>;
+  baseAtlasSHA256?: string;
 }
 /** Future authoritative unlock providers validate ownership server-side. Local review
  * availability is never proof of a shop purchase, quest or lesson completion. */
