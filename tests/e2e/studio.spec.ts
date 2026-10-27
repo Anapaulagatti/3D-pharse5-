@@ -236,8 +236,15 @@ test("missing cosmetic artwork falls back to the original character without blan
   await boot(page, "ara");
   const before = await state(page);
   await open(page);
-  await item(page, "hairstyle", "ara-braided-bun");
+  // The failed fetch can finish before an optimistic selection is observable.
+  // Check the recovered state rather than requiring that transient selection.
+  await page.locator('[data-category="hairstyle"]').click();
+  await page.locator('[data-cosmetic="ara-braided-bun"]').click();
   await expect(page.locator("#character-feedback")).toContainText("khôi phục");
+  await expect(page.locator('[data-cosmetic="default"]')).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
   await apply(page, true);
   const after = await state(page);
   expect(after.key).toBe("character-ara");

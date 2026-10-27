@@ -43,3 +43,7 @@ Walk-right is HUMAN APPROVED and remains byte-identical. Current targeted candid
 ## Human Phase2B approval; Phase2C authorized2026-10-27
 
 All12 andwalkfront hotfix8ef1980 now HUMAN APPROVED. Approval checkpoint checkpoint/phase2b-twelve-characters-approved-20261027; immutable SHA manifest docs/phase2c/approved-baseline.json. Phase2C extends existing customization; repair outdated cosmetic pose patches before adding18items. Phase3 locked. Physical devices/hardware performance and historical WARNs remain unresolved. No main merge or deployment.
+
+## Phase2C review delivery2026-10-27
+
+Candidate on feature/phase2c-fashion-studio:28items/46nativevariants and12curatedlooks. Original10 pose-bound,18new authored; all12 approved base atlases and5453historical assets unchanged. Existing Studio/presets/rendering extended; canonical world,collision,controls,camera/tour unchanged.116unit and53E2E PASS (0skipped/0flaky);196foundation+28pilot+192final native captures mismatch0.60actualswitches/100preview-apply,independentZIP and softwareWebGL native readback verified. See docs/phase2c/README.md and QA.md. TECHNICAL PASS — ARTISTIC APPROVAL PENDING. Physical Android/iPhone and hardware performance NOT TESTED; historical motion WARNs retained. STOP for human Phase2C acceptance. Phase3 LOCKED. No main merge or deployment.
