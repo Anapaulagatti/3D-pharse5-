@@ -1,6 +1,18 @@
 export type StudioLocale = "vi" | "ko" | "en";
 export const studioMessages = {
   vi: {
+    renamePreset: "Đổi tên bộ đã lưu",
+    deletePreset: "Xóa bộ đã lưu",
+    presetLimit: "Đủ 12 bộ. Xóa một bộ hoặc để trống tên để áp dụng.",
+    presetChanged: "Đã cập nhật bộ của bạn.",
+    presetInvalid: "Chọn bộ tự lưu và nhập tên không trùng.",
+    previewLoading: "Đang thử đồ…",
+    idle: "Đứng",
+    walk: "Đi bộ",
+    run: "Chạy",
+    wave: "Chào",
+    celebrate: "Vui",
+
     title: "Phòng tạo phong cách",
     subtitle: "Một hành trình, nét riêng của bạn.",
     characters: "Bạn đồng hành",
@@ -17,7 +29,7 @@ export const studioMessages = {
     free: "Miễn phí · bản review",
     upcoming: "Dự kiến · chưa phát hành",
     unavailable:
-      "Nhân vật này đang giữ ngoại hình đã duyệt. Các mục tùy chỉnh hiện có dành cho Ara và Doyun.",
+      "Chưa có mục phù hợp trong danh mục này. Bạn vẫn có thể giữ nguyên bản.",
     saved: "Đã lưu ngoại hình. Sẵn sàng tiếp tục hành trình!",
     loading: "Đang chuẩn bị ngoại hình…",
     failed: "Chưa áp dụng được. Nhân vật và vị trí hiện tại vẫn giữ nguyên.",
@@ -25,6 +37,19 @@ export const studioMessages = {
     noSave: "Đã áp dụng cho phiên này; trình duyệt không lưu được tùy chọn.",
   },
   en: {
+    renamePreset: "Rename saved look",
+    deletePreset: "Delete saved look",
+    presetLimit:
+      "12 saved looks reached. Delete one or clear the name to apply.",
+    presetChanged: "Your saved looks are updated.",
+    presetInvalid: "Choose a personal preset and a unique name.",
+    previewLoading: "Trying your look…",
+    idle: "Idle",
+    walk: "Walk",
+    run: "Run",
+    wave: "Wave",
+    celebrate: "Celebrate",
+
     title: "Character Studio",
     subtitle: "Your journey, your own style.",
     characters: "Companions",
@@ -41,7 +66,7 @@ export const studioMessages = {
     free: "Free review items",
     upcoming: "Planned · unavailable",
     unavailable:
-      "This approved appearance is preserved. Review customization currently supports Ara and Doyun.",
+      "No matching items in this category. Your original appearance is always available.",
     saved: "Appearance saved. Ready to explore!",
     loading: "Preparing appearance…",
     failed: "Could not apply. Your character and position are preserved.",
@@ -49,6 +74,19 @@ export const studioMessages = {
     noSave: "Applied for this session; browser storage is unavailable.",
   },
   ko: {
+    renamePreset: "저장한 코디 이름 변경",
+    deletePreset: "저장한 코디 삭제",
+    presetLimit:
+      "코디12개가 저장되었습니다. 하나를 삭제하거나 이름을 비워 적용하세요.",
+    presetChanged: "저장한 코디를 수정했습니다.",
+    presetInvalid: "직접 저장한 코디와 다른 이름을 선택하세요.",
+    previewLoading: "코디 준비 중…",
+    idle: "대기",
+    walk: "걷기",
+    run: "달리기",
+    wave: "인사",
+    celebrate: "기쁨",
+
     title: "캐릭터 스튜디오",
     subtitle: "나만의 모습으로 떠나는 여행.",
     characters: "여행 친구",

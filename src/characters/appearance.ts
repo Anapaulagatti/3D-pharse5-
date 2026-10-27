@@ -1,3 +1,4 @@
+import baseBindings from "../../assets-src/characters/phase2c/base-bindings.json";
 import rawManifest from "../../assets-src/characters/phase2c/catalog.json";
 import type {
   AppearanceManifest,
@@ -32,6 +33,8 @@ export function validateAppearanceManifest(
     if (!["free-review", "unavailable"].includes(item.availability.status))
       throw Error("Invalid cosmetic availability");
     for (const characterId of item.compatibility.characterIds) {
+      if (!(characterId in baseBindings))
+        throw Error("Unknown cosmetic character");
       const variant = item.variants.find((v) => v.characterId === characterId);
       if (
         !variant ||
@@ -40,6 +43,8 @@ export function validateAppearanceManifest(
         !variant.mapping ||
         !variant.preview ||
         !variant.provenance ||
+        (variant.baseAtlasSHA256 !== undefined &&
+          !/^[0-9a-f]{64}$/.test(variant.baseAtlasSHA256)) ||
         variant.registration.width !== 96 ||
         variant.registration.height !== 112 ||
         variant.registration.anchor[0] !== 48 ||
@@ -49,6 +54,19 @@ export function validateAppearanceManifest(
       )
         throw Error(`Invalid cosmetic registration: ${item.id}`);
     }
+  }
+  for (const item of value.items) {
+    if (
+      new Set(item.compatibility.characterIds).size !==
+        item.compatibility.characterIds.length ||
+      new Set(item.variants.map((v) => v.characterId)).size !==
+        item.variants.length
+    )
+      throw Error("Duplicate variant compatibility");
+    if (
+      item.compatibility.excludes?.some((id) => id === item.id || !ids.has(id))
+    )
+      throw Error("Unknown exclusion item");
   }
   for (const interaction of value.interactions ?? []) {
     if (

@@ -12,6 +12,10 @@ for item in catalog['items']:
   ys,xs=np.where(np.array(p)[:,:,3]>0)
   coverage.append({'frame':k,'bounds':p.getbbox(),'paintBelowHead':int((ys>=47).sum()),'paintOnLegs':int((ys>=72).sum())})
  if item['category']=='outfit':
+  # Refuse a stale pose compiler after any future authorized base correction.
+  # Updating a signature alone must never certify old body geometry.
+  approved_root=R/f'assets-src/characters/phase2a/{id}';ap,ac=front.parts(approved_root)
+  for idx in range(8):assert front.frame(ap,ac,idx)[0].tobytes()==base[f'walk-front-{idx}'].tobytes(),('Base pose changed; update wardrobe compiler before rebinding',id,idx)
   name=next(n for n,spec in old.SPECS.items()if spec[5]==item['id']);cfg,parts=old.load_base(id);vp=old.variant_parts(name,id,cfg,parts,'outfit');root=S/'foundation'/item['id'];(root/'native').mkdir(parents=True,exist_ok=True);(root/'layers/front').mkdir(parents=True,exist_ok=True);Image.open(old.C/'sources'/name/'native/front.png').save(root/'native/front.png');(root/'rig.json').write_text(json.dumps(cfg));vp['front']['body'].save(root/'layers/front/body.png');p,c=front.parts(root)
   for i in range(8):
    k=f'walk-front-{i}';im,_=front.frame(p,c,i);a=np.array(im);a[:47]=np.array(base[k])[:47];im=Image.fromarray(a);patches[k]=diff(base[k],im)

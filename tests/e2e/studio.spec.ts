@@ -229,8 +229,9 @@ test("corrupt and incompatible appearance references preserve the valid v1 ident
 test("missing cosmetic artwork falls back to the original character without blank or duplicate players", async ({
   page,
 }) => {
-  await page.route("**/cosmetics/ara-braided-bun/paint.png", (route) =>
-    route.fulfill({ status: 404, body: "Missing review texture" }),
+  await page.route(
+    "**/cosmetics/phase2c/ara-braided-bun/ara/paint.png",
+    (route) => route.fulfill({ status: 404, body: "Missing review texture" }),
   );
   await boot(page, "ara");
   const before = await state(page);

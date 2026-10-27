@@ -23,8 +23,8 @@ def viewof(name,base,frames):
  return min(scores)[1]
 def registration(im,reference):
  a=np.array(im);b=np.array(reference);best=(1e9,0,0)
- for dy in range(-3,4):
-  for dx in range(-3,4):
+ for dy in range(-9,10):
+  for dx in range(-4,5):
    aa=a[24+dy:43+dy,38+dx:59+dx,:3];bb=b[24:43,38:59,:3];mask=(np.array(reference)[24:43,38:59,3]>0)
    score=np.abs(aa.astype(float)-bb.astype(float))[mask].mean()
    if score<best[0]:best=(score,dx,dy)
@@ -82,25 +82,26 @@ def hairstyle(style,v,base,reference):
    x=37+k*4;d.line((x,27+(k%2),x-2+(style%3),32),fill=(*pal[2+k%3],255))
   if style in [2,5]:d.line((47 if style==2 else 52,25,46 if style==2 else 50,31),fill=(*pal[5],255))
  else:
-  for x in range(37,59,4):d.line((x,29,x+1,43),fill=(*pal[2+(x//4)%3],255))
+  for j,x in enumerate(range(37,59,4)):
+   d.line((x,31+j%3,x+1,34+j%4),fill=(*pal[3+j%2],255));d.point((x,38+j%4),fill=(*pal[2+j%2],255))
  if style==2 and v=='back':
   for y in range(46,62,4):d.line((46,y,51,y+3),fill=(*pal[4],255));d.line((51,y,46,y+3),fill=(*pal[1],255))
   d.polygon([(45,61),(50,62),(54,60),(54,65),(50,64),(45,66)],fill=(157,67,64,255));d.point((49,62),fill=(239,177,118,255))
  if style==4:d.rectangle((53 if v!='back'else 46,25,60 if v!='back'else 54,27),fill=(176,79,65,255))
- out=shifted(out,dx,dy);a=np.array(base);ref=np.array(shifted(reference,dx,dy));yy,xx=np.indices(a.shape[:2]);headregion=(yy<47)&(xx>=27+dx)&(xx<=69+dx);erase=headregion&(a[:,:,3]>0)
+ out=shifted(out,dx,dy);a=np.array(base);ref=np.array(shifted(reference,dx,dy));yy,xx=np.indices(a.shape[:2]);headregion=(yy<47+dy)&(xx>=27+dx)&(xx<=69+dx);erase=headregion&(a[:,:,3]>0)
  face={'front':(40,33,56,44),'back':None,'left':(35,33,50,44),'right':(46,33,61,44)}[v];preserve=np.zeros((112,96),bool)
  if face:
   x0,y0,x1,y1=face;preserve[y0+dy:y1+dy,x0+dx:x1+dx]=True;preserve[43+dy:47+dy,41+dx:55+dx]=True
  # Raised hands/sleeves outside the resting head silhouette remain foreground.
- foreground=(a[:,:,3]>0)&(ref[:,:,3]==0)&(yy<47);p=np.array(out);p[preserve|foreground]=0;erase&=~(preserve|foreground)
- if v!='back':p[(yy>=47)&(a[:,:,3]>0)]=0
+ foreground=(a[:,:,3]>0)&(ref[:,:,3]==0)&(yy<47+dy);p=np.array(out);p[preserve|foreground]=0;erase&=~(preserve|foreground)
+ if v!='back':p[(yy>=47+dy)&(a[:,:,3]>0)]=0
  out=Image.fromarray(p);e=np.zeros_like(a);e[erase]=255;return out,Image.fromarray(e)
 
 CLOTH=[((83,140,154),(217,203,170),(240,228,194)),((143,64,77),(49,116,121),(237,217,170)),((45,67,102),(171,148,114),(234,222,183)),((59,70,78),(68,78,96),(189,98,76)),((103,155,142),(129,108,80),(235,213,162)),((226,211,169),(75,104,122),(137,164,157))]
 def outfit(style,id,name,base,frames):
  a=np.array(base);yy,xx=np.indices(a.shape[:2]);v=viewof(name,base,frames);dx,dy=registration(base,frames['idle-'+v+'-0']);protect=skinmask(base,skincolors(frames))|feet(id,name,base);mask=(a[:,:,3]>0)&(yy>=47+dy)&~protect
  neck=(xx>=43+dx)&(xx<=53+dx)&(yy<51+dy);mask&=~neck
- p=a.copy();top,bottom,trim=CLOTH[style];lum=a[:,:,:3].astype(float)@np.array([.299,.587,.114]);active=lum[mask];lo,hi=(np.percentile(active,[5,95])if len(active)else[0,255]);strength=np.clip((lum-lo)/max(35,hi-lo),0,1);factor=.46+.72*(np.round(strength*5)/5)
+ garmentOverlay=np.zeros((112,96),bool);p=a.copy();top,bottom,trim=CLOTH[style];lum=a[:,:,:3].astype(float)@np.array([.299,.587,.114]);active=lum[mask];lo,hi=(np.percentile(active,[5,95])if len(active)else[0,255]);strength=np.clip((lum-lo)/max(35,hi-lo),0,1);factor=.46+.72*(np.round(strength*5)/5)
  for ch in range(3):p[:,:,ch][mask]=np.clip((np.where(yy<67+dy,top[ch],bottom[ch])*factor)[mask],0,255).astype('uint8')
  material=Image.fromarray(p);design=Image.new('RGBA',(96,112));d=ImageDraw.Draw(design);x=48+dx;y=dy
  def line(points,c,w=1):d.line([(int(a+dx),int(b+y))for a,b in points],fill=(*c,255),width=w)
@@ -117,7 +118,7 @@ def outfit(style,id,name,base,frames):
    skirt=Image.new('RGBA',(96,112));sd=ImageDraw.Draw(skirt);sd.polygon([(41+dx,64+y),(55+dx,64+y),(right,hem-1),(left,hem)],fill=(*bottom,255))
    for i in range(6):
     tx=42+dx+i*2;bx=left+2+i*(right-left-4)//5;sd.line((tx,66+y,bx,hem-1),fill=(*tuple(max(0,int(c*(.68 if i%2 else 1.16)))for c in bottom),255))
-   sd.line((left+1,hem-1,right-1,hem-2),fill=(*trim,255));s=np.array(skirt);s[protect]=0;material.alpha_composite(Image.fromarray(s));line([(54,64),(55,73)],(206,161,69));rect((54,72,56,75),(207,162,68))
+   sd.line((left+1,hem-1,right-1,hem-2),fill=(*trim,255));s=np.array(skirt);s[skinmask(base,skincolors(frames))]=0;garmentOverlay=s[:,:,3]>0;material.alpha_composite(Image.fromarray(s));line([(54,64),(55,73)],(206,161,69));rect((54,72,56,75),(207,162,68))
  elif style==2:
   if v=='front':rect((45,50,51,66),trim);line([(41,49),(45,59),(43,64)],(25,40,68),2);line([(55,49),(51,59),(54,65)],(24,40,66),2);rect((53,55,55,58),(209,166,74));rect((40,66,56,68),trim);line([(40,67),(56,67)],(92,113,148))
   elif v=='back':rect((41,53,55,56),trim);line([(43,58),(53,58)],trim);rect((39,67,57,69),trim)
@@ -136,12 +137,12 @@ def outfit(style,id,name,base,frames):
   elif v=='back':line([(42,50),(54,66)],(79,116,126),2);line([(54,50),(42,66)],(79,116,126),2);rect((40,66,56,68),(79,116,126));line([(48,67),(44,71)],trim);line([(48,67),(53,71)],trim)
   else:line([(47,50),(47,64),(52,80)],(79,116,126),2);rect((47,66,53,77),(79,116,126))
  # Garment seams follow native cloth ownership; no detached screen-space props.
- de=np.array(design);de[~mask]=0;material.alpha_composite(Image.fromarray(de));desired=np.array(material);desired[protect]=a[protect];desired[:47]=a[:47];return diff(base,Image.fromarray(desired))
+ de=np.array(design);de[~mask]=0;material.alpha_composite(Image.fromarray(de));desired=np.array(material);desired[protect&~garmentOverlay]=a[protect&~garmentOverlay];desired[:max(1,47+dy)]=a[:max(1,47+dy)];return diff(base,Image.fromarray(desired))
 
 def accessory(style,v,base,reference,colors):
  dx,dy=registration(base,reference);p=Image.new('RGBA',(96,112));d=ImageDraw.Draw(p);erase=Image.new('RGBA',(96,112));e=ImageDraw.Draw(erase)
  if style==0:
-  x=55 if v in ['front','left']else 41;y=31
+  x=60 if v=='front'else 55 if v=='left'else 41;y=28 if v=='front'else 30
   d.polygon([(x-5,y-2),(x,y),(x-5,y+3),(x-7,y+1)],fill=(166,61,70,255));d.polygon([(x,y),(x+5,y-3),(x+6,y),(x+4,y+3)],fill=(194,80,83,255));d.rectangle((x-1,y-1,x+1,y+1),fill=(226,184,91,255));d.point((x,y-1),fill=(255,226,152,255));d.line((x,y+2,x-2,y+7),fill=(157,61,71,255))
  elif style==1:
   if v=='back':
@@ -173,7 +174,15 @@ def accessory(style,v,base,reference,colors):
  if style in [1,4]:a[protect& (yy>=47)]=0
  # Hat brim never hides the approved eyes; glasses deliberately overlay rims.
  if style in [3,5]:a[(yy>=34+dy)&(xx>=39+dx)&(xx<=57+dx)]=0
- p=Image.fromarray(a);return p,erase
+ if style in [3,5]:
+  face={'front':(40,33,56,44),'back':None,'left':(35,33,50,44),'right':(46,33,61,44)}[v]
+  if face:
+   x0,y0,x1,y1=face;a[y0+dy:y1+dy,x0+dx:x1+dx]=0;ea=np.array(erase);ea[y0+dy:y1+dy,x0+dx:x1+dx]=0;erase=Image.fromarray(ea)
+ # Foreground hands/sleeves occlude head props during wave/celebrate.
+ ref=np.array(shifted(reference,dx,dy));ba=np.array(base);fg=(ba[:,:,3]>0)&(ref[:,:,3]==0)&(yy<47+dy)
+ a[fg]=0;ea=np.array(erase);ea[fg]=0
+ if style!=2:a[protect]=0;ea[protect]=0
+ p=Image.fromarray(a);erase=Image.fromarray(ea);return p,erase
 
 def make(category,style,targets):
  spec=NAMES[category][style];itemid='kr-'+spec[0];variants=[];previews=[]

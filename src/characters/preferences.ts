@@ -80,13 +80,21 @@ import type {
 } from "./appearanceTypes";
 export const APPEARANCE_PREFERENCES_KEY =
   "korean-arena-appearance-preferences-v2";
+export const MAX_APPEARANCE_PRESETS = 12;
+export interface AppearanceRepository {
+  read(characterId: string): CharacterAppearance;
+  presets(): AppearancePreset[];
+  save(appearance: CharacterAppearance, name?: string): boolean;
+  renamePreset(id: string, name: string): boolean;
+  deletePreset(id: string): boolean;
+}
 interface AppearanceStore {
   version: 2;
   selectedCharacterId: string;
   appearances: Record<string, CharacterAppearance>;
   presets: AppearancePreset[];
 }
-export class AppearancePreferences {
+export class AppearancePreferences implements AppearanceRepository {
   private memory: AppearanceStore | undefined;
   constructor(
     private storage: PreferenceStorage | undefined,
@@ -126,13 +134,15 @@ export class AppearancePreferences {
         value.selectedCharacterId,
       ).id;
       if (Array.isArray(value.presets))
-        for (const p of value.presets.slice(0, 8)) {
+        for (const p of value.presets.slice(0, MAX_APPEARANCE_PRESETS)) {
           if (
             p &&
             typeof p.id === "string" &&
             p.id.length < 80 &&
             typeof p.name === "string" &&
             p.name.trim() &&
+            !fallback.presets.some((v) => v.id === p.id) &&
+            !this.manifest.presets.some((v) => v.id === p.id) &&
             this.registry.get(p.appearance?.characterId)?.availability
               .status === "playable"
           )
@@ -168,10 +178,52 @@ export class AppearancePreferences {
       },
     }));
   }
+  userPresets() {
+    return this.presets().filter((p) =>
+      this.readStore().presets.some((u) => u.id === p.id),
+    );
+  }
+  isUserPreset(id: string) {
+    return this.readStore().presets.some((p) => p.id === id);
+  }
+  canSavePreset(name: string) {
+    const clean = name.trim().replace(/\s+/g, " ").slice(0, 32);
+    return (
+      !clean ||
+      this.readStore().presets.some((p) => p.name === clean) ||
+      this.readStore().presets.length < MAX_APPEARANCE_PRESETS
+    );
+  }
+  private writeStore(next: AppearanceStore) {
+    this.memory = next;
+    try {
+      if (!this.storage) return false;
+      this.storage.setItem(APPEARANCE_PREFERENCES_KEY, JSON.stringify(next));
+      return true;
+    } catch {
+      return false;
+    }
+  }
+  renamePreset(id: string, name: string) {
+    const clean = name.trim().replace(/\s+/g, " ").slice(0, 32),
+      next = structuredClone(this.readStore());
+    if (!clean || next.presets.some((p) => p.id !== id && p.name === clean))
+      return false;
+    const item = next.presets.find((p) => p.id === id);
+    if (!item) return false;
+    item.name = clean;
+    return this.writeStore(next);
+  }
+  deletePreset(id: string) {
+    const next = structuredClone(this.readStore());
+    if (!next.presets.some((p) => p.id === id)) return false;
+    next.presets = next.presets.filter((p) => p.id !== id);
+    return this.writeStore(next);
+  }
   save(appearance: CharacterAppearance, name?: string) {
     const def = this.registry.get(appearance.characterId);
     if (def?.availability.status !== "playable") return false;
-    const next = this.readStore();
+    const next = structuredClone(this.readStore());
     next.appearances[def.id] = normalizeAppearance(
       def.id,
       appearance,
@@ -179,8 +231,10 @@ export class AppearancePreferences {
     );
     next.selectedCharacterId = def.id;
     if (name?.trim()) {
-      const clean = name.trim().slice(0, 32),
+      const clean = name.trim().replace(/\s+/g, " ").slice(0, 32),
         existing = next.presets.find((p) => p.name === clean);
+      if (!existing && next.presets.length >= MAX_APPEARANCE_PRESETS)
+        return false;
       const preset = {
         id:
           existing?.id ??
@@ -191,7 +245,7 @@ export class AppearancePreferences {
       next.presets = [
         ...next.presets.filter((p) => p.id !== preset.id),
         preset,
-      ].slice(-8);
+      ].slice(-MAX_APPEARANCE_PRESETS);
     }
     this.memory = next;
     try {

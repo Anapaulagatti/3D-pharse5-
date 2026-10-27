@@ -29,6 +29,8 @@ export interface CosmeticItem {
   category: CosmeticCategory;
   compatibility: CosmeticCompatibility;
   variants: CosmeticVariant[];
+  /** Future reward provenance; no economy/ownership claim is implemented. */
+  rewardOrigins?: CosmeticRewardOrigin[];
   availability: {
     status: "free-review" | "unavailable";
     reason: string;

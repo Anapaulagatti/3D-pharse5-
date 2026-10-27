@@ -3,6 +3,7 @@ import type { CharacterDefinition, Direction } from "./types";
 import type { CharacterAppearance, CosmeticCategory } from "./appearanceTypes";
 import { AppearancePreferences, browserPreferenceStorage } from "./preferences";
 import {
+  appearanceManifest,
   compatibleItems,
   defaultAppearance,
   normalizeAppearance,
@@ -51,12 +52,12 @@ export class CharacterSelection {
     this.dialog = document.createElement("dialog");
     this.dialog.id = "character-selection";
     this.dialog.setAttribute("aria-labelledby", "character-title");
-    this.dialog.innerHTML = `<section class="character-shell"><div class="character-heading"><span>KOREAN ARENA · CHARACTER STUDIO</span><button id="character-close" aria-label="Trở lại thế giới">✕</button></div><div class="character-intro"><h1 id="character-title">${this.copy.title}</h1><p>${this.copy.subtitle}</p></div><div class="character-content"><div class="studio-gallery-column"><h2>${this.copy.characters}</h2><nav id="character-gallery" aria-label="Nhân vật"></nav><details id="future-roster"><summary>${this.copy.upcoming}</summary><p></p></details></div><section class="character-detail" aria-label="Xem trước nhân vật"><div id="character-art"><canvas id="character-preview" width="192" height="224" aria-label="Hoạt ảnh nhân vật"></canvas></div><div class="character-copy"><h2 id="character-name"></h2><p id="character-description"></p><p id="character-art-status"></p></div><div id="character-preview-actions">${[
-      ["idle", "Đứng"],
-      ["walk", "Đi bộ"],
-      ["run", "Chạy"],
-      ["wave", "Chào"],
-      ["celebrate", "Vui"],
+    this.dialog.innerHTML = `<section class="character-shell"><div class="character-heading"><span>KOREAN ARENA · CHARACTER STUDIO</span><button id="character-close" aria-label="Trở lại thế giới">✕</button></div><div class="character-intro"><h1 id="character-title">${this.copy.title}</h1><p>${this.copy.subtitle}</p></div><div class="character-content"><div class="studio-gallery-column"><h2>${this.copy.characters}</h2><nav id="character-gallery" aria-label="Nhân vật"></nav><details id="future-roster"><summary>${this.copy.upcoming}</summary><p></p></details></div><section class="character-detail" aria-label="Xem trước nhân vật"><div id="character-art"><span id="studio-preview-state" role="status" aria-live="polite" hidden></span><canvas id="character-preview" width="192" height="224" aria-label="Hoạt ảnh nhân vật"></canvas></div><div class="character-copy"><h2 id="character-name"></h2><p id="character-description"></p><p id="character-art-status"></p></div><div id="character-preview-actions">${[
+      ["idle", this.copy.idle],
+      ["walk", this.copy.walk],
+      ["run", this.copy.run],
+      ["wave", this.copy.wave],
+      ["celebrate", this.copy.celebrate],
     ]
       .map(
         ([id, label]) =>
@@ -64,7 +65,7 @@ export class CharacterSelection {
       )
       .join(
         "",
-      )}</div><label class="studio-direction">Hướng nhìn<select id="character-preview-direction"><option value="front">Trước</option><option value="back">Sau</option><option value="left">Trái</option><option value="right">Phải</option></select></label></section><section class="studio-wardrobe" aria-label="${this.copy.appearance}"><div class="studio-wardrobe-heading"><h2>${this.copy.appearance}</h2><span>${this.copy.free}</span></div><div id="cosmetic-categories" aria-label="Danh mục">${(["hairstyle", "outfit", "accessory"] as const).map((category) => `<button data-category="${category}" aria-pressed="${category === "hairstyle"}">${this.copy[category]}</button>`).join("")}</div><div id="cosmetic-items" aria-live="polite"></div><div class="studio-presets"><label>${this.copy.presets}<select id="appearance-preset"><option value="">—</option></select></label><label>${this.copy.presetName}<input id="appearance-preset-name" maxlength="32" autocomplete="off"></label></div></section></div><footer class="character-footer"><p id="character-feedback" role="status" aria-live="polite"></p><div><button id="appearance-reset">${this.copy.reset}</button><button id="appearance-save">${this.copy.save}</button><button id="character-confirm">${this.copy.enter}</button></div></footer></section>`;
+      )}</div><select id="character-action-mobile" aria-label="Hoạt ảnh"><option value="idle">${this.copy.idle}</option><option value="walk">${this.copy.walk}</option><option value="run">${this.copy.run}</option><option value="wave">${this.copy.wave}</option><option value="celebrate">${this.copy.celebrate}</option></select><label class="studio-direction">Hướng nhìn<select id="character-preview-direction"><option value="front">Trước</option><option value="back">Sau</option><option value="left">Trái</option><option value="right">Phải</option></select></label></section><section class="studio-wardrobe" aria-label="${this.copy.appearance}"><div class="studio-wardrobe-heading"><h2>${this.copy.appearance}</h2><span>${this.copy.free}</span></div><div id="cosmetic-categories" aria-label="Danh mục">${(["hairstyle", "outfit", "accessory"] as const).map((category) => `<button data-category="${category}" aria-pressed="${category === "hairstyle"}">${this.copy[category]}</button>`).join("")}</div><div id="cosmetic-items" aria-live="polite"></div><div class="studio-presets"><label>${this.copy.presets}<span class="studio-preset-select"><select id="appearance-preset"><option value="">—</option></select><button id="preset-rename" type="button" aria-label="${this.copy.renamePreset}" title="${this.copy.renamePreset}">✎</button><button id="preset-delete" type="button" aria-label="${this.copy.deletePreset}" title="${this.copy.deletePreset}">×</button></span></label><label>${this.copy.presetName}<input id="appearance-preset-name" maxlength="32" autocomplete="off"></label></div></section></div><footer class="character-footer"><p id="character-feedback" role="status" aria-live="polite"></p><div><button id="appearance-reset">${this.copy.reset}</button><button id="appearance-save">${this.copy.save}</button><button id="character-confirm">${this.copy.enter}</button></div></footer></section>`;
     document.body.append(this.dialog);
     const gallery = this.el("#character-gallery");
     for (const def of characterRegistry.all) {
@@ -127,21 +128,19 @@ export class CharacterSelection {
       "[data-action]",
     ))
       button.addEventListener("click", () => {
-        this.action = button.dataset.action!;
-        for (const b of this.dialog.querySelectorAll("[data-action]"))
-          b.setAttribute("aria-pressed", String(b === button));
-        if (["wave", "celebrate"].includes(this.action)) {
-          this.view = "front";
-          this.el<HTMLSelectElement>("#character-preview-direction").value =
-            "front";
-        }
-        void this.preview();
+        this.previewAction(button.dataset.action!);
       });
+    this.el<HTMLSelectElement>("#character-action-mobile").addEventListener(
+      "change",
+      (e) => this.previewAction((e.target as HTMLSelectElement).value),
+    );
     this.el<HTMLSelectElement>("#character-preview-direction").addEventListener(
       "change",
       (e) => {
         this.view = (e.target as HTMLSelectElement).value as Direction;
         if (["wave", "celebrate"].includes(this.action)) this.action = "idle";
+        this.el<HTMLSelectElement>("#character-action-mobile").value =
+          this.action;
         for (const b of this.dialog.querySelectorAll<HTMLButtonElement>(
           "[data-action]",
         ))
@@ -168,7 +167,17 @@ export class CharacterSelection {
         if (!preset) return;
         this.drafts.set(preset.appearance.characterId, preset.appearance);
         this.choose(characterRegistry.resolve(preset.appearance.characterId));
+        this.el<HTMLSelectElement>("#appearance-preset").value = preset.id;
+        this.el<HTMLInputElement>("#appearance-preset-name").value =
+          this.appearances.isUserPreset(preset.id) ? preset.name : "";
+        this.presetButtons();
       },
+    );
+    this.el("#preset-rename").addEventListener("click", () =>
+      this.managePreset(false),
+    );
+    this.el("#preset-delete").addEventListener("click", () =>
+      this.managePreset(true),
     );
     this.presets();
     window.addEventListener(
@@ -178,6 +187,20 @@ export class CharacterSelection {
       },
       { signal: this.lifecycle.signal },
     );
+  }
+  private previewAction(action: string) {
+    this.action = action;
+    this.el<HTMLSelectElement>("#character-action-mobile").value = action;
+    for (const b of this.dialog.querySelectorAll<HTMLButtonElement>(
+      "[data-action]",
+    ))
+      b.setAttribute("aria-pressed", String(b.dataset.action === action));
+    if (["wave", "celebrate"].includes(action)) {
+      this.view = "front";
+      this.el<HTMLSelectElement>("#character-preview-direction").value =
+        "front";
+    }
+    void this.preview();
   }
   private el<T extends HTMLElement = HTMLElement>(selector: string) {
     return this.dialog.querySelector<T>(selector)!;
@@ -248,7 +271,12 @@ export class CharacterSelection {
       area.append(p);
       return;
     }
-    const add = (id: string, name: string, preview?: string) => {
+    const add = (
+      id: string,
+      name: string,
+      preview?: string,
+      korean?: string,
+    ) => {
       const selected =
         id === "default"
           ? this.category === "accessory"
@@ -268,12 +296,19 @@ export class CharacterSelection {
       if (preview) {
         const image = document.createElement("img");
         image.alt = "";
+        image.loading = "lazy";
         image.src = this.base + preview;
         b.append(image);
       }
       const label = document.createElement("span");
       label.textContent = `${selected ? "✓ " : ""}${name}`;
       b.append(label);
+      if (korean) {
+        const ko = document.createElement("small");
+        ko.className = "cosmetic-ko";
+        ko.textContent = korean;
+        b.append(ko);
+      }
       b.addEventListener("click", () => {
         if (this.pending) return;
         const next = {
@@ -290,6 +325,20 @@ export class CharacterSelection {
         else
           next[this.category === "hairstyle" ? "hairstyleId" : "outfitId"] =
             id === "default" ? null : id;
+        if (id !== "default") {
+          const selectedItem = appearanceManifest.items.find(
+            (i) => i.id === id,
+          )!;
+          const conflicts = (other: string | null) =>
+            !!other &&
+            (selectedItem.compatibility.excludes?.includes(other) ||
+              appearanceManifest.items
+                .find((i) => i.id === other)
+                ?.compatibility.excludes?.includes(id));
+          if (conflicts(next.hairstyleId)) next.hairstyleId = null;
+          if (conflicts(next.outfitId)) next.outfitId = null;
+          next.accessoryIds = next.accessoryIds.filter((a) => !conflicts(a));
+        }
         this.look = normalizeAppearance(this.candidate, next);
         this.drafts.set(this.candidate, this.look);
         this.items();
@@ -303,15 +352,46 @@ export class CharacterSelection {
         item.id,
         item.name.vi,
         item.variants.find((v) => v.characterId === this.candidate)?.preview,
+        item.name.ko,
       );
+  }
+  private presetButtons() {
+    const id = this.el<HTMLSelectElement>("#appearance-preset").value;
+    for (const selector of ["#preset-rename", "#preset-delete"])
+      this.el<HTMLButtonElement>(selector).disabled =
+        this.pending || !this.appearances.isUserPreset(id);
+  }
+  private managePreset(remove: boolean) {
+    if (this.pending) return;
+    const id = this.el<HTMLSelectElement>("#appearance-preset").value;
+    const ok = remove
+      ? this.appearances.deletePreset(id)
+      : this.appearances.renamePreset(
+          id,
+          this.el<HTMLInputElement>("#appearance-preset-name").value,
+        );
+    this.feedback(ok ? this.copy.presetChanged : this.copy.presetInvalid);
+    if (ok && remove)
+      this.el<HTMLInputElement>("#appearance-preset-name").value = "";
+    this.presets();
+    if (ok && !remove)
+      this.el<HTMLSelectElement>("#appearance-preset").value = id;
+    this.presetButtons();
   }
   private presets() {
     const select = this.el<HTMLSelectElement>("#appearance-preset");
     select.replaceChildren(new Option("—", ""));
     for (const preset of this.appearances.presets())
       select.add(new Option(preset.name, preset.id));
+    this.presetButtons();
   }
   private async preview() {
+    const status = this.el("#studio-preview-state");
+    status.hidden = false;
+    status.textContent = this.copy.previewLoading;
+    this.el("#character-preview").setAttribute("aria-busy", "true");
+    this.el<HTMLCanvasElement>("#character-preview").dataset.previewState =
+      "loading";
     const def = characterRegistry.resolve(this.candidate),
       token = ++this.previewToken;
     this.previewAbort?.abort();
@@ -325,6 +405,12 @@ export class CharacterSelection {
         this.previewAbort.signal,
       );
       if (token !== this.previewToken || !this.dialog.open) return;
+      status.hidden = true;
+      const preview = this.el<HTMLCanvasElement>("#character-preview");
+      preview.setAttribute("aria-busy", "false");
+      preview.dataset.previewCharacter = def.id;
+      preview.dataset.appearance = JSON.stringify(asset.appearance);
+      preview.dataset.previewState = "ready";
       if (asset.fallbackReason) {
         this.look = asset.appearance;
         this.drafts.set(def.id, this.look);
@@ -370,6 +456,8 @@ export class CharacterSelection {
           while (i < clip.frames.length - 1 && t >= durations[i])
             t -= durations[i++];
         const f = asset.atlas.frames[clip.frames[i]].frame;
+        if (canvas.dataset.frame !== clip.frames[i])
+          canvas.dataset.frame = clip.frames[i];
         c.clearRect(0, 0, canvas.width, canvas.height);
         c.drawImage(
           asset.image,
@@ -386,10 +474,15 @@ export class CharacterSelection {
       };
       tick(start);
     } catch {
-      if (token === this.previewToken && !this.previewAbort.signal.aborted)
+      if (token === this.previewToken && !this.previewAbort.signal.aborted) {
+        status.hidden = true;
+        const canvas = this.el<HTMLCanvasElement>("#character-preview");
+        canvas.setAttribute("aria-busy", "false");
+        canvas.dataset.previewState = "error";
         this.feedback(
           "Chưa tải được bản xem trước. Hãy thử lại hoặc chọn Juni.",
         );
+      }
     }
   }
   private async confirm(enter: boolean) {
@@ -398,6 +491,14 @@ export class CharacterSelection {
       characterRegistry.get(this.candidate)?.availability.status !== "playable"
     )
       return;
+    if (
+      !this.appearances.canSavePreset(
+        this.el<HTMLInputElement>("#appearance-preset-name").value,
+      )
+    ) {
+      this.feedback(this.copy.presetLimit);
+      return;
+    }
     this.pending = true;
     for (const b of this.dialog.querySelectorAll<HTMLButtonElement>("button"))
       b.disabled = true;
@@ -438,6 +539,7 @@ export class CharacterSelection {
         b.disabled =
           characterRegistry.get(b.dataset.character!)?.availability.status !==
           "playable";
+      this.presetButtons();
     }
   }
   close() {
@@ -446,6 +548,7 @@ export class CharacterSelection {
     this.previewToken++;
     this.previewAbort?.abort();
     if (this.animation !== undefined) cancelAnimationFrame(this.animation);
+    this.drafts.clear();
     this.host.unlock();
   }
   dispose() {

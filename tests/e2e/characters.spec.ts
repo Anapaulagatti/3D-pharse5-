@@ -150,7 +150,7 @@ test("mobile landscape preview fits; modal isolates joystick and original touch 
   const p = await ctx.newPage();
   await p.goto("");
   await expect(p.locator("#character-selection")).toBeVisible();
-  await p.locator('[data-action="walk"]').tap();
+  await p.locator("#character-action-mobile").selectOption("walk");
   const layout = await p.evaluate(() => {
     const d = document.querySelector("#character-selection")!,
       c = document.querySelector("#character-preview")!.getBoundingClientRect(),

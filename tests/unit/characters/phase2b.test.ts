@@ -21,19 +21,18 @@ const digest = (p: string) =>
   createHash("sha256").update(readFileSync(p)).digest("hex");
 describe("Phase2B accepted baseline protection", () => {
   it("preserves approved files outside the explicit eight-cell Ara/Doyun walk-front amendment", () => {
-    // Latest human directive permits Ara/Doyun walk-front only. Preserve the
-    // historical manifest; independently verify every other atlas cell/file.
-    execFileSync("python3", ["tools/phase2b-walkfront/audit.py"]);
-    const hotfix = json("docs/phase2b-motion/walk-front/audit.json");
-    const authorized = new Map(
-      hotfix.modifiedFiles.map((r: { file: string; afterSHA256: string }) => [
-        r.file,
-        r.afterSHA256,
-      ]),
-    );
-    const m = json("docs/phase2b/approved-six.json");
-    for (const [p, h] of Object.entries({ ...m.files, ...m.sourceSnapshots }))
-      expect(digest(p), p).toBe(authorized.get(p) ?? h);
+    execFileSync("python3", ["tools/phase2c/protected.py"]);
+    const protectedResult = json("docs/phase2c/protected-audit.json");
+    expect(protectedResult.status).toBe("PASS");
+    expect(protectedResult.changed).toEqual([]);
+    expect(Object.keys(protectedResult.baseAtlases)).toHaveLength(12);
+    for (const [id, h] of Object.entries(protectedResult.baseAtlases)) {
+      const p =
+        id === "juni"
+          ? "public/assets/juni/juni.png"
+          : `public/assets/characters/${id}/atlas.png`;
+      expect(digest(p), id).toBe(h);
+    }
   }, 20000);
   it("keeps all six registered identities, clips, movement and registration byte-equivalent in data", () => {
     for (const old of json("docs/phase2b/approved-identity-records.json")
@@ -41,20 +40,15 @@ describe("Phase2B accepted baseline protection", () => {
       expect(characterRegistry.get(old.id)).toEqual(old);
   });
   it("keeps persistence implementation, schema, current wardrobe and motion engine unchanged", () => {
+    // Phase2C explicitly extends Studio/preferences/composition; movement,
+    // identity registrations and world session implementation remain frozen.
     for (const file of [
-      "preferences.ts",
-      "appearanceTypes.ts",
-      "appearance.ts",
-      "AppearanceRenderer.ts",
-      "PhaserCharacterAssets.ts",
       "PlayerCharacterManager.ts",
       "RegistryMotion.ts",
       "newCharacters.ts",
       "types.ts",
       "futureRoster.ts",
-      "selection.css",
       "session.ts",
-      "studioI18n.ts",
     ])
       expect(digest("src/characters/" + file)).toBe(
         digest("docs/phase2b/approved-source-snapshots/src/characters/" + file),
@@ -117,7 +111,9 @@ describe("twelve complete free identities", () => {
               `assets-src/characters/phase2b/${id}/frames/${name}.png`,
             ),
           ).toBe(true);
-      expect(compatibleItems(id)).toEqual([]);
+      expect(compatibleItems(id).length).toBeGreaterThanOrEqual(3);
+      for (const category of ["hairstyle", "outfit", "accessory"] as const)
+        expect(compatibleItems(id, category).length).toBeGreaterThanOrEqual(1);
       expect(
         normalizeAppearance(id, {
           hairstyleId: "ara-braided-bun",

@@ -9,22 +9,17 @@ const sha = (p: string) =>
   createHash("sha256").update(readFileSync(p)).digest("hex");
 describe("authorized walk-front-only hotfix", () => {
   it("protects every frozen file outside the64 authorized walk-front cells and8 atlas containers", () => {
-    execFileSync("python3", ["tools/phase2b-walkfront/audit.py"]);
-    const q = json(D + "audit.json");
-    expect(q.unexpected).toEqual([]);
-    expect(q.modifiedFiles).toHaveLength(72);
-    for (const [file, h] of Object.entries(json(D + "before.json").files)) {
-      const change = q.modifiedFiles.find(
-        (r: { file: string }) => r.file === file,
-      );
-      expect(sha(file), file).toBe(change ? change.afterSHA256 : h);
-    }
-    for (const r of q.characters) {
-      expect(r.changed).toHaveLength(8);
-      expect(r.unchanged).toHaveLength(104);
-      for (let i = 0; i < 8; i++)
-        expect(r.unchanged).toContain(`walk-right-${i}`);
-      expect(r.headHairFirst47Rows).toBe("EXACT");
+    execFileSync("python3", ["tools/phase2c/protected.py"]);
+    const protectedResult = json("docs/phase2c/protected-audit.json");
+    expect(protectedResult.status).toBe("PASS");
+    expect(protectedResult.changed).toEqual([]);
+    expect(Object.keys(protectedResult.baseAtlases)).toHaveLength(12);
+    for (const [id, h] of Object.entries(protectedResult.baseAtlases)) {
+      const p =
+        id === "juni"
+          ? "public/assets/juni/juni.png"
+          : `public/assets/characters/${id}/atlas.png`;
+      expect(sha(p), id).toBe(h);
     }
   }, 30000);
   for (const id of [

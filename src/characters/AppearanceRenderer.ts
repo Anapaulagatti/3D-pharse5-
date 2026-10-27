@@ -1,3 +1,4 @@
+import { assetDigest } from "./assetDigest";
 import type { CharacterDefinition, AtlasData } from "./types";
 import { validateAtlas } from "./types";
 import {
@@ -32,6 +33,10 @@ export class BoundedCache<K, V> {
     while (this.entries.size > this.limit)
       this.entries.delete(this.entries.keys().next().value!);
   }
+  deleteWhere(predicate: (value: V, key: K) => boolean) {
+    for (const [key, value] of this.entries)
+      if (predicate(value, key)) this.entries.delete(key);
+  }
   clear() {
     this.entries.clear();
   }
@@ -43,6 +48,7 @@ export class BoundedCache<K, V> {
   }
 }
 interface BaseImage {
+  characterId?: string;
   digest?: string;
   image: HTMLImageElement;
   atlas: AtlasData;
@@ -58,11 +64,12 @@ export interface RenderedAppearance {
  * frame. Packed erase/paint rectangles already own anatomical depth/visibility. */
 export class AppearanceRenderer {
   private bases = new BoundedCache<string, BaseImage>(2);
-  private digests = new WeakMap<HTMLImageElement,string>();
+  private digests = new WeakMap<HTMLImageElement, string>();
   private composites = new BoundedCache<string, RenderedAppearance>(2);
   private pendingBases = new Map<string, Promise<BaseImage>>();
   private queue: Promise<unknown> = Promise.resolve();
   private compositions = 0;
+  private drawSamples: number[] = [];
   constructor(private manifest: AppearanceManifest = appearanceManifest) {}
   async base(def: CharacterDefinition, base: string): Promise<BaseImage> {
     if (!def.assets) throw Error("No native character asset");
@@ -77,11 +84,20 @@ export class AppearanceRenderer {
       if (!response.ok) throw Error("Missing native preview atlas");
       const atlas: AtlasData = await response.json();
       validateAtlas(def, atlas);
-      const image = await this.image(base + def.assets!.texture, undefined, true);
+      const image = await this.image(
+        base + def.assets!.texture,
+        undefined,
+        true,
+      );
       for (const { frame: f } of Object.values(atlas.frames))
         if (f.x + f.w > image.naturalWidth || f.y + f.h > image.naturalHeight)
           throw Error("Frame outside native texture");
-      const asset = { image, atlas, digest: this.digests.get(image) };
+      const asset = {
+        image,
+        atlas,
+        characterId: def.id,
+        digest: this.digests.get(image),
+      };
       this.bases.set(id, asset);
       return asset;
     })();
@@ -98,11 +114,11 @@ export class AppearanceRenderer {
     });
     if (!response.ok) throw Error("Missing native cosmetic image");
     const blob = await response.blob();
-    const digest = trackDigest ? Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256",await blob.arrayBuffer())),v=>v.toString(16).padStart(2,"0")).join("") : undefined;
+    const digest = trackDigest ? await assetDigest(blob) : undefined;
     const url = URL.createObjectURL(blob);
     try {
       const image = new Image();
-      if(digest) this.digests.set(image,digest);
+      if (digest) this.digests.set(image, digest);
       image.src = url;
       await image.decode();
       return image;
@@ -125,8 +141,26 @@ export class AppearanceRenderer {
       appearance: defaultAppearance(def.id),
     };
     if (!appearanceItemIds(appearance).length) return original;
-    const revision = appearanceItemIds(appearance).map(id=>this.manifest.items.find(i=>i.id===id)!.variants.find(v=>v.characterId===def.id)!.assetRevision ?? "legacy").join("-");
-    const key = `studio-${appearanceKey(appearance)}-${revision}`,
+    const interactionsRevision = (this.manifest.interactions ?? [])
+      .filter(
+        (i) =>
+          i.characterId === def.id &&
+          i.requiresItemIds.every((id) =>
+            appearanceItemIds(appearance).includes(id),
+          ),
+      )
+      .map((i) => i.patch.assetRevision ?? "legacy")
+      .join("-");
+    const revision = appearanceItemIds(appearance)
+      .map(
+        (id) =>
+          this.manifest.items
+            .find((i) => i.id === id)!
+            .variants.find((v) => v.characterId === def.id)!.assetRevision ??
+          "legacy",
+      )
+      .join("-");
+    const key = `studio-${appearanceKey(appearance)}-${source.digest}-${revision}-${interactionsRevision}`,
       cached = this.composites.get(base + key);
     if (cached) return cached;
     const work = async () => {
@@ -165,8 +199,13 @@ export class AppearanceRenderer {
             .filter((i) => i.applyPhase === "after-accessories")
             .map((i) => i.patch),
         ];
+        let drawMs = 0;
         for (const variant of variants) {
-          if(variant.baseAtlasSHA256 && variant.baseAtlasSHA256 !== source.digest) throw Error("Cosmetic pose revision mismatch");
+          if (
+            !variant.baseAtlasSHA256 ||
+            variant.baseAtlasSHA256 !== source.digest
+          )
+            throw Error("Cosmetic pose revision mismatch");
           signal?.throwIfAborted();
           const response = await fetch(base + variant.mapping, {
             signal: signal ?? AbortSignal.timeout(15000),
@@ -175,10 +214,16 @@ export class AppearanceRenderer {
           const mapping: CosmeticPatchMapping = await response.json();
           if (mapping.schemaVersion !== 1 || mapping.characterId !== def.id)
             throw Error("Cosmetic identity mismatch");
+          if (
+            !mapping.baseAtlasSHA256 ||
+            mapping.baseAtlasSHA256 !== source.digest
+          )
+            throw Error("Cosmetic mapping pose mismatch");
           const [paint, erase] = await Promise.all([
             this.image(base + variant.paint, signal),
             this.image(base + variant.erase, signal),
           ]);
+          const drawStarted = performance.now();
           for (const [name, { frame }] of Object.entries(source.atlas.frames)) {
             if (!(name in mapping.frames))
               throw Error(`Unregistered cosmetic frame ${name}`);
@@ -234,6 +279,7 @@ export class AppearanceRenderer {
               rect.h,
             );
           }
+          drawMs += performance.now() - drawStarted;
         }
         signal?.throwIfAborted();
         const result: RenderedAppearance = {
@@ -244,8 +290,11 @@ export class AppearanceRenderer {
         };
         this.composites.set(base + key, result);
         this.compositions++;
+        this.drawSamples.push(drawMs);
+        if (this.drawSamples.length > 60) this.drawSamples.shift();
         return result;
       } catch (error) {
+        canvas.width = canvas.height = 1;
         if (signal?.aborted) throw error;
         return {
           ...original,
@@ -258,6 +307,12 @@ export class AppearanceRenderer {
     this.queue = task.catch(() => undefined);
     return task;
   }
+  invalidateCharacter(characterId: string) {
+    this.composites.deleteWhere(
+      (v) => v.appearance.characterId === characterId,
+    );
+    this.bases.deleteWhere((v) => v.characterId === characterId);
+  }
   snapshot() {
     return {
       baseImages: this.bases.size,
@@ -266,6 +321,16 @@ export class AppearanceRenderer {
       compositeLimit: this.composites.limit,
       pendingBaseLoads: this.pendingBases.size,
       compositions: this.compositions,
+      synchronousDrawLoops: {
+        samples: this.drawSamples.length,
+        lastMs: this.drawSamples.at(-1) ?? 0,
+        p95Ms:
+          [...this.drawSamples].sort((a, b) => a - b)[
+            Math.max(0, Math.ceil(this.drawSamples.length * 0.95) - 1)
+          ] ?? 0,
+        measurement:
+          "Synchronous Canvas draw-loop wall time; excludes fetch/decode,not GPU or hardware certification",
+      },
       estimatedBaseBytes: this.bases
         .values()
         .reduce((n, v) => n + v.image.width * v.image.height * 4, 0),
