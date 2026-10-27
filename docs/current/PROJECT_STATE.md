@@ -35,3 +35,7 @@ All six earlier characters, their cosmetics, source designs, Character Studio, p
 Recovered d988e12 and checkpoint/phase2b-motion-source-20261027 with all12 existing review videos and1,008 native readbacks. No animation regeneration. Previous46-test E2E completed after client transport failure; fresh recovery validation and extracted-package smoke are recorded in docs/phase2b-motion. Human motion approval remains PENDING; Phase2C LOCKED. Review branch/checkpoint publication is authorized, main merge/deployment are not.
 
 Recovery validation completed:93unit/46E2E PASS (0skipped/0flaky),1,008 native readbacks reproduced; extracted corrected ZIP tested for12 identities,4 original looks,progress/reload/touch,6 extra exact native movement readbacks. No animation regeneration or application-code changes since d988e12. Six run-right flight-coverage WARNs remain explicit. Human motion review PENDING; Phase2C LOCKED.
+
+## Human walk-right approval and walk-front-only hotfix2026-10-27
+
+Walk-right is HUMAN APPROVED and remains byte-identical. Current targeted candidate changes only64walk-front frames for active Ara/Doyun/Sori/Jiwon/Nari/Taeyang/Yuna/Hyunwoo, including explicit8-cell exceptions to Ara/Doyun earlier freeze. All832other atlas cells,source designs,world,UI,engine,cosmetics and timings preserved.102unit tests and248actualPhaser native readbacks (216default+32preset) pass. Human walk-front acceptance pending; see docs/phase2b-motion/WALK_FRONT_FIX.md. Phase2C LOCKED; no main merge/deployment.

@@ -18,3 +18,7 @@ Six new Phase2B character DESIGNS are accepted as the basis; their front/back/ri
 ## Active recovery direction2026-10-27
 
 Recover existing d988e12; do not repeat animation production. Finish validation, full review ZIP and safe publication on feature/phase2b-roster-expansion, preserving approved references. User explicitly authorizes publishing this review branch/checkpoints, not main merge or public deployment. Stop for human motion review after delivery; Phase2C stays LOCKED.
+
+## Walk-front-only hotfix2026-10-27
+
+Human approves walk-right and authorizes only walk-front fixes for active Ara/Doyun/Sori/Jiwon/Nari/Taeyang/Yuna/Hyunwoo as needed. This supersedes the freeze only for those8-cell clips; all other art, world, cosmetics, UI,engine,clip semantics remain immutable. Preserve checkpoint/phase2b-walkfront-before-20261027. No Phase2C, main merge or deployment. Deliver a candidate and STOP for human walk-front review.

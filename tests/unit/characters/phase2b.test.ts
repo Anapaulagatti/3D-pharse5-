@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { readFileSync, existsSync } from "node:fs";
 import { createHash } from "node:crypto";
+import { execFileSync } from "node:child_process";
 import { characterRegistry } from "../../../src/characters/registry";
 import { validateAtlas } from "../../../src/characters/types";
 import { RegistryMotion } from "../../../src/characters/RegistryMotion";
@@ -19,10 +20,20 @@ const json = (p: string) => JSON.parse(readFileSync(p, "utf8"));
 const digest = (p: string) =>
   createHash("sha256").update(readFileSync(p)).digest("hex");
 describe("Phase2B accepted baseline protection", () => {
-  it("keeps all six approved source/runtime/cosmetic/tool files and source snapshots exact", () => {
+  it("preserves approved files outside the explicit eight-cell Ara/Doyun walk-front amendment", () => {
+    // Latest human directive permits Ara/Doyun walk-front only. Preserve the
+    // historical manifest; independently verify every other atlas cell/file.
+    execFileSync("python3", ["tools/phase2b-walkfront/audit.py"]);
+    const hotfix = json("docs/phase2b-motion/walk-front/audit.json");
+    const authorized = new Map(
+      hotfix.modifiedFiles.map((r: { file: string; afterSHA256: string }) => [
+        r.file,
+        r.afterSHA256,
+      ]),
+    );
     const m = json("docs/phase2b/approved-six.json");
     for (const [p, h] of Object.entries({ ...m.files, ...m.sourceSnapshots }))
-      expect(digest(p), p).toBe(h);
+      expect(digest(p), p).toBe(authorized.get(p) ?? h);
   }, 20000);
   it("keeps all six registered identities, clips, movement and registration byte-equivalent in data", () => {
     for (const old of json("docs/phase2b/approved-identity-records.json")

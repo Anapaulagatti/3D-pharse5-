@@ -1,3 +1,7 @@
+> **Current walk-front hotfix:** walk-right is HUMAN APPROVED and pixel-identical. Only8 walk-front cells each for Ara,Doyun,Sori,Jiwon,Nari,Taeyang,Yuna,Hyunwoo changed. See [current hotfix and QA](WALK_FRONT_FIX.md) and [visual review](walk-front/REVIEW.html). Walk-front awaits human approval; Phase2C LOCKED.
+>
+> The report below is the preserved cc27eda recovery review; its counts/artifacts describe that earlier checkpoint.
+
 # Motion recovery — technical QA
 
 **Human motion acceptance PENDING. Phase2C LOCKED.** Recovered source commit `d988e12accfdc5a71212e88cabe4f77b0af69481`; no animation production repeated. The previous client execution transport failed; retained processes completed E2E46/46. The underlying infrastructure cause is unproven. No dependency, lockfile or application-code repair was necessary.

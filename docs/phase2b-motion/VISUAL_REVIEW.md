@@ -1,3 +1,7 @@
+> **Current walk-front hotfix:** walk-right is HUMAN APPROVED and pixel-identical. Only8 walk-front cells each for Ara,Doyun,Sori,Jiwon,Nari,Taeyang,Yuna,Hyunwoo changed. See [current hotfix and QA](WALK_FRONT_FIX.md) and [visual review](walk-front/REVIEW.html). Walk-front awaits human approval; Phase2C LOCKED.
+>
+> The report below is the preserved cc27eda recovery review; its counts/artifacts describe that earlier checkpoint.
+
 # Visual evidence index
 
 Native PNG links contain original1:1 pixels. Enlarging the review page uses nearest-neighbor presentation; PNG files are never rescaled. Source-only sheets/GIFs are labeled separately from actual Phaser captures.

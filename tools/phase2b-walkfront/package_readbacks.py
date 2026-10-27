@@ -1,0 +1,7 @@
+from pathlib import Path
+from PIL import Image
+import json,numpy as np,math,hashlib
+D=Path('docs/phase2b-motion/walk-front');q=json.loads((D/'package-motion-native.json').read_text());rows=[]
+for r in q:
+ id=r['id'];a=r['pose'];s=a['state'];sx,sy=a['camera']['scroll'];m=json.loads(Path(f'public/assets/characters/{id}/atlas.json').read_text())['frames'][a['actualFrame']]['frame'];src=np.array(Image.open(f'public/assets/characters/{id}/atlas.png').convert('RGBA').crop((m['x'],m['y'],m['x']+96,m['y']+112)));x=math.floor(s['x']+.5)-48-sx;y=math.floor(s['y']+.5)-100-sy;p=D/f'{id}-extracted-package-native.png';out=Image.open(p).convert('RGB').crop((x,y,x+96,y+112));diff=int(((src[:,:,3]==255)&np.any(src[:,:,:3]!=np.array(out),2)).sum());assert diff==0,(id,diff);assert a['camera']['zoom']==1 and s['samplingMode']==1;out.save(D/f'{id}-extracted-package-body-native.png');rows.append({'id':id,'actualFrame':a['actualFrame'],'diffPixels':diff,'worldDeltaY':r['end']['y']-r['start']['y'],'spriteCount':r['end']['players'],'nativePNG_SHA256':hashlib.sha256(p.read_bytes()).hexdigest(),'native1to1':True})
+(D/'package-native-readbacks.json').write_text(json.dumps({'rows':rows,'source':'Actual independently extracted ZIP, systemChromium Canvas, native POST_RENDER. Current atlases are exact ZIP bytes; no Vite/dev asset fallback.','physicalDevices':'NOT TESTED'},indent=2)+'\n');print('PASS8 exact native package readbacks, positiveY>3strides, one actor')

@@ -10,18 +10,21 @@ const sha = (p: string) =>
   createHash("sha256").update(readFileSync(p)).digest("hex");
 describe("focused motion correction preservation and forward stance", () => {
   it("recomputes exact atlas cell scope and protects every other frozen asset/runtime file", () => {
-    execFileSync("python3", ["tools/phase2b-motion/audit.py"], {
+    // The newer authorized front-only amendment supersedes the old whole-file
+    // freeze. Its per-cell audit retains the accepted right motion exactly.
+    execFileSync("python3", ["tools/phase2b-walkfront/audit.py"], {
       encoding: "utf8",
     });
-    const q = json(D + "frame-change-manifest.json");
-    expect(q.outsideScopeChanges).toEqual([]);
-    expect(q.modifiedFiles).toHaveLength(402);
-    for (const [p, h] of Object.entries(q.afterFileSHA256))
-      expect(sha(p), p).toBe(h);
-    for (const c of q.atlasCells) {
-      expect(c.changedCells).toHaveLength(66);
-      expect(c.unchangedCells).toHaveLength(46);
-      expect(c.headHairPixelsInAllRepairedGaits).toBe("EXACT");
+    const q = json(D + "walk-front/audit.json");
+    expect(q.unexpected).toEqual([]);
+    expect(q.modifiedFiles).toHaveLength(72);
+    for (const r of q.modifiedFiles) expect(sha(r.file)).toBe(r.afterSHA256);
+    for (const c of q.characters) {
+      expect(c.changed).toHaveLength(8);
+      expect(c.unchanged).toHaveLength(104);
+      expect(c.headHairFirst47Rows).toBe("EXACT");
+      for (let i = 0; i < 8; i++)
+        expect(c.unchanged).toContain(`walk-right-${i}`);
     }
   }, 30000);
   it("independently tracks actual raster soles: rejects old same-direction stance and verifies corrected source quantization", () => {
