@@ -21,8 +21,8 @@ const digest = (p: string) =>
   createHash("sha256").update(readFileSync(p)).digest("hex");
 describe("Phase2B accepted baseline protection", () => {
   it("preserves approved files outside the explicit eight-cell Ara/Doyun walk-front amendment", () => {
-    execFileSync("python3", ["tools/phase2c/protected.py"]);
-    const protectedResult = json("docs/phase2c/protected-audit.json");
+    execFileSync("python3", ["tools/phase3a/protected.py"]);
+    const protectedResult = json("docs/phase3a/protected-audit.json");
     expect(protectedResult.status).toBe("PASS");
     expect(protectedResult.changed).toEqual([]);
     expect(Object.keys(protectedResult.baseAtlases)).toHaveLength(12);

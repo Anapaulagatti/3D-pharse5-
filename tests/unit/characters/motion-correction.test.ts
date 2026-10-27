@@ -10,8 +10,8 @@ const sha = (p: string) =>
   createHash("sha256").update(readFileSync(p)).digest("hex");
 describe("focused motion correction preservation and forward stance", () => {
   it("recomputes exact atlas cell scope and protects every other frozen asset/runtime file", () => {
-    execFileSync("python3", ["tools/phase2c/protected.py"]);
-    const protectedResult = json("docs/phase2c/protected-audit.json");
+    execFileSync("python3", ["tools/phase3a/protected.py"]);
+    const protectedResult = json("docs/phase3a/protected-audit.json");
     expect(protectedResult.status).toBe("PASS");
     expect(protectedResult.changed).toEqual([]);
     expect(Object.keys(protectedResult.baseAtlases)).toHaveLength(12);

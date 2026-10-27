@@ -30,3 +30,7 @@ All12 identities andlatestwalkfront8ef1980 are APPROVED; prior Phase2B STOP supe
 ## Phase2C review STOP2026-10-27
 
 Phase2C review candidate complete; preserve checkpoint/phase2c-fashion-studio-review-20261027 and Phase2B approval reference. All12 base assets/world protected. New28item manifest/46variants and12looks need human artistic acceptance. Technical116unit/53E2E and native/readback/cache/package checks pass; physical devices/hardware performance NOT TESTED. Do not begin Phase3, edit approved base art/world, merge main or deploy without explicit new authorization. See docs/phase2c/README.md, QA.md and PROTECTED_AUDIT.md.
+
+## Phase3A human authorization2026-10-27
+
+Phase2C is APPROVED at9583d7f (review32d7d47). Prior Phase3 STOP superseded only for Phase3A NPC foundation. Work on feature/phase3a-living-npc-world. Preserve docs/phase3a/approved-baseline.json,all12actors/28cosmetics/46variants/Studio/world/collision/camera/player logic. New NPC-specific104-cell native art,registry/navigation/FSM/dialogue/assets/UX; only additive clearly marked gate3main integration hooks. Four-context Seoyeon/Minseo/Harin/Eunji pilot must pass real Phaser before remaining10. No delegation. No world/Studio/actor regeneration,paidAPI,economy/shops/rewards/quiz/account integration. Existingtests intact; preservation audit may recognize exact additive integration. Full validation/native/gameplay/independentZIP required. Physical devices/historical WARNs remain unresolved. STOP for human Phase3A approval;Phase3B LOCKED. No main merge or deployment.

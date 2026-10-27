@@ -1,0 +1,167 @@
+#npc-interact {
+  position: fixed;
+  z-index: 14;
+  bottom: calc(82px + env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: calc(100vw - 190px);
+  min-height: 44px;
+  padding: 8px 14px;
+  color: #fff7df;
+  background: #335b50;
+  border: 2px solid #d7c89b;
+  border-radius: 7px;
+  font: 600 15px system-ui;
+  box-shadow: 0 2px 0 #293d36;
+  touch-action: manipulation;
+}
+#npc-interact[hidden] {
+  display: none;
+}
+#npc-dialogue {
+  position: fixed;
+  z-index: 100;
+  box-sizing: border-box;
+  width: min(
+    640px,
+    calc(100vw - 24px - env(safe-area-inset-left) - env(safe-area-inset-right))
+  );
+  max-height: calc(
+    100svh - 20px - env(safe-area-inset-top) - env(safe-area-inset-bottom)
+  );
+  margin: auto;
+  padding: 16px;
+  border: 3px solid #8c8e69;
+  border-radius: 8px;
+  background: #fff4d8;
+  color: #293c38;
+  box-shadow: 0 0 0 3px #d9c69d;
+  overflow: auto;
+  font-family: system-ui;
+}
+#npc-dialogue::backdrop {
+  background: #172c3680;
+}
+#npc-dialogue .npc-dialogue-header {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  height: auto;
+}
+#npc-dialogue h2 {
+  margin: 0;
+  font-size: 21px;
+}
+#npc-dialogue-role {
+  margin: 3px 0;
+  font-size: 14px;
+  color: #53685b;
+}
+#npc-dialogue button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 2px solid #a4a47b;
+  border-radius: 3px;
+  background: #e8e0bb;
+  color: #263e35;
+  font: 600 15px system-ui;
+  touch-action: manipulation;
+}
+#npc-dialogue button:focus-visible,
+#npc-interact:focus-visible {
+  outline: 3px solid #437f9e;
+  outline-offset: 2px;
+}
+#npc-dialogue-close {
+  font-size: 25px !important;
+}
+.npc-conversation {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+}
+#npc-dialogue-preview {
+  width: 96px;
+  height: 112px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+#npc-dialogue-ko {
+  font-size: 22px;
+  line-height: 1.45;
+  margin: 10px 0;
+}
+#npc-dialogue-vi {
+  font-size: 16px;
+  line-height: 1.45;
+  margin: 8px 0;
+}
+#npc-dialogue-hint {
+  font-size: 12px;
+  color: #657361;
+}
+#npc-dialogue-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0;
+}
+#npc-dialogue .npc-dialogue-actions {
+  position: static;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  background: transparent;
+  color: inherit;
+  height: auto;
+  padding: 0;
+}
+#npc-dialogue-next[hidden] {
+  display: none;
+}
+body[data-native="true"] #npc-interact {
+  display: none;
+}
+@media (max-height: 450px) {
+  #npc-dialogue {
+    padding: 10px;
+  }
+  #npc-dialogue h2 {
+    font-size: 18px;
+  }
+  .npc-conversation {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 10px;
+  }
+  #npc-dialogue-ko {
+    font-size: 19px;
+    margin: 5px 0;
+  }
+  #npc-dialogue-vi {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  #npc-dialogue-role {
+    font-size: 12px;
+  }
+  #npc-dialogue-hint {
+    display: none;
+  }
+  #npc-dialogue-choices {
+    margin: 4px 0;
+  }
+  #npc-dialogue button {
+    font-size: 14px;
+    padding: 6px 9px;
+  }
+  #npc-interact {
+    bottom: calc(76px + env(safe-area-inset-bottom));
+    font-size: 13px;
+  }
+}

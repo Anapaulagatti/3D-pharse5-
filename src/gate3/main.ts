@@ -1,3 +1,7 @@
+// PHASE3A BEGIN imports
+import { NPCManager } from "../npcs/manager";
+import { npcReviewSpawn } from "../npcs/review";
+// PHASE3A END imports
 import {
   WorldSessionCheckpoint,
   browserSessionCheckpointStorage,
@@ -318,6 +322,13 @@ const entries: Record<string, number[]> =
       : { station: [2824, 857], alley: [1470, 850] });
 if (entries[query.get("entry") ?? ""])
   data.spawn = entries[query.get("entry")!];
+// PHASE3A BEGIN qa-entry
+const npcEntry =
+  production && id === "palace-cleanup-world"
+    ? npcReviewSpawn(query)
+    : undefined;
+if (npcEntry) data.spawn = npcEntry;
+// PHASE3A END qa-entry
 // Resume only an actual browser reload. Explicit review-entry navigation keeps its declared spawn.
 const worldCheckpoint = production
   ? new WorldSessionCheckpoint(
@@ -388,6 +399,9 @@ const reset = attachJoystick(
   () => paused || scenicLocked,
 );
 class Slice extends Phaser.Scene {
+  // PHASE3A BEGIN field
+  private npcs?: NPCManager;
+  // PHASE3A END field
   private reviewCamera!: FoundationCamera;
   private worldCache!: WorldCache;
   private overviewImage!: Phaser.GameObjects.Image;
@@ -642,6 +656,33 @@ class Slice extends Phaser.Scene {
         }
       }
     }
+    // PHASE3A BEGIN create
+    if (production && id === "palace-cleanup-world")
+      this.npcs = new NPCManager(this, base, {
+        player: () => [this.x, this.y],
+        ground: (x, y) => this.walkable(x, y),
+        blocked: () => paused || scenicLocked || document.hidden,
+        canInteract: () =>
+          !paused &&
+          !scenicLocked &&
+          !this.characters!.busy &&
+          this.reviewCamera.mode === "follow",
+        lock: () => {
+          const wasPaused = paused;
+          paused = true;
+          reset();
+          heldRun = false;
+          this.input.keyboard!.resetKeys();
+          return () => {
+            paused = wasPaused;
+            this.input.keyboard!.resetKeys();
+            reset();
+            heldRun = false;
+          };
+        },
+      });
+    this.events.once("shutdown", () => this.npcs?.dispose());
+    // PHASE3A END create
     this.events.once("shutdown", () => {
       this.selectionBindings?.abort();
       this.characters?.setTransitioning(true);
@@ -659,6 +700,9 @@ class Slice extends Phaser.Scene {
   }
   inspect() {
     if (paused || scenicLocked) return;
+    // PHASE3A BEGIN interaction
+    if (this.npcs?.tryInteract()) return;
+    // PHASE3A END interaction
     const nearest = [...data.targets].sort(
       (a, b) =>
         Math.hypot(a.x - this.x, a.y - this.y) -
@@ -771,6 +815,9 @@ class Slice extends Phaser.Scene {
       isOverview,
     );
     this.diagnostics?.sample("update.cache", performance.now() - cacheStarted);
+    // PHASE3A BEGIN update
+    this.npcs?.update(delta);
+    // PHASE3A END update
     const behind = data.objects
       .filter(
         (o) =>

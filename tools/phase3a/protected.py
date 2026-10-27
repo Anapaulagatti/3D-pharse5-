@@ -1,0 +1,8 @@
+"""Full accepted Phase2C preservation plus exact removable additive NPC integration."""
+from pathlib import Path
+import json,hashlib,re,os,difflib
+R=Path(__file__).resolve().parents[2];D=R/'docs/phase3a';q=json.loads((D/'approved-baseline.json').read_text());bad=[]
+for p,h in q['files'].items():
+ if hashlib.sha256((R/p).read_bytes()).hexdigest()!=h:bad.append(p)
+assert not bad,bad
+source=(R/'src/gate3/main.ts').read_text();pattern=r'^[ \t]*// PHASE3A BEGIN ([\w-]+)\n.*?^[ \t]*// PHASE3A END \1\n';blocks=list(re.finditer(pattern,source,re.M|re.S));assert[len(blocks),len(set(b.group(1)for b in blocks))]==[6,6],'Exactly6additive NPC hooks expected';stripped=re.sub(pattern,'',source,flags=re.M|re.S);original=(D/'approved-main.ts.txt').read_text();assert stripped==original,'Protected scene changed outside NPC hooks:\n'+''.join(list(difflib.unified_diff(original.splitlines(True),stripped.splitlines(True)))[:35]);result={'status':'PASS','approvedCommit':q['approvedCommit'],'frozenAssetFiles':len(q['files']),'baseAtlases':q['baseAtlases'],'changed':bad,'approvedSceneOutsideAdditiveHooks':'BYTE IDENTICAL','additiveHooks':[{'name':b.group(1),'sha256':hashlib.sha256(b.group().encode()).hexdigest(),'lines':len(b.group().splitlines())}for b in blocks],'playerMovement':'UNCHANGED','worldCollision':'UNCHANGED','StudioAnd28Cosmetics':'UNCHANGED','humanPhase3AArtApproval':'PENDING'};tmp=D/('protected-'+str(os.getpid())+'.tmp');tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(D/'protected-audit.json');print('PASS',len(q['files']),'acceptedfiles;sceneoutside6NPC hooks byte-identical')

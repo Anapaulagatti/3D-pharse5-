@@ -47,3 +47,7 @@ All12 andwalkfront hotfix8ef1980 now HUMAN APPROVED. Approval checkpoint checkpo
 ## Phase2C review delivery2026-10-27
 
 Candidate on feature/phase2c-fashion-studio:28items/46nativevariants and12curatedlooks. Original10 pose-bound,18new authored; all12 approved base atlases and5453historical assets unchanged. Existing Studio/presets/rendering extended; canonical world,collision,controls,camera/tour unchanged.116unit and53E2E PASS (0skipped/0flaky);196foundation+28pilot+192final native captures mismatch0.60actualswitches/100preview-apply,independentZIP and softwareWebGL native readback verified. See docs/phase2c/README.md and QA.md. TECHNICAL PASS — ARTISTIC APPROVAL PENDING. Physical Android/iPhone and hardware performance NOT TESTED; historical motion WARNs retained. STOP for human Phase2C acceptance. Phase3 LOCKED. No main merge or deployment.
+
+## Phase3A authorized2026-10-27
+
+Human approves Phase2C12characters/28items/46variants/12looks/Studio/world. Fresh baseline116unit/53E2E PASS,allrequiredchecks; approvalcheckpoint checkpoint/phase2c-fashion-studio-approved-20261027 at9583d7f. Phase3A fourteen contextual NPCs authorized in3internalwaves; first4actualcanonical-world pilot beforeexpansion. Freeze docs/phase3a/approved-baseline.json. Physical devices/historical WARNs notpassed. Phase3B locked; no mainmerge/deployment.

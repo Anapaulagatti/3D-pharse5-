@@ -1,0 +1,313 @@
+{
+  "schemaVersion": 1,
+  "nodes": [
+    {
+      "id": "npc-seoyeon-welcome",
+      "npcId": "npc-seoyeon",
+      "content": {
+        "ko": "궁궐에 오신 걸 환영해요. 저는 문화 안내원 서연이에요.",
+        "vi": "Chào mừng bạn đến cung điện. Tôi là Seoyeon, hướng dẫn viên văn hóa."
+      },
+      "hint": {
+        "vi": "Hướng dẫn văn hóa · Seoyeon",
+        "ko": "서연"
+      },
+      "choices": [
+        {
+          "id": "place",
+          "label": {
+            "vi": "Tìm hiểu nơi này",
+            "ko": "이곳에 대해 알려 주세요."
+          },
+          "next": "npc-seoyeon-place"
+        },
+        {
+          "id": "care",
+          "label": {
+            "vi": "Có điều gì cần lưu ý?",
+            "ko": "주의할 점이 있나요?"
+          },
+          "next": "npc-seoyeon-care"
+        }
+      ],
+      "next": null,
+      "conditions": [],
+      "futureQuestHook": null,
+      "lessonTopicTags": [
+        "palace",
+        "greetings"
+      ]
+    },
+    {
+      "id": "npc-seoyeon-place",
+      "npcId": "npc-seoyeon",
+      "content": {
+        "ko": "궁궐의 기와지붕과 나무 기둥을 천천히 살펴보세요.",
+        "vi": "Bạn hãy thong thả ngắm mái ngói và những cột gỗ của cung điện nhé."
+      },
+      "hint": {
+        "vi": "Hướng dẫn văn hóa · Seoyeon",
+        "ko": "서연"
+      },
+      "choices": [],
+      "next": "npc-seoyeon-care",
+      "conditions": [],
+      "futureQuestHook": null,
+      "lessonTopicTags": [
+        "palace",
+        "greetings"
+      ]
+    },
+    {
+      "id": "npc-seoyeon-care",
+      "npcId": "npc-seoyeon",
+      "content": {
+        "ko": "계단과 출입문 앞은 다른 방문객을 위해 비워 주세요.",
+        "vi": "Xin giữ thông thoáng cầu thang và cửa ra vào cho những vị khách khác."
+      },
+      "hint": {
+        "vi": "Hướng dẫn văn hóa · Seoyeon",
+        "ko": "서연"
+      },
+      "choices": [],
+      "next": null,
+      "conditions": [],
+      "futureQuestHook": null,
+      "lessonTopicTags": [
+        "palace",
+        "greetings"
+      ]
+    },
+    {
+      "id": "npc-minseo-welcome",
+      "npcId": "npc-minseo",
+      "content": {
+        "ko": "어서 오세요! 저는 이 카페의 바리스타 민서예요.",
+        "vi": "Chào mừng bạn! Tôi là Minseo, barista của quán café này."
+      },
+      "hint": {
+        "vi": "Barista · Minseo",
+        "ko": "민서"
+      },
+      "choices": [
+        {
+          "id": "place",
+          "label": {
+            "vi": "Tìm hiểu nơi này",
+            "ko": "이곳에 대해 알려 주세요."
+          },
+          "next": "npc-minseo-place"
+        },
+        {
+          "id": "care",
+          "label": {
+            "vi": "Có điều gì cần lưu ý?",
+            "ko": "주의할 점이 있나요?"
+          },
+          "next": "npc-minseo-care"
+        }
+      ],
+      "next": null,
+      "conditions": [],
+      "futureQuestHook": null,
+      "lessonTopicTags": [
+        "modern",
+        "greetings"
+      ]
+    },
+    {
+      "id": "npc-minseo-place",
+      "npcId": "npc-minseo",
+      "content": {
+        "ko": "잠깐 쉬면서 거리의 풍경을 즐겨 보세요.",
+        "vi": "Bạn hãy nghỉ một chút và ngắm cảnh phố nhé."
+      },
+      "hint": {
+        "vi": "Barista · Minseo",
+        "ko": "민서"
+      },
+      "choices": [],
+      "next": "npc-minseo-care",
+      "conditions": [],
+      "futureQuestHook": null,
+      "lessonTopicTags": [
+        "modern",
+        "greetings"
+      ]
+    },
+    {
+      "id": "npc-minseo-care",
+      "npcId": "npc-minseo",
+      "content": {
+        "ko": "카페에 들어갈 때는 앞에 있는 손님에게 먼저 길을 양보해요.",
+        "vi": "Khi vào quán café, chúng ta nhường lối cho vị khách phía trước trước nhé."
+      },
+      "hint": {
+        "vi": "Barista · Minseo",
+        "ko": "민서"
+      },
+      "choices": [],
+      "next": null,
+      "conditions": [],
+      "futureQuestHook": null,
+      "lessonTopicTags": [
+        "modern",
+        "greetings"
+      ]
+    },
+    {
+      "id": "npc-eunji-welcome",
+      "npcId": "npc-eunji",
+      "content": {
+        "ko": "한빛역에 오신 걸 환영해요. 역 안내원 은지예요.",
+        "vi": "Chào mừng bạn đến ga Hanbit. Tôi là Eunji, nhân viên hướng dẫn của ga."
+      },
+      "hint": {
+        "vi": "Nhân viên ga · Eunji",
+        "ko": "은지"
+      },
+      "choices": [
+        {
+          "id": "place",
+          "label": {
+            "vi": "Tìm hiểu nơi này",
+            "ko": "이곳에 대해 알려 주세요."
+          },
+          "next": "npc-eunji-place"
+        },
+        {
+          "id": "care",
+          "label": {
+            "vi": "Có điều gì cần lưu ý?",
+            "ko": "주의할 점이 있나요?"
+          },
+          "next": "npc-eunji-care"
+        }
+      ],
+      "next": null,
+      "conditions": [],
+      "futureQuestHook": null,
+      "lessonTopicTags": [
+        "station",
+        "greetings"
+      ]
+    },
+    {
+      "id": "npc-eunji-place",
+      "npcId": "npc-eunji",
+      "content": {
+        "ko": "이곳은 역 앞 광장이에요. 안내 표지와 노란 유도선을 살펴보세요.",
+        "vi": "Đây là quảng trường trước ga. Bạn hãy xem biển hướng dẫn và dải dẫn đường màu vàng nhé."
+      },
+      "hint": {
+        "vi": "Nhân viên ga · Eunji",
+        "ko": "은지"
+      },
+      "choices": [],
+      "next": "npc-eunji-care",
+      "conditions": [],
+      "futureQuestHook": null,
+      "lessonTopicTags": [
+        "station",
+        "greetings"
+      ]
+    },
+    {
+      "id": "npc-eunji-care",
+      "npcId": "npc-eunji",
+      "content": {
+        "ko": "출입문 앞은 비워 두고, 선로에는 들어가지 마세요.",
+        "vi": "Xin giữ thông thoáng trước cửa ra vào và không đi vào đường ray."
+      },
+      "hint": {
+        "vi": "Nhân viên ga · Eunji",
+        "ko": "은지"
+      },
+      "choices": [],
+      "next": null,
+      "conditions": [],
+      "futureQuestHook": null,
+      "lessonTopicTags": [
+        "station",
+        "greetings"
+      ]
+    },
+    {
+      "id": "npc-harin-welcome",
+      "npcId": "npc-harin",
+      "content": {
+        "ko": "안녕하세요! 제주에 오신 걸 환영해요. 저는 과수원을 돌보는 하린이에요.",
+        "vi": "Xin chào! Chào mừng bạn đến Jeju. Tôi là Harin, người chăm sóc vườn cây."
+      },
+      "hint": {
+        "vi": "Người chăm vườn quýt · Harin",
+        "ko": "하린"
+      },
+      "choices": [
+        {
+          "id": "place",
+          "label": {
+            "vi": "Tìm hiểu nơi này",
+            "ko": "이곳에 대해 알려 주세요."
+          },
+          "next": "npc-harin-place"
+        },
+        {
+          "id": "care",
+          "label": {
+            "vi": "Có điều gì cần lưu ý?",
+            "ko": "주의할 점이 있나요?"
+          },
+          "next": "npc-harin-care"
+        }
+      ],
+      "next": null,
+      "conditions": [],
+      "futureQuestHook": null,
+      "lessonTopicTags": [
+        "jeju",
+        "greetings"
+      ]
+    },
+    {
+      "id": "npc-harin-place",
+      "npcId": "npc-harin",
+      "content": {
+        "ko": "제주의 귤은 햇빛과 바람을 맞으며 자라요.",
+        "vi": "Quýt Jeju lớn lên nhờ đón ánh nắng và làn gió."
+      },
+      "hint": {
+        "vi": "Người chăm vườn quýt · Harin",
+        "ko": "하린"
+      },
+      "choices": [],
+      "next": "npc-harin-care",
+      "conditions": [],
+      "futureQuestHook": null,
+      "lessonTopicTags": [
+        "jeju",
+        "greetings"
+      ]
+    },
+    {
+      "id": "npc-harin-care",
+      "npcId": "npc-harin",
+      "content": {
+        "ko": "나무 사이에서는 길을 따라 걸어 주세요. 오늘은 눈으로만 감상해요.",
+        "vi": "Bạn hãy đi theo lối giữa các cây nhé. Hôm nay chúng ta chỉ ngắm bằng mắt thôi."
+      },
+      "hint": {
+        "vi": "Người chăm vườn quýt · Harin",
+        "ko": "하린"
+      },
+      "choices": [],
+      "next": null,
+      "conditions": [],
+      "futureQuestHook": null,
+      "lessonTopicTags": [
+        "jeju",
+        "greetings"
+      ]
+    }
+  ]
+}
