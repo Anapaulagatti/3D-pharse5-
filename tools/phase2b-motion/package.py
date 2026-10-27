@@ -18,10 +18,14 @@ for p in D.iterdir():
  if not p.is_file():continue
  name=p.name
  include=p.suffix in ['.md','.html','.jpg','.gif']
- if p.suffix=='.mp4':include='synchronized-phaser'in name or name in ['sori-actual-gameplay.mp4','hyunwoo-actual-gameplay.mp4']
- if p.suffix=='.png':include=any(k in name for k in ['before-after-native','foot-guide-native','actual-contact-native','-actual-native','candidate-native'])or name=='sori-walk-right-full-phaser-native.png'
+ if p.suffix=='.mp4':include=True
+ if p.suffix=='.png':include=any(k in name for k in ['before-after-native','foot-guide-native','actual-contact-native','-actual-native','candidate-native'])or name=='sori-world-gameplay-native-crop.png'
  if p.suffix=='.json':include=p.stat().st_size<1200000 and not any(k in name for k in ['working','package-proof','published','failure'])
- if include:files[str(p.relative_to(R))]=p.read_bytes()
+ if include:
+  content=Path('/tmp/phase2b-motion-compact-videos')/name if name.endswith('-actual-gameplay.mp4') else p
+  files[str(p.relative_to(R))]=content.read_bytes()
+for p in list((D/'recovery-logs').glob('*.log'))+list((D/'recovery-e2e').glob('*.json')):
+ if p.is_file():files[str(p.relative_to(R))]=p.read_bytes()
 for n in ['docs/phase2b/FORGE_WARNINGS.md','docs/phase2b/forge-warnings.json','docs/phase2b/DEVICE_REVIEW.md']:
  files[n]=(R/n).read_bytes()
 for n in ['AGENTS.md','LICENSE','LICENSES.md','docs/current/PROJECT_STATE.md','docs/phase2b/approved-six.json','docs/phase2b/approved-identity-records.json','assets-src/characters/phase2a/cosmetics/catalog.json']:files[n]=(R/n).read_bytes()
@@ -30,7 +34,7 @@ for name in ['phaser','zod']:
  p=R/'node_modules'/name/'LICENSE'
  if not p.exists():p=R/'node_modules'/name/'LICENSE.txt'
  if p.exists():files[f'LICENSES/{name}.txt']=p.read_bytes()
-files['README.md']=b"# Phase2B motion correction review\n\nRun python3 start_review.py and open REVIEW.html. Actual compiled Phaser world,12 playable characters,10 approved cosmetics. Six corrected motion packs only: front/back/right walk/run and related starts/stops. Approved six, left clips, UI, world, collision, camera, persistence unchanged.\n\nReview contains6 Juni comparison videos, native before/after sheets, source-only animated previews, actual contact annotations and2 full unretimed gameplay videos (Sori/Hyunwoo). The other4 full gameplay videos and all native captures are linked to the recoverable review checkpoint; they are not needed for offline play. Comparison videos use actual game-frame captures phase-aligned at normal gait timing; they are separate from the raw gameplay recordings.\n\nTechnical checks do not grant artistic acceptance. Human motion review pending. Physical devices NOT TESTED. Phase2C LOCKED. No merge or public deployment.\n"
+files['README.md']=b"# Phase2B motion correction review\n\nRun python3 start_review.py and open REVIEW.html. Actual compiled Phaser world,12 playable characters,10 approved cosmetics. Six corrected motion packs only: front/back/right walk/run and related starts/stops. Approved six, left clips, UI, world, collision, camera, persistence unchanged.\n\nReview contains6 Juni comparison videos, native before/after sheets, source-only animated previews, actual contact annotations and all6 full unretimed gameplay videos. Packaged gameplay videos are lighter compression derivatives with identical dimensions,frame counts,timing. Original MP4 recordings and exhaustive native captures remain linked to the recoverable review checkpoint. Comparison videos use actual game-frame captures phase-aligned at normal gait timing; they are separate from the raw gameplay recordings.\n\nTechnical checks do not grant artistic acceptance. Human motion review pending. Physical devices NOT TESTED. Phase2C LOCKED. No merge or public deployment.\n"
 files['REVIEW.html']=b'<!doctype html><meta charset="utf-8"><title>Motion correction review</title><h1>Korean Arena Phase2B motion correction</h1><p><a href="index.html">Play actual Phaser world</a> | <a href="docs/phase2b-motion/REVIEW.html">Six synchronized comparisons + native evidence</a> | <a href="docs/phase2b-motion/QA.md">QA</a></p><p>Human motion approval pending. Phase2C LOCKED. Real devices NOT TESTED.</p>'
 for n,data in list(files.items()):
  if not n.endswith(('.md','.html')):continue

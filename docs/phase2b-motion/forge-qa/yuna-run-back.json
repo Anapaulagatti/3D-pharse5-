@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.2,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 11.7424,
+        "adjacent_median": 9.7816
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-back-0.png",
+      "sha256": "5a1ef9ae9376dd206f252866f3178ca2bb9047db51eb75816c350a92add203ce",
+      "bytes": 4903
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-back-1.png",
+      "sha256": "eb15ae959e15458ca8f5712f0ddb969dfd4bb1fac25062f8baa66abaa67e15c6",
+      "bytes": 4697
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-back-2.png",
+      "sha256": "8748b6e5e8500b32bec71020bf5a24ebd6757ca2457ecfcecf8e5183c609c319",
+      "bytes": 4724
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-back-3.png",
+      "sha256": "2430f7ed1299d2ea9ccf56758786a2955dce92668f8d2dc369819a1c3973aed6",
+      "bytes": 4623
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-back-4.png",
+      "sha256": "55edaba4b1a92d4254433971d9e6aff122814ebe993ea2885427d4eecfbc99fb",
+      "bytes": 4607
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-back-5.png",
+      "sha256": "a88973ddbf9fdb0824f18da78bc98204455ac41dedf9dc332690befcb5d97604",
+      "bytes": 4428
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-back-6.png",
+      "sha256": "43d4c5ad4fa6a4fd1f8f0dadea50fc3eb4f73f441d0fc028288becdc8736b6d8",
+      "bytes": 4705
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/yuna/frames/run-back-7.png",
+      "sha256": "ad0f487d9cb6a7fcd38f425307daa21028770bfe657ba6a49fbf7dbaffb98581",
+      "bytes": 4607
+    }
+  ],
+  "outputs": [
+    {
+      "path": "yuna-run-back.png",
+      "sha256": "3259258d7684bee5d9a3e52aaec007b2cd1b17317984eba9ac421a52c26a1985",
+      "bytes": 131471
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-back-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1570,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 876,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        21,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-back-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1488,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 94,
+      "orphans": 853,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        23,
+        65,
+        97
+      ],
+      "ground_gap_px": 3.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-back-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1489,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 831,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        19,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-back-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1482,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 97,
+      "orphans": 835,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        16,
+        65,
+        92
+      ],
+      "ground_gap_px": 8.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-back-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1462,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 821,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        23,
+        65,
+        97
+      ],
+      "ground_gap_px": 3.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-back-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1378,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 793,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        25,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-back-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1509,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 95,
+      "orphans": 820,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        17,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/yuna/frames/run-back-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1488,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 98,
+      "orphans": 815,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        16,
+        65,
+        93
+      ],
+      "ground_gap_px": 7.0
+    }
+  ]
+}

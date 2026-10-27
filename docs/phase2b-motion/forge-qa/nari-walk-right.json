@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.388,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 8.393,
+        "adjacent_median": 6.0486
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/walk-right-0.png",
+      "sha256": "40f331cb97fe30e67682bb74d5e6421464fad5070edc23acd53a56783dc783fd",
+      "bytes": 5115
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/walk-right-1.png",
+      "sha256": "7f34b5b7ae61ea303b8823ed87c7348cfd0f56fdc0a389f8bc150d384bb36dda",
+      "bytes": 4949
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/walk-right-2.png",
+      "sha256": "cd273e862a741d6279dab4c066b39dbd546e3f4864c3e9097b021c5f3108be19",
+      "bytes": 4533
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/walk-right-3.png",
+      "sha256": "86e37dfd63563b6a35d83611c769326dfe4c339521e5ed4c0030dc944768e768",
+      "bytes": 4896
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/walk-right-4.png",
+      "sha256": "e8f07b7518db94e150123f43e87f2ed48fb341ad094c74eff061b1ff0e25e611",
+      "bytes": 4967
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/walk-right-5.png",
+      "sha256": "37872545e840a26a8862715a61df14eeb6d947255214a94d41bfbf1a7bd68ae3",
+      "bytes": 4758
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/walk-right-6.png",
+      "sha256": "8c7de00edf744a00e747f248a5079d66ff2f922382be0abd31817255fdaf1f85",
+      "bytes": 4665
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/walk-right-7.png",
+      "sha256": "054c2174fcb894b1aef5b9a1c3c6183e207233116792f5b1e1267a37d8d1bfd7",
+      "bytes": 5089
+    }
+  ],
+  "outputs": [
+    {
+      "path": "nari-walk-right.png",
+      "sha256": "f15407deda167a6b269c093a3df1e2454a10e8fcfcd91c1316695762cb7152a4",
+      "bytes": 124360
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/walk-right-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1478,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 140,
+      "orphans": 904,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        21,
+        69,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/walk-right-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1429,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 137,
+      "orphans": 917,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        20,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/walk-right-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1299,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 111,
+      "orphans": 835,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        20,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/walk-right-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1421,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 136,
+      "orphans": 889,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        20,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/walk-right-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1443,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 139,
+      "orphans": 883,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        29,
+        21,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/walk-right-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1355,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 132,
+      "orphans": 879,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        20,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/walk-right-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1347,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 132,
+      "orphans": 859,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        20,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/walk-right-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1463,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 141,
+      "orphans": 935,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        20,
+        68,
+        100
+      ],
+      "ground_gap_px": 0.0
+    }
+  ]
+}

@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.758,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 5.288,
+        "adjacent_median": 3.0084
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/walk-left-0.png",
+      "sha256": "c53ac8eed46539a09790aae334d27707d69dd177bbdde0a4d0d3c4faf28efa0d",
+      "bytes": 4398
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/walk-left-1.png",
+      "sha256": "f4f6d062cf11c5a1e8e866b104cdca18032e21ac20520bda69c80ee499deb83a",
+      "bytes": 4216
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/walk-left-2.png",
+      "sha256": "ccd7c7a4a1002ac0a39b01fa81eea83d8eb5cd9ae0ad22184186bcd4713586e2",
+      "bytes": 4077
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/walk-left-3.png",
+      "sha256": "839d501dfcb78a1d3667fccf7dde0b37a77130d9d9ea2d2419e7a1e14c62f36e",
+      "bytes": 4339
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/walk-left-4.png",
+      "sha256": "d31af2ffd0c421723475a9d4326c1f623bb94aa17e2fc489054a43e73f0858de",
+      "bytes": 4323
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/walk-left-5.png",
+      "sha256": "fbd701684fa13124e1c955b5c1fefc1cea4f20d3bcb02aecc2893b9e854fb98c",
+      "bytes": 4071
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/walk-left-6.png",
+      "sha256": "7bfa513ab6f7911247972b006f1e67b2d3291819adc968e9c809131e4e676d3f",
+      "bytes": 4113
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/taeyang/frames/walk-left-7.png",
+      "sha256": "563831988842cedb45d96a2b37640333dc2aebe27588efdf5cb4b268a26a2179",
+      "bytes": 4420
+    }
+  ],
+  "outputs": [
+    {
+      "path": "taeyang-walk-left.png",
+      "sha256": "e0cdb1ea7ccea5b3b87d94a3b138eaa25cddf41b4f2202bb6c048f542aa8211a",
+      "bytes": 110580
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/walk-left-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1293,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 138,
+      "orphans": 766,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        23,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/walk-left-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1248,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 131,
+      "orphans": 742,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        22,
+        61,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/walk-left-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1205,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 114,
+      "orphans": 734,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        22,
+        61,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/walk-left-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1270,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 134,
+      "orphans": 782,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        22,
+        61,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/walk-left-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1270,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 137,
+      "orphans": 780,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        23,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/walk-left-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1173,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 119,
+      "orphans": 714,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        22,
+        61,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/walk-left-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1188,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 125,
+      "orphans": 740,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        22,
+        61,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/taeyang/frames/walk-left-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1278,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 137,
+      "orphans": 797,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        22,
+        61,
+        100
+      ],
+      "ground_gap_px": 0.0
+    }
+  ]
+}

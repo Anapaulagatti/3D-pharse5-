@@ -29,3 +29,9 @@ New-profile forearm phase was corrected and re-recorded in three controlled pair
 The Phase2B six new designs are accepted as the basis, but front/back stepping and backward-looking right walk are artistically rejected. Prior85/40 test results did not establish locomotion quality. Active task: surgical source-motion repair for Sori/Jiwon/Nari/Taeyang/Yuna/Hyunwoo on the existing branch, using actual Juni motion phases. Related run clips must be audited and only confirmed defects repaired.
 
 All six earlier characters, their cosmetics, source designs, Character Studio, persistence, shared controller, world/collision/camera/tour remain frozen. Before reference: checkpoint/phase2b-motion-before-20261027 at bcdbf17; broader SHA freeze in docs/phase2b-motion/before-manifest.json. Phase2C remains locked. Current work is a motion candidate, not human-approved locomotion.
+
+## Motion recovery and delivery2026-10-27
+
+Recovered d988e12 and checkpoint/phase2b-motion-source-20261027 with all12 existing review videos and1,008 native readbacks. No animation regeneration. Previous46-test E2E completed after client transport failure; fresh recovery validation and extracted-package smoke are recorded in docs/phase2b-motion. Human motion approval remains PENDING; Phase2C LOCKED. Review branch/checkpoint publication is authorized, main merge/deployment are not.
+
+Recovery validation completed:93unit/46E2E PASS (0skipped/0flaky),1,008 native readbacks reproduced; extracted corrected ZIP tested for12 identities,4 original looks,progress/reload/touch,6 extra exact native movement readbacks. No animation regeneration or application-code changes since d988e12. Six run-right flight-coverage WARNs remain explicit. Human motion review PENDING; Phase2C LOCKED.

@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 0.588,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 4.3471,
+        "adjacent_median": 7.3901
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/walk-back-0.png",
+      "sha256": "c20396c01824e71250e84bf64450864878898c649b3453cb4c1062aef6b9319c",
+      "bytes": 4506
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/walk-back-1.png",
+      "sha256": "f03dd7522c9927d9d258112bba845770e6f464281e2f4c87750d7ebe133ee9ad",
+      "bytes": 4469
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/walk-back-2.png",
+      "sha256": "fac39fa36248604adeafe8e3bc0d06d28db5f9ca69555056d5ba8af5ebe1055a",
+      "bytes": 4339
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/walk-back-3.png",
+      "sha256": "f056a4842e75ebd16261d52ae20fd0b7e007906f12d8ab93ccb654d91d0a20a5",
+      "bytes": 4749
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/walk-back-4.png",
+      "sha256": "4b5767032ca7a835f83c348c029425572f4dd383d0993dcb57540d86168784e7",
+      "bytes": 4585
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/walk-back-5.png",
+      "sha256": "058f11525f6a579b192cbc5121735951a5728d094fe19cfc6e6ceea3ce521626",
+      "bytes": 4590
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/walk-back-6.png",
+      "sha256": "dba57fbd1e3a0e3ae295a79aed3c90a4f63897910fc6091694baeecaac360528",
+      "bytes": 4419
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/walk-back-7.png",
+      "sha256": "6b8d0c03ad3ff0ec90ba52f1afeffc16bc3541a4d3bd7fd7263ca026a078fabe",
+      "bytes": 4309
+    }
+  ],
+  "outputs": [
+    {
+      "path": "jiwon-walk-back.png",
+      "sha256": "ed5fe7d092fa84cd98d16303c084ff168e1fbfe46803e58c3ae4011f386d7efe",
+      "bytes": 108655
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/walk-back-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1391,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 815,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        62,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/walk-back-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1395,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 812,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        21,
+        62,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/walk-back-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1376,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 773,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        62,
+        95
+      ],
+      "ground_gap_px": 5.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/walk-back-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1516,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 867,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        21,
+        66,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/walk-back-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1410,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 829,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        62,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/walk-back-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1433,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 829,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        20,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/walk-back-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1362,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 800,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        21,
+        62,
+        98
+      ],
+      "ground_gap_px": 2.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/walk-back-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1371,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 776,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        62,
+        95
+      ],
+      "ground_gap_px": 5.0
+    }
+  ]
+}

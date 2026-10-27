@@ -14,3 +14,7 @@ Phase2B is now a complete twelve-character review candidate. Preserve checkpoint
 ## Active human direction2026-10-27 — critical motion correction
 
 Six new Phase2B character DESIGNS are accepted as the basis; their front/back/right locomotion is REJECTED. This supersedes the prior review STOP only for a focused six-character motion repair. Preserve checkpoint/phase2b-motion-before-20261027 and docs/phase2b-motion/before-manifest.json. Do not redesign identities, change any of the approved six, edit UI/runtime/controls/camera/world/collision or begin Phase2C. Author only affected own motion frames and derived guides; audit related runs, preserve left and all non-motion cells. Juni's actual phases are the benchmark. Require genuine positive-X forward stance, three consecutive actual gameplay loops and synchronized comparisons, not just eight hashes. Original Forge thresholds/WARN history remain unchanged. Deliver the corrected candidate and STOP for human motion review.
+
+## Active recovery direction2026-10-27
+
+Recover existing d988e12; do not repeat animation production. Finish validation, full review ZIP and safe publication on feature/phase2b-roster-expansion, preserving approved references. User explicitly authorizes publishing this review branch/checkpoints, not main merge or public deployment. Stop for human motion review after delivery; Phase2C stays LOCKED.

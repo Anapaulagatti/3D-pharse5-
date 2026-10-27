@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 0.897,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 11.6752,
+        "adjacent_median": 13.016
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/run-front-0.png",
+      "sha256": "5ea64ef6c5787c0a3424fd2c4c4bef65121a1b686da02b0b95274fa7bb4e0b68",
+      "bytes": 5166
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/run-front-1.png",
+      "sha256": "40ffb4a7566fc8289f47305d36330739b689bfdadfc77a24725f785fd9f520c3",
+      "bytes": 4990
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/run-front-2.png",
+      "sha256": "e3224be453273b3f8f3c7fc7917364258b73b7ad42eaed3bdd318b65250b568b",
+      "bytes": 5288
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/run-front-3.png",
+      "sha256": "81987cee8df5fcb44dd01b06926a324d66887042d27347c62246870662836d98",
+      "bytes": 4813
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/run-front-4.png",
+      "sha256": "1dbd0a19aaaecfa7a4b18fcea2e8b0bbaeb0a9182f0f9e595d10735a0e899204",
+      "bytes": 5296
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/run-front-5.png",
+      "sha256": "1e6596704ac3251b7db24bbdbc0c91b4a800c9a6da5834fda45875108ab26df7",
+      "bytes": 5030
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/run-front-6.png",
+      "sha256": "c83ea8a03496cc4370bade7e82d94e83247416d1d248d08ec624767c8e526610",
+      "bytes": 5346
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/nari/frames/run-front-7.png",
+      "sha256": "cd5dcfad7b65feb4a646f1f1ad7b067931eb65c6c497b807edee67bbfa2210fd",
+      "bytes": 5056
+    }
+  ],
+  "outputs": [
+    {
+      "path": "nari-run-front.png",
+      "sha256": "b2c72b3b70acde83305b0cd708b924e9e64769ad062cd1b80e6078e3e8cfd174",
+      "bytes": 163503
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/run-front-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1553,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 94,
+      "orphans": 927,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/run-front-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1513,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 94,
+      "orphans": 906,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        25,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/run-front-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1611,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 94,
+      "orphans": 961,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        17,
+        65,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/run-front-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1441,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 94,
+      "orphans": 900,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        13,
+        63,
+        85
+      ],
+      "ground_gap_px": 15.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/run-front-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1624,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 94,
+      "orphans": 959,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        32,
+        19,
+        63,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/run-front-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1530,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 94,
+      "orphans": 906,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        25,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/run-front-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1630,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 94,
+      "orphans": 939,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        17,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/nari/frames/run-front-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1544,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 94,
+      "orphans": 916,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        13,
+        63,
+        88
+      ],
+      "ground_gap_px": 12.0
+    }
+  ]
+}

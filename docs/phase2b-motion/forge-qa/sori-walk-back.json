@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 0.644,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 4.4842,
+        "adjacent_median": 6.9681
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-back-0.png",
+      "sha256": "2f9090f617f5b2df3463d3d021b9b42cabac7897c652b3f698809c4db91d57ca",
+      "bytes": 4270
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-back-1.png",
+      "sha256": "c08951ff2aa65d0d9f20a52229380f5b742e24131160d9193a408b0b07b14c0b",
+      "bytes": 4282
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-back-2.png",
+      "sha256": "dcfba91097e5c75f95aa297274c05aac3fcdff31c203ceda54ac4aae153115cd",
+      "bytes": 4162
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-back-3.png",
+      "sha256": "daf7afbc15c5cc33b41f90dd3526bbc6ee2971c465c6a04aabcb36fc979bf0f9",
+      "bytes": 4508
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-back-4.png",
+      "sha256": "5316ac678353d4714961247502d4d6eaa28b2667104a3f48a7c55af4670ce7b4",
+      "bytes": 4339
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-back-5.png",
+      "sha256": "2aeab3ad7c5c897147175072e56fbba6ad0982688fab612a7b33b59ff1e4918f",
+      "bytes": 4380
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-back-6.png",
+      "sha256": "ba59ecdeafa05750938bd5ceeee0cad33e916c95ffb4461636c68739e39fa481",
+      "bytes": 4209
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-back-7.png",
+      "sha256": "ac32da148a5d24551b7c740493285cc054bb87f9ca594015c1e3bf10e6f4047a",
+      "bytes": 4141
+    }
+  ],
+  "outputs": [
+    {
+      "path": "sori-walk-back.png",
+      "sha256": "a419c61025cbf1b4fb04bea516ecf9a35a6cf120b1dcd6cddb633aab75f53b3f",
+      "bytes": 105383
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-back-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1314,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 731,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        62,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-back-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1320,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 723,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        21,
+        62,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-back-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1311,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 700,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        62,
+        95
+      ],
+      "ground_gap_px": 5.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-back-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1424,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 773,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        21,
+        66,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-back-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1333,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 742,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        62,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-back-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1356,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 92,
+      "orphans": 741,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        20,
+        64,
+        99
+      ],
+      "ground_gap_px": 1.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-back-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1287,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 93,
+      "orphans": 734,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        21,
+        62,
+        98
+      ],
+      "ground_gap_px": 2.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-back-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1306,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 96,
+      "orphans": 698,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        20,
+        62,
+        95
+      ],
+      "ground_gap_px": 5.0
+    }
+  ]
+}

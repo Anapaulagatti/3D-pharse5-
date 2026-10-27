@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.289,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 8.8849,
+        "adjacent_median": 6.8906
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-right-0.png",
+      "sha256": "a4de260260721416dc8ef9442389381513028723e4de15b55c95b06a6d6d1cd3",
+      "bytes": 4741
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-right-1.png",
+      "sha256": "281de5256c8adf920c718cfd18ca9871d3aecaf7c2f684fffc826af9741e6562",
+      "bytes": 4568
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-right-2.png",
+      "sha256": "00311e438e8725ace87fce9510843a8a75b2f57b9f5f2067f5d02759922dc4a3",
+      "bytes": 4271
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-right-3.png",
+      "sha256": "492aff2d60a61c10ba4802a4b38ad6bba3389fdb79ecc69799044e1494eb26e8",
+      "bytes": 4531
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-right-4.png",
+      "sha256": "e7b9b973ec7daf872b8d8b6573a3fe877a0359649b51e109d0e4f1ad55927359",
+      "bytes": 4553
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-right-5.png",
+      "sha256": "d22466760bdfacdab07adb660d3253e285628b06dc6b32d7cb4c8f5850db93a0",
+      "bytes": 4325
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-right-6.png",
+      "sha256": "46374aca0b1e87e75a2c6d6f128faf2e56d13a6903e6eb0aafc696752f6fe6a4",
+      "bytes": 4440
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/sori/frames/walk-right-7.png",
+      "sha256": "ef344c15598853699f5fa4a4f4b179d83a87df13358fcd022ddd50fcebbdc5e6",
+      "bytes": 4706
+    }
+  ],
+  "outputs": [
+    {
+      "path": "sori-walk-right.png",
+      "sha256": "6b30153448d1b4fd276b92b43519709d99042d916c0a5e8b64acdec8da30f76c",
+      "bytes": 114586
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-right-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1330,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 148,
+      "orphans": 833,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        22,
+        70,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-right-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1292,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 149,
+      "orphans": 820,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        21,
+        65,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-right-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1194,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 125,
+      "orphans": 772,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        21,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-right-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1262,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 147,
+      "orphans": 819,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        21,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-right-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1277,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 150,
+      "orphans": 799,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        22,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-right-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1210,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 132,
+      "orphans": 794,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        21,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-right-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1240,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 145,
+      "orphans": 795,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        21,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/sori/frames/walk-right-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1321,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 153,
+      "orphans": 830,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        33,
+        21,
+        69,
+        100
+      ],
+      "ground_gap_px": 0.0
+    }
+  ]
+}

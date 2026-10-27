@@ -1,0 +1,1737 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/korean-street-gate1/node_modules/.bin/playwright",
+      "test"
+    ],
+    "configFile": "/workspace/korean-street-gate1/playwright.config.ts",
+    "rootDir": "/workspace/korean-street-gate1/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/korean-street-gate1/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/workspace/korean-street-gate1/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/workspace/korean-street-gate1/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/workspace/korean-street-gate1/tests/e2e",
+        "snapshotDir": "/workspace/korean-street-gate1/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 120000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4350/3D-pharse5-/",
+          "headless": true,
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--disable-gpu-compositing",
+              "--use-gl=angle",
+              "--use-angle=swiftshader",
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "screenshot": "only-on-failure",
+          "video": "off"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/phase2b-motion/recovery-e2e/e2e-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview -- --port 4350",
+      "url": "http://127.0.0.1:4350/3D-pharse5-/",
+      "reuseExistingServer": true,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "characters.spec.ts",
+      "file": "characters.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "production starts in frozen world with twelve-character selection",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14970,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:49:45.503Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-a95e4d4903e9bbdc2f2b",
+          "file": "characters.spec.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "saved Juni restores and settings round-trip preserves location, emotes, progress and body ownership",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 35293,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:50:00.776Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-431442a0a5ff3d390cec",
+          "file": "characters.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "corrupt, unknown and unavailable storage recover to Juni without crashing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 25866,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:50:36.105Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-5750e998f3d1e94b2291",
+          "file": "characters.spec.ts",
+          "line": 110,
+          "column": 1
+        },
+        {
+          "title": "mobile landscape preview fits; modal isolates joystick and original touch movement returns",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3788,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:51:01.990Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-dc42a5b81894dba97a89",
+          "file": "characters.spec.ts",
+          "line": 140,
+          "column": 1
+        },
+        {
+          "title": "Canvas native Juni and Scenic Tour survive the production bootstrap",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1521,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:51:05.794Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-54b84ea39fa53e80e531",
+          "file": "characters.spec.ts",
+          "line": 190,
+          "column": 1
+        },
+        {
+          "title": "native pack haneul plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 23995,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:51:07.331Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-ac3d6f25f5de56fb6f43",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        },
+        {
+          "title": "native pack bomi plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 23535,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:51:31.336Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-54cdb481686f1ef172f7",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        },
+        {
+          "title": "native pack minjun plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20417,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:51:54.900Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-93793ef9d27b1c04d73b",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        },
+        {
+          "title": "native pack ara plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 19231,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:52:15.363Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-fb2935d2761562809c6e",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        },
+        {
+          "title": "native pack doyun plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 19311,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:52:34.622Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-0d35664efca6f2109ce7",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        },
+        {
+          "title": "native pack sori plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 21113,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:52:53.951Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-4b3a850484aa9a6cd200",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        },
+        {
+          "title": "native pack jiwon plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18455,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:53:15.094Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-d959912702ffdbbeb2ff",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        },
+        {
+          "title": "native pack nari plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 19339,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:53:33.574Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-965b185784348f31362c",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        },
+        {
+          "title": "native pack taeyang plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18796,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:53:52.933Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-d6abb273b952a062138e",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        },
+        {
+          "title": "native pack yuna plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20020,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:54:11.766Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-3bf63cdd12da9a558ddb",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        },
+        {
+          "title": "native pack hyunwoo plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18426,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:54:31.820Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-6ff9e31c4c8980326f61",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        }
+      ]
+    },
+    {
+      "title": "foundation.spec.ts",
+      "file": "foundation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "preserved north normal entry: actual Juni walk and gesture recover",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2338,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:54:50.282Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b60d0cacd30be8ae473-6e3307419c1f4fe87eaa",
+          "file": "foundation.spec.ts",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "approved Academy lesson and return remain functional after cleanup",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1724,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:54:52.631Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b60d0cacd30be8ae473-21a396c160eb3faf7552",
+          "file": "foundation.spec.ts",
+          "line": 38,
+          "column": 1
+        },
+        {
+          "title": "palace intent toggles retained gate and prevents closing on Juni",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1523,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:54:54.366Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b60d0cacd30be8ae473-1d0e7ac8d2e7bc5a4366",
+          "file": "foundation.spec.ts",
+          "line": 53,
+          "column": 1
+        },
+        {
+          "title": "mobile analog movement, reduced motion and portrait pause survive cleanup",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4067,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:54:55.905Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b60d0cacd30be8ae473-5fe019e0686d8d9f22be",
+          "file": "foundation.spec.ts",
+          "line": 66,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "motion-correction.spec.ts",
+      "file": "motion-correction.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "sori: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11065,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:54:59.999Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-248291d1d10d574dfc76",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "jiwon: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11094,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:55:11.075Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-040bffa412a82d05e565",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "nari: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10932,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:55:22.195Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-a4fa153f05c18c30d236",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "taeyang: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11026,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:55:33.143Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-bca9ed215f94c8f4080b",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "yuna: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10862,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:55:44.179Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-5bdd44f60206814bd60c",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "hyunwoo: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11272,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:55:55.087Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-c8f96b1baa9789d20ca6",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        }
+      ]
+    },
+    {
+      "title": "phase2b.spec.ts",
+      "file": "phase2b.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "twelve-entry mobile landscape gallery reaches the final identity, restores it on reopen and survives orientation changes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1548,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:56:06.384Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3059dd877290ebe59599-8b80be927bd44e30f027",
+          "file": "phase2b.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "new identities resolve incompatible stored cosmetics without deleting an approved look, preset or real visited marker",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2160,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:56:07.947Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3059dd877290ebe59599-95497a39c3f6671421e0",
+          "file": "phase2b.spec.ts",
+          "line": 67,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "studio.spec.ts",
+      "file": "studio.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Studio previews and applies each category, resets, and persists a named local look without changing world progress",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2787,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:56:10.143Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "64bdea7002f9c9cea9f4-af1e076a8c98fed05bc6",
+          "file": "studio.spec.ts",
+          "line": 71,
+          "column": 1
+        },
+        {
+          "title": "legacy v1 selection migrates additively without rewriting data just to read it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1368,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:56:12.956Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "64bdea7002f9c9cea9f4-c7bd27d6c0c563bcaa9b",
+          "file": "studio.spec.ts",
+          "line": 135,
+          "column": 1
+        },
+        {
+          "title": "switching between cosmetic-compatible and locked original identities restores each own set and keeps one sprite",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1969,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:56:14.347Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "64bdea7002f9c9cea9f4-b97ae655df4d4a917d97",
+          "file": "studio.spec.ts",
+          "line": 163,
+          "column": 1
+        },
+        {
+          "title": "corrupt and incompatible appearance references preserve the valid v1 identity and original defaults",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1184,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:56:16.328Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "64bdea7002f9c9cea9f4-951670f36786558b33a3",
+          "file": "studio.spec.ts",
+          "line": 197,
+          "column": 1
+        },
+        {
+          "title": "missing cosmetic artwork falls back to the original character without blank or duplicate players",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1666,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:56:17.526Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "64bdea7002f9c9cea9f4-f96e69a87c42d26dafd2",
+          "file": "studio.spec.ts",
+          "line": 229,
+          "column": 1
+        },
+        {
+          "title": "repeated six-character and cosmetic switches keep texture/preview caches bounded and world state fixed",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5198,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:56:19.208Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "texture-cache-observations",
+                      "contentType": "application/json",
+                      "body": "WwogIHsKICAgICJhY3RpdmVLZXkiOiAic3R1ZGlvLWFyYTphcmEtYnJhaWRlZC1idW4rYXJhLWNvYXN0YWwtcGFya2ErYXJhLXNoZWxsLWJhcnJldHRlIiwKICAgICJsaW1pdCI6IDMsCiAgICAidGV4dHVyZXMiOiBbCiAgICAgIHsKICAgICAgICAia2V5IjogImp1bmkiLAogICAgICAgICJ3aWR0aCI6IDEyMDIsCiAgICAgICAgImhlaWdodCI6IDEzOTQsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNjcwMjM1MgogICAgICB9LAogICAgICB7CiAgICAgICAgImtleSI6ICJzdHVkaW8tYXJhOmFyYS1icmFpZGVkLWJ1bithcmEtY29hc3RhbC1wYXJrYSthcmEtc2hlbGwtYmFycmV0dGUiLAogICAgICAgICJ3aWR0aCI6IDExNTIsCiAgICAgICAgImhlaWdodCI6IDExMjAsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNTE2MDk2MAogICAgICB9CiAgICBdLAogICAgImVzdGltYXRlZEJ5dGVzIjogMTE4NjMzMTIsCiAgICAiY29tcG9zaXRpb24iOiB7CiAgICAgICJiYXNlSW1hZ2VzIjogMiwKICAgICAgImJhc2VMaW1pdCI6IDIsCiAgICAgICJjb21wb3NpdGVJbWFnZXMiOiAxLAogICAgICAiY29tcG9zaXRlTGltaXQiOiAyLAogICAgICAicGVuZGluZ0Jhc2VMb2FkcyI6IDAsCiAgICAgICJjb21wb3NpdGlvbnMiOiAxLAogICAgICAiZXN0aW1hdGVkQmFzZUJ5dGVzIjogMTE4NjMzMTIsCiAgICAgICJlc3RpbWF0ZWRDb21wb3NpdGVCeXRlcyI6IDUxNjA5NjAKICAgIH0KICB9LAogIHsKICAgICJhY3RpdmVLZXkiOiAic3R1ZGlvLWFyYTphcmEtd2F2eS1waXhpZSthcmEtc3VubGl0LWxpbmVuK2FyYS1zaGVsbC1iYXJyZXR0ZSIsCiAgICAibGltaXQiOiAzLAogICAgInRleHR1cmVzIjogWwogICAgICB7CiAgICAgICAgImtleSI6ICJqdW5pIiwKICAgICAgICAid2lkdGgiOiAxMjAyLAogICAgICAgICJoZWlnaHQiOiAxMzk0LAogICAgICAgICJlc3RpbWF0ZWRCeXRlcyI6IDY3MDIzNTIKICAgICAgfSwKICAgICAgewogICAgICAgICJrZXkiOiAic3R1ZGlvLWFyYTphcmEtYnJhaWRlZC1idW4rYXJhLWNvYXN0YWwtcGFya2ErYXJhLXNoZWxsLWJhcnJldHRlIiwKICAgICAgICAid2lkdGgiOiAxMTUyLAogICAgICAgICJoZWlnaHQiOiAxMTIwLAogICAgICAgICJlc3RpbWF0ZWRCeXRlcyI6IDUxNjA5NjAKICAgICAgfSwKICAgICAgewogICAgICAgICJrZXkiOiAic3R1ZGlvLWFyYTphcmEtd2F2eS1waXhpZSthcmEtc3VubGl0LWxpbmVuK2FyYS1zaGVsbC1iYXJyZXR0ZSIsCiAgICAgICAgIndpZHRoIjogMTE1MiwKICAgICAgICAiaGVpZ2h0IjogMTEyMCwKICAgICAgICAiZXN0aW1hdGVkQnl0ZXMiOiA1MTYwOTYwCiAgICAgIH0KICAgIF0sCiAgICAiZXN0aW1hdGVkQnl0ZXMiOiAxNzAyNDI3MiwKICAgICJjb21wb3NpdGlvbiI6IHsKICAgICAgImJhc2VJbWFnZXMiOiAyLAogICAgICAiYmFzZUxpbWl0IjogMiwKICAgICAgImNvbXBvc2l0ZUltYWdlcyI6IDIsCiAgICAgICJjb21wb3NpdGVMaW1pdCI6IDIsCiAgICAgICJwZW5kaW5nQmFzZUxvYWRzIjogMCwKICAgICAgImNvbXBvc2l0aW9ucyI6IDIsCiAgICAgICJlc3RpbWF0ZWRCYXNlQnl0ZXMiOiAxMTg2MzMxMiwKICAgICAgImVzdGltYXRlZENvbXBvc2l0ZUJ5dGVzIjogMTAzMjE5MjAKICAgIH0KICB9LAogIHsKICAgICJhY3RpdmVLZXkiOiAic3R1ZGlvLWRveXVuOmRveXVuLXN3ZXB0LXF1aWZmK2RveXVuLWZpZWxkLWphY2tldCtkb3l1bi1saW5lbi1rZXJjaGllZiIsCiAgICAibGltaXQiOiAzLAogICAgInRleHR1cmVzIjogWwogICAgICB7CiAgICAgICAgImtleSI6ICJzdHVkaW8tYXJhOmFyYS1icmFpZGVkLWJ1bithcmEtY29hc3RhbC1wYXJrYSthcmEtc2hlbGwtYmFycmV0dGUiLAogICAgICAgICJ3aWR0aCI6IDExNTIsCiAgICAgICAgImhlaWdodCI6IDExMjAsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNTE2MDk2MAogICAgICB9LAogICAgICB7CiAgICAgICAgImtleSI6ICJzdHVkaW8tYXJhOmFyYS13YXZ5LXBpeGllK2FyYS1zdW5saXQtbGluZW4rYXJhLXNoZWxsLWJhcnJldHRlIiwKICAgICAgICAid2lkdGgiOiAxMTUyLAogICAgICAgICJoZWlnaHQiOiAxMTIwLAogICAgICAgICJlc3RpbWF0ZWRCeXRlcyI6IDUxNjA5NjAKICAgICAgfSwKICAgICAgewogICAgICAgICJrZXkiOiAic3R1ZGlvLWRveXVuOmRveXVuLXN3ZXB0LXF1aWZmK2RveXVuLWZpZWxkLWphY2tldCtkb3l1bi1saW5lbi1rZXJjaGllZiIsCiAgICAgICAgIndpZHRoIjogMTE1MiwKICAgICAgICAiaGVpZ2h0IjogMTEyMCwKICAgICAgICAiZXN0aW1hdGVkQnl0ZXMiOiA1MTYwOTYwCiAgICAgIH0KICAgIF0sCiAgICAiZXN0aW1hdGVkQnl0ZXMiOiAxNTQ4Mjg4MCwKICAgICJjb21wb3NpdGlvbiI6IHsKICAgICAgImJhc2VJbWFnZXMiOiAyLAogICAgICAiYmFzZUxpbWl0IjogMiwKICAgICAgImNvbXBvc2l0ZUltYWdlcyI6IDIsCiAgICAgICJjb21wb3NpdGVMaW1pdCI6IDIsCiAgICAgICJwZW5kaW5nQmFzZUxvYWRzIjogMCwKICAgICAgImNvbXBvc2l0aW9ucyI6IDMsCiAgICAgICJlc3RpbWF0ZWRCYXNlQnl0ZXMiOiAxMDMyMTkyMCwKICAgICAgImVzdGltYXRlZENvbXBvc2l0ZUJ5dGVzIjogMTAzMjE5MjAKICAgIH0KICB9LAogIHsKICAgICJhY3RpdmVLZXkiOiAic3R1ZGlvLWRveXVuOmRveXVuLWN1cmx5LWNyb3ArZG95dW4tdmFyc2l0eS1jYXJkaWdhbitkb3l1bi1saW5lbi1rZXJjaGllZiIsCiAgICAibGltaXQiOiAzLAogICAgInRleHR1cmVzIjogWwogICAgICB7CiAgICAgICAgImtleSI6ICJzdHVkaW8tYXJhOmFyYS13YXZ5LXBpeGllK2FyYS1zdW5saXQtbGluZW4rYXJhLXNoZWxsLWJhcnJldHRlIiwKICAgICAgICAid2lkdGgiOiAxMTUyLAogICAgICAgICJoZWlnaHQiOiAxMTIwLAogICAgICAgICJlc3RpbWF0ZWRCeXRlcyI6IDUxNjA5NjAKICAgICAgfSwKICAgICAgewogICAgICAgICJrZXkiOiAic3R1ZGlvLWRveXVuOmRveXVuLXN3ZXB0LXF1aWZmK2RveXVuLWZpZWxkLWphY2tldCtkb3l1bi1saW5lbi1rZXJjaGllZiIsCiAgICAgICAgIndpZHRoIjogMTE1MiwKICAgICAgICAiaGVpZ2h0IjogMTEyMCwKICAgICAgICAiZXN0aW1hdGVkQnl0ZXMiOiA1MTYwOTYwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAia2V5IjogInN0dWRpby1kb3l1bjpkb3l1bi1jdXJseS1jcm9wK2RveXVuLXZhcnNpdHktY2FyZGlnYW4rZG95dW4tbGluZW4ta2VyY2hpZWYiLAogICAgICAgICJ3aWR0aCI6IDExNTIsCiAgICAgICAgImhlaWdodCI6IDExMjAsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNTE2MDk2MAogICAgICB9CiAgICBdLAogICAgImVzdGltYXRlZEJ5dGVzIjogMTU0ODI4ODAsCiAgICAiY29tcG9zaXRpb24iOiB7CiAgICAgICJiYXNlSW1hZ2VzIjogMiwKICAgICAgImJhc2VMaW1pdCI6IDIsCiAgICAgICJjb21wb3NpdGVJbWFnZXMiOiAyLAogICAgICAiY29tcG9zaXRlTGltaXQiOiAyLAogICAgICAicGVuZGluZ0Jhc2VMb2FkcyI6IDAsCiAgICAgICJjb21wb3NpdGlvbnMiOiA0LAogICAgICAiZXN0aW1hdGVkQmFzZUJ5dGVzIjogMTAzMjE5MjAsCiAgICAgICJlc3RpbWF0ZWRDb21wb3NpdGVCeXRlcyI6IDEwMzIxOTIwCiAgICB9CiAgfSwKICB7CiAgICAiYWN0aXZlS2V5IjogImp1bmkiLAogICAgImxpbWl0IjogMywKICAgICJ0ZXh0dXJlcyI6IFsKICAgICAgewogICAgICAgICJrZXkiOiAic3R1ZGlvLWRveXVuOmRveXVuLXN3ZXB0LXF1aWZmK2RveXVuLWZpZWxkLWphY2tldCtkb3l1bi1saW5lbi1rZXJjaGllZiIsCiAgICAgICAgIndpZHRoIjogMTE1MiwKICAgICAgICAiaGVpZ2h0IjogMTEyMCwKICAgICAgICAiZXN0aW1hdGVkQnl0ZXMiOiA1MTYwOTYwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAia2V5IjogInN0dWRpby1kb3l1bjpkb3l1bi1jdXJseS1jcm9wK2RveXVuLXZhcnNpdHktY2FyZGlnYW4rZG95dW4tbGluZW4ta2VyY2hpZWYiLAogICAgICAgICJ3aWR0aCI6IDExNTIsCiAgICAgICAgImhlaWdodCI6IDExMjAsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNTE2MDk2MAogICAgICB9LAogICAgICB7CiAgICAgICAgImtleSI6ICJqdW5pIiwKICAgICAgICAid2lkdGgiOiAxMjAyLAogICAgICAgICJoZWlnaHQiOiAxMzk0LAogICAgICAgICJlc3RpbWF0ZWRCeXRlcyI6IDY3MDIzNTIKICAgICAgfQogICAgXSwKICAgICJlc3RpbWF0ZWRCeXRlcyI6IDE3MDI0MjcyLAogICAgImNvbXBvc2l0aW9uIjogewogICAgICAiYmFzZUltYWdlcyI6IDIsCiAgICAgICJiYXNlTGltaXQiOiAyLAogICAgICAiY29tcG9zaXRlSW1hZ2VzIjogMiwKICAgICAgImNvbXBvc2l0ZUxpbWl0IjogMiwKICAgICAgInBlbmRpbmdCYXNlTG9hZHMiOiAwLAogICAgICAiY29tcG9zaXRpb25zIjogNCwKICAgICAgImVzdGltYXRlZEJhc2VCeXRlcyI6IDExODYzMzEyLAogICAgICAiZXN0aW1hdGVkQ29tcG9zaXRlQnl0ZXMiOiAxMDMyMTkyMAogICAgfQogIH0sCiAgewogICAgImFjdGl2ZUtleSI6ICJzdHVkaW8tYXJhOmFyYS13YXZ5LXBpeGllK2FyYS1zdW5saXQtbGluZW4rYXJhLXNoZWxsLWJhcnJldHRlIiwKICAgICJsaW1pdCI6IDMsCiAgICAidGV4dHVyZXMiOiBbCiAgICAgIHsKICAgICAgICAia2V5IjogInN0dWRpby1kb3l1bjpkb3l1bi1jdXJseS1jcm9wK2RveXVuLXZhcnNpdHktY2FyZGlnYW4rZG95dW4tbGluZW4ta2VyY2hpZWYiLAogICAgICAgICJ3aWR0aCI6IDExNTIsCiAgICAgICAgImhlaWdodCI6IDExMjAsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNTE2MDk2MAogICAgICB9LAogICAgICB7CiAgICAgICAgImtleSI6ICJqdW5pIiwKICAgICAgICAid2lkdGgiOiAxMjAyLAogICAgICAgICJoZWlnaHQiOiAxMzk0LAogICAgICAgICJlc3RpbWF0ZWRCeXRlcyI6IDY3MDIzNTIKICAgICAgfSwKICAgICAgewogICAgICAgICJrZXkiOiAic3R1ZGlvLWFyYTphcmEtd2F2eS1waXhpZSthcmEtc3VubGl0LWxpbmVuK2FyYS1zaGVsbC1iYXJyZXR0ZSIsCiAgICAgICAgIndpZHRoIjogMTE1MiwKICAgICAgICAiaGVpZ2h0IjogMTEyMCwKICAgICAgICAiZXN0aW1hdGVkQnl0ZXMiOiA1MTYwOTYwCiAgICAgIH0KICAgIF0sCiAgICAiZXN0aW1hdGVkQnl0ZXMiOiAxNzAyNDI3MiwKICAgICJjb21wb3NpdGlvbiI6IHsKICAgICAgImJhc2VJbWFnZXMiOiAyLAogICAgICAiYmFzZUxpbWl0IjogMiwKICAgICAgImNvbXBvc2l0ZUltYWdlcyI6IDIsCiAgICAgICJjb21wb3NpdGVMaW1pdCI6IDIsCiAgICAgICJwZW5kaW5nQmFzZUxvYWRzIjogMCwKICAgICAgImNvbXBvc2l0aW9ucyI6IDUsCiAgICAgICJlc3RpbWF0ZWRCYXNlQnl0ZXMiOiAxMTg2MzMxMiwKICAgICAgImVzdGltYXRlZENvbXBvc2l0ZUJ5dGVzIjogMTAzMjE5MjAKICAgIH0KICB9LAogIHsKICAgICJhY3RpdmVLZXkiOiAic3R1ZGlvLWRveXVuOmRveXVuLXN3ZXB0LXF1aWZmK2RveXVuLWZpZWxkLWphY2tldCtkb3l1bi1saW5lbi1rZXJjaGllZiIsCiAgICAibGltaXQiOiAzLAogICAgInRleHR1cmVzIjogWwogICAgICB7CiAgICAgICAgImtleSI6ICJqdW5pIiwKICAgICAgICAid2lkdGgiOiAxMjAyLAogICAgICAgICJoZWlnaHQiOiAxMzk0LAogICAgICAgICJlc3RpbWF0ZWRCeXRlcyI6IDY3MDIzNTIKICAgICAgfSwKICAgICAgewogICAgICAgICJrZXkiOiAic3R1ZGlvLWFyYTphcmEtd2F2eS1waXhpZSthcmEtc3VubGl0LWxpbmVuK2FyYS1zaGVsbC1iYXJyZXR0ZSIsCiAgICAgICAgIndpZHRoIjogMTE1MiwKICAgICAgICAiaGVpZ2h0IjogMTEyMCwKICAgICAgICAiZXN0aW1hdGVkQnl0ZXMiOiA1MTYwOTYwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAia2V5IjogInN0dWRpby1kb3l1bjpkb3l1bi1zd2VwdC1xdWlmZitkb3l1bi1maWVsZC1qYWNrZXQrZG95dW4tbGluZW4ta2VyY2hpZWYiLAogICAgICAgICJ3aWR0aCI6IDExNTIsCiAgICAgICAgImhlaWdodCI6IDExMjAsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNTE2MDk2MAogICAgICB9CiAgICBdLAogICAgImVzdGltYXRlZEJ5dGVzIjogMTcwMjQyNzIsCiAgICAiY29tcG9zaXRpb24iOiB7CiAgICAgICJiYXNlSW1hZ2VzIjogMiwKICAgICAgImJhc2VMaW1pdCI6IDIsCiAgICAgICJjb21wb3NpdGVJbWFnZXMiOiAyLAogICAgICAiY29tcG9zaXRlTGltaXQiOiAyLAogICAgICAicGVuZGluZ0Jhc2VMb2FkcyI6IDAsCiAgICAgICJjb21wb3NpdGlvbnMiOiA2LAogICAgICAiZXN0aW1hdGVkQmFzZUJ5dGVzIjogMTAzMjE5MjAsCiAgICAgICJlc3RpbWF0ZWRDb21wb3NpdGVCeXRlcyI6IDEwMzIxOTIwCiAgICB9CiAgfSwKICB7CiAgICAiYWN0aXZlS2V5IjogInN0dWRpby1kb3l1bjpkb3l1bi1jdXJseS1jcm9wK2RveXVuLXZhcnNpdHktY2FyZGlnYW4rZG95dW4tbGluZW4ta2VyY2hpZWYiLAogICAgImxpbWl0IjogMywKICAgICJ0ZXh0dXJlcyI6IFsKICAgICAgewogICAgICAgICJrZXkiOiAic3R1ZGlvLWFyYTphcmEtd2F2eS1waXhpZSthcmEtc3VubGl0LWxpbmVuK2FyYS1zaGVsbC1iYXJyZXR0ZSIsCiAgICAgICAgIndpZHRoIjogMTE1MiwKICAgICAgICAiaGVpZ2h0IjogMTEyMCwKICAgICAgICAiZXN0aW1hdGVkQnl0ZXMiOiA1MTYwOTYwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAia2V5IjogInN0dWRpby1kb3l1bjpkb3l1bi1zd2VwdC1xdWlmZitkb3l1bi1maWVsZC1qYWNrZXQrZG95dW4tbGluZW4ta2VyY2hpZWYiLAogICAgICAgICJ3aWR0aCI6IDExNTIsCiAgICAgICAgImhlaWdodCI6IDExMjAsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNTE2MDk2MAogICAgICB9LAogICAgICB7CiAgICAgICAgImtleSI6ICJzdHVkaW8tZG95dW46ZG95dW4tY3VybHktY3JvcCtkb3l1bi12YXJzaXR5LWNhcmRpZ2FuK2RveXVuLWxpbmVuLWtlcmNoaWVmIiwKICAgICAgICAid2lkdGgiOiAxMTUyLAogICAgICAgICJoZWlnaHQiOiAxMTIwLAogICAgICAgICJlc3RpbWF0ZWRCeXRlcyI6IDUxNjA5NjAKICAgICAgfQogICAgXSwKICAgICJlc3RpbWF0ZWRCeXRlcyI6IDE1NDgyODgwLAogICAgImNvbXBvc2l0aW9uIjogewogICAgICAiYmFzZUltYWdlcyI6IDIsCiAgICAgICJiYXNlTGltaXQiOiAyLAogICAgICAiY29tcG9zaXRlSW1hZ2VzIjogMiwKICAgICAgImNvbXBvc2l0ZUxpbWl0IjogMiwKICAgICAgInBlbmRpbmdCYXNlTG9hZHMiOiAwLAogICAgICAiY29tcG9zaXRpb25zIjogNywKICAgICAgImVzdGltYXRlZEJhc2VCeXRlcyI6IDEwMzIxOTIwLAogICAgICAiZXN0aW1hdGVkQ29tcG9zaXRlQnl0ZXMiOiAxMDMyMTkyMAogICAgfQogIH0sCiAgewogICAgImFjdGl2ZUtleSI6ICJzdHVkaW8tYXJhOmFyYS1icmFpZGVkLWJ1bithcmEtY29hc3RhbC1wYXJrYSthcmEtc2hlbGwtYmFycmV0dGUiLAogICAgImxpbWl0IjogMywKICAgICJ0ZXh0dXJlcyI6IFsKICAgICAgewogICAgICAgICJrZXkiOiAic3R1ZGlvLWRveXVuOmRveXVuLXN3ZXB0LXF1aWZmK2RveXVuLWZpZWxkLWphY2tldCtkb3l1bi1saW5lbi1rZXJjaGllZiIsCiAgICAgICAgIndpZHRoIjogMTE1MiwKICAgICAgICAiaGVpZ2h0IjogMTEyMCwKICAgICAgICAiZXN0aW1hdGVkQnl0ZXMiOiA1MTYwOTYwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAia2V5IjogInN0dWRpby1kb3l1bjpkb3l1bi1jdXJseS1jcm9wK2RveXVuLXZhcnNpdHktY2FyZGlnYW4rZG95dW4tbGluZW4ta2VyY2hpZWYiLAogICAgICAgICJ3aWR0aCI6IDExNTIsCiAgICAgICAgImhlaWdodCI6IDExMjAsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNTE2MDk2MAogICAgICB9LAogICAgICB7CiAgICAgICAgImtleSI6ICJzdHVkaW8tYXJhOmFyYS1icmFpZGVkLWJ1bithcmEtY29hc3RhbC1wYXJrYSthcmEtc2hlbGwtYmFycmV0dGUiLAogICAgICAgICJ3aWR0aCI6IDExNTIsCiAgICAgICAgImhlaWdodCI6IDExMjAsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNTE2MDk2MAogICAgICB9CiAgICBdLAogICAgImVzdGltYXRlZEJ5dGVzIjogMTU0ODI4ODAsCiAgICAiY29tcG9zaXRpb24iOiB7CiAgICAgICJiYXNlSW1hZ2VzIjogMiwKICAgICAgImJhc2VMaW1pdCI6IDIsCiAgICAgICJjb21wb3NpdGVJbWFnZXMiOiAyLAogICAgICAiY29tcG9zaXRlTGltaXQiOiAyLAogICAgICAicGVuZGluZ0Jhc2VMb2FkcyI6IDAsCiAgICAgICJjb21wb3NpdGlvbnMiOiA4LAogICAgICAiZXN0aW1hdGVkQmFzZUJ5dGVzIjogMTAzMjE5MjAsCiAgICAgICJlc3RpbWF0ZWRDb21wb3NpdGVCeXRlcyI6IDEwMzIxOTIwCiAgICB9CiAgfSwKICB7CiAgICAiYWN0aXZlS2V5IjogImNoYXJhY3Rlci1oYW5ldWwiLAogICAgImxpbWl0IjogMywKICAgICJ0ZXh0dXJlcyI6IFsKICAgICAgewogICAgICAgICJrZXkiOiAic3R1ZGlvLWRveXVuOmRveXVuLWN1cmx5LWNyb3ArZG95dW4tdmFyc2l0eS1jYXJkaWdhbitkb3l1bi1saW5lbi1rZXJjaGllZiIsCiAgICAgICAgIndpZHRoIjogMTE1MiwKICAgICAgICAiaGVpZ2h0IjogMTEyMCwKICAgICAgICAiZXN0aW1hdGVkQnl0ZXMiOiA1MTYwOTYwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAia2V5IjogInN0dWRpby1hcmE6YXJhLWJyYWlkZWQtYnVuK2FyYS1jb2FzdGFsLXBhcmthK2FyYS1zaGVsbC1iYXJyZXR0ZSIsCiAgICAgICAgIndpZHRoIjogMTE1MiwKICAgICAgICAiaGVpZ2h0IjogMTEyMCwKICAgICAgICAiZXN0aW1hdGVkQnl0ZXMiOiA1MTYwOTYwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAia2V5IjogImNoYXJhY3Rlci1oYW5ldWwiLAogICAgICAgICJ3aWR0aCI6IDExNTIsCiAgICAgICAgImhlaWdodCI6IDExMjAsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNTE2MDk2MAogICAgICB9CiAgICBdLAogICAgImVzdGltYXRlZEJ5dGVzIjogMTU0ODI4ODAsCiAgICAiY29tcG9zaXRpb24iOiB7CiAgICAgICJiYXNlSW1hZ2VzIjogMiwKICAgICAgImJhc2VMaW1pdCI6IDIsCiAgICAgICJjb21wb3NpdGVJbWFnZXMiOiAyLAogICAgICAiY29tcG9zaXRlTGltaXQiOiAyLAogICAgICAicGVuZGluZ0Jhc2VMb2FkcyI6IDAsCiAgICAgICJjb21wb3NpdGlvbnMiOiA4LAogICAgICAiZXN0aW1hdGVkQmFzZUJ5dGVzIjogMTAzMjE5MjAsCiAgICAgICJlc3RpbWF0ZWRDb21wb3NpdGVCeXRlcyI6IDEwMzIxOTIwCiAgICB9CiAgfSwKICB7CiAgICAiYWN0aXZlS2V5IjogInN0dWRpby1kb3l1bjpkb3l1bi1zd2VwdC1xdWlmZitkb3l1bi1maWVsZC1qYWNrZXQrZG95dW4tbGluZW4ta2VyY2hpZWYiLAogICAgImxpbWl0IjogMywKICAgICJ0ZXh0dXJlcyI6IFsKICAgICAgewogICAgICAgICJrZXkiOiAic3R1ZGlvLWFyYTphcmEtYnJhaWRlZC1idW4rYXJhLWNvYXN0YWwtcGFya2ErYXJhLXNoZWxsLWJhcnJldHRlIiwKICAgICAgICAid2lkdGgiOiAxMTUyLAogICAgICAgICJoZWlnaHQiOiAxMTIwLAogICAgICAgICJlc3RpbWF0ZWRCeXRlcyI6IDUxNjA5NjAKICAgICAgfSwKICAgICAgewogICAgICAgICJrZXkiOiAiY2hhcmFjdGVyLWhhbmV1bCIsCiAgICAgICAgIndpZHRoIjogMTE1MiwKICAgICAgICAiaGVpZ2h0IjogMTEyMCwKICAgICAgICAiZXN0aW1hdGVkQnl0ZXMiOiA1MTYwOTYwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAia2V5IjogInN0dWRpby1kb3l1bjpkb3l1bi1zd2VwdC1xdWlmZitkb3l1bi1maWVsZC1qYWNrZXQrZG95dW4tbGluZW4ta2VyY2hpZWYiLAogICAgICAgICJ3aWR0aCI6IDExNTIsCiAgICAgICAgImhlaWdodCI6IDExMjAsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNTE2MDk2MAogICAgICB9CiAgICBdLAogICAgImVzdGltYXRlZEJ5dGVzIjogMTU0ODI4ODAsCiAgICAiY29tcG9zaXRpb24iOiB7CiAgICAgICJiYXNlSW1hZ2VzIjogMiwKICAgICAgImJhc2VMaW1pdCI6IDIsCiAgICAgICJjb21wb3NpdGVJbWFnZXMiOiAyLAogICAgICAiY29tcG9zaXRlTGltaXQiOiAyLAogICAgICAicGVuZGluZ0Jhc2VMb2FkcyI6IDAsCiAgICAgICJjb21wb3NpdGlvbnMiOiA5LAogICAgICAiZXN0aW1hdGVkQmFzZUJ5dGVzIjogMTAzMjE5MjAsCiAgICAgICJlc3RpbWF0ZWRDb21wb3NpdGVCeXRlcyI6IDEwMzIxOTIwCiAgICB9CiAgfSwKICB7CiAgICAiYWN0aXZlS2V5IjogInN0dWRpby1kb3l1bjpkb3l1bi1jdXJseS1jcm9wK2RveXVuLXZhcnNpdHktY2FyZGlnYW4rZG95dW4tbGluZW4ta2VyY2hpZWYiLAogICAgImxpbWl0IjogMywKICAgICJ0ZXh0dXJlcyI6IFsKICAgICAgewogICAgICAgICJrZXkiOiAiY2hhcmFjdGVyLWhhbmV1bCIsCiAgICAgICAgIndpZHRoIjogMTE1MiwKICAgICAgICAiaGVpZ2h0IjogMTEyMCwKICAgICAgICAiZXN0aW1hdGVkQnl0ZXMiOiA1MTYwOTYwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAia2V5IjogInN0dWRpby1kb3l1bjpkb3l1bi1zd2VwdC1xdWlmZitkb3l1bi1maWVsZC1qYWNrZXQrZG95dW4tbGluZW4ta2VyY2hpZWYiLAogICAgICAgICJ3aWR0aCI6IDExNTIsCiAgICAgICAgImhlaWdodCI6IDExMjAsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNTE2MDk2MAogICAgICB9LAogICAgICB7CiAgICAgICAgImtleSI6ICJzdHVkaW8tZG95dW46ZG95dW4tY3VybHktY3JvcCtkb3l1bi12YXJzaXR5LWNhcmRpZ2FuK2RveXVuLWxpbmVuLWtlcmNoaWVmIiwKICAgICAgICAid2lkdGgiOiAxMTUyLAogICAgICAgICJoZWlnaHQiOiAxMTIwLAogICAgICAgICJlc3RpbWF0ZWRCeXRlcyI6IDUxNjA5NjAKICAgICAgfQogICAgXSwKICAgICJlc3RpbWF0ZWRCeXRlcyI6IDE1NDgyODgwLAogICAgImNvbXBvc2l0aW9uIjogewogICAgICAiYmFzZUltYWdlcyI6IDIsCiAgICAgICJiYXNlTGltaXQiOiAyLAogICAgICAiY29tcG9zaXRlSW1hZ2VzIjogMiwKICAgICAgImNvbXBvc2l0ZUxpbWl0IjogMiwKICAgICAgInBlbmRpbmdCYXNlTG9hZHMiOiAwLAogICAgICAiY29tcG9zaXRpb25zIjogMTAsCiAgICAgICJlc3RpbWF0ZWRCYXNlQnl0ZXMiOiAxMDMyMTkyMCwKICAgICAgImVzdGltYXRlZENvbXBvc2l0ZUJ5dGVzIjogMTAzMjE5MjAKICAgIH0KICB9LAogIHsKICAgICJhY3RpdmVLZXkiOiAic3R1ZGlvLWFyYTphcmEtYnJhaWRlZC1idW4rYXJhLWNvYXN0YWwtcGFya2ErYXJhLXNoZWxsLWJhcnJldHRlIiwKICAgICJsaW1pdCI6IDMsCiAgICAidGV4dHVyZXMiOiBbCiAgICAgIHsKICAgICAgICAia2V5IjogInN0dWRpby1kb3l1bjpkb3l1bi1zd2VwdC1xdWlmZitkb3l1bi1maWVsZC1qYWNrZXQrZG95dW4tbGluZW4ta2VyY2hpZWYiLAogICAgICAgICJ3aWR0aCI6IDExNTIsCiAgICAgICAgImhlaWdodCI6IDExMjAsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNTE2MDk2MAogICAgICB9LAogICAgICB7CiAgICAgICAgImtleSI6ICJzdHVkaW8tZG95dW46ZG95dW4tY3VybHktY3JvcCtkb3l1bi12YXJzaXR5LWNhcmRpZ2FuK2RveXVuLWxpbmVuLWtlcmNoaWVmIiwKICAgICAgICAid2lkdGgiOiAxMTUyLAogICAgICAgICJoZWlnaHQiOiAxMTIwLAogICAgICAgICJlc3RpbWF0ZWRCeXRlcyI6IDUxNjA5NjAKICAgICAgfSwKICAgICAgewogICAgICAgICJrZXkiOiAic3R1ZGlvLWFyYTphcmEtYnJhaWRlZC1idW4rYXJhLWNvYXN0YWwtcGFya2ErYXJhLXNoZWxsLWJhcnJldHRlIiwKICAgICAgICAid2lkdGgiOiAxMTUyLAogICAgICAgICJoZWlnaHQiOiAxMTIwLAogICAgICAgICJlc3RpbWF0ZWRCeXRlcyI6IDUxNjA5NjAKICAgICAgfQogICAgXSwKICAgICJlc3RpbWF0ZWRCeXRlcyI6IDE1NDgyODgwLAogICAgImNvbXBvc2l0aW9uIjogewogICAgICAiYmFzZUltYWdlcyI6IDIsCiAgICAgICJiYXNlTGltaXQiOiAyLAogICAgICAiY29tcG9zaXRlSW1hZ2VzIjogMiwKICAgICAgImNvbXBvc2l0ZUxpbWl0IjogMiwKICAgICAgInBlbmRpbmdCYXNlTG9hZHMiOiAwLAogICAgICAiY29tcG9zaXRpb25zIjogMTEsCiAgICAgICJlc3RpbWF0ZWRCYXNlQnl0ZXMiOiAxMDMyMTkyMCwKICAgICAgImVzdGltYXRlZENvbXBvc2l0ZUJ5dGVzIjogMTAzMjE5MjAKICAgIH0KICB9LAogIHsKICAgICJhY3RpdmVLZXkiOiAic3R1ZGlvLWFyYTphcmEtd2F2eS1waXhpZSthcmEtc3VubGl0LWxpbmVuK2FyYS1zaGVsbC1iYXJyZXR0ZSIsCiAgICAibGltaXQiOiAzLAogICAgInRleHR1cmVzIjogWwogICAgICB7CiAgICAgICAgImtleSI6ICJzdHVkaW8tZG95dW46ZG95dW4tY3VybHktY3JvcCtkb3l1bi12YXJzaXR5LWNhcmRpZ2FuK2RveXVuLWxpbmVuLWtlcmNoaWVmIiwKICAgICAgICAid2lkdGgiOiAxMTUyLAogICAgICAgICJoZWlnaHQiOiAxMTIwLAogICAgICAgICJlc3RpbWF0ZWRCeXRlcyI6IDUxNjA5NjAKICAgICAgfSwKICAgICAgewogICAgICAgICJrZXkiOiAic3R1ZGlvLWFyYTphcmEtYnJhaWRlZC1idW4rYXJhLWNvYXN0YWwtcGFya2ErYXJhLXNoZWxsLWJhcnJldHRlIiwKICAgICAgICAid2lkdGgiOiAxMTUyLAogICAgICAgICJoZWlnaHQiOiAxMTIwLAogICAgICAgICJlc3RpbWF0ZWRCeXRlcyI6IDUxNjA5NjAKICAgICAgfSwKICAgICAgewogICAgICAgICJrZXkiOiAic3R1ZGlvLWFyYTphcmEtd2F2eS1waXhpZSthcmEtc3VubGl0LWxpbmVuK2FyYS1zaGVsbC1iYXJyZXR0ZSIsCiAgICAgICAgIndpZHRoIjogMTE1MiwKICAgICAgICAiaGVpZ2h0IjogMTEyMCwKICAgICAgICAiZXN0aW1hdGVkQnl0ZXMiOiA1MTYwOTYwCiAgICAgIH0KICAgIF0sCiAgICAiZXN0aW1hdGVkQnl0ZXMiOiAxNTQ4Mjg4MCwKICAgICJjb21wb3NpdGlvbiI6IHsKICAgICAgImJhc2VJbWFnZXMiOiAyLAogICAgICAiYmFzZUxpbWl0IjogMiwKICAgICAgImNvbXBvc2l0ZUltYWdlcyI6IDIsCiAgICAgICJjb21wb3NpdGVMaW1pdCI6IDIsCiAgICAgICJwZW5kaW5nQmFzZUxvYWRzIjogMCwKICAgICAgImNvbXBvc2l0aW9ucyI6IDEyLAogICAgICAiZXN0aW1hdGVkQmFzZUJ5dGVzIjogMTAzMjE5MjAsCiAgICAgICJlc3RpbWF0ZWRDb21wb3NpdGVCeXRlcyI6IDEwMzIxOTIwCiAgICB9CiAgfSwKICB7CiAgICAiYWN0aXZlS2V5IjogImNoYXJhY3Rlci1ib21pIiwKICAgICJsaW1pdCI6IDMsCiAgICAidGV4dHVyZXMiOiBbCiAgICAgIHsKICAgICAgICAia2V5IjogInN0dWRpby1hcmE6YXJhLWJyYWlkZWQtYnVuK2FyYS1jb2FzdGFsLXBhcmthK2FyYS1zaGVsbC1iYXJyZXR0ZSIsCiAgICAgICAgIndpZHRoIjogMTE1MiwKICAgICAgICAiaGVpZ2h0IjogMTEyMCwKICAgICAgICAiZXN0aW1hdGVkQnl0ZXMiOiA1MTYwOTYwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAia2V5IjogInN0dWRpby1hcmE6YXJhLXdhdnktcGl4aWUrYXJhLXN1bmxpdC1saW5lbithcmEtc2hlbGwtYmFycmV0dGUiLAogICAgICAgICJ3aWR0aCI6IDExNTIsCiAgICAgICAgImhlaWdodCI6IDExMjAsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNTE2MDk2MAogICAgICB9LAogICAgICB7CiAgICAgICAgImtleSI6ICJjaGFyYWN0ZXItYm9taSIsCiAgICAgICAgIndpZHRoIjogMTE1MiwKICAgICAgICAiaGVpZ2h0IjogMTEyMCwKICAgICAgICAiZXN0aW1hdGVkQnl0ZXMiOiA1MTYwOTYwCiAgICAgIH0KICAgIF0sCiAgICAiZXN0aW1hdGVkQnl0ZXMiOiAxNTQ4Mjg4MCwKICAgICJjb21wb3NpdGlvbiI6IHsKICAgICAgImJhc2VJbWFnZXMiOiAyLAogICAgICAiYmFzZUxpbWl0IjogMiwKICAgICAgImNvbXBvc2l0ZUltYWdlcyI6IDIsCiAgICAgICJjb21wb3NpdGVMaW1pdCI6IDIsCiAgICAgICJwZW5kaW5nQmFzZUxvYWRzIjogMCwKICAgICAgImNvbXBvc2l0aW9ucyI6IDEyLAogICAgICAiZXN0aW1hdGVkQmFzZUJ5dGVzIjogMTAzMjE5MjAsCiAgICAgICJlc3RpbWF0ZWRDb21wb3NpdGVCeXRlcyI6IDEwMzIxOTIwCiAgICB9CiAgfSwKICB7CiAgICAiYWN0aXZlS2V5IjogInN0dWRpby1kb3l1bjpkb3l1bi1jdXJseS1jcm9wK2RveXVuLXZhcnNpdHktY2FyZGlnYW4rZG95dW4tbGluZW4ta2VyY2hpZWYiLAogICAgImxpbWl0IjogMywKICAgICJ0ZXh0dXJlcyI6IFsKICAgICAgewogICAgICAgICJrZXkiOiAic3R1ZGlvLWFyYTphcmEtd2F2eS1waXhpZSthcmEtc3VubGl0LWxpbmVuK2FyYS1zaGVsbC1iYXJyZXR0ZSIsCiAgICAgICAgIndpZHRoIjogMTE1MiwKICAgICAgICAiaGVpZ2h0IjogMTEyMCwKICAgICAgICAiZXN0aW1hdGVkQnl0ZXMiOiA1MTYwOTYwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAia2V5IjogImNoYXJhY3Rlci1ib21pIiwKICAgICAgICAid2lkdGgiOiAxMTUyLAogICAgICAgICJoZWlnaHQiOiAxMTIwLAogICAgICAgICJlc3RpbWF0ZWRCeXRlcyI6IDUxNjA5NjAKICAgICAgfSwKICAgICAgewogICAgICAgICJrZXkiOiAic3R1ZGlvLWRveXVuOmRveXVuLWN1cmx5LWNyb3ArZG95dW4tdmFyc2l0eS1jYXJkaWdhbitkb3l1bi1saW5lbi1rZXJjaGllZiIsCiAgICAgICAgIndpZHRoIjogMTE1MiwKICAgICAgICAiaGVpZ2h0IjogMTEyMCwKICAgICAgICAiZXN0aW1hdGVkQnl0ZXMiOiA1MTYwOTYwCiAgICAgIH0KICAgIF0sCiAgICAiZXN0aW1hdGVkQnl0ZXMiOiAxNTQ4Mjg4MCwKICAgICJjb21wb3NpdGlvbiI6IHsKICAgICAgImJhc2VJbWFnZXMiOiAyLAogICAgICAiYmFzZUxpbWl0IjogMiwKICAgICAgImNvbXBvc2l0ZUltYWdlcyI6IDIsCiAgICAgICJjb21wb3NpdGVMaW1pdCI6IDIsCiAgICAgICJwZW5kaW5nQmFzZUxvYWRzIjogMCwKICAgICAgImNvbXBvc2l0aW9ucyI6IDEzLAogICAgICAiZXN0aW1hdGVkQmFzZUJ5dGVzIjogMTAzMjE5MjAsCiAgICAgICJlc3RpbWF0ZWRDb21wb3NpdGVCeXRlcyI6IDEwMzIxOTIwCiAgICB9CiAgfSwKICB7CiAgICAiYWN0aXZlS2V5IjogInN0dWRpby1hcmE6YXJhLWJyYWlkZWQtYnVuK2FyYS1jb2FzdGFsLXBhcmthK2FyYS1zaGVsbC1iYXJyZXR0ZSIsCiAgICAibGltaXQiOiAzLAogICAgInRleHR1cmVzIjogWwogICAgICB7CiAgICAgICAgImtleSI6ICJjaGFyYWN0ZXItYm9taSIsCiAgICAgICAgIndpZHRoIjogMTE1MiwKICAgICAgICAiaGVpZ2h0IjogMTEyMCwKICAgICAgICAiZXN0aW1hdGVkQnl0ZXMiOiA1MTYwOTYwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAia2V5IjogInN0dWRpby1kb3l1bjpkb3l1bi1jdXJseS1jcm9wK2RveXVuLXZhcnNpdHktY2FyZGlnYW4rZG95dW4tbGluZW4ta2VyY2hpZWYiLAogICAgICAgICJ3aWR0aCI6IDExNTIsCiAgICAgICAgImhlaWdodCI6IDExMjAsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNTE2MDk2MAogICAgICB9LAogICAgICB7CiAgICAgICAgImtleSI6ICJzdHVkaW8tYXJhOmFyYS1icmFpZGVkLWJ1bithcmEtY29hc3RhbC1wYXJrYSthcmEtc2hlbGwtYmFycmV0dGUiLAogICAgICAgICJ3aWR0aCI6IDExNTIsCiAgICAgICAgImhlaWdodCI6IDExMjAsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNTE2MDk2MAogICAgICB9CiAgICBdLAogICAgImVzdGltYXRlZEJ5dGVzIjogMTU0ODI4ODAsCiAgICAiY29tcG9zaXRpb24iOiB7CiAgICAgICJiYXNlSW1hZ2VzIjogMiwKICAgICAgImJhc2VMaW1pdCI6IDIsCiAgICAgICJjb21wb3NpdGVJbWFnZXMiOiAyLAogICAgICAiY29tcG9zaXRlTGltaXQiOiAyLAogICAgICAicGVuZGluZ0Jhc2VMb2FkcyI6IDAsCiAgICAgICJjb21wb3NpdGlvbnMiOiAxNCwKICAgICAgImVzdGltYXRlZEJhc2VCeXRlcyI6IDEwMzIxOTIwLAogICAgICAiZXN0aW1hdGVkQ29tcG9zaXRlQnl0ZXMiOiAxMDMyMTkyMAogICAgfQogIH0sCiAgewogICAgImFjdGl2ZUtleSI6ICJzdHVkaW8tYXJhOmFyYS13YXZ5LXBpeGllK2FyYS1zdW5saXQtbGluZW4rYXJhLXNoZWxsLWJhcnJldHRlIiwKICAgICJsaW1pdCI6IDMsCiAgICAidGV4dHVyZXMiOiBbCiAgICAgIHsKICAgICAgICAia2V5IjogInN0dWRpby1kb3l1bjpkb3l1bi1jdXJseS1jcm9wK2RveXVuLXZhcnNpdHktY2FyZGlnYW4rZG95dW4tbGluZW4ta2VyY2hpZWYiLAogICAgICAgICJ3aWR0aCI6IDExNTIsCiAgICAgICAgImhlaWdodCI6IDExMjAsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNTE2MDk2MAogICAgICB9LAogICAgICB7CiAgICAgICAgImtleSI6ICJzdHVkaW8tYXJhOmFyYS1icmFpZGVkLWJ1bithcmEtY29hc3RhbC1wYXJrYSthcmEtc2hlbGwtYmFycmV0dGUiLAogICAgICAgICJ3aWR0aCI6IDExNTIsCiAgICAgICAgImhlaWdodCI6IDExMjAsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNTE2MDk2MAogICAgICB9LAogICAgICB7CiAgICAgICAgImtleSI6ICJzdHVkaW8tYXJhOmFyYS13YXZ5LXBpeGllK2FyYS1zdW5saXQtbGluZW4rYXJhLXNoZWxsLWJhcnJldHRlIiwKICAgICAgICAid2lkdGgiOiAxMTUyLAogICAgICAgICJoZWlnaHQiOiAxMTIwLAogICAgICAgICJlc3RpbWF0ZWRCeXRlcyI6IDUxNjA5NjAKICAgICAgfQogICAgXSwKICAgICJlc3RpbWF0ZWRCeXRlcyI6IDE1NDgyODgwLAogICAgImNvbXBvc2l0aW9uIjogewogICAgICAiYmFzZUltYWdlcyI6IDIsCiAgICAgICJiYXNlTGltaXQiOiAyLAogICAgICAiY29tcG9zaXRlSW1hZ2VzIjogMiwKICAgICAgImNvbXBvc2l0ZUxpbWl0IjogMiwKICAgICAgInBlbmRpbmdCYXNlTG9hZHMiOiAwLAogICAgICAiY29tcG9zaXRpb25zIjogMTUsCiAgICAgICJlc3RpbWF0ZWRCYXNlQnl0ZXMiOiAxMDMyMTkyMCwKICAgICAgImVzdGltYXRlZENvbXBvc2l0ZUJ5dGVzIjogMTAzMjE5MjAKICAgIH0KICB9LAogIHsKICAgICJhY3RpdmVLZXkiOiAic3R1ZGlvLWRveXVuOmRveXVuLXN3ZXB0LXF1aWZmK2RveXVuLWZpZWxkLWphY2tldCtkb3l1bi1saW5lbi1rZXJjaGllZiIsCiAgICAibGltaXQiOiAzLAogICAgInRleHR1cmVzIjogWwogICAgICB7CiAgICAgICAgImtleSI6ICJzdHVkaW8tYXJhOmFyYS1icmFpZGVkLWJ1bithcmEtY29hc3RhbC1wYXJrYSthcmEtc2hlbGwtYmFycmV0dGUiLAogICAgICAgICJ3aWR0aCI6IDExNTIsCiAgICAgICAgImhlaWdodCI6IDExMjAsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNTE2MDk2MAogICAgICB9LAogICAgICB7CiAgICAgICAgImtleSI6ICJzdHVkaW8tYXJhOmFyYS13YXZ5LXBpeGllK2FyYS1zdW5saXQtbGluZW4rYXJhLXNoZWxsLWJhcnJldHRlIiwKICAgICAgICAid2lkdGgiOiAxMTUyLAogICAgICAgICJoZWlnaHQiOiAxMTIwLAogICAgICAgICJlc3RpbWF0ZWRCeXRlcyI6IDUxNjA5NjAKICAgICAgfSwKICAgICAgewogICAgICAgICJrZXkiOiAic3R1ZGlvLWRveXVuOmRveXVuLXN3ZXB0LXF1aWZmK2RveXVuLWZpZWxkLWphY2tldCtkb3l1bi1saW5lbi1rZXJjaGllZiIsCiAgICAgICAgIndpZHRoIjogMTE1MiwKICAgICAgICAiaGVpZ2h0IjogMTEyMCwKICAgICAgICAiZXN0aW1hdGVkQnl0ZXMiOiA1MTYwOTYwCiAgICAgIH0KICAgIF0sCiAgICAiZXN0aW1hdGVkQnl0ZXMiOiAxNTQ4Mjg4MCwKICAgICJjb21wb3NpdGlvbiI6IHsKICAgICAgImJhc2VJbWFnZXMiOiAyLAogICAgICAiYmFzZUxpbWl0IjogMiwKICAgICAgImNvbXBvc2l0ZUltYWdlcyI6IDIsCiAgICAgICJjb21wb3NpdGVMaW1pdCI6IDIsCiAgICAgICJwZW5kaW5nQmFzZUxvYWRzIjogMCwKICAgICAgImNvbXBvc2l0aW9ucyI6IDE2LAogICAgICAiZXN0aW1hdGVkQmFzZUJ5dGVzIjogMTAzMjE5MjAsCiAgICAgICJlc3RpbWF0ZWRDb21wb3NpdGVCeXRlcyI6IDEwMzIxOTIwCiAgICB9CiAgfSwKICB7CiAgICAiYWN0aXZlS2V5IjogImNoYXJhY3Rlci1taW5qdW4iLAogICAgImxpbWl0IjogMywKICAgICJ0ZXh0dXJlcyI6IFsKICAgICAgewogICAgICAgICJrZXkiOiAic3R1ZGlvLWFyYTphcmEtd2F2eS1waXhpZSthcmEtc3VubGl0LWxpbmVuK2FyYS1zaGVsbC1iYXJyZXR0ZSIsCiAgICAgICAgIndpZHRoIjogMTE1MiwKICAgICAgICAiaGVpZ2h0IjogMTEyMCwKICAgICAgICAiZXN0aW1hdGVkQnl0ZXMiOiA1MTYwOTYwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAia2V5IjogInN0dWRpby1kb3l1bjpkb3l1bi1zd2VwdC1xdWlmZitkb3l1bi1maWVsZC1qYWNrZXQrZG95dW4tbGluZW4ta2VyY2hpZWYiLAogICAgICAgICJ3aWR0aCI6IDExNTIsCiAgICAgICAgImhlaWdodCI6IDExMjAsCiAgICAgICAgImVzdGltYXRlZEJ5dGVzIjogNTE2MDk2MAogICAgICB9LAogICAgICB7CiAgICAgICAgImtleSI6ICJjaGFyYWN0ZXItbWluanVuIiwKICAgICAgICAid2lkdGgiOiAxMTUyLAogICAgICAgICJoZWlnaHQiOiAxMTIwLAogICAgICAgICJlc3RpbWF0ZWRCeXRlcyI6IDUxNjA5NjAKICAgICAgfQogICAgXSwKICAgICJlc3RpbWF0ZWRCeXRlcyI6IDE1NDgyODgwLAogICAgImNvbXBvc2l0aW9uIjogewogICAgICAiYmFzZUltYWdlcyI6IDIsCiAgICAgICJiYXNlTGltaXQiOiAyLAogICAgICAiY29tcG9zaXRlSW1hZ2VzIjogMiwKICAgICAgImNvbXBvc2l0ZUxpbWl0IjogMiwKICAgICAgInBlbmRpbmdCYXNlTG9hZHMiOiAwLAogICAgICAiY29tcG9zaXRpb25zIjogMTYsCiAgICAgICJlc3RpbWF0ZWRCYXNlQnl0ZXMiOiAxMDMyMTkyMCwKICAgICAgImVzdGltYXRlZENvbXBvc2l0ZUJ5dGVzIjogMTAzMjE5MjAKICAgIH0KICB9Cl0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "64bdea7002f9c9cea9f4-8cc404c5104e04c259df",
+          "file": "studio.spec.ts",
+          "line": 247,
+          "column": 1
+        },
+        {
+          "title": "mobile landscape Studio has native-sized visible preview, reachable actions and isolated touch; joystick resumes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2238,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:56:24.423Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "64bdea7002f9c9cea9f4-8c8738305179a270eb0e",
+          "file": "studio.spec.ts",
+          "line": 292,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "v10-city.spec.ts",
+      "file": "v10-city.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "V10 real input route: historic gateway to high street",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10647,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:56:26.707Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-658ad274f87bda7a58e0",
+          "file": "v10-city.spec.ts",
+          "line": 168,
+          "column": 3
+        },
+        {
+          "title": "V10 real input route: entire high street and station forecourt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 26242,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:56:37.364Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-a8f0a87af5d2bfdbb27d",
+          "file": "v10-city.spec.ts",
+          "line": 168,
+          "column": 3
+        },
+        {
+          "title": "V10 real input route: urban block circuit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 39202,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:57:03.619Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-519b693c46b3c9be9902",
+          "file": "v10-city.spec.ts",
+          "line": 168,
+          "column": 3
+        },
+        {
+          "title": "V10 real input route: west scenic loop and tower approach",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 42256,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:57:42.836Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-d574f607197e76e81dd5",
+          "file": "v10-city.spec.ts",
+          "line": 168,
+          "column": 3
+        },
+        {
+          "title": "V10 real input route: leisure campus and ride approaches",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 38222,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:58:25.101Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-6d4b822bb160cf34727e",
+          "file": "v10-city.spec.ts",
+          "line": 168,
+          "column": 3
+        },
+        {
+          "title": "V10 real input route: coastal neighborhood to boarding pier",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 25165,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:59:03.334Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-ba23dadb1d5c81439f3c",
+          "file": "v10-city.spec.ts",
+          "line": 168,
+          "column": 3
+        },
+        {
+          "title": "V10 real input route: Jeju olle and village circuit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 30493,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:59:28.510Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-1d5c96ee11f39f5f1145",
+          "file": "v10-city.spec.ts",
+          "line": 168,
+          "column": 3
+        },
+        {
+          "title": "all 23 entrances are walkable and identify their intended venue",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5274,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T01:59:59.012Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-9ff6ad68c10758563546",
+          "file": "v10-city.spec.ts",
+          "line": 192,
+          "column": 1
+        },
+        {
+          "title": "two ferry journeys land outside triggers and allow subsequent walking",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2320,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T02:00:04.297Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-4296b1ce13f3bb294277",
+          "file": "v10-city.spec.ts",
+          "line": 204,
+          "column": 1
+        },
+        {
+          "title": "station tracks and building masses block input; marked crossing is clear",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7386,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T02:00:06.628Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-4da575fa0cdc99e37023",
+          "file": "v10-city.spec.ts",
+          "line": 242,
+          "column": 1
+        },
+        {
+          "title": "forced WebGL renders V10 without fetching rejected assets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1905,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T02:00:14.029Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-2957310cf9b4ae850368",
+          "file": "v10-city.spec.ts",
+          "line": 263,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-27T01:49:44.003Z",
+    "duration": 632064.8659999999,
+    "expected": 46,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

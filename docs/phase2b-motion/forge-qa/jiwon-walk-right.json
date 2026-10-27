@@ -1,0 +1,298 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        48.0,
+        100.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          96,
+          112
+        ]
+      ],
+      "threshold": "one canvas size"
+    },
+    {
+      "id": "loop_seam",
+      "status": "pass",
+      "value": 1.384,
+      "threshold": 2.0,
+      "detail": {
+        "seam": 8.3211,
+        "adjacent_median": 6.0112
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/walk-right-0.png",
+      "sha256": "6faa0541776e93c0b2f5e63462f125625a8be47b89d3814d57f889b93e349f28",
+      "bytes": 4744
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/walk-right-1.png",
+      "sha256": "d2c21a14ef86893625d994b1ca69106511b6ca436e10d3ec1052354ca01b2592",
+      "bytes": 4544
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/walk-right-2.png",
+      "sha256": "a4a4037f1eafb962ac4cd35a76f583987fe3316511ceeeaae0d2dab8155c1b5b",
+      "bytes": 4135
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/walk-right-3.png",
+      "sha256": "e515445d35dd14805bd5688e5a5aa136572f995892195fd758258d91012e95f7",
+      "bytes": 4512
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/walk-right-4.png",
+      "sha256": "d93d4179e5dd73e8b51bda8e55a6cd7796c17e433827b0cd46940492a98dce46",
+      "bytes": 4548
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/walk-right-5.png",
+      "sha256": "56cd6b39c514ecb86b5a6731d54f275a15f13eb4d708c0fb2fcb23ea07128fc9",
+      "bytes": 4363
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/walk-right-6.png",
+      "sha256": "7d15fb1a40b3b160f387cafe97b7b8f9295065a2098b4ef80902e724de4aad80",
+      "bytes": 4255
+    },
+    {
+      "path": "../../../assets-src/characters/phase2b/jiwon/frames/walk-right-7.png",
+      "sha256": "76b836f72a359458ecffde259824296feb7933a2c2d6877c7402ebdcebcff707",
+      "bytes": 4704
+    }
+  ],
+  "outputs": [
+    {
+      "path": "jiwon-walk-right.png",
+      "sha256": "2cab4fc043c62d3f04eb3770ef0eb1bb10c16bee0357f71f3da38be114de6722",
+      "bytes": 118496
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/walk-right-0.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1402,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 135,
+      "orphans": 806,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        22,
+        69,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/walk-right-1.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1340,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 132,
+      "orphans": 804,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        31,
+        21,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/walk-right-2.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1204,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 115,
+      "orphans": 739,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        21,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/walk-right-3.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1330,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 132,
+      "orphans": 788,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        34,
+        21,
+        64,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/walk-right-4.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1350,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 132,
+      "orphans": 775,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        29,
+        22,
+        65,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/walk-right-5.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1269,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 128,
+      "orphans": 768,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        30,
+        21,
+        62,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/walk-right-6.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1244,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 130,
+      "orphans": 761,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        21,
+        63,
+        100
+      ],
+      "ground_gap_px": 0.0
+    },
+    {
+      "file": "../../../assets-src/characters/phase2b/jiwon/frames/walk-right-7.png",
+      "size": [
+        96,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 1382,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 134,
+      "orphans": 828,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        35,
+        21,
+        68,
+        100
+      ],
+      "ground_gap_px": 0.0
+    }
+  ]
+}
