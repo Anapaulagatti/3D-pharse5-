@@ -51,3 +51,7 @@ Candidate on feature/phase2c-fashion-studio:28items/46nativevariants and12curate
 ## Phase3A authorized2026-10-27
 
 Human approves Phase2C12characters/28items/46variants/12looks/Studio/world. Fresh baseline116unit/53E2E PASS,allrequiredchecks; approvalcheckpoint checkpoint/phase2c-fashion-studio-approved-20261027 at9583d7f. Phase3A fourteen contextual NPCs authorized in3internalwaves; first4actualcanonical-world pilot beforeexpansion. Freeze docs/phase3a/approved-baseline.json. Physical devices/historical WARNs notpassed. Phase3B locked; no mainmerge/deployment.
+
+## Phase3A review STOP2026-10-27
+
+Fourteen native contextual residents across7zones implemented on feature/phase3a-living-npc-world after four-context pilot. Preserve checkpoint/phase3a-living-npc-world-review-20261027 and approved Phase2C reference. All6382protected files unchanged; approved scene outside6additive NPC hooks byte-identical. Technical131unit/60fullE2E plus final7NPCcases,84native readbacks,14real approaches,12zonecycles/60dialogues,independent portable ZIP and bounded NPC cache evidence recorded in docs/phase3a. Human artistic/linguistic acceptance PENDING;physical Android/iPhone/hardwareGPU NOT TESTED;historical WARN retained. No Phase3B,world/Studio/player modifications,main merge or public deployment without explicit human authorization.

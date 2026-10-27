@@ -82,7 +82,7 @@ def face(im,s,view,dx,dy,i,gesture):
   if front:d.line((cx-2,top+18,cx+2,top+18),fill='#bcb292')
 
 def frame(s,view,action,i):
- im=Image.new('RGBA',(96,112));id,ko,vi,zone,job,cloth,hair,main,accent,hc,skin,prop=s;profile=view in ['left','right'];sign=-1 if view=='left'else 1;phase=i/8;t=phase*math.tau;dx=0;dy=0;hands=[];soles=[]
+ im=Image.new('RGBA',(96,112));id,ko,vi,zone,job,cloth,hair,main,accent,hc,skin,prop=s;armColor=accent if cloth in ['workvest','staffvest','fisher']else main;profile=view in ['left','right'];sign=-1 if view=='left'else 1;phase=i/8;t=phase*math.tau;dx=0;dy=0;hands=[];soles=[]
  if action=='walk'and not profile:
   p=T['walk-'+view][i];dx=p['bodyDeltaX'];dy=p['bodyDeltaY'];soles=p['soleScreenLR'];hands=p['handScreenLR']
  elif action=='walk':
@@ -100,8 +100,8 @@ def frame(s,view,action,i):
   h=[44+j*8+dx,69+dy]if not profile else[48,69+dy];sole=soles[j];k=K[i][j]if action=='walk'and view=='front'else[round((h[0]+sole[0])/2)+(0 if not profile else sign*3),round((h[1]+sole[1])/2)];a=[sole[0],sole[1]-4];limb(im,h,k,9,accent,j==0 and profile);limb(im,k,a,7,accent,j==0 and profile);shoe(im,sole,'#505049'if cloth not in ['guard','hanbok']else'#53545b',view,98-sole[1],j==0 and profile)
  arms=[]
  for j in range(2):
-  arm=Image.new('RGBA',(96,112));shoulder=[38+j*20+dx,50+dy]if not profile else[47+j*2,50+dy];hand=hands[j];elbow=[round((shoulder[0]+hand[0])/2)+(-3 if j==0 else 3),round((shoulder[1]+hand[1])/2)+2];limb(arm,shoulder,elbow,8,main,j==0 and profile);limb(arm,elbow,hand,6,main,j==0 and profile);d=ImageDraw.Draw(arm);d.ellipse((hand[0]-2,hand[1]-2,hand[0]+2,hand[1]+3),fill=skin,outline=tone(skin,.7));d.point((hand[0]-1,hand[1]-1),fill=tone(skin,1.12));arms.append(arm)
- im.alpha_composite(arms[0]);cx=48+dx;long=cloth in ['hanbok','guard'];bottom=87 if long else 71
+  arm=Image.new('RGBA',(96,112));shoulder=[38+j*20+dx,50+dy]if not profile else[47+j*2,50+dy];hand=hands[j];elbow=[round((shoulder[0]+hand[0])/2)+(-3 if j==0 else 3),round((shoulder[1]+hand[1])/2)+2];limb(arm,shoulder,elbow,8,armColor,j==0 and profile);limb(arm,elbow,hand,6,armColor,j==0 and profile);d=ImageDraw.Draw(arm);d.ellipse((hand[0]-2,hand[1]-2,hand[0]+2,hand[1]+3),fill=skin,outline=tone(skin,.7));d.point((hand[0]-1,hand[1]-1),fill=tone(skin,1.12));arms.append(arm)
+ im.alpha_composite(arms[0]);cx=48+dx;long=cloth in ['hanbok','guard'];bottom=87 if long else 76 if cloth=='cardigan'else 74 if cloth in ['windbreaker','fisher']else 73 if cloth=='jacket'else 71
  torso=[(cx-10,48+dy),(cx+9,48+dy),(cx+12,55+dy),(cx+11,bottom+dy),(cx-12,bottom+dy),(cx-12,56+dy)]if not profile else[(cx-7,48+dy),(cx+7,48+dy),(cx+9,bottom+dy),(cx-8,bottom+dy)]
  surface(im,torso,main);d=ImageDraw.Draw(im)
  # Construction: collars, directional seams and role-specific garments.
@@ -121,6 +121,30 @@ def frame(s,view,action,i):
  if cloth in ['uniform','staffvest','blazer']:d.rectangle((cx-8,57+dy,cx-3,59+dy),fill='#d8c79a');d.point((cx-6,58+dy),fill='#535658')
  if prop in ['map','schedule','rope','seed']:
   d.line((cx-8,49+dy,cx+8,69+dy),fill=tone(accent,.7),width=2);d.rectangle((cx+5,67+dy,cx+13,76+dy),fill=tone(accent,.83),outline=tone(accent,.5));d.line((cx+6,69+dy,cx+11,69+dy),fill=tone(accent,1.25))
+ # Individual occupational garment construction; shared rig does not imply cloned costumes.
+ if cloth=='cardigan':
+  if view!='back':
+   d.polygon([(cx-7,49+dy),(cx-1,57+dy),(cx-3,72+dy),(cx-9,73+dy)],fill=tone(main,.77));d.polygon([(cx+7,49+dy),(cx+1,57+dy),(cx+3,72+dy),(cx+9,73+dy)],fill=tone(main,1.12));d.line((cx-2,58+dy,cx-2,73+dy),fill=tone(accent,1.1));d.rectangle((cx+5,65+dy,cx+10,72+dy),fill='#96735a',outline='#574a42');d.line((cx+6,66+dy,cx+9,66+dy),fill='#dcc594')
+  else:d.line((cx-9,69+dy,cx+9,69+dy),fill=tone(main,.7));d.line((cx-7,71+dy,cx+7,71+dy),fill=tone(main,1.16))
+ if cloth in ['jacket','windbreaker']:
+  if view=='back':
+   d.polygon([(cx-9,48+dy),(cx,54+dy),(cx+9,48+dy),(cx+6,58+dy),(cx-6,58+dy)],fill=tone(accent,.92),outline=tone(main,.65));d.line((cx-7,58+dy,cx+7,58+dy),fill=tone(main,.7))
+   if cloth=='windbreaker':d.rounded_rectangle((cx-6,57+dy,cx+7,73+dy),radius=2,fill=tone(accent,.85),outline=tone(accent,.55));d.line((cx-4,62+dy,cx+5,62+dy),fill=tone(accent,1.2));d.rectangle((cx-3,66+dy,cx+4,70+dy),outline=tone(accent,.6))
+  else:
+   d.line((cx,53+dy,cx,72+dy),fill='#444c4b');d.rectangle((cx-1,60+dy,cx+1,62+dy),fill='#d3d0af');d.line((cx-8,66+dy,cx-3,64+dy),fill=tone(main,.6));d.line((cx+4,64+dy,cx+9,66+dy),fill=tone(main,.65))
+   if cloth=='windbreaker':d.polygon([(cx-11,60+dy),(cx-5,63+dy),(cx-7,72+dy),(cx-11,72+dy)],fill=tone(accent,.9));d.line((cx-9,55+dy,cx-3,58+dy),fill=tone(main,1.35))
+ if cloth in ['workvest','staffvest','fisher']:
+  if view!='back':
+   d.polygon([(cx-5,49+dy),(cx+5,49+dy),(cx+2,58+dy),(cx-2,58+dy)],fill=accent);d.line((cx-2,57+dy,cx-2,70+dy),fill=tone(main,.65));d.rectangle((cx-10,62+dy,cx-5,68+dy),outline=tone(main,.55));d.rectangle((cx+4,62+dy,cx+10,68+dy),outline=tone(main,.55));d.line((cx-9,62+dy,cx-6,62+dy),fill=tone(accent,1.18));d.line((cx+5,62+dy,cx+9,62+dy),fill=tone(accent,1.18))
+  else:d.line((cx-9,61+dy,cx+9,61+dy),fill=tone(main,.72));d.line((cx-8,63+dy,cx+8,63+dy),fill=tone(main,1.16))
+  if cloth=='staffvest'and view!='back':d.polygon([(cx-6,53+dy),(cx-5,55+dy),(cx-2,55+dy),(cx-4,57+dy),(cx-3,60+dy),(cx-6,58+dy),(cx-8,60+dy),(cx-8,57+dy),(cx-10,55+dy),(cx-7,55+dy)],fill='#ead2a1')
+  if cloth=='fisher':
+   for yy in [54,57,60]:d.line((cx-2,yy+dy,cx+2,yy+dy),fill=tone(main,1.2))
+   d.rectangle((cx+6,66+dy,cx+11,73+dy),fill=tone(accent,.85),outline=tone(main,.6))
+ if cloth=='blazer':
+  if view!='back':
+   d.polygon([(cx-8,49+dy),(cx-1,56+dy),(cx-5,64+dy),(cx-10,52+dy)],fill=tone(main,1.15),outline=tone(main,.7));d.polygon([(cx+8,49+dy),(cx+1,56+dy),(cx+5,64+dy),(cx+10,52+dy)],fill=tone(main,.87),outline=tone(main,.65));d.polygon([(cx-4,50+dy),(cx,54+dy),(cx+4,50+dy),(cx+2,59+dy),(cx,62+dy),(cx-2,58+dy)],fill=accent);d.point((cx,58+dy),fill='#d5b979');d.line((cx+5,65+dy,cx+10,65+dy),fill=tone(accent,.9))
+  else:d.line((cx-8,65+dy,cx+8,65+dy),fill=tone(main,.83));d.line((cx,65+dy,cx,71+dy),fill=tone(main,.67))
  # Neck/head are independent authored identity layers; no player face/costume import.
  d.rectangle((cx-3,42+dy,cx+3,50+dy),fill=skin);face(im,s,view,dx,dy,i,action in ['greet','activity']);im.alpha_composite(arms[1])
  if action=='activity'and view!='back':

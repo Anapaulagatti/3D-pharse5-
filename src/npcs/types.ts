@@ -13,7 +13,7 @@ const clipSchema = z
   });
 export const npcSchema = z
   .object({
-    id: z.string().regex(/^npc-[a-z]+$/),
+    id: z.string().regex(/^npc-[a-z][a-z0-9-]*$/),
     names: z.object({ vi: z.string().min(1), ko: z.string().regex(/[가-힣]/) }),
     occupation: z.string().min(1),
     homeZone: z.enum([

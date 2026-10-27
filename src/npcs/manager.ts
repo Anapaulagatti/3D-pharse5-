@@ -170,20 +170,26 @@ export class NPCManager {
   }
   private populate() {
     const p = this.host.player();
+    const pinned = this.dialogue.target;
     const wanted = [...this.models.values()]
       .filter(
         (m) =>
-          zones[m.def.homeZone].some((r) => rectDistance(p, r) < 240) &&
-          Math.hypot(p[0] - m.record.position[0], p[1] - m.record.position[1]) <
-            900,
+          m.def.id === pinned ||
+          (zones[m.def.homeZone].some((r) => rectDistance(p, r) < 240) &&
+            Math.hypot(
+              p[0] - m.record.position[0],
+              p[1] - m.record.position[1],
+            ) < 900),
       )
       .sort(
         (a, b) =>
+          Number(b.def.id === pinned) - Number(a.def.id === pinned) ||
           Math.hypot(p[0] - a.record.position[0], p[1] - a.record.position[1]) -
             Math.hypot(
               p[0] - b.record.position[0],
               p[1] - b.record.position[1],
-            ) || a.def.id.localeCompare(b.def.id),
+            ) ||
+          a.def.id.localeCompare(b.def.id),
       )
       .slice(0, 4);
     this.wanted.clear();

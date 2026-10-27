@@ -30,7 +30,12 @@ const memory = (initial: Record<string, string> = {}) => ({
 const ground = () => true;
 describe("native NPC registry, content and ownership", () => {
   it("has unique non-player IDs, all regional roles, complete native directional animation", () => {
-    expect(npcRegistry.npcs.length).toBeGreaterThanOrEqual(4);
+    expect(npcRegistry.npcs).toHaveLength(14);
+    const zones = new Map<string, number>();
+    for (const n of npcRegistry.npcs)
+      zones.set(n.homeZone, (zones.get(n.homeZone) ?? 0) + 1);
+    expect(zones.size).toBe(7);
+    expect([...zones.values()]).toEqual(Array(7).fill(2));
     expect(new Set(npcRegistry.npcs.map((n) => n.id)).size).toBe(
       npcRegistry.npcs.length,
     );
@@ -267,4 +272,63 @@ describe("additive NPC persistence", () => {
       ).save(),
     ).not.toThrow();
   });
+});
+
+it("validates declared NPC patrols and approaches against the actual unchanged canonical chunk masks", () => {
+  const manifest = JSON.parse(
+    readFileSync(
+      "public/assets/gate3/palace-cleanup-world/manifest.json",
+      "utf8",
+    ),
+  ) as {
+    chunks: {
+      x: number;
+      y: number;
+      width: number;
+      height: number;
+      mask: string;
+    }[];
+    logicalSolids: { rect: [number, number, number, number] }[];
+  };
+  const masks = new Map<string, Buffer>();
+  const shippedGround = (x: number, y: number) => {
+    if (
+      manifest.logicalSolids.some(
+        (s) =>
+          x >= s.rect[0] &&
+          x < s.rect[0] + s.rect[2] &&
+          y >= s.rect[1] &&
+          y < s.rect[1] + s.rect[3],
+      )
+    )
+      return false;
+    x = Math.round(x);
+    y = Math.round(y);
+    const c = manifest.chunks.find(
+      (c) => x >= c.x && x < c.x + c.width && y >= c.y && y < c.y + c.height,
+    );
+    if (!c) return false;
+    let bytes = masks.get(c.mask);
+    if (!bytes) {
+      bytes = readFileSync("public/" + c.mask);
+      masks.set(c.mask, bytes);
+    }
+    return bytes[(y - c.y) * c.width + x - c.x] > 127;
+  };
+  for (const d of npcRegistry.npcs) {
+    for (let i = 0; i < d.route.length; i++)
+      expect(
+        routeSegmentAllows(
+          d,
+          d.route[i],
+          d.route[(i + 1) % d.route.length],
+          shippedGround,
+        ),
+        d.id,
+      ).toBe(true);
+    expect(
+      routeSegmentAllows(d, d.spawn, d.reviewSpawn, shippedGround),
+      d.id,
+    ).toBe(true);
+  }
 });

@@ -256,7 +256,16 @@ test("continuous mainland-to-Jeju exploration uses the repaired bridge with orig
     const plan = JSON.parse(
       fs.readFileSync("docs/phase3a/cross-zone-route.json", "utf8"),
     );
-    await boot(page, "npc-soobin");
+    await page.addInitScript(() =>
+      localStorage.setItem(
+        "korean-arena-player-preferences-v1",
+        JSON.stringify({ version: 1, characterId: "juni" }),
+      ),
+    );
+    await page.goto("./?qa&renderer=canvas&pixelAudit&entry=bridge-a-mainland");
+    await page.waitForFunction(
+      () => window.__GATE3__?.ready && window.__NPC_WORLD__?.registered === 14,
+    );
     let bridge = false;
     await walkPath(page, plan.waypoints, async () => {
       const s = await page.evaluate(() => window.__GATE3__!);
@@ -277,28 +286,37 @@ test("continuous mainland-to-Jeju exploration uses the repaired bridge with orig
   }
 });
 test("real zone exit/reentry freezes inactive residents and restores them without duplicate/orphan sprites", async ({
-  page,
+  browser,
 }) => {
-  test.setTimeout(180000);
-  await boot(page, "npc-seoyeon");
-  await axisTo(page, "x", 2048);
-  const snapshots = [];
-  for (let i = 0; i < 3; i++) {
-    await axisTo(page, "y", 1470);
-    await page.waitForFunction(() => window.__NPC_WORLD__!.active === 0);
-    const before = await page.evaluate(() => window.__NPC_WORLD__!.records);
-    await page.waitForTimeout(300);
-    expect(await page.evaluate(() => window.__NPC_WORLD__!.records)).toEqual(
-      before,
-    );
-    await axisTo(page, "y", 1310);
-    await page.waitForFunction(() => window.__NPC_WORLD__!.active >= 2);
-    const s = await page.evaluate(() => window.__NPC_WORLD__!);
-    expect(new Set(s.actors.map((a) => a.id)).size).toBe(s.active);
-    expect(s.active).toBeLessThanOrEqual(4);
-    expect(s.assets.loaded).toBeLessThanOrEqual(4);
-    snapshots.push(s);
+  const context = await browser.newContext({
+    viewport: { width: 1280, height: 900 },
+    hasTouch: true,
+  });
+  const page = await context.newPage();
+  try {
+    test.setTimeout(180000);
+    await boot(page, "npc-seoyeon");
+    await axisTo(page, "x", 2048);
+    const snapshots = [];
+    for (let i = 0; i < 3; i++) {
+      await axisTo(page, "y", 1470);
+      await page.waitForFunction(() => window.__NPC_WORLD__!.active === 0);
+      const before = await page.evaluate(() => window.__NPC_WORLD__!.records);
+      await page.waitForTimeout(300);
+      expect(await page.evaluate(() => window.__NPC_WORLD__!.records)).toEqual(
+        before,
+      );
+      await axisTo(page, "y", 1310);
+      await page.waitForFunction(() => window.__NPC_WORLD__!.active >= 2);
+      const s = await page.evaluate(() => window.__NPC_WORLD__!);
+      expect(new Set(s.actors.map((a) => a.id)).size).toBe(s.active);
+      expect(s.active).toBeLessThanOrEqual(4);
+      expect(s.assets.loaded).toBeLessThanOrEqual(4);
+      snapshots.push(s);
+    }
+    expect(snapshots.at(-1)!.despawns).toBeGreaterThanOrEqual(6);
+    expect(await page.evaluate(() => window.__GATE3__!.playerSprites)).toBe(1);
+  } finally {
+    await context.close();
   }
-  expect(snapshots.at(-1)!.despawns).toBeGreaterThanOrEqual(6);
-  expect(await page.evaluate(() => window.__GATE3__!.playerSprites)).toBe(1);
 });

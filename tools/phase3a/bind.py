@@ -17,7 +17,7 @@ PLAN={
  'harin':([3740,4070],[32,12],'tangerine-orchard','right'),'seojun':([3740,4396],[32,12],'production/jeju-culture','left'),
  'nayeon':([574,550],[10,50],'farmMetadata','right'),'cheolsu':([500,810],[32,24],'farmMetadata','back'),
  'yejin':([1510,3260],[32,24],'production/tower','left'),'sungmin':([2320,3280],[32,20],'production/carousel','back'),
- 'donghae':([1630,3860],[36,16],'production/market','front'),'soobin':([2840,3760],[32,20],'production/ferry','front')}
+ 'donghae':([1740,3878],[32,8],'production/market','front'),'soobin':([2790,3670],[10,36],'production/ferry','front')}
 def segment(a,b):
  n=max(1,math.ceil(math.dist(a,b)));return all(clear[round(a[1]+(b[1]-a[1])*i/n),round(a[0]+(b[0]-a[0])*i/n)]for i in range(n+1))
 def routeFor(id):
@@ -42,7 +42,10 @@ def approach(route):
 def build(full=False):
  records=[];proof=[];dialogues=[]
  for spec in SPECS:
-  id,ko,vi,zone,job,*_=spec;route,p=routeFor(id);p['id']='npc-'+id;p['route']=route;p['reviewSpawn']=approach(route);proof.append(p);clipsPath=S/id/'clips.json';clips=json.loads(clipsPath.read_text())if clipsPath.exists()else{};records.append({'id':'npc-'+id,'names':{'vi':vi,'ko':ko},'occupation':job,'homeZone':zone,'spawn':route[0],'interactionPosition':route[0],'reviewSpawn':p['reviewSpawn'],'direction':PLAN[id][3],'footprint':[14,4],'route':route,'idleBehavior':spec[-1],'walkSpeed':36+(SPECS.index(spec)%3)*2,'interactionRadius':92,'assets':{'texture':f'assets/npcs/phase3a/npc-{id}/atlas.png','atlas':f'assets/npcs/phase3a/npc-{id}/atlas.json','key':'npc-'+id},'animations':clips,'dialogueId':'npc-'+id+'-welcome','future':{'questProviderId':None,'shopProviderId':None,'learningTopicTags':[zone,'greetings',spec[-1]]}})
+  id,ko,vi,zone,job,*_=spec;route,p=routeFor(id);p['id']='npc-'+id;p['route']=route;p['reviewSpawn']=approach(route);
+  if id=='soobin'and segment(route[0],[2814,3810]):p['reviewSpawn']=[2814,3810]
+  if id=='donghae'and segment(route[0],[1896,3878]):p['reviewSpawn']=[1896,3878]
+  proof.append(p);clipsPath=S/id/'clips.json';clips=json.loads(clipsPath.read_text())if clipsPath.exists()else{};records.append({'id':'npc-'+id,'names':{'vi':vi,'ko':ko},'occupation':job,'homeZone':zone,'spawn':route[0],'interactionPosition':route[0],'reviewSpawn':p['reviewSpawn'],'direction':PLAN[id][3],'footprint':[14,4],'route':route,'idleBehavior':spec[-1],'walkSpeed':36+(SPECS.index(spec)%3)*2,'interactionRadius':92,'assets':{'texture':f'assets/npcs/phase3a/npc-{id}/atlas.png','atlas':f'assets/npcs/phase3a/npc-{id}/atlas.json','key':'npc-'+id},'animations':clips,'dialogueId':'npc-'+id+'-welcome','future':{'questProviderId':None,'shopProviderId':None,'learningTopicTags':[zone,'greetings',spec[-1]]}})
   for i,(koText,viText)in enumerate(COPY[id]):
    name='welcome'if i==0 else'place'if i==1 else'care';node={'id':f'npc-{id}-{name}','npcId':'npc-'+id,'content':{'ko':koText,'vi':viText},'hint':{'vi':job+' · '+vi,'ko':ko},'choices':[],'next':None,'conditions':[],'futureQuestHook':None,'lessonTopicTags':[zone,'greetings']}
    if i==0:node['choices']=[{'id':'place','label':{'vi':'Tìm hiểu nơi này','ko':'이곳에 대해 알려 주세요.'},'next':f'npc-{id}-place'},{'id':'care','label':{'vi':'Có điều gì cần lưu ý?','ko':'주의할 점이 있나요?'},'next':f'npc-{id}-care'}]

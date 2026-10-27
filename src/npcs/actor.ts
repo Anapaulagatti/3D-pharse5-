@@ -142,7 +142,7 @@ export class NPCActorModel {
       waypoint: this.record.waypoint,
       conversations: this.record.conversations,
       blocked: this.blocked,
-      history: this.machine.history,
+      history: [...this.machine.history],
     };
   }
 }
