@@ -1,5 +1,5 @@
 import type { NPCDefinition, DialogueNode } from "./types";
-import { npcRegistry } from "./registry";
+import { npcCatalog as npcRegistry } from "./catalog";
 import "./style.css";
 export interface DialogueHost {
   canOpen(): boolean;
@@ -97,6 +97,7 @@ export class NPCDialogueService {
       return;
     }
     this.node = node;
+    this.dialog.dataset.learningWords = String(node.hint.vi.includes(" = "));
     this.dialog.dataset.npcId = this.npc.id;
     this.dialog.dataset.nodeId = node.id;
     this.el("#npc-dialogue-name").textContent =

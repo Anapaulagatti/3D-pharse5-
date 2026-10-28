@@ -17,6 +17,8 @@ URLS={
 'faker':'https://www.t1.gg/teams/league-of-legends',
 'iu':'https://edam-ent.com/html/sub03/sub03_0301.php',
 'yoo-jaesuk':'https://programs.sbs.co.kr/enter/runningman/cast/70100',
+'aks-historical-encyclopedia':'https://encykorea.aks.ac.kr/',
+'independence-hall':'https://www.i815.or.kr/',
 'korea-publicity-policy':'https://www.korea.kr/news/policyNewsView.do?newsId=148903034'}
 class Text(HTMLParser):
  def __init__(self):super().__init__();self.out=[];self.skip=0

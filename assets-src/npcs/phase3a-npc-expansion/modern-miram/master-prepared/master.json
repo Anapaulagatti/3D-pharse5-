@@ -1,0 +1,168 @@
+{
+  "schema": "generate2dsprite.master.v1",
+  "tool": {
+    "name": "master_still",
+    "version": "0.4.0"
+  },
+  "created": "2026-10-28T10:17:29.940Z",
+  "name": "modern-miram",
+  "subject": "Independently illustrated Korean NPC",
+  "identity_recap": "Independently illustrated Korean NPC (A Korean fictional woman community football coach age31, rich tan skin, strong friendly jaw, small expressive dark eyes, black short wavy cropped hairstyle with two temple curls. Cream and teal custom tracksuit jacket with a coral chevron seam, charcoal athletic trousers, cream sneakers with teal soles. Small abstract leaf badge, NO club or national jersey/logo. Distinct athletic silhouette, no celebrity reference)",
+  "facing": "front",
+  "view": "front view",
+  "finish": "pixel",
+  "class": "hero",
+  "framing": {
+    "canvas": [
+      1024,
+      1024
+    ],
+    "subject_height_px": 788,
+    "top_margin_px": 138,
+    "lead_px": 0,
+    "preset": "hero",
+    "subject_bbox": [
+      346,
+      138,
+      679,
+      926
+    ],
+    "anchor": [
+      516.5,
+      926.0
+    ],
+    "opaque_area_px": 171803,
+    "width_limited": false
+  },
+  "key": "#FF00FF",
+  "files": {
+    "master": {
+      "path": "master.png",
+      "sha256": "b2d5b243cad15330c3d9350feac19b577780a95d2836c47a3d926ba045851238",
+      "bytes": 255740,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "cutout": {
+      "path": "master_rgba.png",
+      "sha256": "c083b40c17832f2193a5ba4e3efe4957b81d476452ae1ba509dcd5a49509b769",
+      "bytes": 302182,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "source": {
+      "path": "source.png",
+      "sha256": "1cbf85702d582e498d3fa099b790536c5289be1f459eef1e502bfcd0f8496a79",
+      "bytes": 1330128,
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "spec": {
+      "path": "spec.json",
+      "sha256": "4bbb1b06295d7f0f76a7c53353eb25f2224373e00a505bb4a1545739efc6055e",
+      "bytes": 2014
+    },
+    "prompt": {
+      "path": "prompt.txt",
+      "sha256": "12f95e18af459c7c09f9b54f3b61d72f2e06ef934c5a39db2caa9b3253329e14",
+      "bytes": 2699
+    }
+  },
+  "references": [
+    {
+      "role": "style",
+      "path": "../../../../../docs/phase3a-art-rebuild/juni-style-review-6x.png",
+      "sha256": "eb6382638589e34e04fe348f279955f37b8664e574ac3870c893486185d12499",
+      "bytes": 9359
+    }
+  ],
+  "transform": {
+    "mapping": "master = scale * source + offset (continuous pixel coordinates: pixel i spans [i, i + 1))",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "source_subject_bbox": [
+      413,
+      144,
+      828,
+      1128
+    ],
+    "crop_box": [
+      407,
+      138,
+      834,
+      1134
+    ],
+    "crop_margin_px": 6,
+    "scale": 0.8008130081300813,
+    "offset": [
+      15.09552845528458,
+      22.682926829268297
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "resampler": "lanczos",
+    "premultiplied": true,
+    "alpha_floor_px": 2790,
+    "subject_parts": 1,
+    "ignored_parts": 0,
+    "ignored_px": 0,
+    "source_touches": [],
+    "key_rgb": [
+      255,
+      0,
+      255
+    ]
+  },
+  "route": "host-image_gen",
+  "provenance": {
+    "command": "prompt",
+    "run": "../master-job",
+    "take": null,
+    "source_name": "master-source.png",
+    "source_sha256": "1cbf85702d582e498d3fa099b790536c5289be1f459eef1e502bfcd0f8496a79",
+    "media": null,
+    "media_cli_source": null,
+    "edit": null
+  },
+  "matte": {
+    "requested": "soft",
+    "key_estimate": {
+      "key": [
+        252.0,
+        3.0,
+        250.0
+      ],
+      "source": "border_median",
+      "valid": true,
+      "ring_share": 1.0,
+      "coverage": 0.8279845801250989,
+      "distance_from_declared": 6.56
+    },
+    "quality": "soft",
+    "interior_despill": true,
+    "qa": {
+      "opaque_key_px": 0,
+      "outer_ring_spill_fraction": 0.0,
+      "semitransparent_fraction": 0.026473042897679853,
+      "enclosed_key_pockets": 0,
+      "key_hued_px": 0,
+      "visible_px": 269595
+    },
+    "key_choice": {
+      "status": "ok",
+      "overlap_share": 0.0,
+      "rule": "reject a key when more than 0.5% of subject pixels have key dominance >= 40; first acceptable candidate wins"
+    }
+  },
+  "warnings": []
+}

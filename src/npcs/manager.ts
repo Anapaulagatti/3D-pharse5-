@@ -1,7 +1,9 @@
 import { chooseTarget } from "./interaction";
 import { installNPCAudit } from "./audit";
 import Phaser from "phaser";
-import { npcRegistry } from "./registry";
+import { npcRegistry as residentRegistry } from "./registry";
+import { npcCatalog as npcRegistry } from "./catalog";
+import { NPCVisitPolicy } from "./visits";
 import { NPCAssetPool } from "./assets";
 import { NPCActorModel } from "./actor";
 import { NPCStateStore } from "./state";
@@ -44,6 +46,8 @@ export class NPCManager {
   private auditDispose?: () => void;
   private assets: NPCAssetPool;
   private store: NPCStateStore;
+  private visits: NPCVisitPolicy;
+  private reviewId?: string;
   private models = new Map<string, NPCActorModel>();
   private actors = new Map<string, RenderActor>();
   private wanted = new Set<string>();
@@ -72,6 +76,11 @@ export class NPCManager {
     } catch {
       /* Optional NPC persistence. */
     }
+    this.visits = new NPCVisitPolicy(storage);
+    const query = new URLSearchParams(location.search);
+    this.reviewId = query.has("qa")
+      ? (query.get("npcReview") ?? undefined)
+      : undefined;
     this.store = new NPCStateStore(storage, npcRegistry.npcs);
     for (const d of npcRegistry.npcs)
       this.models.set(d.id, new NPCActorModel(d, this.store.get(d.id)));
@@ -171,11 +180,18 @@ export class NPCManager {
   private populate() {
     const p = this.host.player();
     const pinned = this.dialogue.target;
+    const activeZones = new Set(
+      Object.keys(zones).filter((z) =>
+        zones[z].some((r) => rectDistance(p, r) < 240),
+      ),
+    );
+    const eligible = this.visits.eligible(activeZones, pinned, this.reviewId);
     const wanted = [...this.models.values()]
       .filter(
         (m) =>
           m.def.id === pinned ||
-          (zones[m.def.homeZone].some((r) => rectDistance(p, r) < 240) &&
+          (eligible.has(m.def.id) &&
+            zones[m.def.homeZone].some((r) => rectDistance(p, r) < 240) &&
             Math.hypot(
               p[0] - m.record.position[0],
               p[1] - m.record.position[1],
@@ -317,7 +333,12 @@ export class NPCManager {
   }
   snapshot() {
     return {
-      registered: npcRegistry.npcs.length,
+      registered: residentRegistry.npcs.length, // Legacy resident API; actual total is explicit below.
+      catalogTotal: npcRegistry.npcs.length,
+      residentCount: residentRegistry.npcs.length,
+      modernVisitorCount:
+        npcRegistry.npcs.length - residentRegistry.npcs.length,
+      historicalArchiveCount: 0, // Blocked on independently verified sources; no placeholder actors.
       active: this.actors.size,
       rendered: [...this.actors.values()].filter((a) => a.sprite.visible)
         .length,

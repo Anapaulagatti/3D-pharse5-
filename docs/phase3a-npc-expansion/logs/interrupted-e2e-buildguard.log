@@ -1,0 +1,53 @@
+
+> hangeul-pixel-town@3.1.0 test:e2e
+> playwright test
+
+[WebServer] (node:44140) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:44153) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 62 tests using 1 worker
+
+(node:44177) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/e2e/characters.spec.ts:16:1 › production starts in frozen world with twelve-character selection (7.0s)
+  ✓   2 tests/e2e/characters.spec.ts:54:1 › saved Juni restores and settings round-trip preserves location, emotes, progress and body ownership (15.8s)
+  ✓   3 tests/e2e/characters.spec.ts:110:1 › corrupt, unknown and unavailable storage recover to Juni without crashing (20.8s)
+  ✓   4 tests/e2e/characters.spec.ts:140:1 › mobile landscape preview fits; modal isolates joystick and original touch movement returns (2.9s)
+  ✓   5 tests/e2e/characters.spec.ts:190:1 › Canvas native Juni and Scenic Tour survive the production bootstrap (1.5s)
+  ✓   6 tests/e2e/characters.spec.ts:236:3 › native pack haneul plays, switches and restores without position/state loss (19.3s)
+  ✘   7 tests/e2e/characters.spec.ts:236:3 › native pack bomi plays, switches and restores without position/state loss (17.6s)
+
+
+  1) tests/e2e/characters.spec.ts:236:3 › native pack bomi plays, switches and restores without position/state loss 
+
+    Test was interrupted.
+
+    Error: page.waitForFunction: Test ended.
+
+      2 | const key = "korean-arena-player-preferences-v1";
+      3 | async function ready(page: Page) {
+    > 4 |   await page.waitForFunction(
+        |              ^
+      5 |     () => window.__GATE3__?.ready && window.__GATE3__.chunks.inflight === 0,
+      6 |     {},
+      7 |     { timeout: 45000 },
+        at ready (/workspace/korean-street-gate1/tests/e2e/characters.spec.ts:4:14)
+        at /workspace/korean-street-gate1/tests/e2e/characters.spec.ts:300:11
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/characters-native-pack-bom-62315-without-position-state-loss/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/characters-native-pack-bom-62315-without-position-state-loss/error-context.md
+
+  1 interrupted
+    tests/e2e/characters.spec.ts:236:3 › native pack bomi plays, switches and restores without position/state loss 
+  55 did not run
+  6 passed (1.4m)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

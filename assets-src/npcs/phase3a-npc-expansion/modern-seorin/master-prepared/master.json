@@ -1,0 +1,168 @@
+{
+  "schema": "generate2dsprite.master.v1",
+  "tool": {
+    "name": "master_still",
+    "version": "0.4.0"
+  },
+  "created": "2026-10-28T10:17:32.927Z",
+  "name": "modern-seorin",
+  "subject": "Independently illustrated Korean NPC",
+  "identity_recap": "Independently illustrated Korean NPC (A Korean fictional male theater actor age34, long expressive face, distinctive soft upturned eyes, warm medium skin, chestnut hair in short swept-back waves with one loose curl. Ochre fine tailored waistcoat over muted olive rolled-sleeve shirt, dark ink trousers, cognac leather shoes, small plain brass pin. Original independent character, no film costume or celebrity styling, no brands)",
+  "facing": "front",
+  "view": "front view",
+  "finish": "pixel",
+  "class": "hero",
+  "framing": {
+    "canvas": [
+      1024,
+      1024
+    ],
+    "subject_height_px": 788,
+    "top_margin_px": 138,
+    "lead_px": 0,
+    "preset": "hero",
+    "subject_bbox": [
+      355,
+      138,
+      668,
+      926
+    ],
+    "anchor": [
+      512.0,
+      926.0
+    ],
+    "opaque_area_px": 165711,
+    "width_limited": false
+  },
+  "key": "#FF00FF",
+  "files": {
+    "master": {
+      "path": "master.png",
+      "sha256": "1b41cd91804cd03f3764b5026bcf11831f3020cf7886dc7fd861fa9c4d140693",
+      "bytes": 232078,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "cutout": {
+      "path": "master_rgba.png",
+      "sha256": "6f5d0057602d8a71489caecc871c8e19250b4f769a9623035c02600c9c57a603",
+      "bytes": 274351,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "source": {
+      "path": "source.png",
+      "sha256": "a5af2287ac92479c12aab98cadaa7dee20f81e30d1e9c59778b94baa7d42acfd",
+      "bytes": 1311678,
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "spec": {
+      "path": "spec.json",
+      "sha256": "718c4db062a20076d206703bd0a90cec2205130e1d6f710c3fed46be561df662",
+      "bytes": 1959
+    },
+    "prompt": {
+      "path": "prompt.txt",
+      "sha256": "562f7ee81d6728ea1e7d253883237bb963a6b4e873dcdf0461dce155098aa783",
+      "bytes": 2671
+    }
+  },
+  "references": [
+    {
+      "role": "style",
+      "path": "../../../../../docs/phase3a-art-rebuild/juni-style-review-6x.png",
+      "sha256": "eb6382638589e34e04fe348f279955f37b8664e574ac3870c893486185d12499",
+      "bytes": 9359
+    }
+  ],
+  "transform": {
+    "mapping": "master = scale * source + offset (continuous pixel coordinates: pixel i spans [i, i + 1))",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "source_subject_bbox": [
+      428,
+      123,
+      827,
+      1130
+    ],
+    "crop_box": [
+      422,
+      117,
+      833,
+      1136
+    ],
+    "crop_margin_px": 6,
+    "scale": 0.7825223435948362,
+    "offset": [
+      20.96722939424029,
+      41.749751737835155
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "resampler": "lanczos",
+    "premultiplied": true,
+    "alpha_floor_px": 3032,
+    "subject_parts": 1,
+    "ignored_parts": 0,
+    "ignored_px": 0,
+    "source_touches": [],
+    "key_rgb": [
+      255,
+      0,
+      255
+    ]
+  },
+  "route": "host-image_gen",
+  "provenance": {
+    "command": "prompt",
+    "run": "../master-job",
+    "take": null,
+    "source_name": "master-source.png",
+    "source_sha256": "a5af2287ac92479c12aab98cadaa7dee20f81e30d1e9c59778b94baa7d42acfd",
+    "media": null,
+    "media_cli_source": null,
+    "edit": null
+  },
+  "matte": {
+    "requested": "soft",
+    "key_estimate": {
+      "key": [
+        252.0,
+        3.0,
+        250.0
+      ],
+      "source": "border_median",
+      "valid": true,
+      "ring_share": 1.0,
+      "coverage": 0.8260386539787195,
+      "distance_from_declared": 6.56
+    },
+    "quality": "soft",
+    "interior_despill": true,
+    "qa": {
+      "opaque_key_px": 0,
+      "outer_ring_spill_fraction": 0.0,
+      "semitransparent_fraction": 0.0278041781492993,
+      "enclosed_key_pockets": 0,
+      "key_hued_px": 0,
+      "visible_px": 272513
+    },
+    "key_choice": {
+      "status": "ok",
+      "overlap_share": 0.0,
+      "rule": "reject a key when more than 0.5% of subject pixels have key dominance >= 40; first acceptable candidate wins"
+    }
+  },
+  "warnings": []
+}

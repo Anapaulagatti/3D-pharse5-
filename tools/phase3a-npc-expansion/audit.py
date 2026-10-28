@@ -21,6 +21,8 @@ def actor(id):
     name=f'{kind}-{d}-{i}';im=Image.open(p/'frames'/f'{name}.png').convert('RGBA');a=np.array(im);hashes.append(hashlib.sha256(im.tobytes()).hexdigest());f=meta['frames'][name]['frame'];bb=im.getbbox();components,n=label(a[:,:,3]>0,np.ones((3,3)));areas=np.bincount(components.ravel())[1:]
     if sum(v>=8 for v in areas)!=1:errors.append([name,'detached-major-component',sorted([int(v)for v in areas if v>=8],reverse=True)])
     if not bb or bb[0]<=0 or bb[1]<=0 or bb[2]>=96 or bb[3]>=112:errors.append([name,'bounds',bb])
+    key=(a[:,:,0]>180)&(a[:,:,2]>160)&(a[:,:,1]<65)&(a[:,:,3]>0)
+    if key.any():errors.append([name,'bright-magenta-key-residue',int(key.sum())])
     if set(np.unique(a[:,:,3]))-{0,255}:errors.append([name,'nonbinary-alpha'])
     if atlas.crop((f['x'],f['y'],f['x']+96,f['y']+112)).tobytes()!=im.tobytes():errors.append([name,'atlas-mismatch'])
     if kind=='walk':

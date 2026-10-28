@@ -20,6 +20,14 @@ CONFIG.update({
  'donghae':{'hip':73,'knee':85,'shoe':93,'shoulder':49,'hem':72,'accessories':{'front':[[51,63,57,78]],'back':[[39,63,45,78]],'left':[[42,62,48,79]],'right':[[43,62,49,79]]}},
  'soobin':{'hip':73,'knee':85,'shoe':94,'shoulder':49,'hem':72,'longHair':True}
 })
+CONFIG.update({
+ 'modern-daon':{'hip':73,'knee':85,'shoe':94,'shoulder':49,'hem':72,'longHair':True,'hairBottom':67},
+ 'modern-miram':{'hip':73,'knee':85,'shoe':94,'shoulder':49,'hem':72},
+ 'modern-geonu':{'hip':73,'knee':85,'shoe':92,'shoulder':49,'hem':72},
+ 'modern-seorin':{'hip':73,'knee':85,'shoe':94,'shoulder':49,'hem':72},
+ 'modern-haru':{'hip':74,'knee':85,'shoe':94,'shoulder':49,'hem':75},
+ 'modern-yeori':{'hip':74,'knee':85,'shoe':94,'shoulder':49,'hem':80,'longCoat':True,'accessories':{'front':[[35,61,43,73]],'back':[],'left':[[38,60,45,73]],'right':[]}}
+})
 def poly(shape):
  im=Image.new('1',(96,112));ImageDraw.Draw(im).polygon([tuple(p)for p in shape],fill=1);return np.array(im,dtype=bool)
 def box(a):x,y,w,z=a;return poly([[x,y],[w,y],[w,z],[x,z]])
@@ -52,11 +60,16 @@ def author(id):
     if a[y,safe,3]:recovered[y,x]=a[y,safe]
    bodyImage=Image.fromarray(recovered);masks['body']=(yy<=sy)|core|access;arms={'R':[shoulder,elbow,wrist]};shift=farX-nearX;arms['L']=[[v[0]+shift,v[1]-1]for v in arms['R']];near='R';patch=[{'method':'Own same-row inner fabric within authored torso polygon only','candidatePixels':int(recover.sum()),'safeColumn':safe}]
   if k.get('longHair'):
-   rgb=a[:,:,:3].astype(int);hair=(yy<61)&(rgb[:,:,0]<190)&(rgb[:,:,1]<145)&(rgb[:,:,0]>rgb[:,:,1]*1.2)&(rgb[:,:,0]>rgb[:,:,2]*1.3)&opaque
+   rgb=a[:,:,:3].astype(int);hair=(yy<k.get('hairBottom',61))&(rgb[:,:,0]<190)&(rgb[:,:,1]<145)&(rgb[:,:,0]>rgb[:,:,1]*1.2)&(rgb[:,:,0]>rgb[:,:,2]*1.3)&opaque
    masks['body']|=hair
    for name in list(masks):
     if name!='body':masks[name]&=~hair
-  if id=='yejin'and front:
+  if k.get('longCoat'):
+   rgb=a[:,:,:3].astype(int);coat=(yy>=68)&(yy<=82)&(rgb[:,:,1]>rgb[:,:,0]*1.02)&(rgb[:,:,1]>rgb[:,:,2]*1.04)&opaque
+   masks['body']|=coat
+   for name in list(masks):
+    if any(t in name for t in ['thigh','shin']):masks[name]&=~coat
+  if (id=='yejin'or id.startswith('modern-'))and front:
    rgb=a[:,:,:3].astype(int);skin=(rgb[:,:,0]>145)&(rgb[:,:,0]>rgb[:,:,1]*1.25)&(rgb[:,:,0]>rgb[:,:,2]*1.3);ring=binary_dilation(skin,iterations=1)&opaque
    for name in ['Lforearm','Rforearm']:masks[name]&=(yy<65)|ring
   out=p/'layers'/d;out.mkdir(parents=True,exist_ok=True);ownership={}

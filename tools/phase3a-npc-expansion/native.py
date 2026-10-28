@@ -3,7 +3,7 @@ from pathlib import Path
 from PIL import Image,ImageDraw
 import json,hashlib,sys
 import numpy as np
-R=Path(__file__).resolve().parents[2];S=R/'assets-src/npcs/phase3a-npc-expansion';D=R/'docs/phase3a-npc-expansion';DIRS=['front','back','left','right'];SPLIT={'daehyun':627,'jiho':627,'eunji':600,'seojun':627,'nayeon':625,'cheolsu':610,'yejin':614,'sungmin':627,'junho':627,'donghae':627,'soobin':614}
+R=Path(__file__).resolve().parents[2];S=R/'assets-src/npcs/phase3a-npc-expansion';D=R/'docs/phase3a-npc-expansion';DIRS=['front','back','left','right'];SPLIT={'daehyun':627,'jiho':627,'eunji':600,'seojun':627,'nayeon':625,'cheolsu':610,'yejin':614,'sungmin':627,'junho':627,'donghae':627,'soobin':614,'modern-daon':620,'modern-miram':625,'modern-geonu':605,'modern-seorin':610,'modern-haru':627,'modern-yeori':625}
 def finish(id):
  p=S/id;raw=Image.open(p/'turnaround-source.png').convert('RGBA');a=np.array(raw);c=a[:,:,:3].astype(int);a[(c[:,:,0]>145)&(c[:,:,2]>145)&(c[:,:,0]-c[:,:,1]>100)&(c[:,:,2]-c[:,:,1]>100)]=0;im=Image.fromarray(a);im.save(p/'turnaround-keyed.png');w,h=im.size;split=SPLIT[id];rows=[];views=[]
  for i,d in enumerate(DIRS):

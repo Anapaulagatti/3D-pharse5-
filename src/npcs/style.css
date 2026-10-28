@@ -167,3 +167,11 @@ body[data-native="true"] #npc-interact {
     font-size: 13px;
   }
 }
+
+/* Additive learning teasers remain readable in mobile landscape. */
+#npc-dialogue[data-learning-words="true"] #npc-dialogue-hint {
+  display: block;
+  font-size: 13px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
