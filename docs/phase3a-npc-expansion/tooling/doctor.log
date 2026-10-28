@@ -1,0 +1,43 @@
+[OK     ] python.version                 Python 3.12.14 at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3
+[OK     ] deps.numpy                     2.3.5
+[OK     ] deps.Pillow                    12.3.0
+[OK     ] deps.scipy                     1.17.0
+[MISSING] deps.resvg-py                  not installed; needed for codeart2d SVG rendering (PixelSpec needs only numpy and Pillow)
+           -> "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" -m pip install "resvg-py>=0.5,<0.6"
+[OK     ] encoding.stdout                stdout=utf-8
+[OK     ] skills.present                 /workspace/tooling-cache/agent-sprite-forge/skills: all 5 skills
+[OK     ] skills.vendored                vendored shared files agree across skills
+[OK     ] skills.canonical               source checkout: vendored copies match shared/
+[OK     ] ffmpeg                         7.1.5-0+deb13u1 at /usr/bin/ffmpeg
+[OK     ] media.host-tools               declared: image_gen
+[OK     ] media.config                   no user config file at ~/.config/agent-sprite-forge/config.json (optional: API keys may also come from the environment)
+[MISSING] media.api.openai               OPENAI_API_KEY is not configured
+           -> optional: set OPENAI_API_KEY in the environment or in the user config file to make the OpenAI API an image route (GPT Image)
+[MISSING] media.api.gemini               GOOGLE_API_KEY or GEMINI_API_KEY is not configured
+           -> optional: set GOOGLE_API_KEY or GEMINI_API_KEY in the environment or in the user config file to make the Google Gemini API an image route (Gemini image models)
+[MISSING] media.api.xai                  XAI_API_KEY is not configured
+           -> optional: set XAI_API_KEY in the environment or in the user config file to make the xAI API an image and video route (Grok Imagine)
+[MISSING] media.api.byteplus             ARK_API_KEY is not configured
+           -> optional: set ARK_API_KEY in the environment or in the user config file to make the BytePlus ModelArk API an image and video route (Seedream, Seedance)
+[MISSING] media.api.fal                  FAL_KEY is not configured
+           -> optional: set FAL_KEY in the environment or in the user config file to make the fal.ai API a reference-edit and video route (Kling, Veo, Luma, MiniMax, Wan, Vidu, LTX)
+[OK     ] cli.codex                      codex-cli 0.163.0 at /opt/codex/bin/codex
+[MISSING] cli.grok                       Grok Build CLI not found on PATH or in $GROK_HOME/bin
+           -> optional: install the Grok Build CLI and sign in, then verify a route
+[UNKNOWN] route.codex-cli:image_gen      PRESENT: no proof for this version
+           -> nothing to do: the route's first successful route_media.py run records the proof; to verify ahead of time (one quota call; repeat after a CLI update): python "<skill-dir>/scripts/forge_doctor.py" --verify-route codex-cli --execute
+CLI LADDER (PRESENT -> AUTH_MODE -> TOOL_EXPOSED -> VERIFIED)
+  codex-cli:image_gen            PRESENT       PRESENT=OK AUTH_MODE=UNKNOWN TOOL_EXPOSED=UNKNOWN VERIFIED=UNKNOWN
+ROUTES (API when a key is configured, then local, then codeart2d only when asked or nothing else exists)
+  api keys    openai=no  gemini=no  xai=no  byteplus=no  fal=no  (environment or user config file; values are never shown)
+  image       host_image      ready     the calling agent's own media tool
+              option: local:codex-cli (ready) Codex (local CLI), at PRESENT: its first successful run records the VERIFIED proof; route_media.py runs it on the user's own sign-in (subscription quota, not API credit)
+  image_edit  local:codex-cli ready     Codex (local CLI), at PRESENT: its first successful run records the VERIFIED proof; route_media.py runs it on the user's own sign-in (subscription quota, not API credit)
+  video       none            none      no video generation route: write a motion brief and report the missing capability (supplied clips can still be processed)
+  clip        ffmpeg          ready     supplied clips decode and encode with ffmpeg 7.1.5-0+deb13u1
+  code_art    codeart2d       fallback  explicit-only last resort: only when the user asks for code-drawn art or no image or video route exists; codeart2d PixelSpec; SVG needs resvg-py
+  order       image: host_image > local:codex-cli > codeart2d
+  order       image_edit: local:codex-cli > codeart2d
+  order       video: codeart2d
+overall OK: 0 FAIL, 0 WARN, 7 MISSING (83 ms)
+saved: docs/phase3a-npc-expansion/tooling/doctor.json
