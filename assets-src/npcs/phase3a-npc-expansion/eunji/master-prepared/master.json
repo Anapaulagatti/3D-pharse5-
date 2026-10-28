@@ -1,0 +1,168 @@
+{
+  "schema": "generate2dsprite.master.v1",
+  "tool": {
+    "name": "master_still",
+    "version": "0.4.0"
+  },
+  "created": "2026-10-28T09:31:51.883Z",
+  "name": "eunji",
+  "subject": "Independently illustrated Korean NPC",
+  "identity_recap": "Independently illustrated Korean NPC (Korean woman age32 railway guide, confident almond eyes, warm round face, short glossy asymmetrical chestnut bob tucked behind one ear. Navy tailored railway jacket, fine teal trim, ivory blouse, gold scarf knot, teal trousers, navy cap with original abstract geometric brass pin (no brand), black comfortable shoes. Bare skin hands, no white gloves. Professional welcoming independent identity)",
+  "facing": "front",
+  "view": "front view",
+  "finish": "pixel",
+  "class": "hero",
+  "framing": {
+    "canvas": [
+      1024,
+      1024
+    ],
+    "subject_height_px": 788,
+    "top_margin_px": 138,
+    "lead_px": 0,
+    "preset": "hero",
+    "subject_bbox": [
+      360,
+      138,
+      664,
+      926
+    ],
+    "anchor": [
+      512.0,
+      926.0
+    ],
+    "opaque_area_px": 149454,
+    "width_limited": false
+  },
+  "key": "#FF00FF",
+  "files": {
+    "master": {
+      "path": "master.png",
+      "sha256": "0687fcab693f579553f522318cdb515df27fedf931a01858b8c7f1024d35d7e9",
+      "bytes": 266806,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "cutout": {
+      "path": "master_rgba.png",
+      "sha256": "6ab4968394633a12569ff72e51a15c374d90e32e3b70ecc760e9bfa975c55914",
+      "bytes": 310685,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "source": {
+      "path": "source.png",
+      "sha256": "d15496ccc3ef07428ba0650032fd65b4eb6e0881e928724e8c3d04dbb8503d5b",
+      "bytes": 1428679,
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "spec": {
+      "path": "spec.json",
+      "sha256": "9f4c57a4c4086331d2099ca89c93556be1b9bd9682400fd1a53d9960639f76f1",
+      "bytes": 1951
+    },
+    "prompt": {
+      "path": "prompt.txt",
+      "sha256": "28f109b36b5c3c9e5d2ef7dc2dede6eff9a95772b5ab31c330b30b7b56b1635f",
+      "bytes": 2635
+    }
+  },
+  "references": [
+    {
+      "role": "style",
+      "path": "../../../phase3a-art-rebuild/seoyeon/master-source.png",
+      "sha256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352",
+      "bytes": 1407131
+    }
+  ],
+  "transform": {
+    "mapping": "master = scale * source + offset (continuous pixel coordinates: pixel i spans [i, i + 1))",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "source_subject_bbox": [
+      424,
+      103,
+      828,
+      1152
+    ],
+    "crop_box": [
+      418,
+      97,
+      834,
+      1158
+    ],
+    "crop_margin_px": 6,
+    "scale": 0.7511916110581506,
+    "offset": [
+      41.75405147759773,
+      60.62726406101049
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "resampler": "lanczos",
+    "premultiplied": true,
+    "alpha_floor_px": 2590,
+    "subject_parts": 1,
+    "ignored_parts": 0,
+    "ignored_px": 0,
+    "source_touches": [],
+    "key_rgb": [
+      255,
+      0,
+      255
+    ]
+  },
+  "route": "host-image_gen",
+  "provenance": {
+    "command": "prompt",
+    "run": "../master-job",
+    "take": null,
+    "source_name": "master-source.png",
+    "source_sha256": "d15496ccc3ef07428ba0650032fd65b4eb6e0881e928724e8c3d04dbb8503d5b",
+    "media": null,
+    "media_cli_source": null,
+    "edit": null
+  },
+  "matte": {
+    "requested": "soft",
+    "key_estimate": {
+      "key": [
+        249.0,
+        4.0,
+        250.0
+      ],
+      "source": "border_median",
+      "valid": true,
+      "ring_share": 1.0,
+      "coverage": 0.8298134963332646,
+      "distance_from_declared": 8.77
+    },
+    "quality": "soft",
+    "interior_despill": false,
+    "qa": {
+      "opaque_key_px": 0,
+      "outer_ring_spill_fraction": 0.0,
+      "semitransparent_fraction": 0.024268077336922496,
+      "enclosed_key_pockets": 0,
+      "key_hued_px": 1,
+      "visible_px": 266729
+    },
+    "key_choice": {
+      "status": "ok",
+      "overlap_share": 5.7e-05,
+      "rule": "reject a key when more than 0.5% of subject pixels have key dominance >= 40; first acceptable candidate wins"
+    }
+  },
+  "warnings": []
+}

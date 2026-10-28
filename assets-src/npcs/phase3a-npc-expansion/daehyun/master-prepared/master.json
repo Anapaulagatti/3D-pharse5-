@@ -1,0 +1,168 @@
+{
+  "schema": "generate2dsprite.master.v1",
+  "tool": {
+    "name": "master_still",
+    "version": "0.4.0"
+  },
+  "created": "2026-10-28T09:31:48.899Z",
+  "name": "daehyun",
+  "subject": "Independently illustrated Korean NPC",
+  "identity_recap": "Independently illustrated Korean NPC (Korean man age35 palace attendant, broad rectangular face, calm narrow warm eyes, thick shaped brows, short neat moustache, dark hair tied beneath compact dark navy traditional low guard cap. Deep navy traditional jeogori with ivory crossed collar, muted burgundy sash and tiny brass clasp, structured charcoal vest, separate warm grey traditional trousers, black cloth shoes. Distinct mature Korean face and historical silhouette, not another pilot in recolored clothing)",
+  "facing": "front",
+  "view": "front view",
+  "finish": "pixel",
+  "class": "hero",
+  "framing": {
+    "canvas": [
+      1024,
+      1024
+    ],
+    "subject_height_px": 788,
+    "top_margin_px": 138,
+    "lead_px": 0,
+    "preset": "hero",
+    "subject_bbox": [
+      334,
+      138,
+      690,
+      926
+    ],
+    "anchor": [
+      514.0,
+      926.0
+    ],
+    "opaque_area_px": 165487,
+    "width_limited": false
+  },
+  "key": "#FF00FF",
+  "files": {
+    "master": {
+      "path": "master.png",
+      "sha256": "c199c8cb26591862b3d5e9945148179f75f8583436b695f7792c218b73beda48",
+      "bytes": 274555,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "cutout": {
+      "path": "master_rgba.png",
+      "sha256": "d42d1ad15f64810724927a8c5572108696c33b57440c702c8494c2c9dcc73484",
+      "bytes": 321878,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "source": {
+      "path": "source.png",
+      "sha256": "993d301a9a360bd10e9b4f0b8d1ed3e96d4d48c3b2468f85bb7cf886c0a9bee1",
+      "bytes": 1394078,
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "spec": {
+      "path": "spec.json",
+      "sha256": "63a81a54d4513ba4ae10c84b31fdc0bbd5bfb1816e26871f50b293165e81836b",
+      "bytes": 2107
+    },
+    "prompt": {
+      "path": "prompt.txt",
+      "sha256": "1e8f81ed3b23801e63b5e88c3337017458218fe3503f7849233c27e9d2a2b0b6",
+      "bytes": 2712
+    }
+  },
+  "references": [
+    {
+      "role": "style",
+      "path": "../../../phase3a-art-rebuild/seoyeon/master-source.png",
+      "sha256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352",
+      "bytes": 1407131
+    }
+  ],
+  "transform": {
+    "mapping": "master = scale * source + offset (continuous pixel coordinates: pixel i spans [i, i + 1))",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "source_subject_bbox": [
+      388,
+      103,
+      860,
+      1151
+    ],
+    "crop_box": [
+      382,
+      97,
+      866,
+      1157
+    ],
+    "crop_margin_px": 6,
+    "scale": 0.7519083969465649,
+    "offset": [
+      42.80916030534354,
+      60.55343511450381
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "resampler": "lanczos",
+    "premultiplied": true,
+    "alpha_floor_px": 2326,
+    "subject_parts": 1,
+    "ignored_parts": 0,
+    "ignored_px": 0,
+    "source_touches": [],
+    "key_rgb": [
+      255,
+      0,
+      255
+    ]
+  },
+  "route": "host-image_gen",
+  "provenance": {
+    "command": "prompt",
+    "run": "../master-job",
+    "take": null,
+    "source_name": "master-source.png",
+    "source_sha256": "993d301a9a360bd10e9b4f0b8d1ed3e96d4d48c3b2468f85bb7cf886c0a9bee1",
+    "media": null,
+    "media_cli_source": null,
+    "edit": null
+  },
+  "matte": {
+    "requested": "soft",
+    "key_estimate": {
+      "key": [
+        252.0,
+        4.0,
+        251.0
+      ],
+      "source": "border_median",
+      "valid": true,
+      "ring_share": 1.0,
+      "coverage": 0.8122670929898329,
+      "distance_from_declared": 6.4
+    },
+    "quality": "soft",
+    "interior_despill": false,
+    "qa": {
+      "opaque_key_px": 0,
+      "outer_ring_spill_fraction": 0.0,
+      "semitransparent_fraction": 0.021062211973741855,
+      "enclosed_key_pockets": 0,
+      "key_hued_px": 0,
+      "visible_px": 294461
+    },
+    "key_choice": {
+      "status": "ok",
+      "overlap_share": 7e-06,
+      "rule": "reject a key when more than 0.5% of subject pixels have key dominance >= 40; first acceptable candidate wins"
+    }
+  },
+  "warnings": []
+}

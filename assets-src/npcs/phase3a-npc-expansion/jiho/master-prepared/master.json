@@ -1,0 +1,168 @@
+{
+  "schema": "generate2dsprite.master.v1",
+  "tool": {
+    "name": "master_still",
+    "version": "0.4.0"
+  },
+  "created": "2026-10-28T09:31:50.284Z",
+  "name": "jiho",
+  "subject": "Independently illustrated Korean NPC",
+  "identity_recap": "Independently illustrated Korean NPC (Korean man age25 bookshop keeper, long oval face, thoughtful deep-set brown eyes, soft dark ash-brown parted waves and slim round bronze glasses. Cranberry cardigan with complex ribbed cuffs over cream linen shirt, charcoal straight trousers, brown leather shoes, slim tan book satchel on anatomical left hip. Refined independent friendly face and contemporary layered outfit)",
+  "facing": "front",
+  "view": "front view",
+  "finish": "pixel",
+  "class": "hero",
+  "framing": {
+    "canvas": [
+      1024,
+      1024
+    ],
+    "subject_height_px": 788,
+    "top_margin_px": 138,
+    "lead_px": 0,
+    "preset": "hero",
+    "subject_bbox": [
+      356,
+      138,
+      668,
+      926
+    ],
+    "anchor": [
+      515.0,
+      926.0
+    ],
+    "opaque_area_px": 152194,
+    "width_limited": false
+  },
+  "key": "#FF00FF",
+  "files": {
+    "master": {
+      "path": "master.png",
+      "sha256": "592bab87329a23854979d9dcc78bb2029019a075c9a35e4a09711a5fab46e83b",
+      "bytes": 278066,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "cutout": {
+      "path": "master_rgba.png",
+      "sha256": "2d07040f8b2d01e62c9a7c53e6ef12292d4b0d140a8e90af532023ac6640e146",
+      "bytes": 324124,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "source": {
+      "path": "source.png",
+      "sha256": "46591b0537f30723a00993d42936b396f8355b046fde3fe4394090972b3eba17",
+      "bytes": 1406900,
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "spec": {
+      "path": "spec.json",
+      "sha256": "565897dd783aaf726cf06b401187c011f3d884da6b58685dfc8bc53d237d4f77",
+      "bytes": 1912
+    },
+    "prompt": {
+      "path": "prompt.txt",
+      "sha256": "39c4b8a4a9f23852168355fd0ae95b779a94f28699cbc58fb98adcfa9bf5d7b5",
+      "bytes": 2616
+    }
+  },
+  "references": [
+    {
+      "role": "style",
+      "path": "../../../phase3a-art-rebuild/seoyeon/master-source.png",
+      "sha256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352",
+      "bytes": 1407131
+    }
+  ],
+  "transform": {
+    "mapping": "master = scale * source + offset (continuous pixel coordinates: pixel i spans [i, i + 1))",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "source_subject_bbox": [
+      419,
+      120,
+      827,
+      1151
+    ],
+    "crop_box": [
+      413,
+      114,
+      833,
+      1157
+    ],
+    "crop_margin_px": 6,
+    "scale": 0.7643064985451018,
+    "offset": [
+      35.8370514064016,
+      46.28322017458778
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "resampler": "lanczos",
+    "premultiplied": true,
+    "alpha_floor_px": 2476,
+    "subject_parts": 1,
+    "ignored_parts": 0,
+    "ignored_px": 0,
+    "source_touches": [],
+    "key_rgb": [
+      255,
+      0,
+      255
+    ]
+  },
+  "route": "host-image_gen",
+  "provenance": {
+    "command": "prompt",
+    "run": "../master-job",
+    "take": null,
+    "source_name": "master-source.png",
+    "source_sha256": "46591b0537f30723a00993d42936b396f8355b046fde3fe4394090972b3eba17",
+    "media": null,
+    "media_cli_source": null,
+    "edit": null
+  },
+  "matte": {
+    "requested": "soft",
+    "key_estimate": {
+      "key": [
+        252.0,
+        3.0,
+        251.0
+      ],
+      "source": "border_median",
+      "valid": true,
+      "ring_share": 1.0,
+      "coverage": 0.8325899386715302,
+      "distance_from_declared": 5.83
+    },
+    "quality": "soft",
+    "interior_despill": false,
+    "qa": {
+      "opaque_key_px": 0,
+      "outer_ring_spill_fraction": 0.0,
+      "semitransparent_fraction": 0.020946777580050834,
+      "enclosed_key_pockets": 0,
+      "key_hued_px": 10,
+      "visible_px": 262427
+    },
+    "key_choice": {
+      "status": "ok",
+      "overlap_share": 0.000268,
+      "rule": "reject a key when more than 0.5% of subject pixels have key dominance >= 40; first acceptable candidate wins"
+    }
+  },
+  "warnings": []
+}
