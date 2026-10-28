@@ -1,0 +1,170 @@
+{
+  "schema": "generate2dsprite.master.v1",
+  "tool": {
+    "name": "master_still",
+    "version": "0.4.0"
+  },
+  "created": "2026-10-28T02:45:22.303Z",
+  "name": "minseo",
+  "subject": "Korean young woman NPC",
+  "identity_recap": "Korean young woman NPC (Friendly Korean young woman cafe barista, round face with sparkling dark eyes and a tiny beauty mark below left eye, distinctive chestnut wavy bob tucked behind one ear and cream clip on anatomical right; ivory puff-sleeved shirt with rolled cuffs, cinnamon brown cross-back barista apron with layered pockets and coffee bean embroidery, muted teal cropped trousers, cream lace-up cafe work shoes, small brass pen in apron pocket. Own face and silhouette,not Juni/Bomi)",
+  "facing": "front",
+  "view": "front view",
+  "finish": "pixel",
+  "class": "hero",
+  "framing": {
+    "canvas": [
+      1024,
+      1024
+    ],
+    "subject_height_px": 788,
+    "top_margin_px": 138,
+    "lead_px": 0,
+    "preset": "hero",
+    "subject_bbox": [
+      365,
+      138,
+      659,
+      926
+    ],
+    "anchor": [
+      512.0,
+      926.0
+    ],
+    "opaque_area_px": 161062,
+    "width_limited": false
+  },
+  "key": "#FF00FF",
+  "files": {
+    "master": {
+      "path": "master.png",
+      "sha256": "737307bdd6039188487472d5b2a0996ac7853eb218fe1c75d93d07414aa88f2d",
+      "bytes": 294206,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "cutout": {
+      "path": "master_rgba.png",
+      "sha256": "26c93a10bacc771e44564b3676bec3bcde3e588ba746dc1770e8eb6dafac282e",
+      "bytes": 351188,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "source": {
+      "path": "source.png",
+      "sha256": "338fffa3c76fef38046a1624593143e1d5081dbeef723d704ec20a319775ac97",
+      "bytes": 1447493,
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "spec": {
+      "path": "spec.json",
+      "sha256": "851c61eb056b51b239d8e51ca879db5636b367c72aed2d6e366fb1115ced0b98",
+      "bytes": 2072
+    },
+    "prompt": {
+      "path": "prompt.txt",
+      "sha256": "0d0f9d54c9ea9f7eea2447f1635a7022927b0409cc0bed53fc5aa51000a9abab",
+      "bytes": 3132
+    }
+  },
+  "references": [
+    {
+      "role": "style",
+      "path": "../../../../characters/phase1/juni-style-reference.png",
+      "sha256": "8148393f14e2319695e6a947d0111ae0e553e3bea18006da3cc2f59c784390a3",
+      "bytes": 4860
+    }
+  ],
+  "transform": {
+    "mapping": "master = scale * source + offset (continuous pixel coordinates: pixel i spans [i, i + 1))",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "source_subject_bbox": [
+      424,
+      104,
+      813,
+      1153
+    ],
+    "crop_box": [
+      418,
+      98,
+      819,
+      1159
+    ],
+    "crop_margin_px": 6,
+    "scale": 0.7511916110581506,
+    "offset": [
+      47.38798856053387,
+      59.876072449952346
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "resampler": "lanczos",
+    "premultiplied": true,
+    "alpha_floor_px": 2041,
+    "subject_parts": 1,
+    "ignored_parts": 0,
+    "ignored_px": 0,
+    "source_touches": [],
+    "key_rgb": [
+      255,
+      0,
+      255
+    ]
+  },
+  "route": "host_image:image_gen.imagegen",
+  "provenance": {
+    "command": "external",
+    "run": null,
+    "take": null,
+    "source_name": "master-source.png",
+    "source_sha256": "338fffa3c76fef38046a1624593143e1d5081dbeef723d704ec20a319775ac97",
+    "media": null,
+    "media_cli_source": null,
+    "edit": null
+  },
+  "matte": {
+    "requested": "hard",
+    "key_estimate": {
+      "key": [
+        248.0,
+        4.0,
+        250.0
+      ],
+      "source": "border_median",
+      "valid": true,
+      "ring_share": 1.0,
+      "coverage": 0.8173398553655415,
+      "distance_from_declared": 9.49
+    },
+    "quality": "hard",
+    "interior_despill": null,
+    "qa": {
+      "opaque_key_px": 0,
+      "outer_ring_spill_fraction": 0.8753564154786151,
+      "semitransparent_fraction": 0.0,
+      "enclosed_key_pockets": 0,
+      "key_hued_px": 1244,
+      "visible_px": 285316
+    },
+    "key_choice": {
+      "status": "conflict",
+      "overlap_share": 0.01253,
+      "rule": "reject a key when more than 0.5% of subject pixels have key dominance >= 40; first acceptable candidate wins"
+    }
+  },
+  "warnings": [
+    "1.3% of the subject's colours lean to the key #FF00FF (more than 0.5%): check that those parts survive keying; for purple or pink designs use --key green or blue"
+  ]
+}

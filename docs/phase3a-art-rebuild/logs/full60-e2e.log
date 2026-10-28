@@ -1,0 +1,80 @@
+
+> hangeul-pixel-town@3.1.0 test:e2e
+> playwright test
+
+[WebServer] (node:15881) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:15894) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 60 tests using 1 worker
+
+(node:15918) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/e2e/characters.spec.ts:16:1 › production starts in frozen world with twelve-character selection (6.5s)
+  ✓   2 tests/e2e/characters.spec.ts:54:1 › saved Juni restores and settings round-trip preserves location, emotes, progress and body ownership (15.0s)
+  ✓   3 tests/e2e/characters.spec.ts:110:1 › corrupt, unknown and unavailable storage recover to Juni without crashing (18.8s)
+  ✓   4 tests/e2e/characters.spec.ts:140:1 › mobile landscape preview fits; modal isolates joystick and original touch movement returns (2.5s)
+  ✓   5 tests/e2e/characters.spec.ts:190:1 › Canvas native Juni and Scenic Tour survive the production bootstrap (1.4s)
+  ✓   6 tests/e2e/characters.spec.ts:236:3 › native pack haneul plays, switches and restores without position/state loss (17.6s)
+  ✓   7 tests/e2e/characters.spec.ts:236:3 › native pack bomi plays, switches and restores without position/state loss (18.2s)
+  ✓   8 tests/e2e/characters.spec.ts:236:3 › native pack minjun plays, switches and restores without position/state loss (18.2s)
+  ✓   9 tests/e2e/characters.spec.ts:236:3 › native pack ara plays, switches and restores without position/state loss (18.5s)
+  ✓  10 tests/e2e/characters.spec.ts:236:3 › native pack doyun plays, switches and restores without position/state loss (18.5s)
+  ✓  11 tests/e2e/characters.spec.ts:236:3 › native pack sori plays, switches and restores without position/state loss (18.6s)
+  ✓  12 tests/e2e/characters.spec.ts:236:3 › native pack jiwon plays, switches and restores without position/state loss (18.1s)
+  ✓  13 tests/e2e/characters.spec.ts:236:3 › native pack nari plays, switches and restores without position/state loss (18.5s)
+  ✓  14 tests/e2e/characters.spec.ts:236:3 › native pack taeyang plays, switches and restores without position/state loss (17.8s)
+  ✓  15 tests/e2e/characters.spec.ts:236:3 › native pack yuna plays, switches and restores without position/state loss (18.0s)
+  ✓  16 tests/e2e/characters.spec.ts:236:3 › native pack hyunwoo plays, switches and restores without position/state loss (18.9s)
+  ✓  17 tests/e2e/foundation.spec.ts:18:1 › preserved north normal entry: actual Juni walk and gesture recover (2.3s)
+  ✓  18 tests/e2e/foundation.spec.ts:38:1 › approved Academy lesson and return remain functional after cleanup (1.8s)
+  ✓  19 tests/e2e/foundation.spec.ts:53:1 › palace intent toggles retained gate and prevents closing on Juni (1.4s)
+  ✓  20 tests/e2e/foundation.spec.ts:66:1 › mobile analog movement, reduced motion and portrait pause survive cleanup (2.0s)
+  ✓  21 tests/e2e/motion-correction.spec.ts:3:3 › sori: actual right walk/run, consecutive phases, stop and turn without engine overrides (11.0s)
+  ✓  22 tests/e2e/motion-correction.spec.ts:3:3 › jiwon: actual right walk/run, consecutive phases, stop and turn without engine overrides (11.0s)
+  ✓  23 tests/e2e/motion-correction.spec.ts:3:3 › nari: actual right walk/run, consecutive phases, stop and turn without engine overrides (11.8s)
+  ✓  24 tests/e2e/motion-correction.spec.ts:3:3 › taeyang: actual right walk/run, consecutive phases, stop and turn without engine overrides (12.5s)
+  ✓  25 tests/e2e/motion-correction.spec.ts:3:3 › yuna: actual right walk/run, consecutive phases, stop and turn without engine overrides (12.9s)
+  ✓  26 tests/e2e/motion-correction.spec.ts:3:3 › hyunwoo: actual right walk/run, consecutive phases, stop and turn without engine overrides (13.5s)
+  ✓  27 tests/e2e/phase2b.spec.ts:6:1 › twelve-entry mobile landscape gallery reaches the final identity, restores it on reopen and survives orientation changes (2.7s)
+  ✓  28 tests/e2e/phase2b.spec.ts:69:1 › new identities resolve incompatible stored cosmetics without deleting an approved look, preset or real visited marker (4.3s)
+  ✓  29 tests/e2e/phase2c.spec.ts:41:1 › every actor has a working curated hair/outfit/accessory preview, applies it and can reset to approved defaults (15.2s)
+  ✓  30 tests/e2e/phase2c.spec.ts:104:1 › personal presets rename/delete, cancel a draft, and survive reload without losing other characters or world state (5.0s)
+  ✓  31 tests/e2e/phase2c.spec.ts:155:1 › latest rapid preview wins and equipping a hat removes an incompatible quiff without touching original pixels (3.7s)
+  ✓  32 tests/e2e/phase2c.spec.ts:189:1 › mismatched native-pose registration safely restores approved defaults (3.3s)
+  ✓  33 tests/e2e/phase2c.spec.ts:220:3 › mobile667x375: native preview, reachable wardrobe/preset controls, all actions and world joystick (3.1s)
+  ✓  34 tests/e2e/phase2c.spec.ts:220:3 › mobile844x390: native preview, reachable wardrobe/preset controls, all actions and world joystick (2.6s)
+  ✓  35 tests/e2e/phase2c.spec.ts:263:1 › LAN/offline review without SubtleCrypto still binds and applies a genuine native cosmetic (2.7s)
+  ✓  36 tests/e2e/phase3a.spec.ts:52:1 › all14 contextual residents are approachable with real controls and close/resume safely in the canonical world (30.9s)
+  ✓  37 tests/e2e/phase3a.spec.ts:109:1 › keyboard choices/Enter, close and corrupt NPC-only storage preserve player appearance and progress (2.3s)
+  ✓  38 tests/e2e/phase3a.spec.ts:147:3 › touch667x375: reachable Korean/Vietnamese dialogue,isolated controls and resumed joystick (2.6s)
+  ✓  39 tests/e2e/phase3a.spec.ts:147:3 › touch844x390: reachable Korean/Vietnamese dialogue,isolated controls and resumed joystick (2.6s)
+  ✓  40 tests/e2e/phase3a.spec.ts:219:1 › NPC resource failure does not replace or freeze the approved player (1.1s)
+  ✓  41 tests/e2e/phase3a.spec.ts:246:1 › continuous mainland-to-Jeju exploration uses the repaired bridge with original movement and collision (1.7m)
+  ✓  42 tests/e2e/phase3a.spec.ts:288:1 › real zone exit/reentry freezes inactive residents and restores them without duplicate/orphan sprites (37.2s)
+  ✓  43 tests/e2e/studio.spec.ts:71:1 › Studio previews and applies each category, resets, and persists a named local look without changing world progress (4.0s)
+  ✓  44 tests/e2e/studio.spec.ts:135:1 › legacy v1 selection migrates additively without rewriting data just to read it (3.5s)
+  ✓  45 tests/e2e/studio.spec.ts:163:1 › switching between cosmetic-compatible and locked original identities restores each own set and keeps one sprite (3.6s)
+  ✓  46 tests/e2e/studio.spec.ts:197:1 › corrupt and incompatible appearance references preserve the valid v1 identity and original defaults (2.1s)
+  ✓  47 tests/e2e/studio.spec.ts:229:1 › missing cosmetic artwork falls back to the original character without blank or duplicate players (3.5s)
+  ✓  48 tests/e2e/studio.spec.ts:255:1 › repeated six-character and cosmetic switches keep texture/preview caches bounded and world state fixed (10.2s)
+  ✓  49 tests/e2e/studio.spec.ts:300:1 › mobile landscape Studio has native-sized visible preview, reachable actions and isolated touch; joystick resumes (4.2s)
+  ✓  50 tests/e2e/v10-city.spec.ts:168:3 › V10 real input route: historic gateway to high street (12.6s)
+  ✓  51 tests/e2e/v10-city.spec.ts:168:3 › V10 real input route: entire high street and station forecourt (27.6s)
+  ✓  52 tests/e2e/v10-city.spec.ts:168:3 › V10 real input route: urban block circuit (40.6s)
+  ✓  53 tests/e2e/v10-city.spec.ts:168:3 › V10 real input route: west scenic loop and tower approach (43.9s)
+  ✓  54 tests/e2e/v10-city.spec.ts:168:3 › V10 real input route: leisure campus and ride approaches (40.2s)
+  ✓  55 tests/e2e/v10-city.spec.ts:168:3 › V10 real input route: coastal neighborhood to boarding pier (27.2s)
+  ✓  56 tests/e2e/v10-city.spec.ts:168:3 › V10 real input route: Jeju olle and village circuit (32.4s)
+  ✓  57 tests/e2e/v10-city.spec.ts:192:1 › all 23 entrances are walkable and identify their intended venue (9.5s)
+  ✓  58 tests/e2e/v10-city.spec.ts:204:1 › two ferry journeys land outside triggers and allow subsequent walking (2.2s)
+  ✓  59 tests/e2e/v10-city.spec.ts:242:1 › station tracks and building masses block input; marked crossing is clear (7.4s)
+  ✓  60 tests/e2e/v10-city.spec.ts:263:1 › forced WebGL renders V10 without fetching rejected assets (2.0s)
+
+  60 passed (13.8m)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

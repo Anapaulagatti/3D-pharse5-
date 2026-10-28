@@ -1,0 +1,170 @@
+{
+  "schema": "generate2dsprite.master.v1",
+  "tool": {
+    "name": "master_still",
+    "version": "0.4.0"
+  },
+  "created": "2026-10-28T02:45:21.348Z",
+  "name": "seoyeon",
+  "subject": "Korean young woman NPC",
+  "identity_recap": "Korean young woman NPC (Warm approachable Korean young woman cultural guide, distinctive oval face and bright almond brown eyes with expressive lashes and brows, glossy dark chocolate half-up low chignon with a small jade hairpin and two curved side locks; pale jade traditional jeogori with ivory crossed collar and cuffs, subtle embroidered plum motif, plum-purple pleated wide cropped hanbok trousers with visible separate legs, petite gold and jade norigae hanging from her waist, cream traditional rounded shoes with dark soles. Own elegant face/hair/costume,not Bomi or Juni)",
+  "facing": "front",
+  "view": "front view",
+  "finish": "pixel",
+  "class": "hero",
+  "framing": {
+    "canvas": [
+      1024,
+      1024
+    ],
+    "subject_height_px": 788,
+    "top_margin_px": 138,
+    "lead_px": 0,
+    "preset": "hero",
+    "subject_bbox": [
+      348,
+      138,
+      676,
+      926
+    ],
+    "anchor": [
+      513.5,
+      926.0
+    ],
+    "opaque_area_px": 171390,
+    "width_limited": false
+  },
+  "key": "#FF00FF",
+  "files": {
+    "master": {
+      "path": "master.png",
+      "sha256": "627faf1da3b62790c91563499ea7baf28c41f536cf502515fe5ed607b9941880",
+      "bytes": 298380,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "cutout": {
+      "path": "master_rgba.png",
+      "sha256": "cc1f010a3971df3a39bdccdeae341260f5c604fc00f5c5011405e3d2a4b8cb05",
+      "bytes": 355722,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "source": {
+      "path": "source.png",
+      "sha256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352",
+      "bytes": 1407131,
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "spec": {
+      "path": "spec.json",
+      "sha256": "87a46dfc576fb36d7b4ca55ba9b4b051a657b66ae3ec8278b44f5fdbc3e30ac5",
+      "bytes": 2249
+    },
+    "prompt": {
+      "path": "prompt.txt",
+      "sha256": "90e5ad37028bdabc2c1b61c64aa4ca814e73c5e04f429410d3557c5988f323ae",
+      "bytes": 3107
+    }
+  },
+  "references": [
+    {
+      "role": "style",
+      "path": "../../../../characters/phase1/juni-style-reference.png",
+      "sha256": "8148393f14e2319695e6a947d0111ae0e553e3bea18006da3cc2f59c784390a3",
+      "bytes": 4860
+    }
+  ],
+  "transform": {
+    "mapping": "master = scale * source + offset (continuous pixel coordinates: pixel i spans [i, i + 1))",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "source_subject_bbox": [
+      411,
+      131,
+      836,
+      1153
+    ],
+    "crop_box": [
+      405,
+      125,
+      842,
+      1159
+    ],
+    "crop_margin_px": 6,
+    "scale": 0.7710371819960861,
+    "offset": [
+      31.258317025440363,
+      36.99412915851272
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "resampler": "lanczos",
+    "premultiplied": true,
+    "alpha_floor_px": 1841,
+    "subject_parts": 1,
+    "ignored_parts": 0,
+    "ignored_px": 0,
+    "source_touches": [],
+    "key_rgb": [
+      255,
+      0,
+      255
+    ]
+  },
+  "route": "host_image:image_gen.imagegen",
+  "provenance": {
+    "command": "external",
+    "run": null,
+    "take": null,
+    "source_name": "master-source.png",
+    "source_sha256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352",
+    "media": null,
+    "media_cli_source": null,
+    "edit": null
+  },
+  "matte": {
+    "requested": "hard",
+    "key_estimate": {
+      "key": [
+        251.0,
+        3.0,
+        250.0
+      ],
+      "source": "border_median",
+      "valid": true,
+      "ring_share": 1.0,
+      "coverage": 0.8156006043817678,
+      "distance_from_declared": 7.07
+    },
+    "quality": "hard",
+    "interior_despill": null,
+    "qa": {
+      "opaque_key_px": 0,
+      "outer_ring_spill_fraction": 0.8218663503361012,
+      "semitransparent_fraction": 0.0,
+      "enclosed_key_pockets": 0,
+      "key_hued_px": 1204,
+      "visible_px": 288228
+    },
+    "key_choice": {
+      "status": "conflict",
+      "overlap_share": 0.069761,
+      "rule": "reject a key when more than 0.5% of subject pixels have key dominance >= 40; first acceptable candidate wins"
+    }
+  },
+  "warnings": [
+    "7.0% of the subject's colours lean to the key #FF00FF (more than 0.5%): check that those parts survive keying; for purple or pink designs use --key green or blue"
+  ]
+}

@@ -1,0 +1,1 @@
+import{build}from'vite';await build({configFile:false,base:'./',publicDir:false,build:{outDir:'/tmp/phase3a-art-review',emptyOutDir:true,manifest:true,target:'es2022',chunkSizeWarningLimit:1900,rolldownOptions:{input:{game:'index.html',clips:'tools/phase3a-art-rebuild/clip-inspector.html'}}}});
