@@ -1,0 +1,168 @@
+{
+  "schema": "generate2dsprite.master.v1",
+  "tool": {
+    "name": "master_still",
+    "version": "0.4.0"
+  },
+  "created": "2026-10-28T15:46:36.316Z",
+  "name": "history-jang",
+  "subject": "Independent speculative historical reconstruction art proposal",
+  "identity_recap": "Independent speculative historical reconstruction art proposal (ONE independently authored premium pixel-game illustrated character SOURCE MASTER, approved peer attachment is finish/proportion reference ONLY, never identity. Subject: original Jang Yeong-sil-inspired earlyJoseon scientific artisan proposal: Korean middle-aged man, distinct narrow oval face with smiling thoughtful dark eyes, small tidy moustache, dark ash-black hair tied under a simple low black fabric headwrap, blue-grey practical crosscollar knee-length robe with ivory undershirt and rolled broad cuffs, warm brown fabric work sash, small original unmarked toolpouch anatomicalLEFT, ivory loose trousers and simple darkbrown shoes. Friendly ingenious craftsman, different face/body/headwear than a king. No royal robe, no modernlaboratorycoat, noglasses. Hands EMPTY in master, visibly separated from sleeves, relaxedApose arms20degrees apart, flat orthographic FRONT, bothfeet separatelevel. ExactlyONE fullbodyfigure, centered72percentcanvasheight, generousflatPUREMAGENTA #FF00FF margins. Premiumpixelgameclusteredmaterials and darkoutlines, readablefolds/eyes/hair, upperleftlighting, about3headstall. No blur/gradient/text/letters/logos/ground/shadow/prop/grid. This is a SPECULATIVE earlyJoseon-inspired educational reconstruction ART PROPOSAL, no authenticated portrait or clothing claim; no real portrait/photo copying. No invented dates)",
+  "facing": "front",
+  "view": "front view",
+  "finish": "pixel",
+  "class": "hero",
+  "framing": {
+    "canvas": [
+      1024,
+      1024
+    ],
+    "subject_height_px": 788,
+    "top_margin_px": 138,
+    "lead_px": 0,
+    "preset": "hero",
+    "subject_bbox": [
+      333,
+      138,
+      691,
+      926
+    ],
+    "anchor": [
+      512.0,
+      926.0
+    ],
+    "opaque_area_px": 166591,
+    "width_limited": false
+  },
+  "key": "#FF00FF",
+  "files": {
+    "master": {
+      "path": "master.png",
+      "sha256": "1760680cd9bdafe543a1ea7857d15c7dc15e7a2d15af8df6b5df141daa1cceb3",
+      "bytes": 305984,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "cutout": {
+      "path": "master_rgba.png",
+      "sha256": "7654940d02bcf2ada40ff6bd0a7a69b2b3519408fdade567e6fd8c580ae68d55",
+      "bytes": 356478,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "source": {
+      "path": "source.png",
+      "sha256": "58a235da82834dd8b9bf47fdf992df5908a701b88eb82ce3d171e102fec744b8",
+      "bytes": 1445960,
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "spec": {
+      "path": "spec.json",
+      "sha256": "ba5894c260d84f44218c66ecdaec7a8959b2c8bf0d13cd9299baf8cebced4764",
+      "bytes": 3930
+    },
+    "prompt": {
+      "path": "prompt.txt",
+      "sha256": "c5f4650257e140aec64d25ada4bdf22ba61cb1344712da0fa91222f1808979d2",
+      "bytes": 1356
+    }
+  },
+  "references": [
+    {
+      "role": "style",
+      "path": "../../../phase3a-art-rebuild/seoyeon/master-source.png",
+      "sha256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352",
+      "bytes": 1407131
+    }
+  ],
+  "transform": {
+    "mapping": "master = scale * source + offset (continuous pixel coordinates: pixel i spans [i, i + 1))",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "source_subject_bbox": [
+      375,
+      97,
+      857,
+      1161
+    ],
+    "crop_box": [
+      369,
+      91,
+      863,
+      1167
+    ],
+    "crop_margin_px": 6,
+    "scale": 0.7406015037593985,
+    "offset": [
+      55.78947368421052,
+      66.16165413533835
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "resampler": "lanczos",
+    "premultiplied": true,
+    "alpha_floor_px": 2338,
+    "subject_parts": 1,
+    "ignored_parts": 0,
+    "ignored_px": 0,
+    "source_touches": [],
+    "key_rgb": [
+      255,
+      0,
+      255
+    ]
+  },
+  "route": "host-image_gen",
+  "provenance": {
+    "command": "prompt",
+    "run": "../master-job",
+    "take": null,
+    "source_name": "master-source.png",
+    "source_sha256": "58a235da82834dd8b9bf47fdf992df5908a701b88eb82ce3d171e102fec744b8",
+    "media": null,
+    "media_cli_source": null,
+    "edit": null
+  },
+  "matte": {
+    "requested": "soft",
+    "key_estimate": {
+      "key": [
+        252.0,
+        4.0,
+        251.0
+      ],
+      "source": "border_median",
+      "valid": true,
+      "ring_share": 1.0,
+      "coverage": 0.8051091372043273,
+      "distance_from_declared": 6.4
+    },
+    "quality": "soft",
+    "interior_despill": true,
+    "qa": {
+      "opaque_key_px": 0,
+      "outer_ring_spill_fraction": 0.0,
+      "semitransparent_fraction": 0.020110843562697937,
+      "enclosed_key_pockets": 0,
+      "key_hued_px": 0,
+      "visible_px": 305656
+    },
+    "key_choice": {
+      "status": "ok",
+      "overlap_share": 0.0,
+      "rule": "reject a key when more than 0.5% of subject pixels have key dominance >= 40; first acceptable candidate wins"
+    }
+  },
+  "warnings": []
+}

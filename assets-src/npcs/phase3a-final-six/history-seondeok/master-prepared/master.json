@@ -1,0 +1,168 @@
+{
+  "schema": "generate2dsprite.master.v1",
+  "tool": {
+    "name": "master_still",
+    "version": "0.4.0"
+  },
+  "created": "2026-10-28T15:45:41.415Z",
+  "name": "history-seondeok",
+  "subject": "Independent speculative historical reconstruction art proposal",
+  "identity_recap": "Independent speculative historical reconstruction art proposal (Create ONE premium independently authored illustrated pixel-game character source master for Korean Arena, matching the attached approved peer's refined pixel clusters, outline weight, three-head-tall proportions, upper-left lighting, beautiful expressive eyes and cloth detail. Use the reference ONLY for finish and scale, never copy its face/hair/clothing. Subject: Queen Seondeok-inspired Silla educational reconstruction, distinctly mature regal Korean woman, warm oval face, almond amber eyes, black hair swept into a compact formal bun, original slender branching gold crown with jade small drops, deep indigo cross-collar layered ceremonial jacket with gold trim and ivory cuffs, restrained cinnabar sash, flowing teal pleated ankle-length skirt with subtle cloud border, small separate ivory shoes clearly visible. This is a SPECULATIVE ERA-QUALIFIED artistic proposal, NOT an authenticated portrait or costume. Do not use Joseon dragon robe or Joseon black king hat. No museum portrait/photo copied. ONE full body FRONT facing camera in relaxed animation-ready A-pose, arms20degrees away from body, hands separate at hip level, feet separate and level, whole figure centered, about72percent canvasheight with generous margins. Flat PURE MAGENTA #FF00FF background, no shadow/terrain/props/text/logo/grid. Sharp intentional pixel-game illustration, no blur or smooth gradient. Original face and regal silhouette distinctly different from reference. High-resolution source, not claimed native sprite grid)",
+  "facing": "front",
+  "view": "front view",
+  "finish": "pixel",
+  "class": "hero",
+  "framing": {
+    "canvas": [
+      1024,
+      1024
+    ],
+    "subject_height_px": 788,
+    "top_margin_px": 138,
+    "lead_px": 0,
+    "preset": "hero",
+    "subject_bbox": [
+      337,
+      138,
+      688,
+      926
+    ],
+    "anchor": [
+      512.0,
+      926.0
+    ],
+    "opaque_area_px": 170853,
+    "width_limited": false
+  },
+  "key": "#FF00FF",
+  "files": {
+    "master": {
+      "path": "master.png",
+      "sha256": "ddc6fe9240dfc027c6a08a1c7800f1e5070834e1715163279629a589ee77fa88",
+      "bytes": 342768,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "cutout": {
+      "path": "master_rgba.png",
+      "sha256": "165593a715afb04fbbf0159fa3b07dacf878f630d307a6767d2b18373f823965",
+      "bytes": 397481,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "source": {
+      "path": "source.png",
+      "sha256": "56a3a41d5ce185494dc3ea7e84444090e260372ffc9282811acdb95ceb4ef75e",
+      "bytes": 1550939,
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "spec": {
+      "path": "spec.json",
+      "sha256": "2a714631d76306507f398566f43791a22601c3aa96740b771ad89b266c151429",
+      "bytes": 4248
+    },
+    "prompt": {
+      "path": "prompt.txt",
+      "sha256": "f877b47c5be06e70357a096cff288f41a74f33c3b12d18a498d209033a839465",
+      "bytes": 1513
+    }
+  },
+  "references": [
+    {
+      "role": "style",
+      "path": "../../../phase3a-art-rebuild/seoyeon/master-source.png",
+      "sha256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352",
+      "bytes": 1407131
+    }
+  ],
+  "transform": {
+    "mapping": "master = scale * source + offset (continuous pixel coordinates: pixel i spans [i, i + 1))",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "source_subject_bbox": [
+      367,
+      51,
+      882,
+      1209
+    ],
+    "crop_box": [
+      361,
+      45,
+      888,
+      1215
+    ],
+    "crop_margin_px": 6,
+    "scale": 0.6804835924006909,
+    "offset": [
+      87.03799654576852,
+      103.29533678756476
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "resampler": "lanczos",
+    "premultiplied": true,
+    "alpha_floor_px": 2271,
+    "subject_parts": 1,
+    "ignored_parts": 0,
+    "ignored_px": 0,
+    "source_touches": [],
+    "key_rgb": [
+      255,
+      0,
+      255
+    ]
+  },
+  "route": "host-image_gen",
+  "provenance": {
+    "command": "prompt",
+    "run": "../master-job",
+    "take": null,
+    "source_name": "master-source.png",
+    "source_sha256": "56a3a41d5ce185494dc3ea7e84444090e260372ffc9282811acdb95ceb4ef75e",
+    "media": null,
+    "media_cli_source": null,
+    "edit": null
+  },
+  "matte": {
+    "requested": "soft",
+    "key_estimate": {
+      "key": [
+        251.0,
+        3.0,
+        251.0
+      ],
+      "source": "border_median",
+      "valid": true,
+      "ring_share": 1.0,
+      "coverage": 0.7633505795807483,
+      "distance_from_declared": 6.4
+    },
+    "quality": "soft",
+    "interior_despill": false,
+    "qa": {
+      "opaque_key_px": 0,
+      "outer_ring_spill_fraction": 0.0,
+      "semitransparent_fraction": 0.02305151773110783,
+      "enclosed_key_pockets": 0,
+      "key_hued_px": 1,
+      "visible_px": 371212
+    },
+    "key_choice": {
+      "status": "ok",
+      "overlap_share": 5.4e-05,
+      "rule": "reject a key when more than 0.5% of subject pixels have key dominance >= 40; first acceptable candidate wins"
+    }
+  },
+  "warnings": []
+}

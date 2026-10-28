@@ -11,8 +11,8 @@ IDS=['history-seondeok','history-sejong','history-jang','history-saimdang','hist
 CONFIG={
  'history-seondeok':{'hip':80,'knee':87,'shoe':95,'shoulder':49,'hem':95,'robe':True},
  'history-sejong':{'hip':80,'knee':87,'shoe':94,'shoulder':49,'hem':93,'robe':True},
- 'history-jang':{'hip':76,'knee':86,'shoe':94,'shoulder':49,'hem':76},
- 'history-saimdang':{'hip':88,'knee':93,'shoe':95,'shoulder':49,'hem':90},
+ 'history-jang':{'hip':80,'knee':88,'shoe':94,'shoulder':49,'hem':82,'robe':True,'narrowLegs':False,'ankleAtShinEdge':True,'accessories':{'front':[[51,59,61,78]],'back':[[35,59,44,78]],'left':[[36,59,45,78]],'right':[]}},
+ 'history-saimdang':{'hip':80,'knee':87,'shoe':95,'shoulder':49,'hem':94,'robe':True},
  'history-yi':{'hip':80,'knee':89,'shoe':94,'shoulder':49,'hem':80},
  'history-yu':{'hip':87,'knee':92,'shoe':94,'shoulder':49,'hem':88},
 }
@@ -47,15 +47,30 @@ def rig(id):
     Image.fromarray(a).save(path);shoe_mask|=a[:,:,3]>0
     for segment in ['thigh','shin']:
      path=folder/(side+segment+'.png');a=np.array(Image.open(path).convert('RGBA'));cx=cfgv['joints'][side][0][0]
-     a[:,:cx-4]=0;a[:,cx+5:]=0;Image.fromarray(a).save(path)
+     if CONFIG[id].get('narrowLegs',True):a[:,:cx-4]=0;a[:,cx+5:]=0
+     Image.fromarray(a).save(path)
    path=folder/'body.png';a=np.array(Image.open(path).convert('RGBA'))
    if view in ['left','right']:
     own=np.array(Image.open(S/id/'native'/f'{view}.png').convert('RGBA'));a[76:CONFIG[id]['hem']+1]=own[76:CONFIG[id]['hem']+1]
    a[shoe_mask]=0;Image.fromarray(a).save(path)
  cfg=json.loads((S/id/'rig.json').read_text());cfg['robeOwnership']='Whole illustrated robe remains body-owned; narrow under-robe legs, exclusive native shoes, no skirt pixels rotated as wide legs'
+ if CONFIG[id].get('ankleAtShinEdge'):
+  for view,c in cfg['views'].items():
+   for side in ['L','R']:
+    bb=Image.open(S/id/'layers'/view/(side+'shoe.png')).getbbox()
+    c['joints'][side][2]=[(bb[0]+bb[2]-1)/2,CONFIG[id]['shoe']-1]
  cfg['shoeOwnership']='Shin mask excludes shoe rows, avoiding duplicate rotated shoe pixels under long robes'
  (S/id/'rig.json').write_text(json.dumps(cfg,indent=2)+'\n')
-def animate(id):module('animate').build(id,False)
+def animate(id):
+ m=module('animate')
+ if CONFIG[id].get('ankleAtShinEdge'):
+  import inspect
+  # Register the cuff to the TOP of this actor's own native shoe, not a
+  # hardcoded3px sole offset (Jang's shoes are6px tall).
+  for fn in ['forward','profile']:
+   code=inspect.getsource(getattr(m,fn)).replace('sole[1]-3',"sole[1]-(parts[side+'shoe'].getbbox()[3]-parts[side+'shoe'].getbbox()[1]-1)")
+   exec(code,m.__dict__)
+ m.build(id,False)
 def audit(id):return module('audit').actor(id)
 def export(id):
  p=S/id;report=audit(id)
