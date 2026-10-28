@@ -197,6 +197,7 @@ export class NPCManager {
         zones[z].some((r) => rectDistance(p, r) < 240),
       ),
     );
+    this.archive?.setContext(activeZones);
     const living = this.visits.eligible(activeZones, pinned, this.reviewId);
     const selected = this.archive?.selected;
     const eligible = applyHistorySelection(living, selected, modernVisitors);

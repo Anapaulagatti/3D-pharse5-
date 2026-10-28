@@ -68,7 +68,7 @@ export class HistoryArtReview {
     title.textContent = "역사 이야기 · Bản thử mỹ thuật";
     const notice = document.createElement("p");
     notice.textContent =
-      "Tư liệu lịch sử và trang phục chưa được kiểm chứng. Chỉ xem mỹ thuật và chuyển động; đây không phải lời nói thật của nhân vật. Các thời kỳ dưới đây là đề xuất của đề bài.";
+      "Tư liệu lịch sử và trang phục chưa được kiểm chứng. Chỉ xem mỹ thuật và chuyển động; đây không phải lời nói thật của nhân vật. Các thời kỳ dưới đây là đề xuất của đề bài. Chọn nhân vật tại khu tương ứng; thư viện bằng chứng có lối vào thử cho cả sáu.";
     this.dialog.append(title, notice);
     for (const h of historyCandidates) {
       const def = historyArtCatalog.get(h.id)!;
@@ -118,6 +118,18 @@ export class HistoryArtReview {
       ])
         element.addEventListener(event, (e) => e.stopPropagation(), { signal });
     document.body.append(this.button, this.dialog);
+  }
+  setContext(zones: ReadonlySet<string>) {
+    const available = historyCandidates.filter((h) =>
+      zones.has(historyArtCatalog.get(h.id)!.homeZone),
+    );
+    this.button.hidden = available.length === 0;
+    for (const item of this.dialog.querySelectorAll<HTMLButtonElement>(
+      "[data-history-id]",
+    ))
+      item.disabled = !available.some((h) => h.id === item.dataset.historyId);
+    if (this.selected && !available.some((h) => h.id === this.selected))
+      this.selected = undefined;
   }
   private close() {
     this.dialog.close();

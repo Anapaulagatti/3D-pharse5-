@@ -143,12 +143,12 @@
         },
         "Lshin": {
           "source": "native/front.png",
-          "pixels": 86,
+          "pixels": 74,
           "bounds": [
             35,
             86,
             47,
-            96
+            94
           ]
         },
         "Lshoe": {
@@ -193,12 +193,12 @@
         },
         "Rshin": {
           "source": "native/front.png",
-          "pixels": 84,
+          "pixels": 72,
           "bounds": [
             49,
             86,
             61,
-            96
+            94
           ]
         },
         "Rshoe": {
@@ -321,12 +321,12 @@
         },
         "Lshin": {
           "source": "native/back.png",
-          "pixels": 83,
+          "pixels": 73,
           "bounds": [
             35,
             86,
             47,
-            96
+            94
           ]
         },
         "Lshoe": {
@@ -371,12 +371,12 @@
         },
         "Rshin": {
           "source": "native/back.png",
-          "pixels": 84,
+          "pixels": 73,
           "bounds": [
             49,
             86,
             61,
-            96
+            94
           ]
         },
         "Rshoe": {
@@ -499,12 +499,12 @@
         },
         "Lshin": {
           "source": "native/left.png",
-          "pixels": 71,
+          "pixels": 52,
           "bounds": [
-            40,
+            42,
             86,
             51,
-            96
+            94
           ]
         },
         "Lshoe": {
@@ -529,12 +529,12 @@
         },
         "Rshin": {
           "source": "native/left.png",
-          "pixels": 96,
+          "pixels": 78,
           "bounds": [
             45,
             86,
             57,
-            96
+            94
           ]
         },
         "Rshoe": {
@@ -549,7 +549,7 @@
         },
         "body": {
           "source": "native/left.png",
-          "pixels": 840,
+          "pixels": 866,
           "bounds": [
             37,
             21,
@@ -563,7 +563,14 @@
             -7,
             -1
           ],
-          "sameActorSameView": true
+          "sameActorSameView": true,
+          "pixels": 142,
+          "bounds": [
+            40,
+            46,
+            50,
+            64
+          ]
         },
         "Lforearm": {
           "source": "layers/left/Rforearm.png",
@@ -571,7 +578,14 @@
             -7,
             -1
           ],
-          "sameActorSameView": true
+          "sameActorSameView": true,
+          "pixels": 116,
+          "bounds": [
+            41,
+            59,
+            51,
+            75
+          ]
         }
       },
       "clothRecovery": [
@@ -679,12 +693,12 @@
         },
         "Lshin": {
           "source": "native/right.png",
-          "pixels": 66,
+          "pixels": 48,
           "bounds": [
             46,
             86,
-            57,
-            96
+            54,
+            94
           ]
         },
         "Lshoe": {
@@ -709,12 +723,12 @@
         },
         "Rshin": {
           "source": "native/right.png",
-          "pixels": 106,
+          "pixels": 84,
           "bounds": [
             40,
             86,
             53,
-            96
+            94
           ]
         },
         "Rshoe": {
@@ -729,11 +743,11 @@
         },
         "body": {
           "source": "native/right.png",
-          "pixels": 748,
+          "pixels": 793,
           "bounds": [
             37,
             21,
-            58,
+            59,
             83
           ]
         },
@@ -743,7 +757,14 @@
             6,
             -1
           ],
-          "sameActorSameView": true
+          "sameActorSameView": true,
+          "pixels": 158,
+          "bounds": [
+            47,
+            46,
+            57,
+            64
+          ]
         },
         "Lforearm": {
           "source": "layers/right/Rforearm.png",
@@ -751,7 +772,14 @@
             6,
             -1
           ],
-          "sameActorSameView": true
+          "sameActorSameView": true,
+          "pixels": 139,
+          "bounds": [
+            45,
+            59,
+            56,
+            75
+          ]
         }
       },
       "clothRecovery": [
@@ -764,5 +792,6 @@
     }
   },
   "robeOwnership": "Whole illustrated robe remains body-owned; narrow under-robe legs, exclusive native shoes, no skirt pixels rotated as wide legs",
-  "shoeOwnership": "Shin mask excludes shoe rows, avoiding duplicate rotated shoe pixels under long robes"
+  "shoeOwnership": "Shin mask excludes shoe rows, avoiding duplicate rotated shoe pixels under long robes",
+  "nativeMaskAudit": "Actual post-registration alpha counts and bounds recorded for every retained own layer"
 }

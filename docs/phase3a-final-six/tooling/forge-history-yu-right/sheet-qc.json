@@ -1,0 +1,1167 @@
+{
+  "schema": "generate2dsprite.sheet_qc.v1",
+  "check": "frames",
+  "status": "fail",
+  "method": "solid alpha > 127; head ratio by multi-scale template match of the head band against the median frame; best-shift silhouette IoU; phases from ground clearance and stride width; NEAR/FAR lead from the lightness of the two feet (FAR one shade darker); torso x from the trunk columns of the torso band; seams from forge_core.transition_mae (premultiplied RGBA)",
+  "notProven": [
+    "Pose quality, anatomy, appeal and readability at game scale: look at frames-review.png and the game-size frames.",
+    "That the head band holds only the head: arms raised into it change the match.",
+    "NEAR/FAR leads in auto mode rely on the 'FAR limbs one shade darker' convention; declare the colours to be sure.",
+    "Phase labels come from feet clearance and stride width, not from the pose."
+  ],
+  "checks": [
+    {
+      "id": "identity_head_ratio",
+      "status": "pass",
+      "value": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0,
+        "5": 1.0,
+        "6": 1.0,
+        "7": 1.0
+      },
+      "threshold": [
+        0.95,
+        1.05
+      ],
+      "frames": [],
+      "note": "head scale against the median frame (frame 0 template)"
+    },
+    {
+      "id": "identity_residual",
+      "status": "warn",
+      "value": {
+        "0": null,
+        "1": 0.28,
+        "2": 1.0,
+        "3": 1.54,
+        "4": 2.22,
+        "5": 1.0,
+        "6": 1.0,
+        "7": 0.2
+      },
+      "threshold": 1.5,
+      "frames": [
+        3,
+        4
+      ],
+      "note": "head match residual over the median: face or costume drift"
+    },
+    {
+      "id": "near_duplicates",
+      "status": "warn",
+      "value": [
+        [
+          2,
+          6
+        ]
+      ],
+      "threshold": 0.95,
+      "note": "pairs with best-shift silhouette IoU at or above the threshold and similar colours"
+    },
+    {
+      "id": "phase_coverage",
+      "status": "pass",
+      "value": [
+        [
+          "contact",
+          "contact",
+          "mid",
+          "contact"
+        ],
+        [
+          "contact",
+          "contact",
+          "mid",
+          "contact"
+        ]
+      ],
+      "threshold": null,
+      "problems": [],
+      "note": "labels from ground clearance and stride width; they cannot judge the pose itself"
+    },
+    {
+      "id": "leg_alternation",
+      "status": "fail",
+      "value": [
+        "unclear",
+        "near",
+        "near",
+        "unclear",
+        "unclear",
+        "near",
+        "unclear",
+        "unclear"
+      ],
+      "threshold": "lead differs between i and i+n/2",
+      "verdict": "duplicated half-cycle: the same leg leads in both halves",
+      "pairs": [
+        [
+          1,
+          5,
+          true
+        ]
+      ],
+      "mode": "auto-luminance",
+      "near_leading": 3,
+      "unclear": 5,
+      "half_cycle": {
+        "pairs": [
+          {
+            "pair": [
+              0,
+              4
+            ],
+            "iou_best_shift": 0.8051
+          },
+          {
+            "pair": [
+              1,
+              5
+            ],
+            "iou_best_shift": 0.862
+          },
+          {
+            "pair": [
+              2,
+              6
+            ],
+            "iou_best_shift": 0.9858
+          },
+          {
+            "pair": [
+              3,
+              7
+            ],
+            "iou_best_shift": 0.8381
+          }
+        ],
+        "adjacent_iou_median": 0.8569,
+        "half_cycle_iou_median": 0.85
+      },
+      "fix": "regenerate frames 4-7 with NEAR and FAR swapped (attach frames 0-3 and the guide)"
+    },
+    {
+      "id": "torso_drift",
+      "status": "pass",
+      "value": 1.92,
+      "threshold": 2.0,
+      "method": "trunk",
+      "median_x": 49.0,
+      "note": "range of the torso x in game px; scale_frames --root-lock torso-x removes it"
+    },
+    {
+      "id": "row_baseline",
+      "status": "pass",
+      "value": 0.0,
+      "threshold": 0.5,
+      "baselines": {
+        "0": 100
+      },
+      "note": "ground line of each sheet row; scale_frames --row-baseline aligns them"
+    },
+    {
+      "id": "seam",
+      "status": "pass",
+      "value": 1.38,
+      "threshold": 1.5,
+      "transitions": [],
+      "note": "largest frame-to-frame change over the median step; review these joins first"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../../assets-src/npcs/phase3a-final-six/history-yu/frames/walk-right-0.png",
+      "sha256": "8d206b2a15caa570e12549159e082943881939cf12f728234d4fc0eb1b6953d7",
+      "bytes": 4441
+    },
+    {
+      "path": "../../../../assets-src/npcs/phase3a-final-six/history-yu/frames/walk-right-1.png",
+      "sha256": "d48861f07689fb6cc86c7c8fe19baad913e2eb024b99354041dfda710eb14c7e",
+      "bytes": 4212
+    },
+    {
+      "path": "../../../../assets-src/npcs/phase3a-final-six/history-yu/frames/walk-right-2.png",
+      "sha256": "10f3621e2a69d7b6ce3ddea51feed968f169159892ab96d11bed17154414b879",
+      "bytes": 3816
+    },
+    {
+      "path": "../../../../assets-src/npcs/phase3a-final-six/history-yu/frames/walk-right-3.png",
+      "sha256": "0261447e19369340e85ac3a534fe2b114ecd342c8d90bcfa6e041bbdee6dd818",
+      "bytes": 3863
+    },
+    {
+      "path": "../../../../assets-src/npcs/phase3a-final-six/history-yu/frames/walk-right-4.png",
+      "sha256": "42171d9edf9c4630c8a66e0ef45f450f19078b91847f561d33357b32f369aab7",
+      "bytes": 3952
+    },
+    {
+      "path": "../../../../assets-src/npcs/phase3a-final-six/history-yu/frames/walk-right-5.png",
+      "sha256": "ad1148bbcae2c390685304eaef3eae38762cfdac2b3d99f14a23108651513832",
+      "bytes": 3888
+    },
+    {
+      "path": "../../../../assets-src/npcs/phase3a-final-six/history-yu/frames/walk-right-6.png",
+      "sha256": "93868983c24cfa7b0f035c65948b0725c713f6b5fb1cf5067b15573b0964f1ba",
+      "bytes": 3823
+    },
+    {
+      "path": "../../../../assets-src/npcs/phase3a-final-six/history-yu/frames/walk-right-7.png",
+      "sha256": "a6c7de5988b8cb5a60dbf253153166ef2cdd080325e6783c8e82f29e74536e8d",
+      "bytes": 4214
+    }
+  ],
+  "outputs": [
+    {
+      "path": "frames-review.png",
+      "sha256": "28c8e1061fd3274bb5b1fb28c82b50a02059366bb161c8fafdd5e63c3b221cbd",
+      "bytes": 15168
+    }
+  ],
+  "tool": {
+    "name": "sheet_qc.py",
+    "version": "0.4.0"
+  },
+  "grid": {
+    "rows": 1,
+    "cols": 8
+  },
+  "input": {
+    "frames": [
+      {
+        "sha256": "8d206b2a15caa570e12549159e082943881939cf12f728234d4fc0eb1b6953d7",
+        "size": [
+          96,
+          112
+        ],
+        "source_mode": "RGBA",
+        "bit_depth": 8,
+        "conversion": "none",
+        "keyed": null
+      },
+      {
+        "sha256": "d48861f07689fb6cc86c7c8fe19baad913e2eb024b99354041dfda710eb14c7e",
+        "size": [
+          96,
+          112
+        ],
+        "source_mode": "RGBA",
+        "bit_depth": 8,
+        "conversion": "none",
+        "keyed": null
+      },
+      {
+        "sha256": "10f3621e2a69d7b6ce3ddea51feed968f169159892ab96d11bed17154414b879",
+        "size": [
+          96,
+          112
+        ],
+        "source_mode": "RGBA",
+        "bit_depth": 8,
+        "conversion": "none",
+        "keyed": null
+      },
+      {
+        "sha256": "0261447e19369340e85ac3a534fe2b114ecd342c8d90bcfa6e041bbdee6dd818",
+        "size": [
+          96,
+          112
+        ],
+        "source_mode": "RGBA",
+        "bit_depth": 8,
+        "conversion": "none",
+        "keyed": null
+      },
+      {
+        "sha256": "42171d9edf9c4630c8a66e0ef45f450f19078b91847f561d33357b32f369aab7",
+        "size": [
+          96,
+          112
+        ],
+        "source_mode": "RGBA",
+        "bit_depth": 8,
+        "conversion": "none",
+        "keyed": null
+      },
+      {
+        "sha256": "ad1148bbcae2c390685304eaef3eae38762cfdac2b3d99f14a23108651513832",
+        "size": [
+          96,
+          112
+        ],
+        "source_mode": "RGBA",
+        "bit_depth": 8,
+        "conversion": "none",
+        "keyed": null
+      },
+      {
+        "sha256": "93868983c24cfa7b0f035c65948b0725c713f6b5fb1cf5067b15573b0964f1ba",
+        "size": [
+          96,
+          112
+        ],
+        "source_mode": "RGBA",
+        "bit_depth": 8,
+        "conversion": "none",
+        "keyed": null
+      },
+      {
+        "sha256": "a6c7de5988b8cb5a60dbf253153166ef2cdd080325e6783c8e82f29e74536e8d",
+        "size": [
+          96,
+          112
+        ],
+        "source_mode": "RGBA",
+        "bit_depth": 8,
+        "conversion": "none",
+        "keyed": null
+      }
+    ]
+  },
+  "params": {
+    "cycle": "walk",
+    "facing": "right",
+    "game_pixel": 1.0,
+    "frames_per_row": 8,
+    "loop": true,
+    "alpha_threshold": 127,
+    "reference_frame": 0,
+    "head_frac": 0.35,
+    "torso_band": [
+      0.4,
+      0.6
+    ],
+    "torso_colors": [],
+    "near_colors": [],
+    "far_colors": [],
+    "colour_tolerance": 30.0,
+    "leg_band": 0.3
+  },
+  "cells": [
+    {
+      "frame": 0,
+      "row": 0,
+      "bbox": [
+        31,
+        20,
+        65,
+        100
+      ],
+      "height_px": 80,
+      "width_px": 34,
+      "solid_px": 1499,
+      "ground": 100,
+      "head": {
+        "head_ratio": 1.0,
+        "scale": 1.0,
+        "residual": 0.0,
+        "residual_over_median": null,
+        "template": true,
+        "head_box": [
+          40,
+          20,
+          59,
+          48
+        ]
+      },
+      "colour_l1_to_median": 0.0466,
+      "phase": {
+        "label": "contact",
+        "clearance_game_px": 0.0,
+        "stride_ratio": 1.0
+      },
+      "lead": {
+        "mode": "auto-luminance",
+        "front_minus_back_L": 0.0107,
+        "separation_game_px": 17.42,
+        "lead": "unclear",
+        "reason": "the feet differ by less than one shade"
+      },
+      "torso_x": 50.0,
+      "torso_method": "trunk",
+      "cell": null,
+      "source": "walk-right-0.png"
+    },
+    {
+      "frame": 1,
+      "row": 0,
+      "bbox": [
+        34,
+        19,
+        61,
+        100
+      ],
+      "height_px": 81,
+      "width_px": 27,
+      "solid_px": 1397,
+      "ground": 100,
+      "head": {
+        "head_ratio": 1.0,
+        "scale": 1.0,
+        "residual": 0.23,
+        "residual_over_median": 0.28,
+        "template": false,
+        "head_box": [
+          40,
+          19,
+          59,
+          47
+        ]
+      },
+      "colour_l1_to_median": 0.0217,
+      "phase": {
+        "label": "contact",
+        "clearance_game_px": 0.0,
+        "stride_ratio": 0.794
+      },
+      "lead": {
+        "mode": "auto-luminance",
+        "front_minus_back_L": 0.0293,
+        "separation_game_px": 13.67,
+        "lead": "near"
+      },
+      "torso_x": 50.0,
+      "torso_method": "trunk",
+      "cell": null,
+      "source": "walk-right-1.png"
+    },
+    {
+      "frame": 2,
+      "row": 0,
+      "bbox": [
+        36,
+        19,
+        61,
+        100
+      ],
+      "height_px": 81,
+      "width_px": 25,
+      "solid_px": 1255,
+      "ground": 100,
+      "head": {
+        "head_ratio": 1.0,
+        "scale": 1.0,
+        "residual": 0.82,
+        "residual_over_median": 1.0,
+        "template": false,
+        "head_box": [
+          40,
+          19,
+          59,
+          47
+        ]
+      },
+      "colour_l1_to_median": 0.0312,
+      "phase": {
+        "label": "mid",
+        "clearance_game_px": 0.0,
+        "stride_ratio": 0.735
+      },
+      "lead": {
+        "mode": "auto-luminance",
+        "front_minus_back_L": 0.0286,
+        "separation_game_px": 9.12,
+        "lead": "near"
+      },
+      "torso_x": 49.0,
+      "torso_method": "trunk",
+      "cell": null,
+      "source": "walk-right-2.png"
+    },
+    {
+      "frame": 3,
+      "row": 0,
+      "bbox": [
+        36,
+        19,
+        63,
+        100
+      ],
+      "height_px": 81,
+      "width_px": 27,
+      "solid_px": 1238,
+      "ground": 100,
+      "head": {
+        "head_ratio": 1.0,
+        "scale": 1.0,
+        "residual": 1.26,
+        "residual_over_median": 1.54,
+        "template": false,
+        "head_box": [
+          40,
+          19,
+          59,
+          47
+        ]
+      },
+      "colour_l1_to_median": 0.0478,
+      "phase": {
+        "label": "contact",
+        "clearance_game_px": 0.0,
+        "stride_ratio": 0.794
+      },
+      "lead": {
+        "mode": "auto-luminance",
+        "front_minus_back_L": -0.0093,
+        "separation_game_px": 12.34,
+        "lead": "unclear",
+        "reason": "the feet differ by less than one shade"
+      },
+      "torso_x": 48.1,
+      "torso_method": "trunk",
+      "cell": null,
+      "source": "walk-right-3.png"
+    },
+    {
+      "frame": 4,
+      "row": 0,
+      "bbox": [
+        33,
+        20,
+        65,
+        100
+      ],
+      "height_px": 80,
+      "width_px": 32,
+      "solid_px": 1270,
+      "ground": 100,
+      "head": {
+        "head_ratio": 1.0,
+        "scale": 1.0,
+        "residual": 1.82,
+        "residual_over_median": 2.22,
+        "template": false,
+        "head_box": [
+          40,
+          20,
+          59,
+          48
+        ]
+      },
+      "colour_l1_to_median": 0.0546,
+      "phase": {
+        "label": "contact",
+        "clearance_game_px": 0.0,
+        "stride_ratio": 0.941
+      },
+      "lead": {
+        "mode": "auto-luminance",
+        "front_minus_back_L": -0.002,
+        "separation_game_px": 15.35,
+        "lead": "unclear",
+        "reason": "the feet differ by less than one shade"
+      },
+      "torso_x": 48.5,
+      "torso_method": "trunk",
+      "cell": null,
+      "source": "walk-right-4.png"
+    },
+    {
+      "frame": 5,
+      "row": 0,
+      "bbox": [
+        34,
+        19,
+        61,
+        100
+      ],
+      "height_px": 81,
+      "width_px": 27,
+      "solid_px": 1234,
+      "ground": 100,
+      "head": {
+        "head_ratio": 1.0,
+        "scale": 1.0,
+        "residual": 0.82,
+        "residual_over_median": 1.0,
+        "template": false,
+        "head_box": [
+          40,
+          19,
+          59,
+          47
+        ]
+      },
+      "colour_l1_to_median": 0.045,
+      "phase": {
+        "label": "contact",
+        "clearance_game_px": 0.0,
+        "stride_ratio": 0.794
+      },
+      "lead": {
+        "mode": "auto-luminance",
+        "front_minus_back_L": 0.0312,
+        "separation_game_px": 12.32,
+        "lead": "near"
+      },
+      "torso_x": 49.0,
+      "torso_method": "trunk",
+      "cell": null,
+      "source": "walk-right-5.png"
+    },
+    {
+      "frame": 6,
+      "row": 0,
+      "bbox": [
+        36,
+        19,
+        61,
+        100
+      ],
+      "height_px": 81,
+      "width_px": 25,
+      "solid_px": 1255,
+      "ground": 100,
+      "head": {
+        "head_ratio": 1.0,
+        "scale": 1.0,
+        "residual": 0.82,
+        "residual_over_median": 1.0,
+        "template": false,
+        "head_box": [
+          40,
+          19,
+          59,
+          47
+        ]
+      },
+      "colour_l1_to_median": 0.032,
+      "phase": {
+        "label": "mid",
+        "clearance_game_px": 0.0,
+        "stride_ratio": 0.735
+      },
+      "lead": {
+        "mode": "auto-luminance",
+        "front_minus_back_L": 0.0045,
+        "separation_game_px": 9.26,
+        "lead": "unclear",
+        "reason": "the feet differ by less than one shade"
+      },
+      "torso_x": 49.0,
+      "torso_method": "trunk",
+      "cell": null,
+      "source": "walk-right-6.png"
+    },
+    {
+      "frame": 7,
+      "row": 0,
+      "bbox": [
+        34,
+        19,
+        63,
+        100
+      ],
+      "height_px": 81,
+      "width_px": 29,
+      "solid_px": 1418,
+      "ground": 100,
+      "head": {
+        "head_ratio": 1.0,
+        "scale": 1.0,
+        "residual": 0.16,
+        "residual_over_median": 0.2,
+        "template": false,
+        "head_box": [
+          40,
+          19,
+          59,
+          47
+        ]
+      },
+      "colour_l1_to_median": 0.0398,
+      "phase": {
+        "label": "contact",
+        "clearance_game_px": 0.0,
+        "stride_ratio": 0.794
+      },
+      "lead": {
+        "mode": "auto-luminance",
+        "front_minus_back_L": 0.0,
+        "separation_game_px": 13.65,
+        "lead": "unclear",
+        "reason": "the feet differ by less than one shade"
+      },
+      "torso_x": 49.5,
+      "torso_method": "trunk",
+      "cell": null,
+      "source": "walk-right-7.png"
+    }
+  ],
+  "identity": {
+    "median_scale": 1.0,
+    "median_residual": 0.82,
+    "reduction": 1,
+    "template": "frame 0",
+    "scales": [
+      0.9,
+      0.92,
+      0.94,
+      0.96,
+      0.98,
+      1.0,
+      1.02,
+      1.04,
+      1.06,
+      1.08,
+      1.1
+    ]
+  },
+  "near_duplicates": {
+    "pairs": [
+      {
+        "pair": [
+          2,
+          6
+        ],
+        "iou_best_shift": 0.9858,
+        "best_shift_src_px": [
+          0,
+          0
+        ],
+        "colour_l1": 0.0223
+      },
+      {
+        "pair": [
+          3,
+          4
+        ],
+        "iou_best_shift": 0.8829,
+        "best_shift_src_px": [
+          0,
+          -1
+        ],
+        "colour_l1": 0.0351
+      },
+      {
+        "pair": [
+          2,
+          5
+        ],
+        "iou_best_shift": 0.8714,
+        "best_shift_src_px": [
+          0,
+          0
+        ],
+        "colour_l1": 0.0656
+      },
+      {
+        "pair": [
+          3,
+          6
+        ],
+        "iou_best_shift": 0.8646,
+        "best_shift_src_px": [
+          0,
+          0
+        ],
+        "colour_l1": 0.0614
+      },
+      {
+        "pair": [
+          0,
+          7
+        ],
+        "iou_best_shift": 0.8639,
+        "best_shift_src_px": [
+          0,
+          1
+        ],
+        "colour_l1": 0.0353
+      },
+      {
+        "pair": [
+          5,
+          6
+        ],
+        "iou_best_shift": 0.863,
+        "best_shift_src_px": [
+          0,
+          0
+        ],
+        "colour_l1": 0.0521
+      },
+      {
+        "pair": [
+          1,
+          5
+        ],
+        "iou_best_shift": 0.862,
+        "best_shift_src_px": [
+          0,
+          0
+        ],
+        "colour_l1": 0.0555
+      },
+      {
+        "pair": [
+          4,
+          5
+        ],
+        "iou_best_shift": 0.8589,
+        "best_shift_src_px": [
+          0,
+          1
+        ],
+        "colour_l1": 0.0565
+      },
+      {
+        "pair": [
+          2,
+          3
+        ],
+        "iou_best_shift": 0.8549,
+        "best_shift_src_px": [
+          0,
+          0
+        ],
+        "colour_l1": 0.0732
+      },
+      {
+        "pair": [
+          1,
+          2
+        ],
+        "iou_best_shift": 0.8417,
+        "best_shift_src_px": [
+          0,
+          0
+        ],
+        "colour_l1": 0.0453
+      },
+      {
+        "pair": [
+          1,
+          7
+        ],
+        "iou_best_shift": 0.8411,
+        "best_shift_src_px": [
+          0,
+          0
+        ],
+        "colour_l1": 0.0276
+      },
+      {
+        "pair": [
+          3,
+          7
+        ],
+        "iou_best_shift": 0.8381,
+        "best_shift_src_px": [
+          0,
+          0
+        ],
+        "colour_l1": 0.0826
+      },
+      {
+        "pair": [
+          1,
+          6
+        ],
+        "iou_best_shift": 0.8366,
+        "best_shift_src_px": [
+          0,
+          0
+        ],
+        "colour_l1": 0.0506
+      },
+      {
+        "pair": [
+          3,
+          5
+        ],
+        "iou_best_shift": 0.8366,
+        "best_shift_src_px": [
+          0,
+          0
+        ],
+        "colour_l1": 0.0359
+      },
+      {
+        "pair": [
+          0,
+          1
+        ],
+        "iou_best_shift": 0.8329,
+        "best_shift_src_px": [
+          0,
+          1
+        ],
+        "colour_l1": 0.0373
+      },
+      {
+        "pair": [
+          1,
+          4
+        ],
+        "iou_best_shift": 0.8205,
+        "best_shift_src_px": [
+          0,
+          -1
+        ],
+        "colour_l1": 0.0689
+      },
+      {
+        "pair": [
+          6,
+          7
+        ],
+        "iou_best_shift": 0.8122,
+        "best_shift_src_px": [
+          0,
+          0
+        ],
+        "colour_l1": 0.0627
+      },
+      {
+        "pair": [
+          4,
+          6
+        ],
+        "iou_best_shift": 0.8062,
+        "best_shift_src_px": [
+          0,
+          1
+        ],
+        "colour_l1": 0.0806
+      },
+      {
+        "pair": [
+          0,
+          4
+        ],
+        "iou_best_shift": 0.8051,
+        "best_shift_src_px": [
+          0,
+          0
+        ],
+        "colour_l1": 0.0846
+      },
+      {
+        "pair": [
+          2,
+          7
+        ],
+        "iou_best_shift": 0.8036,
+        "best_shift_src_px": [
+          0,
+          0
+        ],
+        "colour_l1": 0.0588
+      },
+      {
+        "pair": [
+          2,
+          4
+        ],
+        "iou_best_shift": 0.8023,
+        "best_shift_src_px": [
+          0,
+          -1
+        ],
+        "colour_l1": 0.079
+      },
+      {
+        "pair": [
+          4,
+          7
+        ],
+        "iou_best_shift": 0.7992,
+        "best_shift_src_px": [
+          0,
+          1
+        ],
+        "colour_l1": 0.0856
+      },
+      {
+        "pair": [
+          1,
+          3
+        ],
+        "iou_best_shift": 0.7852,
+        "best_shift_src_px": [
+          0,
+          0
+        ],
+        "colour_l1": 0.0644
+      },
+      {
+        "pair": [
+          5,
+          7
+        ],
+        "iou_best_shift": 0.7633,
+        "best_shift_src_px": [
+          0,
+          0
+        ],
+        "colour_l1": 0.0697
+      },
+      {
+        "pair": [
+          0,
+          2
+        ],
+        "iou_best_shift": 0.7397,
+        "best_shift_src_px": [
+          0,
+          1
+        ],
+        "colour_l1": 0.0621
+      },
+      {
+        "pair": [
+          0,
+          6
+        ],
+        "iou_best_shift": 0.7397,
+        "best_shift_src_px": [
+          0,
+          1
+        ],
+        "colour_l1": 0.0748
+      },
+      {
+        "pair": [
+          0,
+          3
+        ],
+        "iou_best_shift": 0.7367,
+        "best_shift_src_px": [
+          0,
+          1
+        ],
+        "colour_l1": 0.0904
+      },
+      {
+        "pair": [
+          0,
+          5
+        ],
+        "iou_best_shift": 0.7352,
+        "best_shift_src_px": [
+          0,
+          1
+        ],
+        "colour_l1": 0.0891
+      }
+    ],
+    "max_shift_src_px": 3
+  },
+  "half_cycle": {
+    "pairs": [
+      {
+        "pair": [
+          0,
+          4
+        ],
+        "iou_best_shift": 0.8051
+      },
+      {
+        "pair": [
+          1,
+          5
+        ],
+        "iou_best_shift": 0.862
+      },
+      {
+        "pair": [
+          2,
+          6
+        ],
+        "iou_best_shift": 0.9858
+      },
+      {
+        "pair": [
+          3,
+          7
+        ],
+        "iou_best_shift": 0.8381
+      }
+    ],
+    "adjacent_iou_median": 0.8569,
+    "half_cycle_iou_median": 0.85
+  },
+  "alternation": {
+    "verdict": "duplicated half-cycle: the same leg leads in both halves",
+    "pairs": [
+      [
+        1,
+        5,
+        true
+      ]
+    ],
+    "near_leading": 3,
+    "far_leading": 0,
+    "unclear": 5
+  },
+  "torso": {
+    "drift_game_px": 1.92
+  },
+  "row_baselines": {
+    "0": 100
+  },
+  "seam_ranking": [
+    {
+      "from": 0,
+      "to": 1,
+      "mae": 5.31,
+      "over_median": 1.38
+    },
+    {
+      "from": 7,
+      "to": 0,
+      "mae": 4.91,
+      "over_median": 1.28
+    },
+    {
+      "from": 4,
+      "to": 5,
+      "mae": 4.44,
+      "over_median": 1.16
+    },
+    {
+      "from": 3,
+      "to": 4,
+      "mae": 3.87,
+      "over_median": 1.01
+    },
+    {
+      "from": 6,
+      "to": 7,
+      "mae": 3.8,
+      "over_median": 0.99
+    },
+    {
+      "from": 1,
+      "to": 2,
+      "mae": 3.1,
+      "over_median": 0.81
+    },
+    {
+      "from": 2,
+      "to": 3,
+      "mae": 2.89,
+      "over_median": 0.75
+    },
+    {
+      "from": 5,
+      "to": 6,
+      "mae": 2.7,
+      "over_median": 0.7
+    }
+  ],
+  "seam": {
+    "frames": 8,
+    "seam": 4.906156994047619,
+    "adjacent_median": 3.7996419270833335,
+    "adjacent_p95": 5.050771949404761,
+    "adjacent_max": 5.311848958333333,
+    "seam_over_median": 1.291215616681455,
+    "seam_over_p95": 0.9713677519385555,
+    "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first"
+  }
+}

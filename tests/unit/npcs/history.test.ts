@@ -11,6 +11,7 @@ import {
   productionHistoryCount,
 } from "../../../src/npcs/history";
 import baseline from "../../../docs/phase3a-final-six/BASELINE_MANIFEST.json";
+import { validateNPCAtlas } from "../../../src/npcs/types";
 import evidence from "../../../docs/phase3a-final-six/SOURCE_EVIDENCE.json";
 describe("six historical art candidates without fabricated source verification", () => {
   it("retains the exact20 live definitions and100 existing nodes", () => {
@@ -109,5 +110,32 @@ describe("six historical art candidates without fabricated source verification",
         expect(node.content.ko).toMatch(/[가-힣]/);
       }
     }
+  });
+  it("ships624 registered native cells in six independent PNG atlases without old-art fallback", () => {
+    const hashes = new Set<string>();
+    const oldHashes = new Set(
+      npcCatalog.npcs.map((n) =>
+        createHash("sha256")
+          .update(readFileSync("public/" + n.assets.texture))
+          .digest("hex"),
+      ),
+    );
+    for (const h of historyCandidates) {
+      const def = historyArtCatalog.get(h.id)!;
+      const bytes = readFileSync("public/" + def.assets.texture);
+      expect(bytes.subarray(1, 4).toString()).toBe("PNG");
+      const width = bytes.readUInt32BE(16),
+        height = bytes.readUInt32BE(20);
+      expect([width, height]).toEqual([768, 1456]);
+      const atlas = JSON.parse(
+        readFileSync("public/" + def.assets.atlas, "utf8"),
+      );
+      expect(Object.keys(atlas.frames)).toHaveLength(104);
+      validateNPCAtlas(def, atlas, width, height);
+      const hash = createHash("sha256").update(bytes).digest("hex");
+      expect(oldHashes.has(hash)).toBe(false);
+      hashes.add(hash);
+    }
+    expect(hashes.size).toBe(6);
   });
 });

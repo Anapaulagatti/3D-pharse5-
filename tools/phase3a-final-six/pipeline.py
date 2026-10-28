@@ -13,8 +13,8 @@ CONFIG={
  'history-sejong':{'hip':80,'knee':87,'shoe':94,'shoulder':49,'hem':93,'robe':True},
  'history-jang':{'hip':80,'knee':88,'shoe':94,'shoulder':49,'hem':82,'robe':True,'narrowLegs':False,'ankleAtShinEdge':True,'accessories':{'front':[[51,59,61,78]],'back':[[35,59,44,78]],'left':[[36,59,45,78]],'right':[]}},
  'history-saimdang':{'hip':80,'knee':87,'shoe':95,'shoulder':49,'hem':94,'robe':True},
- 'history-yi':{'hip':80,'knee':89,'shoe':94,'shoulder':49,'hem':80},
- 'history-yu':{'hip':87,'knee':92,'shoe':94,'shoulder':49,'hem':88},
+ 'history-yi':{'hip':78,'knee':87,'shoe':93,'shoulder':49,'hem':80,'robe':True,'narrowLegs':False,'ankleAtShinEdge':True},
+ 'history-yu':{'hip':80,'knee':87,'shoe':94,'shoulder':49,'hem':93,'robe':True,'ankleAtShinEdge':True},
 }
 def module(name):
  p=R/f'tools/phase3a-npc-expansion/{name}.py'
@@ -60,6 +60,11 @@ def rig(id):
     bb=Image.open(S/id/'layers'/view/(side+'shoe.png')).getbbox()
     c['joints'][side][2]=[(bb[0]+bb[2]-1)/2,CONFIG[id]['shoe']-1]
  cfg['shoeOwnership']='Shin mask excludes shoe rows, avoiding duplicate rotated shoe pixels under long robes'
+ for view,c in cfg['views'].items():
+  for name,owner in c['ownership'].items():
+   im=Image.open(S/id/'layers'/view/(name+'.png'));a=np.array(im)
+   owner.update(pixels=int((a[:,:,3]>0).sum()),bounds=im.getbbox())
+ cfg['nativeMaskAudit']='Actual post-registration alpha counts and bounds recorded for every retained own layer'
  (S/id/'rig.json').write_text(json.dumps(cfg,indent=2)+'\n')
 def animate(id):
  m=module('animate')
