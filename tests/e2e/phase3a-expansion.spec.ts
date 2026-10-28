@@ -123,7 +123,7 @@ test("normal population activates an original visitor and never preloads all20te
   expect(state.catalogTotal).toBe(26);
   expect(state.active).toBeLessThanOrEqual(4);
   expect(state.assets.loaded).toBeLessThanOrEqual(4);
-  expect(state.records).toHaveLength(20);
+  expect(state.records).toHaveLength(26);
   expect(state.actors.some((a) => a.id === "npc-minseo")).toBe(false);
   // Actual region re-entry/memory coverage is also recorded by the canonical traversal harness.
 });

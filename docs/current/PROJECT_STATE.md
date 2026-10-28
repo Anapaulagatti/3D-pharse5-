@@ -1,3 +1,13 @@
+# Current authority — Phase 3A approved 26-NPC baseline (2026-10-29)
+
+The owner approved the 26 NPCs at `831022a8533c1d2126f77724d6eea8aeca2e8e30`. Preserve all approved NPC art, animations, world, twelve playable characters and cosmetics. The latest directive is `docs/phase3a-finalization/HUMAN_DIRECTIVE.md`; the rights/identity decision is `docs/phase3a/HISTORICAL_NPC_RIGHTS_AND_ALIASES.md`.
+
+This task finalizes the development baseline and prepares a Phase 3B architectural handoff only. Earlier art-review STOP instructions are superseded by this approval. **Do not begin Phase 3B, merge to main or deploy.** Commercial rights, verified biographies and physical-device acceptance remain separate pending items; approval of artwork does not certify them. No sub-agent delegation unless explicitly authorized.
+
+The following sections preserve the historical authority log. When they conflict, the latest owner directive above controls.
+
+---
+
 # Current authority — Phase2B roster expansion
 
 Human decision2026-10-26 (Asia/Saigon): Phase2A is APPROVED AND LOCKED; Phase2B authorized. Previous Phase2A STOP is superseded. Phase2C remains locked.

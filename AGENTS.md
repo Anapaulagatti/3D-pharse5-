@@ -1,3 +1,13 @@
+# Current authority — Phase 3A approved 26-NPC baseline (2026-10-29)
+
+The owner approved the 26 NPCs at `831022a8533c1d2126f77724d6eea8aeca2e8e30`. Preserve all approved NPC art, animations, world, twelve playable characters and cosmetics. The latest directive is `docs/phase3a-finalization/HUMAN_DIRECTIVE.md`; the rights/identity decision is `docs/phase3a/HISTORICAL_NPC_RIGHTS_AND_ALIASES.md`.
+
+This task finalizes the development baseline and prepares a Phase 3B architectural handoff only. Earlier art-review STOP instructions are superseded by this approval. **Do not begin Phase 3B, merge to main or deploy.** Commercial rights, verified biographies and physical-device acceptance remain separate pending items; approval of artwork does not certify them. No sub-agent delegation unless explicitly authorized.
+
+The following sections preserve the historical authority log. When they conflict, the latest owner directive above controls.
+
+---
+
 # Korean Arena — Phase2B roster expansion
 
 Read docs/current/PROJECT_STATE.md. Human approval explicitly accepts Phase2A at ed75734d0e0865274ca0b82bab2495d78878d24b and supersedes its STOP. Work on feature/phase2b-roster-expansion. No delegation unless explicitly requested by user.
