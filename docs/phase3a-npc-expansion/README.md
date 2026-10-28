@@ -11,3 +11,9 @@ The playable ZIP starts with `python3 start_review.py`; open its printed local `
 The ZIP curates native source layers/rigs,actual context crops and short direct gameplay excerpts. Full-resolution source illustrations,all frames and complete native screenshots/recordings remain in the review branch; they are not silently resampled to fit the ZIP. Original source files and previous packages remain recoverable. Package checksum/extraction validation: [package proof](package-proof.json) and [independent smoke](package-smoke.json) when present.
 
 No Phase3B,main merge,public site deployment or separate learning-site changes. Final26NPC completion needs accessible verified historical/biographical sources; Phase3A remains authorized for that remainder once the tool blocker is removed,without per-tree/per-NPC micro-approval.
+
+## Verified downloadable handoff
+
+[Download playable ZIP (98114919bytes)](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/phase3a-npc-expansion-20-source-blocked-review-20261028/docs/phase3a-npc-expansion/PHASE3A_20NPC_SOURCE_BLOCKED_REVIEW.zip) · [Actual Phaser native comparison](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/phase3a-npc-expansion-20-source-blocked-review-20261028/docs/phase3a-npc-expansion/four-waves-actual-phaser-native.png) · [Published URL/hash verification](published-verification.json).
+
+Immutable review commit `97a1c1f3f2ffde88dc057fbaf0860181d64bf43b`;implemented source `7f66d98b702d15141861802fc1209e63489206e4`. Full remote ZIP download matches SHA256 `d182cc32dfdb37f634b1dfacbeef267a18006c5467829b678ed32716dcf2c86a`. All217review URLs checked200;all270previous remote refs andmain remain unchanged. This is a20NPC source-blocked technical/art review,not26NPCcompletion or human approval.
