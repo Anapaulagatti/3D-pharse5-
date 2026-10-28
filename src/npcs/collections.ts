@@ -34,7 +34,8 @@ export interface ModernIconFactCard {
   likenessAssets?: never;
   endorsement: false;
 }
-/** A source title or a failed fetch must never unlock an archive/biographical card. */
+/** A failed fetch must never unlock factual history/biographical content.
+ * Approved reconstruction actors are a separate development-art decision. */
 export function hasVerifiedSources(sources: readonly VerifiedContentSource[]) {
   return (
     sources.length > 0 &&

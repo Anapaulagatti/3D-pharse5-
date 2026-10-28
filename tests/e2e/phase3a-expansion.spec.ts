@@ -36,11 +36,11 @@ test("all six original cultural visitors use actual NPC movement, dialogue and b
       }),
       id,
     );
-    expect(start.n.catalogTotal).toBe(20);
+    expect(start.n.catalogTotal).toBe(26);
     expect(start.n.residentCount).toBe(14);
     expect(start.n.modernVisitorCount).toBe(6);
-    expect(start.n.historicalArchiveCount).toBe(0);
-    expect(new Set(start.n.records.map((n) => n.id)).size).toBe(20);
+    expect(start.n.historicalArchiveCount).toBe(6);
+    expect(new Set(start.n.records.map((n) => n.id)).size).toBe(26);
     expect(start.npc.nativeScale).toEqual([1, 1]);
     expect(start.npc.sampling).toBe(1);
     await page.waitForFunction(
@@ -120,7 +120,7 @@ test("normal population activates an original visitor and never preloads all20te
     window.__NPC_WORLD__?.actors.some((a) => a.id === "npc-modern-daon"),
   );
   const state = await page.evaluate(() => window.__NPC_WORLD__!);
-  expect(state.catalogTotal).toBe(20);
+  expect(state.catalogTotal).toBe(26);
   expect(state.active).toBeLessThanOrEqual(4);
   expect(state.assets.loaded).toBeLessThanOrEqual(4);
   expect(state.records).toHaveLength(20);

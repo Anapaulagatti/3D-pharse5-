@@ -5,7 +5,8 @@ import { NPCRegistry, npcRegistry } from "./registry";
 import type { ModernVisitorMetadata } from "./collections";
 /** Original resident singleton/data remains14 for backwards compatibility.
  * Compose the actual runtime catalog through the SAME validated Registry class.
- * No archived historical figure is activated without verified facts and finished art.
+ * The approved26-world catalog composes this living collection in history.ts.
+ * Factual history remains separate from approved reconstruction availability.
  */
 const roots = new Map(additions.rootExtensions.map((r) => [r.rootId, r]));
 const nodes = [...npcRegistry.nodes.values()].map((n) => {

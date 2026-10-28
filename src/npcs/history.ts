@@ -3,25 +3,44 @@ import dialogue from "../../assets-src/npcs/phase3a-final-six/dialogues.json";
 import metadata from "../../assets-src/npcs/phase3a-final-six/metadata.json";
 import { npcCatalog } from "./catalog";
 import { NPCRegistry } from "./registry";
+import {
+  historicalIdentities,
+  presentNPCIdentity,
+  presentArchiveDialogue,
+} from "./identity";
+import { npcSchema, dialogueSchema } from "./types";
 
-/** Original20 catalog and tests remain exact. Six real authored actor candidates
- * use the SAME registry/FSM/pool, but unverified history never unlocks production.
+/** Human-approved26NPC development baseline. Facts/rights release status is
+ * independent from artistic approval and actor availability. Same registry/FSM.
  */
+const presented = source.npcs.map((definition) => {
+  const identity = historicalIdentities.find(
+    (row) => row.npcId === definition.id,
+  );
+  if (!identity) throw Error("Missing historical public identity mapping");
+  return presentNPCIdentity(npcSchema.parse(definition), identity);
+});
+const archiveNodes = dialogue.nodes.map((node) => {
+  const identity = historicalIdentities.find((row) => row.npcId === node.npcId);
+  if (!identity) throw Error("Missing historical dialogue presentation");
+  return presentArchiveDialogue(dialogueSchema.parse(node), identity);
+});
 export const historyArtCatalog = new NPCRegistry(
-  [...npcCatalog.npcs, ...source.npcs],
-  [...npcCatalog.nodes.values(), ...dialogue.nodes],
+  [...npcCatalog.npcs, ...presented],
+  [...npcCatalog.nodes.values(), ...archiveNodes],
 );
-export const historyCandidates = metadata;
-export const productionHistoryCount = 0;
+export const historyCandidates = metadata; // Legacy name; all six are human-approved.
+export const productionHistoryCount = presented.length; // Registry count, NOT commercial clearance.
+export const verifiedHistoricalClaimCount = 0;
 export function historyArtReviewEnabled(query: URLSearchParams) {
   return query.has("qa") && query.get("historyArtReview") === "1";
 }
+/** Historical URL parameters remain compatible; none can disable the approved roster. */
 export function selectNPCCatalog(query: URLSearchParams) {
-  return historyArtReviewEnabled(query) ? historyArtCatalog : npcCatalog;
+  void query;
+  return historyArtCatalog;
 }
-export const runtimeNPCCatalog = selectNPCCatalog(
-  new URLSearchParams(typeof location === "undefined" ? "" : location.search),
-);
+export const runtimeNPCCatalog = historyArtCatalog;
 
 /** Pure eligibility extension: exactly one reconstruction replaces its host role
  * slot; modern visitors sharing that slot are also suppressed during the review.
@@ -42,7 +61,7 @@ export function applyHistorySelection(
   return result;
 }
 
-/** QA-only art review selector. No historical claim or source is marked verified.
+/** Contextual approved archive selector. No historical claim or source is marked verified.
  * Existing living-world interactions and production schedules are unchanged.
  */
 export class HistoryArtReview {
@@ -60,15 +79,15 @@ export class HistoryArtReview {
     this.selected = historyCandidates.find((h) => h.id === requested)?.id;
     this.button = document.createElement("button");
     this.button.id = "history-art-review";
-    this.button.textContent = "Lịch sử · Bản thử mỹ thuật";
+    this.button.textContent = "Kho chuyện xưa · 역사 이야기";
     this.dialog = document.createElement("dialog");
     this.dialog.id = "history-art-dialog";
-    this.dialog.setAttribute("aria-label", "Bản thử mỹ thuật lịch sử");
+    this.dialog.setAttribute("aria-label", "Kho chuyện xưa");
     const title = document.createElement("h2");
-    title.textContent = "역사 이야기 · Bản thử mỹ thuật";
+    title.textContent = "역사 이야기 · Kho chuyện xưa";
     const notice = document.createElement("p");
     notice.textContent =
-      "Tư liệu lịch sử và trang phục chưa được kiểm chứng. Chỉ xem mỹ thuật và chuyển động; đây không phải lời nói thật của nhân vật. Các thời kỳ dưới đây là đề xuất của đề bài. Chọn nhân vật tại khu tương ứng; thư viện bằng chứng có lối vào thử cho cả sáu.";
+      "Cùng khám phá các hình tượng tái hiện theo cảm hứng từ từng thời kỳ. Đây không phải chân dung hay lời nói được xác thực. Nội dung lịch sử chi tiết sẽ được mở khi tư liệu đã được kiểm chứng. Mỗi khu vực có những câu chuyện riêng.";
     this.dialog.append(title, notice);
     for (const h of historyCandidates) {
       const def = historyArtCatalog.get(h.id)!;

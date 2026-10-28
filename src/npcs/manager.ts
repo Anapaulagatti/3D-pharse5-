@@ -6,7 +6,8 @@ import { modernVisitors } from "./catalog";
 import {
   runtimeNPCCatalog as npcRegistry,
   HistoryArtReview,
-  historyArtReviewEnabled,
+  productionHistoryCount,
+  verifiedHistoricalClaimCount,
   applyHistorySelection,
 } from "./history";
 import "./history.css";
@@ -89,10 +90,9 @@ export class NPCManager {
     this.reviewId = query.has("qa")
       ? (query.get("npcReview") ?? undefined)
       : undefined;
-    if (historyArtReviewEnabled(query))
-      this.archive = new HistoryArtReview(query, host, () => {
-        this.lastPopulation = -999;
-      });
+    this.archive = new HistoryArtReview(query, host, () => {
+      this.lastPopulation = -999;
+    });
     this.store = new NPCStateStore(storage, npcRegistry.npcs);
     for (const d of npcRegistry.npcs)
       this.models.set(d.id, new NPCActorModel(d, this.store.get(d.id)));
@@ -352,9 +352,11 @@ export class NPCManager {
       catalogTotal: npcRegistry.npcs.length,
       residentCount: residentRegistry.npcs.length,
       modernVisitorCount: modernVisitors.length,
-      historicalArchiveCount: 0, // Verified production histories remain source-blocked.
-      historicalArtCandidateCount: this.archive ? 6 : 0,
-      historySourceStatus: "UNVERIFIED / production archive locked",
+      historicalArchiveCount: productionHistoryCount,
+      historicalArtCandidateCount: 0, // All six approved by the human owner.
+      approvedNPCCount: npcRegistry.npcs.length,
+      verifiedHistoricalClaimCount,
+      historySourceStatus: "PENDING / unverified factual material excluded",
       historyArtSelected: this.archive?.selected ?? null,
       active: this.actors.size,
       rendered: [...this.actors.values()].filter((a) => a.sprite.visible)

@@ -11,9 +11,7 @@ test.beforeEach(async ({ page }) => {
   );
 });
 async function enter(page: Page, id: string) {
-  await page.goto(
-    `?qa&historyArtReview=1&renderer=canvas&pixelAudit&npcReview=${id}`,
-  );
+  await page.goto(`?qa&renderer=canvas&pixelAudit&npcReview=${id}`);
   await page.waitForFunction(
     (id) =>
       window.__GATE3__?.ready &&
@@ -45,19 +43,22 @@ async function approach(page: Page, id: string) {
     await page.keyboard.up(key);
   }
 }
-test("production stays20 until facts are verified; an unqualified review URL cannot unlock history", async ({
+test("approved default development roster registers26 while unverified factual content remains excluded", async ({
   page,
 }) => {
-  await page.goto("?qa&renderer=canvas&npcReview=npc-history-seondeok");
+  await page.goto("?renderer=canvas&entry=palace");
   await page.waitForFunction(
     () => window.__GATE3__?.ready && window.__NPC_WORLD__,
   );
   const s = await page.evaluate(() => window.__NPC_WORLD__!);
-  expect(s.catalogTotal).toBe(20);
-  expect(s.historicalArchiveCount).toBe(0);
+  expect(s.catalogTotal).toBe(26);
+  expect(s.historicalArchiveCount).toBe(6);
   expect(s.historicalArtCandidateCount).toBe(0);
-  expect(s.records.some((n) => n.id.startsWith("npc-history-"))).toBe(false);
-  await expect(page.locator("#history-art-review")).toHaveCount(0);
+  expect(s.records.filter((n) => n.id.startsWith("npc-history-"))).toHaveLength(
+    6,
+  );
+  expect(s.verifiedHistoricalClaimCount).toBe(0);
+  await expect(page.locator("#history-art-review")).toBeVisible();
 });
 test("six authored historical candidates move and interact through the existing engine with an honest source gate", async ({
   page,
@@ -92,7 +93,7 @@ test("six authored historical candidates move and interact through the existing 
     );
     await page.locator("#npc-dialogue-next").click();
     await expect(page.locator("#npc-dialogue-vi")).toContainText(
-      "chưa được kiểm chứng",
+      "đang được kiểm chứng",
     );
     await page.locator("#npc-dialogue-next").click();
     await expect(page.locator("#npc-dialogue-hint")).toContainText("=");
@@ -107,8 +108,8 @@ test("six authored historical candidates move and interact through the existing 
     expect(s.npcs.registered).toBe(14);
     expect(s.npcs.catalogTotal).toBe(26);
     expect(s.npcs.modernVisitorCount).toBe(6);
-    expect(s.npcs.historicalArchiveCount).toBe(0);
-    expect(s.npcs.historicalArtCandidateCount).toBe(6);
+    expect(s.npcs.historicalArchiveCount).toBe(6);
+    expect(s.npcs.historicalArtCandidateCount).toBe(0);
     expect(new Set(s.npcs.records.map((n) => n.id)).size).toBe(26);
     expect(s.npcs.active).toBeLessThanOrEqual(4);
     expect(s.npcs.assets.loaded).toBeLessThanOrEqual(4);

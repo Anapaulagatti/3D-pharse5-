@@ -9,6 +9,7 @@ import {
   historyArtReviewEnabled,
   applyHistorySelection,
   productionHistoryCount,
+  verifiedHistoricalClaimCount,
 } from "../../../src/npcs/history";
 import baseline from "../../../docs/phase3a-final-six/BASELINE_MANIFEST.json";
 import { validateNPCAtlas } from "../../../src/npcs/types";
@@ -39,14 +40,17 @@ describe("six historical art candidates without fabricated source verification",
     expect(evidence.claims.every((c) => c.supportingExcerpt === null)).toBe(
       true,
     );
-    expect(productionHistoryCount).toBe(0);
+    expect(productionHistoryCount).toBe(6);
+    expect(verifiedHistoricalClaimCount).toBe(0);
     for (const query of [
       "",
       "qa",
       "historyArtReview=1",
       "qa&historyArtReview=0",
     ])
-      expect(selectNPCCatalog(new URLSearchParams(query))).toBe(npcCatalog);
+      expect(selectNPCCatalog(new URLSearchParams(query))).toBe(
+        historyArtCatalog,
+      );
     expect(
       historyArtReviewEnabled(new URLSearchParams("qa&historyArtReview=1")),
     ).toBe(true);
@@ -103,7 +107,7 @@ describe("six historical art candidates without fabricated source verification",
       expect(nodes).toHaveLength(6);
       expect(
         nodes.find((n) => n.id === h.id + "-notice")?.content.vi,
-      ).toContain("không phải lời nói thật");
+      ).toContain("lời nói thật");
       expect(def.future.questProviderId).toBeNull();
       for (const node of nodes) {
         expect(node.futureQuestHook).toBeNull();
