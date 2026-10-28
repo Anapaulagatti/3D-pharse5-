@@ -1,0 +1,13 @@
+# Final-six independent-work handoff
+
+[Playable ZIP (93,274,791bytes)](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/phase3a-26-art-candidates-source-blocked-review-20261028/docs/phase3a-final-six/PHASE3A_26_ACTOR_ART_REVIEW_SOURCE_BLOCKED.zip) · [Actual Phaser native comparison](https://raw.githubusercontent.com/Anapaulagatti/3D-pharse5-/refs/tags/checkpoint/phase3a-26-art-candidates-source-blocked-review-20261028/docs/phase3a-final-six/six-actual-phaser-comparison-native.png) · [QA](QA.md) · [Source gate](HISTORY_FACT_CHECK.md).
+
+ZIP SHA256 `c97a5540f22c96c4989a1704574b70dda0b379db67a5b5ef1b23f9093ae6c9f1`. Review checkpoint `checkpoint/phase3a-26-art-candidates-source-blocked-review-20261028`. Implemented art/engine source `b060ab87b72397a59c72e8f9449eb31bc46f05e4`;base `f1f2c8c8bf3402ca6dd5df9294cb87cc5bced006`.147unit/67fullE2E pass,0skipped/0flaky. 21,397historical files checked:21,392unchanged and5explicit authority/import/manager appendices;old20NPC3756source/runtime files exact.
+
+Six independently illustrated actors/624native cells work in an actual26-definition ART REVIEW catalog. Normal production remains20 and productionhistoricalArchiveCount0:historical facts/costumes are UNVERIFIED after exact official URLs,alternate institutional URLs and real Chromium fail transport.36neutral KO/VI art-review nodes are not completed verified biographies. Six separate real-person cards remain0/6PENDING and never counted as NPCs.
+
+Two actual modern↔station roundtrips5344px verify archive exit/host restoration;native204+5readbacks0unexplained mismatch. Six full actual gameplay movies/nativePNG originals remain versioned. Portable movies are continuous960×640native crops,no spatial resize,with original-source/time/crop hashes in REVIEW_CLIP_PROVENANCE.json;this keeps one ZIP below100MiB without changing approved art.
+
+Extract and run `python3 start_review.py`,then open local REVIEW.html. Optional full-source/native screenshots links require network;playing,local crops,live inspector andsix video excerpts do not. Actual extracted-runtime result is in package-smoke.json after verification;CRC alone is not launch proof.
+
+Remaining blocker:readable institutional text/PDF for six linked figure records plus period-attire references,to independently map exact excerpts to factual KO/VI biography nodes andunlock normal archive discovery. Source links supplied by the owner are research anchors,not successful retrieval evidence. New6art/editorial approval pending;physical Android/iPhone/hardwareGPU NOTTESTED. Old13FAIL/11WARN andhistorical diagnostics remain. No Phase3B,mainmerge,publicdeployment or separate learning-app changes.

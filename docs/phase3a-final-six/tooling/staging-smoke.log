@@ -1,0 +1,14 @@
+OFFLINE npc-history-seondeok actualworld/native/approach/dialogue/return PASS
+OFFLINE npc-history-sejong actualworld/native/approach/dialogue/return PASS
+OFFLINE npc-history-jang actualworld/native/approach/dialogue/return PASS
+OFFLINE npc-history-saimdang actualworld/native/approach/dialogue/return PASS
+OFFLINE npc-history-yi actualworld/native/approach/dialogue/return PASS
+OFFLINE npc-history-yu actualworld/native/approach/dialogue/return PASS
+file:///workspace/korean-street-gate1/tools/phase3a-final-six/package_smoke.mjs:5
+await p.goto(BASE+'tools/phase3a-final-six/clip-inspector.html');await p.waitForFunction(()=>window.__NPC_CLIP_REVIEW__?.sprites.length===5);for(const h of hist){await p.locator('#pilot').selectOption(h.id.slice(4));await p.waitForFunction(id=>window.__NPC_CLIP_REVIEW__?.id===id,id);for(const action of['walk','idle','greet','activity']){await p.locator('#action').selectOption(action);await p.waitForFunction(a=>window.__NPC_CLIP_REVIEW__?.action===a,action);}}
+                                                                                                                                                                                                                                                                                        ^
+
+ReferenceError: id is not defined
+    at file:///workspace/korean-street-gate1/tools/phase3a-final-six/package_smoke.mjs:5:281
+
+Node.js v24.19.0
