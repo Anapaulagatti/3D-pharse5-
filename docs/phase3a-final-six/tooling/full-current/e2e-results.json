@@ -1,0 +1,2268 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/korean-street-gate1/node_modules/.bin/playwright",
+      "test"
+    ],
+    "configFile": "/workspace/korean-street-gate1/playwright.config.ts",
+    "rootDir": "/workspace/korean-street-gate1/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/korean-street-gate1/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/workspace/korean-street-gate1/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/workspace/korean-street-gate1/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/workspace/korean-street-gate1/tests/e2e",
+        "snapshotDir": "/workspace/korean-street-gate1/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 120000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4400/3D-pharse5-/",
+          "headless": true,
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--disable-gpu-compositing",
+              "--use-gl=angle",
+              "--use-angle=swiftshader",
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "screenshot": "only-on-failure",
+          "video": "off"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/phase3a-final-six/tooling/full-current/e2e-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview -- --port 4400",
+      "url": "http://127.0.0.1:4400/3D-pharse5-/",
+      "reuseExistingServer": true,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "characters.spec.ts",
+      "file": "characters.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "production starts in frozen world with twelve-character selection",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 29888,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:13:44.045Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-a95e4d4903e9bbdc2f2b",
+          "file": "characters.spec.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "saved Juni restores and settings round-trip preserves location, emotes, progress and body ownership",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 31637,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:14:14.342Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-431442a0a5ff3d390cec",
+          "file": "characters.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "corrupt, unknown and unavailable storage recover to Juni without crashing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 39588,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:14:46.034Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-5750e998f3d1e94b2291",
+          "file": "characters.spec.ts",
+          "line": 110,
+          "column": 1
+        },
+        {
+          "title": "mobile landscape preview fits; modal isolates joystick and original touch movement returns",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5488,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:15:25.688Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-dc42a5b81894dba97a89",
+          "file": "characters.spec.ts",
+          "line": 140,
+          "column": 1
+        },
+        {
+          "title": "Canvas native Juni and Scenic Tour survive the production bootstrap",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2213,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:15:31.202Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-54b84ea39fa53e80e531",
+          "file": "characters.spec.ts",
+          "line": 190,
+          "column": 1
+        },
+        {
+          "title": "native pack haneul plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 23951,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:15:33.450Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-ac3d6f25f5de56fb6f43",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        },
+        {
+          "title": "native pack bomi plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 21326,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:15:57.429Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-54cdb481686f1ef172f7",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        },
+        {
+          "title": "native pack minjun plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 19149,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:16:18.782Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-93793ef9d27b1c04d73b",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        },
+        {
+          "title": "native pack ara plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 19981,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:16:37.958Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-fb2935d2761562809c6e",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        },
+        {
+          "title": "native pack doyun plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20913,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:16:57.960Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-0d35664efca6f2109ce7",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        },
+        {
+          "title": "native pack sori plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 21652,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:17:18.914Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-4b3a850484aa9a6cd200",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        },
+        {
+          "title": "native pack jiwon plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20643,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:17:40.592Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-d959912702ffdbbeb2ff",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        },
+        {
+          "title": "native pack nari plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 19993,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:18:01.262Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-965b185784348f31362c",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        },
+        {
+          "title": "native pack taeyang plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20021,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:18:21.290Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-d6abb273b952a062138e",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        },
+        {
+          "title": "native pack yuna plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 21069,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:18:41.338Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-3bf63cdd12da9a558ddb",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        },
+        {
+          "title": "native pack hyunwoo plays, switches and restores without position/state loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 21946,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:19:02.425Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a244eb99ad6097541759-6ff9e31c4c8980326f61",
+          "file": "characters.spec.ts",
+          "line": 236,
+          "column": 3
+        }
+      ]
+    },
+    {
+      "title": "foundation.spec.ts",
+      "file": "foundation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "preserved north normal entry: actual Juni walk and gesture recover",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2624,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:19:24.431Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b60d0cacd30be8ae473-6e3307419c1f4fe87eaa",
+          "file": "foundation.spec.ts",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "approved Academy lesson and return remain functional after cleanup",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2035,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:19:27.077Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b60d0cacd30be8ae473-21a396c160eb3faf7552",
+          "file": "foundation.spec.ts",
+          "line": 38,
+          "column": 1
+        },
+        {
+          "title": "palace intent toggles retained gate and prevents closing on Juni",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2150,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:19:29.128Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b60d0cacd30be8ae473-1d0e7ac8d2e7bc5a4366",
+          "file": "foundation.spec.ts",
+          "line": 53,
+          "column": 1
+        },
+        {
+          "title": "mobile analog movement, reduced motion and portrait pause survive cleanup",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2239,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:19:31.298Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b60d0cacd30be8ae473-5fe019e0686d8d9f22be",
+          "file": "foundation.spec.ts",
+          "line": 66,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "motion-correction.spec.ts",
+      "file": "motion-correction.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "sori: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11417,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:19:33.578Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-248291d1d10d574dfc76",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "jiwon: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11347,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:19:45.004Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-040bffa412a82d05e565",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "nari: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11841,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:19:56.362Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-a4fa153f05c18c30d236",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "taeyang: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 12066,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:20:08.223Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-bca9ed215f94c8f4080b",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "yuna: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11323,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:20:20.307Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-5bdd44f60206814bd60c",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "hyunwoo: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11280,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:20:31.642Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-c8f96b1baa9789d20ca6",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        }
+      ]
+    },
+    {
+      "title": "phase2b.spec.ts",
+      "file": "phase2b.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "twelve-entry mobile landscape gallery reaches the final identity, restores it on reopen and survives orientation changes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1876,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:20:42.954Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3059dd877290ebe59599-8b80be927bd44e30f027",
+          "file": "phase2b.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "new identities resolve incompatible stored cosmetics without deleting an approved look, preset or real visited marker",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2542,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:20:44.842Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3059dd877290ebe59599-95497a39c3f6671421e0",
+          "file": "phase2b.spec.ts",
+          "line": 69,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "phase2c.spec.ts",
+      "file": "phase2c.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "every actor has a working curated hair/outfit/accessory preview, applies it and can reset to approved defaults",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6123,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:20:47.408Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8fdb2941673334a568cb-30372c4a7e7fffc1398f",
+          "file": "phase2c.spec.ts",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "personal presets rename/delete, cancel a draft, and survive reload without losing other characters or world state",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2494,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:20:53.556Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8fdb2941673334a568cb-b895bb070ea1b08b945f",
+          "file": "phase2c.spec.ts",
+          "line": 104,
+          "column": 1
+        },
+        {
+          "title": "latest rapid preview wins and equipping a hat removes an incompatible quiff without touching original pixels",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2006,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:20:56.077Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8fdb2941673334a568cb-4dfa067de725082ce423",
+          "file": "phase2c.spec.ts",
+          "line": 155,
+          "column": 1
+        },
+        {
+          "title": "mismatched native-pose registration safely restores approved defaults",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1575,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:20:58.107Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8fdb2941673334a568cb-3aa806da968d7b7d2a36",
+          "file": "phase2c.spec.ts",
+          "line": 189,
+          "column": 1
+        },
+        {
+          "title": "mobile667x375: native preview, reachable wardrobe/preset controls, all actions and world joystick",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1492,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:20:59.702Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8fdb2941673334a568cb-7a61bd15238f65053543",
+          "file": "phase2c.spec.ts",
+          "line": 220,
+          "column": 3
+        },
+        {
+          "title": "mobile844x390: native preview, reachable wardrobe/preset controls, all actions and world joystick",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1469,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:21:01.216Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8fdb2941673334a568cb-1e4e27bf593bdd01bcec",
+          "file": "phase2c.spec.ts",
+          "line": 220,
+          "column": 3
+        },
+        {
+          "title": "LAN/offline review without SubtleCrypto still binds and applies a genuine native cosmetic",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1492,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:21:02.701Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8fdb2941673334a568cb-b99dde73134ad993188d",
+          "file": "phase2c.spec.ts",
+          "line": 263,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "phase3a-expansion.spec.ts",
+      "file": "phase3a-expansion.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "all six original cultural visitors use actual NPC movement, dialogue and bounded native textures",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 29976,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:21:04.214Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "99c90ba35318005b2e4c-db463732f74de7343811",
+          "file": "phase3a-expansion.spec.ts",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "normal population activates an original visitor and never preloads all20textures",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1590,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:21:34.209Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "99c90ba35318005b2e4c-a134158cdc5829669e8f",
+          "file": "phase3a-expansion.spec.ts",
+          "line": 105,
+          "column": 1
+        },
+        {
+          "title": "new learning vocabulary remains readable and touch-isolated in mobile landscape",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8977,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:21:35.836Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "99c90ba35318005b2e4c-ad70fea6f5e5ed4a298b",
+          "file": "phase3a-expansion.spec.ts",
+          "line": 130,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "phase3a-final-six.spec.ts",
+      "file": "phase3a-final-six.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "production stays20 until facts are verified; an unqualified review URL cannot unlock history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1593,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:21:44.881Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6da7108c0518ebc9d830-b049220bd6fe06afa4a6",
+          "file": "phase3a-final-six.spec.ts",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "six authored historical candidates move and interact through the existing engine with an honest source gate",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 32430,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:21:46.502Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6da7108c0518ebc9d830-6af81b7a4085a5d117cd",
+          "file": "phase3a-final-six.spec.ts",
+          "line": 62,
+          "column": 1
+        },
+        {
+          "title": "same-zone archive selection despawns the old actor and restores residents without duplicate sprites",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 120312,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/workspace/korean-street-gate1/tests/e2e/phase3a-final-six.spec.ts",
+                        "column": 25,
+                        "line": 153
+                      },
+                      "message": "Error: keyboard.up: Target page, context or browser has been closed\n\n  151 |     await page.waitForFunction((x) => window.__GATE3__!.x > x + 3, before);\n  152 |   } finally {\n> 153 |     await page.keyboard.up(\"d\");\n      |                         ^\n  154 |   }\n  155 | });\n  156 | test(\"small landscape supports touch dialogue, readable vocabulary, close and resumed original joystick\", async ({\n    at /workspace/korean-street-gate1/tests/e2e/phase3a-final-six.spec.ts:153:25"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:22:18.966Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/korean-street-gate1/test-results/phase3a-final-six-same-zon-0ff9c-s-without-duplicate-sprites/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/korean-street-gate1/test-results/phase3a-final-six-same-zon-0ff9c-s-without-duplicate-sprites/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6da7108c0518ebc9d830-038385434c20427aeaf6",
+          "file": "phase3a-final-six.spec.ts",
+          "line": 120,
+          "column": 1
+        },
+        {
+          "title": "small landscape supports touch dialogue, readable vocabulary, close and resumed original joystick",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3969,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:24:19.951Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6da7108c0518ebc9d830-bfb3e0d2e39b8a3e19e4",
+          "file": "phase3a-final-six.spec.ts",
+          "line": 156,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "phase3a.spec.ts",
+      "file": "phase3a.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "all14 contextual residents are approachable with real controls and close/resume safely in the canonical world",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 32769,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:24:24.205Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "15517f1c75d177af795e-69eb0ee4bdbb4ef6fc24",
+          "file": "phase3a.spec.ts",
+          "line": 52,
+          "column": 1
+        },
+        {
+          "title": "keyboard choices/Enter, close and corrupt NPC-only storage preserve player appearance and progress",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3011,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:24:57.005Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "15517f1c75d177af795e-ef41237b7a42b7b18d77",
+          "file": "phase3a.spec.ts",
+          "line": 109,
+          "column": 1
+        },
+        {
+          "title": "touch667x375: reachable Korean/Vietnamese dialogue,isolated controls and resumed joystick",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2904,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:25:00.065Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "15517f1c75d177af795e-5b6043ca416b73921218",
+          "file": "phase3a.spec.ts",
+          "line": 147,
+          "column": 3
+        },
+        {
+          "title": "touch844x390: reachable Korean/Vietnamese dialogue,isolated controls and resumed joystick",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2826,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:25:02.982Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "15517f1c75d177af795e-88b1c84bd29d30281869",
+          "file": "phase3a.spec.ts",
+          "line": 147,
+          "column": 3
+        },
+        {
+          "title": "NPC resource failure does not replace or freeze the approved player",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1396,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:25:05.824Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "15517f1c75d177af795e-0817ddebdfcbd2257552",
+          "file": "phase3a.spec.ts",
+          "line": 219,
+          "column": 1
+        },
+        {
+          "title": "continuous mainland-to-Jeju exploration uses the repaired bridge with original movement and collision",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "interrupted",
+                  "duration": 38226,
+                  "error": {
+                    "message": "Error: mouse.up: Target page, context or browser has been closed",
+                    "stack": "Error: mouse.up: Target page, context or browser has been closed\n    at fineAxis (/workspace/korean-street-gate1/tools/phase3a/walk.mjs:2:625)\n    at axisTo (/workspace/korean-street-gate1/tools/phase3a/walk.mjs:3:358)\n    at walkPath (/workspace/korean-street-gate1/tools/phase3a/walk.mjs:4:240)\n    at /workspace/korean-street-gate1/tests/e2e/phase3a.spec.ts:270:5",
+                    "location": {
+                      "file": "/workspace/korean-street-gate1/tools/phase3a/walk.mjs",
+                      "column": 625,
+                      "line": 2
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39m../../tools/phase3a/walk.mjs:2\n\n  1 | // QA drives ORIGINAL controls only. No position, speed, collision or clock override.\n> 2 | async function fineAxis(page,axis,target){const r=await page.locator('#joystick').boundingBox();if(!r)throw Error('Original joystick unavailable for native alignment');const value=await page.evaluate(axis=>window.__GATE3__[axis],axis),sign=Math.sign(target-value),cx=r.x+r.width/2,cy=r.y+r.height/2,offset=r.width*.34*(.14+.86*.08);await page.mouse.move(cx,cy);await page.mouse.down();await page.mouse.move(cx+(axis==='x'?sign*offset:0),cy+(axis==='y'?sign*offset:0));try{await page.waitForFunction(({axis,target,sign})=>(target-window.__GATE3__[axis])*sign<=.25,{axis,target,sign},{timeout:8000});}finally{await page.mouse.up()}await page.waitForTimeout(35);}\n    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ^\n  3 | export async function axisTo(page,axis,target,precision){if(precision===undefined)precision=await page.locator(\"#joystick\").isVisible()?.65:1.7;for(let attempt=0;attempt<5;attempt++){const value=await page.evaluate(axis=>window.__GATE3__[axis],axis),difference=target-value;if(Math.abs(difference)<=precision)return;if(precision<1&&Math.abs(difference)<12){await fineAxis(page,axis,target);continue;}const sign=Math.sign(difference),key=axis==='x'?sign>0?'d':'a':sign>0?'s':'w',stop=precision<1?10:1.6;await page.keyboard.down(key);try{await page.waitForFunction(({axis,target,sign,stop})=>(target-window.__GATE3__[axis])*sign<=stop,{axis,target,sign,stop},{timeout:Math.max(8000,Math.abs(difference)*90)});}catch(error){const s=await page.evaluate(()=>({world:window.__GATE3__,npcs:window.__NPC_WORLD__}));throw Error(JSON.stringify({axis,target,cause:String(error),state:s}),{cause:error});}finally{await page.keyboard.up(key)}await page.waitForTimeout(40);}const value=await page.evaluate(axis=>window.__GATE3__[axis],axis);if(Math.abs(value-target)>Math.max(.5,precision))throw Error('Real movement missed '+axis+' target '+target+' actual '+value);}\n  4 | export async function walkPath(page,points,onPoint=async()=>{}){const joystick=await page.locator('#joystick').isVisible();for(let i=0;i<points.length;i++){const p=points[i],precision=joystick?.65:1.7;await axisTo(page,'x',p[0],precision);await axisTo(page,'y',p[1],precision);await onPoint(i,p);}}\n  5 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/korean-street-gate1/tools/phase3a/walk.mjs",
+                        "column": 625,
+                        "line": 2
+                      },
+                      "message": "Error: mouse.up: Target page, context or browser has been closed\n\n   at ../../tools/phase3a/walk.mjs:2\n\n  1 | // QA drives ORIGINAL controls only. No position, speed, collision or clock override.\n> 2 | async function fineAxis(page,axis,target){const r=await page.locator('#joystick').boundingBox();if(!r)throw Error('Original joystick unavailable for native alignment');const value=await page.evaluate(axis=>window.__GATE3__[axis],axis),sign=Math.sign(target-value),cx=r.x+r.width/2,cy=r.y+r.height/2,offset=r.width*.34*(.14+.86*.08);await page.mouse.move(cx,cy);await page.mouse.down();await page.mouse.move(cx+(axis==='x'?sign*offset:0),cy+(axis==='y'?sign*offset:0));try{await page.waitForFunction(({axis,target,sign})=>(target-window.__GATE3__[axis])*sign<=.25,{axis,target,sign},{timeout:8000});}finally{await page.mouse.up()}await page.waitForTimeout(35);}\n    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ^\n  3 | export async function axisTo(page,axis,target,precision){if(precision===undefined)precision=await page.locator(\"#joystick\").isVisible()?.65:1.7;for(let attempt=0;attempt<5;attempt++){const value=await page.evaluate(axis=>window.__GATE3__[axis],axis),difference=target-value;if(Math.abs(difference)<=precision)return;if(precision<1&&Math.abs(difference)<12){await fineAxis(page,axis,target);continue;}const sign=Math.sign(difference),key=axis==='x'?sign>0?'d':'a':sign>0?'s':'w',stop=precision<1?10:1.6;await page.keyboard.down(key);try{await page.waitForFunction(({axis,target,sign,stop})=>(target-window.__GATE3__[axis])*sign<=stop,{axis,target,sign,stop},{timeout:Math.max(8000,Math.abs(difference)*90)});}catch(error){const s=await page.evaluate(()=>({world:window.__GATE3__,npcs:window.__NPC_WORLD__}));throw Error(JSON.stringify({axis,target,cause:String(error),state:s}),{cause:error});}finally{await page.keyboard.up(key)}await page.waitForTimeout(40);}const value=await page.evaluate(axis=>window.__GATE3__[axis],axis);if(Math.abs(value-target)>Math.max(.5,precision))throw Error('Real movement missed '+axis+' target '+target+' actual '+value);}\n  4 | export async function walkPath(page,points,onPoint=async()=>{}){const joystick=await page.locator('#joystick').isVisible();for(let i=0;i<points.length;i++){const p=points[i],precision=joystick?.65:1.7;await axisTo(page,'x',p[0],precision);await axisTo(page,'y',p[1],precision);await onPoint(i,p);}}\n  5 |\n    at fineAxis (/workspace/korean-street-gate1/tools/phase3a/walk.mjs:2:625)\n    at axisTo (/workspace/korean-street-gate1/tools/phase3a/walk.mjs:3:358)\n    at walkPath (/workspace/korean-street-gate1/tools/phase3a/walk.mjs:4:240)\n    at /workspace/korean-street-gate1/tests/e2e/phase3a.spec.ts:270:5"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T16:25:07.235Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/korean-street-gate1/test-results/phase3a-continuous-mainlan-c2d90-inal-movement-and-collision/test-failed-1.png"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/korean-street-gate1/tools/phase3a/walk.mjs",
+                    "column": 625,
+                    "line": 2
+                  }
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "15517f1c75d177af795e-b3fb3a7ea192beb7d3a9",
+          "file": "phase3a.spec.ts",
+          "line": 246,
+          "column": 1
+        },
+        {
+          "title": "real zone exit/reentry freezes inactive residents and restores them without duplicate/orphan sprites",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "15517f1c75d177af795e-8e17fab80758d5a63441",
+          "file": "phase3a.spec.ts",
+          "line": 288,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "studio.spec.ts",
+      "file": "studio.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Studio previews and applies each category, resets, and persists a named local look without changing world progress",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "64bdea7002f9c9cea9f4-af1e076a8c98fed05bc6",
+          "file": "studio.spec.ts",
+          "line": 71,
+          "column": 1
+        },
+        {
+          "title": "legacy v1 selection migrates additively without rewriting data just to read it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "64bdea7002f9c9cea9f4-c7bd27d6c0c563bcaa9b",
+          "file": "studio.spec.ts",
+          "line": 135,
+          "column": 1
+        },
+        {
+          "title": "switching between cosmetic-compatible and locked original identities restores each own set and keeps one sprite",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "64bdea7002f9c9cea9f4-b97ae655df4d4a917d97",
+          "file": "studio.spec.ts",
+          "line": 163,
+          "column": 1
+        },
+        {
+          "title": "corrupt and incompatible appearance references preserve the valid v1 identity and original defaults",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "64bdea7002f9c9cea9f4-951670f36786558b33a3",
+          "file": "studio.spec.ts",
+          "line": 197,
+          "column": 1
+        },
+        {
+          "title": "missing cosmetic artwork falls back to the original character without blank or duplicate players",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "64bdea7002f9c9cea9f4-f96e69a87c42d26dafd2",
+          "file": "studio.spec.ts",
+          "line": 229,
+          "column": 1
+        },
+        {
+          "title": "repeated six-character and cosmetic switches keep texture/preview caches bounded and world state fixed",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "64bdea7002f9c9cea9f4-8cc404c5104e04c259df",
+          "file": "studio.spec.ts",
+          "line": 255,
+          "column": 1
+        },
+        {
+          "title": "mobile landscape Studio has native-sized visible preview, reachable actions and isolated touch; joystick resumes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "64bdea7002f9c9cea9f4-8c8738305179a270eb0e",
+          "file": "studio.spec.ts",
+          "line": 300,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "v10-city.spec.ts",
+      "file": "v10-city.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "V10 real input route: historic gateway to high street",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-658ad274f87bda7a58e0",
+          "file": "v10-city.spec.ts",
+          "line": 168,
+          "column": 3
+        },
+        {
+          "title": "V10 real input route: entire high street and station forecourt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-a8f0a87af5d2bfdbb27d",
+          "file": "v10-city.spec.ts",
+          "line": 168,
+          "column": 3
+        },
+        {
+          "title": "V10 real input route: urban block circuit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-519b693c46b3c9be9902",
+          "file": "v10-city.spec.ts",
+          "line": 168,
+          "column": 3
+        },
+        {
+          "title": "V10 real input route: west scenic loop and tower approach",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-d574f607197e76e81dd5",
+          "file": "v10-city.spec.ts",
+          "line": 168,
+          "column": 3
+        },
+        {
+          "title": "V10 real input route: leisure campus and ride approaches",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-6d4b822bb160cf34727e",
+          "file": "v10-city.spec.ts",
+          "line": 168,
+          "column": 3
+        },
+        {
+          "title": "V10 real input route: coastal neighborhood to boarding pier",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-ba23dadb1d5c81439f3c",
+          "file": "v10-city.spec.ts",
+          "line": 168,
+          "column": 3
+        },
+        {
+          "title": "V10 real input route: Jeju olle and village circuit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-1d5c96ee11f39f5f1145",
+          "file": "v10-city.spec.ts",
+          "line": 168,
+          "column": 3
+        },
+        {
+          "title": "all 23 entrances are walkable and identify their intended venue",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-9ff6ad68c10758563546",
+          "file": "v10-city.spec.ts",
+          "line": 192,
+          "column": 1
+        },
+        {
+          "title": "two ferry journeys land outside triggers and allow subsequent walking",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-4296b1ce13f3bb294277",
+          "file": "v10-city.spec.ts",
+          "line": 204,
+          "column": 1
+        },
+        {
+          "title": "station tracks and building masses block input; marked crossing is clear",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-4da575fa0cdc99e37023",
+          "file": "v10-city.spec.ts",
+          "line": 242,
+          "column": 1
+        },
+        {
+          "title": "forced WebGL renders V10 without fetching rejected assets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "db604fbe5acabe14bcfe-2957310cf9b4ae850368",
+          "file": "v10-city.spec.ts",
+          "line": 263,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-28T16:13:42.304Z",
+    "duration": 723367.662,
+    "expected": 46,
+    "skipped": 20,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

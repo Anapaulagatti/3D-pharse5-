@@ -1,0 +1,48 @@
+
+> hangeul-pixel-town@3.1.0 build
+> npm run typecheck && npm run assets:check && vite build
+
+
+> hangeul-pixel-town@3.1.0 typecheck
+> tsc --noEmit
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice
+
+> hangeul-pixel-town@3.1.0 assets:check
+> python3 tools/check_actors.py && python3 tools/check_juni_animation.py && python3 tools/check_preservation.py
+
+[{"actor": "hero", "frames": 284, "layers": 11, "source_equals_runtime_and_regeneration": true, "binary_alpha": true, "max64colors_per_layer": true, "no_frame_clipping": true}, {"actor": "sejong", "frames": 196, "layers": 1, "source_equals_runtime_and_regeneration": true, "binary_alpha": true, "max64colors_per_layer": true, "no_frame_clipping": true}, {"actor": "jang", "frames": 196, "layers": 1, "source_equals_runtime_and_regeneration": true, "binary_alpha": true, "max64colors_per_layer": true, "no_frame_clipping": true}, {"actor": "saimdang", "frames": 196, "layers": 1, "source_equals_runtime_and_regeneration": true, "binary_alpha": true, "max64colors_per_layer": true, "no_frame_clipping": true}, {"actor": "yi", "frames": 196, "layers": 1, "source_equals_runtime_and_regeneration": true, "binary_alpha": true, "max64colors_per_layer": true, "no_frame_clipping": true}]
+{"status": "PASS", "source_strips": 20, "host_image_calls": 23, "runtime_frames": 144, "cell": [96, 112], "anchor": [48, 100], "palette_colors": 64, "binary_alpha": true, "source_atlas_equal": true, "gaits": [{"action": "walk", "direction": "south", "unique": 8, "lower_body_changed_pixels": [582, 514, 572, 577, 409, 638, 611, 331]}, {"action": "walk", "direction": "north", "unique": 8, "lower_body_changed_pixels": [357, 576, 570, 549, 621, 629, 554, 557]}, {"action": "walk", "direction": "west", "unique": 8, "lower_body_changed_pixels": [861, 718, 637, 932, 876, 749, 713, 946]}, {"action": "walk", "direction": "east", "unique": 8, "lower_body_changed_pixels": [953, 910, 619, 931, 931, 887, 644, 956]}, {"action": "run", "direction": "south", "unique": 8, "lower_body_changed_pixels": [683, 731, 514, 552, 681, 651, 506, 543]}, {"action": "run", "direction": "north", "unique": 8, "lower_body_changed_pixels": [630, 599, 589, 624, 634, 664, 556, 666]}, {"action": "run", "direction": "west", "unique": 8, "lower_body_changed_pixels": [995, 1023, 849, 1009, 1046, 997, 740, 989]}, {"action": "run", "direction": "east", "unique": 8, "lower_body_changed_pixels": [914, 771, 891, 1083, 1043, 833, 859, 1033]}], "notProven": ["Visual appeal, identity/anatomy, planted-foot contact and loop quality require real visual review; hashes and differences are not artistic approval."]}
+{"status": "PASS", "northObjects": 273, "northSolids": 253, "protectedFiles": 336, "northGroundExact": true, "runtimeTiledReadbackExact": true, "runtimeCollidersExact": true, "noLegacySouthernRuntimeImports": true}
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 197 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                     0.52 kB │ gzip:   0.32 kB
+dist/gate3-review.html                              0.60 kB │ gzip:   0.32 kB
+dist/v10-city-review.html                           0.75 kB │ gzip:   0.41 kB
+dist/assets/v10Review-C2DbXclr.css                  9.26 kB │ gzip:   2.71 kB
+dist/assets/main-C_cd9rLg.css                      19.58 kB │ gzip:   4.62 kB
+dist/assets/main-IpXHOKCk.js                        0.02 kB │ gzip:   0.04 kB
+dist/assets/modulepreload-polyfill-P2Xu9kJm.js      0.67 kB │ gzip:   0.38 kB
+dist/assets/game-CBHIDtfS.js                        1.86 kB │ gzip:   0.99 kB
+dist/assets/v10Review-DeGYtYLF.js                 258.32 kB │ gzip:  45.38 kB
+dist/assets/main-n-aBJhZT.js                      412.53 kB │ gzip:  67.84 kB
+dist/assets/Joystick-BU1a3jgy.js                1,479.43 kB │ gzip: 386.01 kB
+
+✓ built in 1.25s
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

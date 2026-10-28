@@ -33,7 +33,7 @@ async function approach(page: Page, id: string) {
     dy = s.n.position[1] - s.p.y;
   const key =
     Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? "d" : "a") : dy > 0 ? "s" : "w";
-  await page.locator("#stage canvas").click({ position: { x: 480, y: 280 } });
+  await page.locator("#stage canvas").click({ position: { x: 320, y: 120 } });
   await page.keyboard.down(key);
   try {
     await page.waitForFunction(
@@ -145,6 +145,13 @@ test("same-zone archive selection despawns the old actor and restores residents 
       ) && window.__NPC_WORLD__!.actors.some((a) => a.id === "npc-seoyeon"),
   );
   await page.waitForFunction(() => !window.__GATE3__!.paused);
+  const before = await page.evaluate(() => window.__GATE3__!.x);
+  await page.keyboard.down("d");
+  try {
+    await page.waitForFunction((x) => window.__GATE3__!.x > x + 3, before);
+  } finally {
+    await page.keyboard.up("d");
+  }
 });
 test("small landscape supports touch dialogue, readable vocabulary, close and resumed original joystick", async ({
   browser,

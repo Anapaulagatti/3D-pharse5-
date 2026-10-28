@@ -1,0 +1,122 @@
+
+> hangeul-pixel-town@3.1.0 test:e2e
+> playwright test
+
+[WebServer] (node:77569) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:77582) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 67 tests using 1 worker
+
+(node:77621) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/e2e/characters.spec.ts:16:1 › production starts in frozen world with twelve-character selection (29.9s)
+  ✓   2 tests/e2e/characters.spec.ts:54:1 › saved Juni restores and settings round-trip preserves location, emotes, progress and body ownership (31.6s)
+  ✓   3 tests/e2e/characters.spec.ts:110:1 › corrupt, unknown and unavailable storage recover to Juni without crashing (39.6s)
+  ✓   4 tests/e2e/characters.spec.ts:140:1 › mobile landscape preview fits; modal isolates joystick and original touch movement returns (5.5s)
+  ✓   5 tests/e2e/characters.spec.ts:190:1 › Canvas native Juni and Scenic Tour survive the production bootstrap (2.2s)
+  ✓   6 tests/e2e/characters.spec.ts:236:3 › native pack haneul plays, switches and restores without position/state loss (24.0s)
+  ✓   7 tests/e2e/characters.spec.ts:236:3 › native pack bomi plays, switches and restores without position/state loss (21.3s)
+  ✓   8 tests/e2e/characters.spec.ts:236:3 › native pack minjun plays, switches and restores without position/state loss (19.1s)
+  ✓   9 tests/e2e/characters.spec.ts:236:3 › native pack ara plays, switches and restores without position/state loss (20.0s)
+  ✓  10 tests/e2e/characters.spec.ts:236:3 › native pack doyun plays, switches and restores without position/state loss (20.9s)
+  ✓  11 tests/e2e/characters.spec.ts:236:3 › native pack sori plays, switches and restores without position/state loss (21.7s)
+  ✓  12 tests/e2e/characters.spec.ts:236:3 › native pack jiwon plays, switches and restores without position/state loss (20.6s)
+  ✓  13 tests/e2e/characters.spec.ts:236:3 › native pack nari plays, switches and restores without position/state loss (20.0s)
+  ✓  14 tests/e2e/characters.spec.ts:236:3 › native pack taeyang plays, switches and restores without position/state loss (20.0s)
+  ✓  15 tests/e2e/characters.spec.ts:236:3 › native pack yuna plays, switches and restores without position/state loss (21.1s)
+  ✓  16 tests/e2e/characters.spec.ts:236:3 › native pack hyunwoo plays, switches and restores without position/state loss (21.9s)
+  ✓  17 tests/e2e/foundation.spec.ts:18:1 › preserved north normal entry: actual Juni walk and gesture recover (2.6s)
+  ✓  18 tests/e2e/foundation.spec.ts:38:1 › approved Academy lesson and return remain functional after cleanup (2.0s)
+  ✓  19 tests/e2e/foundation.spec.ts:53:1 › palace intent toggles retained gate and prevents closing on Juni (2.1s)
+  ✓  20 tests/e2e/foundation.spec.ts:66:1 › mobile analog movement, reduced motion and portrait pause survive cleanup (2.2s)
+  ✓  21 tests/e2e/motion-correction.spec.ts:3:3 › sori: actual right walk/run, consecutive phases, stop and turn without engine overrides (11.4s)
+  ✓  22 tests/e2e/motion-correction.spec.ts:3:3 › jiwon: actual right walk/run, consecutive phases, stop and turn without engine overrides (11.3s)
+  ✓  23 tests/e2e/motion-correction.spec.ts:3:3 › nari: actual right walk/run, consecutive phases, stop and turn without engine overrides (11.8s)
+  ✓  24 tests/e2e/motion-correction.spec.ts:3:3 › taeyang: actual right walk/run, consecutive phases, stop and turn without engine overrides (12.1s)
+  ✓  25 tests/e2e/motion-correction.spec.ts:3:3 › yuna: actual right walk/run, consecutive phases, stop and turn without engine overrides (11.3s)
+  ✓  26 tests/e2e/motion-correction.spec.ts:3:3 › hyunwoo: actual right walk/run, consecutive phases, stop and turn without engine overrides (11.3s)
+  ✓  27 tests/e2e/phase2b.spec.ts:6:1 › twelve-entry mobile landscape gallery reaches the final identity, restores it on reopen and survives orientation changes (1.9s)
+  ✓  28 tests/e2e/phase2b.spec.ts:69:1 › new identities resolve incompatible stored cosmetics without deleting an approved look, preset or real visited marker (2.5s)
+  ✓  29 tests/e2e/phase2c.spec.ts:41:1 › every actor has a working curated hair/outfit/accessory preview, applies it and can reset to approved defaults (6.1s)
+  ✓  30 tests/e2e/phase2c.spec.ts:104:1 › personal presets rename/delete, cancel a draft, and survive reload without losing other characters or world state (2.5s)
+  ✓  31 tests/e2e/phase2c.spec.ts:155:1 › latest rapid preview wins and equipping a hat removes an incompatible quiff without touching original pixels (2.0s)
+  ✓  32 tests/e2e/phase2c.spec.ts:189:1 › mismatched native-pose registration safely restores approved defaults (1.6s)
+  ✓  33 tests/e2e/phase2c.spec.ts:220:3 › mobile667x375: native preview, reachable wardrobe/preset controls, all actions and world joystick (1.5s)
+  ✓  34 tests/e2e/phase2c.spec.ts:220:3 › mobile844x390: native preview, reachable wardrobe/preset controls, all actions and world joystick (1.5s)
+  ✓  35 tests/e2e/phase2c.spec.ts:263:1 › LAN/offline review without SubtleCrypto still binds and applies a genuine native cosmetic (1.5s)
+  ✓  36 tests/e2e/phase3a-expansion.spec.ts:18:1 › all six original cultural visitors use actual NPC movement, dialogue and bounded native textures (30.0s)
+  ✓  37 tests/e2e/phase3a-expansion.spec.ts:105:1 › normal population activates an original visitor and never preloads all20textures (1.6s)
+  ✓  38 tests/e2e/phase3a-expansion.spec.ts:130:1 › new learning vocabulary remains readable and touch-isolated in mobile landscape (9.0s)
+  ✓  39 tests/e2e/phase3a-final-six.spec.ts:48:1 › production stays20 until facts are verified; an unqualified review URL cannot unlock history (1.6s)
+  ✓  40 tests/e2e/phase3a-final-six.spec.ts:62:1 › six authored historical candidates move and interact through the existing engine with an honest source gate (32.4s)
+  ✘  41 tests/e2e/phase3a-final-six.spec.ts:120:1 › same-zone archive selection despawns the old actor and restores residents without duplicate sprites (2.0m)
+(node:81037) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  42 tests/e2e/phase3a-final-six.spec.ts:156:1 › small landscape supports touch dialogue, readable vocabulary, close and resumed original joystick (4.0s)
+  ✓  43 tests/e2e/phase3a.spec.ts:52:1 › all14 contextual residents are approachable with real controls and close/resume safely in the canonical world (32.8s)
+  ✓  44 tests/e2e/phase3a.spec.ts:109:1 › keyboard choices/Enter, close and corrupt NPC-only storage preserve player appearance and progress (3.0s)
+  ✓  45 tests/e2e/phase3a.spec.ts:147:3 › touch667x375: reachable Korean/Vietnamese dialogue,isolated controls and resumed joystick (2.9s)
+  ✓  46 tests/e2e/phase3a.spec.ts:147:3 › touch844x390: reachable Korean/Vietnamese dialogue,isolated controls and resumed joystick (2.8s)
+  ✓  47 tests/e2e/phase3a.spec.ts:219:1 › NPC resource failure does not replace or freeze the approved player (1.4s)
+  ✘  48 tests/e2e/phase3a.spec.ts:246:1 › continuous mainland-to-Jeju exploration uses the repaired bridge with original movement and collision (38.2s)
+
+
+  1) tests/e2e/phase3a-final-six.spec.ts:120:1 › same-zone archive selection despawns the old actor and restores residents without duplicate sprites 
+
+    Test timeout of 120000ms exceeded.
+
+    Error: keyboard.up: Target page, context or browser has been closed
+
+      151 |     await page.waitForFunction((x) => window.__GATE3__!.x > x + 3, before);
+      152 |   } finally {
+    > 153 |     await page.keyboard.up("d");
+          |                         ^
+      154 |   }
+      155 | });
+      156 | test("small landscape supports touch dialogue, readable vocabulary, close and resumed original joystick", async ({
+        at /workspace/korean-street-gate1/tests/e2e/phase3a-final-six.spec.ts:153:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/phase3a-final-six-same-zon-0ff9c-s-without-duplicate-sprites/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/phase3a-final-six-same-zon-0ff9c-s-without-duplicate-sprites/error-context.md
+
+  2) tests/e2e/phase3a.spec.ts:246:1 › continuous mainland-to-Jeju exploration uses the repaired bridge with original movement and collision 
+
+    Test was interrupted.
+
+    Error: mouse.up: Target page, context or browser has been closed
+
+       at ../../tools/phase3a/walk.mjs:2
+
+      1 | // QA drives ORIGINAL controls only. No position, speed, collision or clock override.
+    > 2 | async function fineAxis(page,axis,target){const r=await page.locator('#joystick').boundingBox();if(!r)throw Error('Original joystick unavailable for native alignment');const value=await page.evaluate(axis=>window.__GATE3__[axis],axis),sign=Math.sign(target-value),cx=r.x+r.width/2,cy=r.y+r.height/2,offset=r.width*.34*(.14+.86*.08);await page.mouse.move(cx,cy);await page.mouse.down();await page.mouse.move(cx+(axis==='x'?sign*offset:0),cy+(axis==='y'?sign*offset:0));try{await page.waitForFunction(({axis,target,sign})=>(target-window.__GATE3__[axis])*sign<=.25,{axis,target,sign},{timeout:8000});}finally{await page.mouse.up()}await page.waitForTimeout(35);}
+        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ^
+      3 | export async function axisTo(page,axis,target,precision){if(precision===undefined)precision=await page.locator("#joystick").isVisible()?.65:1.7;for(let attempt=0;attempt<5;attempt++){const value=await page.evaluate(axis=>window.__GATE3__[axis],axis),difference=target-value;if(Math.abs(difference)<=precision)return;if(precision<1&&Math.abs(difference)<12){await fineAxis(page,axis,target);continue;}const sign=Math.sign(difference),key=axis==='x'?sign>0?'d':'a':sign>0?'s':'w',stop=precision<1?10:1.6;await page.keyboard.down(key);try{await page.waitForFunction(({axis,target,sign,stop})=>(target-window.__GATE3__[axis])*sign<=stop,{axis,target,sign,stop},{timeout:Math.max(8000,Math.abs(difference)*90)});}catch(error){const s=await page.evaluate(()=>({world:window.__GATE3__,npcs:window.__NPC_WORLD__}));throw Error(JSON.stringify({axis,target,cause:String(error),state:s}),{cause:error});}finally{await page.keyboard.up(key)}await page.waitForTimeout(40);}const value=await page.evaluate(axis=>window.__GATE3__[axis],axis);if(Math.abs(value-target)>Math.max(.5,precision))throw Error('Real movement missed '+axis+' target '+target+' actual '+value);}
+      4 | export async function walkPath(page,points,onPoint=async()=>{}){const joystick=await page.locator('#joystick').isVisible();for(let i=0;i<points.length;i++){const p=points[i],precision=joystick?.65:1.7;await axisTo(page,'x',p[0],precision);await axisTo(page,'y',p[1],precision);await onPoint(i,p);}}
+      5 |
+        at fineAxis (/workspace/korean-street-gate1/tools/phase3a/walk.mjs:2:625)
+        at axisTo (/workspace/korean-street-gate1/tools/phase3a/walk.mjs:3:358)
+        at walkPath (/workspace/korean-street-gate1/tools/phase3a/walk.mjs:4:240)
+        at /workspace/korean-street-gate1/tests/e2e/phase3a.spec.ts:270:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/phase3a-continuous-mainlan-c2d90-inal-movement-and-collision/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  Slow test file: tests/e2e/characters.spec.ts (5.7m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  1 failed
+    tests/e2e/phase3a-final-six.spec.ts:120:1 › same-zone archive selection despawns the old actor and restores residents without duplicate sprites 
+  1 interrupted
+    tests/e2e/phase3a.spec.ts:246:1 › continuous mainland-to-Jeju exploration uses the repaired bridge with original movement and collision 
+  19 did not run
+  46 passed (12.1m)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

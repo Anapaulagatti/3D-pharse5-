@@ -109,6 +109,21 @@ export class HistoryArtReview {
       e.preventDefault();
       this.close();
     });
+    this.dialog.addEventListener(
+      "close",
+      () => {
+        // The protected game canvas need not be focusable. Release our own
+        // button's key-isolation before handing keys back to the existing game.
+        const active = document.activeElement;
+        if (
+          active instanceof HTMLElement &&
+          (active === this.button || this.dialog.contains(active))
+        )
+          active.blur();
+        document.querySelector<HTMLCanvasElement>("#stage canvas")?.focus();
+      },
+      { signal },
+    );
     for (const element of [this.button, this.dialog])
       for (const event of [
         "pointerdown",

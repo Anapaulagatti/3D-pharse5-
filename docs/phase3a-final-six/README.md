@@ -1,0 +1,13 @@
+# Six historical actors built —26actor art-review / factual release BLOCKED
+
+Continue existing work,not a Phase3A restart. All20accepted NPCs are frozen. Six exact requested historical identities now have independent illustrated masters/fourviews/rigs/624native cells and run in the actual canonical Phaser through the existing engine. No static portrait substitutes or geometric body generators.
+
+**This is NOT final verified26NPCacceptance.** Official-source access is still CONNECT403 through both direct HTTP and real Chromium; costumes and historical facts remain unverified. Normal production stays20. Explicit source-gated art review contains26actual actor definitions, one historical reconstruction at a time; `historicalArchiveCount0` vs `historicalArtCandidateCount6` is honest. Its36dialogue nodes are neutral KO/VI art narration and vocabulary,not six completed sourced biographies. Six real-person cards remain0/6separately.
+
+[Open visual gallery](REVIEW.html) · [Native Phaser comparison](six-actual-phaser-comparison-native.png) · [Source26roster](roster26-art-candidates-native.png) · [QA](QA.md) · [Source gate/actionable handoff](HISTORY_FACT_CHECK.md) · [Protected audit](PROTECTED_AUDIT.md).
+
+The single playable ZIP,when built,is `PHASE3A_26_ACTOR_ART_REVIEW_SOURCE_BLOCKED.zip`. Extract then run `python3 start_review.py`; open its local REVIEW.html. No Node/install/network required to PLAY. Contains canonical frozen world,12players,28cosmetics/46variants,14residents,6original visitors and6actual source-gated historical ART ACTORS. Gallery links take Juni to existing validated review approaches; WASD/arrows,Shift,E,original mobile joystick remain. Archive selection exists only in explicit QA art mode and restores living schedules/controls on return. Native inspector is supplemental,not navigation proof.
+
+Full original illustration sources,every native frame,complete native world PNGs and actual videos are versioned in this branch. Portable package curates runtime/native crops/readable previews/videos and links optional full sources,not duplicated huge source/raw-video archives. Original sources/checkpoints never overwritten. See ART_PROVENANCE.json and actual PLAYABLE_PACKAGE_PROOF.json after packaging.
+
+Owner approves the current20art direction,not these six speculative costumes or hardware. Human final six review pending; physical Android/iPhone/hardwareGPU NOTTESTED. No Phase3B,main merge,public deployment or separate learning-site changes. To complete factual Phase3A,obtain the six readable institutional article/costume sources and map verified excerpts to three biographical nodes each before normal archive activation.

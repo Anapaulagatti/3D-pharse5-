@@ -7,3 +7,73 @@ Running 4 tests using 1 worker
 
 (node:72999) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/e2e/phase3a-final-six.spec.ts:48:1 › production stays20 until facts are verified; an unqualified review URL cannot unlock history (978ms)
+  ✓  2 tests/e2e/phase3a-final-six.spec.ts:62:1 › six authored historical candidates move and interact through the existing engine with an honest source gate (29.6s)
+  ✓  3 tests/e2e/phase3a-final-six.spec.ts:120:1 › same-zone archive selection despawns the old actor and restores residents without duplicate sprites (16.9s)
+  ✘  4 tests/e2e/phase3a-final-six.spec.ts:149:1 › small landscape supports touch dialogue, readable vocabulary, close and resumed original joystick (2.0m)
+
+
+  1) tests/e2e/phase3a-final-six.spec.ts:149:1 › small landscape supports touch dialogue, readable vocabulary, close and resumed original joystick 
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.click: Test ended.
+    Call log:
+      - waiting for locator('#stage canvas')
+        - locator resolved to <canvas width="667" height="375"></canvas>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <button id="explore">Explore</button> from <div id="touch-actions">…</div> subtree intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <button id="explore">Explore</button> from <div id="touch-actions">…</div> subtree intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        221 × waiting for element to be visible, enabled and stable
+            - element is visible, enabled and stable
+            - scrolling into view if needed
+            - done scrolling
+            - <button id="explore">Explore</button> from <div id="touch-actions">…</div> subtree intercepts pointer events
+          - retrying click action
+            - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+
+
+      34 |   const key =
+      35 |     Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? "d" : "a") : dy > 0 ? "s" : "w";
+    > 36 |   await page.locator("#stage canvas").click({ position: { x: 480, y: 280 } });
+         |                                       ^
+      37 |   await page.keyboard.down(key);
+      38 |   try {
+      39 |     await page.waitForFunction(
+        at approach (/workspace/korean-street-gate1/tests/e2e/phase3a-final-six.spec.ts:36:39)
+        at /workspace/korean-street-gate1/tests/e2e/phase3a-final-six.spec.ts:165:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/phase3a-final-six-small-la-2464a-d-resumed-original-joystick/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/phase3a-final-six-small-la-2464a-d-resumed-original-joystick/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/phase3a-final-six-small-la-2464a-d-resumed-original-joystick/error-context.md
+
+  1 failed
+    tests/e2e/phase3a-final-six.spec.ts:149:1 › small landscape supports touch dialogue, readable vocabulary, close and resumed original joystick 
+  3 passed (2.8m)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice
