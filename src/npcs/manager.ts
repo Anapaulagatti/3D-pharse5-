@@ -2,7 +2,14 @@ import { chooseTarget } from "./interaction";
 import { installNPCAudit } from "./audit";
 import Phaser from "phaser";
 import { npcRegistry as residentRegistry } from "./registry";
-import { npcCatalog as npcRegistry } from "./catalog";
+import { modernVisitors } from "./catalog";
+import {
+  runtimeNPCCatalog as npcRegistry,
+  HistoryArtReview,
+  historyArtReviewEnabled,
+  applyHistorySelection,
+} from "./history";
+import "./history.css";
 import { NPCVisitPolicy } from "./visits";
 import { NPCAssetPool } from "./assets";
 import { NPCActorModel } from "./actor";
@@ -43,6 +50,7 @@ function rectDistance(p: Point, r: number[]) {
   );
 }
 export class NPCManager {
+  private archive?: HistoryArtReview;
   private auditDispose?: () => void;
   private assets: NPCAssetPool;
   private store: NPCStateStore;
@@ -81,6 +89,10 @@ export class NPCManager {
     this.reviewId = query.has("qa")
       ? (query.get("npcReview") ?? undefined)
       : undefined;
+    if (historyArtReviewEnabled(query))
+      this.archive = new HistoryArtReview(query, host, () => {
+        this.lastPopulation = -999;
+      });
     this.store = new NPCStateStore(storage, npcRegistry.npcs);
     for (const d of npcRegistry.npcs)
       this.models.set(d.id, new NPCActorModel(d, this.store.get(d.id)));
@@ -185,7 +197,9 @@ export class NPCManager {
         zones[z].some((r) => rectDistance(p, r) < 240),
       ),
     );
-    const eligible = this.visits.eligible(activeZones, pinned, this.reviewId);
+    const living = this.visits.eligible(activeZones, pinned, this.reviewId);
+    const selected = this.archive?.selected;
+    const eligible = applyHistorySelection(living, selected, modernVisitors);
     const wanted = [...this.models.values()]
       .filter(
         (m) =>
@@ -336,9 +350,11 @@ export class NPCManager {
       registered: residentRegistry.npcs.length, // Legacy resident API; actual total is explicit below.
       catalogTotal: npcRegistry.npcs.length,
       residentCount: residentRegistry.npcs.length,
-      modernVisitorCount:
-        npcRegistry.npcs.length - residentRegistry.npcs.length,
-      historicalArchiveCount: 0, // Blocked on independently verified sources; no placeholder actors.
+      modernVisitorCount: modernVisitors.length,
+      historicalArchiveCount: 0, // Verified production histories remain source-blocked.
+      historicalArtCandidateCount: this.archive ? 6 : 0,
+      historySourceStatus: "UNVERIFIED / production archive locked",
+      historyArtSelected: this.archive?.selected ?? null,
       active: this.actors.size,
       rendered: [...this.actors.values()].filter((a) => a.sprite.visible)
         .length,
@@ -365,6 +381,7 @@ export class NPCManager {
   }
   dispose() {
     if (this.closed) return;
+    this.archive?.dispose();
     this.auditDispose?.();
     this.dialogue.dispose();
     this.closed = true;

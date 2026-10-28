@@ -1,5 +1,5 @@
 import type { NPCDefinition, DialogueNode } from "./types";
-import { npcCatalog as npcRegistry } from "./catalog";
+import { runtimeNPCCatalog as npcRegistry } from "./history";
 import "./style.css";
 export interface DialogueHost {
   canOpen(): boolean;

@@ -1,4 +1,4 @@
-import { npcCatalog as npcRegistry } from "./catalog";
+import { runtimeNPCCatalog as npcRegistry } from "./history";
 /** Only an explicit QA URL selects a declared, mask-validated approach. Normal spawn is untouched. */
 export function npcReviewSpawn(
   query: URLSearchParams,
