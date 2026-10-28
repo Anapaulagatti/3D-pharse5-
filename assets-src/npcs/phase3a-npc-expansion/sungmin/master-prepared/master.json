@@ -1,0 +1,168 @@
+{
+  "schema": "generate2dsprite.master.v1",
+  "tool": {
+    "name": "master_still",
+    "version": "0.4.0"
+  },
+  "created": "2026-10-28T09:50:40.922Z",
+  "name": "sungmin",
+  "subject": "Independently illustrated Korean NPC",
+  "identity_recap": "Independently illustrated Korean NPC (Korean man age24 amusement host, rounded youthful face, warm monolid eyes, copper-brown curly forelock. Butter-yellow short jacket over blue-green striped shirt, burgundy bow tie, deep plum trousers, navy loafers; small original star badge, no lettering or existing park branding. Playful but sophisticated independent costume, not copied body)",
+  "facing": "front",
+  "view": "front view",
+  "finish": "pixel",
+  "class": "hero",
+  "framing": {
+    "canvas": [
+      1024,
+      1024
+    ],
+    "subject_height_px": 788,
+    "top_margin_px": 138,
+    "lead_px": 0,
+    "preset": "hero",
+    "subject_bbox": [
+      353,
+      138,
+      671,
+      926
+    ],
+    "anchor": [
+      511.0,
+      926.0
+    ],
+    "opaque_area_px": 156367,
+    "width_limited": false
+  },
+  "key": "#FF00FF",
+  "files": {
+    "master": {
+      "path": "master.png",
+      "sha256": "ea57a8e0a48ec2c1a9448b7c30ab1f8901e475ef08ba7337aa202686d2f68841",
+      "bytes": 280114,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "cutout": {
+      "path": "master_rgba.png",
+      "sha256": "4d11b0d79663f8f19031b83f3570c60593143f3155c86be3c74d8042580f06dc",
+      "bytes": 326189,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "source": {
+      "path": "source.png",
+      "sha256": "d07466a2329e245dff07028f5459ea876544463887dfe9977741a84b3585a438",
+      "bytes": 1407480,
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "spec": {
+      "path": "spec.json",
+      "sha256": "57d5af58bdc72bbe24f694ca99399d98b48a1e70bab3169bfa6408fb039a613f",
+      "bytes": 1851
+    },
+    "prompt": {
+      "path": "prompt.txt",
+      "sha256": "ca5aa3fe8f69862ac6f841598f3eb2a4db3664f408986a964854f3b5b6188968",
+      "bytes": 2584
+    }
+  },
+  "references": [
+    {
+      "role": "style",
+      "path": "../../../phase3a-art-rebuild/seoyeon/master-source.png",
+      "sha256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352",
+      "bytes": 1407131
+    }
+  ],
+  "transform": {
+    "mapping": "master = scale * source + offset (continuous pixel coordinates: pixel i spans [i, i + 1))",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "source_subject_bbox": [
+      418,
+      111,
+      837,
+      1153
+    ],
+    "crop_box": [
+      412,
+      105,
+      843,
+      1159
+    ],
+    "crop_margin_px": 6,
+    "scale": 0.7562380038387716,
+    "offset": [
+      37.4606525911708,
+      54.05758157389636
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "resampler": "lanczos",
+    "premultiplied": true,
+    "alpha_floor_px": 2809,
+    "subject_parts": 2,
+    "ignored_parts": 0,
+    "ignored_px": 0,
+    "source_touches": [],
+    "key_rgb": [
+      255,
+      0,
+      255
+    ]
+  },
+  "route": "host-image_gen",
+  "provenance": {
+    "command": "prompt",
+    "run": "../master-job",
+    "take": null,
+    "source_name": "master-source.png",
+    "source_sha256": "d07466a2329e245dff07028f5459ea876544463887dfe9977741a84b3585a438",
+    "media": null,
+    "media_cli_source": null,
+    "edit": null
+  },
+  "matte": {
+    "requested": "soft",
+    "key_estimate": {
+      "key": [
+        252.0,
+        3.0,
+        251.0
+      ],
+      "source": "border_median",
+      "valid": true,
+      "ring_share": 1.0,
+      "coverage": 0.8240520287233961,
+      "distance_from_declared": 5.83
+    },
+    "quality": "soft",
+    "interior_despill": false,
+    "qa": {
+      "opaque_key_px": 0,
+      "outer_ring_spill_fraction": 0.00037671877943115466,
+      "semitransparent_fraction": 0.02628620744673136,
+      "enclosed_key_pockets": 0,
+      "key_hued_px": 0,
+      "visible_px": 275772
+    },
+    "key_choice": {
+      "status": "ok",
+      "overlap_share": 0.000142,
+      "rule": "reject a key when more than 0.5% of subject pixels have key dominance >= 40; first acceptable candidate wins"
+    }
+  },
+  "warnings": []
+}

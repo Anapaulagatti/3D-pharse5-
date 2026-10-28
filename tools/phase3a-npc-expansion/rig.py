@@ -9,6 +9,12 @@ CONFIG={
  'jiho':{'hip':73,'knee':85,'shoe':94,'shoulder':49,'hem':72,'accessories':{'front':[[52,60,60,74]],'back':[[36,60,43,74]],'left':[[47,60,57,75]],'right':[[45,60,55,75]]}},
  'eunji':{'hip':73,'knee':85,'shoe':94,'shoulder':50,'hem':72},
  'seojun':{'hip':74,'knee':85,'shoe':94,'shoulder':49,'hem':73,'accessories':{'front':[[49,61,55,80]],'back':[],'left':[[37,60,43,80]],'right':[[51,60,57,80]]}}}
+CONFIG.update({
+ 'nayeon':{'hip':83,'knee':90,'shoe':92,'shoulder':50,'hem':85,'apron':True},
+ 'cheolsu':{'hip':74,'knee':85,'shoe':92,'shoulder':49,'hem':73,'accessories':{'front':[[35,62,43,77]],'back':[[53,62,60,77]],'left':[[51,61,59,78]],'right':[[37,61,45,78]]}},
+ 'yejin':{'hip':73,'knee':85,'shoe':92,'shoulder':49,'hem':72,'accessories':{'front':[[51,61,59,73]],'back':[],'left':[[39,60,47,73]],'right':[]}},
+ 'sungmin':{'hip':72,'knee':85,'shoe':94,'shoulder':49,'hem':71}
+})
 def poly(shape):
  im=Image.new('1',(96,112));ImageDraw.Draw(im).polygon([tuple(p)for p in shape],fill=1);return np.array(im,dtype=bool)
 def box(a):x,y,w,z=a;return poly([[x,y],[w,y],[w,z],[x,z]])
@@ -40,6 +46,9 @@ def author(id):
    for y,x in zip(*np.where(recover)):
     if a[y,safe,3]:recovered[y,x]=a[y,safe]
    bodyImage=Image.fromarray(recovered);masks['body']=(yy<=sy)|core|access;arms={'R':[shoulder,elbow,wrist]};shift=farX-nearX;arms['L']=[[v[0]+shift,v[1]-1]for v in arms['R']];near='R';patch=[{'method':'Own same-row inner fabric within authored torso polygon only','candidatePixels':int(recover.sum()),'safeColumn':safe}]
+  if id=='yejin'and front:
+   rgb=a[:,:,:3].astype(int);skin=(rgb[:,:,0]>145)&(rgb[:,:,0]>rgb[:,:,1]*1.25)&(rgb[:,:,0]>rgb[:,:,2]*1.3);ring=binary_dilation(skin,iterations=1)&opaque
+   for name in ['Lforearm','Rforearm']:masks[name]&=(yy<65)|ring
   out=p/'layers'/d;out.mkdir(parents=True,exist_ok=True);ownership={}
   for n,m in masks.items():
    arr=np.array(bodyImage if n=='body'else im);arr[~m]=0;q=Image.fromarray(arr);assert q.getbbox(),(id,d,n);q.save(out/f'{n}.png');ownership[n]={'source':f'native/{d}.png','pixels':int((arr[:,:,3]>0).sum()),'bounds':q.getbbox()}

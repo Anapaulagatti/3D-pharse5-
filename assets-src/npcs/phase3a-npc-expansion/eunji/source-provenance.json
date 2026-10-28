@@ -1,26 +1,49 @@
 {
-  "route": "builtin image_gen.imagegen",
-  "art_source": "host_image",
-  "model": "not exposed by host tool",
-  "cost": "not exposed; no external API invoked",
-  "promptSHA256": "28f109b36b5c3c9e5d2ef7dc2dede6eff9a95772b5ab31c330b30b7b56b1635f",
-  "sourceSHA256": "d15496ccc3ef07428ba0650032fd65b4eb6e0881e928724e8c3d04dbb8503d5b",
-  "originalArtifact": "/workspace/generated_images/exec-87ffac35-6d93-4aff-bbc2-32109cc48ace.png",
-  "references": [
+  "jobs": [
     {
-      "path": "assets-src/npcs/phase3a-art-rebuild/seoyeon/master-source.png",
-      "sha256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352"
+      "kind": "master",
+      "art_source": "host_image",
+      "route": "builtin image_gen.imagegen",
+      "actualPrompt": "assets-src/npcs/phase3a-npc-expansion/eunji/actual-master-prompt.txt",
+      "promptSHA256": "28f109b36b5c3c9e5d2ef7dc2dede6eff9a95772b5ab31c330b30b7b56b1635f",
+      "retainedSource": "assets-src/npcs/phase3a-npc-expansion/eunji/master-source.png",
+      "SHA256": "d15496ccc3ef07428ba0650032fd65b4eb6e0881e928724e8c3d04dbb8503d5b",
+      "originalArtifact": "/workspace/generated_images/exec-87ffac35-6d93-4aff-bbc2-32109cc48ace.png",
+      "references": [
+        {
+          "path": "assets-src/npcs/phase3a-art-rebuild/seoyeon/master-source.png",
+          "SHA256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352"
+        }
+      ],
+      "model": "not exposed by host",
+      "cost": "not exposed by host; no external paid API",
+      "selection": "Internal technical selection; final human artistic review pending"
+    },
+    {
+      "kind": "turnaround",
+      "art_source": "host_image",
+      "route": "builtin image_gen.imagegen",
+      "actualPrompt": "assets-src/npcs/phase3a-npc-expansion/eunji/actual-turnaround-prompt.txt",
+      "promptSHA256": "0d36b235cfdb7ad0dda7164848da391ab02f4c38f45bed7159c7a15670e82025",
+      "retainedSource": "assets-src/npcs/phase3a-npc-expansion/eunji/turnaround-source.png",
+      "SHA256": "8dc2be8dfe557a932550b4581897907f08be342b2c9d471f93c657ccaa2450b0",
+      "originalArtifact": "/workspace/generated_images/exec-51736c8f-31dc-4487-9100-72bdc7f7db39.png",
+      "references": [
+        {
+          "path": "assets-src/npcs/phase3a-npc-expansion/eunji/master-source.png",
+          "SHA256": "d15496ccc3ef07428ba0650032fd65b4eb6e0881e928724e8c3d04dbb8503d5b"
+        },
+        {
+          "path": "assets-src/npcs/phase3a-art-rebuild/seoyeon/master-source.png",
+          "SHA256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352"
+        }
+      ],
+      "model": "not exposed by host",
+      "cost": "not exposed by host; no external paid API",
+      "selection": "Internal technical selection; final human artistic review pending"
     }
   ],
-  "masterSelection": "internal technical selection, not human artistic approval",
-  "nativePixels": "Own source finish/masks/rig104cells; see native-finish.json and rig.json",
-  "turnaround": {
-    "originalArtifact": "/workspace/generated_images/exec-51736c8f-31dc-4487-9100-72bdc7f7db39.png",
-    "sourceSHA256": "8dc2be8dfe557a932550b4581897907f08be342b2c9d471f93c657ccaa2450b0",
-    "actualPromptSHA256": "0d36b235cfdb7ad0dda7164848da391ab02f4c38f45bed7159c7a15670e82025",
-    "references": [
-      "assets-src/npcs/phase3a-npc-expansion/eunji/master-source.png",
-      "assets-src/npcs/phase3a-art-rebuild/seoyeon/master-source.png"
-    ]
-  }
+  "nativeFinish": "native-finish.json",
+  "ownRig": "rig.json",
+  "ownPoseKeys": "pose-keys.json"
 }

@@ -1,0 +1,168 @@
+{
+  "schema": "generate2dsprite.master.v1",
+  "tool": {
+    "name": "master_still",
+    "version": "0.4.0"
+  },
+  "created": "2026-10-28T09:50:36.534Z",
+  "name": "nayeon",
+  "subject": "Independently illustrated Korean NPC",
+  "identity_recap": "Independently illustrated Korean NPC (Korean woman age35 farmer, tanned skin with soft freckles, lively eyes, distinct long auburn braid over anatomical left shoulder, low olive canvas farming hat. Rust linen apron over indigo work shirt, cream work trousers, sturdy cocoa boots. Fabric seed pocket and embroidered tiny leaf; own practical farming silhouette, expressive face)",
+  "facing": "front",
+  "view": "front view",
+  "finish": "pixel",
+  "class": "hero",
+  "framing": {
+    "canvas": [
+      1024,
+      1024
+    ],
+    "subject_height_px": 788,
+    "top_margin_px": 138,
+    "lead_px": 0,
+    "preset": "hero",
+    "subject_bbox": [
+      355,
+      138,
+      669,
+      926
+    ],
+    "anchor": [
+      511.5,
+      926.0
+    ],
+    "opaque_area_px": 171869,
+    "width_limited": false
+  },
+  "key": "#FF00FF",
+  "files": {
+    "master": {
+      "path": "master.png",
+      "sha256": "4aaa7a336ca66e298a3a2cf95a062eadcc2595380628627954186c7261bec10d",
+      "bytes": 328570,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "cutout": {
+      "path": "master_rgba.png",
+      "sha256": "e57fd5743b8255b235dbcc28e79c585cfa5abcd2718f0357412b8539989ce4de",
+      "bytes": 386061,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "source": {
+      "path": "source.png",
+      "sha256": "3798c874252eef2b458902aa90f224ca60e8310d7e290c53c4d8060d0b0ff54d",
+      "bytes": 1484145,
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "spec": {
+      "path": "spec.json",
+      "sha256": "8c330d66314f0c016bea89ad9667b572ce12afee1b25f218c3f1a26cc99613bf",
+      "bytes": 1838
+    },
+    "prompt": {
+      "path": "prompt.txt",
+      "sha256": "021cf34de83fbeb7adbbf5d4c3373c965b19a71ace89700d6c87d0f809925bb7",
+      "bytes": 2578
+    }
+  },
+  "references": [
+    {
+      "role": "style",
+      "path": "../../../phase3a-art-rebuild/seoyeon/master-source.png",
+      "sha256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352",
+      "bytes": 1407131
+    }
+  ],
+  "transform": {
+    "mapping": "master = scale * source + offset (continuous pixel coordinates: pixel i spans [i, i + 1))",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "source_subject_bbox": [
+      417,
+      112,
+      832,
+      1154
+    ],
+    "crop_box": [
+      411,
+      106,
+      838,
+      1160
+    ],
+    "crop_margin_px": 6,
+    "scale": 0.7562380038387716,
+    "offset": [
+      39.72936660268715,
+      53.30134357005758
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "resampler": "lanczos",
+    "premultiplied": true,
+    "alpha_floor_px": 2481,
+    "subject_parts": 1,
+    "ignored_parts": 0,
+    "ignored_px": 0,
+    "source_touches": [],
+    "key_rgb": [
+      255,
+      0,
+      255
+    ]
+  },
+  "route": "host-image_gen",
+  "provenance": {
+    "command": "prompt",
+    "run": "../master-job",
+    "take": null,
+    "source_name": "master-source.png",
+    "source_sha256": "3798c874252eef2b458902aa90f224ca60e8310d7e290c53c4d8060d0b0ff54d",
+    "media": null,
+    "media_cli_source": null,
+    "edit": null
+  },
+  "matte": {
+    "requested": "soft",
+    "key_estimate": {
+      "key": [
+        250.0,
+        3.0,
+        250.0
+      ],
+      "source": "border_median",
+      "valid": true,
+      "ring_share": 1.0,
+      "coverage": 0.8070919469181872,
+      "distance_from_declared": 7.68
+    },
+    "quality": "soft",
+    "interior_despill": true,
+    "qa": {
+      "opaque_key_px": 0,
+      "outer_ring_spill_fraction": 0.0,
+      "semitransparent_fraction": 0.025405271420309013,
+      "enclosed_key_pockets": 0,
+      "key_hued_px": 0,
+      "visible_px": 302575
+    },
+    "key_choice": {
+      "status": "ok",
+      "overlap_share": 0.0,
+      "rule": "reject a key when more than 0.5% of subject pixels have key dominance >= 40; first acceptable candidate wins"
+    }
+  },
+  "warnings": []
+}

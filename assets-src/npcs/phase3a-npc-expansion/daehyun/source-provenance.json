@@ -1,26 +1,49 @@
 {
-  "route": "builtin image_gen.imagegen",
-  "art_source": "host_image",
-  "model": "not exposed by host tool",
-  "cost": "not exposed; no external API invoked",
-  "promptSHA256": "1e8f81ed3b23801e63b5e88c3337017458218fe3503f7849233c27e9d2a2b0b6",
-  "sourceSHA256": "993d301a9a360bd10e9b4f0b8d1ed3e96d4d48c3b2468f85bb7cf886c0a9bee1",
-  "originalArtifact": "/workspace/generated_images/exec-20aa8325-ea09-4005-88da-2dd0eaa2f513.png",
-  "references": [
+  "jobs": [
     {
-      "path": "assets-src/npcs/phase3a-art-rebuild/seoyeon/master-source.png",
-      "sha256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352"
+      "kind": "master",
+      "art_source": "host_image",
+      "route": "builtin image_gen.imagegen",
+      "actualPrompt": "assets-src/npcs/phase3a-npc-expansion/daehyun/actual-master-prompt.txt",
+      "promptSHA256": "1e8f81ed3b23801e63b5e88c3337017458218fe3503f7849233c27e9d2a2b0b6",
+      "retainedSource": "assets-src/npcs/phase3a-npc-expansion/daehyun/master-source.png",
+      "SHA256": "993d301a9a360bd10e9b4f0b8d1ed3e96d4d48c3b2468f85bb7cf886c0a9bee1",
+      "originalArtifact": "/workspace/generated_images/exec-20aa8325-ea09-4005-88da-2dd0eaa2f513.png",
+      "references": [
+        {
+          "path": "assets-src/npcs/phase3a-art-rebuild/seoyeon/master-source.png",
+          "SHA256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352"
+        }
+      ],
+      "model": "not exposed by host",
+      "cost": "not exposed by host; no external paid API",
+      "selection": "Internal technical selection; final human artistic review pending"
+    },
+    {
+      "kind": "turnaround",
+      "art_source": "host_image",
+      "route": "builtin image_gen.imagegen",
+      "actualPrompt": "assets-src/npcs/phase3a-npc-expansion/daehyun/actual-turnaround-prompt.txt",
+      "promptSHA256": "dc822db2a5cf13292eab70b648d5bda7bfa68a56963d949e4ce63fa4ff8dc1e0",
+      "retainedSource": "assets-src/npcs/phase3a-npc-expansion/daehyun/turnaround-source.png",
+      "SHA256": "e2658a39bc8c7bbbfd7e056f6a6e8b56d55d622e978d7e898bb58e5c4f3f4fc9",
+      "originalArtifact": "/workspace/generated_images/exec-60f8e70e-a6a2-4e81-ba48-10d6b2f33023.png",
+      "references": [
+        {
+          "path": "assets-src/npcs/phase3a-npc-expansion/daehyun/master-source.png",
+          "SHA256": "993d301a9a360bd10e9b4f0b8d1ed3e96d4d48c3b2468f85bb7cf886c0a9bee1"
+        },
+        {
+          "path": "assets-src/npcs/phase3a-art-rebuild/seoyeon/master-source.png",
+          "SHA256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352"
+        }
+      ],
+      "model": "not exposed by host",
+      "cost": "not exposed by host; no external paid API",
+      "selection": "Internal technical selection; final human artistic review pending"
     }
   ],
-  "masterSelection": "internal technical selection, not human artistic approval",
-  "nativePixels": "Own source finish/masks/rig104cells; see native-finish.json and rig.json",
-  "turnaround": {
-    "originalArtifact": "/workspace/generated_images/exec-60f8e70e-a6a2-4e81-ba48-10d6b2f33023.png",
-    "sourceSHA256": "e2658a39bc8c7bbbfd7e056f6a6e8b56d55d622e978d7e898bb58e5c4f3f4fc9",
-    "actualPromptSHA256": "dc822db2a5cf13292eab70b648d5bda7bfa68a56963d949e4ce63fa4ff8dc1e0",
-    "references": [
-      "assets-src/npcs/phase3a-npc-expansion/daehyun/master-source.png",
-      "assets-src/npcs/phase3a-art-rebuild/seoyeon/master-source.png"
-    ]
-  }
+  "nativeFinish": "native-finish.json",
+  "ownRig": "rig.json",
+  "ownPoseKeys": "pose-keys.json"
 }

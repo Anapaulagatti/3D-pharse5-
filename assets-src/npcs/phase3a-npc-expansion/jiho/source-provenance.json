@@ -1,26 +1,49 @@
 {
-  "route": "builtin image_gen.imagegen",
-  "art_source": "host_image",
-  "model": "not exposed by host tool",
-  "cost": "not exposed; no external API invoked",
-  "promptSHA256": "39c4b8a4a9f23852168355fd0ae95b779a94f28699cbc58fb98adcfa9bf5d7b5",
-  "sourceSHA256": "46591b0537f30723a00993d42936b396f8355b046fde3fe4394090972b3eba17",
-  "originalArtifact": "/workspace/generated_images/exec-27f477ca-8f05-48a9-b207-4f8b0fe7753a.png",
-  "references": [
+  "jobs": [
     {
-      "path": "assets-src/npcs/phase3a-art-rebuild/seoyeon/master-source.png",
-      "sha256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352"
+      "kind": "master",
+      "art_source": "host_image",
+      "route": "builtin image_gen.imagegen",
+      "actualPrompt": "assets-src/npcs/phase3a-npc-expansion/jiho/actual-master-prompt.txt",
+      "promptSHA256": "39c4b8a4a9f23852168355fd0ae95b779a94f28699cbc58fb98adcfa9bf5d7b5",
+      "retainedSource": "assets-src/npcs/phase3a-npc-expansion/jiho/master-source.png",
+      "SHA256": "46591b0537f30723a00993d42936b396f8355b046fde3fe4394090972b3eba17",
+      "originalArtifact": "/workspace/generated_images/exec-27f477ca-8f05-48a9-b207-4f8b0fe7753a.png",
+      "references": [
+        {
+          "path": "assets-src/npcs/phase3a-art-rebuild/seoyeon/master-source.png",
+          "SHA256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352"
+        }
+      ],
+      "model": "not exposed by host",
+      "cost": "not exposed by host; no external paid API",
+      "selection": "Internal technical selection; final human artistic review pending"
+    },
+    {
+      "kind": "turnaround",
+      "art_source": "host_image",
+      "route": "builtin image_gen.imagegen",
+      "actualPrompt": "assets-src/npcs/phase3a-npc-expansion/jiho/actual-turnaround-prompt.txt",
+      "promptSHA256": "ce6f0bfc595054f7f54d946a49d64a5af19c5d08f75ac1f59d32ddded4c13926",
+      "retainedSource": "assets-src/npcs/phase3a-npc-expansion/jiho/turnaround-source.png",
+      "SHA256": "f4779224b61d6b0edcef6302aa1c2ecf3766f548e4df14f8119cecba0fb89890",
+      "originalArtifact": "/workspace/generated_images/exec-3742a9b4-f240-490d-b7a4-1fb3b704667a.png",
+      "references": [
+        {
+          "path": "assets-src/npcs/phase3a-npc-expansion/jiho/master-source.png",
+          "SHA256": "46591b0537f30723a00993d42936b396f8355b046fde3fe4394090972b3eba17"
+        },
+        {
+          "path": "assets-src/npcs/phase3a-art-rebuild/seoyeon/master-source.png",
+          "SHA256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352"
+        }
+      ],
+      "model": "not exposed by host",
+      "cost": "not exposed by host; no external paid API",
+      "selection": "Internal technical selection; final human artistic review pending"
     }
   ],
-  "masterSelection": "internal technical selection, not human artistic approval",
-  "nativePixels": "Own source finish/masks/rig104cells; see native-finish.json and rig.json",
-  "turnaround": {
-    "originalArtifact": "/workspace/generated_images/exec-3742a9b4-f240-490d-b7a4-1fb3b704667a.png",
-    "sourceSHA256": "f4779224b61d6b0edcef6302aa1c2ecf3766f548e4df14f8119cecba0fb89890",
-    "actualPromptSHA256": "ce6f0bfc595054f7f54d946a49d64a5af19c5d08f75ac1f59d32ddded4c13926",
-    "references": [
-      "assets-src/npcs/phase3a-npc-expansion/jiho/master-source.png",
-      "assets-src/npcs/phase3a-art-rebuild/seoyeon/master-source.png"
-    ]
-  }
+  "nativeFinish": "native-finish.json",
+  "ownRig": "rig.json",
+  "ownPoseKeys": "pose-keys.json"
 }

@@ -1,0 +1,168 @@
+{
+  "schema": "generate2dsprite.master.v1",
+  "tool": {
+    "name": "master_still",
+    "version": "0.4.0"
+  },
+  "created": "2026-10-28T09:50:39.551Z",
+  "name": "yejin",
+  "subject": "Independently illustrated Korean NPC",
+  "identity_recap": "Independently illustrated Korean NPC (Korean woman age27 scenic trail guide, dark tan skin, clear angular cheekbones, bright curious eyes, black hair in two compact low braids. Terracotta outdoor jacket with ivory piping, sage shirt, deep blue hiking trousers, grey hiking boots, small mustard map case at anatomical left hip. Friendly distinctive face, natural explorer silhouette, no real brand)",
+  "facing": "front",
+  "view": "front view",
+  "finish": "pixel",
+  "class": "hero",
+  "framing": {
+    "canvas": [
+      1024,
+      1024
+    ],
+    "subject_height_px": 788,
+    "top_margin_px": 138,
+    "lead_px": 0,
+    "preset": "hero",
+    "subject_bbox": [
+      354,
+      138,
+      670,
+      926
+    ],
+    "anchor": [
+      513.0,
+      926.0
+    ],
+    "opaque_area_px": 166093,
+    "width_limited": false
+  },
+  "key": "#FF00FF",
+  "files": {
+    "master": {
+      "path": "master.png",
+      "sha256": "b73583d4f2bc31801991b052854e599c87cb0bf739825a6cc313b2d3ec1ed3df",
+      "bytes": 299135,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "cutout": {
+      "path": "master_rgba.png",
+      "sha256": "a7c049192b0b7d0b3fb68b987fa53938b50c1e25e8a906fa912afb152c0ef12a",
+      "bytes": 349204,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    "source": {
+      "path": "source.png",
+      "sha256": "ba33ebd37086c7aa89c498508e5dfa9dcb18018af4a4158220b28243114840d0",
+      "bytes": 1428206,
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "spec": {
+      "path": "spec.json",
+      "sha256": "9b93b61b1348a3bbcd65742997a10cade01da87b4647df751a01b9fb2bfa94c3",
+      "bytes": 1879
+    },
+    "prompt": {
+      "path": "prompt.txt",
+      "sha256": "58b7acb3f9b36d75dc0ab691f04dbea65f776feeb2f979a773a2c8c8ef357648",
+      "bytes": 2599
+    }
+  },
+  "references": [
+    {
+      "role": "style",
+      "path": "../../../phase3a-art-rebuild/seoyeon/master-source.png",
+      "sha256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352",
+      "bytes": 1407131
+    }
+  ],
+  "transform": {
+    "mapping": "master = scale * source + offset (continuous pixel coordinates: pixel i spans [i, i + 1))",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "source_subject_bbox": [
+      422,
+      128,
+      831,
+      1153
+    ],
+    "crop_box": [
+      416,
+      122,
+      837,
+      1159
+    ],
+    "crop_margin_px": 6,
+    "scale": 0.7687804878048781,
+    "offset": [
+      30.359024390243917,
+      39.59609756097561
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "resampler": "lanczos",
+    "premultiplied": true,
+    "alpha_floor_px": 2622,
+    "subject_parts": 1,
+    "ignored_parts": 0,
+    "ignored_px": 0,
+    "source_touches": [],
+    "key_rgb": [
+      255,
+      0,
+      255
+    ]
+  },
+  "route": "host-image_gen",
+  "provenance": {
+    "command": "prompt",
+    "run": "../master-job",
+    "take": null,
+    "source_name": "master-source.png",
+    "source_sha256": "ba33ebd37086c7aa89c498508e5dfa9dcb18018af4a4158220b28243114840d0",
+    "media": null,
+    "media_cli_source": null,
+    "edit": null
+  },
+  "matte": {
+    "requested": "soft",
+    "key_estimate": {
+      "key": [
+        252.0,
+        3.0,
+        251.0
+      ],
+      "source": "border_median",
+      "valid": true,
+      "ring_share": 1.0,
+      "coverage": 0.8193226650794014,
+      "distance_from_declared": 5.83
+    },
+    "quality": "soft",
+    "interior_despill": true,
+    "qa": {
+      "opaque_key_px": 0,
+      "outer_ring_spill_fraction": 0.0,
+      "semitransparent_fraction": 0.02635669320823236,
+      "enclosed_key_pockets": 0,
+      "key_hued_px": 0,
+      "visible_px": 283078
+    },
+    "key_choice": {
+      "status": "ok",
+      "overlap_share": 0.0,
+      "rule": "reject a key when more than 0.5% of subject pixels have key dominance >= 40; first acceptable candidate wins"
+    }
+  },
+  "warnings": []
+}

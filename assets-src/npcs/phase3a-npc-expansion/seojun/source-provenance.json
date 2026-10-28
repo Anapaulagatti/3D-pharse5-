@@ -1,26 +1,49 @@
 {
-  "route": "builtin image_gen.imagegen",
-  "art_source": "host_image",
-  "model": "not exposed by host tool",
-  "cost": "not exposed; no external API invoked",
-  "promptSHA256": "86658dd0f412d94e87d080029e4e56622130d7f66bb0cea826bef01f1c83039f",
-  "sourceSHA256": "c72337e7f6001c2ce16b7ed627158a31d33230645fccffa8be84c8824bfdfa3d",
-  "originalArtifact": "/workspace/generated_images/exec-e2e8438f-4370-41f9-b18b-80da8dcb4da2.png",
-  "references": [
+  "jobs": [
     {
-      "path": "assets-src/npcs/phase3a-art-rebuild/seoyeon/master-source.png",
-      "sha256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352"
+      "kind": "master",
+      "art_source": "host_image",
+      "route": "builtin image_gen.imagegen",
+      "actualPrompt": "assets-src/npcs/phase3a-npc-expansion/seojun/actual-master-prompt.txt",
+      "promptSHA256": "86658dd0f412d94e87d080029e4e56622130d7f66bb0cea826bef01f1c83039f",
+      "retainedSource": "assets-src/npcs/phase3a-npc-expansion/seojun/master-source.png",
+      "SHA256": "c72337e7f6001c2ce16b7ed627158a31d33230645fccffa8be84c8824bfdfa3d",
+      "originalArtifact": "/workspace/generated_images/exec-e2e8438f-4370-41f9-b18b-80da8dcb4da2.png",
+      "references": [
+        {
+          "path": "assets-src/npcs/phase3a-art-rebuild/seoyeon/master-source.png",
+          "SHA256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352"
+        }
+      ],
+      "model": "not exposed by host",
+      "cost": "not exposed by host; no external paid API",
+      "selection": "Internal technical selection; final human artistic review pending"
+    },
+    {
+      "kind": "turnaround",
+      "art_source": "host_image",
+      "route": "builtin image_gen.imagegen",
+      "actualPrompt": "assets-src/npcs/phase3a-npc-expansion/seojun/actual-turnaround-prompt.txt",
+      "promptSHA256": "65688116dfd39178ca132b5b7c2dbdabab525e91608ae8ea4979eaaaf9d632b1",
+      "retainedSource": "assets-src/npcs/phase3a-npc-expansion/seojun/turnaround-source.png",
+      "SHA256": "2c33151813422031d2dc7b91d80db74a38c56939409bdd7a8f01b6f15b3cd3f4",
+      "originalArtifact": "/workspace/generated_images/exec-7ef260af-0aff-48e9-a324-4208d275c5ba.png",
+      "references": [
+        {
+          "path": "assets-src/npcs/phase3a-npc-expansion/seojun/master-source.png",
+          "SHA256": "c72337e7f6001c2ce16b7ed627158a31d33230645fccffa8be84c8824bfdfa3d"
+        },
+        {
+          "path": "assets-src/npcs/phase3a-art-rebuild/seoyeon/master-source.png",
+          "SHA256": "828674c607bb9ee00d99b60ba8599f42a6cd200eea4ec3246ab67277f7625352"
+        }
+      ],
+      "model": "not exposed by host",
+      "cost": "not exposed by host; no external paid API",
+      "selection": "Internal technical selection; final human artistic review pending"
     }
   ],
-  "masterSelection": "internal technical selection, not human artistic approval",
-  "nativePixels": "Own source finish/masks/rig104cells; see native-finish.json and rig.json",
-  "turnaround": {
-    "originalArtifact": "/workspace/generated_images/exec-7ef260af-0aff-48e9-a324-4208d275c5ba.png",
-    "sourceSHA256": "2c33151813422031d2dc7b91d80db74a38c56939409bdd7a8f01b6f15b3cd3f4",
-    "actualPromptSHA256": "65688116dfd39178ca132b5b7c2dbdabab525e91608ae8ea4979eaaaf9d632b1",
-    "references": [
-      "assets-src/npcs/phase3a-npc-expansion/seojun/master-source.png",
-      "assets-src/npcs/phase3a-art-rebuild/seoyeon/master-source.png"
-    ]
-  }
+  "nativeFinish": "native-finish.json",
+  "ownRig": "rig.json",
+  "ownPoseKeys": "pose-keys.json"
 }
