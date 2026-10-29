@@ -1,0 +1,184 @@
+name: Prepare or promote reviewed Pixel Town
+on:
+  workflow_dispatch:
+    inputs:
+      operation:
+        type: choice
+        options: [prepare, publish]
+        default: prepare
+        required: true
+      prepared_run:
+        description: Successful prepare run ID (publish or rollback)
+        required: false
+permissions:
+  contents: read
+concurrency:
+  group: pixel-town-review-pages
+  cancel-in-progress: false
+jobs:
+  prepare:
+    if: inputs.operation == 'prepare'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require private preparation repository
+        env:
+          IS_PRIVATE: ${{ github.event.repository.private }}
+        run: test "$IS_PRIVATE" = "true"
+      - uses: actions/checkout@v4
+      - name: Read checked source SHA
+        id: source
+        run: |
+          python - <<'PY'
+          import json,re,os
+          c=json.load(open('review-source.json'))
+          assert c['repository']=='Anapaulagatti/3D-pharse5-' and re.fullmatch('[0-9a-f]{40}',c['portalCommit'])
+          with open(os.environ['GITHUB_OUTPUT'],'a')as f:f.write('sha='+c['portalCommit']+'\n')
+          PY
+      - uses: actions/checkout@v4
+        with:
+          repository: Anapaulagatti/3D-pharse5-
+          ref: ${{ steps.source.outputs.sha }}
+          path: source
+          ssh-key: ${{ secrets.PIXEL_SOURCE_DEPLOY_KEY }} # optional read-only deploy key if source is private
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow==12.3.0
+      - run: npm ci && npm run assets:check && npm run typecheck && npm run lint && npm run format:check && npm test && npm run build
+        working-directory: source
+      - run: npx playwright install --with-deps chromium && npm run test:e2e
+        working-directory: source
+      - name: Compile existing portal code; no artwork generation
+        run: node tools/review-portal/build.mjs
+        working-directory: source
+        env:
+          VITE_REVIEW_BASE: /3D-pharse5-review/
+          REVIEW_OUT: .cache/pages-existing-portal
+      - run: python prepare.py source/.cache/pages-existing-portal source/.cache/pages-candidate
+      - name: Inspect durable previous release
+        id: previous
+        run: python branch_status.py
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - uses: actions/checkout@v4
+        if: steps.previous.outputs.exists == 'true'
+        with:
+          ref: pages-snapshots
+          path: previous
+          persist-credentials: false
+      - name: Retain immutable prior phases before approval
+        if: steps.previous.outputs.exists == 'true'
+        run: |
+          python restore_previous.py previous source/.cache/previous-static
+          python source/tools/review-portal/promote.py source/.cache/pages-candidate source/.cache/pages-retained --previous source/.cache/previous-static
+          rm -r source/.cache/pages-candidate
+          mv source/.cache/pages-retained source/.cache/pages-candidate
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pixel-town-candidate
+          path: source/.cache/pages-candidate
+          retention-days: 30
+          include-hidden-files: true
+  verify-promotion:
+    if: inputs.operation == 'publish'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate origin of selected prepare run
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_ID: ${{ inputs.prepared_run }}
+          IS_PRIVATE: ${{ github.event.repository.private }}
+        run: |
+          test "$IS_PRIVATE" = "true"
+          [[ "$RUN_ID" =~ ^[0-9]+$ ]]
+          gh api "repos/$GH_REPO/actions/runs/$RUN_ID" > prepare-run.json
+          python - <<'PY'
+          import json
+          r=json.load(open('prepare-run.json'))
+          assert r['conclusion']=='success' and r['path']=='.github/workflows/review-pages.yml'
+          assert r['event']=='workflow_dispatch'
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: pixel-town-candidate
+          path: site
+          run-id: ${{ inputs.prepared_run }}
+          github-token: ${{ github.token }}
+      - run: python gate.py site exposure-approval.json
+  archive:
+    needs: verify-promotion
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: pixel-town-candidate
+          path: site
+          run-id: ${{ inputs.prepared_run }}
+          github-token: ${{ github.token }}
+      - run: python gate.py site exposure-approval.json
+      - id: previous
+        run: python branch_status.py
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Save approved generated files only, retaining Git history
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REVIEW_REPO: ${{ github.repository }}
+          PREVIOUS: ${{ steps.previous.outputs.exists }}
+          PREPARED_RUN: ${{ inputs.prepared_run }}
+        run: |
+          mkdir archive
+          git -C archive init
+          git -C archive remote add origin "https://github.com/$REVIEW_REPO.git"
+          git -C archive config credential.helper '!gh auth git-credential'
+          if test "$PREVIOUS" = true; then
+            git -C archive fetch origin pages-snapshots
+            git -C archive checkout -b pages-snapshots FETCH_HEAD
+          else
+            git -C archive checkout --orphan pages-snapshots
+          fi
+          rsync -a --delete --exclude=.git site/ archive/
+          git -C archive config user.name 'github-actions[bot]'
+          git -C archive config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -C archive add .
+          if ! git -C archive diff --cached --quiet; then git -C archive commit -m "Reviewed preview run $PREPARED_RUN"; fi
+          git -C archive push origin HEAD:pages-snapshots
+  deploy:
+    needs: archive
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      actions: read
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: pixel-town-candidate
+          path: site
+          run-id: ${{ inputs.prepared_run }}
+          github-token: ${{ github.token }}
+      - run: python gate.py site exposure-approval.json
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+      - uses: actions/deploy-pages@v4
+        id: deployment

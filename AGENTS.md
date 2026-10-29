@@ -1,3 +1,7 @@
+# Current authority — GitHub Pages review preparation (2026-10-29)
+
+Latest owner selects a SEPARATE 3D-pharse5-review repository, not Cloudflare. Prepare existing f4576307 portal and manual Actions promotion; public publication still requires explicit owner approval and asset-specific review. Preserve production Pages/game/art, all stable IDs and snapshots. No Phase3B-B or main gameplay merge. No delegation. See docs/review-pages/README.md.
+
 # Current authority — reusable private review portal (2026-10-29)
 
 Read docs/review-portal/HUMAN_DIRECTIVE.md. Only review platform and access-controlled staging preparation are authorized. Preserve Phase3B-A, game/art/IDs/saves/caps. No Phase3B-B/C/D, main merge, old Pages replacement or public exposure of uncleared assets. PREVIEW_PUBLIC_EXPOSURE and COMMERCIAL_RELEASE are independent human gates; neither granted. No delegation. Complete candidate/testing before requesting hosting decision.

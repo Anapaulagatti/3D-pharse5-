@@ -1,3 +1,7 @@
+# Current work — GitHub Pages review destination
+
+Owner selects separate 3D-pharse5-review. Existing portal f4576307 retained; no rebuild. Repo creation/settings cannot currently be verified (GitHub APIForbidden). Public exposure approval and individual asset review pending. No deployment, production Pages replacement or Phase3B-B. See docs/review-pages/README.md.
+
 # Active work — one-link review portal
 
 Phase3B-A checkpoint47107da9 verified; owner acceptance PENDING. Reusable private portal only; see docs/review-portal/README.md. Public exposure and commercial release remain blocked; physical hardware NOT TESTED. Old Pages/main protected.
