@@ -1,3 +1,7 @@
+## Owner-approved Contemporary20 release triggered — 2026-10-30 Asia/Ho_Chi_Minh
+
+Explicit ownerpublicapproval received for bb2c88af1313filemanifest/artifact20674e77. Actualreceipt andimmutablehistory saved; allfourlocaleligibility/receipt/asset/historychecksPASS; sixactualIDs/assetsabsent. Artifactbranch pushed to separate reviewrepo; releaseworkflowrun40969422541 triggered by36f26bd. ActualHTTPSplayability NOTYETVERIFIED. Preservev0.5/source-main/allcheckpoints; no artwork/game/portalrebuild or Phase3B-B/C/D. Follow docs/review-release-20261030.
+
 ## Ready for one public-exposure decision on owner-sourced rights evidence — 2026-10-29
 
 Owner provides officialOpenAIpublicinformation: ToUeffective2026-01-01/Outputrights; ServiceTerms4/6/8; commercial-useFAQ. PersonalChatGPT/CodexPlus/no separateagreement confirmed. TERMS_REVIEW.json is based on owner-supplied information, not independently fetched text; unspecified ServiceTerms/helpdates retained.20-NPCscope has no specific unresolved infringement/likeness blocker established in limited review; six eraactors excluded. FINAL_REVIEW.html is the one consolidated approval page. Artifact20674e77 and bb2c88af1313filemanifest immutable; no rebuild. ActualownerexposurePENDING. Workflowready; actualHTTPSverification proof returned via isolatedlive-verificationbranch only afterapprovedrelease. No artifactimagepush/deploy or v0.5/source-mainchanges. Phase3B-B/C/Dlocked; realdevicesNOTTESTED.
