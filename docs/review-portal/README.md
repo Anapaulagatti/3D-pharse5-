@@ -42,8 +42,10 @@ Use an owner-controlled HTTPS domain and server, with **all paths including asse
 3. Start under a process manager, with the selected release as root:
 
 ```bash
-python3 tools/review-portal/serve.py --root /srv/korean-review/releases/REVIEW_ID --port 4490
+python3 tools/review-portal/serve.py --root /srv/korean-review/releases/REVIEW_ID --port 4490 --base /3D-pharse5-review/
 ```
+
+For a hostname-root deployment, rebuild with `VITE_REVIEW_BASE=/` and use `--base /` instead. The default candidate is tested under `/3D-pharse5-review/`.
 
 4. Apply a real owner-controlled TLS hostname using `templates/Caddyfile.example`, proxying only to127.0.0.1:4490. Restrict server administration/firewall appropriately; no public static bypass or CDN mirror of this directory.
 5. Check anonymously that `/`, `/play/`, manifests, snapshots, JS and sprites all return401; then authenticate and run desktop/mobile review, lazy assets, video playback and return/save checks. Do not send owner a link until remoteTLS/auth checks genuinely pass.
@@ -74,3 +76,9 @@ The manifest deliberately marks public exposure NOT_APPROVED and upstreamterms i
 ## Copy/paste next-phase update request
 
 > Phase [NAME] is ready for review at checkedcommit [FULL_SHA]. Update the existing private review portal only; preserve its URL, earlier snapshots, approvedart and saves. Run tests and exact-artifact exposure/privacy gates, prepare a new immutable candidate, then promote only to the already authorized access-controlled host. Show currentvsarchived status and honestQA/rights/hardware results. No public exposure, commercial release, gameplaymainmerge or nextphase unless separately authorized. Reply with the one verifiedreviewURL after remotechecks; otherwise state NOTDEPLOYED and the exact remainingstep.
+
+## Final local handoff
+
+Verified candidate: `.cache/review-portal-ready/` built from clean portal-source `6bdd46abdb3c731c30d0036ee055a862eb27e091`; actual game `47107da9a859ffcc6670f99705cee7dc44d6b34a`. `FINAL_HANDOFF.json` pins its complete manifest checksum and final29portalchecks/26nativeactors/4videoplaybacks. All171unit+72E2Eare fresh. Checkpoint `checkpoint/review-portal-private-candidate-20261029` is local only; no GitHubpush/merge/Pagesdeployment occurred. Export remains PRIVATE ONLY, NOT DEPLOYED.
+
+An incremental localGitbundle is prepared at `.cache/review-portal-source.bundle` for recovery against the existing `bc7c5916` repository, with checksum in `SOURCE_BUNDLE.json`. It is not served by the revieworigin and contains no deploymentcredentials. Do not publish it to a publichost as a workaround for the exposuregate.
