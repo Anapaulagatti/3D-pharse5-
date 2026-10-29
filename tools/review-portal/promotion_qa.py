@@ -1,0 +1,13 @@
+"""Local release/rollback fixtures only; never provisions a host or a fake phase."""
+from pathlib import Path
+import json,hashlib,subprocess,sys
+R=Path.cwd();src=Path(sys.argv[1]if len(sys.argv)>1 else'.cache/review-portal-b8b4331a');W=R/'.cache/promotion-qa';W.mkdir(exist_ok=True);previous=W/'previous-fixture';previous.mkdir();rows=[]
+v=json.loads((src/'version.json').read_text());v['phase']='SYNTHETIC TEST FIXTURE — NOT A REAL PHASE';(previous/'version.json').write_text(json.dumps(v));old=previous/'phases/test-fixture/snapshot.txt';old.parent.mkdir(parents=True);old.write_text('Synthetic immutable snapshot, not gameplay or phase evidence.\n');(previous/'history.json').write_text(json.dumps({'snapshots':[{'phase':'SYNTHETIC TEST FIXTURE','sha':'0'*40,'path':'phases/test-fixture/'}]}))
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def inventory(root):return [{'filename':str(p.relative_to(root)),'sha256':sha(p),'bytes':p.stat().st_size}for p in root.rglob('*')if p.is_file()and p!=root/'export-manifest.json']
+(previous/'export-manifest.json').write_text(json.dumps({'files':inventory(previous)}));out=W/'release';cmd=[sys.executable,'tools/review-portal/promote.py'];r=subprocess.run(cmd+[str(src),str(out),'--previous',str(previous)],capture_output=True,text=True);assert r.returncode==0,r.stderr;assert(out/'phases/test-fixture/snapshot.txt').read_bytes()==old.read_bytes();assert len(json.loads((out/'history.json').read_text())['snapshots'])==2;rows.append({'check':'candidate verified; synthetic prior snapshot and history retained byte-exact','status':'PASS'})
+r=subprocess.run(cmd+[str(src),str(out)],capture_output=True,text=True);assert r.returncode!=0;rows.append({'check':'existing release cannot be overwritten','status':'PASS expected rejection'})
+(previous/'extra-private.env').write_text('synthetic-leak-fixture-not-a-secret');r=subprocess.run(cmd+[str(src),str(W/'must-not-exist'),'--previous',str(previous)],capture_output=True,text=True);assert r.returncode!=0 and not(W/'must-not-exist').exists();rows.append({'check':'unmanifested private file rejected before promotion','status':'PASS expected rejection'});(previous/'extra-private.env').unlink()
+# Rollback is selecting the prior preserved directory; no regeneration/Git reset.
+assert old.read_text().startswith('Synthetic immutable snapshot');rows.append({'check':'prior release remains independently readable after promotion','status':'PASS'})
+(R/'docs/review-portal/PROMOTION_QA.json').write_text(json.dumps({'status':'PASS','scope':'LOCAL synthetic metadata fixture + actual clean private candidate; no old real phase invented; no remote promotion','rows':rows},indent=2)+'\n');print('Private promotion/retention/rollback QA PASS')

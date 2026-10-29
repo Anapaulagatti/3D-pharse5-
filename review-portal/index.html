@@ -1,1 +1,137 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><link rel="icon" href="data:,"><title>Korean Pixel Town — Development Review</title><link rel="stylesheet" href="portal.css"></head><body><a class="skip" href="#content">Đến nội dung</a><header><p class="eyebrow">KOREAN PIXEL TOWN · PRIVATE DEVELOPMENT REVIEW</p><h1>Một thế giới. Một nơi review.</h1><p id="version">Đang đọc bản build…</p><p class="notice">Chỉ dùng trong staging có kiểm soát truy cập. Không phải bản phát hành thương mại.</p><nav aria-label="Review"><a href="#play">Chơi thử</a><a href="#npcs">26 NPC</a><a href="#life">Lịch sinh hoạt</a><a href="#changes">Thay đổi phase</a><a href="#qa">QA & quyền</a><a href="#feedback">Góp ý</a><a href="#history">Lịch sử</a></nav></header><main id="content"><section id="play"><h2>CHƠI THỬ</h2><p>Phaser thật · WASD trên desktop, joystick ở màn hình ngang. Lần đầu chọn nhân vật trong Character Studio. Chơi bình thường dùng dữ liệu lưu hiện có; tình huống QA dùng kho lưu riêng.</p><a class="primary" id="play-link" href="play/">Vào thế giới</a><div id="statuses" class="grid"></div></section><section id="npcs"><h2>26 NPC</h2><p>14 cư dân + 6 khách hư cấu + 6 nhân vật truyện xưa hư cấu. Không xuất hiện đồng thời cả 26; giới hạn 4 NPC / 4 texture / 2 lượt tải. Chọn từng thẻ để xem lịch và đi tới điểm tiếp cận QA đã được xác nhận.</p><label>Tìm NPC <input id="search" type="search" placeholder="Tên, khu vực…"></label><div class="grid roster" id="roster"></div></section><section id="life"><h2>LỊCH SINH HOẠT</h2><p>Một ngày game = 30 phút thực; seed cố định. Đêm 00–05 / sáng 05–11 / trưa 11–14 / chiều 14–18 / tối 18–22 / đêm 22–24. Sáu nhân vật truyện xưa có nhịp cục bộ, thay thế đúng host slot.</p><p>Liên kết NPC mở chế độ <strong>REVIEW ONLY</strong>. Mở thanh công cụ ở góc trái trong game để xem giờ, intent, trạng thái và tốc độ 0× / 1× / 10× / 60×. Tạm dừng ở tốc độ 0× không đổi luật của game bình thường.</p><a class="button" href="play/?qa&npcReview=npc-minseo">Quan sát lịch tại phố thương mại</a></section><section id="changes"><h2>THAY ĐỔI PHASE</h2><p>Thêm lịch riêng, đồng hồ xác định, tiếp tục intent sau hội thoại và hàng rào quyền hình ảnh. Không đổi art, bản đồ hay chuyển động. Ảnh so sánh cùng sprite trước/sau phải giống nhau; thay đổi hành vi được minh họa bằng video thật của checkpoint, không giả là video build mới.</p><div id="comparisons" class="grid"></div><div id="movies" class="grid"></div></section><section id="qa"><h2>QA & QUYỀN HÌNH ẢNH</h2><p id="qa-summary"></p><p><strong>COMMERCIAL RELEASE: BLOCKED_PENDING_REVIEW.</strong> PREVIEW_PUBLIC_EXPOSURE: NOT APPROVED. Tên hư cấu, AI, noindex và repo riêng không tạo giấy phép hay mật khẩu.</p><p>20 NPC: LOW_CONCERN trong phạm vi kiểm tra đầu vào; 6 nhân vật truyện xưa: NEEDS_REVIEW. Điều khoản model/tài khoản khi tạo art chưa xác minh. Đây không phải ý kiến pháp lý. Thế giới, người chơi, mỹ phẩm, font/audio cần hồ sơ riêng trước xuất bản.</p><details><summary>Quyền theo từng NPC</summary><div id="rights"></div></details><p><a href="version.json">Thông tin build</a> · <a href="export-manifest.json">Manifest hash / nguồn / quyền</a> · <a href="qa.json">Bằng chứng QA</a></p></section><section id="feedback"><h2>GÓP Ý</h2><label>Các bước / mong đợi / thực tế<textarea id="steps" rows="5" placeholder="1. Vào khu…&#10;Mong đợi:…&#10;Thực tế:…"></textarea></label><button id="copy">Tạo & sao chép báo lỗi</button><p id="copy-status" role="status"></p><textarea id="report" aria-label="Báo lỗi có thể sao chép" rows="7" readonly></textarea><p>Không gửi tự động; không có backend, tài khoản hoặc dữ liệu học viên.</p></section><section id="history"><h2>LỊCH SỬ / ROLLBACK</h2><p id="snapshot-label"></p><div id="history-list"></div></section></main><footer>Phase 3B-A: chờ chủ dự án duyệt. Không bắt đầu phase tiếp theo. Physical Android / iPhone / GPU: NOT TESTED.</footer><script type="module" src="portal.mjs"></script></body></html>
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="icon" href="data:," />
+    <title>Korean Pixel Town — Development Review</title>
+    <link rel="stylesheet" href="portal.css" />
+  </head>
+  <body>
+    <a class="skip" href="#content">Đến nội dung</a>
+    <header>
+      <p class="eyebrow">KOREAN PIXEL TOWN · PRIVATE DEVELOPMENT REVIEW</p>
+      <h1>Một thế giới. Một nơi review.</h1>
+      <p id="version">Đang đọc bản build…</p>
+      <p class="notice">
+        Chỉ dùng trong staging có kiểm soát truy cập. Không phải bản phát hành
+        thương mại.
+      </p>
+      <nav aria-label="Review">
+        <a href="#play">Chơi thử</a><a href="#npcs">26 NPC</a
+        ><a href="#life">Lịch sinh hoạt</a><a href="#changes">Thay đổi phase</a
+        ><a href="#qa">QA & quyền</a><a href="#feedback">Góp ý</a
+        ><a href="#history">Lịch sử</a>
+      </nav>
+    </header>
+    <main id="content">
+      <section id="play">
+        <h2>CHƠI THỬ</h2>
+        <p>
+          Phaser thật · WASD trên desktop, joystick ở màn hình ngang. Lần đầu
+          chọn nhân vật trong Character Studio. Chơi bình thường dùng dữ liệu
+          lưu hiện có; tình huống QA dùng kho lưu riêng.
+        </p>
+        <a class="primary" id="play-link" href="play/">Vào thế giới</a>
+        <div id="statuses" class="grid"></div>
+      </section>
+      <section id="npcs">
+        <h2>26 NPC</h2>
+        <p>
+          14 cư dân + 6 khách hư cấu + 6 nhân vật truyện xưa hư cấu. Không xuất
+          hiện đồng thời cả 26; giới hạn 4 NPC / 4 texture / 2 lượt tải. Chọn
+          từng thẻ để xem lịch và đi tới điểm tiếp cận QA đã được xác nhận.
+        </p>
+        <label
+          >Tìm NPC <input id="search" type="search" placeholder="Tên, khu vực…"
+        /></label>
+        <div class="grid roster" id="roster"></div>
+      </section>
+      <section id="life">
+        <h2>LỊCH SINH HOẠT</h2>
+        <p>
+          Một ngày game = 30 phút thực; seed cố định. Đêm 00–05 / sáng 05–11 /
+          trưa 11–14 / chiều 14–18 / tối 18–22 / đêm 22–24. Sáu nhân vật truyện
+          xưa có nhịp cục bộ, thay thế đúng host slot.
+        </p>
+        <p>
+          Liên kết NPC mở chế độ <strong>REVIEW ONLY</strong>. Mở thanh công cụ
+          ở góc trái trong game để xem giờ, intent, trạng thái và tốc độ 0× / 1×
+          / 10× / 60×. Tạm dừng ở tốc độ 0× không đổi luật của game bình thường.
+        </p>
+        <a class="button" href="play/?qa&npcReview=npc-minseo"
+          >Quan sát lịch tại phố thương mại</a
+        >
+      </section>
+      <section id="changes">
+        <h2>THAY ĐỔI PHASE</h2>
+        <p>
+          Thêm lịch riêng, đồng hồ xác định, tiếp tục intent sau hội thoại và
+          hàng rào quyền hình ảnh. Không đổi art, bản đồ hay chuyển động. Ảnh so
+          sánh cùng sprite trước/sau phải giống nhau; thay đổi hành vi được minh
+          họa bằng video thật của checkpoint, không giả là video build mới.
+        </p>
+        <div id="comparisons" class="grid"></div>
+        <div id="movies" class="grid"></div>
+      </section>
+      <section id="qa">
+        <h2>QA & QUYỀN HÌNH ẢNH</h2>
+        <p id="qa-summary"></p>
+        <p>
+          <strong>COMMERCIAL RELEASE: BLOCKED_PENDING_REVIEW.</strong>
+          PREVIEW_PUBLIC_EXPOSURE: NOT APPROVED. Tên hư cấu, AI, noindex và repo
+          riêng không tạo giấy phép hay mật khẩu.
+        </p>
+        <p>
+          20 NPC: LOW_CONCERN trong phạm vi kiểm tra đầu vào; 6 nhân vật truyện
+          xưa: NEEDS_REVIEW. Điều khoản model/tài khoản khi tạo art chưa xác
+          minh. Đây không phải ý kiến pháp lý. Thế giới, người chơi, mỹ phẩm,
+          font/audio cần hồ sơ riêng trước xuất bản.
+        </p>
+        <details>
+          <summary>Quyền theo từng NPC</summary>
+          <div id="rights"></div>
+        </details>
+        <p>
+          <a href="version.json">Thông tin build</a> ·
+          <a href="export-manifest.json">Manifest hash / nguồn / quyền</a> ·
+          <a href="qa.json">Bằng chứng QA</a>
+        </p>
+      </section>
+      <section id="feedback">
+        <h2>GÓP Ý</h2>
+        <label
+          >Các bước / mong đợi / thực tế<textarea
+            id="steps"
+            rows="5"
+            placeholder="1. Vào khu…&#10;Mong đợi:…&#10;Thực tế:…"
+          ></textarea></label
+        ><button id="copy">Tạo & sao chép báo lỗi</button>
+        <p id="copy-status" role="status"></p>
+        <textarea
+          id="report"
+          aria-label="Báo lỗi có thể sao chép"
+          rows="7"
+          readonly
+        ></textarea>
+        <p>
+          Không gửi tự động; không có backend, tài khoản hoặc dữ liệu học viên.
+        </p>
+      </section>
+      <section id="history">
+        <h2>LỊCH SỬ / ROLLBACK</h2>
+        <p id="snapshot-label"></p>
+        <div id="history-list"></div>
+      </section>
+    </main>
+    <footer>
+      Phase 3B-A: chờ chủ dự án duyệt. Không bắt đầu phase tiếp theo. Physical
+      Android / iPhone / GPU: NOT TESTED.
+    </footer>
+    <script type="module" src="portal.mjs"></script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+{
+  "logs": {
+    "npm-ci": {
+      "bytes": 26,
+      "sha256": "2c6289205e8f5443b8c05c903cd82758678379b7f39ae5f156e7c4eb032d20c2",
+      "tail": "\nadded 138 packages in 4s\n"
+    },
+    "assets": {
+      "bytes": 2633,
+      "sha256": "19c24114d02645c211a3c6572251d9fcc3ac3a757bcf8afae9d65fa7dbe89663",
+      "tail": "dy_changed_pixels\": [357, 576, 570, 549, 621, 629, 554, 557]}, {\"action\": \"walk\", \"direction\": \"west\", \"unique\": 8, \"lower_body_changed_pixels\": [861, 718, 637, 932, 876, 749, 713, 946]}, {\"action\": \"walk\", \"direction\": \"east\", \"unique\": 8, \"lower_body_changed_pixels\": [953, 910, 619, 931, 931, 887, 644, 956]}, {\"action\": \"run\", \"direction\": \"south\", \"unique\": 8, \"lower_body_changed_pixels\": [683, 731, 514, 552, 681, 651, 506, 543]}, {\"action\": \"run\", \"direction\": \"north\", \"unique\": 8, \"lower_body_changed_pixels\": [630, 599, 589, 624, 634, 664, 556, 666]}, {\"action\": \"run\", \"direction\": \"west\", \"unique\": 8, \"lower_body_changed_pixels\": [995, 1023, 849, 1009, 1046, 997, 740, 989]}, {\"action\": \"run\", \"direction\": \"east\", \"unique\": 8, \"lower_body_changed_pixels\": [914, 771, 891, 1083, 1043, 833, 859, 1033]}], \"notProven\": [\"Visual appeal, identity/anatomy, planted-foot contact and loop quality require real visual review; hashes and differences are not artistic approval.\"]}\n{\"status\": \"PASS\", \"northObjects\": 273, \"northSolids\": 253, \"protectedFiles\": 336, \"northGroundExact\": true, \"runtimeTiledReadbackExact\": true, \"runtimeCollidersExact\": true, \"noLegacySouthernRuntimeImports\": true}\n"
+    },
+    "typecheck": {
+      "bytes": 54,
+      "sha256": "31b1cb1a493acecc056f53db9f6ecf0ead325c76e507b1ba36586d92af889bbe",
+      "tail": "\n> hangeul-pixel-town@3.1.0 typecheck\n> tsc --noEmit\n\n"
+    },
+    "lint": {
+      "bytes": 45,
+      "sha256": "2a0da485d3a37fc599b3758d18b1c154ba9d9cb3fb7d6f8aff9951140831599c",
+      "tail": "\n> hangeul-pixel-town@3.1.0 lint\n> eslint .\n\n"
+    },
+    "format": {
+      "bytes": 172,
+      "sha256": "10b5b50274bff96bf8b05c7942aa218344deb70fb914d58749e223ad296be6a0",
+      "tail": "\n> hangeul-pixel-town@3.1.0 format:check\n> prettier --check src tests tools/*.mjs *.ts *.json index.html\n\nChecking formatting...\nAll matched files use Prettier code style!\n"
+    },
+    "unit": {
+      "bytes": 443,
+      "sha256": "bb344cec07b489218194d8c25412424f14499ca5ff2cd9cf306bf4138df5d982",
+      "tail": "\n> hangeul-pixel-town@3.1.0 test\n> vitest run\n\n\n RUN  v5.0.4 /workspace/phase3b-a-recovery\n\n\n Test Files  24 passed (24)\n      Tests  171 passed (171)\n   Start at  08:35:51\n   Duration  6.45s (tests 68%, import 18%, transform 13%, worker 1%)\n\n    Isolate  24 workers spawned \u00b7 ~121ms startup each (spawn + environment, per file)\n             at least ~849ms faster with isolate: false \u2014 reuses workers across files instead of one per file\n\n"
+    },
+    "build": {
+      "bytes": 4505,
+      "sha256": "8e2dced39ad06a33187de70e8908db7de15477f92f5586301467dac70a146f8f",
+      "tail": "        19.58 kB \u2502 gzip:   4.62 kB\ndist/assets/main-CsEznrZ4.js                        0.02 kB \u2502 gzip:   0.04 kB\ndist/assets/modulepreload-polyfill-P2Xu9kJm.js      0.67 kB \u2502 gzip:   0.38 kB\ndist/assets/game-BwDuYwkF.js                        1.86 kB \u2502 gzip:   0.99 kB\ndist/assets/v10Review-BKDCLp9Q.js                 258.31 kB \u2502 gzip:  45.37 kB\ndist/assets/main-fado_-yJ.js                      602.37 kB \u2502 gzip:  95.51 kB\ndist/assets/Joystick-D995Hq2j.js                1,479.51 kB \u2502 gzip: 386.15 kB\n\n\u2713 built in 3.84s\n\u001b[33m[PLUGIN_TIMINGS] \u001b[0mJavaScript callbacks ran for 3.2s of this 3.8s build (85%).\nThe slowest callbacks, timed inside each callback (the wait before a callback starts is excluded, the time it awaits is included):\n  - plugin vite:prepare-out-dir renderStart (83%, 3.2s, 1 call)\nAdditional callback time came from the callbacks below and from callbacks under 1s.\n1 callback is listed without a time. Its calls overlapped, so the time inside one call includes work from other calls. To find its cost, profile the build with `node --cpu-prof`:\n  - plugin vite:build-html transform (3 calls)\nSee https://rolldown.rs/reference/InputOptions.checks#bundlertimings for more details.\n\n"
+    },
+    "e2e": {
+      "bytes": 10639,
+      "sha256": "60e45acb96aaba851f6c483d4e2595aa8077b388b1885a1a195f23163d513b46",
+      "tail": "ec.ts:168:3 \u203a V10 real input route: historic gateway to high street (10.8s)\n  \u2713  63 tests/e2e/v10-city.spec.ts:168:3 \u203a V10 real input route: entire high street and station forecourt (26.5s)\n  \u2713  64 tests/e2e/v10-city.spec.ts:168:3 \u203a V10 real input route: urban block circuit (39.5s)\n  \u2713  65 tests/e2e/v10-city.spec.ts:168:3 \u203a V10 real input route: west scenic loop and tower approach (42.6s)\n  \u2713  66 tests/e2e/v10-city.spec.ts:168:3 \u203a V10 real input route: leisure campus and ride approaches (38.5s)\n  \u2713  67 tests/e2e/v10-city.spec.ts:168:3 \u203a V10 real input route: coastal neighborhood to boarding pier (25.2s)\n  \u2713  68 tests/e2e/v10-city.spec.ts:168:3 \u203a V10 real input route: Jeju olle and village circuit (30.9s)\n  \u2713  69 tests/e2e/v10-city.spec.ts:192:1 \u203a all 23 entrances are walkable and identify their intended venue (4.9s)\n  \u2713  70 tests/e2e/v10-city.spec.ts:204:1 \u203a two ferry journeys land outside triggers and allow subsequent walking (2.3s)\n  \u2713  71 tests/e2e/v10-city.spec.ts:242:1 \u203a station tracks and building masses block input; marked crossing is clear (7.2s)\n  \u2713  72 tests/e2e/v10-city.spec.ts:263:1 \u203a forced WebGL renders V10 without fetching rejected assets (1.8s)\n\n  72 passed (15.6m)\n"
+    }
+  },
+  "note": "Fresh task run, not earlier checkpoint counts. Initial default cache installation failed; writable-cache npm ci succeeded. No weakened dependency/asset validators."
+}

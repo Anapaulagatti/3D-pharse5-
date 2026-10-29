@@ -38,7 +38,7 @@ if (script && import.meta.env.VITE_RELEASE_PROFILE === "private-review") {
   toggle.textContent = scenario
     ? "REVIEW ONLY · Công cụ / Trở về"
     : "Review · Trở về";
-  toggle.style.cssText = "min-height:32px;cursor:pointer";
+  toggle.style.cssText = "min-height:44px;cursor:pointer";
   shell.append(toggle);
   const back = document.createElement("a");
   back.href = home.href;
@@ -82,7 +82,7 @@ if (script && import.meta.env.VITE_RELEASE_PROFILE === "private-review") {
           s.actors
             .map(
               (a) =>
-                `${a.id}: ${a.state} · ${a.activity?.activity ?? a.activity?.id ?? "—"}`,
+                `${a.id}: ${a.zone} · ${a.state} · ${a.frame} · ${a.activity?.activity ?? a.activity?.id ?? "—"}`,
             )
             .join("\n");
     }, 500);

@@ -1,4 +1,5 @@
 import { chromium } from "@playwright/test";
+import { existsSync } from "node:fs";
 import fs from "node:fs/promises";
 import { spawn } from "node:child_process";
 import { randomBytes } from "node:crypto";
@@ -71,7 +72,9 @@ try {
     assert(response.status === 401, "Anonymous resource exposed: " + file);
   }
   browser = await chromium.launch({
-    executablePath: "/usr/bin/chromium",
+    executablePath:
+      process.env.PIXEL_CHROMIUM_PATH ??
+      (existsSync("/usr/bin/chromium") ? "/usr/bin/chromium" : undefined),
     args: ["--no-sandbox"],
   });
   const context = await browser.newContext({

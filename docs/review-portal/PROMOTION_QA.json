@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "scope": "LOCAL synthetic metadata fixture + actual clean private candidate; no old real phase invented; no remote promotion",
+  "rows": [
+    {
+      "check": "candidate verified; synthetic prior snapshot and history retained byte-exact",
+      "status": "PASS"
+    },
+    {
+      "check": "existing release cannot be overwritten",
+      "status": "PASS expected rejection"
+    },
+    {
+      "check": "unmanifested private file rejected before promotion",
+      "status": "PASS expected rejection"
+    },
+    {
+      "check": "prior release remains independently readable after promotion",
+      "status": "PASS"
+    }
+  ]
+}

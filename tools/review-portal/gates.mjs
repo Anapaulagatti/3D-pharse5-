@@ -45,7 +45,10 @@ for (const [name, args, env, output] of [
     name,
     exitCode: r.status,
     outputExists: exists,
-    diagnostic: (r.stderr + r.stdout).slice(-1300),
+    diagnostic:
+      (r.stderr + r.stdout).slice(0, 2200) +
+      "\n…\n" +
+      (r.stderr + r.stdout).slice(-300),
     status: "PASS expected rejection",
   });
 }
