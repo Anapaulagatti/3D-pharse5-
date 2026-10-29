@@ -31,7 +31,7 @@ Default canonical Vite base remains `/3D-pharse5-/`. `VITE_REVIEW_BASE` permits 
 VITE_REVIEW_BASE=/3D-pharse5-review/ REVIEW_OUT=.cache/review-portal-final node tools/review-portal/build.mjs
 ```
 
-Output must be inside repository `.cache/`. Use a fresh output directory for a new build; snapshots are never silently overwritten. `review-portal/phase.json` records the explicit reviewed gameRef/phase/slug. The builder validates the full SHA and compares all existing game/player/NPC/world/assets paths to that commit. For a future phase, first checkpoint the completed game and review the phase adapter; do not simply reuse a stale build. The manifest records both game and portal SHAs, dirty status and actualUTC build time. The portal displays Vietnam time. Dirty candidates cannot be promoted.
+Output must be inside repository `.cache/`. Use a fresh output directory for a new build; snapshots are never silently overwritten. `review-portal/phase.json` records the explicit reviewed gameRef/phase/slug. The builder refuses a nonempty output directory to prevent stale/private files leaking into a new export. The builder validates the full SHA and compares all existing game/player/NPC/world/assets paths to that commit. For a future phase, first checkpoint the completed game and review the phase adapter; do not simply reuse a stale build. The manifest records both game and portal SHAs, dirty status and actualUTC build time. The portal displays Vietnam time. Dirty candidates cannot be promoted.
 
 ## Private hosting: one-time owner setup
 
@@ -61,9 +61,9 @@ The disabled `templates/pages-review.yml.example` documents the manual-dispatch 
 
 ## Snapshots, promotion and rollback
 
-Static directories require noSPA fallback. Root is current; `play/` current game; `phases/<slug>/<gameSHA>/` immutable complete snapshot; portalhistory links these. Every export file has aSHA256/origin/terms/exposure entry. Manifest excludes itself to avoid circular hashing; snapshot manifest is independently preserved.
+Static directories require noSPA fallback. Root is current; `play/` current game; `phases/<slug>/<gameSHA>-<portalSHA>/` immutable complete snapshot; portalhistory links these. Every export file has aSHA256/origin/terms/exposure entry. Manifest excludes itself to avoid circular hashing; snapshot manifest is independently preserved.
 
-Use `promote.py CANDIDATE NEW_RELEASE_DIR` to verify hashes and prepare a new private release directory; it refuses dirty sources, path overlap or an existingdestination. Keep prior release directories. Before switching a live host, carry forward older immutable snapshot directories and their history entries without overwriting existing snapshots, then regenerate/verify the aggregate manifest. If hashes conflict, stop rather than overwrite. A protected staging process manager/symlink switch is an explicit human promotion; no automatic upload/push trigger exists. Rollback switches the authenticated origin to a retained previous release, with no save deletion or Git reset. The old Pages site is outside this process.
+Use `promote.py CANDIDATE NEW_RELEASE_DIR` to verify hashes and prepare a new private release directory; it refuses dirty sources, path overlap or an existingdestination. Keep prior release directories. Use `--previous PREVIOUS_RELEASE_DIR` to automatically retain older immutable snapshot directories and their history entries and verify a new aggregate manifest before switching a live host. If hashes conflict, stop rather than overwrite. A protected staging process manager/symlink switch is an explicit human promotion; no automatic upload/push trigger exists. Rollback switches the authenticated origin to a retained previous release, with no save deletion or Git reset. The old Pages site is outside this process.
 
 ## Privacy/export boundary
 

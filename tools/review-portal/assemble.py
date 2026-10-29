@@ -35,7 +35,7 @@ qa_path=R/'docs/review-portal/QA_RESULT.json';qa=json.loads(qa_path.read_text())
 put('qa.json',json.dumps(qa,ensure_ascii=False,indent=2).encode(),'docs/review-portal/QA_RESULT.json','qa-summary')
 version={**args,'phase':args.get('phase','Phase 3B-A'),'artisticReview':'PENDING','commercialRelease':'BLOCKED_PENDING_REVIEW','publicExposure':'NOT_APPROVED','physicalDevices':'NOT_TESTED','archived':False,'currentPath':'./'}
 put('version.json',json.dumps(version,indent=2).encode(),'actual Git + UTC build clock','build-metadata')
-snap='phases/'+args.get('slug','3b-a')+'/'+args['gameCommit'][:8]+'/'
+snap='phases/'+args.get('slug','3b-a')+'/'+args['gameCommit'][:8]+'-'+args['portalCommit'][:8]+'/'
 put('history.json',json.dumps({'snapshots':[{'phase':args.get('phase','Phase 3B-A'),'sha':args['gameCommit'],'path':snap}]}).encode(),'actual snapshot catalog','build-metadata')
 for p in (R/'review-portal').glob('*'):
  if p.is_file():put(p.name,p.read_bytes(),str(p.relative_to(R)),'portal-source')

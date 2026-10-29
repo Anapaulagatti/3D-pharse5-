@@ -6,6 +6,9 @@ if src==dst or src.is_relative_to(dst)or dst.is_relative_to(src):raise SystemExi
 def verify(root):
  v=json.loads((root/'version.json').read_text());m=json.loads((root/'export-manifest.json').read_text())
  if v['dirty']:raise SystemExit('Cannot promote dirty build; checkpoint source first')
+ actual={str(f.relative_to(root))for f in root.rglob('*')if f.is_file()and f!=root/'export-manifest.json'}
+ if actual!={x['filename']for x in m['files']}:raise SystemExit('Unmanifested or missing files in release')
+ if any(f.is_symlink()for f in root.rglob('*')):raise SystemExit('Symlinks are not export assets')
  for x in m['files']:
   f=root/x['filename']
   if not f.is_file()or f.is_symlink()or not f.resolve().is_relative_to(root)or hashlib.sha256(f.read_bytes()).hexdigest()!=x['sha256']:raise SystemExit('Candidate integrity failure')

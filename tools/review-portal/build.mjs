@@ -52,6 +52,14 @@ if (
   throw Error(
     "Game/source asset differs from checked Phase3B-A snapshot; use an explicitly reviewed new phase adapter",
   );
+const existing = await fs.readdir(out).catch((error) => {
+  if (error.code === "ENOENT") return [];
+  throw error;
+});
+if (existing.length)
+  throw Error(
+    "Use a fresh output directory; preserve existing snapshots and prevent stale/private file export",
+  );
 await fs.mkdir(out, { recursive: true });
 const play = path.join(out, "play");
 await build({

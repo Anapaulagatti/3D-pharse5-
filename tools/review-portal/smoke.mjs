@@ -63,7 +63,8 @@ try {
     "catalog.json",
     "play/assets/main-BVEfAx5q.js",
     "export-manifest.json",
-    "phases/3b-a/47107da9/play/",
+    JSON.parse(await fs.readFile(root + "/history.json", "utf8")).snapshots[0]
+      .path + "play/",
   ]) {
     const response = await fetch(base + file);
     evidence.anonymous[file] = response.status;
@@ -116,7 +117,8 @@ try {
     (await page.locator("#report").inputValue()).includes("47107da9"),
     "Bug report lost SHA",
   );
-  const snapshot = "phases/3b-a/47107da9/";
+  const snapshot = JSON.parse(await fs.readFile(root + "/history.json", "utf8"))
+    .snapshots[0].path;
   await page.goto(base + snapshot);
   await page.locator(".roster article").nth(25).waitFor();
   assert(
