@@ -1,0 +1,1861 @@
+{
+  "schemaVersion": 1,
+  "schedules": [
+    {
+      "npcId": "npc-seoyeon",
+      "scheduleId": "life-npc-seoyeon",
+      "context": "present-day",
+      "zone": "palace",
+      "entries": [
+        {
+          "id": "npc-seoyeon-opening-orientation",
+          "phase": "morning",
+          "activity": "WORK",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 20,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-seoyeon-public-courtyard",
+          "phase": "midday",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "durationGameMinutes": 27,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-seoyeon-visitor-greeting",
+          "phase": "afternoon",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            1
+          ],
+          "durationGameMinutes": 34,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-seoyeon-end-of-day-post",
+          "phase": "evening",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 41,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-seoyeon-quiet-post",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            3
+          ],
+          "durationGameMinutes": 48,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-daehyun",
+      "scheduleId": "life-npc-daehyun",
+      "context": "present-day",
+      "zone": "palace",
+      "entries": [
+        {
+          "id": "npc-daehyun-entrance-check",
+          "phase": "morning",
+          "activity": "WORK",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 23,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-daehyun-perimeter-round",
+          "phase": "midday",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "durationGameMinutes": 29,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-daehyun-patrol-break",
+          "phase": "afternoon",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            3
+          ],
+          "durationGameMinutes": 35,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-daehyun-evening-post",
+          "phase": "evening",
+          "activity": "WORK",
+          "anchorIndices": [
+            1
+          ],
+          "durationGameMinutes": 41,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-daehyun-night-standby",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 17,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-minseo",
+      "scheduleId": "life-npc-minseo",
+      "context": "present-day",
+      "zone": "modern",
+      "entries": [
+        {
+          "id": "npc-minseo-opening-frontage",
+          "phase": "morning",
+          "activity": "WORK",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 20,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-minseo-midday-break",
+          "phase": "midday",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            3
+          ],
+          "durationGameMinutes": 27,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-minseo-cafe-frontage",
+          "phase": "afternoon",
+          "activity": "WORK",
+          "anchorIndices": [
+            0,
+            1
+          ],
+          "durationGameMinutes": 34,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-minseo-closing-frontage",
+          "phase": "evening",
+          "activity": "WORK",
+          "anchorIndices": [
+            1
+          ],
+          "durationGameMinutes": 41,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-minseo-off-duty-rest",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 48,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-jiho",
+      "scheduleId": "life-npc-jiho",
+      "context": "present-day",
+      "zone": "modern",
+      "entries": [
+        {
+          "id": "npc-jiho-organize-books",
+          "phase": "morning",
+          "activity": "WORK",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 35,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-jiho-book-discussion",
+          "phase": "midday",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            1
+          ],
+          "durationGameMinutes": 41,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-jiho-short-reading-break",
+          "phase": "afternoon",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            3
+          ],
+          "durationGameMinutes": 17,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-jiho-closing-books",
+          "phase": "evening",
+          "activity": "WORK",
+          "anchorIndices": [
+            0,
+            1
+          ],
+          "durationGameMinutes": 23,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-jiho-quiet-standby",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 29,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-eunji",
+      "scheduleId": "life-npc-eunji",
+      "context": "present-day",
+      "zone": "station",
+      "entries": [
+        {
+          "id": "npc-eunji-morning-station-help",
+          "phase": "morning",
+          "activity": "WORK",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 20,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-eunji-travel-guidance",
+          "phase": "midday",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            1
+          ],
+          "durationGameMinutes": 27,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-eunji-rotation-break",
+          "phase": "afternoon",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            3
+          ],
+          "durationGameMinutes": 34,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-eunji-evening-station-duty",
+          "phase": "evening",
+          "activity": "WORK",
+          "anchorIndices": [
+            0,
+            2
+          ],
+          "durationGameMinutes": 41,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-eunji-quiet-station-post",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 48,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-junho",
+      "scheduleId": "life-npc-junho",
+      "context": "present-day",
+      "zone": "station",
+      "entries": [
+        {
+          "id": "npc-junho-morning-wait",
+          "phase": "morning",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 41,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-junho-pedestrian-commute",
+          "phase": "midday",
+          "activity": "COMMUTE_OR_REPOSITION",
+          "anchorIndices": [
+            1,
+            2
+          ],
+          "durationGameMinutes": 17,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-junho-return-walk",
+          "phase": "afternoon",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            2,
+            3,
+            0
+          ],
+          "durationGameMinutes": 23,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-junho-return-wait",
+          "phase": "evening",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 29,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-junho-late-rest",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            3
+          ],
+          "durationGameMinutes": 35,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-harin",
+      "scheduleId": "life-npc-harin",
+      "context": "present-day",
+      "zone": "jeju",
+      "entries": [
+        {
+          "id": "npc-harin-orchard-inspection",
+          "phase": "morning",
+          "activity": "WORK",
+          "anchorIndices": [
+            0,
+            1
+          ],
+          "durationGameMinutes": 20,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-harin-orchard-break",
+          "phase": "midday",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            3
+          ],
+          "durationGameMinutes": 27,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-harin-tree-row-round",
+          "phase": "afternoon",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "durationGameMinutes": 34,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-harin-home-side-rest",
+          "phase": "evening",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 41,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-harin-orchard-standby",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 48,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-seojun",
+      "scheduleId": "life-npc-seojun",
+      "context": "present-day",
+      "zone": "jeju",
+      "entries": [
+        {
+          "id": "npc-seojun-house-greeting",
+          "phase": "morning",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 17,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-seojun-cultural-presentation",
+          "phase": "midday",
+          "activity": "WORK",
+          "anchorIndices": [
+            1
+          ],
+          "durationGameMinutes": 23,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-seojun-courtyard-round",
+          "phase": "afternoon",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "durationGameMinutes": 29,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-seojun-courtyard-rest",
+          "phase": "evening",
+          "activity": "REST",
+          "anchorIndices": [
+            3
+          ],
+          "durationGameMinutes": 35,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-seojun-home-side-standby",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 41,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-nayeon",
+      "scheduleId": "life-npc-nayeon",
+      "context": "present-day",
+      "zone": "farm",
+      "entries": [
+        {
+          "id": "npc-nayeon-plot-side-inspection",
+          "phase": "morning",
+          "activity": "WORK",
+          "anchorIndices": [
+            0,
+            1
+          ],
+          "durationGameMinutes": 17,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-nayeon-lunch-break",
+          "phase": "midday",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            3
+          ],
+          "durationGameMinutes": 23,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-nayeon-checking-plots",
+          "phase": "afternoon",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            1,
+            2,
+            3,
+            0
+          ],
+          "durationGameMinutes": 29,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-nayeon-farm-rest",
+          "phase": "evening",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 35,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-nayeon-home-side-rest",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 41,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-cheolsu",
+      "scheduleId": "life-npc-cheolsu",
+      "context": "present-day",
+      "zone": "farm",
+      "entries": [
+        {
+          "id": "npc-cheolsu-seed-discussion",
+          "phase": "morning",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 23,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-cheolsu-farm-short-round",
+          "phase": "midday",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 29,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-cheolsu-service-break",
+          "phase": "afternoon",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            3
+          ],
+          "durationGameMinutes": 35,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-cheolsu-winding-down",
+          "phase": "evening",
+          "activity": "WORK",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 41,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-cheolsu-service-rest",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 17,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-yejin",
+      "scheduleId": "life-npc-yejin",
+      "context": "present-day",
+      "zone": "nature-leisure",
+      "entries": [
+        {
+          "id": "npc-yejin-park-guidance",
+          "phase": "morning",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 41,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-yejin-scenic-trail",
+          "phase": "midday",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "durationGameMinutes": 17,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-yejin-trail-break",
+          "phase": "afternoon",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            3
+          ],
+          "durationGameMinutes": 23,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-yejin-later-standby",
+          "phase": "evening",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 29,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-yejin-night-standby",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 35,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-sungmin",
+      "scheduleId": "life-npc-sungmin",
+      "context": "present-day",
+      "zone": "nature-leisure",
+      "entries": [
+        {
+          "id": "npc-sungmin-staff-arrival",
+          "phase": "morning",
+          "activity": "COMMUTE_OR_REPOSITION",
+          "anchorIndices": [
+            1
+          ],
+          "durationGameMinutes": 23,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-sungmin-attraction-greeting",
+          "phase": "midday",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0,
+            1
+          ],
+          "durationGameMinutes": 29,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-sungmin-staff-pause",
+          "phase": "afternoon",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            3
+          ],
+          "durationGameMinutes": 35,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-sungmin-park-closing",
+          "phase": "evening",
+          "activity": "WORK",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 41,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-sungmin-off-duty",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 17,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-donghae",
+      "scheduleId": "life-npc-donghae",
+      "context": "present-day",
+      "zone": "coast",
+      "entries": [
+        {
+          "id": "npc-donghae-shore-observation",
+          "phase": "morning",
+          "activity": "WORK",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 23,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-donghae-harbor-round",
+          "phase": "midday",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "durationGameMinutes": 29,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-donghae-shore-pause",
+          "phase": "afternoon",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            3
+          ],
+          "durationGameMinutes": 35,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-donghae-waterfront-standby",
+          "phase": "evening",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 41,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-donghae-home-side-standby",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 17,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-soobin",
+      "scheduleId": "life-npc-soobin",
+      "context": "present-day",
+      "zone": "coast",
+      "entries": [
+        {
+          "id": "npc-soobin-terminal-help",
+          "phase": "morning",
+          "activity": "WORK",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 17,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-soobin-traveler-guidance",
+          "phase": "midday",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            1
+          ],
+          "durationGameMinutes": 23,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-soobin-terminal-round",
+          "phase": "afternoon",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            1,
+            2,
+            3
+          ],
+          "durationGameMinutes": 29,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-soobin-terminal-closing",
+          "phase": "evening",
+          "activity": "WORK",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 35,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-soobin-terminal-standby",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 41,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-modern-daon",
+      "scheduleId": "life-npc-modern-daon",
+      "context": "present-day",
+      "zone": "modern",
+      "entries": [
+        {
+          "id": "npc-modern-daon-cafe-composition-morning",
+          "phase": "morning",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 3,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-daon-cafe-composition-midday",
+          "phase": "midday",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-daon-cafe-composition-afternoon",
+          "phase": "afternoon",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 5,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-daon-cafe-composition-evening",
+          "phase": "evening",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 6,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-daon-cafe-composition-night",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 7,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-modern-miram",
+      "scheduleId": "life-npc-modern-miram",
+      "context": "present-day",
+      "zone": "nature-leisure",
+      "entries": [
+        {
+          "id": "npc-modern-miram-park-football-coaching-morning",
+          "phase": "morning",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 3,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-miram-park-football-coaching-midday",
+          "phase": "midday",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-miram-park-football-coaching-afternoon",
+          "phase": "afternoon",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 5,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-miram-park-football-coaching-evening",
+          "phase": "evening",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 6,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-miram-park-football-coaching-night",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 7,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-modern-geonu",
+      "scheduleId": "life-npc-modern-geonu",
+      "context": "present-day",
+      "zone": "station",
+      "entries": [
+        {
+          "id": "npc-modern-geonu-station-before-coaching-morning",
+          "phase": "morning",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 3,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-geonu-station-before-coaching-midday",
+          "phase": "midday",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-geonu-station-before-coaching-afternoon",
+          "phase": "afternoon",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 5,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-geonu-station-before-coaching-evening",
+          "phase": "evening",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 6,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-geonu-station-before-coaching-night",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 7,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-modern-seorin",
+      "scheduleId": "life-npc-modern-seorin",
+      "context": "present-day",
+      "zone": "modern",
+      "entries": [
+        {
+          "id": "npc-modern-seorin-bookshop-script-reading-morning",
+          "phase": "morning",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 3,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-seorin-bookshop-script-reading-midday",
+          "phase": "midday",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-seorin-bookshop-script-reading-afternoon",
+          "phase": "afternoon",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 5,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-seorin-bookshop-script-reading-evening",
+          "phase": "evening",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 6,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-seorin-bookshop-script-reading-night",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 7,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-modern-haru",
+      "scheduleId": "life-npc-modern-haru",
+      "context": "present-day",
+      "zone": "nature-leisure",
+      "entries": [
+        {
+          "id": "npc-modern-haru-cultural-program-visit-morning",
+          "phase": "morning",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 3,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-haru-cultural-program-visit-midday",
+          "phase": "midday",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-haru-cultural-program-visit-afternoon",
+          "phase": "afternoon",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 5,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-haru-cultural-program-visit-evening",
+          "phase": "evening",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 6,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-haru-cultural-program-visit-night",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 7,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-modern-yeori",
+      "scheduleId": "life-npc-modern-yeori",
+      "context": "present-day",
+      "zone": "coast",
+      "entries": [
+        {
+          "id": "npc-modern-yeori-coastal-reading-club-morning",
+          "phase": "morning",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 3,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-yeori-coastal-reading-club-midday",
+          "phase": "midday",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-yeori-coastal-reading-club-afternoon",
+          "phase": "afternoon",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 5,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-yeori-coastal-reading-club-evening",
+          "phase": "evening",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0,
+            1,
+            2
+          ],
+          "durationGameMinutes": 6,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-modern-yeori-coastal-reading-club-night",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 7,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-history-seondeok",
+      "scheduleId": "story-npc-history-seondeok",
+      "context": "archive-story",
+      "zone": "palace",
+      "entries": [
+        {
+          "id": "npc-history-seondeok-ceremonial-culture-morning",
+          "phase": "morning",
+          "activity": "WORK",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-seondeok-ceremonial-culture-midday",
+          "phase": "midday",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            1,
+            2
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-seondeok-ceremonial-culture-afternoon",
+          "phase": "afternoon",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            3
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-seondeok-ceremonial-culture-evening",
+          "phase": "evening",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-seondeok-ceremonial-culture-night",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-history-sejong",
+      "scheduleId": "story-npc-history-sejong",
+      "context": "archive-story",
+      "zone": "palace",
+      "entries": [
+        {
+          "id": "npc-history-sejong-writing-study-morning",
+          "phase": "morning",
+          "activity": "WORK",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-sejong-writing-study-midday",
+          "phase": "midday",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            1,
+            2
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-sejong-writing-study-afternoon",
+          "phase": "afternoon",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            3
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-sejong-writing-study-evening",
+          "phase": "evening",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-sejong-writing-study-night",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-history-jang",
+      "scheduleId": "story-npc-history-jang",
+      "context": "archive-story",
+      "zone": "modern",
+      "entries": [
+        {
+          "id": "npc-history-jang-tool-study-morning",
+          "phase": "morning",
+          "activity": "WORK",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-jang-tool-study-midday",
+          "phase": "midday",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            1,
+            2
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-jang-tool-study-afternoon",
+          "phase": "afternoon",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            3
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-jang-tool-study-evening",
+          "phase": "evening",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-jang-tool-study-night",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-history-saimdang",
+      "scheduleId": "story-npc-history-saimdang",
+      "context": "archive-story",
+      "zone": "modern",
+      "entries": [
+        {
+          "id": "npc-history-saimdang-flower-study-morning",
+          "phase": "morning",
+          "activity": "WORK",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-saimdang-flower-study-midday",
+          "phase": "midday",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            1,
+            2
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-saimdang-flower-study-afternoon",
+          "phase": "afternoon",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            3
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-saimdang-flower-study-evening",
+          "phase": "evening",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-saimdang-flower-study-night",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-history-yi",
+      "scheduleId": "story-npc-history-yi",
+      "context": "archive-story",
+      "zone": "coast",
+      "entries": [
+        {
+          "id": "npc-history-yi-coastal-map-study-morning",
+          "phase": "morning",
+          "activity": "WORK",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-yi-coastal-map-study-midday",
+          "phase": "midday",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            1,
+            2
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-yi-coastal-map-study-afternoon",
+          "phase": "afternoon",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            3
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-yi-coastal-map-study-evening",
+          "phase": "evening",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-yi-coastal-map-study-night",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    },
+    {
+      "npcId": "npc-history-yu",
+      "scheduleId": "story-npc-history-yu",
+      "context": "archive-story",
+      "zone": "modern",
+      "entries": [
+        {
+          "id": "npc-history-yu-culture-reading-morning",
+          "phase": "morning",
+          "activity": "WORK",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-yu-culture-reading-midday",
+          "phase": "midday",
+          "activity": "WALK_AROUND",
+          "anchorIndices": [
+            1,
+            2
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-yu-culture-reading-afternoon",
+          "phase": "afternoon",
+          "activity": "SHORT_BREAK",
+          "anchorIndices": [
+            3
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-yu-culture-reading-evening",
+          "phase": "evening",
+          "activity": "SOCIAL_PAUSE",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        },
+        {
+          "id": "npc-history-yu-culture-reading-night",
+          "phase": "night",
+          "activity": "REST",
+          "anchorIndices": [
+            0
+          ],
+          "durationGameMinutes": 4,
+          "priority": 40,
+          "interruption": "player-first",
+          "dialogueKey": null
+        }
+      ]
+    }
+  ]
+}

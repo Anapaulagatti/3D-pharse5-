@@ -1,3 +1,6 @@
+import { NPCWorldClock } from "./clock";
+import { resolveActivity, validateSchedules } from "./schedules";
+import { privateReviewBuild, mountRightsReport } from "../rights/runtime";
 import { chooseTarget } from "./interaction";
 import { installNPCAudit } from "./audit";
 import Phaser from "phaser";
@@ -51,6 +54,13 @@ function rectDistance(p: Point, r: number[]) {
   );
 }
 export class NPCManager {
+  private clock: NPCWorldClock;
+  private timeLabel: HTMLOutputElement;
+  private qaTools?: HTMLElement;
+  private rightsDispose?: () => void;
+  private archiveElapsed = 0;
+  private lastArchive?: string;
+  private lastTimeLabel = "";
   private archive?: HistoryArtReview;
   private auditDispose?: () => void;
   private assets: NPCAssetPool;
@@ -85,11 +95,42 @@ export class NPCManager {
     } catch {
       /* Optional NPC persistence. */
     }
+    this.clock = new NPCWorldClock(storage);
+    validateSchedules(npcRegistry.npcs);
+    this.timeLabel = document.createElement("output");
+    this.timeLabel.id = "npc-life-time";
+    this.timeLabel.setAttribute("aria-label", "Giờ trong game · 게임 시간");
+    this.timeLabel.title = "Giờ mô phỏng, không phải giờ thực";
+    document.querySelector("footer")?.append(this.timeLabel);
     this.visits = new NPCVisitPolicy(storage);
     const query = new URLSearchParams(location.search);
-    this.reviewId = query.has("qa")
-      ? (query.get("npcReview") ?? undefined)
-      : undefined;
+    this.rightsDispose = mountRightsReport();
+    this.reviewId =
+      privateReviewBuild && query.has("qa")
+        ? (query.get("npcReview") ?? undefined)
+        : undefined;
+    if (privateReviewBuild && query.has("qa")) {
+      this.qaTools = document.createElement("fieldset");
+      this.qaTools.id = "npc-life-controls";
+      this.qaTools.innerHTML =
+        '<legend>QA · giờ mô phỏng</legend><label>Phút <input id="npc-life-minute" type="number" min="0" max="1439" value="540"></label><label>Tốc độ <select id="npc-life-rate"><option value="1">1×</option><option value="10">10×</option><option value="60">60×</option></select></label><button id="npc-life-apply">Đặt giờ QA</button>';
+      document.querySelector("#settings > div")?.append(this.qaTools);
+      this.qaTools
+        .querySelector("button")!
+        .addEventListener("click", () =>
+          this.setReviewTime(
+            Number(
+              this.qaTools!.querySelector<HTMLInputElement>("input")!.value,
+            ),
+            Number(
+              this.qaTools!.querySelector<HTMLSelectElement>("select")!.value,
+            ),
+          ),
+        );
+      window.__NPC_LIFE_QA__ = {
+        setTime: (minute, rate = 1) => this.setReviewTime(minute, rate),
+      };
+    }
     this.archive = new HistoryArtReview(query, host, () => {
       this.lastPopulation = -999;
     });
@@ -113,7 +154,22 @@ export class NPCManager {
       this.button.addEventListener(event, (e) => e.stopPropagation(), {
         signal,
       });
-    window.addEventListener("pagehide", () => this.store.save(), { signal });
+    window.addEventListener(
+      "pagehide",
+      () => {
+        this.store.save();
+        this.saveLife();
+      },
+      { signal },
+    );
+    document.addEventListener(
+      "visibilitychange",
+      () => {
+        this.saveLife();
+        for (const a of this.actors.values()) a.elapsed = 0;
+      },
+      { signal },
+    );
     if (new URLSearchParams(location.search).has("pixelAudit"))
       this.auditDispose = installNPCAudit(
         scene,
@@ -184,7 +240,7 @@ export class NPCManager {
     this.button.hidden = !this.target;
     if (this.target) {
       const m = this.models.get(this.target)!;
-      this.button.textContent = `Trò chuyện · ${m.def.names.vi} · E`;
+      this.button.textContent = `Trò chuyện · ${m.def.names.vi} · E${m.activity ? " · " + m.activity.label.vi + " / " + m.activity.label.ko : ""}`;
       this.button.dataset.npcId = this.target;
       m.greet(p);
     }
@@ -198,7 +254,14 @@ export class NPCManager {
       ),
     );
     this.archive?.setContext(activeZones);
-    const living = this.visits.eligible(activeZones, pinned, this.reviewId);
+    const living = this.visits.eligible(
+      activeZones,
+      pinned,
+      this.reviewId,
+      0,
+      this.clock.minute,
+      { seed: this.clock.seed, day: this.clock.day },
+    );
     const selected = this.archive?.selected;
     const eligible = applyHistorySelection(living, selected, modernVisitors);
     const wanted = [...this.models.values()]
@@ -286,6 +349,23 @@ export class NPCManager {
   update(delta: number) {
     if (this.closed) return;
     const dt = Math.max(0, Math.min(delta, 200));
+    this.clock.tick(delta, this.host.blocked(), document.hidden);
+    const selected = this.archive?.selected;
+    if (selected !== this.lastArchive) {
+      this.archiveElapsed = 0;
+      this.lastArchive = selected;
+    }
+    if (selected && !this.host.blocked()) this.archiveElapsed += dt;
+    const clock = this.clock.snapshot();
+    for (const m of this.models.values())
+      m.setActivity(resolveActivity(m.def, clock, this.archiveElapsed));
+    const time = selected
+      ? "Chuyện xưa · giờ riêng / 이야기 속 시간"
+      : `${String(Math.floor(clock.minute / 60)).padStart(2, "0")}:${String(Math.floor(clock.minute % 60)).padStart(2, "0")} · giờ game`;
+    if (time !== this.lastTimeLabel) {
+      this.timeLabel.textContent = time;
+      this.lastTimeLabel = time;
+    }
     this.now += dt;
     if (this.now - this.lastPopulation >= 150) {
       this.lastPopulation = this.now;
@@ -342,12 +422,28 @@ export class NPCManager {
     this.updateTarget();
     if (this.now - this.lastSave > 5000) {
       this.store.save();
+      this.saveLife();
       this.lastSave = this.now;
     }
     window.__NPC_WORLD__ = this.snapshot();
   }
+  private saveLife() {
+    this.clock.save(
+      Object.fromEntries(
+        [...this.models.values()]
+          .filter((m) => m.activity)
+          .map((m) => [m.def.id, m.activity!.id]),
+      ),
+    );
+  }
+  private setReviewTime(minute: number, rate: number) {
+    this.clock.setReviewTime(minute, rate);
+    this.lastPopulation = -999;
+    this.saveLife();
+  }
   snapshot() {
     return {
+      clock: this.clock.snapshot(),
       registered: residentRegistry.npcs.length, // Legacy resident API; actual total is explicit below.
       catalogTotal: npcRegistry.npcs.length,
       residentCount: residentRegistry.npcs.length,
@@ -396,6 +492,11 @@ export class NPCManager {
     }
     this.actors.clear();
     this.assets.close();
+    this.saveLife();
+    this.qaTools?.remove();
+    this.rightsDispose?.();
+    this.timeLabel.remove();
+    delete window.__NPC_LIFE_QA__;
     this.button.remove();
     delete window.__NPC_WORLD__;
   }
@@ -403,5 +504,6 @@ export class NPCManager {
 declare global {
   interface Window {
     __NPC_WORLD__?: ReturnType<NPCManager["snapshot"]>;
+    __NPC_LIFE_QA__?: { setTime(minute: number, rate?: number): void };
   }
 }

@@ -1,3 +1,13 @@
+# Current authority — Phase 3B-A ONLY (2026-10-29)
+
+The latest owner directive `docs/phase3b-a/HUMAN_DIRECTIVE.md` authorizes daily NPC life and a commercial-rights safeguard. This supersedes the earlier Phase3B STOP only for Phase3B-A. Source is approved `6dbee381` and verified descendant `4d816228`; work on `feature/phase3b-a-daily-life-rights-audit`. Read RECOVERY.md and BASELINE.json before edits. No delegation unless explicitly requested.
+
+Extend existing NPCActorModel/FSM/Registry: deterministic clock, 20 contemporary schedules and six separate fictional era-story routines. Preserve stable IDs, all art/atlases, animations, routes/collision/world/camera/tour, 12 playable characters, 28 cosmetics and old saves. Keep four active / four textures / two pending. Do not regenerate assets or silently promote an art candidate. Rights/public release approval is separate from development/art approval. No shop, farming gameplay, economy, inventory, quizzes, rewards, ads, multiplayer, AI conversation or separate learning-site changes. Phase3B-B/C/D, main merge and deployment remain unauthorized. Physical devices remain NOT TESTED. Deliver one consolidated private review and stop.
+
+The following logs are historical; this latest authority controls conflicts.
+
+---
+
 # Current authority — Phase 3A fictional identity safeguard (2026-10-29)
 
 The latest owner decision supersedes the prior choice to retain six historical public names. Use Han Yeonhwa / 한연화, Baek Junseo / 백준서, Nam Gyeongu / 남경우, Yun Hwayeon / 윤화연, Kang Muyeong / 강무영 and Seo Daeun / 서다은. This is precautionary fictional game design, not legal clearance or a finding against historical names. See `docs/phase3a-identity-safeguard/OWNER_DECISION.md` and the current rights matrix.

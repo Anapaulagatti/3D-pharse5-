@@ -1,3 +1,5 @@
+import windows from "../../assets-src/npcs/daily-life/visitor-windows.json";
+import { seededChoice } from "./clock";
 import { npcRegistry } from "./registry";
 import { modernVisitors } from "./catalog";
 import type { ModernVisitorMetadata } from "./collections";
@@ -13,6 +15,31 @@ export function visitorForWindow(
   const slot =
     Math.floor(Math.max(0, elapsedMs) / 90_000) % (options.length + 1);
   return slot === 0 ? undefined : options[slot - 1];
+}
+/** Deterministic modern visitor window; legacy wall-clock API remains available. */
+export function visitorForGameTime(
+  zone: string,
+  minute: number,
+  seed: number,
+  day: number,
+) {
+  const available = modernVisitors
+    .filter(
+      (v) =>
+        v.homeZone === zone &&
+        windows.windows.some(
+          (w) =>
+            w.npcId === v.id && minute >= w.startMinute && minute < w.endMinute,
+        ),
+    )
+    .sort((a, b) => a.id.localeCompare(b.id));
+  if (!available.length) return;
+  const slot =
+    (1 +
+      Math.floor(minute / 15) +
+      seededChoice(seed, day, zone, available.length + 1)) %
+    (available.length + 1);
+  return slot === 0 ? undefined : available[slot - 1];
 }
 export class NPCVisitPolicy {
   private entries = new Map<string, ModernVisitorMetadata | undefined>();
@@ -48,6 +75,8 @@ export class NPCVisitPolicy {
     pinned?: string,
     review?: string,
     now = Date.now(),
+    gameMinute?: number,
+    simulation = { seed: 20261029, day: 0 },
   ) {
     const residents = new Set(npcRegistry.npcs.map((n) => n.id));
     if (review) {
@@ -61,14 +90,38 @@ export class NPCVisitPolicy {
     for (const zone of this.entries.keys())
       if (!activeZones.has(zone)) this.entries.delete(zone);
     for (const zone of activeZones)
-      if (!this.entries.has(zone))
-        this.entries.set(zone, visitorForWindow(zone, now - this.epoch));
+      if (!this.entries.has(zone) || gameMinute !== undefined)
+        this.entries.set(
+          zone,
+          gameMinute === undefined
+            ? visitorForWindow(zone, now - this.epoch)
+            : visitorForGameTime(
+                zone,
+                gameMinute,
+                simulation.seed,
+                simulation.day,
+              ),
+        );
     for (const visitor of this.entries.values())
-      if (visitor && pinned !== visitor.hostResidentId) {
+      if (
+        visitor &&
+        pinned !== visitor.hostResidentId &&
+        (gameMinute === undefined ||
+          windows.windows.some(
+            (w) =>
+              w.npcId === visitor.id &&
+              gameMinute >= w.startMinute &&
+              gameMinute < w.endMinute,
+          ))
+      ) {
         residents.delete(visitor.hostResidentId);
         residents.add(visitor.id);
       }
-    if (pinned) residents.add(pinned);
+    if (pinned) {
+      const held = modernVisitors.find((v) => v.id === pinned);
+      if (held) residents.delete(held.hostResidentId);
+      residents.add(pinned);
+    }
     return residents;
   }
 }

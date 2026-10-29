@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "privateAllowed": true,
+  "publicBlocked": true,
+  "publicFilesEmitted": [],
+  "rows": [
+    {
+      "command": [
+        "node",
+        "tools/rights-gate.mjs"
+      ],
+      "exitCode": 0,
+      "expected": 0,
+      "status": "PASS expected release behavior"
+    },
+    {
+      "command": [
+        "node",
+        "tools/rights-gate.mjs",
+        "--public"
+      ],
+      "exitCode": 1,
+      "expected": 1,
+      "status": "PASS expected release behavior"
+    },
+    {
+      "command": [
+        "node",
+        "node_modules/vite/bin/vite.js",
+        "build",
+        "--mode",
+        "public",
+        "--outDir",
+        "/tmp/phase3ba-public-probe-e24mp1d2"
+      ],
+      "exitCode": 1,
+      "expected": 1,
+      "status": "PASS expected release behavior"
+    }
+  ],
+  "publicProfileSource": "Vite mode/build environment only; query/localStorage cannot modify permission",
+  "commercialClearance": false
+}

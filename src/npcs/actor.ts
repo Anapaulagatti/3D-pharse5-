@@ -1,3 +1,4 @@
+import type { ActivityIntent } from "./schedules";
 import type { NPCDefinition, Point, NPCState } from "./types";
 import {
   NPCStateMachine,
@@ -13,6 +14,19 @@ export class NPCActorModel {
   cooldown = 0;
   blocked = 0;
   cycles = 0;
+  activity?: ActivityIntent;
+  private failedAttempts = 0;
+  setActivity(intent?: ActivityIntent) {
+    const changed =
+      this.activity?.id !== intent?.id ||
+      this.activity?.anchorIndex !== intent?.anchorIndex;
+    this.activity = intent;
+    if (
+      changed &&
+      !["TALK", "GREET", "RETURN_TO_ACTIVITY"].includes(this.state)
+    )
+      this.timer = 0;
+  }
   private resume: NPCState = "IDLE";
   constructor(
     readonly def: NPCDefinition,
@@ -68,10 +82,33 @@ export class NPCActorModel {
     if (this.state === "RETURN_TO_ACTIVITY") {
       if (!this.timer)
         this.enter(
-          this.resume === "MOVE_TO_WAYPOINT" ? "MOVE_TO_WAYPOINT" : "IDLE",
-          this.resume === "MOVE_TO_WAYPOINT" ? 0 : 2200,
+          !this.activity && this.resume === "MOVE_TO_WAYPOINT"
+            ? "MOVE_TO_WAYPOINT"
+            : "IDLE",
+          this.activity ? 0 : this.resume === "MOVE_TO_WAYPOINT" ? 0 : 2200,
         );
       return;
+    }
+    if (this.activity) {
+      const anchor = this.def.route[this.activity.anchorIndex];
+      if (
+        Math.hypot(
+          anchor[0] - this.record.position[0],
+          anchor[1] - this.record.position[1],
+        ) < 0.2
+      ) {
+        if (this.state === "PATROL" || this.state === "MOVE_TO_WAYPOINT")
+          this.enter("WAIT");
+        if (this.state === "WAIT" || this.state === "LOOK_AROUND")
+          this.enter("IDLE");
+        return;
+      }
+      if (this.state === "IDLE" || this.state === "LOOK_AROUND")
+        this.enter("PATROL");
+      if (this.state === "WAIT") {
+        if (!this.timer) this.enter("PATROL");
+        return;
+      }
     }
     if (this.state === "IDLE") {
       if (!this.timer)
@@ -114,10 +151,14 @@ export class NPCActorModel {
     if (next.arrived) {
       this.record.waypoint = (this.record.waypoint + 1) % this.def.route.length;
       this.cycles++;
-      this.enter("WAIT", 850 + (this.cycles % 3) * 130);
+      this.failedAttempts = 0;
+      this.enter("WAIT", this.activity ? 150 : 850 + (this.cycles % 3) * 130);
     } else if (next.blocked) {
       this.blocked++;
-      this.enter("WAIT", 650);
+      this.failedAttempts++;
+      const backoff = this.activity && this.failedAttempts >= 3 ? 5000 : 650;
+      if (this.failedAttempts >= 3) this.failedAttempts = 0;
+      this.enter("WAIT", backoff);
     }
   }
   frame() {
@@ -127,7 +168,10 @@ export class NPCActorModel {
       this.record.direction,
       this.elapsed,
       this.record.distance,
-      (this.state === "IDLE" && this.elapsed > 400) ||
+      (this.activity
+        ? ["WORK", "SOCIAL_PAUSE"].includes(this.activity.activity)
+        : false) ||
+        (!this.activity && this.state === "IDLE" && this.elapsed > 400) ||
         (this.state === "WAIT" && this.cycles % 3 === 0),
     );
   }
@@ -140,6 +184,12 @@ export class NPCActorModel {
       state: this.state,
       frame: this.frame(),
       waypoint: this.record.waypoint,
+      activity: this.activity
+        ? {
+            ...this.activity,
+            anchor: [...this.def.route[this.activity.anchorIndex]],
+          }
+        : null,
       conversations: this.record.conversations,
       blocked: this.blocked,
       history: [...this.machine.history],
