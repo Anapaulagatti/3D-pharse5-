@@ -230,7 +230,10 @@ try {
         .slice(0, 20),
     );
     report.lastLayout.textOverflow = await page.evaluate(() => {
-      const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      const w = document.createTreeWalker(
+        document.body,
+        window.NodeFilter.SHOW_TEXT,
+      );
       const a = [];
       while (w.nextNode()) {
         const n = w.currentNode;
