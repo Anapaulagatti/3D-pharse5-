@@ -24,11 +24,15 @@ if (script && import.meta.env.VITE_RELEASE_PROFILE === "private-review") {
     window.Storage.prototype.removeItem = function (key: string) {
       remove.call(this, scoped(String(key)));
     };
-    if (!localStorage.getItem("korean-arena-player-preferences-v1"))
-      localStorage.setItem(
-        "korean-arena-player-preferences-v1",
-        JSON.stringify({ version: 1, characterId: "juni" }),
-      );
+    try {
+      if (!localStorage.getItem("korean-arena-player-preferences-v1"))
+        localStorage.setItem(
+          "korean-arena-player-preferences-v1",
+          JSON.stringify({ version: 1, characterId: "juni" }),
+        );
+    } catch {
+      // Keep the original game's in-memory selection fallback when storage is denied.
+    }
   }
   const shell = document.createElement("details");
   shell.id = "portal-review-controls";
