@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "rows": [
+    {
+      "name": "portal-public-exposure",
+      "exitCode": 1,
+      "outputExists": false,
+      "diagnostic": "file:///workspace/phase3b-a-recovery/tools/review-portal/build.mjs:16\n  throw Error(\"PREVIEW_PUBLIC_EXPOSURE NOT APPROVED; no public output\");\n        ^\n\nError: PREVIEW_PUBLIC_EXPOSURE NOT APPROVED; no public output\n    at file:///workspace/phase3b-a-recovery/tools/review-portal/build.mjs:16:9\n\nNode.js v24.19.0\n",
+      "status": "PASS expected rejection"
+    },
+    {
+      "name": "canonical-public-rights",
+      "exitCode": 1,
+      "outputExists": false,
+      "diagnostic": "dules/rolldown/dist/shared/bindingify-input-options-UCGox0BH.mjs:1637:17)\n    at file:///workspace/phase3b-a-recovery/node_modules/rolldown/dist/shared/bindingify-input-options-UCGox0BH.mjs:2122:21\n    at plugin.<computed> (file:///workspace/phase3b-a-recovery/node_modules/rolldown/dist/shared/bindingify-input-options-UCGox0BH.mjs:2320:18)\n    at aggregateBindingErrorsIntoJsError (file:///workspace/phase3b-a-recovery/node_modules/rolldown/dist/shared/error-CBG33oNV.mjs:49:18)\n    at unwrapBindingResult (file:///workspace/phase3b-a-recovery/node_modules/rolldown/dist/shared/error-CBG33oNV.mjs:19:128)\n    at #build (file:///workspace/phase3b-a-recovery/node_modules/rolldown/dist/shared/rolldown-BYX6bV3R.mjs:146:34)\n    at async buildEnvironment (file:///workspace/phase3b-a-recovery/node_modules/vite/dist/node/chunks/node.js:34716:66)\n    at async Object.build (file:///workspace/phase3b-a-recovery/node_modules/vite/dist/node/chunks/node.js:35137:19)\n    at async Object.buildApp (file:///workspace/phase3b-a-recovery/node_modules/vite/dist/node/chunks/node.js:35134:153)\n    at async CAC.<anonymous> (file:///workspace/phase3b-a-recovery/node_modules/vite/dist/node/cli.js:780:3) {\n  errors: [Getter/Setter]\n}\nvite v8.3.4 building client environment for public...\n✓ 0 modules transformed.\n",
+      "status": "PASS expected rejection"
+    },
+    {
+      "name": "unsafe-review-base",
+      "exitCode": 1,
+      "outputExists": false,
+      "diagnostic": "file:///workspace/phase3b-a-recovery/tools/review-portal/build.mjs:12\n  throw Error(\n        ^\n\nError: VITE_REVIEW_BASE must be a static directory path with trailing slash\n    at file:///workspace/phase3b-a-recovery/tools/review-portal/build.mjs:12:9\n\nNode.js v24.19.0\n",
+      "status": "PASS expected rejection"
+    }
+  ],
+  "publicExposure": "NOT_APPROVED",
+  "commercial": "BLOCKED_PENDING_REVIEW"
+}

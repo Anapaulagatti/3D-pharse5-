@@ -1,3 +1,7 @@
+# Active work — one-link review portal
+
+Phase3B-A checkpoint47107da9 verified; owner acceptance PENDING. Reusable private portal only; see docs/review-portal/README.md. Public exposure and commercial release remain blocked; physical hardware NOT TESTED. Old Pages/main protected.
+
 # Current authority — Phase 3B-A ONLY (2026-10-29)
 
 The latest owner directive `docs/phase3b-a/HUMAN_DIRECTIVE.md` authorizes daily NPC life and a commercial-rights safeguard. This supersedes the earlier Phase3B STOP only for Phase3B-A. Source is approved `6dbee381` and verified descendant `4d816228`; work on `feature/phase3b-a-daily-life-rights-audit`. Read RECOVERY.md and BASELINE.json before edits. No delegation unless explicitly requested.

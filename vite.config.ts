@@ -21,7 +21,7 @@ export default defineConfig(({ mode }) => {
       },
     ],
     define: { "import.meta.env.VITE_RELEASE_PROFILE": JSON.stringify(profile) },
-    base: "/3D-pharse5-/",
+    base: process.env.VITE_REVIEW_BASE ?? "/3D-pharse5-/",
     publicDir: "public",
     server: { host: "127.0.0.1", port: 4200, strictPort: true },
     build: {

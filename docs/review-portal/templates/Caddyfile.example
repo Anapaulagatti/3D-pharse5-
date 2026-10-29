@@ -1,0 +1,10 @@
+# NOT deployed. Replace with an owner-controlled domain after hosting approval.
+# Caddy obtains TLS. Python origin is loopback-only and authenticates every asset.
+review.example.invalid {
+    reverse_proxy 127.0.0.1:4490
+    header {
+        X-Robots-Tag "noindex, nofollow, noarchive"
+        Referrer-Policy "no-referrer"
+        Cache-Control "private, no-store"
+    }
+}

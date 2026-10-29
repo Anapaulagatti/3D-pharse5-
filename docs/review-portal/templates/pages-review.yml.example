@@ -1,0 +1,27 @@
+# TEMPLATE ONLY. Do not install/dispatch while PREVIEW_PUBLIC_EXPOSURE is NOT_APPROVED.
+# Requires a separate review repository, owner approval for exact artifact+all assets,
+# and a newly implemented asset-specific exposure gate. Current candidate must fail.
+name: Human-promoted review (BLOCKED template)
+on:
+  workflow_dispatch:
+    inputs:
+      checked_sha:
+        description: Full reviewed immutable source SHA
+        required: true
+      exposure_receipt:
+        description: Owner-approved exact artifact hash + asset-specific exposure receipt
+        required: true
+permissions:
+  contents: read
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Exposure gate is not approved
+        run: |
+          echo 'BLOCKED: install a reviewed asset-specific PREVIEW_PUBLIC_EXPOSURE validator before enabling deployment.'
+          exit 1
+# No pages:write, id-token:write, token secret or upload/deploy job is enabled.
+# After explicit future approval, use configure-pages@v5, upload-pages-artifact@v4,
+# deploy-pages@v4 under a protected github-pages environment; deploy job alone receives
+# pages:write and id-token:write. The workflow must exist on that repo default branch.
