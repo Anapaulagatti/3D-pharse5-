@@ -1,3 +1,7 @@
+# Current final review — settingsverified; ownerexposurePENDING
+
+One privatevisualrightsreviewpage: docs/review-final/RIGHTS_REVIEW.html.26NPCs/309sourcechecks/exactmanifest40c129fb. Actualhostedinspection confirms Pagesworkflow+HTTPS+main+one-reviewer; currentliveHTTP404. Compiledcandidateee0a928localonly; no rebuild orpublicupload. See docs/review-final/README.md. Phase3B-B/C/Dlocked.
+
 # Current Pages resume — installed controls, NOT DEPLOYED
 
 Reviewrepo Anapaulagatti/3D-pharse5-review exists; actualGit/workflowpush665cde4succeeded. Compiledcandidate ee0a928 remainslocalonly, unchangedmanifest40c129fb. Pending ownerexposuredecision; Pages/environmentsettings unverified throughproxy403. Existingportal0e4b5016/f4576307preserved; no rebuild. See docs/review-pages/resume/README.md. Phase3B-B/C/Dremainlocked.

@@ -1,0 +1,78 @@
+{
+  "checkedAt": "2026-10-29T10:30:52.644316+00:00",
+  "repository": "Anapaulagatti/3D-pharse5-review",
+  "runId": "40858140452",
+  "publicationAttempted": false,
+  "checks": {
+    "pages": {
+      "status": 200,
+      "data": {
+        "status": null,
+        "html_url": "https://anapaulagatti.github.io/3D-pharse5-review/",
+        "build_type": "workflow",
+        "source": {
+          "branch": "main",
+          "path": "/"
+        },
+        "https_enforced": true,
+        "public": true
+      }
+    },
+    "actions": {
+      "status": 403,
+      "message": "Resource not accessible by integration",
+      "acceptedPermissions": "administration=read"
+    },
+    "workflowPermissions": {
+      "status": 403,
+      "message": "Resource not accessible by integration",
+      "acceptedPermissions": "administration=read"
+    },
+    "deploymentWorkflow": {
+      "status": 200,
+      "data": {
+        "name": "Publish approved compiled Pixel Town review",
+        "path": ".github/workflows/review-pages.yml",
+        "state": "active"
+      }
+    },
+    "environment": {
+      "status": 200,
+      "data": {
+        "name": "github-pages",
+        "protectionRules": [
+          {
+            "type": "branch_policy",
+            "reviewerCount": 0,
+            "preventSelfReview": null
+          },
+          {
+            "type": "required_reviewers",
+            "reviewerCount": 1,
+            "preventSelfReview": false
+          }
+        ],
+        "deploymentBranchPolicy": {
+          "protected_branches": false,
+          "custom_branch_policies": true
+        }
+      }
+    },
+    "deploymentBranchPolicies": {
+      "status": 200,
+      "data": {
+        "totalCount": 1,
+        "rules": [
+          {
+            "name": "main",
+            "type": "branch"
+          }
+        ]
+      }
+    },
+    "liveHTTPS": {
+      "status": 404,
+      "playability": "NOT VERIFIED"
+    }
+  }
+}

@@ -1,3 +1,7 @@
+# Current authority — consolidated private visual rights review (2026-10-29)
+
+Read docs/review-final/README.md. Existing compiledportal staysunchanged; actualhostedinspection verifies workflow/HTTPS/main/one-reviewer, actualliveHTTP404. PrivateRIGHTS_REVIEW.html covers26NPCs and exact1367filemanifest40c129fb;309sourcehashes match, rightsnotcleared. No publicimage/gameupload before explicitownerexposuredecision; actualrecordPENDING. Do not rebuildportal/art/NPCs or start3B-B/C/D. Preserve0e4b5016/f4576307/v0.5. No delegation.
+
 # Current authority — resume compiled-only Pages deployment (2026-10-29)
 
 Read docs/review-pages/resume/README.md. Destination exists and Git/workflow write is verified at reviewrepo665cde4. REST/Pages host CONNECT403 is a network/proxyblock, not proof of missing Apppermissions. Deploy existing compiledcandidate only; no portal/game/art build. Public assetupload remains gated on explicit owner exposure decision, currentlyPENDING. Phase3B-B/C/Dlocked, originalv0.5/main untouched. No delegation.
