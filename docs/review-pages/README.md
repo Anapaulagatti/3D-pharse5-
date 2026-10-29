@@ -1,3 +1,7 @@
+# Latest resume: actual workflow installed; no build, no publicgame
+
+The earlierAPIblocked/no-repo state and source-buildbootstrap below are historical and superseded by [resume/README.md](resume/README.md). GitHubrepoexists and workflowwritewasverified at665cde4. The installed workflow deploys a pinned EXISTING compiledcommit; it never rebuilds the portal. Publicartifactupload remainsPENDINGownerapproval; Pagesgame is NOTDEPLOYED.
+
 # GitHub Pages review handoff — NOT DEPLOYED
 
 Owner selects GitHub Pages, using a **separate** repository named `Anapaulagatti/3D-pharse5-review`. This supersedes the previous provider-neutral authenticated-server recommendation. No Cloudflare resource existed or was changed. Existing portal checkpoint `f4576307` is preserved; no portal/game rebuild or artwork generation was performed locally.

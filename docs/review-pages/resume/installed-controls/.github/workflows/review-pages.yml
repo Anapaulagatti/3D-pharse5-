@@ -1,0 +1,95 @@
+name: Publish approved compiled Pixel Town review
+on:
+  workflow_dispatch:
+    inputs:
+      operation:
+        type: choice
+        options: [check, deploy]
+        default: check
+        required: true
+      approval_path:
+        description: Pending candidate for check, approved receipt for deployment
+        default: review-candidates/phase3b-a.json
+        required: true
+  push:
+    branches: [main]
+    paths: ['approved-releases/**/*.approved.json']
+permissions:
+  contents: read
+concurrency:
+  group: pixel-town-review-pages
+  cancel-in-progress: false
+jobs:
+  approval:
+    runs-on: ubuntu-latest
+    outputs:
+      artifact: ${{ steps.receipt.outputs.artifact }}
+      receipt: ${{ steps.path.outputs.receipt }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: path
+        env:
+          REQUESTED: ${{ inputs.approval_path }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          python - <<'PYCODE'
+          import os,re
+          receipt='approved-releases/current.approved.json' if os.environ['EVENT']=='push' else os.environ['REQUESTED']
+          assert re.fullmatch(r'(review-candidates|approved-releases)(/[A-Za-z0-9_.-]+)+\.json',receipt)
+          with open(os.environ['GITHUB_OUTPUT'],'a')as f:f.write('receipt='+receipt+'\n')
+          PYCODE
+      - name: Require documented owner exposure approval before fetching any art
+        id: receipt
+        env:
+          RECEIPT: ${{ steps.path.outputs.receipt }}
+        run: python receipt.py "$RECEIPT"
+  deploy:
+    needs: approval
+    if: github.event_name == 'push' || inputs.operation == 'deploy'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.approval.outputs.artifact }}
+          path: compiled-source
+          persist-credentials: false
+      - name: Export existing compiled files only (no npm, Vite build or source generation)
+        run: python export_site.py compiled-source site
+      - name: Exact asset hashes, individual exposure review and snapshot history
+        env:
+          RECEIPT: ${{ needs.approval.outputs.receipt }}
+        run: |
+          python gate.py site "$RECEIPT"
+          python history_gate.py site "$RECEIPT"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+      - uses: actions/deploy-pages@v4
+        id: deployment
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Verify actual deployed HTTPS game (test dependencies only, no game build)
+        env:
+          LIVE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          mkdir qa-runner
+          cp verify_live.mjs review-source.json qa-runner/
+          npm install --prefix qa-runner --no-save --package-lock=false @playwright/test@1.64.1
+          cd qa-runner
+          npx playwright install --with-deps chromium
+          node verify_live.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-https-verification
+          path: qa-runner/evidence

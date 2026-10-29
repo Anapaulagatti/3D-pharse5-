@@ -1,3 +1,7 @@
+# Current authority — resume compiled-only Pages deployment (2026-10-29)
+
+Read docs/review-pages/resume/README.md. Destination exists and Git/workflow write is verified at reviewrepo665cde4. REST/Pages host CONNECT403 is a network/proxyblock, not proof of missing Apppermissions. Deploy existing compiledcandidate only; no portal/game/art build. Public assetupload remains gated on explicit owner exposure decision, currentlyPENDING. Phase3B-B/C/Dlocked, originalv0.5/main untouched. No delegation.
+
 # Current authority — GitHub Pages review preparation (2026-10-29)
 
 Latest owner selects a SEPARATE 3D-pharse5-review repository, not Cloudflare. Prepare existing f4576307 portal and manual Actions promotion; public publication still requires explicit owner approval and asset-specific review. Preserve production Pages/game/art, all stable IDs and snapshots. No Phase3B-B or main gameplay merge. No delegation. See docs/review-pages/README.md.
