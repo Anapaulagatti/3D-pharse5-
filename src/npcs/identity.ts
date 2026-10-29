@@ -9,7 +9,7 @@ const nameSchema = z.object({
 export const identityPresentationSchema = z
   .object({
     npcId: z.string().regex(/^npc-history-/),
-    historicalReference: nameSchema,
+    role: nameSchema,
     publicName: nameSchema,
     identityKind: z.enum(["historical-reconstruction", "original-fictional"]),
     eraLabel: z.string().min(1),
@@ -17,6 +17,7 @@ export const identityPresentationSchema = z
     identityDecision: z.enum([
       "retain-approved-independent-reconstruction",
       "fictional-fallback-approved",
+      "owner-directed-fictional-identity",
     ]),
     decisionReason: z.string().min(1),
     artworkAction: z.literal("preserve-byte-identical"),
@@ -29,7 +30,10 @@ export const identityPresentationSchema = z
       .object({
         identityDecisionReference: z.string().min(1),
         depictionDecisionReference: z.string().min(1),
-        depictionStatus: z.literal("independent-reviewed"),
+        depictionStatus: z.enum([
+          "independent-reviewed",
+          "reviewed-no-specific-copy-identified-not-legal-clearance",
+        ]),
       })
       .nullable(),
   })
@@ -38,7 +42,10 @@ export const identityPresentationSchema = z
       if (
         !value.fictionalAlias ||
         !value.fallbackEvidence ||
-        value.identityDecision !== "fictional-fallback-approved"
+        ![
+          "fictional-fallback-approved",
+          "owner-directed-fictional-identity",
+        ].includes(value.identityDecision)
       )
         context.addIssue({
           code: "custom",
@@ -46,13 +53,13 @@ export const identityPresentationSchema = z
             "Fictional fallback requires a documented identity AND depiction decision; renaming is insufficient",
         });
       if (
-        value.publicName.ko === value.historicalReference.ko ||
-        value.publicName.vi === value.historicalReference.vi
+        value.identityDecision === "fictional-fallback-approved" &&
+        value.fallbackEvidence?.depictionStatus !== "independent-reviewed"
       )
         context.addIssue({
           code: "custom",
           message:
-            "Fictional identity must not retain the historical public name",
+            "Rights-based fallback still requires an independently reviewed depiction; owner precaution is a different decision",
         });
       if (
         value.fictionalAlias &&
@@ -101,7 +108,7 @@ export function presentNPCIdentity(
     names: { ...identity.publicName },
     occupation:
       identity.identityKind === "original-fictional"
-        ? `Nhân vật hư cấu · cảm hứng ${identity.eraLabel}`
+        ? `${identity.role.vi} · nhân vật hư cấu · cảm hứng ${identity.eraLabel}`
         : `Tái hiện giáo dục · cảm hứng ${identity.eraLabel}`,
   };
 }
@@ -128,8 +135,8 @@ export function presentArchiveDialogue(
   const content: Record<string, { ko: string; vi: string }> = {
     welcome: fictional
       ? {
-          ko: "안녕하세요. 저는 게임 속 가상 안내인입니다. 옛 문화를 함께 살펴봐요.",
-          vi: "Xin chào! Tôi là người dẫn chuyện hư cấu trong game. Cùng khám phá văn hóa xưa nhé.",
+          ko: `안녕하세요. 저는 ${identity.publicName.ko}입니다. 게임 속 가상 인물로서 옛 문화를 함께 살펴봐요.`,
+          vi: `Xin chào! Tôi là ${identity.publicName.vi}, ${identity.role.vi.toLocaleLowerCase("vi")}, một nhân vật hư cấu trong game. Cùng khám phá văn hóa xưa nhé.`,
         }
       : {
           ko: "안녕하세요. 옛 문화를 살펴보는 교육용 재구성입니다.",
@@ -137,8 +144,8 @@ export function presentArchiveDialogue(
         },
     notice: fictional
       ? {
-          ko: "이 인물은 게임 속 가상 인물입니다. 실제 역사 인물의 초상이나 발언이 아닙니다. 역사 자료는 별도로 검증합니다.",
-          vi: "Đây là nhân vật hư cấu trong game, không phải hình tượng hay lời nói của một nhân vật lịch sử có thật. Tư liệu lịch sử được kiểm chứng riêng.",
+          ko: "이 인물은 게임 속 가상 인물이며 실제 역사 인물이 아닙니다. 이야기와 대사는 게임을 위해 창작했습니다. 자세한 역사 자료는 별도로 검증 중입니다.",
+          vi: "Đây là nhân vật hư cấu trong game, không phải một nhân vật lịch sử có thật. Câu chuyện và lời thoại được sáng tác cho game. Tư liệu lịch sử chi tiết đang được kiểm chứng riêng.",
         }
       : {
           ko: "교육용으로 재구성한 모습입니다. 실제 초상이나 발언을 그대로 옮긴 것이 아닙니다. 자세한 역사 자료는 검증 중입니다.",
@@ -148,6 +155,12 @@ export function presentArchiveDialogue(
       ko: "천천히 둘러보고 한국어 낱말도 함께 배워 보세요.",
       vi: "Bạn cứ thong thả khám phá và cùng học vài từ tiếng Hàn nhé.",
     },
+    return: fictional
+      ? {
+          ko: "다음에 또 만나요. 즐겁게 둘러보세요!",
+          vi: "Hẹn gặp lại! Chúc bạn khám phá thật vui nhé.",
+        }
+      : node.content,
     sources: {
       ko: "검증된 자료를 확보한 뒤 자세한 역사 설명을 제공합니다.",
       vi: "Phần giới thiệu lịch sử chi tiết sẽ được mở khi tư liệu đã được kiểm chứng.",
@@ -158,7 +171,12 @@ export function presentArchiveDialogue(
     content: content[suffix] ?? node.content,
     hint:
       suffix === "words"
-        ? node.hint
+        ? {
+            ...node.hint,
+            ko: fictional
+              ? "함께 배우는 한국어 낱말 · 게임 속 가상 인물"
+              : node.hint.ko,
+          }
         : {
             ko: fictional
               ? "게임 속 가상 인물 · 역사 자료는 별도 검증"

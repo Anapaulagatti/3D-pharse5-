@@ -1,3 +1,13 @@
+# Current authority — Phase 3A fictional identity safeguard (2026-10-29)
+
+The latest owner decision supersedes the prior choice to retain six historical public names. Use Han Yeonhwa / 한연화, Baek Junseo / 백준서, Nam Gyeongu / 남경우, Yun Hwayeon / 윤화연, Kang Muyeong / 강무영 and Seo Daeun / 서다은. This is precautionary fictional game design, not legal clearance or a finding against historical names. See `docs/phase3a-identity-safeguard/OWNER_DECISION.md` and the current rights matrix.
+
+Preserve all 26 stable IDs, source/atlas pixels, animations, routes, collision, saves, twelve playable characters, 28 cosmetics, world and camera. Change only public identity, fictional KO/VI narration and associated presentation/documentation. No broad refactor, art regeneration or new actor engine. Phase 3B is handoff only: **do not implement Phase 3B, merge main or deploy**. No sub-agent delegation unless explicitly authorized. Commercial rights and physical-device acceptance remain pending.
+
+Earlier sections below are retained as historical authority records; this latest decision controls any conflict.
+
+---
+
 # Current authority — Phase 3A approved 26-NPC baseline (2026-10-29)
 
 The owner approved the 26 NPCs at `831022a8533c1d2126f77724d6eea8aeca2e8e30`. Preserve all approved NPC art, animations, world, twelve playable characters and cosmetics. The latest directive is `docs/phase3a-finalization/HUMAN_DIRECTIVE.md`; the rights/identity decision is `docs/phase3a/HISTORICAL_NPC_RIGHTS_AND_ALIASES.md`.

@@ -1,0 +1,80 @@
+
+> hangeul-pixel-town@3.1.0 test
+> vitest run
+
+
+ RUN  v5.0.4 /workspace/korean-street-gate1
+
+ ❯ tests/unit/npcs/identity.test.ts (0 test)
+ ❯ tests/unit/npcs/history.test.ts (0 test)
+ ❯ tests/unit/npcs/npcs.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/npcs/history.test.ts [ tests/unit/npcs/history.test.ts ]
+ FAIL  tests/unit/npcs/npcs.test.ts [ tests/unit/npcs/npcs.test.ts ]
+ZodError: [
+  {
+    "code": "invalid_value",
+    "values": [
+      "independent-reviewed"
+    ],
+    "path": [
+      "fallbackEvidence",
+      "depictionStatus"
+    ],
+    "message": "Invalid input: expected \"independent-reviewed\""
+  }
+]
+ ❯ src/npcs/identity.ts:78:30
+     76| >;
+     77| export const historicalIdentities = source.identities.map((row) =>
+     78|   identityPresentationSchema.parse(row),
+       |                              ^
+     79| );
+     80| if (new Set(historicalIdentities.map((row) => row.npcId)).size !== 6)
+ ❯ src/npcs/identity.ts:77:55
+ ❯ src/npcs/history.ts:6:1
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/unit/npcs/identity.test.ts [ tests/unit/npcs/identity.test.ts ]
+ZodError: [
+  {
+    "code": "invalid_value",
+    "values": [
+      "independent-reviewed"
+    ],
+    "path": [
+      "fallbackEvidence",
+      "depictionStatus"
+    ],
+    "message": "Invalid input: expected \"independent-reviewed\""
+  }
+]
+ ❯ src/npcs/identity.ts:78:30
+     76| >;
+     77| export const historicalIdentities = source.identities.map((row) =>
+     78|   identityPresentationSchema.parse(row),
+       |                              ^
+     79| );
+     80| if (new Set(historicalIdentities.map((row) => row.npcId)).size !== 6)
+ ❯ src/npcs/identity.ts:77:55
+ ❯ tests/unit/npcs/identity.test.ts:4:1
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+
+ Test Files  3 failed | 18 passed (21)
+      Tests  125 passed (125)
+   Start at  02:16:57
+   Duration  4.25s (tests 81%, import 14%, transform 4%, worker 1%)
+
+    Isolate  21 workers spawned · ~106ms startup each (spawn + environment, per file)
+             at least ~635ms faster with isolate: false — reuses workers across files instead of one per file
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

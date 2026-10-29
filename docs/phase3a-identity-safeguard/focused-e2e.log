@@ -1,0 +1,40 @@
+[WebServer] (node:118161) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:118174) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:118198) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/e2e/phase3a-finalization.spec.ts:3:1 › fictional cultural archive works in the ordinary development world without QA flags and preserves identity/state (2.6s)
+  ✘  2 tests/e2e/phase3a-identity.spec.ts:13:1 › all six fictional identities remain attached to existing actors and all public dialogue nodes exclude historical personal identities (15.0s)
+
+
+  1) tests/e2e/phase3a-identity.spec.ts:13:1 › all six fictional identities remain attached to existing actors and all public dialogue nodes exclude historical personal identities 
+
+    TimeoutError: page.waitForFunction: Timeout 12000ms exceeded.
+
+      50 |     await page.keyboard.down(key);
+      51 |     try {
+    > 52 |       await page.waitForFunction(
+         |                  ^
+      53 |         (id) => window.__NPC_WORLD__?.target === id,
+      54 |         id,
+      55 |         { timeout: 12000 },
+        at /workspace/korean-street-gate1/tests/e2e/phase3a-identity.spec.ts:52:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/phase3a-identity-all-six-f-7c5bf-torical-personal-identities/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/phase3a-identity-all-six-f-7c5bf-torical-personal-identities/error-context.md
+
+  1 failed
+    tests/e2e/phase3a-identity.spec.ts:13:1 › all six fictional identities remain attached to existing actors and all public dialogue nodes exclude historical personal identities 
+  1 passed (19.5s)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

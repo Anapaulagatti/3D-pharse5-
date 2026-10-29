@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test("approved history archive works in the ordinary development world without QA flags and preserves identity/state", async ({
+test("fictional cultural archive works in the ordinary development world without QA flags and preserves identity/state", async ({
   page,
 }) => {
   await page.addInitScript(() =>
@@ -22,20 +22,21 @@ test("approved history archive works in the ordinary development world without Q
   expect(initial.npcs.verifiedHistoricalClaimCount).toBe(0);
   await page.locator("#history-art-review").click();
   await expect(page.locator("#history-art-dialog")).toContainText(
-    "không phải chân dung hay lời nói được xác thực",
+    "nhân vật hư cấu",
   );
   const expected = [
-    ["seondeok", "선덕여왕", "Nữ vương Seondeok"],
-    ["sejong", "세종대왕", "Vua Sejong"],
-    ["jang", "장영실", "Jang Yeong-sil"],
-    ["saimdang", "신사임당", "Shin Saimdang"],
-    ["yi", "이순신", "Đô đốc Yi Sun-sin"],
-    ["yu", "유관순", "Yu Gwan-sun"],
+    ["seondeok", "한연화", "Han Yeonhwa"],
+    ["sejong", "백준서", "Baek Junseo"],
+    ["jang", "남경우", "Nam Gyeongu"],
+    ["saimdang", "윤화연", "Yun Hwayeon"],
+    ["yi", "강무영", "Kang Muyeong"],
+    ["yu", "서다은", "Seo Daeun"],
   ];
   for (const [key, ko, vi] of expected) {
     const button = page.locator(`[data-history-id="npc-history-${key}"]`);
     await expect(button).toContainText(ko);
     await expect(button).toContainText(vi);
+    await expect(button).toHaveAccessibleName(new RegExp(vi + " · " + ko));
   }
   await page.locator('[data-history-id="npc-history-sejong"]').click();
   await page.waitForFunction(() =>
@@ -62,10 +63,10 @@ test("approved history archive works in the ordinary development world without Q
   }));
   await page.keyboard.press("e");
   await expect(page.locator("#npc-dialogue-name")).toHaveText(
-    "Vua Sejong · 세종대왕",
+    "Baek Junseo · 백준서",
   );
   await expect(page.locator("#npc-dialogue-role")).toContainText(
-    "Tái hiện giáo dục",
+    "nhân vật hư cấu",
   );
   await page.locator("#npc-dialogue-next").click();
   await expect(page.locator("#npc-dialogue-vi")).toContainText(

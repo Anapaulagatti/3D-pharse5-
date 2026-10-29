@@ -107,7 +107,7 @@ describe("six historical art candidates without fabricated source verification",
       expect(nodes).toHaveLength(6);
       expect(
         nodes.find((n) => n.id === h.id + "-notice")?.content.vi,
-      ).toContain("lời nói thật");
+      ).toContain("nhân vật hư cấu");
       expect(def.future.questProviderId).toBeNull();
       for (const node of nodes) {
         expect(node.futureQuestHook).toBeNull();

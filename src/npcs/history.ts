@@ -79,21 +79,26 @@ export class HistoryArtReview {
     this.selected = historyCandidates.find((h) => h.id === requested)?.id;
     this.button = document.createElement("button");
     this.button.id = "history-art-review";
-    this.button.textContent = "Kho chuyện xưa · 역사 이야기";
+    this.button.textContent = "Kho chuyện xưa · 옛 문화 이야기";
     this.dialog = document.createElement("dialog");
     this.dialog.id = "history-art-dialog";
-    this.dialog.setAttribute("aria-label", "Kho chuyện xưa");
+    this.dialog.setAttribute("aria-label", "Kho chuyện xưa · nhân vật hư cấu");
     const title = document.createElement("h2");
-    title.textContent = "역사 이야기 · Kho chuyện xưa";
+    title.textContent = "옛 문화 이야기 · Kho chuyện xưa";
     const notice = document.createElement("p");
     notice.textContent =
-      "Cùng khám phá các hình tượng tái hiện theo cảm hứng từ từng thời kỳ. Đây không phải chân dung hay lời nói được xác thực. Nội dung lịch sử chi tiết sẽ được mở khi tư liệu đã được kiểm chứng. Mỗi khu vực có những câu chuyện riêng.";
+      "Những người bạn trong mục này đều là nhân vật hư cấu, lấy cảm hứng từ các thời kỳ và nghề nghiệp văn hóa Hàn Quốc; họ không phải nhân vật lịch sử có thật. Câu chuyện và lời thoại được sáng tác cho game. Nội dung lịch sử chi tiết đang được kiểm chứng riêng. 이곳의 인물은 모두 게임 속 가상 인물이며 실제 역사 인물이 아닙니다.";
     this.dialog.append(title, notice);
     for (const h of historyCandidates) {
       const def = historyArtCatalog.get(h.id)!;
       const item = document.createElement("button");
       item.dataset.historyId = h.id;
-      item.textContent = `${def.names.vi} · ${def.names.ko} · ${h.era}`;
+      const identity = historicalIdentities.find((row) => row.npcId === h.id)!;
+      item.textContent = `${def.names.vi} · ${def.names.ko} · ${identity.role.vi} / ${identity.role.ko} · ${identity.eraLabel}`;
+      item.setAttribute(
+        "aria-label",
+        `${def.names.vi} · ${def.names.ko} · nhân vật hư cấu · 가상 인물`,
+      );
       item.addEventListener("click", () => {
         this.selected = h.id;
         this.close();

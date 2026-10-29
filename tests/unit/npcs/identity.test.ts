@@ -48,12 +48,18 @@ describe("approved26NPC identity and rights separation", () => {
     expect(verifiedHistoricalClaimCount).toBe(0);
     expect(npcCatalog.npcs).toHaveLength(20); // Original living collection remains intact.
   });
-  it("retains six historical names because403is transport failure,not proof of an unavailable right", () => {
+  it("uses six owner-selected fictional names without claiming legal clearance", () => {
     expect(historicalIdentities).toHaveLength(6);
     for (const identity of historicalIdentities) {
-      expect(identity.identityKind).toBe("historical-reconstruction");
-      expect(identity.publicName).toEqual(identity.historicalReference);
-      expect(identity.fictionalAlias).toBeNull();
+      expect(identity.identityKind).toBe("original-fictional");
+      expect(identity.publicName).toEqual(identity.fictionalAlias);
+      expect(identity.identityDecision).toBe(
+        "owner-directed-fictional-identity",
+      );
+      expect(identity).not.toHaveProperty("historicalReference");
+      expect(identity.fallbackEvidence?.depictionStatus).toBe(
+        "reviewed-no-specific-copy-identified-not-legal-clearance",
+      );
       expect(identity.artworkAction).toBe("preserve-byte-identical");
       expect(identity.commercialReleaseStatus).toBe("review-required");
       expect(identity.generatedAssetTermsStatus).toBe(
@@ -69,6 +75,7 @@ describe("approved26NPC identity and rights separation", () => {
       publicName: { ko: "테스트 안내인", vi: "Người dẫn chuyện thử" },
       fictionalAlias: { ko: "테스트 안내인", vi: "Người dẫn chuyện thử" },
       identityDecision: "fictional-fallback-approved",
+      fallbackEvidence: null,
     };
     expect(identityPresentationSchema.safeParse(fiction).success).toBe(false);
     expect(
@@ -84,7 +91,7 @@ describe("approved26NPC identity and rights separation", () => {
     expect(
       identityPresentationSchema.safeParse({
         ...fiction,
-        publicName: fiction.historicalReference,
+        publicName: { ko: "다른 이름", vi: "Tên khác với bí danh" },
       }).success,
     ).toBe(false);
   });

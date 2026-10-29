@@ -1,3 +1,11 @@
+# Current identity amendment — 2026-10-29
+
+The owner now requires all six archive public identities to be fictional: Han Yeonhwa, Baek Junseo, Nam Gyeongu, Yun Hwayeon, Kang Muyeong and Seo Daeun, with their approved Korean names in the public mapping. The earlier retained-historical-name decision below is superseded. Read [the current handoff](../phase3a-identity-safeguard/PHASE3B_HANDOFF.md), [owner decision](../phase3a-identity-safeguard/OWNER_DECISION.md) and [rights matrix](../phase3a/HISTORICAL_NPC_RIGHTS_AND_ALIASES.md). Stable IDs, artwork, animation, navigation and saves are unchanged. Commercial depiction rights remain unverified; a new name does not grant clearance. Phase 3B implementation has not started.
+
+The following is the preserved earlier architectural record:
+
+---
+
 # Phase 3B architectural handoff
 
 The 26-NPC artistic and gameplay foundation is approved. This handoff is ready after the final checkpoint verification; **Phase 3B implementation has not started**. No main merge or public deployment is authorized. Read the current authority at the top of AGENTS.md and docs/current/PROJECT_STATE.md.
