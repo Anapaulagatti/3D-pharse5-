@@ -1,3 +1,7 @@
+## Final consolidated rights assessment — 2026-10-29
+
+Private `docs/review-final/RIGHTS_REVIEW.html` now explicitly separates 26 integrity PASS from 26 permissions NEEDS REVIEW and publication BLOCKED pending owner exposure decision. See FINAL_ASSESSMENT.md. Exact compiled public manifest remains 40c129fb; no art/runtime/portal rebuild or new public exposure. All 309 recorded source references match; provider/account/creation terms remain UNKNOWN. No specific copied third-party work established; no replacement adopted. Existing workflow is ready after one consolidated owner decision. Phase3B-B/C/D locked.
+
 # Current final review — settingsverified; ownerexposurePENDING
 
 One privatevisualrightsreviewpage: docs/review-final/RIGHTS_REVIEW.html.26NPCs/309sourcechecks/exactmanifest40c129fb. Actualhostedinspection confirms Pagesworkflow+HTTPS+main+one-reviewer; currentliveHTTP404. Compiledcandidateee0a928localonly; no rebuild orpublicupload. See docs/review-final/README.md. Phase3B-B/C/Dlocked.

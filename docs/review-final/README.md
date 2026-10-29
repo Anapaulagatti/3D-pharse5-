@@ -1,3 +1,5 @@
+Read FINAL_ASSESSMENT.md for the final 26-item PASS / NEEDS REVIEW / BLOCKED classification. The same assessment is visible on RIGHTS_REVIEW.html. No new rights clearance, replacement art, rebuilt portal or publication is implied.
+
 # Final owner rights review — one page; no deployment yet
 
 Open **RIGHTS_REVIEW.html**. It is a self-contained private owner-review document, under1MB, with26nativevisualrecords and6era-inspiredfigures highlighted first. All images are lossless nativeatlas crops;2×view uses nearestneighbor. It includes representative occupation/greetingposes for the six, individual source/concern notes, conditional minimal independent redesign proposals, and the exact downloadable public-exportmanifest. It contains no externalimage/font/script dependency.

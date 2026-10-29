@@ -5,6 +5,7 @@ import { createHash, randomBytes } from "node:crypto";
 const dir = "docs/review-final";
 const report = {
   status: "RUNNING",
+  checkedAt: new Date().toISOString(),
   rows: [],
   errors: [],
   externalRequests: [],
@@ -66,6 +67,22 @@ try {
     (await page.locator("article.archive").count()) === 6,
     "Not6 era-inspired records",
   );
+  assert(
+    (await page.locator('[data-classification="NEEDS REVIEW"]').count()) === 26,
+    "Rights classifications missing or falsely cleared",
+  );
+  assert(
+    (await page.locator("#assessment").textContent()).includes(
+      "26 NEEDS REVIEW",
+    ),
+    "Consolidated assessment missing",
+  );
+  assert(htmlBytes.length < 1000000, "Private review exceeds 1MB target");
+  report.rows.push({
+    check:
+      "26 NEEDS REVIEW classifications / integrity PASS distinct from public BLOCKED / under 1MB",
+    status: "PASS; no permission clearance inferred",
+  });
   const images = await page.locator(".views img").evaluateAll((images) =>
     images.map((i) => ({
       complete: i.complete,
