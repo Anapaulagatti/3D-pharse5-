@@ -1,3 +1,7 @@
+## Phase3B-A final artistic/gameplay approval; exposure withheld — 2026-10-29
+
+Latest owner approves art/gameplay/NPC Daily Life, not public exposure. See docs/review-exposure/README.md and FINAL_REVIEW.html. Canonical26 untouched. Actual privately playable20-only subset prepared with own20 snapshot, six era-inspired atlas/thumbnail/registry entries and all old videos excluded. Shared account/creation terms remain UNKNOWN; this is NOT a cleared sanitized public game.20actual Phaser approaches/dialogues/clock/mobile emulator PASS;24targeted unit tests PASS. Additional dependency notices repaired; workflow control-only update b2d49ad blocks UNKNOWN before art fetch. No game/art public upload or deployment; v0.5/source-main untouched. One shared evidence packet needed; Phase3B-B/C/D locked; physical devices NOT TESTED.
+
 ## Final consolidated rights assessment — 2026-10-29
 
 Private `docs/review-final/RIGHTS_REVIEW.html` now explicitly separates 26 integrity PASS from 26 permissions NEEDS REVIEW and publication BLOCKED pending owner exposure decision. See FINAL_ASSESSMENT.md. Exact compiled public manifest remains 40c129fb; no art/runtime/portal rebuild or new public exposure. All 309 recorded source references match; provider/account/creation terms remain UNKNOWN. No specific copied third-party work established; no replacement adopted. Existing workflow is ready after one consolidated owner decision. Phase3B-B/C/D locked.

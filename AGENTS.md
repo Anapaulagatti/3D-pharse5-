@@ -1,3 +1,7 @@
+# Current authority — Phase3B-A accepted, public eligibility pending (2026-10-29)
+
+Read docs/review-exposure/README.md. Owner APPROVES Phase3B-A artistic/gameplay/Daily Life but explicitly withholds full public exposure. Existing26 game/art stays canonical and immutable. A private20-NPC restricted adapter and one consolidated review page are prepared; no art is public-eligible while actual account/creation terms remain UNKNOWN. Request only the shared evidence packet in OWNER_EVIDENCE_REQUEST.md, not26 redesigns/licenses. Existing separate-review workflow controls enforce exact profile + terms review before art fetch; no deployment before explicit exact-asset approval. Preserve v0.5/source-main/all checkpoints. Phase3B-B/C/D LOCKED. No delegation.
+
 # Current authority — consolidated private visual rights review (2026-10-29)
 
 Read docs/review-final/README.md. Existing compiledportal staysunchanged; actualhostedinspection verifies workflow/HTTPS/main/one-reviewer, actualliveHTTP404. PrivateRIGHTS_REVIEW.html covers26NPCs and exact1367filemanifest40c129fb;309sourcehashes match, rightsnotcleared. No publicimage/gameupload before explicitownerexposuredecision; actualrecordPENDING. Do not rebuildportal/art/NPCs or start3B-B/C/D. Preserve0e4b5016/f4576307/v0.5. No delegation.
