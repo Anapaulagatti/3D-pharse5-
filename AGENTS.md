@@ -1,3 +1,7 @@
+# Current authority — exact Phase3B-B26 public preview APPROVED (2026-10-30)
+
+Owner approves manifestdb9d4bb68f31c819d79ec95efaad1befce257086e64c41a5c93c2ba6fe7deb2f /artifact74235a6e7075b77840d2e9fdf36dce678288cd05 after verified six-NPC/video prepublication conditions. See docs/phase3bb-release-20261030. Do not rebuild/alter payload or ask exact exposure approval again. Use same review repository workflow/receipt/hash/history gates and legitimate protected-environment review; never bypass required reviewer. Verify actualHTTPS,26NPC interactions,36head-cosmetic poses,movement trace,mobile and2318URLs before claiming success. Old20 snapshot/v0.5/source-main/checkpoints preserved. No Phase3B-C/D. Physical devices NOT TESTED. Stop after verified release for owner gameplay review. No delegation.
+
 # Current authority — Phase3B-B targeted movement/head-cosmetic/26-NPC hotfix authorized (2026-10-30)
 
 Read docs/phase3bb-hotfix/HUMAN_DIRECTIVE.md. Latest owner authorization supersedes old 3B-B lock ONLY for three targeted repairs and their review candidate: head cosmetics, movement jerk, full26 fictional roster. Preserve checkpoint/phase3bb-before-hotfix-20261030, all base/player/NPC/world assets and saves; additive cosmetic revisions only. Keep the same portal and Pages workflow. No 3B-C/D, main gameplay merge, production v0.5 change or unrelated systems. New public payload must retain truthful exact-manifest approval gate; existing20 approval does not automatically cover new files/six excluded actors. No delegation.

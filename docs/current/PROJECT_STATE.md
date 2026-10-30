@@ -1,3 +1,7 @@
+# Current release — Phase3B-B26 exact public preview APPROVED (2026-10-30)
+
+See docs/phase3bb-release-20261030. Owner explicitly approves exact manifestdb9d4bb6/artifact74235a6e after source/video checks. Artifact branch published and approved receipt triggers release run41068300978, controld831b4a. Complete legitimate GitHub environment review and actual hostedQA before claiming live success. No extra exposure approval is needed. Preserve old20 snapshot, productionv0.5, original source-main and all checkpoints; no Phase3B-C/D. Physical devices remainNOT TESTED. Repeated previous failedE2E cases6/6PASS;36head poses/12input cases PASS against exactartifact beforedeployment.
+
 # Current delivery — Phase3B-B targeted hotfix candidate (2026-10-30)
 
 See docs/phase3bb-hotfix/PUBLIC_APPROVAL.html for ONE exact owner review. Native head repairs, actual-travel camera/diagonal-facing fix and full26 fictional runtime are packaged and validated. Export sourcee48ea63bf35f0038b24609297dc2e4385c47adcb, orphan artifact74235a6e7075b77840d2e9fdf36dce678288cd05,2318-file manifestdb9d4bb68f31c819d79ec95efaad1befce257086e64c41a5c93c2ba6fe7deb2f. Public decision PENDING. Old20 artifact/approval/snapshot preserved byte-exact; v0.5 untouched. Source review checkpointcheckpoint/phase3bb-hotfix-26-review-20261030.

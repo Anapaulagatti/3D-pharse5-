@@ -1,0 +1,21 @@
+
+> hangeul-pixel-town@3.1.0 test:e2e
+> playwright test tests/e2e/characters.spec.ts tests/e2e/phase2c.spec.ts --grep native pack haneul|mismatched native-pose --repeat-each=3 --output .cache/phase3bb-release-repeat-output
+
+
+Running 6 tests using 1 worker
+
+(node:47357) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/e2e/characters.spec.ts:236:3 › native pack haneul plays, switches and restores without position/state loss (35.6s)
+  ✓  2 tests/e2e/phase2c.spec.ts:190:1 › mismatched native-pose registration safely restores approved defaults (2.7s)
+(node:47683) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 tests/e2e/characters.spec.ts:236:3 › native pack haneul plays, switches and restores without position/state loss (33.6s)
+  ✓  4 tests/e2e/phase2c.spec.ts:190:1 › mismatched native-pose registration safely restores approved defaults (3.3s)
+(node:48008) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 tests/e2e/characters.spec.ts:236:3 › native pack haneul plays, switches and restores without position/state loss (33.5s)
+  ✓  6 tests/e2e/phase2c.spec.ts:190:1 › mismatched native-pose registration safely restores approved defaults (4.6s)
+
+  6 passed (2.0m)

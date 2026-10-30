@@ -1,0 +1,2 @@
+import{chromium}from'@playwright/test';import fs from'node:fs/promises';import{verifyMotion}from'/workspace/review-pages-destination/verify_motion.mjs';
+const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});try{const proof=await verifyMotion(browser,'http://127.0.0.1:4503/');await fs.writeFile('docs/phase3bb-release-20261030/MOTION_PREFLIGHT.json',JSON.stringify(proof,null,2));console.log(proof.status,proof.nativePoses.length,proof.movement);}finally{await browser.close()}

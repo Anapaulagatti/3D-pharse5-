@@ -1,0 +1,10 @@
+# Approved Phase3B-B26 release verification
+
+- Exact artifact74235a6e7075b77840d2e9fdf36dce678288cd05 and2318-entry manifestdb9d4bb68f31c819d79ec95efaad1befce257086e64c41a5c93c2ba6fe7deb2f unchanged; no game/artwork rebuild.
+- Prepublication source/hash review PASS: six atlases match recorded original image_gen source chain; style reference is original fictional Seoyeon. No specific copied third-party work/performer identified by limited review. Historical/costume associations remain disclosed, not legal/commercial clearance. Owner explicitly approves exact public preview. OpenAI contractual evidence remains owner-supplied, not independently retrieved.
+- Six unique gameplay videos, repeated only in the new immutable snapshot, have video-only streams and no audio. All copies are manifest-bound. No other clips are added to Pages.
+- Old20 snapshot retained byte-exact. Existing main-of-game and productionv0.5 untouched. Same Pages workflow/required environment reviewer preserved.
+- Both previous E2E failures rerun3times each on the exact compiled artifact:6/6PASS with original timeouts unchanged. Haneul's original120s dev-server/capture-concurrency timeout is not reproduced; timing/load is supported as an explanation, not proven as a universal root cause. The corrupt-mapping test's old hardcoded path missed the new variant; resolving the actual catalog path and asserting interception restores meaningful coverage. No fallback guard removed.
+- New exact-artifact checks:36native poses (three head-cosmetic looks x four directions x idle/walk/run) PASS;12input scenarios with reduced motion PASS.173trace samples/172checked pairs; max player step1.667px/max camera step2.236px; no input-driven lead or one-frame pop reproduced. Prior30independent native pixel readbacks mismatch0 remain exact-asset evidence.
+- Previous full72run70PASS/2FAIL + followups retained; not rewritten as a clean72PASS run. Physical Android/iPhone/hardwareGPU NOT TESTED. No unsupported performance certification.
+- Actual hosted HTTPS/26NPC/movement/cosmetic/mobile/asset/console proof is still required after deployment. A successful build/push is not deployment success.
