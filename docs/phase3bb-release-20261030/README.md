@@ -1,10 +1,7 @@
-# Phase3B-B26 approved release: waiting for GitHub environment reviewer
+# VERIFIED public Phase3B-B26 review — STOP
 
-Owner exact public exposure approval is recorded; no further content/account/terms approval is requested. Artifact74235a6e, manifestdb9d4bb6/2318files and prior20 snapshot have passed gates. Six repeated formerly failingE2E cases and36native cosmetic poses/12input scenarios PASS.
+Verified playable URL: https://anapaulagatti.github.io/3D-pharse5-review/
 
-Actual release run: https://github.com/Anapaulagatti/3D-pharse5-review/actions/runs/41068300978
-Control:d831b4a;approval jobSUCCESS;deploy jobWAITING. Read-only GitHub API evidence: GITHUB_RELEASE_STATUS.json, environmentgithub-pages25668785832 requires userAnapaulagatti; currentUserCanApprove=false for automation token. This is an existing GitHub protection, not a new owner exposure decision or an API write-permission error. Do not disable/bypass it.
+Final authority/evidence: FINAL_QA.md and ACTUAL_LIVE_VERIFICATION.json. Exactartifact74235a6e, manifestdb9d4bb6,2318entries. Actualhosted run41075771744 PASS, deployment41074415941. Old20snapshot andartifact20674e77 remain unchanged. Physicaldevices/GPU NOT TESTED. No source-main merge,productionv0.5change,legal/commercialcertification orPhase3B-C/D. Stop forownerplayreview.
 
-Owner UI step: Review deployments -> github-pages -> Approve and deploy. After legitimate approval, existing job uploads exact tar and deploysPages; hosted QA verifies live manifest/2318URLs/26realNPC interactions/native hair states/input trace/mobile/console. Wait for the actual live-verification branch matching74235a6e/db9d4bb6 before claiming success or returning a verified gameplay URL.
-
-Local direct Pages CONNECT403 is a transport restriction; actual hosted GitHub browser verification is the approved available channel. Physical Android/iPhone/GPU remains NOT TESTED. Old20 artifact20674e77 and snapshot9abfcea0 are retained byte-exact; source-main/productionv0.5/all checkpoints unchanged. No Phase3B-C/D.
+Earlier gate/failure/retry reports in this directory are chronological history, not the current unresolved state. No failed report is relabeledPASS. GNUcontainer recovery preserves all asset bytes. First hosted503 sweep and final2transparent retries are recorded. Both formerly failingE2Ecases passed3repeats each.

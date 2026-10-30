@@ -1,3 +1,11 @@
+# Current state — Phase3B-B26 public review VERIFIED (2026-10-30)
+
+URL https://anapaulagatti.github.io/3D-pharse5-review/. Exactartifact74235a6e7075b77840d2e9fdf36dce678288cd05 /manifestdb9d4bb68f31c819d79ec95efaad1befce257086e64c41a5c93c2ba6fe7deb2f.
+
+Actual hostedChromium run41075771744 PASS after deployment41074415941:26actualNPC approaches/dialogues/DailyLife,2318assetURLs,36headcosmetic poses,12movementcases,desktop/mobileEmulation/touch,zero console/resource errors. Max observed camera step2.236px, no one-frame pop reproduced. Two asset503 retries recovered transparently. PhysicalAndroid/iPhone/hardwareGPU NOT TESTED. See docs/phase3bb-release-20261030/FINAL_QA.md and immutableactualproof.
+
+Rollback20 checkpoint20674e77 and snapshotphases/3b-a/contemporary20-e0f9db0d/ preserved byte-exact. Game-main/productionv0.5 unchanged. Existing failed attempts/first70+2E2E/followup6PASS retained honestly. Exact owner preview approval is recorded, not commercial/legal certification. STOP for owner direct gameplay review; noPhase3B-C/D or further deployment/art changes.
+
 # Current release — Phase3B-B26 exact public preview APPROVED (2026-10-30)
 
 See docs/phase3bb-release-20261030. Owner explicitly approves exact manifestdb9d4bb6/artifact74235a6e after source/video checks. Artifact branch published and approved receipt triggers release run41068300978, controld831b4a. Complete legitimate GitHub environment review and actual hostedQA before claiming live success. No extra exposure approval is needed. Preserve old20 snapshot, productionv0.5, original source-main and all checkpoints; no Phase3B-C/D. Physical devices remainNOT TESTED. Repeated previous failedE2E cases6/6PASS;36head poses/12input cases PASS against exactartifact beforedeployment.
