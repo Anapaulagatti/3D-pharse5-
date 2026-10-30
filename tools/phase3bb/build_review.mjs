@@ -1,12 +1,65 @@
 /** New scoped phase adapter: same Phaser game, same review portal, full26 catalog. */
-import { build } from "vite";
+import { build, createServer } from "vite";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { checkAssetRights } from "../rights-gate.mjs";
 checkAssetRights("private-review");
+// Presentation-only public export: leave canonical provenance untouched, but do
+// not deliver obsolete historical identity/date proposals in the public bundle.
+const ssr = await createServer({
+  configFile: false,
+  server: { middlewareMode: true },
+  appType: "custom",
+});
+let publicDefinitions, publicDialogues;
+try {
+  const identity = await ssr.ssrLoadModule("/src/npcs/identity.ts");
+  const definitions = JSON.parse(
+    await fs.readFile(
+      "assets-src/npcs/phase3a-final-six/definitions.json",
+      "utf8",
+    ),
+  );
+  const dialogues = JSON.parse(
+    await fs.readFile(
+      "assets-src/npcs/phase3a-final-six/dialogues.json",
+      "utf8",
+    ),
+  );
+  const byId = new Map(
+    identity.historicalIdentities.map((row) => [row.npcId, row]),
+  );
+  publicDefinitions = {
+    ...definitions,
+    npcs: definitions.npcs.map((row) =>
+      identity.presentNPCIdentity(row, byId.get(row.id)),
+    ),
+  };
+  publicDialogues = {
+    ...dialogues,
+    nodes: dialogues.nodes.map((row) =>
+      identity.presentArchiveDialogue(row, byId.get(row.npcId)),
+    ),
+  };
+} finally {
+  await ssr.close();
+}
+const metadata = JSON.parse(
+  await fs.readFile("assets-src/npcs/phase3a-final-six/metadata.json", "utf8"),
+);
+const publicMetadata = metadata.map(
+  ({ id, hostResidentId, era, chronologyOrder }) => ({
+    id,
+    hostResidentId,
+    era,
+    chronologyOrder,
+  }),
+);
+
 const out = path.resolve(process.env.REVIEW_OUT ?? ".cache/phase3bb-review");
-if (!out.startsWith(path.resolve(".cache") + path.sep)) throw Error("Private candidate must remain in .cache");
+if (!out.startsWith(path.resolve(".cache") + path.sep))
+  throw Error("Private candidate must remain in .cache");
 try {
   await fs.access(out);
   throw Error("Preserve previous review candidate; use a fresh version");
@@ -24,6 +77,20 @@ await build({
     "import.meta.env.VITE_RELEASE_PROFILE": JSON.stringify("private-review"),
   },
   plugins: [
+    {
+      name: "fictional-presentation-no-private-history-proposals",
+      load(id) {
+        const clean = id.replaceAll("\\", "/");
+        if (
+          clean.endsWith("/assets-src/npcs/phase3a-final-six/definitions.json")
+        )
+          return JSON.stringify(publicDefinitions);
+        if (clean.endsWith("/assets-src/npcs/phase3a-final-six/dialogues.json"))
+          return JSON.stringify(publicDialogues);
+        if (clean.endsWith("/assets-src/npcs/phase3a-final-six/metadata.json"))
+          return JSON.stringify(publicMetadata);
+      },
+    },
     {
       name: "same-review-bridge",
       transformIndexHtml: {

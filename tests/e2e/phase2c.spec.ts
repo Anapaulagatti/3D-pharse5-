@@ -1,4 +1,5 @@
 import { test, expect, type Page } from "@playwright/test";
+import cosmeticManifest from "../../assets-src/characters/phase2c/catalog.json" with { type: "json" };
 const ready = (p: Page) =>
   p.waitForFunction(
     () => window.__GATE3__?.ready && window.__GATE3__.chunks.inflight === 0,
@@ -189,20 +190,25 @@ test("latest rapid preview wins and equipping a hat removes an incompatible quif
 test("mismatched native-pose registration safely restores approved defaults", async ({
   page,
 }) => {
-  await page.route(
-    "**/cosmetics/phase2c/kr-classic-bob/juni/mapping.json",
-    async (route) => {
-      const response = await route.fetch();
-      const data = await response.json();
-      data.baseAtlasSHA256 = "0".repeat(64);
-      await route.fulfill({ response, json: data });
-    },
-  );
+  const mapping = cosmeticManifest.items
+    .find((item) => item.id === "kr-classic-bob")!
+    .variants.find((variant) => variant.characterId === "juni")!.mapping;
+  let intercepted = false;
+  await page.route(`**/${mapping}`, async (route) => {
+    intercepted = true;
+    const response = await route.fetch();
+    const data = await response.json();
+    data.baseAtlasSHA256 = "0".repeat(64);
+    await route.fulfill({ response, json: data });
+  });
   await boot(page);
   await open(page);
   await page.locator('[data-category="hairstyle"]').click();
   await page.locator('[data-cosmetic="kr-classic-bob"]').click();
   await preview(page);
+  expect(intercepted, "Corrupt the actual current cosmetic registration").toBe(
+    true,
+  );
   await expect(page.locator('[data-cosmetic="default"]')).toHaveAttribute(
     "aria-pressed",
     "true",

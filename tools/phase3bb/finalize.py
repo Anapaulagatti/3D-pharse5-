@@ -8,6 +8,9 @@ qa=json.loads((D/'runtime26/LIVE_QA.json').read_text());assert qa['status'].star
 # Lightweight current evidence only. Historical images/source masters remain private.
 names=['REVIEW.html','QA.md','MOVEMENT_ROOT_CAUSE.md','RIGHTS_AND_SIX.md','ROSTER26-native.png','ROSTER26.json','PROTECTED_AUDIT.json','COSMETIC_QA.json','HAIR_REPAIR.json','CAMERA_REGRESSION.json','MOVEMENT_MATRIX.json','hair-before-native.png','hair-after-native.png','before/gameplay.mp4','after/gameplay.mp4','juni-custom-gameplay.mp4','minjun-custom-gameplay.mp4','doyun-custom-gameplay.mp4','sori-custom-gameplay.mp4']
 names +=[str(p.relative_to(D))for p in(D/'head-variants').glob('*.png')]
+names += ['REGRESSION_NOTES.md','VIDEO_PROOF.json','NATIVE_READBACK.json','after-hotfix-reduced-moving.png','before-approved20-reduced-moving.png']
+names +=[str(p.relative_to(D))for p in(D/'native').glob('*-native-crop.png')]
+names +=[str(p.relative_to(D))for p in(D/'native').glob('*-actual-native-sheet.png')]
 for root in [O,snap]:
  for name in names:
   p=root/'hotfix'/('index.html'if name=='REVIEW.html'else name);p.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(D/name,p)

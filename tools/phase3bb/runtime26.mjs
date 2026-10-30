@@ -41,7 +41,8 @@ for (let i = 0; i < 100; i++) {
     await new Promise((r) => setTimeout(r, 100));
   }
 }
-const evidence = "docs/phase3bb-hotfix/runtime26";
+const evidence =
+  process.env.REVIEW_EVIDENCE ?? "docs/phase3bb-hotfix/runtime26";
 const url = new URL(base);
 if (
   url.protocol !== "http:" ||
@@ -50,7 +51,14 @@ if (
   url.pathname !== "/3D-pharse5-review/"
 )
   throw Error("Refuse wrong deployment destination");
-const config = { archiveHosts: {} };
+const archiveMetadata = JSON.parse(
+  await fs.readFile("assets-src/npcs/phase3a-final-six/metadata.json", "utf8"),
+);
+const config = {
+  archiveHosts: Object.fromEntries(
+    archiveMetadata.map((row) => [row.id, row.hostResidentId]),
+  ),
+};
 const result = {
   status: "RUNNING",
   url: base,
@@ -116,6 +124,17 @@ try {
     deviceScaleFactor: 1,
     httpCredentials: { username: user, password },
   });
+  if (process.env.REVIEW_NO_INTERNET === "1") {
+    result.externalRuntimeRequests = [];
+    await context.route("**/*", (route) => {
+      const u = new URL(route.request().url());
+      if (["http:", "https:"].includes(u.protocol) && u.origin !== url.origin) {
+        result.externalRuntimeRequests.push(u.href);
+        return route.abort();
+      }
+      return route.continue();
+    });
+  }
   const page = await context.newPage();
   page.on("pageerror", (e) => result.errors.push(e.message));
   page.on("response", (r) => {
@@ -220,6 +239,15 @@ try {
     deviceScaleFactor: 1,
     httpCredentials: { username: user, password },
   });
+  if (process.env.REVIEW_NO_INTERNET === "1")
+    await mobile.route("**/*", (route) => {
+      const u = new URL(route.request().url());
+      if (["http:", "https:"].includes(u.protocol) && u.origin !== url.origin) {
+        result.externalRuntimeRequests.push(u.href);
+        return route.abort();
+      }
+      return route.continue();
+    });
   const touch = await mobile.newPage();
   await touch.goto(
     new URL("play/?qa&renderer=canvas&npcReview=npc-minseo", base).href,
@@ -282,6 +310,14 @@ try {
     !result.errors.length && !result.missing.length,
     "Live console/resource errors",
   );
+  if (process.env.REVIEW_NO_INTERNET === "1") {
+    check(
+      result.externalRuntimeRequests.length === 0,
+      "Unexpected external runtime dependency",
+    );
+    result.internetDependencyTest =
+      "PASS external HTTP blocked; fresh localhost-only startup and26actualNPC interactions";
+  }
   result.status =
     "PASS PRIVATE LOCAL 26-NPC STAGING; NOT DEPLOYED OR RIGHTS CLEARED";
 } catch (e) {
