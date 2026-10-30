@@ -1,3 +1,4 @@
+import { expectedAmendedHash } from "../phase3bb-amendments";
 import { describe, expect, it } from "vitest";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
@@ -30,7 +31,7 @@ describe("approved26NPC identity and rights separation", () => {
       expect(
         createHash("sha256").update(readFileSync(path)).digest("hex"),
         path,
-      ).toBe(hash);
+      ).toBe(expectedAmendedHash(path, hash));
   });
   it("registers26unique approved actors independently of URL flags without claiming verified history", () => {
     for (const query of [

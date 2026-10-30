@@ -1,3 +1,4 @@
+import { expectedAmendedHash } from "../phase3bb-amendments";
 import { describe, it, expect } from "vitest";
 import { readFileSync, existsSync } from "node:fs";
 import { createHash } from "node:crypto";
@@ -56,7 +57,7 @@ describe("Phase2A immutable approval baseline", () => {
       ...m.files,
       ...m.definitionSnapshots,
     }))
-      expect(digest(p), p).toBe(h);
+      expect(digest(p), p).toBe(expectedAmendedHash(p, h));
   });
   it("preserves original identities, poses, anchors and speeds; only human-approval description metadata changes", () => {
     for (const previous of json("docs/phase2a/approved-identity-records.json")
@@ -95,11 +96,11 @@ describe("Phase2A immutable approval baseline", () => {
     for (const [p, h] of Object.entries(
       json("docs/phase1/protected-world.json").protectedFiles,
     ))
-      expect(digest(p), p).toBe(h);
+      expect(digest(p), p).toBe(expectedAmendedHash(p, h));
     for (const [p, h] of Object.entries(
       json("docs/phase1/protected-juni.json").files,
     ))
-      expect(digest(p), p).toBe(h);
+      expect(digest(p), p).toBe(expectedAmendedHash(p, h));
   }, 20000); // Cold CI storage may need more than5s to hash the full frozen archive.
 });
 describe("twelve genuine identities, completed planned catalog", () => {
@@ -225,7 +226,7 @@ describe("native cosmetic catalog and compatibility", () => {
   it("all36 supported combinations match direct own-layer construction across4,032 poses", () => {
     const qa = json("docs/phase2a/composition-qa.json");
     for (const [p, h] of Object.entries(qa.assetSHA256))
-      expect(digest(p), p).toBe(h);
+      expect(digest(p), p).toBe(expectedAmendedHash(p, h));
     expect(qa.combinations).toHaveLength(36);
     expect(qa.failures).toHaveLength(0);
     expect(

@@ -537,11 +537,11 @@ export class FoundationCamera {
       if (this.tourElapsed >= stop.travelMs + stop.holdMs) this.nextTourStop();
     }
     if (this.mode === "follow") {
-      const k = this.reduce.matches
-        ? 1
-        : 1 - Math.exp(-Math.min(delta, 50) / 220);
-      this.lookX += (dx * 60 - this.lookX) * k;
-      this.lookY += (dy * 42 - this.lookY) * k;
+      // Input-driven lead added an independent 60/42px camera movement on key
+      // edges (instantaneous with reduced motion), even against a wall. Follow
+      // actual player travel only. Scenic/tour framing is intentionally separate.
+      this.lookX = 0;
+      this.lookY = 0;
       const leadY = Math.min(
         160,
         this.scene.scale.height *

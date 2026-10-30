@@ -1,0 +1,135 @@
+
+> hangeul-pixel-town@3.1.0 test
+> vitest run
+
+
+ RUN  v5.0.4 /workspace/phase3b-a-recovery
+
+Traceback (most recent call last):
+  File "/workspace/phase3b-a-recovery/tools/phase3a/protected.py", line 7, in <module>
+    assert not bad,bad
+           ^^^^^^^
+AssertionError: ['assets-src/characters/phase2c/catalog.json', 'src/gate3/FoundationCamera.ts']
+Traceback (most recent call last):
+  File "/workspace/phase3b-a-recovery/tools/phase3a/protected.py", line 7, in <module>
+    assert not bad,bad
+           ^^^^^^^
+AssertionError: ['assets-src/characters/phase2c/catalog.json', 'src/gate3/FoundationCamera.ts']
+ ❯ tests/unit/characters/phase2b.test.ts (17 tests | 1 failed) 7692ms
+   ❯ Phase2B accepted baseline protection (3)
+     × preserves approved files outside the explicit eight-cell Ara/Doyun walk-front amendment 6987ms
+ ❯ tests/unit/characters/motion-correction.test.ts (8 tests | 1 failed) 14694ms
+   ❯ focused motion correction preservation and forward stance (8)
+     × recomputes exact atlas cell scope and protects every other frozen asset/runtime file 7280ms
+Traceback (most recent call last):
+  File "/workspace/phase3b-a-recovery/tools/phase3a/protected.py", line 7, in <module>
+    assert not bad,bad
+           ^^^^^^^
+AssertionError: ['assets-src/characters/phase2c/catalog.json', 'src/gate3/FoundationCamera.ts']
+ ❯ tests/unit/characters/walk-front-hotfix.test.ts (9 tests | 1 failed) 5044ms
+   ❯ authorized walk-front-only hotfix (9)
+     × protects every frozen file outside the64 authorized walk-front cells and8 atlas containers 4877ms
+ ❯ tests/unit/npcs/identity.test.ts (6 tests | 1 failed) 1593ms
+   ❯ approved26NPC identity and rights separation (6)
+     × keeps all26source packs,world,players and cosmetic assets byte-identical to human-approved review 1381ms
+ ❯ tests/unit/characters/studio.test.ts (18 tests | 1 failed) 23214ms
+   ❯ Phase2A immutable approval baseline (4)
+     × preserves frozen world pixels, collision, camera, tour, controller and Juni 19910ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/characters/motion-correction.test.ts > focused motion correction preservation and forward stance > recomputes exact atlas cell scope and protects every other frozen asset/runtime file
+Error: Command failed: python3 tools/phase3a/protected.py
+Traceback (most recent call last):
+  File "/workspace/phase3b-a-recovery/tools/phase3a/protected.py", line 7, in <module>
+    assert not bad,bad
+           ^^^^^^^
+AssertionError: ['assets-src/characters/phase2c/catalog.json', 'src/gate3/FoundationCamera.ts']
+
+ ❯ tests/unit/characters/motion-correction.test.ts:13:5
+     11| describe("focused motion correction preservation and forward stance", …
+     12|   it("recomputes exact atlas cell scope and protects every other froze…
+     13|     execFileSync("python3", ["tools/phase3a/protected.py"]);
+       |     ^
+     14|     const protectedResult = json("docs/phase3a/protected-audit.json");
+     15|     expect(protectedResult.status).toBe("PASS");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  tests/unit/characters/phase2b.test.ts > Phase2B accepted baseline protection > preserves approved files outside the explicit eight-cell Ara/Doyun walk-front amendment
+Error: Command failed: python3 tools/phase3a/protected.py
+Traceback (most recent call last):
+  File "/workspace/phase3b-a-recovery/tools/phase3a/protected.py", line 7, in <module>
+    assert not bad,bad
+           ^^^^^^^
+AssertionError: ['assets-src/characters/phase2c/catalog.json', 'src/gate3/FoundationCamera.ts']
+
+ ❯ tests/unit/characters/phase2b.test.ts:24:5
+     22| describe("Phase2B accepted baseline protection", () => {
+     23|   it("preserves approved files outside the explicit eight-cell Ara/Doy…
+     24|     execFileSync("python3", ["tools/phase3a/protected.py"]);
+       |     ^
+     25|     const protectedResult = json("docs/phase3a/protected-audit.json");
+     26|     expect(protectedResult.status).toBe("PASS");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  tests/unit/characters/studio.test.ts > Phase2A immutable approval baseline > preserves frozen world pixels, collision, camera, tour, controller and Juni
+AssertionError: src/gate3/FoundationCamera.ts: expected '0d5f82189f8eabdd3b8283224755b400e4461…' to be 'fd67fa10c12cacb94fcb421a8efe3d7db467f…' // Object.is equality
+
+Expected: "fd67fa10c12cacb94fcb421a8efe3d7db467f381bfb4e57a339e021e017ab046"
+Received: "0d5f82189f8eabdd3b8283224755b400e4461e0b3ad7a9ef6fccad9393c00cfd"
+
+ ❯ tests/unit/characters/studio.test.ts:98:28
+     96|       json("docs/phase1/protected-world.json").protectedFiles,
+     97|     ))
+     98|       expect(digest(p), p).toBe(h);
+       |                            ^
+     99|     for (const [p, h] of Object.entries(
+    100|       json("docs/phase1/protected-juni.json").files,
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  tests/unit/characters/walk-front-hotfix.test.ts > authorized walk-front-only hotfix > protects every frozen file outside the64 authorized walk-front cells and8 atlas containers
+Error: Command failed: python3 tools/phase3a/protected.py
+Traceback (most recent call last):
+  File "/workspace/phase3b-a-recovery/tools/phase3a/protected.py", line 7, in <module>
+    assert not bad,bad
+           ^^^^^^^
+AssertionError: ['assets-src/characters/phase2c/catalog.json', 'src/gate3/FoundationCamera.ts']
+
+ ❯ tests/unit/characters/walk-front-hotfix.test.ts:12:5
+     10| describe("authorized walk-front-only hotfix", () => {
+     11|   it("protects every frozen file outside the64 authorized walk-front c…
+     12|     execFileSync("python3", ["tools/phase3a/protected.py"]);
+       |     ^
+     13|     const protectedResult = json("docs/phase3a/protected-audit.json");
+     14|     expect(protectedResult.status).toBe("PASS");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  tests/unit/npcs/identity.test.ts > approved26NPC identity and rights separation > keeps all26source packs,world,players and cosmetic assets byte-identical to human-approved review
+AssertionError: assets-src/characters/phase2c/catalog.json: expected '4cd203751093cc5f0f7905639949810446819…' to be 'aae2feceeb10894766cf6466dc44f26d63d2d…' // Object.is equality
+
+Expected: "aae2feceeb10894766cf6466dc44f26d63d2d29483172b876a7d418cfae82b50"
+Received: "4cd203751093cc5f0f7905639949810446819908ee86164b3923548079eab391"
+
+ ❯ tests/unit/npcs/identity.test.ts:33:9
+     31|         createHash("sha256").update(readFileSync(path)).digest("hex"),
+     32|         path,
+     33|       ).toBe(hash);
+       |         ^
+     34|   });
+     35|   it("registers26unique approved actors independently of URL flags wit…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  5 failed | 20 passed (25)
+      Tests  5 failed | 168 passed (173)
+   Start at  11:56:22
+   Duration  34.63s (tests 70%, import 20%, transform 9%, worker 1%)
+
+    Isolate  25 workers spawned · ~799ms startup each (spawn + environment, per file)
+             at least ~5.86s faster with isolate: false — reuses workers across files instead of one per file
+

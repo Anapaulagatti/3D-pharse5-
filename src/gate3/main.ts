@@ -31,6 +31,7 @@ import { attachJoystick } from "../engine/Joystick";
 import "../gate2/style.css";
 import "./style.css";
 import { FoundationCamera } from "./FoundationCamera";
+import { movementFacing } from "./MovementFacing";
 import { SessionMetrics } from "../gate2/SessionMetrics";
 import { WorldCache } from "./WorldCache";
 import type { Manifest } from "./types";
@@ -746,14 +747,7 @@ class Slice extends Phaser.Scene {
       step = (Math.min(delta, 50) * speed) / 1000,
       oldX = this.x,
       oldY = this.y;
-    const contactFacing =
-      Math.abs(dx) > Math.abs(dy)
-        ? dx > 0
-          ? "right"
-          : "left"
-        : dy > 0
-          ? "front"
-          : "back";
+    const contactFacing = movementFacing(dx, dy, this.facing);
     const contactAllows = (x: number, y: number) =>
       !nativeContact ||
       nativeContact.allows(x, y, running ? "run" : "walk", contactFacing);
@@ -777,14 +771,7 @@ class Slice extends Phaser.Scene {
     );
     const distance = Math.hypot(this.x - oldX, this.y - oldY);
     if (distance > 0.01)
-      this.facing =
-        Math.abs(dx) > Math.abs(dy)
-          ? dx > 0
-            ? "right"
-            : "left"
-          : dy > 0
-            ? "front"
-            : "back";
+      this.facing = movementFacing(this.x - oldX, this.y - oldY, this.facing);
     const frame = this.motion.step(
       delta,
       distance,
@@ -799,7 +786,14 @@ class Slice extends Phaser.Scene {
       .setFrame(frame)
       .setDepth(Math.round(this.y) + 0.1);
     const cameraStarted = performance.now();
-    this.reviewCamera.update(delta, this.x, this.y, dx, dy, paused);
+    this.reviewCamera.update(
+      delta,
+      this.x,
+      this.y,
+      this.x - oldX,
+      this.y - oldY,
+      paused,
+    );
     this.diagnostics?.sample(
       "update.camera",
       performance.now() - cameraStarted,

@@ -1,3 +1,7 @@
+# Phase3B-B targeted hotfix in progress
+
+Owner directive: docs/phase3bb-hotfix/HUMAN_DIRECTIVE.md. Branch feature/phase3b-b-movement-hair-26; before checkpoint ddd52849. Existing20 preview remains unchanged. Repair head-cosmetic ownership and actual-travel camera/facing; assemble26-actor candidate using existing fictional identities/registry. Public exact-artifact gate preserved. Physical devices NOT TESTED. No Phase3B-C/D.
+
 ## Owner-approved Contemporary20 release triggered — 2026-10-30 Asia/Ho_Chi_Minh
 
 Explicit ownerpublicapproval received for bb2c88af1313filemanifest/artifact20674e77. Actualreceipt andimmutablehistory saved; allfourlocaleligibility/receipt/asset/historychecksPASS; sixactualIDs/assetsabsent. Artifactbranch pushed to separate reviewrepo; releaseworkflowrun40969422541 triggered by36f26bd. ActualHTTPSplayability NOTYETVERIFIED. Preservev0.5/source-main/allcheckpoints; no artwork/game/portalrebuild or Phase3B-B/C/D. Follow docs/review-release-20261030.
