@@ -1,3 +1,9 @@
+# Current delivery — Phase3B-B targeted hotfix candidate (2026-10-30)
+
+See docs/phase3bb-hotfix/PUBLIC_APPROVAL.html for ONE exact owner review. Native head repairs, actual-travel camera/diagonal-facing fix and full26 fictional runtime are packaged and validated. Export sourcee48ea63bf35f0038b24609297dc2e4385c47adcb, orphan artifact74235a6e7075b77840d2e9fdf36dce678288cd05,2318-file manifestdb9d4bb68f31c819d79ec95efaad1befce257086e64c41a5c93c2ba6fe7deb2f. Public decision PENDING. Old20 artifact/approval/snapshot preserved byte-exact; v0.5 untouched. Source review checkpointcheckpoint/phase3bb-hotfix-26-review-20261030.
+
+Fresh173unit PASS; fullE2E70PASS/2FAIL +2targeted follow-upPASS, never represented as one clean72PASS. Actual extracted ZIP26NPC/2318URLs/mobile/no-external-HTTP PASS;30native sprite captures mismatch0;9119protectedfiles checked. Physicaldevices/GPU NOT TESTED. No main merge, no new public-artifact push/deploy, no Phase3B-C/D. After exact owner exposure approval use existing separate-review Pages receipt/history/hash/environment gates, then verify actual liveHTTPS before reporting success.
+
 # Phase3B-B targeted hotfix in progress
 
 Owner directive: docs/phase3bb-hotfix/HUMAN_DIRECTIVE.md. Branch feature/phase3b-b-movement-hair-26; before checkpoint ddd52849. Existing20 preview remains unchanged. Repair head-cosmetic ownership and actual-travel camera/facing; assemble26-actor candidate using existing fictional identities/registry. Public exact-artifact gate preserved. Physical devices NOT TESTED. No Phase3B-C/D.
