@@ -33,3 +33,9 @@ git show recovery/before-v9-total-southern-reset-20261021:docs/v8-city/RECOVERY_
 The archive contains the complete source, native screenshots, final75310320byteMP4 and exact14171740byteHTTP-tested ZIP. To inspect old V8, extract its ZIP and run `python3 start.py`; never open raw HTML/file://. Its source CI39443356059 actually passed12unit/65browser cases; recovery annotation distinguishes that source result from subsequent archive-only additions. No V8 independent fresh-clone claim is added. V9 will receive its own final verification after actual implementation.
 
 No Git history rewrite, force push, tag removal, main merge, website deployment or paid API occurred.
+
+## Delivery cache housekeeping
+
+The obsolete V8 raw JPEG caches were removed only after rehashing the archived75,310,320byte V8 MP4 to5d67b8d69eeeb1757a62543fdcbdd833164ead3b60136b0956f7370da3f9e171.20,187derived JPEGs/2,545,523,617bytes removed; non-JPEG receipts, full encoded recovery video, original artwork and Git tags remain. The first aborted V9 ENOSPC recording was not reused; its raw cache was discarded after retaining failure/progress records. The final recording started fresh and preserved all8,399captured frames in its verified encoding.
+
+The full raw V8 comparison image was removed from the active V9 docs after the comparison generator switched to reading that exact PNG directly from the verified recovery tag. It is never a planning input. Superseded temporary V9 graybox PNG volumes are recoverable atbb8c9e7; the reusable graybox generator remains.

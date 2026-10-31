@@ -1,6 +1,6 @@
 # Korean Arena — V9 southern world reconstruction
 
-Vietnamese-first Korean learning pixel town, built with the existing Phaser foundation. **V9 is an in-progress review candidate, not a final map or a public deployment.** Work stays on `rebuild/pixel-social-rpg-v3`; `main` and the public website are preserved.
+Vietnamese-first Korean learning pixel town, built with the existing Phaser foundation. **V9 is a playable review candidate awaiting user visual approval.** Work stays on `rebuild/pixel-social-rpg-v3`; `main` and the public website are preserved.
 
 Read AGENTS.md, docs/current/V9_TOTAL_SOUTHERN_WORLD_RESET.md and the four STUDIO records. The approved historical north and Juni144-frame animation are protected independently. Superseded southern implementations were removed only after the pushed recovery tag documented in SOUTHERN_RESET_CLEANUP.md.
 
@@ -22,7 +22,7 @@ Arrow keys/WASD or the analog joystick move Juni. Hold Shift/the Run button to r
 
 - PIXELS_WORLD_DESIGN_STUDY.md distinguishes observations, unavailable references and original design choices.
 - assets-src/v9-world/plan/city.json and city.svg are editable V9 planning data.
-- docs/v9-world contains current engine evidence only. Graybox captures are explicitly temporary geometry; final illustrated screenshots will be separately labeled.
+- docs/v9-world contains actual engine evidence, an input-driven gameplay capture, a playable HTTP review ZIP and V9_CITY_REBUILD_REPORT.md. Graybox evidence is labeled separately from final illustrated candidate captures.
 - assets-src/protected-north preserves exact north art/geometry; assets-src/library holds reusable original art with provenance and no rejected southern placements.
 - assets-src/juni-animation preserves editable character sources; src/engine holds the approved shared movement/occlusion adapter.
 

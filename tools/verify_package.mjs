@@ -169,14 +169,14 @@ try {
     );
     await place(p, 1568, 1120);
     await p.locator("#interact").click();
-    await p.waitForFunction(() => window.__SEOUL__.area === "room");
+    await p.waitForFunction(() => window.__SEOUL__?.area === "room");
     await place(p, 385, 392);
     await p.locator("#interact").click();
     await p.locator(".hangul-letter").waitFor({ state: "visible" });
     await p.locator("#close-dialog").click();
     await place(p, 384, 490);
     await p.locator("#interact").click();
-    await p.waitForFunction(() => window.__SEOUL__.area === "outdoor");
+    await p.waitForFunction(() => window.__SEOUL__?.area === "outdoor");
     await p.setViewportSize({ width: 390, height: 844 });
     await p.locator("#rotate-screen").waitFor({ state: "visible" });
     assert.equal(await p.evaluate(() => window.__PIXEL_METRICS__.paused), true);

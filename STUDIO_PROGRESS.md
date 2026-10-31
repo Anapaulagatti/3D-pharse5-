@@ -10,4 +10,12 @@ First real screenshots exposed a blocked civic composition, isolated mulch bars,
 
 Uncaptured cloud8s samples: Canvas medianRAF16.7ms in civic/coast/mobile viewport; forced software-WebGL station33.3ms withp9550ms. These are cloud browser samples, not physical-phone/GPU60FPS promises. Source prop extraction retains edge_touch WARN for three shops and park fence; final native canvases are padded/binary-alpha. Forge embedded diagnostic initially exceeded16MB;32MB diagnostic-only budget passes without changing route assertions. Main JS chunk warning remains documented.
 
-Pending delivery: real normal-entry31-stop input walkthrough, verified encoded video/ZIP, clean installation/actual GitHub CI, final recoverable checkpoint and environment handoff. Do not stop at source-only delivery. No main merge/public deployment/new districts or NPC production. No user visual approval yet.
+## Delivery verification — 31 October2026 (Asia/Bangkok)
+
+Completed: runtime/art source77f8c6848e98af6646938925c778ce00cc97db17; corrected test-host/sampling checkpointd8ef46108e11cc2d85d5741124daf8801545c083. Actual GitHub CI41210999009/job124565766009 passed12unit/53browser. Independent clean locked-npm setup passed the same53/12; all144rebuilt distribution files and910runtime/art source files are byte-equal. Setup needs no Forge/media route. The fixed water test observes >128actual changing pixels rather than a phase-sensitive fixed250ms delay; game data/animation are unchanged.
+
+Video:388.219s,31actual input-driven visits,8,399captured=encodedframes, maximum timestamp error0.00050018s,79,945,901bytes/SHA51dd36812aaa40823041d823c96ca18d44ad94519c856b597e06d4360a5c096b. Actual browser playback/5seeks and representative decoded frames inspected. No QA movement hooks, cuts/retiming or still substitutions. First ENOSPC recording was discarded; final was a fresh complete recording. Correct byte-range HTTP is used for seek verification.
+
+ZIP:14,542,176bytes/148files, SHA0fb2dceb95b2ded85722871f28269bfb6390320497cacdce7769ef7ec4f6dd67. Its own HTTP launcher, six-district native source parity, mobile movement/portrait, reciprocal ferry, Academy and basalt feedback passed. Extract and run python start.py on the user's own machine; cloudlocalhost is internal. See docs/v9-world/V9_CITY_REBUILD_REPORT.md.
+
+Final delivery is recoverable through annotated checkpoint/v9-world-review-verified-20261031 once its remote peel is verified; read its actual annotation, not a planned name. Source checkpoints, environment draft/snapshot activation and website publication are separate. No main merge or deployment. STOP for USER visual approval before map lock, new art/districts/NPCs or publishing.
