@@ -1,0 +1,9 @@
+{
+  "status": "FAIL",
+  "head": "ed007df73dac31ed834cb3fbb85a3cc80bdf26a0",
+  "browserPassed": 52,
+  "browserFailed": 1,
+  "case": "OS reduced motion water pixels",
+  "diagnosis": "A fixed250ms sample can land on equal visual offsets of the 0,1,2,3,2,1 loop. Actual water animation passed real rendering and CI; the sampling assertion was phase-sensitive.",
+  "fix": "Observe actual RGB changes within3s with >128changed pixels, retaining frozen-motion checks. No game/animation/collision or generic test timeout changed."
+}

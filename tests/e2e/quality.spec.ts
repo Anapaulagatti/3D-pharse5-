@@ -145,8 +145,23 @@ test("OS reduced motion stays honored; original water pixels visibly animate onl
     await p.emulateMedia({ reducedMotion: "no-preference" });
     await p.waitForFunction(() => window.__SEOUL__!.ambientClock > 300);
     const live = await pixels(p, [640, 620, 128, 100]);
-    await p.waitForTimeout(250);
-    expect(await pixels(p, [640, 620, 128, 100])).not.toEqual(live);
+    await expect
+      .poll(
+        async () => {
+          const next = await pixels(p, [640, 620, 128, 100]);
+          let changed = 0;
+          for (let i = 0; i < next.length; i += 4)
+            if (
+              next[i] !== live[i] ||
+              next[i + 1] !== live[i + 1] ||
+              next[i + 2] !== live[i + 2]
+            )
+              changed++;
+          return changed;
+        },
+        { timeout: 3000, intervals: [80, 120, 180] },
+      )
+      .toBeGreaterThan(128);
     await p.emulateMedia({ reducedMotion: "reduce" });
     await p.waitForTimeout(100);
     const t = await p.evaluate(() => window.__SEOUL__!.ambientClock);
