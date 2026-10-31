@@ -47,7 +47,7 @@ const look = (): CharacterAppearance => ({
   characterId: "ara",
   hairstyleId: "ara-braided-bun",
   outfitId: "ara-sunlit-linen",
-  accessoryIds: ["ara-shell-barrette"],
+  accessoryIds: [],
 });
 describe("Phase2A immutable approval baseline", () => {
   it("preserves all four original source/atlas/config/preview/tool files and definition snapshots byte-for-byte", () => {
@@ -217,7 +217,7 @@ describe("native cosmetic catalog and compatibility", () => {
       }),
     ).toEqual({
       ...defaultAppearance("ara"),
-      accessoryIds: ["ara-shell-barrette"],
+      accessoryIds: [],
     });
     expect(
       normalizeAppearance("ara", { ...look(), schemaVersion: 99 }),

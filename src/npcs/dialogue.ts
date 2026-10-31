@@ -7,6 +7,7 @@ export interface DialogueHost {
   onOpen(id: string): void;
   onClose(id: string): void;
   drawPreview(canvas: HTMLCanvasElement, id: string): void;
+  questAction?(id: string, container: HTMLElement, close: () => void): void;
 }
 export class NPCDialogueService {
   readonly dialog: HTMLDialogElement;
@@ -114,6 +115,9 @@ export class NPCDialogueService {
       b.addEventListener("click", () => this.show(choice.next));
       this.el("#npc-dialogue-choices").append(b);
     }
+    this.host.questAction?.(this.npc.id, this.el("#npc-dialogue-choices"), () =>
+      this.close(),
+    );
     this.el<HTMLButtonElement>("#npc-dialogue-next").hidden = !node.next;
     this.host.drawPreview(
       this.el<HTMLCanvasElement>("#npc-dialogue-preview"),

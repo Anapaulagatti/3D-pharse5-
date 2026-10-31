@@ -1,3 +1,4 @@
+import { repairedEntrance } from "./Accessibility";
 import Phaser from "phaser";
 import { rasterOrigin } from "./Registration";
 import { addNativeTexture } from "./NativeTexture";
@@ -288,6 +289,9 @@ export class WorldCache {
         .some((o) => !this.pool.resident.has("f/" + o.id))
     )
       return false;
-    return entry.value.mask[(y - c.y) * c.width + x - c.x] > 127;
+    return (
+      (this.data.id === "palace-cleanup-world" && repairedEntrance(x, y)) ||
+      entry.value.mask[(y - c.y) * c.width + x - c.x] > 127
+    );
   }
 }

@@ -1,4 +1,6 @@
 import { NPCWorldClock } from "./clock";
+import { QuestUI } from "../quests/ui";
+import { QuestWorldIndicators } from "../quests/world";
 import { resolveActivity, validateSchedules } from "./schedules";
 import { privateReviewBuild, mountRightsReport } from "../rights/runtime";
 import { chooseTarget } from "./interaction";
@@ -27,6 +29,7 @@ interface Host {
   blocked(): boolean;
   canInteract(): boolean;
   lock(): () => void;
+  onQuestAction?(): void;
 }
 interface RenderActor {
   model: NPCActorModel;
@@ -72,6 +75,8 @@ export class NPCManager {
   private wanted = new Set<string>();
   private retry = new Map<string, number>();
   private dialogue: NPCDialogueService;
+  private quests: QuestUI;
+  private questWorld: QuestWorldIndicators;
   private button: HTMLButtonElement;
   private target?: string;
   private closed = false;
@@ -176,6 +181,16 @@ export class NPCManager {
         () => this.snapshot(),
         () => [...this.actors.values()].map((a) => a.sprite),
       );
+    this.questWorld = new QuestWorldIndicators(scene);
+    this.quests = new QuestUI({
+      ...host,
+      onWorldAction: () => host.onQuestAction?.(),
+      onOpen: (id) => this.models.get(id)?.talk(host.player()),
+      onClose: (id) => {
+        this.models.get(id)?.finishTalk();
+        this.store.save();
+      },
+    });
     this.dialogue = new NPCDialogueService({
       canOpen: () => host.canInteract(),
       lock: () => host.lock(),
@@ -189,6 +204,17 @@ export class NPCManager {
         this.store.save();
       },
       drawPreview: (canvas, id) => this.preview(canvas, id),
+      questAction: (id, container, close) => {
+        if (!this.quests.hasOffer(id)) return;
+        const button = document.createElement("button");
+        button.textContent = "Nhiệm vụ · 부탁";
+        button.dataset.npcQuest = id;
+        button.onclick = () => {
+          close();
+          this.quests.open(id);
+        };
+        container.append(button);
+      },
     });
   }
   private preview(canvas: HTMLCanvasElement, id: string) {
@@ -202,6 +228,7 @@ export class NPCManager {
     context.drawImage(asset.image, f.x, f.y, 96, 112, 0, 0, 96, 112);
   }
   tryInteract() {
+    if (this.quests.tryWorldAction()) return true;
     if (this.dialogue.target) return true;
     if (!this.host.canInteract()) return false;
     this.updateTarget();
@@ -247,7 +274,7 @@ export class NPCManager {
   }
   private populate() {
     const p = this.host.player();
-    const pinned = this.dialogue.target;
+    const pinned = this.dialogue.target ?? this.quests.target;
     const activeZones = new Set(
       Object.keys(zones).filter((z) =>
         zones[z].some((r) => rectDistance(p, r) < 240),
@@ -385,7 +412,11 @@ export class NPCManager {
       a.elapsed += dt;
       const interval = visible ? 50 : 250;
       if (a.elapsed >= interval) {
-        if (!this.host.blocked() || this.dialogue.target === a.model.def.id) {
+        if (
+          !this.host.blocked() ||
+          this.dialogue.target === a.model.def.id ||
+          this.quests.target === a.model.def.id
+        ) {
           const occupied = (n: Point) =>
             Math.hypot(n[0] - p[0], n[1] - p[1]) < 24 ||
             [...this.actors.values()].some(
@@ -420,6 +451,8 @@ export class NPCManager {
       }
     }
     this.updateTarget();
+    this.quests.update();
+    this.questWorld.update(this.quests.manager.snapshot());
     if (this.now - this.lastSave > 5000) {
       this.store.save();
       this.saveLife();
@@ -444,6 +477,8 @@ export class NPCManager {
   snapshot() {
     return {
       clock: this.clock.snapshot(),
+      quests: this.quests.manager.snapshot(),
+      learningMode: this.quests.manager.learning.mode,
       registered: residentRegistry.npcs.length, // Legacy resident API; actual total is explicit below.
       catalogTotal: npcRegistry.npcs.length,
       residentCount: residentRegistry.npcs.length,
@@ -483,6 +518,8 @@ export class NPCManager {
     this.archive?.dispose();
     this.auditDispose?.();
     this.dialogue.dispose();
+    this.quests.dispose();
+    this.questWorld.dispose();
     this.closed = true;
     this.store.save();
     this.bindings.abort();

@@ -1,3 +1,5 @@
+import collisionAmendments from "./phase3bc-collision.json";
+import { CollisionDebug } from "./CollisionDebug";
 // PHASE3A BEGIN imports
 import { NPCManager } from "../npcs/manager";
 import { npcReviewSpawn } from "../npcs/review";
@@ -303,6 +305,14 @@ const data: Manifest = await fetch(
   if (!r.ok) throw Error("Missing G3 manifest");
   return r.json();
 });
+if (id === "palace-cleanup-world") {
+  for (const change of collisionAmendments.chunks) {
+    const chunk = data.chunks.find((c) => c.id === change.id);
+    if (!chunk || chunk.mask !== change.originalMask)
+      throw Error("Collision amendment predecessor mismatch");
+    chunk.mask = change.mask;
+  }
+}
 const nativeContact = await loadNativeContact(
   (data as Manifest & { contactCollision?: ContactSpec }).contactCollision,
   base,
@@ -402,6 +412,7 @@ const reset = attachJoystick(
 class Slice extends Phaser.Scene {
   // PHASE3A BEGIN field
   private npcs?: NPCManager;
+  private collisionDebug?: CollisionDebug;
   // PHASE3A END field
   private reviewCamera!: FoundationCamera;
   private worldCache!: WorldCache;
@@ -440,6 +451,9 @@ class Slice extends Phaser.Scene {
   }
   create() {
     this.worldCache = new WorldCache(this, data, base, this.diagnostics);
+    if (query.has("collisionDebug"))
+      this.collisionDebug = new CollisionDebug(this, nativeContact?.spec);
+    this.events.once("shutdown", () => this.collisionDebug?.dispose());
     if (this.diagnostics) {
       this.diagnostics.attach(this);
       window.__GATE3_PROFILE__ = {
@@ -661,6 +675,7 @@ class Slice extends Phaser.Scene {
     if (production && id === "palace-cleanup-world")
       this.npcs = new NPCManager(this, base, {
         player: () => [this.x, this.y],
+        onQuestAction: () => this.motion.gesture("wave"),
         ground: (x, y) => this.walkable(x, y),
         blocked: () => paused || scenicLocked || document.hidden,
         canInteract: () =>
@@ -811,6 +826,13 @@ class Slice extends Phaser.Scene {
     this.diagnostics?.sample("update.cache", performance.now() - cacheStarted);
     // PHASE3A BEGIN update
     this.npcs?.update(delta);
+    this.collisionDebug?.update(
+      delta,
+      this.x,
+      this.y,
+      (x, y) => this.walkable(x, y),
+      frame,
+    );
     // PHASE3A END update
     const behind = data.objects
       .filter(

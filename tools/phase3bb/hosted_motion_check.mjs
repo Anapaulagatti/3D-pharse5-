@@ -16,7 +16,7 @@ export async function verifyMotion(browser,base) {
    }
   }finally{await c.close();}
  }
- const c=await browser.newContext({viewport:{width:960,height:640},deviceScaleFactor:1,reducedMotion:'reduce'});let trace=[];
+ const c=await browser.newContext({viewport:{width:960,height:640},deviceScaleFactor:1,reducedMotion:'reduce'});let trace;
  try{await seed(c,...specs[0]);const p=await c.newPage();p.on('pageerror',e=>errors.push(e.message));await p.goto(new URL('play/?renderer=canvas&entry=transition',base).href);await p.waitForFunction(()=>window.__GATE3__?.ready&&window.__GATE3__.chunks.inflight===0,{}, {timeout:60000});await p.waitForTimeout(300);await p.evaluate(()=>{window.__releaseMotionTrace=[];window.__releaseMotionCapture=true;const f=()=>{const s=window.__GATE3__;if(s)window.__releaseMotionTrace.push({t:performance.now(),x:s.x,y:s.y,frame:s.frame,look:s.camera.lookAhead,view:s.camera.worldView,zoom:s.zoom,players:s.playerSprites,sampling:s.samplingMode});if(window.__releaseMotionCapture)requestAnimationFrame(f)};requestAnimationFrame(f)});
   let held=[];const scenarios=[['d'],['d','w'],[],['w'],['Shift','w'],['Shift','w','a'],['Shift','s','d'],[],['a'],['d'],['w','s'],[]];
   for(const keys of scenarios){for(const k of held)if(!keys.includes(k))await p.keyboard.up(k);for(const k of keys)if(!held.includes(k))await p.keyboard.down(k);held=keys;await p.waitForTimeout(230);}

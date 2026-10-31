@@ -1,3 +1,7 @@
+# Phase3B-C implementation candidate ·2026-10-31
+
+Owner authorizes hair-accessory retirement, local collision corrections and three NPC learning/reward quests. Branch feature/phase3b-c-quests-accessibility; checkpoint/phase3bc-before-20261031. See docs/phase3bc. Existing public26 artifact74235a6e/manifestdb9d4bb6 unchanged. Changed public exposure requires new exact-manifest approval. No Phase3B-D/mainmerge/productionv0.5 change. Physical devices NOT TESTED. Older state entries below are historical.
+
 # Current state — Phase3B-B26 public review VERIFIED (2026-10-30)
 
 URL https://anapaulagatti.github.io/3D-pharse5-review/. Exactartifact74235a6e7075b77840d2e9fdf36dce678288cd05 /manifestdb9d4bb68f31c819d79ec95efaad1befce257086e64c41a5c93c2ba6fe7deb2f.

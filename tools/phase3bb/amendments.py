@@ -6,7 +6,15 @@ from pathlib import Path
 import hashlib,json,subprocess
 R=Path(__file__).resolve().parents[2]
 def historical_bytes(name,expected=None):
- current=(R/name).read_bytes();manifest=R/'docs/phase3bb-hotfix/AUTHORIZED_AMENDMENTS.json'
+ current=(R/name).read_bytes()
+ latest=R/'docs/phase3bc/AUTHORIZED_AMENDMENTS.json'
+ if latest.exists():
+  q=json.loads(latest.read_text());row=q['files'].get(name)
+  if row:
+   assert hashlib.sha256(current).hexdigest()==row['afterSHA256'],('Phase3BC amendment drift',name)
+   current=subprocess.check_output(['git','show',q['base']+':'+name],cwd=R)
+   assert hashlib.sha256(current).hexdigest()==row['beforeSHA256']
+ manifest=R/'docs/phase3bb-hotfix/AUTHORIZED_AMENDMENTS.json'
  if not manifest.exists():return current
  q=json.loads(manifest.read_text());row=q['files'].get(name)
  if not row:return current

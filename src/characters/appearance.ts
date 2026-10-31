@@ -7,6 +7,13 @@ import type {
   CosmeticItem,
 } from "./appearanceTypes";
 const idPattern = /^[a-z][a-z0-9-]*$/;
+/** Archived sources stay immutable; retired selections are ignored on every load/render. */
+export const retiredHairAccessories = new Set([
+  "ara-shell-barrette",
+  "kr-hair-ornament",
+  "kr-fashion-cap",
+  "kr-garden-hat",
+]);
 export function validateAppearanceManifest(
   value: AppearanceManifest,
 ): AppearanceManifest {
@@ -125,6 +132,7 @@ export function compatibleItems(
 ) {
   return manifest.items.filter(
     (item) =>
+      !retiredHairAccessories.has(item.id) &&
       item.availability.status === "free-review" &&
       item.compatibility.characterIds.includes(characterId) &&
       (!category || category === item.category),

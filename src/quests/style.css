@@ -1,0 +1,90 @@
+#quest-hud {
+  position: fixed;
+  top: max(54px, env(safe-area-inset-top));
+  right: max(8px, env(safe-area-inset-right));
+  z-index: 4;
+  max-width: min(310px, 44vw);
+  pointer-events: none;
+  font-size: 12px;
+}
+#quest-hud button {
+  pointer-events: auto;
+  min-height: 44px;
+  border: 2px solid #cdaf78;
+  background: #253c3a;
+  color: #fff2d4;
+  border-radius: 5px;
+  padding: 6px 10px;
+}
+#quest-tracker {
+  background: #253c3ae8;
+  color: #fff2d4;
+  padding: 6px;
+  max-height: 88px;
+  overflow: auto;
+}
+#quest-tracker:empty {
+  display: none;
+}
+#quest-dialogue {
+  width: min(680px, calc(100vw - 24px));
+  max-height: calc(100dvh - 20px);
+  box-sizing: border-box;
+  overflow: auto;
+  border: 3px solid #d4b77f;
+  background: #f6eddb;
+  color: #263a37;
+  padding: 16px;
+  border-radius: 8px;
+  font: 15px/1.5 system-ui;
+}
+#quest-dialogue::backdrop {
+  background: #11282588;
+}
+#quest-dialogue button {
+  min-height: 44px;
+  margin: 4px;
+  padding: 8px 12px;
+  background: #284b46;
+  color: #fff5dd;
+  border: 2px solid #9cbb9a;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#quest-dialogue button:focus-visible {
+  outline: 3px solid #f0a22e;
+  outline-offset: 2px;
+}
+#quest-dialogue h2 {
+  font-size: 20px;
+  margin: 0 0 8px;
+}
+.quest-card {
+  border-top: 1px solid #9ca58c;
+  padding: 8px 0;
+}
+.quest-card h3 {
+  margin: 4px 0;
+  font-size: 17px;
+}
+.quest-demo {
+  font-size: 12px;
+}
+@media (max-height: 450px) {
+  #quest-hud {
+    top: 48px;
+    max-width: 35vw;
+  }
+  #quest-tracker {
+    max-height: 44px;
+    font-size: 11px;
+  }
+  #quest-dialogue {
+    padding: 10px;
+  }
+}
+
+body[data-camera="tour"] #quest-hud,
+body[data-camera="overview"] #quest-hud {
+  display: none;
+}

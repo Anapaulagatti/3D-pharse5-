@@ -111,8 +111,9 @@ describe("twelve complete free identities", () => {
               `assets-src/characters/phase2b/${id}/frames/${name}.png`,
             ),
           ).toBe(true);
-      expect(compatibleItems(id).length).toBeGreaterThanOrEqual(3);
-      for (const category of ["hairstyle", "outfit", "accessory"] as const)
+      expect(compatibleItems(id, "hairstyle").length).toBeGreaterThanOrEqual(1);
+      expect(compatibleItems(id, "outfit").length).toBeGreaterThanOrEqual(1);
+      for (const category of ["hairstyle", "outfit"] as const)
         expect(compatibleItems(id, category).length).toBeGreaterThanOrEqual(1);
       expect(
         normalizeAppearance(id, {
