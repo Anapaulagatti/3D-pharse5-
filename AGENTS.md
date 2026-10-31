@@ -1,3 +1,11 @@
+# Phase3B-C private candidate READY · public exposure PENDING (2026-10-31)
+
+Final candidate: artifact `b0164331134d5ea9ebce306fc3b16a19b9565744`, manifest SHA256 `7deae834d82d98df80fd2e36e671305ac912ed7790b9d06219ba6f07cb1371fd` (3029 files). Source implementation9970b16e; review checkpoint `checkpoint/phase3bc-quest-accessibility-review-20261031`. ZIP SHA256 `723a18ef92959bf73f024814a591ca38d4196387c72f20ccbfa0a7389b4685d0`.
+
+See docs/phase3bc/README.md, QA.md, PUBLIC_CANDIDATE_PROOF.json, PACKAGE_PROOF.json and DEPLOYMENT_PREPARATION.json. Exact extracted offline Phaser PASS:3029assetURLs,26catalog,realNPC quest acceptance,oneJuni,zero console/resource errors. Three complete actual quests,9realnavigationsequences,181unit,3newE2E/12actors,14updatedStudio follow-up and36prepared native pose checks pass. Original full regression71/72:retired-hat expectation FAIL retained; replacement PASS, not relabeled clean75.9180existing assetfiles unchanged. Three blocked scenery markers/oldstationstrip, Koreanhumanreview and physicaldevice/GPU NOTTESTED remain documented.
+
+Existing PUBLIC26 artifact74235a6e/manifestdb9d4bb6 and all old snapshots/v0.5 remain UNCHANGED. New profile/receipt/verifier controls are prepared ONLY in docs/phase3bc/deployment-prep. Pending receipt correctly BLOCKS before art fetch. No remote writes/deployment/game-main merge. DO NOT publish this new candidate until explicit exact-manifest owner approval; do not begin Phase3B-D. STOP for consolidated owner review. No delegation.
+
 # Current authority — Phase3B-C authorized2026-10-31
 
 Read docs/phase3bc/HUMAN_DIRECTIVE.md. Latest owner supersedes 3B-C lock for hair-accessory removal, localized collision audit/corrections, three real quest loops, local-demo Korean learning, persistent inventory/rewards, disabled ad contract and private candidate QA. Preserve approved26 art,12players,world,hairstyles and unaffectedcosmetics; archive sources rather than destroy. Work feature/phase3b-c-quests-accessibility; checkpoint/phase3bc-before-20261031. Existing live26 artifact74235a6e/manifestdb9d4bb6 remains rollback and PUBLIC UNCHANGED. Changed public candidate requires exact manifest owner approval before publication. No3B-D, productionv0.5/mainmerge, newart or delegation. Physicaldevices NOTTESTED. Complete candidate then one consolidated review.

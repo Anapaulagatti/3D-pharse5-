@@ -12,11 +12,11 @@ qa=json.loads((D/'QA_RESULT.json').read_text())
 for root in [O,snap]:
  out=root/'review';out.mkdir(exist_ok=True)
  for p in D.iterdir():
-  if p.is_file() and (p.suffix=='.png' or p.name in ['QA.md','HISTORICAL_FAILURES.md','KOREAN_CONTENT_REVIEW.md','NATIVE_RENDERING.json','FULL_REGRESSION_STATS.json','COLLISION_REVIEW.md','RUNTIME_QA.json','TRAVERSAL_QA.json','PROTECTED_AUDIT.json','NAVIGATION_AUDIT.json','COLLISION_AMENDMENTS.json','VIDEO_PROOF.json','QA_RESULT.json']):shutil.copy2(p,out/p.name)
+  if p.is_file() and not p.name.startswith('offline-') and (p.suffix=='.png' or p.name in ['QA.md','DEFECTS.md','REMAINING_SPATIAL_PROPOSALS.json','HISTORICAL_FAILURES.md','KOREAN_CONTENT_REVIEW.md','NATIVE_RENDERING.json','FULL_REGRESSION_STATS.json','COLLISION_REVIEW.md','RUNTIME_QA.json','TRAVERSAL_QA.json','PROTECTED_AUDIT.json','NAVIGATION_AUDIT.json','COLLISION_AMENDMENTS.json','VIDEO_PROOF.json','QA_RESULT.json','BROWSER_PERFORMANCE.json','ASSET_CONTRACT.json']):shutil.copy2(p,out/p.name)
  (out/'videos').mkdir(exist_ok=True)
  for p in (D/'videos').glob('*.mp4'):shutil.copy2(p,out/'videos'/p.name)
  shutil.copy2(D/'REVIEW.html',out/'index.html')
- p=root/'index.html';text=p.read_text();text=text.replace('<a href="#play">','<a href="review/">Phase3B-C · nhiệm vụ và collision</a><a href="#play">');p.write_text(text)
+ p=root/'index.html';text=p.read_text();text=text if 'href="review/"'in text else text.replace('<a href="#play">','<a href="review/">Phase3B-C · nhiệm vụ và collision</a><a href="#play">');p.write_text(text)
  (root/'qa.json').write_text(json.dumps(qa,ensure_ascii=False,indent=2)+'\n')
  version=json.loads((root/'version.json').read_text());version.update(dirty=False,exposure='PENDING_EXACT_OWNER_PUBLIC_APPROVAL',activeCosmetics=24,retiredHeadEquipment=4,learningMode='LOCAL_DEMO_HUMAN_CONTENT_REVIEW_PENDING');(root/'version.json').write_text(json.dumps(version,indent=2)+'\n')
  (root/'phase.json').write_text(json.dumps({'phase':'Phase3B-C quests/accessibility','slug':'3b-c','gameRef':version['gameCommit'],'publicExposure':'PENDING_EXACT_OWNER_APPROVAL','artisticReview':'PENDING','physicalDevices':'NOT TESTED'},indent=2)+'\n')
@@ -29,12 +29,13 @@ previous=json.loads((old26/'export-manifest.json').read_text());byHash={r['sha25
 def manifest(root):
  rows=[]
  for p in sorted(root.rglob('*')):
-  if not p.is_file()or p==root/'export-manifest.json':continue
-  digest=sha(p);prior=byHash.get(digest);name=str(p.relative_to(root));row={'filename':name,'sha256':digest,'bytes':p.stat().st_size,'publicPreviewDecision':'PENDING_EXACT_OWNER_APPROVAL','commercialRelease':'NOT_CERTIFIED'}
+  if not p.is_file()or p==root/'export-manifest.json'or '.git'in p.relative_to(root).parts:continue
+  digest=sha(p);prior=byHash.get(digest);name=str(p.relative_to(root));npcId=next((n['id']for n in json.loads((O/'catalog.json').read_text())['npcs'] if '/'+n['id']+'/'in '/'+name or Path(name).stem==n['id']), None)
+  row={'npcId':npcId,'filename':name,'sha256':digest,'bytes':p.stat().st_size,'publicPreviewDecision':'PENDING_EXACT_OWNER_APPROVAL','commercialRelease':'NOT_CERTIFIED'}
   if prior:row.update(evidence='Byte-identical to previously approved26 exposure record',priorManifestSHA256='db9d4bb68f31c819d79ec95efaad1befce257086e64c41a5c93c2ba6fe7deb2f',priorFilename=prior['filename'])
   else:row.update(evidence='Original project code, beginner questions, collision-only geometry, gameplay evidence or review metadata; no new external artwork/voice/font/media',risk='Korean educational review pending; exact new public exposure NOT approved')
   rows.append(row)
- return {'schemaVersion':1,'profile':'phase3bc-quests26','scope':'Private Phase3BC candidate;26 fictionalNPC/world/12players/24activecosmetics/3quests/localdemo/inventory; old approved snapshots retained. Not public or commercial clearance.','gameCommit':version['gameCommit'],'files':rows}
+ return {'schemaVersion':1,'profile':'phase3bc-quests26','scope':'Private Phase3BC candidate;26 fictionalNPC/world/12players/24activecosmetics/3quests/localdemo/inventory; old approved snapshots retained. Not public or commercial clearance.','gameCommit':version['gameCommit'],'portalCommit':version['portalCommit'],'files':rows}
 (snap/'export-manifest.json').write_text(json.dumps(manifest(snap),ensure_ascii=False,indent=2)+'\n');(O/'export-manifest.json').write_text(json.dumps(manifest(O),ensure_ascii=False,indent=2)+'\n')
 # Enforce exact prior snapshot preservation.
 for sub in ['3b-a','3b-b']:

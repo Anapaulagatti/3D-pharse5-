@@ -1,0 +1,11 @@
+# Retained initial failures and their corrections
+
+- First full regression attempt: new quest-journal button overlapped the existing Character Studio settings button. Actual pointer-interception screenshot/trace identified the bug. Fixed questHUD z-index below the existing header/settings stack. Subsequent settings round-trip and all Studio/mobile checks pass without force-clicks or timeout increases.
+- Initial scripted farm driver stopped within2px on each axis while Euclidean distance exceeded its2.5px threshold; no keys were held. Corrected the driver threshold, not collision or character position. Three actual quest loops then passed; the initial failure record remains RUNTIME_INITIAL_DRIVER_FAILURE.json.
+- Conservative4px route-grid did not cross the initially narrow bridge deck lanes. Native full-resolution masks were connected. Visually inspected existing deck ownership was broadened locally in two derived collision-only chunks;2695 previously blocked cells, zero source-art changes. Actual repeated bridgeA/B controls pass. No water, support, old90×36 connector or new visual paving was added.
+- The original72-test discovery captured a now-obsolete hat-equipping expectation. Hair-equipment removal is expressly required in Phase3BC. The updated test asserts unavailable hats and retains actual scarf/hairstyle/rapid-preview checks; the complete14-test updated wardrobe/Studio follow-up passes. Original run is not relabeled all-green.
+- New E2E fixture initially imported JSON-bearing game modules directly into the Node runner. Replaced only fixture imports with read-only source-JSON parsing;3 new browser tests pass. No runtime fallback/validation was removed.
+- Playwright's FFmpeg download was403. Actual videos use the already installed system FFmpeg via a workspace-local expected-binary path. No network-access bypass or invented recording success. Twelve silent actual gameplay MP4s are separately probed/hashed; PNGs remain native fidelity evidence.
+- An inherited ESLint unused initializer in the previous release's hosted motion-check helper was removed; no gameplay logic or historical art changed.
+
+Physical mobile/GPU certification, Korean educational acceptance and owner artistic/gameplay/public-exposure approval remain separate from automated QA.
