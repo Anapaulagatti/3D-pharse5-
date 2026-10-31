@@ -153,7 +153,7 @@ test("personal presets rename/delete, cancel a draft, and survive reload without
   );
   expect(await page.evaluate(() => window.__GATE3__!.appearance)).toEqual(old);
 });
-test("latest rapid preview wins and equipping a hat removes an incompatible quiff without touching original pixels", async ({
+test("latest rapid preview wins; retired hats stay unavailable and retained accessories preserve hair", async ({
   page,
 }) => {
   await boot(page, "doyun");
@@ -162,13 +162,14 @@ test("latest rapid preview wins and equipping a hat removes an incompatible quif
   await page.locator('[data-cosmetic="doyun-curly-crop"]').click();
   await preview(page);
   await page.locator('[data-category="accessory"]').click();
-  await page.locator('[data-cosmetic="kr-garden-hat"]').click();
+  await expect(page.locator('[data-cosmetic="kr-garden-hat"]')).toHaveCount(0);
+  await page.locator('[data-cosmetic="doyun-linen-kerchief"]').click();
   await preview(page);
   let look = JSON.parse(
     (await page.locator("#character-preview").getAttribute("data-appearance"))!,
   );
-  expect(look.hairstyleId).toBeNull();
-  expect(look.accessoryIds).toContain("kr-garden-hat");
+  expect(look.hairstyleId).toBe("doyun-curly-crop");
+  expect(look.accessoryIds).toContain("doyun-linen-kerchief");
   for (let i = 0; i < 12; i++)
     await page
       .locator("#appearance-preset")

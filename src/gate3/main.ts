@@ -452,7 +452,15 @@ class Slice extends Phaser.Scene {
   create() {
     this.worldCache = new WorldCache(this, data, base, this.diagnostics);
     if (query.has("collisionDebug"))
-      this.collisionDebug = new CollisionDebug(this, nativeContact?.spec);
+      this.collisionDebug = new CollisionDebug(
+        this,
+        nativeContact?.spec,
+        [
+          ...Object.values(data.reviewEntries ?? {}),
+          ...data.targets.map((t) => [t.x, t.y] as const),
+        ],
+        data.logicalSolids ?? [],
+      );
     this.events.once("shutdown", () => this.collisionDebug?.dispose());
     if (this.diagnostics) {
       this.diagnostics.attach(this);

@@ -1,3 +1,9 @@
+import { readFileSync } from "node:fs";
+const appearanceManifest = JSON.parse(
+  readFileSync("assets-src/characters/phase2c/catalog.json", "utf8"),
+) as {
+  items: { id: string; variants: { characterId: string; paint: string }[] }[];
+};
 import { test, expect, type Page } from "@playwright/test";
 const V1 = "korean-arena-player-preferences-v1",
   V2 = "korean-arena-appearance-preferences-v2";
@@ -66,7 +72,7 @@ const araLook = {
   characterId: "ara",
   hairstyleId: "ara-braided-bun",
   outfitId: "ara-sunlit-linen",
-  accessoryIds: ["ara-shell-barrette"],
+  accessoryIds: ["kr-crossbody"],
 };
 test("Studio previews and applies each category, resets, and persists a named local look without changing world progress", async ({
   page,
@@ -82,7 +88,7 @@ test("Studio previews and applies each category, resets, and persists a named lo
   await page.locator('[data-character="ara"]').click();
   await item(page, "hairstyle", "ara-braided-bun");
   await item(page, "outfit", "ara-sunlit-linen");
-  await item(page, "accessory", "ara-shell-barrette");
+  await item(page, "accessory", "kr-crossbody");
   await page.locator('[data-action="run"]').click();
   await page.locator("#character-preview-direction").selectOption("back");
   await page.locator("#appearance-preset-name").fill("Buổi dạo biển");
@@ -167,14 +173,14 @@ test("switching between cosmetic-compatible and locked original identities resto
   const before = await state(page);
   await open(page);
   for (const [preset, id, accessory] of [
-    ["review-ara-harbor", "ara", "ara-shell-barrette"],
+    ["review-ara-harbor", "ara", ""],
     ["review-doyun-varsity", "doyun", "doyun-linen-kerchief"],
   ]) {
     await page.locator("#appearance-preset").selectOption(preset);
     await apply(page);
     const next = await state(page);
     expect(next.id).toBe(id);
-    expect(next.appearance.accessoryIds).toEqual([accessory]);
+    expect(next.appearance.accessoryIds).toEqual(accessory ? [accessory] : []);
     expect(next.players).toBe(1);
     expect([next.x, next.y, next.visited]).toEqual([
       before.x,
@@ -190,7 +196,7 @@ test("switching between cosmetic-compatible and locked original identities resto
   expect((await state(page)).appearance).toMatchObject({
     hairstyleId: "ara-braided-bun",
     outfitId: "ara-coastal-parka",
-    accessoryIds: ["ara-shell-barrette"],
+    accessoryIds: [],
   });
   await apply(page, true);
 });
@@ -229,9 +235,11 @@ test("corrupt and incompatible appearance references preserve the valid v1 ident
 test("missing cosmetic artwork falls back to the original character without blank or duplicate players", async ({
   page,
 }) => {
-  await page.route(
-    "**/cosmetics/phase2c/ara-braided-bun/ara/paint.png",
-    (route) => route.fulfill({ status: 404, body: "Missing review texture" }),
+  const paint = appearanceManifest.items
+    .find((i) => i.id === "ara-braided-bun")!
+    .variants.find((v) => v.characterId === "ara")!.paint;
+  await page.route("**/" + paint, (route) =>
+    route.fulfill({ status: 404, body: "Missing review texture" }),
   );
   await boot(page, "ara");
   const before = await state(page);

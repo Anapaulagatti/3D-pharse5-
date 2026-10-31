@@ -1,7 +1,7 @@
 import {chromium} from '@playwright/test';
 import fs from 'node:fs/promises';
 import {execFileSync} from 'node:child_process';
-const D='docs/phase3bc', base='http://127.0.0.1:4322/3D-pharse5-/';
+const D='docs/phase3bc', base=process.env.QUEST_REVIEW_URL ?? 'http://127.0.0.1:4322/3D-pharse5-/';
 const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});
 const results={status:'RUNNING',quests:[],routes:[],errors:[],physicalDevices:'NOT TESTED',hardwareGPU:'NOT TESTED'};
 let context,page;

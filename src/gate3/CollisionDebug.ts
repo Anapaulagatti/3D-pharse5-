@@ -8,6 +8,8 @@ export class CollisionDebug {
   constructor(
     private scene: Phaser.Scene,
     private contact?: ContactSpec,
+    private points: readonly (readonly [number, number])[] = [],
+    private solids: readonly { rect: readonly number[] }[] = [],
   ) {
     this.graphics = scene.add.graphics().setDepth(100000);
   }
@@ -53,6 +55,19 @@ export class CollisionDebug {
     )
       for (const [dx, dy] of offsets)
         g.fillRect(Math.round(x) + dx, Math.round(y) + dy, 1, 1);
+    // Declared entrance/exit landmarks and actual continuous solid reservations.
+    for (const {
+      rect: [sx, sy, w, h],
+    } of this.solids)
+      g.lineStyle(1, 0xff5555, 1).strokeRect(sx, sy, w, h);
+    for (const [px, py] of this.points) {
+      if (px < v.x || px > v.right || py < v.y || py > v.bottom) continue;
+      g.lineStyle(1, walkable(px, py) ? 0x43e5ff : 0xff77dd, 1).strokeCircle(
+        px,
+        py,
+        5,
+      );
+    }
     for (const p of entranceRepairs) {
       const [a, b, w, h] = p.rect;
       g.lineStyle(1, 0x45bfff, 1).strokeRect(a, b, w, h);

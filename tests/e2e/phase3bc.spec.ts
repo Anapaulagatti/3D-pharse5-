@@ -1,6 +1,16 @@
 import { test, expect } from "@playwright/test";
-import { characterRegistry } from "../../src/characters/registry";
-import { retiredHairAccessories } from "../../src/characters/appearance";
+import { readFileSync } from "node:fs";
+const characterIds = Object.keys(
+  JSON.parse(
+    readFileSync("assets-src/characters/phase2c/base-bindings.json", "utf8"),
+  ),
+);
+const retiredHairAccessories = new Set([
+  "ara-shell-barrette",
+  "kr-hair-ornament",
+  "kr-fashion-cap",
+  "kr-garden-hat",
+]);
 const seed = async (page: import("@playwright/test").Page, id = "juni") => {
   await page.addInitScript(
     ({ id, retired }) => {
@@ -32,10 +42,10 @@ const seed = async (page: import("@playwright/test").Page, id = "juni") => {
 test("all twelve identities ignore deprecated head equipment while native movement and Studio remain available", async ({
   browser,
 }) => {
-  for (const def of characterRegistry.all) {
+  for (const id of characterIds) {
     const context = await browser.newContext();
     const page = await context.newPage();
-    await seed(page, def.id);
+    await seed(page, id);
     const errors: string[] = [];
     page.on("pageerror", (e) => errors.push(e.message));
     await page.goto("?qa&renderer=canvas&entry=transition");
@@ -43,7 +53,7 @@ test("all twelve identities ignore deprecated head equipment while native moveme
       timeout: 45000,
     });
     const state = await page.evaluate(() => window.__GATE3__!);
-    expect(state.characterId).toBe(def.id);
+    expect(state.characterId).toBe(id);
     expect(state.appearance.accessoryIds).toEqual([]);
     expect(state.playerSprites).toBe(1);
     await page.keyboard.down("s");
@@ -83,8 +93,39 @@ test("mobile landscape quest journal supports touch, visible answers and clean c
   await page.waitForFunction(() => window.__GATE3__?.ready, undefined, {
     timeout: 45000,
   });
+  // Explicit quiz-stage fixture, not a claim of completing mobile world objectives.
+  await page.evaluate(() =>
+    localStorage.setItem(
+      "korean-arena-quests-v1",
+      JSON.stringify({
+        schemaVersion: 1,
+        records: {
+          "modern-delivery-v1": { status: "challenge", step: 0, attempts: 0 },
+        },
+        inventory: {},
+        coins: 0,
+        xp: 0,
+        transactions: [],
+      }),
+    ),
+  );
+  await page.reload();
+  await page.waitForFunction(() => window.__GATE3__?.ready);
   await page.locator("#quest-journal").tap();
   await expect(page.locator("#quest-dialogue")).toBeVisible();
+  const card = page.locator('[data-quest="modern-delivery-v1"]');
+  await card.locator('[data-answer="0"]').tap();
+  await expect(card.locator("[data-question]")).toHaveAttribute(
+    "data-question",
+    "parcel-2",
+  );
+  await page.screenshot({
+    path: "docs/phase3bc/mobile-landscape-question.png",
+  });
+  await card.locator('[data-answer="0"]').tap();
+  await expect(page.locator("#quest-inventory")).toContainText(
+    "Town Coins: 20",
+  );
   const box = await page.locator("#quest-dialogue").boundingBox();
   expect(box!.width).toBeLessThanOrEqual(667);
   expect(box!.height).toBeLessThanOrEqual(375);
