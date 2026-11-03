@@ -1,3 +1,7 @@
+# Final private package ready
+
+See FINAL_DELIVERY.json for exact artifact/manifest/source/ZIP hashes and QA counts. Download PHASE3BD_REVIEW.zip (~435.4MiB including byte-exact20/26rollback snapshots), extract, run `python3 start-review.py`, open loopback `http://127.0.0.1:4483/review/`. Actual extracted desktop/mobile-emulation/26catalog/quest/4video playback PASS;2875assetURLs,zero browser/resource errors. Current public site unchanged. Public exposure PENDING_OWNER_APPROVAL; physicaldevices NOTTESTED; Koreancontent PENDING_HUMAN_REVIEW. Read initial regression FAILs and precise follow-ups, not a fake clean run.
+
 # Phase3B-D · farming/shop + rejected-map cleanup
 
 Owner directive: HUMAN_DIRECTIVE.md. Actual base/source d54117c0 (accepted3BC), before checkpoint checkpoint/phase3bd-before-20261103. New branch feature/phase3b-d-farm-shop-cleanup. Source/provenance hashes were recorded BEFORE edits. This scoped owner increment is farming/shops/twoquests, regardless of older roadmap labels; no phase history is renamed.

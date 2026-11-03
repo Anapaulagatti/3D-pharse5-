@@ -12,7 +12,7 @@ qa=json.loads((D/'QA_RESULT.json').read_text())
 for root in [O,snap]:
  out=root/'review';out.mkdir(exist_ok=True)
  for p in D.iterdir():
-  if p.is_file() and not p.name.startswith('offline-') and (p.suffix in ['.png','.md','.json'] and p.name not in ['BASELINE.json','PUBLIC_CANDIDATE_PROOF.json','PACKAGE_PROOF.json','HUMAN_DIRECTIVE.md','AUTHORIZED_AMENDMENTS.json'] or p.name in ['QA.md','DEFECTS.md','REMAINING_SPATIAL_PROPOSALS.json','HISTORICAL_FAILURES.md','KOREAN_CONTENT_REVIEW.md','NATIVE_RENDERING.json','FULL_REGRESSION_STATS.json','COLLISION_REVIEW.md','RUNTIME_QA.json','TRAVERSAL_QA.json','PROTECTED_AUDIT.json','NAVIGATION_AUDIT.json','COLLISION_AMENDMENTS.json','VIDEO_PROOF.json','QA_RESULT.json','BROWSER_PERFORMANCE.json','ASSET_CONTRACT.json']):shutil.copy2(p,out/p.name)
+  if p.is_file() and not p.name.startswith('offline-') and (p.suffix in ['.png','.md','.json'] and p.name not in ['BASELINE.json','PUBLIC_CANDIDATE_PROOF.json','PACKAGE_PROOF.json','HUMAN_DIRECTIVE.md','AUTHORIZED_AMENDMENTS.json','OFFLINE_BROWSER_PROOF.json','DEPLOYMENT_PREPARATION.json','FINAL_DELIVERY.json'] or p.name in ['QA.md','DEFECTS.md','REMAINING_SPATIAL_PROPOSALS.json','HISTORICAL_FAILURES.md','KOREAN_CONTENT_REVIEW.md','NATIVE_RENDERING.json','FULL_REGRESSION_STATS.json','COLLISION_REVIEW.md','RUNTIME_QA.json','TRAVERSAL_QA.json','PROTECTED_AUDIT.json','NAVIGATION_AUDIT.json','COLLISION_AMENDMENTS.json','VIDEO_PROOF.json','QA_RESULT.json','BROWSER_PERFORMANCE.json','ASSET_CONTRACT.json']):shutil.copy2(p,out/p.name)
  (out/'videos').mkdir(exist_ok=True)
  legacy=out/'legacy-quests';legacy.mkdir(exist_ok=True)
  for p in (D/'legacy-quests').rglob('*'):

@@ -1,3 +1,9 @@
+# Phase3B-D READY_FOR_OWNER_REVIEW ·2026-11-03
+
+Private exact candidate `fff156b6e15584855f1585de5a03d21b3022cdbc` / manifest `543ccd32deb9f37efaf3dd5c8ce48886db95f329657a63ba9c29c4f47b3d49b0` (2875 files); game build source `dcf5709c11b6b1d7e2ae94b5a7590948a2b15c9b`. See docs/phase3bd/FINAL_DELIVERY.json, REVIEW.html, QA.md and PACKAGE_PROOF.json. Actual extracted offline Phaser/26catalog/NPC quest interaction/desktop controls/mobile joystick/four silent video playback PASS,2875URLs,zero resource/page errors. Source rollback checkpoint/phase3bd-before-20261103 preserved. Cleanup416git-rm/183byte-exact source archive moves/128retained exceptions. Protected10462assets and58codefiles unchanged. Unit199PASS; initial full63PASS/3FAIL retained; follow-up15PASS/1old-zone-assertionFAIL; corrected zone3/3PASS. Do not call these one clean full run. Exact originalpublic20/26snapshots retained.
+
+STOP for consolidated owner gameplay/artistic/exact-manifest review. New Pages exposure still PENDING; deployment controls prepared locally only, pending receipt BLOCKS. Do not modify this frozen candidate, merge main, deploy, change v0.5, startPhase3B-E or add paid services without owner instruction. Human Korean content review PENDING; physicalAndroid/iPhone/hardwareGPU NOTTESTED. Historical source/checkpoints remain recoverable. No delegation.
+
 # Phase3B-D authorized ·2026-11-03
 
 Owner-directed next gameplay increment = farming/shop/economy vertical slice plus cleanup, not a retroactive roadmap rename. Earlier3B handoff future gameplay hooks were inert; historical phase names stay unchanged. Source d54117c0 and compiled3BC b0164331 are accepted development baseline. New exact public approval is still required. See docs/phase3bd.
