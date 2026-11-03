@@ -1,0 +1,119 @@
+{
+  "status": "READY_FOR_OWNER_REVIEW / INITIAL_REGRESSION_WARNINGS_RETAINED",
+  "summary": "Functional private Phase3BD farm/shop/twoquest slice; 26preservedNPC/12players/24cosmetics/5quests; canonical world unchanged. No public release. Read initial failures and follow-up separately.",
+  "checks": [
+    {
+      "check": "Typecheck / assets / lint / formatting / production build",
+      "status": "PASS",
+      "evidence": "Fresh local commands; unchanged1900kB bundle-size advisory retained. CI configured, remote CI not executed."
+    },
+    {
+      "check": "Unit tests",
+      "status": "PASS",
+      "evidence": "199/199 across28files. Offline growth/invalid actions/funds/full bags/stock/double harvest/receipt rollback/migration/world cleanup covered."
+    },
+    {
+      "check": "Initial full active E2E regression",
+      "status": "FAIL",
+      "evidence": "63 PASS / 3 FAIL / 0 skipped. Original result retained; see HISTORICAL_FAILURES.md."
+    },
+    {
+      "check": "Isolated motion / six-identity follow-up",
+      "status": "PASS",
+      "evidence": "12/12 locomotion runs (6actors×2) and2/2 six-identity complete dialogue runs. Follow-up total15PASS/1FAIL because worker retained the obsolete zone metadata assertion; original report retained."
+    },
+    {
+      "check": "Corrected inactive-zone lifecycle follow-up",
+      "status": "PASS",
+      "evidence": "Fresh3/3 with every physical/animation/conversation/history field frozen, bounded textures/actors, reentry/despawn and oneplayer. Only derived time-based activity metadata may follow DailyLife clock. No scheduler/gameplay changes."
+    },
+    {
+      "check": "New canonical/marker/shop/mobile targeted E2E",
+      "status": "PASS",
+      "evidence": "6/6 independently; same6also PASS in initial full run. Legacy query/direct URL/reload requests only canonical world;3actual QA approaches; shop replay;667x375 joystick farming."
+    },
+    {
+      "check": "Two NEW actual packaged quest loops",
+      "status": "PASS",
+      "evidence": "Nayeon radish till/plant/water/grow/harvest; Minseo buy/scallion/grow/harvest/sell; wrong→different→correct; reload, one reward,37coins/40gameXP. Eight real control legs, no teleport/state/time completion override."
+    },
+    {
+      "check": "Three previous actual quest loops",
+      "status": "PASS",
+      "evidence": "Fresh isolated real Phaser delivery/orchard/practice-tray completion, wrong/different/right, reward receipts/reload; no old evidence count reuse."
+    },
+    {
+      "check": "Protected assets and roster/cosmetics",
+      "status": "PASS",
+      "evidence": "10462 retained source/runtime files unchanged;26NPC/12player catalogs;24active cosmetics/39native variants exact,4head items remain retired in current play. Historical snapshots retain their original bytes."
+    },
+    {
+      "check": "Canonical build/source/ZIP transport guard",
+      "status": "PASS",
+      "evidence": "585allowlisted assets;416confirmed rejected files git rm,183required donor files moved byte-exact out of public,128exceptions retained. Source/artifact/hash/CItransport guards. Final ZIP CRC/extraction/launch proof is separate."
+    },
+    {
+      "check": "Native rendering/performance",
+      "status": "PASS",
+      "evidence": "5actual native canvas crops: zoom1/nearest/integer camera/one player. No sprite or ground resampling; runtime texture keys unique and NPC cap4. Estimates are not GPU hardware measurements."
+    },
+    {
+      "check": "New art/provenance",
+      "status": "PASS",
+      "evidence": "6original16x20crop frames and exact128x96approved-source Jeju postcard crop; no new image-generation/provider/third-party artwork/audio/font."
+    },
+    {
+      "check": "Public exposure / artistic/curriculum approval",
+      "status": "NOT TESTED",
+      "evidence": "New exact public approval PENDING; owner gameplay/art review needed. Korean content PENDING_HUMAN_REVIEW. No public upload/deployment/main merge."
+    },
+    {
+      "check": "Physical Android/iPhone / hardware GPU",
+      "status": "NOT TESTED",
+      "evidence": "Desktop Chromium + mobile browser emulation only; no physical performance certificate."
+    },
+    {
+      "check": "Spatial/source decisions",
+      "status": "WARN",
+      "evidence": "Bakery deferred, station8px strip retained with prior eastern route, uncertain oldGate3 source classified/excluded rather than indiscriminately deleted. Historical commits not erased."
+    }
+  ],
+  "initialFullRegression": {
+    "startTime": "2026-11-03T04:06:52.696Z",
+    "duration": 1324180.097,
+    "expected": 63,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  },
+  "regressionFollowup": {
+    "startTime": "2026-11-03T04:29:28.695Z",
+    "duration": 281943.348,
+    "expected": 15,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "correctedZoneFollowup": {
+    "startTime": "2026-11-03T04:35:43.113Z",
+    "duration": 120001.00099999999,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "targeted": {
+    "startTime": "2026-11-03T04:01:47.876Z",
+    "duration": 26692.711,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "unitTests": 199,
+  "learningMode": "LOCAL_DEMO",
+  "educationalReview": "PENDING_HUMAN_REVIEW",
+  "ads": "DISABLED",
+  "physicalDevices": "NOT TESTED",
+  "publicExposure": "PENDING_EXACT_OWNER_APPROVAL"
+}

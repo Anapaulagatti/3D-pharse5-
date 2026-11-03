@@ -301,11 +301,23 @@ test("real zone exit/reentry freezes inactive residents and restores them withou
     for (let i = 0; i < 3; i++) {
       await axisTo(page, "y", 1470);
       await page.waitForFunction(() => window.__NPC_WORLD__!.active === 0);
-      const before = await page.evaluate(() => window.__NPC_WORLD__!.records);
-      await page.waitForTimeout(300);
-      expect(await page.evaluate(() => window.__NPC_WORLD__!.records)).toEqual(
-        before,
+      // Daily Life keeps resolving time-based intent metadata offscreen.
+      // Inactive actors must retain every physical/animation/conversation field.
+      const before = await page.evaluate(() =>
+        window.__NPC_WORLD__!.records.map(({ activity, ...motion }) => {
+          void activity;
+          return motion;
+        }),
       );
+      await page.waitForTimeout(300);
+      expect(
+        await page.evaluate(() =>
+          window.__NPC_WORLD__!.records.map(({ activity, ...motion }) => {
+            void activity;
+            return motion;
+          }),
+        ),
+      ).toEqual(before);
       await axisTo(page, "y", 1310);
       await page.waitForFunction(() => window.__NPC_WORLD__!.active >= 2);
       const s = await page.evaluate(() => window.__NPC_WORLD__!);

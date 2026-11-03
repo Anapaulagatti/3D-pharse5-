@@ -1,10 +1,15 @@
 from pathlib import Path
-import numpy as np,sys,json,heapq
+import numpy as np,sys,json,heapq,hashlib
 from scipy.ndimage import distance_transform_edt
 R=Path(__file__).resolve().parents[2]
 f=np.load(R/'.cache/phase3bd-floor.npy');G=4
 # Body-aware masks are already anchor fields; retain 3px extra driver margin.
-d=distance_transform_edt(f);small=d[2::G,2::G]>=3;h,w=small.shape
+digest=hashlib.sha256(f.tobytes()).hexdigest()
+cache=R/('.cache/phase3bd-path-'+digest+'.npy')
+if cache.exists():small=np.load(cache)
+else:
+ d=distance_transform_edt(f);small=d[2::G,2::G]>=3;np.save(cache,small)
+h,w=small.shape
 s0=tuple(map(float,sys.argv[1:3]));t0=tuple(map(float,sys.argv[3:5]));radius=float(sys.argv[5]) if len(sys.argv)>5 else 10
 s=(round((s0[0]-2)/G),round((s0[1]-2)/G));candidates=[]
 for dy in range(-3,4):

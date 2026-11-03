@@ -27,8 +27,15 @@ for (const id of ["sori", "jiwon", "nari", "taeyang", "yuna", "hyunwoo"])
           players: number;
           nearest: number;
         }[] = [];
-        const begun = performance.now();
         await new Promise<void>((resolve) => {
+          let complete = false;
+          window.addEventListener(
+            "motion-probe-complete",
+            () => {
+              complete = true;
+            },
+            { once: true },
+          );
           const sample = () => {
             const s = window.__GATE3__!;
             rows.push({
@@ -38,7 +45,7 @@ for (const id of ["sori", "jiwon", "nari", "taeyang", "yuna", "hyunwoo"])
               players: s.playerSprites,
               nearest: s.samplingMode,
             });
-            if (performance.now() - begun > 4400) resolve();
+            if (complete) resolve();
             else requestAnimationFrame(sample);
           };
           requestAnimationFrame(sample);
@@ -58,6 +65,9 @@ for (const id of ["sori", "jiwon", "nari", "taeyang", "yuna", "hyunwoo"])
         window.__GATE3__!.frame.startsWith("idle-right-"),
       );
       const end = await page.evaluate(() => window.__GATE3__!.x);
+      await page.evaluate(() =>
+        window.dispatchEvent(new Event("motion-probe-complete")),
+      );
       const trace = await tracePromise;
       expect(end - start).toBeGreaterThan(stride * 4);
       expect(trace.every((s) => s.players === 1 && s.nearest === 1)).toBe(true);

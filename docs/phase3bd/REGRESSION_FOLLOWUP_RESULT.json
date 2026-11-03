@@ -1,0 +1,729 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/phase3b-a-recovery/node_modules/.bin/playwright",
+      "test",
+      "tests/e2e/motion-correction.spec.ts",
+      "tests/e2e/phase3a-identity.spec.ts",
+      "tests/e2e/phase3a.spec.ts",
+      "--grep",
+      "consecutive phases|all six fictional identities|real zone exit/reentry",
+      "--repeat-each=2",
+      "--output=.cache/phase3bd-regression-followup-results"
+    ],
+    "configFile": "/workspace/phase3b-a-recovery/playwright.config.ts",
+    "rootDir": "/workspace/phase3b-a-recovery/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/phase3b-a-recovery/.cache/phase3bd-regression-followup-results",
+        "repeatEach": 2,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/workspace/phase3b-a-recovery/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/workspace/phase3b-a-recovery/.cache/phase3bd-regression-followup-results",
+        "repeatEach": 2,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/workspace/phase3b-a-recovery/tests/e2e",
+        "snapshotDir": "/workspace/phase3b-a-recovery/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 120000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4330/3D-pharse5-/",
+          "headless": true,
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--disable-gpu-compositing",
+              "--use-gl=angle",
+              "--use-angle=swiftshader",
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "screenshot": "only-on-failure",
+          "video": "off"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": ".cache/phase3bd-regression-followup/e2e-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview -- --port 4330",
+      "url": "http://127.0.0.1:4330/3D-pharse5-/",
+      "reuseExistingServer": true,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "motion-correction.spec.ts",
+      "file": "motion-correction.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "sori: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10620,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T04:29:30.055Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-248291d1d10d574dfc76",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "jiwon: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 27111,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T04:29:41.307Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-040bffa412a82d05e565",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "nari: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14843,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T04:30:08.442Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-a4fa153f05c18c30d236",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "taeyang: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18903,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T04:30:23.323Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-bca9ed215f94c8f4080b",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "yuna: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11252,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T04:30:42.269Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-5bdd44f60206814bd60c",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "hyunwoo: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 12727,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T04:30:53.546Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-c8f96b1baa9789d20ca6",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "sori: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10809,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T04:32:27.493Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-c6320fb33bcddebf3642",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "jiwon: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9894,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T04:32:38.857Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-21d277570c6b16a92a77",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "nari: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9484,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T04:32:48.783Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-659283f2e20cadcc2f62",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "taeyang: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 13477,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T04:32:58.287Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-9c117e36ac19cd59341d",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "yuna: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10002,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T04:33:11.789Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-62ecc811c52e951a7ef4",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        },
+        {
+          "title": "hyunwoo: actual right walk/run, consecutive phases, stop and turn without engine overrides",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10089,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T04:33:21.814Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "707a999c8e10c0486d01-47c8b3639f1e2c485f33",
+          "file": "motion-correction.spec.ts",
+          "line": 3,
+          "column": 3
+        }
+      ]
+    },
+    {
+      "title": "phase3a-identity.spec.ts",
+      "file": "phase3a-identity.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "all six fictional identities remain attached to existing actors and all public dialogue nodes exclude historical personal identities",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 22500,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T04:31:06.353Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec0b2115817ad15a9de8-b54981ade1b0331fe532",
+          "file": "phase3a-identity.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "all six fictional identities remain attached to existing actors and all public dialogue nodes exclude historical personal identities",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14744,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T04:33:31.936Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec0b2115817ad15a9de8-1e390998ab2aafd3db8e",
+          "file": "phase3a-identity.spec.ts",
+          "line": 13,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "phase3a.spec.ts",
+      "file": "phase3a.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "real zone exit/reentry freezes inactive residents and restores them without duplicate/orphan sprites",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 57224,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T04:31:28.989Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "15517f1c75d177af795e-8e17fab80758d5a63441",
+          "file": "phase3a.spec.ts",
+          "line": 288,
+          "column": 1
+        },
+        {
+          "title": "real zone exit/reentry freezes inactive residents and restores them without duplicate/orphan sprites",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 23732,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 15\u001b[39m\n\u001b[31m+ Received  + 15\u001b[39m\n\n\u001b[33m@@ -407,14 +407,14 @@\u001b[39m\n\u001b[2m    },\u001b[22m\n\u001b[2m    Object {\u001b[22m\n\u001b[2m      \"activity\": Object {\u001b[22m\n\u001b[2m        \"activity\": \"SOCIAL_PAUSE\",\u001b[22m\n\u001b[2m        \"anchor\": Array [\u001b[22m\n\u001b[32m-         682,\u001b[39m\n\u001b[32m-         2630,\u001b[39m\n\u001b[31m+         650,\u001b[39m\n\u001b[31m+         2620,\u001b[39m\n\u001b[2m        ],\u001b[22m\n\u001b[32m-       \"anchorIndex\": 2,\u001b[39m\n\u001b[31m+       \"anchorIndex\": 0,\u001b[39m\n\u001b[2m        \"context\": \"present-day\",\u001b[22m\n\u001b[2m        \"id\": \"npc-modern-daon-cafe-composition-morning\",\u001b[22m\n\u001b[2m        \"label\": Object {\u001b[22m\n\u001b[2m          \"ko\": \"손님을 맞이하는 중\",\u001b[22m\n\u001b[2m          \"vi\": \"Đang đón khách\",\u001b[22m\n\u001b[33m@@ -436,14 +436,14 @@\u001b[39m\n\u001b[2m    },\u001b[22m\n\u001b[2m    Object {\u001b[22m\n\u001b[2m      \"activity\": Object {\u001b[22m\n\u001b[2m        \"activity\": \"SOCIAL_PAUSE\",\u001b[22m\n\u001b[2m        \"anchor\": Array [\u001b[22m\n\u001b[32m-         1542,\u001b[39m\n\u001b[32m-         3284,\u001b[39m\n\u001b[31m+         1510,\u001b[39m\n\u001b[31m+         3260,\u001b[39m\n\u001b[2m        ],\u001b[22m\n\u001b[32m-       \"anchorIndex\": 2,\u001b[39m\n\u001b[31m+       \"anchorIndex\": 0,\u001b[39m\n\u001b[2m        \"context\": \"present-day\",\u001b[22m\n\u001b[2m        \"id\": \"npc-modern-miram-park-football-coaching-morning\",\u001b[22m\n\u001b[2m        \"label\": Object {\u001b[22m\n\u001b[2m          \"ko\": \"손님을 맞이하는 중\",\u001b[22m\n\u001b[2m          \"vi\": \"Đang đón khách\",\u001b[22m\n\u001b[33m@@ -465,14 +465,14 @@\u001b[39m\n\u001b[2m    },\u001b[22m\n\u001b[2m    Object {\u001b[22m\n\u001b[2m      \"activity\": Object {\u001b[22m\n\u001b[2m        \"activity\": \"SOCIAL_PAUSE\",\u001b[22m\n\u001b[2m        \"anchor\": Array [\u001b[22m\n\u001b[32m-         2810,\u001b[39m\n\u001b[31m+         2848,\u001b[39m\n\u001b[2m          2690,\u001b[22m\n\u001b[2m        ],\u001b[22m\n\u001b[32m-       \"anchorIndex\": 0,\u001b[39m\n\u001b[31m+       \"anchorIndex\": 1,\u001b[39m\n\u001b[2m        \"context\": \"present-day\",\u001b[22m\n\u001b[2m        \"id\": \"npc-modern-geonu-station-before-coaching-morning\",\u001b[22m\n\u001b[2m        \"label\": Object {\u001b[22m\n\u001b[2m          \"ko\": \"손님을 맞이하는 중\",\u001b[22m\n\u001b[2m          \"vi\": \"Đang đón khách\",\u001b[22m\n\u001b[33m@@ -495,13 +495,13 @@\u001b[39m\n\u001b[2m    Object {\u001b[22m\n\u001b[2m      \"activity\": Object {\u001b[22m\n\u001b[2m        \"activity\": \"SOCIAL_PAUSE\",\u001b[22m\n\u001b[2m        \"anchor\": Array [\u001b[22m\n\u001b[2m          1034,\u001b[22m\n\u001b[32m-         2620,\u001b[39m\n\u001b[31m+         2630,\u001b[39m\n\u001b[2m        ],\u001b[22m\n\u001b[32m-       \"anchorIndex\": 1,\u001b[39m\n\u001b[31m+       \"anchorIndex\": 2,\u001b[39m\n\u001b[2m        \"context\": \"present-day\",\u001b[22m\n\u001b[2m        \"id\": \"npc-modern-seorin-bookshop-script-reading-morning\",\u001b[22m\n\u001b[2m        \"label\": Object {\u001b[22m\n\u001b[2m          \"ko\": \"손님을 맞이하는 중\",\u001b[22m\n\u001b[2m          \"vi\": \"Đang đón khách\",\u001b[22m\n\u001b[33m@@ -523,14 +523,14 @@\u001b[39m\n\u001b[2m    },\u001b[22m\n\u001b[2m    Object {\u001b[22m\n\u001b[2m      \"activity\": Object {\u001b[22m\n\u001b[2m        \"activity\": \"SOCIAL_PAUSE\",\u001b[22m\n\u001b[2m        \"anchor\": Array [\u001b[22m\n\u001b[32m-         2352,\u001b[39m\n\u001b[32m-         3300,\u001b[39m\n\u001b[31m+         2320,\u001b[39m\n\u001b[31m+         3280,\u001b[39m\n\u001b[2m        ],\u001b[22m\n\u001b[32m-       \"anchorIndex\": 2,\u001b[39m\n\u001b[31m+       \"anchorIndex\": 0,\u001b[39m\n\u001b[2m        \"context\": \"present-day\",\u001b[22m\n\u001b[2m        \"id\": \"npc-modern-haru-cultural-program-visit-morning\",\u001b[22m\n\u001b[2m        \"label\": Object {\u001b[22m\n\u001b[2m          \"ko\": \"손님을 맞이하는 중\",\u001b[22m\n\u001b[2m          \"vi\": \"Đang đón khách\",\u001b[22m\n\u001b[33m@@ -552,14 +552,14 @@\u001b[39m\n\u001b[2m    },\u001b[22m\n\u001b[2m    Object {\u001b[22m\n\u001b[2m      \"activity\": Object {\u001b[22m\n\u001b[2m        \"activity\": \"SOCIAL_PAUSE\",\u001b[22m\n\u001b[2m        \"anchor\": Array [\u001b[22m\n\u001b[32m-         2814,\u001b[39m\n\u001b[31m+         2824,\u001b[39m\n\u001b[2m          3670,\u001b[22m\n\u001b[2m        ],\u001b[22m\n\u001b[32m-       \"anchorIndex\": 0,\u001b[39m\n\u001b[31m+       \"anchorIndex\": 1,\u001b[39m\n\u001b[2m        \"context\": \"present-day\",\u001b[22m\n\u001b[2m        \"id\": \"npc-modern-yeori-coastal-reading-club-morning\",\u001b[22m\n\u001b[2m        \"label\": Object {\u001b[22m\n\u001b[2m          \"ko\": \"손님을 맞이하는 중\",\u001b[22m\n\u001b[2m          \"vi\": \"Đang đón khách\",\u001b[22m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 15\u001b[39m\n\u001b[31m+ Received  + 15\u001b[39m\n\n\u001b[33m@@ -407,14 +407,14 @@\u001b[39m\n\u001b[2m    },\u001b[22m\n\u001b[2m    Object {\u001b[22m\n\u001b[2m      \"activity\": Object {\u001b[22m\n\u001b[2m        \"activity\": \"SOCIAL_PAUSE\",\u001b[22m\n\u001b[2m        \"anchor\": Array [\u001b[22m\n\u001b[32m-         682,\u001b[39m\n\u001b[32m-         2630,\u001b[39m\n\u001b[31m+         650,\u001b[39m\n\u001b[31m+         2620,\u001b[39m\n\u001b[2m        ],\u001b[22m\n\u001b[32m-       \"anchorIndex\": 2,\u001b[39m\n\u001b[31m+       \"anchorIndex\": 0,\u001b[39m\n\u001b[2m        \"context\": \"present-day\",\u001b[22m\n\u001b[2m        \"id\": \"npc-modern-daon-cafe-composition-morning\",\u001b[22m\n\u001b[2m        \"label\": Object {\u001b[22m\n\u001b[2m          \"ko\": \"손님을 맞이하는 중\",\u001b[22m\n\u001b[2m          \"vi\": \"Đang đón khách\",\u001b[22m\n\u001b[33m@@ -436,14 +436,14 @@\u001b[39m\n\u001b[2m    },\u001b[22m\n\u001b[2m    Object {\u001b[22m\n\u001b[2m      \"activity\": Object {\u001b[22m\n\u001b[2m        \"activity\": \"SOCIAL_PAUSE\",\u001b[22m\n\u001b[2m        \"anchor\": Array [\u001b[22m\n\u001b[32m-         1542,\u001b[39m\n\u001b[32m-         3284,\u001b[39m\n\u001b[31m+         1510,\u001b[39m\n\u001b[31m+         3260,\u001b[39m\n\u001b[2m        ],\u001b[22m\n\u001b[32m-       \"anchorIndex\": 2,\u001b[39m\n\u001b[31m+       \"anchorIndex\": 0,\u001b[39m\n\u001b[2m        \"context\": \"present-day\",\u001b[22m\n\u001b[2m        \"id\": \"npc-modern-miram-park-football-coaching-morning\",\u001b[22m\n\u001b[2m        \"label\": Object {\u001b[22m\n\u001b[2m          \"ko\": \"손님을 맞이하는 중\",\u001b[22m\n\u001b[2m          \"vi\": \"Đang đón khách\",\u001b[22m\n\u001b[33m@@ -465,14 +465,14 @@\u001b[39m\n\u001b[2m    },\u001b[22m\n\u001b[2m    Object {\u001b[22m\n\u001b[2m      \"activity\": Object {\u001b[22m\n\u001b[2m        \"activity\": \"SOCIAL_PAUSE\",\u001b[22m\n\u001b[2m        \"anchor\": Array [\u001b[22m\n\u001b[32m-         2810,\u001b[39m\n\u001b[31m+         2848,\u001b[39m\n\u001b[2m          2690,\u001b[22m\n\u001b[2m        ],\u001b[22m\n\u001b[32m-       \"anchorIndex\": 0,\u001b[39m\n\u001b[31m+       \"anchorIndex\": 1,\u001b[39m\n\u001b[2m        \"context\": \"present-day\",\u001b[22m\n\u001b[2m        \"id\": \"npc-modern-geonu-station-before-coaching-morning\",\u001b[22m\n\u001b[2m        \"label\": Object {\u001b[22m\n\u001b[2m          \"ko\": \"손님을 맞이하는 중\",\u001b[22m\n\u001b[2m          \"vi\": \"Đang đón khách\",\u001b[22m\n\u001b[33m@@ -495,13 +495,13 @@\u001b[39m\n\u001b[2m    Object {\u001b[22m\n\u001b[2m      \"activity\": Object {\u001b[22m\n\u001b[2m        \"activity\": \"SOCIAL_PAUSE\",\u001b[22m\n\u001b[2m        \"anchor\": Array [\u001b[22m\n\u001b[2m          1034,\u001b[22m\n\u001b[32m-         2620,\u001b[39m\n\u001b[31m+         2630,\u001b[39m\n\u001b[2m        ],\u001b[22m\n\u001b[32m-       \"anchorIndex\": 1,\u001b[39m\n\u001b[31m+       \"anchorIndex\": 2,\u001b[39m\n\u001b[2m        \"context\": \"present-day\",\u001b[22m\n\u001b[2m        \"id\": \"npc-modern-seorin-bookshop-script-reading-morning\",\u001b[22m\n\u001b[2m        \"label\": Object {\u001b[22m\n\u001b[2m          \"ko\": \"손님을 맞이하는 중\",\u001b[22m\n\u001b[2m          \"vi\": \"Đang đón khách\",\u001b[22m\n\u001b[33m@@ -523,14 +523,14 @@\u001b[39m\n\u001b[2m    },\u001b[22m\n\u001b[2m    Object {\u001b[22m\n\u001b[2m      \"activity\": Object {\u001b[22m\n\u001b[2m        \"activity\": \"SOCIAL_PAUSE\",\u001b[22m\n\u001b[2m        \"anchor\": Array [\u001b[22m\n\u001b[32m-         2352,\u001b[39m\n\u001b[32m-         3300,\u001b[39m\n\u001b[31m+         2320,\u001b[39m\n\u001b[31m+         3280,\u001b[39m\n\u001b[2m        ],\u001b[22m\n\u001b[32m-       \"anchorIndex\": 2,\u001b[39m\n\u001b[31m+       \"anchorIndex\": 0,\u001b[39m\n\u001b[2m        \"context\": \"present-day\",\u001b[22m\n\u001b[2m        \"id\": \"npc-modern-haru-cultural-program-visit-morning\",\u001b[22m\n\u001b[2m        \"label\": Object {\u001b[22m\n\u001b[2m          \"ko\": \"손님을 맞이하는 중\",\u001b[22m\n\u001b[2m          \"vi\": \"Đang đón khách\",\u001b[22m\n\u001b[33m@@ -552,14 +552,14 @@\u001b[39m\n\u001b[2m    },\u001b[22m\n\u001b[2m    Object {\u001b[22m\n\u001b[2m      \"activity\": Object {\u001b[22m\n\u001b[2m        \"activity\": \"SOCIAL_PAUSE\",\u001b[22m\n\u001b[2m        \"anchor\": Array [\u001b[22m\n\u001b[32m-         2814,\u001b[39m\n\u001b[31m+         2824,\u001b[39m\n\u001b[2m          3670,\u001b[22m\n\u001b[2m        ],\u001b[22m\n\u001b[32m-       \"anchorIndex\": 0,\u001b[39m\n\u001b[31m+       \"anchorIndex\": 1,\u001b[39m\n\u001b[2m        \"context\": \"present-day\",\u001b[22m\n\u001b[2m        \"id\": \"npc-modern-yeori-coastal-reading-club-morning\",\u001b[22m\n\u001b[2m        \"label\": Object {\u001b[22m\n\u001b[2m          \"ko\": \"손님을 맞이하는 중\",\u001b[22m\n\u001b[2m          \"vi\": \"Đang đón khách\",\u001b[22m\n    at /workspace/phase3b-a-recovery/tests/e2e/phase3a.spec.ts:306:72",
+                    "location": {
+                      "file": "/workspace/phase3b-a-recovery/tests/e2e/phase3a.spec.ts",
+                      "column": 72,
+                      "line": 306
+                    },
+                    "snippet": "  304 |       // Daily Life keeps resolving time-based intent metadata offscreen.\n  305 |       // Inactive actors must retain every physical/animation/conversation field.\n> 306 |       const before = await page.evaluate(() =>\n      |                                               ^\n  307 |         window.__NPC_WORLD__!.records.map(({ activity, ...motion }) => {\n  308 |           void activity;\n  309 |           return motion;"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/phase3b-a-recovery/tests/e2e/phase3a.spec.ts",
+                        "column": 72,
+                        "line": 306
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 15\u001b[39m\n\u001b[31m+ Received  + 15\u001b[39m\n\n\u001b[33m@@ -407,14 +407,14 @@\u001b[39m\n\u001b[2m    },\u001b[22m\n\u001b[2m    Object {\u001b[22m\n\u001b[2m      \"activity\": Object {\u001b[22m\n\u001b[2m        \"activity\": \"SOCIAL_PAUSE\",\u001b[22m\n\u001b[2m        \"anchor\": Array [\u001b[22m\n\u001b[32m-         682,\u001b[39m\n\u001b[32m-         2630,\u001b[39m\n\u001b[31m+         650,\u001b[39m\n\u001b[31m+         2620,\u001b[39m\n\u001b[2m        ],\u001b[22m\n\u001b[32m-       \"anchorIndex\": 2,\u001b[39m\n\u001b[31m+       \"anchorIndex\": 0,\u001b[39m\n\u001b[2m        \"context\": \"present-day\",\u001b[22m\n\u001b[2m        \"id\": \"npc-modern-daon-cafe-composition-morning\",\u001b[22m\n\u001b[2m        \"label\": Object {\u001b[22m\n\u001b[2m          \"ko\": \"손님을 맞이하는 중\",\u001b[22m\n\u001b[2m          \"vi\": \"Đang đón khách\",\u001b[22m\n\u001b[33m@@ -436,14 +436,14 @@\u001b[39m\n\u001b[2m    },\u001b[22m\n\u001b[2m    Object {\u001b[22m\n\u001b[2m      \"activity\": Object {\u001b[22m\n\u001b[2m        \"activity\": \"SOCIAL_PAUSE\",\u001b[22m\n\u001b[2m        \"anchor\": Array [\u001b[22m\n\u001b[32m-         1542,\u001b[39m\n\u001b[32m-         3284,\u001b[39m\n\u001b[31m+         1510,\u001b[39m\n\u001b[31m+         3260,\u001b[39m\n\u001b[2m        ],\u001b[22m\n\u001b[32m-       \"anchorIndex\": 2,\u001b[39m\n\u001b[31m+       \"anchorIndex\": 0,\u001b[39m\n\u001b[2m        \"context\": \"present-day\",\u001b[22m\n\u001b[2m        \"id\": \"npc-modern-miram-park-football-coaching-morning\",\u001b[22m\n\u001b[2m        \"label\": Object {\u001b[22m\n\u001b[2m          \"ko\": \"손님을 맞이하는 중\",\u001b[22m\n\u001b[2m          \"vi\": \"Đang đón khách\",\u001b[22m\n\u001b[33m@@ -465,14 +465,14 @@\u001b[39m\n\u001b[2m    },\u001b[22m\n\u001b[2m    Object {\u001b[22m\n\u001b[2m      \"activity\": Object {\u001b[22m\n\u001b[2m        \"activity\": \"SOCIAL_PAUSE\",\u001b[22m\n\u001b[2m        \"anchor\": Array [\u001b[22m\n\u001b[32m-         2810,\u001b[39m\n\u001b[31m+         2848,\u001b[39m\n\u001b[2m          2690,\u001b[22m\n\u001b[2m        ],\u001b[22m\n\u001b[32m-       \"anchorIndex\": 0,\u001b[39m\n\u001b[31m+       \"anchorIndex\": 1,\u001b[39m\n\u001b[2m        \"context\": \"present-day\",\u001b[22m\n\u001b[2m        \"id\": \"npc-modern-geonu-station-before-coaching-morning\",\u001b[22m\n\u001b[2m        \"label\": Object {\u001b[22m\n\u001b[2m          \"ko\": \"손님을 맞이하는 중\",\u001b[22m\n\u001b[2m          \"vi\": \"Đang đón khách\",\u001b[22m\n\u001b[33m@@ -495,13 +495,13 @@\u001b[39m\n\u001b[2m    Object {\u001b[22m\n\u001b[2m      \"activity\": Object {\u001b[22m\n\u001b[2m        \"activity\": \"SOCIAL_PAUSE\",\u001b[22m\n\u001b[2m        \"anchor\": Array [\u001b[22m\n\u001b[2m          1034,\u001b[22m\n\u001b[32m-         2620,\u001b[39m\n\u001b[31m+         2630,\u001b[39m\n\u001b[2m        ],\u001b[22m\n\u001b[32m-       \"anchorIndex\": 1,\u001b[39m\n\u001b[31m+       \"anchorIndex\": 2,\u001b[39m\n\u001b[2m        \"context\": \"present-day\",\u001b[22m\n\u001b[2m        \"id\": \"npc-modern-seorin-bookshop-script-reading-morning\",\u001b[22m\n\u001b[2m        \"label\": Object {\u001b[22m\n\u001b[2m          \"ko\": \"손님을 맞이하는 중\",\u001b[22m\n\u001b[2m          \"vi\": \"Đang đón khách\",\u001b[22m\n\u001b[33m@@ -523,14 +523,14 @@\u001b[39m\n\u001b[2m    },\u001b[22m\n\u001b[2m    Object {\u001b[22m\n\u001b[2m      \"activity\": Object {\u001b[22m\n\u001b[2m        \"activity\": \"SOCIAL_PAUSE\",\u001b[22m\n\u001b[2m        \"anchor\": Array [\u001b[22m\n\u001b[32m-         2352,\u001b[39m\n\u001b[32m-         3300,\u001b[39m\n\u001b[31m+         2320,\u001b[39m\n\u001b[31m+         3280,\u001b[39m\n\u001b[2m        ],\u001b[22m\n\u001b[32m-       \"anchorIndex\": 2,\u001b[39m\n\u001b[31m+       \"anchorIndex\": 0,\u001b[39m\n\u001b[2m        \"context\": \"present-day\",\u001b[22m\n\u001b[2m        \"id\": \"npc-modern-haru-cultural-program-visit-morning\",\u001b[22m\n\u001b[2m        \"label\": Object {\u001b[22m\n\u001b[2m          \"ko\": \"손님을 맞이하는 중\",\u001b[22m\n\u001b[2m          \"vi\": \"Đang đón khách\",\u001b[22m\n\u001b[33m@@ -552,14 +552,14 @@\u001b[39m\n\u001b[2m    },\u001b[22m\n\u001b[2m    Object {\u001b[22m\n\u001b[2m      \"activity\": Object {\u001b[22m\n\u001b[2m        \"activity\": \"SOCIAL_PAUSE\",\u001b[22m\n\u001b[2m        \"anchor\": Array [\u001b[22m\n\u001b[32m-         2814,\u001b[39m\n\u001b[31m+         2824,\u001b[39m\n\u001b[2m          3670,\u001b[22m\n\u001b[2m        ],\u001b[22m\n\u001b[32m-       \"anchorIndex\": 0,\u001b[39m\n\u001b[31m+       \"anchorIndex\": 1,\u001b[39m\n\u001b[2m        \"context\": \"present-day\",\u001b[22m\n\u001b[2m        \"id\": \"npc-modern-yeori-coastal-reading-club-morning\",\u001b[22m\n\u001b[2m        \"label\": Object {\u001b[22m\n\u001b[2m          \"ko\": \"손님을 맞이하는 중\",\u001b[22m\n\u001b[2m          \"vi\": \"Đang đón khách\",\u001b[22m\n\n  304 |       // Daily Life keeps resolving time-based intent metadata offscreen.\n  305 |       // Inactive actors must retain every physical/animation/conversation field.\n> 306 |       const before = await page.evaluate(() =>\n      |                                               ^\n  307 |         window.__NPC_WORLD__!.records.map(({ activity, ...motion }) => {\n  308 |           void activity;\n  309 |           return motion;\n    at /workspace/phase3b-a-recovery/tests/e2e/phase3a.spec.ts:306:72"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T04:33:46.730Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/phase3b-a-recovery/.cache/phase3bd-regression-followup-results/phase3a-real-zone-exit-ree-3885c-ut-duplicate-orphan-sprites-repeat1/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/phase3b-a-recovery/.cache/phase3bd-regression-followup-results/phase3a-real-zone-exit-ree-3885c-ut-duplicate-orphan-sprites-repeat1/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/phase3b-a-recovery/tests/e2e/phase3a.spec.ts",
+                    "column": 72,
+                    "line": 306
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "15517f1c75d177af795e-2f61752c64b707dbeea1",
+          "file": "phase3a.spec.ts",
+          "line": 288,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-03T04:29:28.695Z",
+    "duration": 281943.348,
+    "expected": 15,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
