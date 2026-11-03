@@ -1,3 +1,7 @@
+# Owner authorizes exact Phase3BD public review deployment ·2026-11-03
+
+See docs/phase3bd-release-20261103/OWNER_APPROVAL.json. Supersedes private-review STOP only for publishing exact fff156b6 /543ccd32 (2875files, not prior3BC3029). Do not rebuild/change frozen payload. Preserve oldpublic26/v0.5/main, existing gates/environment reviewer; actual HTTPS QA before DEPLOYED. Prior unexplained archive timeout remains WARN, never inferred fixed from reruns. No Phase3B-E. No delegation.
+
 # Phase3B-D READY_FOR_OWNER_REVIEW ·2026-11-03
 
 Private exact candidate `fff156b6e15584855f1585de5a03d21b3022cdbc` / manifest `543ccd32deb9f37efaf3dd5c8ce48886db95f329657a63ba9c29c4f47b3d49b0` (2875 files); game build source `dcf5709c11b6b1d7e2ae94b5a7590948a2b15c9b`. See docs/phase3bd/FINAL_DELIVERY.json, REVIEW.html, QA.md and PACKAGE_PROOF.json. Actual extracted offline Phaser/26catalog/NPC quest interaction/desktop controls/mobile joystick/four silent video playback PASS,2875URLs,zero resource/page errors. Source rollback checkpoint/phase3bd-before-20261103 preserved. Cleanup416git-rm/183byte-exact source archive moves/128retained exceptions. Protected10462assets and58codefiles unchanged. Unit199PASS; initial full63PASS/3FAIL retained; follow-up15PASS/1old-zone-assertionFAIL; corrected zone3/3PASS. Do not call these one clean full run. Exact originalpublic20/26snapshots retained.
