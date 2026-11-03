@@ -1,3 +1,4 @@
+import { readPreservedBytes } from "../phase3bb-amendments";
 import { describe, it, expect } from "vitest";
 import { readFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
@@ -7,7 +8,7 @@ const D = "docs/phase2b-motion/",
   ids = ["sori", "jiwon", "nari", "taeyang", "yuna", "hyunwoo"];
 const json = (p: string) => JSON.parse(readFileSync(p, "utf8"));
 const sha = (p: string) =>
-  createHash("sha256").update(readFileSync(p)).digest("hex");
+  createHash("sha256").update(readPreservedBytes(p)).digest("hex");
 describe("focused motion correction preservation and forward stance", () => {
   it("recomputes exact atlas cell scope and protects every other frozen asset/runtime file", () => {
     execFileSync("python3", ["tools/phase3a/protected.py"]);

@@ -1,3 +1,4 @@
+import { readPreservedBytes } from "../phase3bb-amendments";
 import { describe, it, expect } from "vitest";
 import { readFileSync, existsSync } from "node:fs";
 import { createHash } from "node:crypto";
@@ -18,7 +19,7 @@ import {
 const ids = ["sori", "jiwon", "nari", "taeyang", "yuna", "hyunwoo"];
 const json = (p: string) => JSON.parse(readFileSync(p, "utf8"));
 const digest = (p: string) =>
-  createHash("sha256").update(readFileSync(p)).digest("hex");
+  createHash("sha256").update(readPreservedBytes(p)).digest("hex");
 describe("Phase2B accepted baseline protection", () => {
   it("preserves approved files outside the explicit eight-cell Ara/Doyun walk-front amendment", () => {
     execFileSync("python3", ["tools/phase3a/protected.py"]);

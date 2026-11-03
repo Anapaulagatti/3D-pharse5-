@@ -1,4 +1,5 @@
 import { NPCWorldClock } from "./clock";
+import { FarmWorld } from "../economy/world";
 import { QuestUI } from "../quests/ui";
 import { QuestWorldIndicators } from "../quests/world";
 import { resolveActivity, validateSchedules } from "./schedules";
@@ -77,6 +78,7 @@ export class NPCManager {
   private dialogue: NPCDialogueService;
   private quests: QuestUI;
   private questWorld: QuestWorldIndicators;
+  private farmWorld: FarmWorld;
   private button: HTMLButtonElement;
   private target?: string;
   private closed = false;
@@ -182,8 +184,10 @@ export class NPCManager {
         () => [...this.actors.values()].map((a) => a.sprite),
       );
     this.questWorld = new QuestWorldIndicators(scene);
+    this.farmWorld = new FarmWorld(scene);
     this.quests = new QuestUI({
       ...host,
+      actor: (id) => this.actors.get(id)?.model.record.position,
       onWorldAction: () => host.onQuestAction?.(),
       onOpen: (id) => this.models.get(id)?.talk(host.player()),
       onClose: (id) => {
@@ -207,7 +211,8 @@ export class NPCManager {
       questAction: (id, container, close) => {
         if (!this.quests.hasOffer(id)) return;
         const button = document.createElement("button");
-        button.textContent = "Nhiệm vụ · 부탁";
+        button.textContent =
+          id === "npc-minseo" ? "Cửa hàng · Nhiệm vụ" : "Nhiệm vụ · 부탁";
         button.dataset.npcQuest = id;
         button.onclick = () => {
           close();
@@ -453,6 +458,7 @@ export class NPCManager {
     this.updateTarget();
     this.quests.update();
     this.questWorld.update(this.quests.manager.snapshot());
+    this.farmWorld.update(this.quests.manager.snapshot());
     if (this.now - this.lastSave > 5000) {
       this.store.save();
       this.saveLife();
@@ -520,6 +526,7 @@ export class NPCManager {
     this.dialogue.dispose();
     this.quests.dispose();
     this.questWorld.dispose();
+    this.farmWorld.dispose();
     this.closed = true;
     this.store.save();
     this.bindings.abort();

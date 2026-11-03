@@ -1,12 +1,13 @@
+from archived_world_source import archived_public
 from pathlib import Path
 from PIL import Image,ImageDraw,ImageFont
 import json,hashlib
-R=Path(__file__).resolve().parents[1];S=R/'assets-src/gate3/recovery';D=R/'docs/gate3-recovery';m=json.loads((R/'public/assets/gate3/production/manifest.json').read_text());base=json.loads((R/'public/assets/gate3/registration-working-v3/manifest.json').read_text());W,H=m['size'];ground=Image.new('RGBA',(W,H))
-for c in m['chunks']:ground.paste(Image.open(R/'public'/c['image']),(c['x'],c['y']))
+R=Path(__file__).resolve().parents[1];S=R/'assets-src/gate3/recovery';D=R/'docs/gate3-recovery';m=json.loads((archived_public('assets/gate3/production/manifest.json')).read_text());base=json.loads((R/'public/assets/gate3/registration-working-v3/manifest.json').read_text());W,H=m['size'];ground=Image.new('RGBA',(W,H))
+for c in m['chunks']:ground.paste(Image.open(archived_public(c['image'])),(c['x'],c['y']))
 if (S/'authoring-prompts.json').exists():raise SystemExit('Frozen authoring references exist. Use a new versioned guide namespace; do not overwrite referenced inputs.')
 # Guides remove rejected giant trees; current building candidates remain as registration guides only.
 composite=ground.copy()
-for o in sorted([o for o in m['objects']if not o['id'].startswith('production/tree-') and o['id']!='production/palace'],key=lambda o:o['sortY']):composite.alpha_composite(Image.open(R/'public'/o['image']).convert('RGBA'),(o['x'],o['y']))
+for o in sorted([o for o in m['objects']if not o['id'].startswith('production/tree-') and o['id']!='production/palace'],key=lambda o:o['sortY']):composite.alpha_composite(Image.open(archived_public(o['image'])).convert('RGBA'),(o['x'],o['y']))
 regions={'palace':[1280,0,1536,1024],'north':[1536,576,1536,1024],'south':[416,1960,1536,1024],'namsan':[416,2470,1536,1024]}
 for name,(x,y,w,h)in regions.items():composite.crop((x,y,x+w,y+h)).save(S/(name+'-guide.png'),optimize=True);ground.crop((x,y,x+w,y+h)).save(S/(name+'-ground-before.png'),optimize=True)
 # Actual approved pixels, at native scale. This is a calibration board, not new concept art.

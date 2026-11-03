@@ -32,6 +32,29 @@ export class LocalLearningProgress implements LearningProgressAdapter {
   }
 }
 const questions: Record<string, LearningQuestion[]> = {
+  shop: [
+    question(
+      "shop-1",
+      "씨앗을 사요. · Người nói làm gì?",
+      ["Bán rau", "Mua hạt giống", "Đọc sách"],
+      1,
+      "사요 = mua. 씨앗을 사요: Tôi mua hạt giống.",
+    ),
+    question(
+      "shop-2",
+      "‘팔아요’는 무슨 뜻이에요?",
+      ["Bán", "Mua", "Gieo"],
+      0,
+      "팔아요 = bán. 파를 팔아요: Tôi bán hành lá.",
+    ),
+    question(
+      "shop-3",
+      "‘얼마예요?’는 무슨 뜻이에요?",
+      ["Đi đâu?", "Mấy giờ?", "Bao nhiêu tiền?"],
+      2,
+      "얼마예요? dùng để hỏi giá: Bao nhiêu tiền ạ?",
+    ),
+  ],
   orchard: [
     question(
       "fruit-1",
@@ -114,6 +137,11 @@ export interface QuestDefinition {
     label: string;
     point: readonly [number, number];
   }[];
+  economyObjectives?: readonly {
+    event: "till" | "plant" | "water" | "harvest" | "buy" | "sell";
+    crop?: string;
+    item?: string;
+  }[];
   reward: { coins: number; xp: number; items: Record<string, number> };
 }
 export const quests: readonly QuestDefinition[] = [
@@ -176,6 +204,76 @@ export const quests: readonly QuestDefinition[] = [
       },
     ],
     reward: { coins: 20, xp: 20, items: { seed: 2, sprout: 1 } },
+  },
+  {
+    id: "farm-radish-harvest-v1",
+    title: "Một hàng củ cải",
+    ko: "무 기르기",
+    giver: "npc-nayeon",
+    topic: "farm",
+    steps: [
+      {
+        id: "till",
+        label: "Gặp Nayeon; xới hàng thực hành ở một luống",
+        point: [470, 481],
+      },
+      {
+        id: "plant",
+        label: "Gieo hạt củ cải vào hàng đã xới",
+        point: [470, 481],
+      },
+      { id: "water", label: "Tưới hàng củ cải", point: [470, 481] },
+      {
+        id: "harvest",
+        label: "Thu hoạch củ cải chín; lứa hướng dẫn6giây",
+        point: [470, 481],
+      },
+    ],
+    economyObjectives: [
+      { event: "till" },
+      { event: "plant", crop: "radish" },
+      { event: "water", crop: "radish" },
+      { event: "harvest", crop: "radish" },
+    ],
+    reward: { coins: 18, xp: 20, items: {} },
+  },
+  {
+    id: "shop-garden-market-v1",
+    title: "Từ vườn đến quầy hàng",
+    ko: "농장에서 가게까지",
+    giver: "npc-minseo",
+    topic: "shop",
+    steps: [
+      {
+        id: "buy",
+        label: "Mua hạt hành lá từ Minseo (6xu; nhiệm vụ cũ luôn miễn phí)",
+        point: [650, 2620],
+      },
+      {
+        id: "plant",
+        label: "Gieo hạt hành lá ở một hàng đã xới",
+        point: [470, 481],
+      },
+      { id: "water", label: "Tưới hàng hành lá", point: [470, 481] },
+      {
+        id: "harvest",
+        label: "Thu hoạch hành lá chín; lứa hướng dẫn10giây",
+        point: [470, 481],
+      },
+      {
+        id: "sell",
+        label: "Bán hành lá cho Minseo rồi trả lời tiếng Hàn",
+        point: [650, 2620],
+      },
+    ],
+    economyObjectives: [
+      { event: "buy", item: "seed-scallion" },
+      { event: "plant", crop: "scallion" },
+      { event: "water", crop: "scallion" },
+      { event: "harvest", crop: "scallion" },
+      { event: "sell", item: "scallion" },
+    ],
+    reward: { coins: 22, xp: 20, items: {} },
   },
 ];
 export const itemNames: Record<string, string> = {

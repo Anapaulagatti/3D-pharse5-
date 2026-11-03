@@ -1,3 +1,7 @@
+# Current authority — Phase3B-D farming/shops + real rejected-map cleanup authorized2026-11-03
+
+Read docs/phase3bd/HUMAN_DIRECTIVE.md. Owner accepts3BC as development baseline, NOT public release. Work feature/phase3b-d-farm-shop-cleanup fromd54117c0; preserve checkpoint/phase3bd-before-20261103 and BASELINE.json. Only evidence-backed git rm of rejected unused maps; retain approved art/source/rollback and all history/tags. One canonical current world, no old-scene fallback. Extend existing quest/inventory/DailyLife for6existing farm plots,2crops,shop and2new local-demo Korean-gated quests. Original26NPC/12players/24cosmetics/current3quests/collision/camera untouched except explicit scoped safe corrections. No delegation. New public artifact requires exact owner approval; current live26/v0.5 unchanged. No main merge/history rewrite/paid APIs/backend/ads/Phase3B-E. Complete private consolidated review, thenSTOP. Physical devices NOT TESTED; human Korean review PENDING.
+
 # Phase3B-C private candidate READY · public exposure PENDING (2026-10-31)
 
 Final candidate: artifact `b0164331134d5ea9ebce306fc3b16a19b9565744`, manifest SHA256 `7deae834d82d98df80fd2e36e671305ac912ed7790b9d06219ba6f07cb1371fd` (3029 files). Source implementation9970b16e; review checkpoint `checkpoint/phase3bc-quest-accessibility-review-20261031`. ZIP SHA256 `723a18ef92959bf73f024814a591ca38d4196387c72f20ccbfa0a7389b4685d0`.

@@ -1,0 +1,106 @@
+
+Running 6 tests using 1 worker
+
+(node:142984) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/e2e/phase3bd.spec.ts:10:1 › only canonical world survives legacy query/direct URL/reload; no rejected asset requests (4.9s)
+  ✓  2 tests/e2e/phase3bd.spec.ts:48:3 › versioned QA approach palace-west starts on real walkable floor and moves without world relocation (2.1s)
+  ✓  3 tests/e2e/phase3bd.spec.ts:48:3 › versioned QA approach jeju-arrival starts on real walkable floor and moves without world relocation (2.5s)
+  ✓  4 tests/e2e/phase3bd.spec.ts:48:3 › versioned QA approach jeju-landing starts on real walkable floor and moves without world relocation (2.2s)
+  ✘  5 tests/e2e/phase3bd.spec.ts:74:1 › shop double-click, invalid quantity and reload use one atomic receipt; old quests and learning remain available (3.9s)
+(node:143261) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  6 tests/e2e/phase3bd.spec.ts:120:1 › mobile landscape reaches an actual farm row by joystick and plants/waters without overlay leakage (3.9s)
+
+
+  1) tests/e2e/phase3bd.spec.ts:74:1 › shop double-click, invalid quantity and reload use one atomic receipt; old quests and learning remain available 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 9
+    + Received  + 5
+
+    @@ -1,7 +1,7 @@
+      Object {
+    -   "coins": 0,
+    +   "coins": 4,
+        "economy": Object {
+          "harvests": Object {},
+          "plots": Object {
+            "NW-FARM-01": Object {
+              "cycle": 0,
+    @@ -26,23 +26,19 @@
+            "NW-FARM-06": Object {
+              "cycle": 0,
+              "stage": "empty",
+            },
+          },
+    -     "revision": 1,
+    +     "revision": 0,
+          "sales": Object {},
+          "stock": Object {
+            "jeju-postcard": 5,
+    -       "seed-radish": 49,
+    +       "seed-radish": 50,
+            "seed-scallion": 50,
+          },
+        },
+    -   "inventory": Object {
+    -     "seed-radish": 1,
+    -   },
+    +   "inventory": Object {},
+        "records": Object {},
+        "schemaVersion": 1,
+    -   "transactions": Array [
+    -     "trade:buy:seed-radish:0",
+    -   ],
+    +   "transactions": Array [],
+        "xp": 0,
+      }
+
+      116 |     () => window.__GATE3__?.ready && window.__NPC_WORLD__,
+      117 |   );
+    > 118 |   expect(await page.evaluate(() => window.__NPC_WORLD__!.quests)).toEqual(s);
+          |                                                                   ^
+      119 | });
+      120 | test("mobile landscape reaches an actual farm row by joystick and plants/waters without overlay leakage", async ({
+      121 |   browser,
+        at /workspace/phase3b-a-recovery/tests/e2e/phase3bd.spec.ts:118:67
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .cache/phase3bd-targeted-results/phase3bd-shop-double-click-07f9c-d-learning-remain-available/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .cache/phase3bd-targeted-results/phase3bd-shop-double-click-07f9c-d-learning-remain-available/error-context.md
+
+  2) tests/e2e/phase3bd.spec.ts:120:1 › mobile landscape reaches an actual farm row by joystick and plants/waters without overlay leakage 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: true
+
+      180 |     .getByRole("button", { name: "Trở lại thế giới / Từ chối", exact: true })
+      181 |     .tap();
+    > 182 |   expect((await page.evaluate(() => window.__GATE3__!)).paused).toBe(false);
+          |                                                                 ^
+      183 |   await context.close();
+      184 | });
+      185 |
+        at /workspace/phase3b-a-recovery/tests/e2e/phase3bd.spec.ts:182:65
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .cache/phase3bd-targeted-results/phase3bd-mobile-landscape--4833d-ers-without-overlay-leakage/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .cache/phase3bd-targeted-results/phase3bd-mobile-landscape--4833d-ers-without-overlay-leakage/error-context.md
+
+  2 failed
+    tests/e2e/phase3bd.spec.ts:74:1 › shop double-click, invalid quantity and reload use one atomic receipt; old quests and learning remain available 
+    tests/e2e/phase3bd.spec.ts:120:1 › mobile landscape reaches an actual farm row by joystick and plants/waters without overlay leakage 
+  4 passed (21.8s)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

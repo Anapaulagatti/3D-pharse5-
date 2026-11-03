@@ -1,4 +1,7 @@
-import { expectedAmendedHash } from "../phase3bb-amendments";
+import {
+  readPreservedBytes,
+  expectedAmendedHash,
+} from "../phase3bb-amendments";
 import { describe, it, expect } from "vitest";
 import { readFileSync, existsSync } from "node:fs";
 import { createHash } from "node:crypto";
@@ -31,7 +34,7 @@ import { BoundedCache } from "../../../src/characters/AppearanceRenderer";
 import type { CharacterAppearance } from "../../../src/characters/appearanceTypes";
 const json = (p: string) => JSON.parse(readFileSync(p, "utf8"));
 const digest = (p: string) =>
-  createHash("sha256").update(readFileSync(p)).digest("hex");
+  createHash("sha256").update(readPreservedBytes(p)).digest("hex");
 function storage() {
   const values = new Map<string, string>();
   return {

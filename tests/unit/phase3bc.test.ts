@@ -26,7 +26,7 @@ const memory = () => {
   };
 };
 describe("Phase3BC quest transactions", () => {
-  it.each(quests.map((q) => [q.id, q]))(
+  it.each(quests.filter((q) => !q.economyObjectives).map((q) => [q.id, q]))(
     "%s requires real objectives, contextual return and Korean answer; reload cannot duplicate reward",
     (_id, def) => {
       const storage = memory(),

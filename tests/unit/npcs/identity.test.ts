@@ -1,7 +1,9 @@
-import { expectedAmendedHash } from "../phase3bb-amendments";
+import {
+  readPreservedBytes,
+  expectedAmendedHash,
+} from "../phase3bb-amendments";
 import { describe, expect, it } from "vitest";
 import { createHash } from "node:crypto";
-import { readFileSync } from "node:fs";
 import {
   historicalIdentities,
   identityPresentationSchema,
@@ -29,7 +31,7 @@ describe("approved26NPC identity and rights separation", () => {
     expect(files.length).toBeGreaterThan(5000);
     for (const [path, hash] of files)
       expect(
-        createHash("sha256").update(readFileSync(path)).digest("hex"),
+        createHash("sha256").update(readPreservedBytes(path)).digest("hex"),
         path,
       ).toBe(expectedAmendedHash(path, hash));
   });

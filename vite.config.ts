@@ -1,4 +1,5 @@
 import { defineConfig } from "vite";
+import { canonicalAssetsPlugin } from "./tools/current-assets.mjs";
 import { checkAssetRights } from "./tools/rights-gate.mjs";
 export default defineConfig(({ mode }) => {
   const profile =
@@ -7,6 +8,7 @@ export default defineConfig(({ mode }) => {
       : "private-review";
   return {
     plugins: [
+      canonicalAssetsPlugin(),
       {
         name: "npc-asset-rights-gate",
         buildStart() {
@@ -22,7 +24,7 @@ export default defineConfig(({ mode }) => {
     ],
     define: { "import.meta.env.VITE_RELEASE_PROFILE": JSON.stringify(profile) },
     base: process.env.VITE_REVIEW_BASE ?? "/3D-pharse5-/",
-    publicDir: "public",
+    publicDir: false,
     server: { host: "127.0.0.1", port: 4200, strictPort: true },
     build: {
       target: "es2022",
@@ -30,12 +32,6 @@ export default defineConfig(({ mode }) => {
       rolldownOptions: {
         input: {
           game: "index.html",
-          ...(profile === "private-review"
-            ? {
-                worldReview: "gate3-review.html",
-                v10Review: "v10-city-review.html",
-              }
-            : {}),
         },
       },
     },

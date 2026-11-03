@@ -1,3 +1,4 @@
+import { readPreservedBytes } from "../phase3bb-amendments";
 import { describe, it, expect } from "vitest";
 import { readFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
@@ -6,7 +7,7 @@ import { characterRegistry } from "../../../src/characters/registry";
 const D = "docs/phase2b-motion/walk-front/";
 const json = (p: string) => JSON.parse(readFileSync(p, "utf8"));
 const sha = (p: string) =>
-  createHash("sha256").update(readFileSync(p)).digest("hex");
+  createHash("sha256").update(readPreservedBytes(p)).digest("hex");
 describe("authorized walk-front-only hotfix", () => {
   it("protects every frozen file outside the64 authorized walk-front cells and8 atlas containers", () => {
     execFileSync("python3", ["tools/phase3a/protected.py"]);

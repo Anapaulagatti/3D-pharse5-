@@ -1,12 +1,13 @@
+from archived_world_source import archived_public
 from pathlib import Path
 from PIL import Image,ImageDraw
 import numpy as np,json,hashlib,subprocess
 R=Path(__file__).resolve().parents[1];D=R/'docs/gate3-recovery';S=R/'assets-src/gate3/recovery'
 def read(p):return json.loads((R/p).read_text())
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
-m=read('public/assets/gate3/recovery-pilots/manifest.json');old=read('public/assets/gate3/production/manifest.json');shots=read('docs/gate3-recovery/native-captures.json');ground=Image.new('RGBA',tuple(m['size']));field=np.zeros(tuple(reversed(m['size'])),np.uint8)
+m=read('public/assets/gate3/recovery-pilots/manifest.json');old=json.loads(archived_public('assets/gate3/production/manifest.json').read_text());shots=read('docs/gate3-recovery/native-captures.json');ground=Image.new('RGBA',tuple(m['size']));field=np.zeros(tuple(reversed(m['size'])),np.uint8)
 for c in m['chunks']:
- x,y,w,h=[c[k]for k in ['x','y','width','height']];ground.paste(Image.open(R/'public'/c['image']),(x,y));field[y:y+h,x:x+w]=np.frombuffer((R/'public'/c['mask']).read_bytes(),np.uint8).reshape(h,w)
+ x,y,w,h=[c[k]for k in ['x','y','width','height']];ground.paste(Image.open(archived_public(c['image'])),(x,y));field[y:y+h,x:x+w]=np.frombuffer((archived_public(c['mask'])).read_bytes(),np.uint8).reshape(h,w)
 readback=[]
 for n in ['north','south','namsan']:
  row=next(r for r in shots['rows']if r['name']==n+'-candidate-native');sx,sy=row['audit']['camera']['scroll'];actual=Image.open(D/(n+'-candidate-native.png')).convert('RGB');ground_view=ground.crop((sx,sy,sx+1280,sy+900));expected=Image.alpha_composite(Image.new('RGBA',ground_view.size,'#33494a'),ground_view).convert('RGB');eligible=Image.new('L',actual.size,255);d=ImageDraw.Draw(eligible)

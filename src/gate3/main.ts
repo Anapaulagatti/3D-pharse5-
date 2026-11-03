@@ -86,219 +86,11 @@ const base = import.meta.env.BASE_URL,
   query = new URLSearchParams(location.search),
   native = query.has("native"),
   overview = query.has("overview");
-const catalog = [
-  { id: "palace-cleanup-world", label: "Final palace cleanup · local review" },
-  { id: "palace-cleanup-before", label: "BEFORE palace cleanup" },
-  { id: "west-hanok-world", label: "Western hanok +courtyard · local review" },
-  { id: "west-hanok-before", label: "BEFORE western hanok +courtyard" },
-  {
-    id: "jeju-bridges-world",
-    label: "TWO JEJU CROSSINGS · approved Hanbit locked",
-  },
-  {
-    id: "jeju-bridges-before",
-    label: "BEFORE TWO JEJU CROSSINGS · approved Hanbit locked",
-  },
-  {
-    id: "station-clean-world",
-    label: "FRESH HANBIT · old station purged · human review",
-  },
-  { id: "station-clean-site", label: "EMPTY CLEAN SITE · no old/new station" },
-  { id: "station-clean-before", label: "BEFORE historical diagnostic only" },
-  {
-    id: "final-station-ground",
-    label: "STATION GROUND STAGE · architecture removed / not default",
-  },
-  { id: "final-world", label: "G3-D surgical world · human review pending" },
-  {
-    id: "final-before",
-    label: "BEFORE surgical correction · residual baseline",
-  },
-  {
-    id: "final-station-candidate",
-    label: "NEW STATION CANDIDATE ONLY · not adopted",
-  },
-  {
-    id: "residual-world",
-    label: "G3-D residual correction / human review pending",
-  },
-  { id: "residual-before", label: "BEFORE residual correction /9827761" },
-  {
-    id: "residual-road-proposal",
-    label: "PROPOSAL ONLY · native station asphalt / not adopted",
-  },
-  {
-    id: "residual-gate-proposal",
-    label: "PROPOSAL ONLY ·88px archive opening / not adopted",
-  },
-  {
-    id: "residual-bridge-proposal",
-    label:
-      "TECHNICAL OVERLAY · proposed bridge shoulders / no collision change",
-  },
-  {
-    id: "aligned-road-proposal",
-    label: "PROPOSAL ONLY · native asphalt exception / not adopted",
-  },
-  {
-    id: "aligned-world",
-    label: "G3-D five-area architectural correction / human review pending",
-  },
-  { id: "aligned-before", label: "G3-D BEFORE five-area correction" },
-  {
-    id: "reconciled-world",
-    label: "G3-D · spatial/shared-ownership reconciliation / review pending",
-  },
-  { id: "reconciled-before", label: "G3-D BEFORE spatial reconciliation" },
-  {
-    id: "reconciled-palace-proposal",
-    label: "PROPOSAL ONLY · native main-hall registration",
-  },
-  {
-    id: "zoned-world",
-    label: "G3-D · coordinated urban/landscape correction / review pending",
-  },
-  {
-    id: "zoned-before",
-    label: "G3-D BEFORE zoning · identical-framing baseline",
-  },
-  {
-    id: "recovery-world",
-    label: "G3-D · consolidated world recovery / final review pending",
-  },
-  {
-    id: "recovery-world-before",
-    label: "G3-D world BEFORE · historical comparison",
-  },
-  {
-    id: "recovery-pilots",
-    label: "G3-D · three shared-style pilots / human review pending",
-  },
-  {
-    id: "recovery-before",
-    label: "G3-D BEFORE · rejected baseline / matching cameras",
-  },
-  {
-    id: "production",
-    label: "HISTORY · G3-B/C art REJECTED / engine retained",
-  },
-  {
-    id: "registration-working-v3",
-    label: "G3-A working V3 · accepted Maru / bakery deferred",
-  },
-  {
-    id: "registration-review",
-    label: "HISTORY · prior Q1 / forecourt review",
-  },
-  {
-    id: "registration-forecourt",
-    label: "Approved forecourt · Q1 context remains historical",
-  },
-  { id: "world", label: "G3-A · 4352×4864 world foundation" },
-  {
-    id: "registration",
-    label: "HISTORY · W0 retired / original registrations",
-  },
-  {
-    id: "registration-refined",
-    label: "Q1 comparison only · quay allocation deferred",
-  },
-  { id: "district", label: "G3-A · approved district / isolated cache lab" },
+// Approved world is explicit for normal play, reload and every legacy/direct review URL.
+const id = "palace-cleanup-world";
+const availableCatalog = [
+  { id, label: "Korean Pixel Town · approved canonical world" },
 ];
-const availableCatalog = production
-  ? catalog.filter((s) => s.id === "palace-cleanup-world")
-  : query.has("worldOnly") ||
-      !query.get("scene") ||
-      query.get("scene")?.startsWith("station-clean-") ||
-      query.get("scene")?.startsWith("jeju-bridges-") ||
-      query.get("scene")?.startsWith("west-hanok-") ||
-      query.get("scene")?.startsWith("palace-cleanup-")
-    ? catalog.filter(
-        (s) =>
-          s.id ===
-          (!query.get("scene")
-            ? "palace-cleanup-world"
-            : query.get("scene")?.startsWith("west-hanok-") ||
-                query.get("scene")?.startsWith("palace-cleanup-")
-              ? query.get("scene")!
-              : query.get("scene")?.startsWith("jeju-bridges-")
-                ? query.get("scene")!
-                : query.get("scene")?.startsWith("station-clean-")
-                  ? query.get("scene")!
-                  : query.get("scene") === "final-station-ground"
-                    ? "final-station-ground"
-                    : query.get("scene") === "final-station-candidate"
-                      ? "final-station-candidate"
-                      : query.get("scene")?.startsWith("final-")
-                        ? "final-world"
-                        : query.get("scene") === "residual-road-proposal"
-                          ? "residual-road-proposal"
-                          : query.get("scene") === "residual-gate-proposal"
-                            ? "residual-gate-proposal"
-                            : query.get("scene") === "residual-bridge-proposal"
-                              ? "residual-bridge-proposal"
-                              : query.get("scene")?.startsWith("residual-")
-                                ? "residual-world"
-                                : query.get("scene") === "aligned-road-proposal"
-                                  ? "aligned-road-proposal"
-                                  : query.get("scene")?.startsWith("aligned-")
-                                    ? "aligned-world"
-                                    : query
-                                          .get("scene")
-                                          ?.startsWith("reconciled-")
-                                      ? "reconciled-world"
-                                      : query.get("scene") === "zoned-world"
-                                        ? "zoned-world"
-                                        : "recovery-world"),
-      )
-    : query.has("pilotsOnly")
-      ? catalog.filter((s) =>
-          ["recovery-pilots", "recovery-before", "production"].includes(s.id),
-        )
-      : catalog;
-const id = production
-  ? "palace-cleanup-world"
-  : [
-        "palace-cleanup-world",
-        "palace-cleanup-before",
-        "west-hanok-world",
-        "west-hanok-before",
-        "jeju-bridges-world",
-        "jeju-bridges-before",
-        "station-clean-world",
-        "station-clean-site",
-        "station-clean-before",
-        "final-station-ground",
-        "final-world",
-        "final-before",
-        "final-station-candidate",
-        "residual-world",
-        "residual-before",
-        "residual-road-proposal",
-        "residual-gate-proposal",
-        "residual-bridge-proposal",
-        "aligned-road-proposal",
-        "aligned-world",
-        "aligned-before",
-        "reconciled-world",
-        "reconciled-before",
-        "reconciled-palace-proposal",
-        "zoned-world",
-        "zoned-before",
-        "recovery-world",
-        "recovery-world-before",
-        "recovery-pilots",
-        "recovery-before",
-        "production",
-        "district",
-        "registration",
-        "registration-refined",
-        "registration-forecourt",
-        "registration-review",
-        "registration-working-v3",
-      ].includes(query.get("scene") ?? "")
-    ? query.get("scene")!
-    : "palace-cleanup-world";
 const data: Manifest = await fetch(
   base + "assets/gate3/" + id + "/manifest.json",
 ).then((r) => {
@@ -319,18 +111,23 @@ const nativeContact = await loadNativeContact(
 );
 // Diagnostic stress profile only; normal review uses the manifest64MiB budget.
 if (query.has("stress")) data.budgetBytes = 24 * 1024 * 1024;
-const entries: Record<string, number[]> =
-  data.reviewEntries ??
-  (id === "world"
-    ? { north: [1740, 1440], jeju: [3500, 4055] }
-    : id.startsWith("registration")
-      ? {
-          station: [2598.5, 2760],
-          bakery: [1814, 3900],
-          retail: [1128, 2690],
-          convenience: [368, 3220],
-        }
-      : { station: [2824, 857], alley: [1470, 850] });
+// Versioned QA approach correction: immutable masterplan/target coordinates are retained.
+const entries: Record<string, number[]> = { ...data.reviewEntries };
+if (query.has("qa"))
+  for (const key of [
+    "palace-west",
+    "jeju-arrival",
+    "bridge-island",
+    "jeju-landing",
+  ]) {
+    const aliases: Record<string, number[]> = {
+      "palace-west": [1837, 1090],
+      "jeju-arrival": [3500, 3633],
+      "bridge-island": [3500, 3633],
+      "jeju-landing": [3188, 3999],
+    };
+    entries[key] = aliases[key];
+  }
 if (entries[query.get("entry") ?? ""])
   data.spawn = entries[query.get("entry")!];
 // PHASE3A BEGIN qa-entry
@@ -360,31 +157,9 @@ if (
   !(await checkpointGroundIsWalkable(data, reloadState.x, reloadState.y, base))
 )
   reloadState = null;
-const label = id.startsWith("palace-cleanup-")
-  ? "Palace cleanup review · western hanok, Hanbit and both Jeju bridges approved/locked"
-  : id.startsWith("west-hanok-")
-    ? "Western hanok/courtyard review · Hanbit and Jeju bridges approved/locked"
-    : id.startsWith("jeju-bridges-")
-      ? "Two Jeju crossings · human review / Hanbit approved and locked"
-      : id.startsWith("station-clean-")
-        ? "Fresh Hanbit · human artistic review pending · world coordinates"
-        : id.startsWith("zoned-")
-          ? "G3-D urban/landscape correction · human review pending / spatial issues remain / devices untested"
-          : id === "recovery-world"
-            ? "G3-D consolidated recovery · human review pending / bakery deferred / device tests not recorded"
-            : id === "production" ||
-                id === "recovery-before" ||
-                id === "recovery-world-before"
-              ? "HISTORY · full-world art rejected / engine retained"
-              : id === "world"
-                ? "G3-A foundation · engineering terrain is NOT final art"
-                : id.startsWith("registration")
-                  ? "CANDIDATE ONLY · native registration / engineering routes · final approval pending"
-                  : id === "recovery-pilots"
-                    ? "G3-D three pilot regions only · unified art approval pending"
-                    : "Approved district · local coordinates · world registration pending";
+const label = "Korean Pixel Town · canonical world / local gameplay review";
 const root = document.querySelector<HTMLDivElement>("#app")!;
-root.innerHTML = `<header><b>${production ? "KOREAN ARENA" : id.startsWith("recovery-") || id.startsWith("zoned-") || id.startsWith("reconciled-") || id.startsWith("aligned-") || id.startsWith("residual-") || id.startsWith("final-") || id.startsWith("station-clean-") || id.startsWith("jeju-bridges-") || id.startsWith("west-hanok-") || id.startsWith("palace-cleanup-") ? "G3-D STYLE REVIEW" : "G3-C HISTORY PROTOTYPE"}</b><select id="scene-picker" aria-label="Review environment">${availableCatalog.map((s) => `<option value="${s.id}" ${s.id === id ? "selected" : ""}>${s.label}</option>`).join("")}</select><span id="camera-mode">Follow · native1:1</span><button id="scenic">Scenic</button><details id="settings"><summary aria-label="Options">···</summary><div>${production ? '<button id="character-open">Character Studio</button><button id="celebrate-desktop">Ăn mừng · C</button>' : ""}<label><input type="checkbox" id="showcases"> Landmark moments</label><button id="pause">Pause</button><button id="export-session">Export test report</button></div></details></header><main id="stage"></main><div id="map-labels" aria-hidden="true"></div><div id="camera-tools"><span>Drag to look · pinch to zoom</span><button id="start-tour">Start Tour</button><span id="tour-caption" role="status" aria-live="polite"></span><button id="tour-pause">Pause</button><button id="tour-next">Skip landmark</button><button id="overview-mode">Full scene</button><button id="return-juni">Return to Juni</button></div><button id="tour-controls" aria-controls="camera-tools" aria-expanded="true">Tour controls</button><footer><span id="near">${label}</span><span>WASD / arrows · Shift run · E explore · Space greet${production ? " · C celebrate" : ""}</span></footer><div id="joystick" aria-label="Movement joystick"><span class="stick-knob"></span></div><div id="touch-actions"><button id="run">Run</button><button id="explore">Explore</button>${production ? '<button id="wave-emote">Chào</button><button id="celebrate-emote">Vui</button>' : ""}</div><aside id="dialog" hidden role="dialog" aria-label="Environment detail"><h2 id="title"></h2><p id="copy"></p><button id="close">Return</button></aside>`;
+root.innerHTML = `<header><b>KOREAN ARENA</b><select id="scene-picker" aria-label="Review environment">${availableCatalog.map((s) => `<option value="${s.id}" ${s.id === id ? "selected" : ""}>${s.label}</option>`).join("")}</select><span id="camera-mode">Follow · native1:1</span><button id="scenic">Scenic</button><details id="settings"><summary aria-label="Options">···</summary><div>${production ? '<button id="character-open">Character Studio</button><button id="celebrate-desktop">Ăn mừng · C</button>' : ""}<label><input type="checkbox" id="showcases"> Landmark moments</label><button id="pause">Pause</button><button id="export-session">Export test report</button></div></details></header><main id="stage"></main><div id="map-labels" aria-hidden="true"></div><div id="camera-tools"><span>Drag to look · pinch to zoom</span><button id="start-tour">Start Tour</button><span id="tour-caption" role="status" aria-live="polite"></span><button id="tour-pause">Pause</button><button id="tour-next">Skip landmark</button><button id="overview-mode">Full scene</button><button id="return-juni">Return to Juni</button></div><button id="tour-controls" aria-controls="camera-tools" aria-expanded="true">Tour controls</button><footer><span id="near">${label}</span><span>WASD / arrows · Shift run · E explore · Space greet${production ? " · C celebrate" : ""}</span></footer><div id="joystick" aria-label="Movement joystick"><span class="stick-knob"></span></div><div id="touch-actions"><button id="run">Run</button><button id="explore">Explore</button>${production ? '<button id="wave-emote">Chào</button><button id="celebrate-emote">Vui</button>' : ""}</div><aside id="dialog" hidden role="dialog" aria-label="Environment detail"><h2 id="title"></h2><p id="copy"></p><button id="close">Return</button></aside>`;
 if (production)
   document.querySelector<HTMLElement>("#scene-picker")!.hidden = true;
 document.querySelector<HTMLSelectElement>("#scene-picker")!.onchange = (e) => {
@@ -437,6 +212,11 @@ class Slice extends Phaser.Scene {
   private keys!: Record<string, Phaser.Input.Keyboard.Key>;
   private visited = new Set<string>();
   preload() {
+    this.load.atlas(
+      "farm-crops",
+      base + "assets/farming/crops.png",
+      base + "assets/farming/crops.json",
+    );
     const selected = characterSession.selected;
     if (!this.textures.exists(selected.assets!.key))
       this.load.atlas(
@@ -532,21 +312,7 @@ class Slice extends Phaser.Scene {
       async () => {},
       data.stops,
     );
-    if (
-      native &&
-      (id.startsWith("registration") ||
-        id === "production" ||
-        id.startsWith("recovery-") ||
-        id.startsWith("zoned-") ||
-        id.startsWith("reconciled-") ||
-        id.startsWith("aligned-") ||
-        id.startsWith("residual-") ||
-        id.startsWith("final-") ||
-        id.startsWith("station-clean-") ||
-        id.startsWith("jeju-bridges-") ||
-        id.startsWith("west-hanok-") ||
-        id.startsWith("palace-cleanup-"))
-    ) {
+    if (native) {
       const centres: Record<string, [number, number]> = data.nativeFrames ?? {
         station: [2598.5, 2460],
         bakery: [1814, 3500],

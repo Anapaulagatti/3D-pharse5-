@@ -1,4 +1,18 @@
 import {
+  crops,
+  items,
+  plots,
+  freshEconomy,
+  ready,
+  validInventory,
+  nearGround,
+  SHOPKEEPER,
+  ECONOMY,
+  type EconomyState,
+  type CropId,
+  type FarmAction,
+} from "../economy/catalog";
+import {
   LocalLearningProgress,
   quests,
   type LearningProgressAdapter,
@@ -9,6 +23,7 @@ export interface QuestRecord {
   status: QuestStatus;
   step: number;
   attempts: number;
+  boundPlot?: string;
 }
 export interface QuestSave {
   schemaVersion: 1;
@@ -17,6 +32,7 @@ export interface QuestSave {
   coins: number;
   xp: number;
   transactions: string[];
+  economy: EconomyState;
 }
 const fresh = (): QuestSave => ({
   schemaVersion: 1,
@@ -25,6 +41,7 @@ const fresh = (): QuestSave => ({
   coins: 0,
   xp: 0,
   transactions: [],
+  economy: freshEconomy(),
 });
 const integer = (v: unknown): v is number =>
   Number.isSafeInteger(v) && Number(v) >= 0 && Number(v) <= 1000000;
@@ -32,6 +49,7 @@ const integer = (v: unknown): v is number =>
 export class QuestManager {
   private value = fresh();
   storageWarning = "";
+  private lastRaw: string | null = null;
   constructor(
     private storage?: Pick<Storage, "getItem" | "setItem">,
     readonly learning: LearningProgressAdapter = new LocalLearningProgress(),
@@ -70,7 +88,38 @@ export class QuestManager {
         )
           throw Error("invalid receipt");
       }
+      v.economy ??= freshEconomy();
+      if (
+        !integer(v.economy.revision) ||
+        !v.economy.plots ||
+        !v.economy.stock ||
+        !v.economy.harvests ||
+        !v.economy.sales
+      )
+        throw Error("invalid economy");
+      for (const plot of plots) {
+        const state = v.economy.plots[plot.id];
+        if (
+          !state ||
+          !["empty", "tilled", "planted", "watered"].includes(state.stage) ||
+          !integer(state.cycle)
+        )
+          throw Error("invalid plot");
+        if (state.crop && !(state.crop in crops)) throw Error("invalid crop");
+        if (
+          (state.stage === "planted" || state.stage === "watered") &&
+          (!state.crop ||
+            !Number.isFinite(state.plantedAt) ||
+            !Number.isFinite(state.growMs))
+        )
+          throw Error("invalid plant");
+        if (state.stage === "watered" && !Number.isFinite(state.wateredAt))
+          throw Error("invalid water");
+      }
+      if (!Object.values(v.economy.stock).every(integer))
+        throw Error("invalid stock");
       this.value = v;
+      this.lastRaw = raw;
     } catch {
       this.storageWarning =
         "Dữ liệu nhiệm vụ không hợp lệ; dữ liệu gốc chưa bị ghi đè.";
@@ -81,16 +130,40 @@ export class QuestManager {
   }
   private commit(change: (next: QuestSave) => boolean) {
     if (this.storageWarning) return false;
+    try {
+      const raw = this.storage?.getItem(QUEST_STORAGE_KEY) ?? null;
+      if (this.storage && raw !== this.lastRaw) {
+        const latest = new QuestManager(this.storage, this.learning);
+        if (latest.storageWarning) {
+          this.storageWarning = latest.storageWarning;
+          return false;
+        }
+        this.value = latest.snapshot();
+        this.lastRaw = raw;
+      }
+    } catch {
+      return false;
+    }
     const next = this.snapshot();
     if (!change(next)) return false;
+    if (
+      !validInventory(next.inventory) ||
+      !integer(next.coins) ||
+      !integer(next.xp) ||
+      next.transactions.length > ECONOMY.maxReceipts
+    )
+      return false;
+    next.economy.revision++;
+    const serialized = JSON.stringify(next);
     try {
-      this.storage?.setItem(QUEST_STORAGE_KEY, JSON.stringify(next));
+      this.storage?.setItem(QUEST_STORAGE_KEY, serialized);
     } catch {
       this.storageWarning =
         "Không lưu được nhiệm vụ. Chưa cấp phần thưởng; hãy kiểm tra bộ nhớ trình duyệt.";
       return false;
     }
     this.value = next;
+    this.lastRaw = serialized;
     return true;
   }
   accept(id: string, npcId: string) {
@@ -99,7 +172,10 @@ export class QuestManager {
     return this.commit((s) => {
       if (s.records[id]) return false;
       s.records[id] = { status: "active", step: 0, attempts: 0 };
-      if (def.topic === "farm") s.inventory.seed = (s.inventory.seed ?? 0) + 1;
+      if (def.id === "farm-radish-harvest-v1")
+        s.inventory["seed-radish"] = (s.inventory["seed-radish"] ?? 0) + 1;
+      if (def.id === "farm-first-seed-v1")
+        s.inventory.seed = (s.inventory.seed ?? 0) + 1;
       if (def.recipient) s.inventory.parcel = (s.inventory.parcel ?? 0) + 1;
       return true;
     });
@@ -115,6 +191,7 @@ export class QuestManager {
     const step = def?.steps[record?.step ?? -1];
     if (
       !def ||
+      def.economyObjectives ||
       !record ||
       record.status !== "active" ||
       !step ||
@@ -166,6 +243,141 @@ export class QuestManager {
       return true;
     });
   }
+  private economyEvent(
+    s: QuestSave,
+    event: string,
+    item?: string,
+    crop?: string,
+    plotId?: string,
+  ) {
+    for (const def of quests) {
+      const r = s.records[def.id];
+      const objective = def.economyObjectives?.[r?.step ?? -1];
+      if (
+        r?.status !== "active" ||
+        !objective ||
+        objective.event !== event ||
+        (objective.item && objective.item !== item) ||
+        (objective.crop && objective.crop !== crop)
+      )
+        continue;
+      if (plotId && r.boundPlot && r.boundPlot !== plotId) continue;
+      if (plotId && !r.boundPlot) r.boundPlot = plotId;
+      r.step++;
+    }
+  }
+  farmAction(
+    plotId: string,
+    action: FarmAction,
+    cropId: CropId | undefined,
+    txId: string,
+    player: readonly [number, number],
+    ground: (x: number, y: number) => boolean,
+    now = Date.now(),
+  ) {
+    const def = plots.find((p) => p.id === plotId);
+    if (
+      !def ||
+      !Number.isFinite(now) ||
+      !nearGround(player, def.point, ground) ||
+      !/^[a-zA-Z0-9:_-]{3,120}$/.test(txId)
+    )
+      return false;
+    return this.commit((s) => {
+      const tx = `farm:${txId}`;
+      if (s.transactions.includes(tx)) return false;
+      const p = s.economy.plots[plotId];
+      let eventCrop = p.crop;
+      if (action === "till") {
+        if (p.stage !== "empty") return false;
+        p.stage = "tilled";
+      } else if (action === "plant") {
+        if (p.stage !== "tilled" || !cropId || !(cropId in crops)) return false;
+        const crop = crops[cropId];
+        if (!(s.inventory[crop.seed] > 0)) return false;
+        s.inventory[crop.seed]--;
+        p.stage = "planted";
+        p.crop = cropId;
+        p.plantedAt = now;
+        p.growMs = crop.growMs;
+        p.cycle++;
+        eventCrop = cropId;
+        // One bounded introductory crop per actual quest stage, never a repeatable speed boost.
+        const intro = quests.find(
+          (q) =>
+            q.economyObjectives?.[s.records[q.id]?.step ?? -1]?.event ===
+              "plant" &&
+            q.economyObjectives[s.records[q.id].step].crop === cropId &&
+            s.records[q.id].status === "active" &&
+            (!s.records[q.id].boundPlot ||
+              s.records[q.id].boundPlot === plotId),
+        );
+        if (intro) p.growMs = crop.introMs;
+      } else if (action === "water") {
+        if (p.stage !== "planted") return false;
+        p.stage = "watered";
+        p.wateredAt = now;
+      } else if (action === "harvest") {
+        if (!ready(p, now) || !p.crop) return false;
+        const c = crops[p.crop];
+        s.inventory[c.produce] = (s.inventory[c.produce] ?? 0) + c.yield;
+        s.economy.harvests[p.crop] = (s.economy.harvests[p.crop] ?? 0) + 1;
+        s.economy.plots[plotId] = { stage: "empty", cycle: p.cycle };
+      } else return false;
+      this.economyEvent(s, action, undefined, eventCrop, plotId);
+      s.transactions.push(tx);
+      return true;
+    });
+  }
+  trade(
+    kind: "buy" | "sell",
+    itemId: string,
+    quantity: number,
+    txId: string,
+    context: {
+      npcId: string;
+      player: readonly [number, number];
+      actor: readonly [number, number];
+      ground: (x: number, y: number) => boolean;
+    },
+  ) {
+    const item = items[itemId];
+    if (
+      !item ||
+      !Number.isSafeInteger(quantity) ||
+      quantity <= 0 ||
+      quantity > ECONOMY.maxStack ||
+      context.npcId !== SHOPKEEPER ||
+      !nearGround(context.player, context.actor, context.ground, 112) ||
+      !/^[a-zA-Z0-9:_-]{3,120}$/.test(txId)
+    )
+      return false;
+    return this.commit((s) => {
+      const tx = `trade:${txId}`;
+      if (s.transactions.includes(tx)) return false;
+      if (kind === "buy") {
+        if (
+          item.buy <= 0 ||
+          s.coins < item.buy * quantity ||
+          (s.economy.stock[itemId] ?? 0) < quantity
+        )
+          return false;
+        s.coins -= item.buy * quantity;
+        s.economy.stock[itemId] -= quantity;
+        s.inventory[itemId] = (s.inventory[itemId] ?? 0) + quantity;
+      } else if (kind === "sell") {
+        if (item.sell <= 0 || (s.inventory[itemId] ?? 0) < quantity)
+          return false;
+        s.inventory[itemId] -= quantity;
+        s.coins += item.sell * quantity;
+        s.economy.sales[itemId] = (s.economy.sales[itemId] ?? 0) + quantity;
+      } else return false;
+      this.economyEvent(s, kind, itemId);
+      s.transactions.push(tx);
+      return true;
+    });
+  }
+
   question(id: string) {
     const def = quests.find((q) => q.id === id),
       r = this.value.records[id];

@@ -1,3 +1,7 @@
+# Phase3B-D authorized ·2026-11-03
+
+Owner-directed next gameplay increment = farming/shop/economy vertical slice plus cleanup, not a retroactive roadmap rename. Earlier3B handoff future gameplay hooks were inert; historical phase names stay unchanged. Source d54117c0 and compiled3BC b0164331 are accepted development baseline. New exact public approval is still required. See docs/phase3bd.
+
 # Phase3B-C private candidate READY · public exposure PENDING (2026-10-31)
 
 Final candidate: artifact `b0164331134d5ea9ebce306fc3b16a19b9565744`, manifest SHA256 `7deae834d82d98df80fd2e36e671305ac912ed7790b9d06219ba6f07cb1371fd` (3029 files). Source implementation9970b16e; review checkpoint `checkpoint/phase3bc-quest-accessibility-review-20261031`. ZIP SHA256 `723a18ef92959bf73f024814a591ca38d4196387c72f20ccbfa0a7389b4685d0`.

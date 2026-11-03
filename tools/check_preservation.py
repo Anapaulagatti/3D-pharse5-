@@ -1,3 +1,3 @@
-"""Current V10 offline preservation gate; no artwork generation."""
-from v10_validate import validate
-validate()
+"""Current approved world check; rejected V10 is not a current preservation target."""
+import subprocess,sys
+subprocess.run([sys.executable,'tools/phase3bd/world_guard.py'],check=True)

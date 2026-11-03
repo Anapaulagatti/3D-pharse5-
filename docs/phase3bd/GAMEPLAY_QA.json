@@ -1,0 +1,229 @@
+{
+  "status": "PASS ACTUAL PHASER TWO FARM/SHOP QUEST LOOPS",
+  "origin": "http://127.0.0.1:4330/3D-pharse5-/",
+  "routes": [
+    {
+      "start": [
+        574,
+        706
+      ],
+      "target": [
+        576.6632000000001,
+        550
+      ],
+      "end": [
+        574,
+        591.1709999999993
+      ],
+      "length": 116,
+      "actualControls": true
+    },
+    {
+      "start": [
+        574,
+        591.1709999999993
+      ],
+      "target": [
+        470,
+        481
+      ],
+      "end": [
+        468.8330000000006,
+        490.17600000000135
+      ],
+      "length": 204,
+      "actualControls": true
+    },
+    {
+      "start": [
+        468.8330000000006,
+        490.17600000000135
+      ],
+      "target": [
+        584.0000000000001,
+        577.2580000000002
+      ],
+      "end": [
+        547.848980515341,
+        557.3445134931377
+      ],
+      "length": 144,
+      "actualControls": true
+    },
+    {
+      "start": [
+        547.848980515341,
+        557.3445134931377
+      ],
+      "target": [
+        650,
+        2660
+      ],
+      "end": [
+        641.8785909751841,
+        2653.808109895775
+      ],
+      "length": 2344,
+      "actualControls": true
+    },
+    {
+      "start": [
+        641.8785909751841,
+        2653.808109895775
+      ],
+      "target": [
+        650,
+        2620
+      ],
+      "end": [
+        641.8785909751841,
+        2653.808109895775
+      ],
+      "length": 0,
+      "actualControls": true
+    },
+    {
+      "start": [
+        641.8785909751841,
+        2653.808109895775
+      ],
+      "target": [
+        470,
+        481
+      ],
+      "end": [
+        470.91342172264945,
+        489.5661207537662
+      ],
+      "length": 2472,
+      "actualControls": true
+    },
+    {
+      "start": [
+        470.91342172264945,
+        489.5661207537662
+      ],
+      "target": [
+        650,
+        2660
+      ],
+      "end": [
+        640.3442414842542,
+        2653.8402147380107
+      ],
+      "length": 2472,
+      "actualControls": true
+    },
+    {
+      "start": [
+        640.3442414842542,
+        2653.8402147380107
+      ],
+      "target": [
+        650,
+        2620
+      ],
+      "end": [
+        640.3442414842542,
+        2653.8402147380107
+      ],
+      "length": 0,
+      "actualControls": true
+    }
+  ],
+  "errors": [],
+  "physicalDevices": "NOT TESTED",
+  "educationalReview": "PENDING_HUMAN_REVIEW",
+  "radishQuest": {
+    "first": "farm-1",
+    "next": "farm-2",
+    "coinsBeforeCorrect": 0,
+    "coinsAfterCorrect": 18
+  },
+  "marketQuest": {
+    "first": "shop-1",
+    "next": "shop-2",
+    "coinsBeforeCorrect": 15,
+    "coinsAfterCorrect": 37
+  },
+  "final": {
+    "schemaVersion": 1,
+    "records": {
+      "farm-radish-harvest-v1": {
+        "status": "completed",
+        "step": 4,
+        "attempts": 1,
+        "boundPlot": "NW-FARM-01"
+      },
+      "shop-garden-market-v1": {
+        "status": "completed",
+        "step": 5,
+        "attempts": 1,
+        "boundPlot": "NW-FARM-01"
+      }
+    },
+    "inventory": {
+      "seed-radish": 0,
+      "radish": 2,
+      "seed-scallion": 0,
+      "scallion": 2
+    },
+    "coins": 37,
+    "xp": 40,
+    "transactions": [
+      "farm:NW-FARM-01:0:till:1",
+      "farm:NW-FARM-01:0:plant:2",
+      "farm:NW-FARM-01:1:water:3",
+      "farm:NW-FARM-01:1:harvest:4",
+      "quest:farm-radish-harvest-v1:base",
+      "trade:buy:seed-scallion:9",
+      "farm:NW-FARM-01:1:till:10",
+      "farm:NW-FARM-01:1:plant:11",
+      "farm:NW-FARM-01:2:water:12",
+      "farm:NW-FARM-01:2:harvest:13",
+      "trade:sell:scallion:14",
+      "quest:shop-garden-market-v1:base"
+    ],
+    "economy": {
+      "revision": 18,
+      "plots": {
+        "NW-FARM-01": {
+          "stage": "empty",
+          "cycle": 2
+        },
+        "NW-FARM-02": {
+          "stage": "empty",
+          "cycle": 0
+        },
+        "NW-FARM-03": {
+          "stage": "empty",
+          "cycle": 0
+        },
+        "NW-FARM-04": {
+          "stage": "empty",
+          "cycle": 0
+        },
+        "NW-FARM-05": {
+          "stage": "empty",
+          "cycle": 0
+        },
+        "NW-FARM-06": {
+          "stage": "empty",
+          "cycle": 0
+        }
+      },
+      "stock": {
+        "seed-radish": 50,
+        "seed-scallion": 49,
+        "jeju-postcard": 5
+      },
+      "harvests": {
+        "radish": 1,
+        "scallion": 1
+      },
+      "sales": {
+        "scallion": 1
+      }
+    }
+  }
+}

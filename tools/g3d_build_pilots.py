@@ -1,3 +1,4 @@
+from archived_world_source import archived_public
 """Versioned three-pilot ownership compositor. Native copies only, no art resampling.
 Approved sources, production manifest/chunks and original masterplans are read-only.
 """
@@ -8,11 +9,11 @@ R=Path(__file__).resolve().parents[1];S=R/'assets-src/gate3/recovery';D=R/'docs/
 def read(p):return json.loads((R/p).read_text())
 def write(p,v):p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n')
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
-m=read('public/assets/gate3/production/manifest.json');base=read('public/assets/gate3/registration-working-v3/manifest.json');W,H=m['size'];ground=Image.new('RGBA',(W,H));walk=np.zeros((H,W),np.uint8);basewalk=walk.copy()
+m=json.loads(archived_public('assets/gate3/production/manifest.json').read_text());base=read('public/assets/gate3/registration-working-v3/manifest.json');W,H=m['size'];ground=Image.new('RGBA',(W,H));walk=np.zeros((H,W),np.uint8);basewalk=walk.copy()
 for c in m['chunks']:
- x,y,w,h=[c[k]for k in ['x','y','width','height']];ground.paste(Image.open(R/'public'/c['image']),(x,y));walk[y:y+h,x:x+w]=np.frombuffer((R/'public'/c['mask']).read_bytes(),np.uint8).reshape(h,w)
+ x,y,w,h=[c[k]for k in ['x','y','width','height']];ground.paste(Image.open(archived_public(c['image'])),(x,y));walk[y:y+h,x:x+w]=np.frombuffer((archived_public(c['mask'])).read_bytes(),np.uint8).reshape(h,w)
 for c in base['chunks']:
- x,y,w,h=[c[k]for k in ['x','y','width','height']];basewalk[y:y+h,x:x+w]=np.frombuffer((R/'public'/c['mask']).read_bytes(),np.uint8).reshape(h,w)
+ x,y,w,h=[c[k]for k in ['x','y','width','height']];basewalk[y:y+h,x:x+w]=np.frombuffer((archived_public(c['mask'])).read_bytes(),np.uint8).reshape(h,w)
 oldground=ground.copy();oldwalk=walk.copy();records=[];objects=copy.deepcopy(m['objects']);remove=[]
 # A: native clean plate behind independently sorted original archive/workshop candidates.
 a=Image.open(S/'north-ground-authored.png').convert('RGBA')
