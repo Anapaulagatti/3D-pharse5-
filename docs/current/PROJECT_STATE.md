@@ -1,3 +1,7 @@
+# Final farm/hanok Pages WAITING environment reviewer ·2026-11-04
+
+Exact owner approval recorded. Control3654b34; run41852211445 receipt jobPASS, deployWAITING required github-pages reviewerAnapaulagatti. See docs/phase3bd-final-quality-release/DELIVERY_STATUS.json. No bypass or renewed owner-manifest question; need only existing GitHub protected-environment approval. After approval inspect actualHTTPS and hosted gameplay proof; new candidate NOT_DEPLOYED yet. Preserve5b5ce278 rollback, sources and physicaldeviceNOTTESTED. No3BE/production/main game merge/delegation.
+
 # Final farm/hanok exact Pages release AUTHORIZED ·2026-11-04
 
 Owner replied “deploy lên page để tôi trải nghiệm thử” to exact4975file artifact1a6e5a58/manifest331cd300 approval question. See docs/phase3bd-final-quality-release. Supersedes prior exposure STOP only for this exact public gameplay preview. Receipt/hash/history gates PASS; releasecontrol3654b34. Preserve5b5ce278/d170 rollback. Required github-pages environment reviewer remains mandatory; actualHTTPS gameplay proof before DEPLOYED. No artwork/game rebuild/main-game merge/productionv0.5/3BE. Physicaldevices/GPU NOTTESTED. No delegation.
