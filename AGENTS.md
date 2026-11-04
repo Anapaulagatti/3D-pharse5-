@@ -1,3 +1,7 @@
+# Farm/path hotfix review READY ·2026-11-04
+
+Source build79f29058; artifact5b5ce278; exact manifestd170ee180c4743ab8bee4b4a952c7bf1b7f69c2c8083e1b2eb84cf6846beea58 (4301files). Read docs/phase3bd-farm-path/FINAL_DELIVERY.json,README.md,QA.md. Actual compiled and extractedZIP Phaser farming stages/reward/reload/paths/mobile/video PASS;209unit/71qualified broader/14final relevantE2E.10479originalart/source files unchanged. Receipt and controls prepared on separate review branch, pending exact owner public-manifest approval. Old approval17306fc4not applicable to changedartifact; no Pages/production/mainmerge/3BE. Preserve9fce709a andfff156b6 rollback. Physicaldevices/GPU NOTTESTED; historicalsnapshot warnings retained. Stop for consolidated humanreview, not microapprovals. No delegation.
+
 # Current authority · farm lifecycle and path hotfix 2026-11-04
 
 Owner authorizes targeted physical Phaser farming visual lifecycle and localized navigation/contact improvements on current reviewed candidate. Preserve world/26NPC/12players/24cosmetics and existing sources; additive crop-state/soil overlays and minimal collision amendments permitted. No new phase, production merge/deploy or broad map edits. New exact public manifest must pass existing exposure gates. Previous frozen-candidate restriction superseded only for this hotfix. Preserve rollback9fce709a and fff156b6. No delegation.

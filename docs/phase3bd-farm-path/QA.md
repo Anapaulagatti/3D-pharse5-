@@ -14,3 +14,8 @@
 
 - PASS: actual scallion growth over90real seconds, all5native phases and harvest3produce. One starter scallion seed fixture only; no time override. See SCALLION_QA.json.
 - PASS: exact opaque pixel readback for every radish stage, source atlas to actual rendered1:1Phaser capture; see PIXEL_READBACK.json.
+
+
+Final results:209/209unit,71/71full regression,14/14final relevant E2E. The full suite began before the final gentle-analog clamp/build refresh; it is not claimed as one immutable-final-revision run. The14relevant movement/farming tests ran after the final build. Actual standalone compiled desktop and mobile loops also passed with zero page/resource errors. Prior baseline69/71snapshot-observer failures remain historical WARN; a later PASS is not a claimed unrelated game fix.
+
+Initial isolated package omitted runtime images when replacing the assembler with direct Portal copying. This caused manifest404/readiness timeout, not a Phaser gameplay defect. The build adapter now exports the explicit590assetclosure and runs the canonical-world hash guard. Failure is retained in FROZEN_MISSING_ASSET_FAILURE.json; closed compiled gameplay then passed. No artwork was regenerated to address it.

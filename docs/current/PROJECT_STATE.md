@@ -1,3 +1,7 @@
+# Current review ·2026-11-04
+
+Physical farming lifecycle/path hotfix delivered as independently playable ZIP: source79f29058/artifact5b5ce278/manifestd170ee18,4301files. See docs/phase3bd-farm-path/README.md. No hotfix public deployment: exact new exposure approval PENDING. Prepared controls separate reviewbranch; existing reviewmain/productionv0.5 unchanged.209unit,71qualified broader regression,14final relevantE2E,actualcompiled/offlinePhaser and mobileemulation PASS;physicaldevices NOTTESTED. Preserve all approved source art/26NPC/12players/24cosmetics and rollback9fce/fff. Phase3BE locked.
+
 # Deployment continuation · 2026-11-04
 
 Owner exact physical preview approval recorded. Artifact9fce709a and release controlscbe3489 pushed; run https://github.com/Anapaulagatti/3D-pharse5-review/actions/runs/41760249901 is WAITING github-pages reviewer Anapaulagatti. Receipt PASS, local exact3570hash/history gate and actual extracted-game deployment driver PASS. New actualHTTPS NOTTESTED; live still543ccd32. Rollbackfff156b6/tag preserved. See docs/phase3bd-in-world-release; snapshot/firstdriver warnings retained. No art/game changes,3BE/mainmerge/officialsite edits. Physical hardware NOTTESTED.
