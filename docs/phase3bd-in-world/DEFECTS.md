@@ -7,3 +7,5 @@
 - Existing planning restrictions preserved: bakery unplaced, station8px strip and protected route/scenery reservations. No world/collision edits used to hide invalid NPC approaches.
 - Static painted crops outside the new managed front rows remain scenery; only managed rows have persistent gameplay state. Tiny tools/soil treatment require owner visual review.
 - Environment rollback and lost unsynced2026-11-03 work are disclosed in RECOVERY.md. Only fresh2026-11-04 test/capture results count for this package.
+
+- Minor inherited local-launcher log behavior: navigating away from a streaming video can print ConnectionResetError for the canceled request. Server remains running; both actual videos and exported gameplay passed. No frozen payload change made to suppress a benign cancellation log.
