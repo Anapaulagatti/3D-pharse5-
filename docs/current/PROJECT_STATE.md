@@ -1,3 +1,11 @@
+# Deployment continuation · 2026-11-04
+
+Owner exact physical preview approval recorded. Artifact9fce709a and release controlscbe3489 pushed; run https://github.com/Anapaulagatti/3D-pharse5-review/actions/runs/41760249901 is WAITING github-pages reviewer Anapaulagatti. Receipt PASS, local exact3570hash/history gate and actual extracted-game deployment driver PASS. New actualHTTPS NOTTESTED; live still543ccd32. Rollbackfff156b6/tag preserved. See docs/phase3bd-in-world-release; snapshot/firstdriver warnings retained. No art/game changes,3BE/mainmerge/officialsite edits. Physical hardware NOTTESTED.
+
+# Exact physical Phase3BD public preview AUTHORIZED ·2026-11-04
+
+Owner explicitly approves sourceb172ac00/artifact9fce709a/manifest17306fc4 (3570files). See docs/phase3bd-in-world-release/OWNER_APPROVAL.json. Supersedes private-review STOP ONLY for this exact public gameplay review. Preservefff156b6 rollback,v0.5,all original checkpoints and artwork. Use existing protected review Pages workflow; never bypass environment reviewer; verify actualHTTPS and physicalPhaser loops before DEPLOYED. Keep203unit/full69/71+corrected8/8snapshot-observer history honest; hardware/Korean review NOTTESTED/PENDING. No game rebuild/newart/mainmerge/Phase3BE. No delegation.
+
 # Phase3BD physical gameplay REVIEW READY ·2026-11-04
 
 Source code806d3573; private artifact9fce709a; exact manifest17306fc4c2a3f958e29a2256eb1ddbb722658917863269907554ecd005f69183 (3570files). See docs/phase3bd-in-world/FINAL_DELIVERY.json,REVIEW.html,QA.md,PACKAGE_PROOF.json and pending receipt. Fresh203unit PASS; full69/71with2identified readonly-snapshot observation races; corrected assertions repeated4times each8/8PASS, failures preserved. Actual3physicalquests+shop,19WASDlegs,desktop/mobile video,CRC/extracted offline3570SHA checks/Phaser farm/video playback PASS.10473existing art/source files unchanged.

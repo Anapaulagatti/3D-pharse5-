@@ -1,3 +1,11 @@
+# Physical Phase3BD release WAITING environment reviewer · 2026-11-04
+
+Exact owner-approved artifact9fce709a/manifest17306fc4 (3570files) pushed. Review controls cbe3489; run41760249901 receipt PASS, deploy WAITING github-pages reviewer Anapaulagatti. ActualHTTPS still old543ccd32 as of02:22UTC; NOT DEPLOYED/newHTTPS NOTTESTED. Resume read-only status/actual hosted QA after required manual approval. See docs/phase3bd-in-world-release/README.md and DELIVERY_STATUS.json. Preserve rollback checkpoint/pages-fff156b6-before-physical-20261104 and all historical references. No payload changes,3BE,game-main merge or official-site changes.
+
+# Exact physical Phase3BD public preview AUTHORIZED ·2026-11-04
+
+Owner explicitly approves sourceb172ac00/artifact9fce709a/manifest17306fc4 (3570files). See docs/phase3bd-in-world-release/OWNER_APPROVAL.json. Supersedes private-review STOP ONLY for this exact public gameplay review. Preservefff156b6 rollback,v0.5,all original checkpoints and artwork. Use existing protected review Pages workflow; never bypass environment reviewer; verify actualHTTPS and physicalPhaser loops before DEPLOYED. Keep203unit/full69/71+corrected8/8snapshot-observer history honest; hardware/Korean review NOTTESTED/PENDING. No game rebuild/newart/mainmerge/Phase3BE. No delegation.
+
 # Phase3BD physical gameplay REVIEW READY ·2026-11-04
 
 Source code806d3573; private artifact9fce709a; exact manifest17306fc4c2a3f958e29a2256eb1ddbb722658917863269907554ecd005f69183 (3570files). See docs/phase3bd-in-world/FINAL_DELIVERY.json,REVIEW.html,QA.md,PACKAGE_PROOF.json and pending receipt. Fresh203unit PASS; full69/71with2identified readonly-snapshot observation races; corrected assertions repeated4times each8/8PASS, failures preserved. Actual3physicalquests+shop,19WASDlegs,desktop/mobile video,CRC/extracted offline3570SHA checks/Phaser farm/video playback PASS.10473existing art/source files unchanged.
