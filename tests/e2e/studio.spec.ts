@@ -79,8 +79,8 @@ test("Studio previews and applies each category, resets, and persists a named lo
 }) => {
   await boot(page, "juni", { "lesson-progress-sentinel": "KEEP" });
   await page.keyboard.press("e");
-  await expect(page.locator("#dialog")).toBeVisible();
-  await page.locator("#close").click();
+  await expect(page.locator("#dialog")).not.toBeVisible();
+  expect(await page.evaluate(() => window.__GATE3__!.paused)).toBe(false);
   const before = await state(page);
   expect(before.visited.length).toBeGreaterThan(0);
   await open(page);

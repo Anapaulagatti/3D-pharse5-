@@ -107,15 +107,16 @@ test("saved Juni restores and settings round-trip preserves location, emotes, pr
   await ready(page);
   await expect(page.locator("#character-selection")).not.toBeVisible();
 });
-test("corrupt, unknown and unavailable storage recover to Juni without crashing", async ({
-  browser,
-}) => {
-  for (const value of [
-    "{",
-    '{"version":1,"characterId":"removed"}',
-    '{"version":1,"characterId":"unfinished"}',
-    null,
-  ]) {
+// Independent fixtures retain identical assertions and the existing120s timeout each.
+for (const [label, value] of [
+  ["corrupt", "{"],
+  ["removed", '{"version":1,"characterId":"removed"}'],
+  ["unfinished", '{"version":1,"characterId":"unfinished"}'],
+  ["denied", null],
+] as const)
+  test(`storage ${label} recovers to Juni without crashing`, async ({
+    browser,
+  }) => {
     const ctx = await browser.newContext();
     await ctx.addInitScript(
       ({ key, value }) => {
@@ -135,8 +136,7 @@ test("corrupt, unknown and unavailable storage recover to Juni without crashing"
     await chooseJuni(p);
     expect(await p.evaluate(() => window.__GATE3__!.characterId)).toBe("juni");
     await ctx.close();
-  }
-});
+  });
 test("mobile landscape preview fits; modal isolates joystick and original touch movement returns", async ({
   browser,
 }) => {
@@ -253,8 +253,8 @@ for (const id of [
     await page.keyboard.up("w");
     await page.waitForTimeout(250);
     await page.keyboard.press("e");
-    await expect(page.locator("#dialog")).toBeVisible();
-    await page.locator("#close").click();
+    await expect(page.locator("#dialog")).not.toBeVisible();
+    expect(await page.evaluate(() => window.__GATE3__!.paused)).toBe(false);
     const before = await page.evaluate(() => ({
       x: window.__GATE3__!.x,
       y: window.__GATE3__!.y,

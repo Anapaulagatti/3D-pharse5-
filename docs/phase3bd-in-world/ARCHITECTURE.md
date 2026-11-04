@@ -1,0 +1,13 @@
+# Scoped physical interaction redesign
+
+Existing QuestManager still owns one atomic save for quest records, plots, inventory, stock, coins, XP and transaction receipts. No new economy/player/NPC engine. NPCManager retains registry/FSM/schedules/routes/4actor,4texture,2load caps. Nearby quest/shop residents retain an encounter slot when a visitor window would otherwise remove the real shopkeeper; the paired visitor yields locally. Explicit archive/QA selections retain their existing policy.
+
+QuestUI now has compact coins/tracker, read-only journal/inventory and context-only NPC/shop/question views. Inventory seed buttons equip only. Plot/NPC/fruit operations validate actual proximity and canonical ground/line clearance. No remote planting, harvesting, return, quiz or rewards from a global tracker. NPC dialogue reports/delivers first with world-space feedback, then opens a question only if still in range. Wrong answers explain and rotate equal-level questions. Correct answers use the existing one-time reward receipt.
+
+Existing6farm registrations unchanged. EMPTY→PLANTED→GROWING→READY→HARVESTED→EMPTY is presentation over backward-compatible empty/tilled/planted/watered storage. Planting implicitly tills atomically, consumes seed and advances physical objectives; watering starts persisted elapsed time; harvest yields once. Crops grow after leaving/reload, using nonnegative local Date.now elapsed bounded24h. This is not server-trusted or anti-cheat. Production crops45/90s; first qualified tutorial6/10s unchanged.
+
+Migration adds interactionSchema2 in existing quests-v1. No constructor storage rewrite. Legacy generic seeds convert within stack/slot limits; overflow retained. Completed receipts/coins stay. An unfinished old tray tutorial explicitly restarts real-plot objectives with a notice and starter seed when inventory permits. No player selection/world position/visited/Studio/site-learning data reset.
+
+FarmWorld owns six reversible116x12pxsoil strips inside existing cultivated beds (8352dynamic pixels),36existing crop sprites and pointer zones. Orchard3native baskets use existing fruit anchors, distinct persisted collection and nearest-object E selection, any order. Original world PNGs remain immutable; painted crops elsewhere remain scenery. Small tool overlays use view-relative hand coordinates, exact16x20registration8,12, native scale1 and integer placements. Effects dispose/hide on motion; player atlas/gait/collision untouched.
+
+One128x20RGBA texture adds10240decoded bytes. No new scene-sized texture/world chunk or unbounded cache. Pointer/listener/timer/graphics/DOM ownership follows existing NPCManager disposal. Physical hardware/performance soak remains NOT TESTED.

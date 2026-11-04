@@ -78,7 +78,7 @@ test("all twelve identities ignore deprecated head equipment while native moveme
     await context.close();
   }
 });
-test("mobile landscape quest journal supports touch, visible answers and clean control recovery", async ({
+test("mobile journal is read-only; a nearby recipient alone opens the learning challenge", async ({
   browser,
 }) => {
   const context = await browser.newContext({
@@ -89,7 +89,7 @@ test("mobile landscape quest journal supports touch, visible answers and clean c
   });
   const page = await context.newPage();
   await seed(page);
-  await page.goto("?qa&renderer=canvas&npcReview=npc-minseo");
+  await page.goto("?qa&renderer=canvas&npcReview=npc-jiho");
   await page.waitForFunction(() => window.__GATE3__?.ready, undefined, {
     timeout: 45000,
   });
@@ -113,25 +113,34 @@ test("mobile landscape quest journal supports touch, visible answers and clean c
   await page.waitForFunction(() => window.__GATE3__?.ready);
   await page.locator("#quest-journal").tap();
   await expect(page.locator("#quest-dialogue")).toBeVisible();
+  await expect(page.locator("[data-answer]")).toHaveCount(0);
+  await expect(page.locator("[data-trade]")).toHaveCount(0);
+  await page.locator("#quest-close").tap();
+  await page.keyboard.down("w");
+  try {
+    await page.waitForFunction(
+      () => window.__NPC_WORLD__?.target === "npc-jiho",
+    );
+  } finally {
+    await page.keyboard.up("w");
+  }
+  await page.locator("#npc-interact").tap();
+  await page.locator('[data-npc-quest="npc-jiho"]').tap();
   const card = page.locator('[data-quest="modern-delivery-v1"]');
   await card.locator('[data-answer="0"]').tap();
   await expect(card.locator("[data-question]")).toHaveAttribute(
     "data-question",
     "parcel-2",
   );
-  await page.screenshot({
-    path: "docs/phase3bc/mobile-landscape-question.png",
-  });
+  await page.screenshot({ path: "docs/phase3bd-in-world/mobile-question.png" });
   await card.locator('[data-answer="0"]').tap();
-  await expect(page.locator("#quest-inventory")).toContainText(
-    "Town Coins: 20",
+  expect(await page.evaluate(() => window.__NPC_WORLD__!.quests.coins)).toBe(
+    20,
   );
   const box = await page.locator("#quest-dialogue").boundingBox();
   expect(box!.width).toBeLessThanOrEqual(667);
   expect(box!.height).toBeLessThanOrEqual(375);
-  await page
-    .getByRole("button", { name: "Trở lại thế giới / Từ chối", exact: true })
-    .tap();
+  await page.locator("#quest-close").tap();
   await expect(page.locator("#quest-dialogue")).not.toBeVisible();
   expect((await page.evaluate(() => window.__GATE3__!)).paused).toBe(false);
   await context.close();

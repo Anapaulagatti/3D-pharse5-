@@ -99,7 +99,7 @@ test("shop double-click, invalid quantity and reload use one atomic receipt; old
     await page.keyboard.up("w");
   }
   await page.keyboard.press("e");
-  await page.locator('[data-npc-quest="npc-minseo"]').click();
+  await page.locator('[data-npc-shop="npc-minseo"]').click();
   await page.locator('[data-trade="buy"][data-item="seed-radish"]').dblclick();
   await page.waitForTimeout(100);
   const s = await page.evaluate(() => window.__NPC_WORLD__!.quests);
@@ -111,9 +111,7 @@ test("shop double-click, invalid quantity and reload use one atomic receipt; old
   await page.locator("#shop-quantity").fill("-1");
   await page.locator('[data-trade="buy"][data-item="seed-scallion"]').click();
   expect(await page.evaluate(() => window.__NPC_WORLD__!.quests)).toEqual(s);
-  await page
-    .getByRole("button", { name: "Trở lại thế giới / Từ chối", exact: true })
-    .click();
+  await page.locator("#quest-close").click();
   await page.reload();
   await page.waitForFunction(
     () => window.__GATE3__?.ready && window.__NPC_WORLD__,
@@ -167,21 +165,23 @@ test("mobile landscape reaches an actual farm row by joystick and plants/waters 
     touchPoints: [],
   });
   await page.locator("#quest-world-action").tap();
-  await page.locator('[data-farm-action="till"]').tap();
-  await page.locator('[data-farm-action="plant"]').tap();
-  await page.locator('[data-farm-action="water"]').tap();
-  const b = await page.locator("#quest-dialogue").boundingBox();
-  expect(b!.width).toBeLessThanOrEqual(667);
-  expect(b!.height).toBeLessThanOrEqual(375);
-  expect(
-    (await page.evaluate(() => window.__NPC_WORLD__!.quests)).economy.plots[
-      "NW-FARM-04"
-    ].stage,
-  ).toBe("watered");
-  await page.screenshot({ path: "docs/phase3bd/mobile-farm-touch.png" });
-  await page
-    .getByRole("button", { name: "Trở lại thế giới / Từ chối", exact: true })
-    .tap();
+  await page.waitForFunction(
+    () =>
+      window.__NPC_WORLD__!.quests.economy.plots["NW-FARM-04"].stage ===
+      "planted",
+  );
+  await expect(page.locator("#quest-dialogue")).not.toBeVisible();
+  await page.waitForTimeout(550);
+  await page.locator("#quest-world-action").tap();
+  await page.waitForFunction(
+    () =>
+      window.__NPC_WORLD__!.quests.economy.plots["NW-FARM-04"].stage ===
+      "watered",
+  );
+  await expect(page.locator("#quest-dialogue")).not.toBeVisible();
+  await page.screenshot({
+    path: "docs/phase3bd-in-world/mobile-farm-touch.png",
+  });
   await page.waitForFunction(() => window.__GATE3__?.paused === false);
   const afterClose = await page.evaluate(() => window.__GATE3__!.x);
   await touch.send("Input.dispatchTouchEvent", {

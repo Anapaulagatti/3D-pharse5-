@@ -265,6 +265,25 @@ export class QuestUI {
     return e;
   }
   private icon(id: string) {
+    if (id === "jeju-postcard") {
+      const img = document.createElement("img");
+      img.src = import.meta.env.BASE_URL + "assets/farming/postcard.png";
+      img.width = 64;
+      img.height = 48;
+      img.alt = "Bưu thiếp cảnh cầu Jeju được duyệt";
+      img.style.imageRendering = "pixelated";
+      return img;
+    }
+    if (id === "radish" || id === "scallion") {
+      const e = document.createElement("span");
+      e.className = "native-item";
+      e.setAttribute("aria-hidden", "true");
+      e.style.backgroundImage = `url(${import.meta.env.BASE_URL}assets/farming/crops.png)`;
+      e.style.backgroundSize = "192px 40px";
+      e.style.backgroundPosition = id === "radish" ? "-64px 0" : "-160px 0";
+      return e;
+    }
+
     const names = [
         "seed-pouch",
         "water-can",

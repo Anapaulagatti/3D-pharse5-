@@ -111,8 +111,8 @@ test("new identities resolve incompatible stored cosmetics without deleting an a
     accessoryIds: [],
   });
   await page.keyboard.press("e");
-  await expect(page.locator("#dialog")).toBeVisible();
-  await page.locator("#close").click();
+  await expect(page.locator("#dialog")).not.toBeVisible();
+  expect(await page.evaluate(() => window.__GATE3__!.paused)).toBe(false);
   const before = await page.evaluate(() => ({
     x: window.__GATE3__!.x,
     y: window.__GATE3__!.y,
