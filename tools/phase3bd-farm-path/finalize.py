@@ -1,7 +1,7 @@
 """Freeze one candidate, preserving all prior snapshots and canonical source art."""
 from pathlib import Path
 import shutil,json,hashlib,subprocess
-R=Path.cwd();D=R/'docs/phase3bd-farm-path';O=R/'.cache/phase3bd-farm-path-native-review';old=R/'.cache/physical-review-candidate';sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();build=json.loads((O/'hotfix-build.json').read_text());ref=build['sourceCommit']
+R=Path.cwd();D=R/'docs/phase3bd-farm-path';O=R/'.cache/phase3bd-farm-path-final-review';old=R/'.cache/physical-review-candidate';sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();build=json.loads((O/'hotfix-build.json').read_text());ref=build['sourceCommit']
 G=O/'farm-path-review';G.mkdir(exist_ok=True)
 for p in D.iterdir():
  if p.is_file() and p.suffix in ['.png','.md','.html','.json'] and p.name not in ['BASELINE.json','AUTHORIZED_AMENDMENTS.json','PACKAGE_PROOF.json','CANDIDATE_PROOF.json','FINAL_DELIVERY.json','OFFLINE_BROWSER_PROOF.json']:

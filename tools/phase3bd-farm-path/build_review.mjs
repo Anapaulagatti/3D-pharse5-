@@ -159,6 +159,14 @@ await fs.writeFile(
     exposure: "PRIVATE_CANDIDATE_EXACT_PUBLIC_APPROVAL_PENDING",
   }),
 );
+// Explicit runtime closure previously supplied by assemble.py; no blanket directory copy.
+const activeAssets = JSON.parse(execFileSync("python3", ["tools/phase3bd/runtime_assets.py"], {encoding:"utf8"}));
+for (const name of activeAssets) {
+  const dest = path.join(out,"play",name);
+  await fs.mkdir(path.dirname(dest),{recursive:true});
+  await fs.copyFile(path.join("public",name),dest);
+}
+execFileSync("python3", ["tools/phase3bd/world_guard.py","--artifact",path.join(out,"play")],{stdio:"inherit"});
 // Preserve the implemented Review Portal rather than regenerating its presentation.
 const previous = path.resolve(".cache/physical-review-candidate");
 for (const entry of await fs.readdir(previous, {withFileTypes:true})) {
