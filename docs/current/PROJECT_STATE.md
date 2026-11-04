@@ -1,3 +1,7 @@
+# Final farm/hanok exact Pages release AUTHORIZED ·2026-11-04
+
+Owner replied “deploy lên page để tôi trải nghiệm thử” to exact4975file artifact1a6e5a58/manifest331cd300 approval question. See docs/phase3bd-final-quality-release. Supersedes prior exposure STOP only for this exact public gameplay preview. Receipt/hash/history gates PASS; releasecontrol3654b34. Preserve5b5ce278/d170 rollback. Required github-pages environment reviewer remains mandatory; actualHTTPS gameplay proof before DEPLOYED. No artwork/game rebuild/main-game merge/productionv0.5/3BE. Physicaldevices/GPU NOTTESTED. No delegation.
+
 # Final farm/hanok candidate READY · 2026-11-04
 
 Current authority: docs/phase3bd-final-quality/README.md and HUMAN_DIRECTIVE.md. Build b865b659; artifact1a6e5a58; manifest331cd300478f879bab11e9541803dd7c47ba1caaab339263f37150ae6c0d0ce4,4975files.213unit/73E2E and actual extractedZIP/browser/video PASS. Forge FAIL/WARN retained; hardware NOTTESTED. Existing Pages5b5ce278/d170 actually deployed in run41798184150 (earlier waiting records below are historical). New candidate NOT_DEPLOYED: exact owner approval pending. Preserve rollback5b5ce278, all source assets,26NPC/12players/24cosmetics. No production/mainmerge/Phase3BE/delegation. Stop for one consolidated human review.
