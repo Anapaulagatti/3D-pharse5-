@@ -51,6 +51,17 @@ describe("safe narrow path control", () => {
     }
     expect(p.x).toBeGreaterThan(5);
   });
+  it("preserves gentle analog input speed during a corner assist", () => {
+    const p = moveReviewPlayer(
+      0,
+      0,
+      0.25,
+      0,
+      1,
+      (x, y) => !(x > 0.1 && x < 3 && Math.abs(y) < 2),
+    );
+    expect(Math.hypot(p.x, p.y)).toBeLessThanOrEqual(0.25);
+  });
   it("does not open planter or expand patch beyond explicitly inspected paving", () => {
     expect(repairedReviewPath(458, 2400)).toBe(true);
     expect(repairedReviewPath(454, 2400)).toBe(false);

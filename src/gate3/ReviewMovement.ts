@@ -45,10 +45,14 @@ export function moveReviewPlayer(
         chosen = sign;
         break;
       }
-    if (chosen && allows(x + px * step * chosen, y + py * step * chosen)) {
+    const assistStep = step * Math.min(1, Math.hypot(dx, dy));
+    if (
+      chosen &&
+      allows(x + px * assistStep * chosen, y + py * assistStep * chosen)
+    ) {
       assisted = true;
-      x += px * step * chosen;
-      y += py * step * chosen;
+      x += px * assistStep * chosen;
+      y += py * assistStep * chosen;
     }
   }
   return { x, y, assisted };
