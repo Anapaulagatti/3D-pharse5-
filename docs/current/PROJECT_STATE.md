@@ -1,3 +1,9 @@
+# Phase3BD physical gameplay REVIEW READY ·2026-11-04
+
+Source code806d3573; private artifact9fce709a; exact manifest17306fc4c2a3f958e29a2256eb1ddbb722658917863269907554ecd005f69183 (3570files). See docs/phase3bd-in-world/FINAL_DELIVERY.json,REVIEW.html,QA.md,PACKAGE_PROOF.json and pending receipt. Fresh203unit PASS; full69/71with2identified readonly-snapshot observation races; corrected assertions repeated4times each8/8PASS, failures preserved. Actual3physicalquests+shop,19WASDlegs,desktop/mobile video,CRC/extracted offline3570SHA checks/Phaser farm/video playback PASS.10473existing art/source files unchanged.
+
+STOP for one consolidated human gameplay/artistic/exact public-exposure decision. New artifact is LOCAL ONLY, NOT pushed or deployed. Oldpublicfff156b6/543ccd32 and v0.5/main preserved. PhysicalAndroid/iPhone/hardwareGPU NOTTESTED; Korean content review PENDING. No Phase3BE/paidAPI/mainmerge/Pages update before explicit authorization. Recovery source branch/checkpoint is pushed for durability after environment rollback; no original tags retargeted.
+
 # Phase3BD physical gameplay recovery IN PROGRESS ·2026-11-04
 
 Recovered fromb5e627bb after workspace rollback. See docs/phase3bd-in-world/RECOVERY.md and HUMAN_DIRECTIVE.md. Core physical interactions restored; fresh tests/evidence/package pending. No Pages publication/main merge/Phase3BE. Existing world/NPC/player/cosmetic art frozen. Previous lost local QA is historical only.

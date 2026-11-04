@@ -7,3 +7,5 @@ WASD/joystick, Shift/Run. E/tap a nearby NPC for a short conversation. Cheolsu p
 Minseo's contextual shop has native item icons, buy/sell tabs, quantity, stock and atomic transactions. Accept parcel there, walk to Jiho and hand over before Korean question/reward. Harin's3world baskets can be collected in any order and returned physically. Incorrect answer→explanation and different equal-level question; correct→one-time reward. Learning remains local demo; human Korean review pending.
 
 See REVIEW.html, QA.md, GAMEPLAY_QA.json, MOBILE_QA.json, PROTECTED_AUDIT.json and PACKAGE_PROOF.json. Actual recordings and native PNGs are review evidence, not artistic approval. Physical devices NOT TESTED. No main merge/deployment/Phase3BE.
+
+Final exact candidate: artifact9fce709ab87698ed078fd2a545a8a696a5a104f6, manifest17306fc4c2a3f958e29a2256eb1ddbb722658917863269907554ecd005f69183,3570files. One526MiBZIP includes preserved20/26/3BDsnapshots for rollback. Unzip, run python3 start-review.py, open http://127.0.0.1:4483/review/ . Python3required; no npm/internet. New public exposure approval PENDING; no compiled artifact pushed or Pages changed.

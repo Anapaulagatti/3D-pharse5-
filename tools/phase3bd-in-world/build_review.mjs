@@ -4,6 +4,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { checkAssetRights } from "../rights-gate.mjs";
+if(execFileSync("git",["status","--porcelain"],{encoding:"utf8"}).trim())throw Error("Checkpoint source/evidence before building an immutable review candidate");
 checkAssetRights("private-review");
 // Presentation-only public export: leave canonical provenance untouched, but do
 // not deliver obsolete historical identity/date proposals in the public bundle.

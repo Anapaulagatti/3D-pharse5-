@@ -134,15 +134,17 @@ test("mobile journal is read-only; a nearby recipient alone opens the learning c
   );
   await page.screenshot({ path: "docs/phase3bd-in-world/mobile-question.png" });
   await card.locator('[data-answer="0"]').tap();
-  expect(await page.evaluate(() => window.__NPC_WORLD__!.quests.coins)).toBe(
-    20,
-  );
+  await expect
+    .poll(() => page.evaluate(() => window.__NPC_WORLD__!.quests.coins))
+    .toBe(20);
   const box = await page.locator("#quest-dialogue").boundingBox();
   expect(box!.width).toBeLessThanOrEqual(667);
   expect(box!.height).toBeLessThanOrEqual(375);
   await page.locator("#quest-close").tap();
   await expect(page.locator("#quest-dialogue")).not.toBeVisible();
-  expect((await page.evaluate(() => window.__GATE3__!)).paused).toBe(false);
+  await expect
+    .poll(() => page.evaluate(() => window.__GATE3__!.paused))
+    .toBe(false);
   await context.close();
 });
 test("collision-only doorstep corrections do not disable real building barriers", async ({

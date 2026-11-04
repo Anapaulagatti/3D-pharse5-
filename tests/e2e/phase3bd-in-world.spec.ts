@@ -126,5 +126,7 @@ test("ordinary visitor window retains a nearby physical shopkeeper and parcel gi
     page.locator('[data-trade="buy"][data-item="seed-radish"]'),
   ).toBeVisible();
   await page.locator("#quest-close").click();
-  expect(await page.evaluate(() => window.__GATE3__!.paused)).toBe(false);
+  await expect
+    .poll(() => page.evaluate(() => window.__GATE3__!.paused))
+    .toBe(false);
 });

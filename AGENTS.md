@@ -1,3 +1,9 @@
+# Phase3BD physical gameplay REVIEW READY ·2026-11-04
+
+Source code806d3573; private artifact9fce709a; exact manifest17306fc4c2a3f958e29a2256eb1ddbb722658917863269907554ecd005f69183 (3570files). See docs/phase3bd-in-world/FINAL_DELIVERY.json,REVIEW.html,QA.md,PACKAGE_PROOF.json and pending receipt. Fresh203unit PASS; full69/71with2identified readonly-snapshot observation races; corrected assertions repeated4times each8/8PASS, failures preserved. Actual3physicalquests+shop,19WASDlegs,desktop/mobile video,CRC/extracted offline3570SHA checks/Phaser farm/video playback PASS.10473existing art/source files unchanged.
+
+STOP for one consolidated human gameplay/artistic/exact public-exposure decision. New artifact is LOCAL ONLY, NOT pushed or deployed. Oldpublicfff156b6/543ccd32 and v0.5/main preserved. PhysicalAndroid/iPhone/hardwareGPU NOTTESTED; Korean content review PENDING. No Phase3BE/paidAPI/mainmerge/Pages update before explicit authorization. Recovery source branch/checkpoint is pushed for durability after environment rollback; no original tags retargeted.
+
 # Current authority — physical gameplay recovery2026-11-04
 
 Read docs/phase3bd-in-world/HUMAN_DIRECTIVE.md and RECOVERY.md. Owner ACCEPTS world art and REJECTS menu-driven core; implement physical farming,3corequests,contextual shop,NPC dialogue,compact HUD on isolated recovery branch fromb5e627bb. No original world/NPC26/player12/cosmetic24 pixels, movement/collision/camera/route edits. Extend existing QuestManager/NPCManager only, tiny additive native tools/effects allowed. Commit/push source checkpoints early after environment loss. Existing publicfff156b6 /543ccd32 stays rollback; exact NEW manifest requires owner approval BEFORE any Pages update. No subagents,main merge,paid APIs,Phase3BE. Run actual fresh QA and standalone package; previous lost-work results are historical only.

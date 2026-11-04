@@ -5,7 +5,7 @@ R=Path.cwd();D=R/'docs/phase3bd-in-world';O=R/sys.argv[1];old=R/'.cache/rollback
 assert sha(old/'export-manifest.json')=='543ccd32deb9f37efaf3dd5c8ce48886db95f329657a63ba9c29c4f47b3d49b0'
 for sub in (old/'phases').iterdir():
  if not (O/'phases'/sub.name).exists():shutil.copytree(sub,O/'phases'/sub.name)
-snap=next((O/'phases/3b-d-in-world').iterdir());qa=json.loads((D/'QA_RESULT.json').read_text())
+snap=next((O/'phases/3b-d-in-world').iterdir());qa=json.loads((D/'QA_RESULT.json').read_text());assert qa['checks'].get('currentE2ECoverage','').startswith('PASS') and qa['checks']['actualWorldGameplay'].startswith('PASS') and qa['checks']['mobileLandscape'].startswith('PASS')
 for root in [O,snap]:
  out=root/'review';out.mkdir(exist_ok=True)
  excluded={'BASELINE.json','HUMAN_DIRECTIVE.md','AUTHORIZED_AMENDMENTS.json','PUBLIC_CANDIDATE_PROOF.json','PACKAGE_PROOF.json','FINAL_DELIVERY.json','OFFLINE_BROWSER_PROOF.json','DEPLOYMENT_PREPARATION.json','RECOVERY.md'}
