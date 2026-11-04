@@ -665,7 +665,7 @@ export class QuestUI {
     if (this.orchard) b.textContent = "E · Hái quýt · 귤 따기";
     else if (this.nearest) {
       const stage = plotPresentation(s.economy.plots[this.nearest], Date.now());
-      b.textContent = `E · ${stage === "EMPTY" ? "Gieo hạt" : stage === "PLANTED" ? "Tưới cây" : stage === "READY" ? "Thu hoạch" : "Cây đang lớn"} · Luống ${Number(this.nearest.slice(-2))}`;
+      b.textContent = `E · ${stage === "EMPTY" ? (s.economy.plots[this.nearest].stage === "empty" && s.economy.plots[this.nearest].lastHarvestedAt === undefined ? "Xới đất" : "Gieo hạt") : stage === "PLANTED" ? "Tưới cây" : stage === "READY" ? "Thu hoạch" : "Cây đang lớn"} · ${plots.find((p) => p.id === this.nearest)!.label}`;
     }
     for (const id of ["quest-journal", "quest-inventory"])
       this.root.querySelector<HTMLButtonElement>("#" + id)!.disabled =
@@ -740,7 +740,13 @@ export class QuestUI {
       return true;
     }
     const action =
-        stage === "EMPTY" ? "plant" : stage === "PLANTED" ? "water" : "harvest",
+        stage === "EMPTY"
+          ? p.stage === "empty" && p.lastHarvestedAt === undefined
+            ? "till"
+            : "plant"
+          : stage === "PLANTED"
+            ? "water"
+            : "harvest",
       tx = `world:${id}:${p.cycle}:${action}:${s.economy.revision}`,
       ok = this.manager.farmAction(
         id,
@@ -756,14 +762,16 @@ export class QuestUI {
       this.tool =
         action === "plant" ? "water" : action === "water" ? "harvest" : "seed";
       const label =
-        action === "plant"
-          ? "Đã gieo hạt"
-          : action === "water"
-            ? "Đã tưới cây"
-            : `+${p.crop ? crops[p.crop].yield : 0} ${p.crop ? crops[p.crop].name : "nông sản"}`;
+        action === "till"
+          ? "Đất đã xới · E để gieo hạt"
+          : action === "plant"
+            ? "Đã gieo hạt"
+            : action === "water"
+              ? "Đã tưới cây"
+              : `+${p.crop ? crops[p.crop].yield : 0} ${p.crop ? crops[p.crop].name : "nông sản"}`;
       this.host.feedback?.(
-        action,
-        [def.row[0] + def.row[2] / 2, def.row[1] + 8],
+        action === "till" ? "report" : action,
+        def.root,
         label,
       );
       this.toast(label);

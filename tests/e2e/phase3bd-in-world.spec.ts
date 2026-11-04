@@ -59,8 +59,20 @@ test("inventory/journal cannot perform remote actions; plot pointer respects nat
   }
   const near = await page.evaluate(() => ({
     x: 470 - window.__GATE3__!.camera.renderedWorldView[0],
-    y: 640 - window.__GATE3__!.camera.renderedWorldView[1],
+    y: 610 - window.__GATE3__!.camera.renderedWorldView[1],
   }));
+  await page.locator("canvas").first().click({ position: near });
+  await page.waitForFunction(
+    () =>
+      window.__NPC_WORLD__!.quests.economy.plots["NW-FARM-04"].stage ===
+      "tilled",
+  );
+  expect(
+    (await page.evaluate(() => window.__NPC_WORLD__!.quests)).inventory[
+      "seed-radish"
+    ],
+  ).toBe(2);
+  await page.waitForTimeout(550);
   await page.locator("canvas").first().click({ position: near });
   await page.waitForFunction(
     () =>

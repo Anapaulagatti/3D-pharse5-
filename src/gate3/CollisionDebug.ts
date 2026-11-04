@@ -5,6 +5,7 @@ import { entranceRepairs } from "./Accessibility";
 export class CollisionDebug {
   private graphics: Phaser.GameObjects.Graphics;
   private elapsed = 0;
+  private readout: Phaser.GameObjects.Text;
   constructor(
     private scene: Phaser.Scene,
     private contact?: ContactSpec,
@@ -12,6 +13,15 @@ export class CollisionDebug {
     private solids: readonly { rect: readonly number[] }[] = [],
   ) {
     this.graphics = scene.add.graphics().setDepth(100000);
+    this.readout = scene.add
+      .text(8, 8, "", {
+        fontFamily: "monospace",
+        fontSize: "11px",
+        color: "#fff6ce",
+        backgroundColor: "#182921",
+      })
+      .setScrollFactor(0)
+      .setDepth(100001);
   }
   update(
     delta: number,
@@ -23,6 +33,13 @@ export class CollisionDebug {
     this.elapsed += delta;
     if (this.elapsed < 250) return;
     this.elapsed = 0;
+    const camera = this.scene.cameras.main;
+    const zones = this.scene.children.list.filter(
+      (o): o is Phaser.GameObjects.Zone => o instanceof Phaser.GameObjects.Zone,
+    );
+    this.readout.setText(
+      `QA ground collision | x${x.toFixed(2)} y${y.toFixed(2)} | camera ${camera.scrollX.toFixed(2)},${camera.scrollY.toFixed(2)}\nFoot native envelope [-27,-4]..[24,-1]; grid8px; blockers red; walkable green; zones purple\nCustom anchor-mask controller; Arcade/Matter bodies: NONE; frame ${frame}`,
+    );
     const g = this.graphics.clear(),
       v = this.scene.cameras.main.worldView;
     for (let sy = Math.floor(v.y / 8) * 8; sy < v.bottom; sy += 8)
@@ -39,6 +56,20 @@ export class CollisionDebug {
           0.22,
         ).fillRect(sx, sy, 8, 8);
       }
+    for (const zone of zones)
+      g.lineStyle(1, 0xc58eff, 0.6).strokeRect(
+        zone.x - zone.displayWidth * zone.originX,
+        zone.y - zone.displayHeight * zone.originY,
+        zone.displayWidth,
+        zone.displayHeight,
+      );
+    // Read-only native ground-foot envelope; no Arcade/Matter body exists here.
+    g.lineStyle(1, 0x57eaff, 1).strokeRect(
+      Math.round(x) - 27 + 0.5,
+      Math.round(y) - 4 + 0.5,
+      52,
+      4,
+    );
     // Global collision is an anchor sample; only the local contact field adds native foot pixels.
     g.fillStyle(0xffffff, 1).fillRect(Math.round(x), Math.round(y), 1, 1);
     const parts = frame.split("-");
@@ -74,6 +105,7 @@ export class CollisionDebug {
     }
   }
   dispose() {
+    this.readout.destroy();
     this.graphics.destroy();
   }
 }

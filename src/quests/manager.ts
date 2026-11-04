@@ -151,7 +151,17 @@ export class QuestManager {
         !v.economy.sales
       )
         throw Error("invalid economy");
+      if (
+        v.economy.farmCellSchema !== undefined &&
+        v.economy.farmCellSchema !== 1
+      )
+        throw Error("unknown farm cell schema");
+      const legacyCells = v.economy.farmCellSchema === undefined;
+      // Additive migration: existing six states retain the exact crop/timer/cycle.
+      // New cells start empty; never clone a planted legacy crop or its reward.
       for (const plot of plots) {
+        if (legacyCells && plot.id !== plot.bedId && !v.economy.plots[plot.id])
+          v.economy.plots[plot.id] = { stage: "empty", cycle: 0 };
         const state = v.economy.plots[plot.id];
         if (
           !state ||
@@ -170,6 +180,7 @@ export class QuestManager {
         if (state.stage === "watered" && !Number.isFinite(state.wateredAt))
           throw Error("invalid water");
       }
+      v.economy.farmCellSchema = 1;
       if (!Object.values(v.economy.stock).every(integer))
         throw Error("invalid stock");
       this.value = v;

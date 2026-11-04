@@ -78,6 +78,7 @@ export interface PlotState {
   growMs?: number;
 }
 export interface EconomyState {
+  farmCellSchema?: 1;
   interactionSchema?: 2;
   revision: number;
   plots: Record<string, PlotState>;
@@ -85,21 +86,49 @@ export interface EconomyState {
   harvests: Record<string, number>;
   sales: Record<string, number>;
 }
-export const plots = farm.plots.map((p) => ({
+/** Six approved beds; six independent cells each. Legacy bed IDs remain bottom-centre cells. */
+export const beds = farm.plots.map((p) => ({
   id: p.id,
-  point: p.interactionAnchor as [number, number],
-  row: [
-    p.cropDisplayRect[0] + 12,
-    p.cropDisplayRect[1] + p.cropDisplayRect[3] - 16,
-    116,
-    12,
-  ] as const,
-  sourceRect: p.worldRect,
-  bed: p.cropDisplayRect as [number, number, number, number],
+  rect: p.cropDisplayRect as [number, number, number, number],
+  worldRect: p.worldRect,
 }));
+function cell(
+  p: (typeof farm.plots)[number],
+  row: number,
+  col: number,
+  legacy = false,
+) {
+  const [x, y] = p.cropDisplayRect;
+  const root: [number, number] = [x + 22 + col * 48, y + row * 44 + 40];
+  return {
+    id: legacy ? p.id : `${p.id}-C${row * 3 + col + 1}`,
+    bedId: p.id,
+    cell: [row, col] as const,
+    label: `Luống ${Number(p.id.slice(-2))} · ô ${row * 3 + col + 1}`,
+    point: [root[0] + 6, row === 0 ? y - 24 : p.interactionAnchor[1]] as [
+      number,
+      number,
+    ],
+    root,
+    row: [x + col * 48, y + row * 44, 44, 44] as const,
+    sourceRect: [x + col * 48, y + row * 44, 44, 44],
+    bed: [x, y, 140, 88] as [number, number, number, number],
+  };
+}
+export const plots = [
+  ...farm.plots.map((p) => cell(p, 1, 1, true)),
+  ...farm.plots.flatMap((p) => [
+    cell(p, 0, 0),
+    cell(p, 0, 1),
+    cell(p, 0, 2),
+    cell(p, 1, 0),
+    cell(p, 1, 2),
+  ]),
+];
 export function freshEconomy(): EconomyState {
   return {
     interactionSchema: 2,
+    farmCellSchema: 1,
     revision: 0,
     plots: Object.fromEntries(
       plots.map((p) => [p.id, { stage: "empty", cycle: 0 }]),

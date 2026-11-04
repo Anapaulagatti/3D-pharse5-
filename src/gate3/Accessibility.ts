@@ -26,3 +26,18 @@ export function repairedReviewPath(x: number, y: number) {
       x >= rx && y >= ry && x < rx + w && y < ry + h,
   );
 }
+
+/** Western hanok was repainted at native x545/y880 while the old reserved mask
+ * still blocks the visible stone lane. Restrict anchor admission to the central
+ * 34px of the ~90px paving: conservative native run-foot span -27..24 plus3px safety.
+ * Original PNGs, mask binaries, logical solids and station/bridge guards unchanged. */
+export const hanokWestPassage = {
+  id: "western-hanok-visible-side-paving",
+  rect: [520, 1094, 34, 284] as const,
+  footBounds: [-27, -4, 24, -1] as const,
+  safety: 3,
+};
+export function repairedHanokPassage(x: number, y: number) {
+  const [rx, ry, w, h] = hanokWestPassage.rect;
+  return x >= rx && x < rx + w && y >= ry && y < ry + h;
+}

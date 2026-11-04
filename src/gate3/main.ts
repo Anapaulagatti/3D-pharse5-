@@ -215,18 +215,18 @@ class Slice extends Phaser.Scene {
   preload() {
     this.load.atlas(
       "farm-crops",
-      base + "assets/farming/phase3bd-farm-path/crops.png",
-      base + "assets/farming/phase3bd-farm-path/crops.json",
+      base + "assets/farming/phase3bd-final-quality/crops.png",
+      base + "assets/farming/phase3bd-final-quality/crops.json",
     );
     this.load.atlas(
       "world-actions",
       base + "assets/farming/interaction-tools.png",
       base + "assets/farming/interaction-tools.json",
     );
-    this.load.spritesheet(
-      "farm-soil",
-      base + "assets/farming/phase3bd-farm-path/soil.png",
-      { frameWidth: 140, frameHeight: 88 },
+    this.load.atlas(
+      "farm-materials",
+      base + "assets/farming/phase3bd-final-quality/soil-components.png",
+      base + "assets/farming/phase3bd-final-quality/soil-components.json",
     );
     const selected = characterSession.selected;
     if (!this.textures.exists(selected.assets!.key))

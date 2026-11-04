@@ -168,6 +168,13 @@ test("mobile landscape reaches an actual farm row by joystick and plants/waters 
   await page.waitForFunction(
     () =>
       window.__NPC_WORLD__!.quests.economy.plots["NW-FARM-04"].stage ===
+      "tilled",
+  );
+  await page.waitForTimeout(550);
+  await page.locator("#quest-world-action").tap();
+  await page.waitForFunction(
+    () =>
+      window.__NPC_WORLD__!.quests.economy.plots["NW-FARM-04"].stage ===
       "planted",
   );
   await expect(page.locator("#quest-dialogue")).not.toBeVisible();

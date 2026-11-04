@@ -1,0 +1,839 @@
+{
+  "status": "pass",
+  "method": "forge_palette.build_palette (weighted k-means++ in OKLab over unique colours, reserved colours fixed, coverage skipping) then forge_palette.fit_report of every input: OKLab dE of each pixel with alpha >= the threshold to its nearest palette colour",
+  "notProven": [
+    "Visual quality of the palette: look at swatches.png and an applied frame.",
+    "Colours of pixels below the alpha threshold were not sampled or measured.",
+    "No --max-delta-e gate was set."
+  ],
+  "checks": [
+    {
+      "id": "palette_colors",
+      "status": "pass",
+      "value": 64,
+      "threshold": 64
+    },
+    {
+      "id": "inputs_without_samples",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0,
+      "files": []
+    },
+    {
+      "id": "max_delta_e",
+      "status": "skipped",
+      "value": 0.073576,
+      "threshold": null
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../native-frames/loam-0.png",
+      "sha256": "26a69c8b02cbcc591a4ec75866b3a481351649508df5ef0404d59dac224526c5",
+      "bytes": 861
+    },
+    {
+      "path": "../native-frames/loam-1.png",
+      "sha256": "704c49ca8db700fa889e55c0ac5dd894d420a753fae0c408a5e4fffb09bb2bc8",
+      "bytes": 849
+    },
+    {
+      "path": "../native-frames/loam-2.png",
+      "sha256": "c5ec18d3fc5e2bd532c4720bed9a45ba829629aab84c9f0885800cc878fba16f",
+      "bytes": 844
+    },
+    {
+      "path": "../native-frames/loam-3.png",
+      "sha256": "7628368ddea512d6ab2600c8f4680865b13172557d19616208f25353ae51017a",
+      "bytes": 845
+    },
+    {
+      "path": "../native-frames/loam-4.png",
+      "sha256": "37419841da919974923c1dff92a20a1842d9cb7e6cef82f16e67f8141516c923",
+      "bytes": 852
+    },
+    {
+      "path": "../native-frames/loam-5.png",
+      "sha256": "d15e95332dd60555c27d5977e00cb55c3854655975462f2f9bf9f257b1647ad8",
+      "bytes": 844
+    },
+    {
+      "path": "../native-frames/loam-6.png",
+      "sha256": "13b4197e765da0195a910fbe10929df5c3390cbfa9e1fb7ff8bdccb89a6cdfba",
+      "bytes": 842
+    },
+    {
+      "path": "../native-frames/loam-7.png",
+      "sha256": "2a6a5d7fea83baaa6ab36416a989031258c881b8f5e29da513f4d7eb46052dd9",
+      "bytes": 840
+    },
+    {
+      "path": "../native-frames/loam-8.png",
+      "sha256": "8baf042b259457eb780f0f996e5c7e159d0d6d0c14b3e8a451c520d988933380",
+      "bytes": 844
+    },
+    {
+      "path": "../native-frames/loam-9.png",
+      "sha256": "cf44b38d8f4755192510cb6781d5028816c77d3d8ac6039d02cd1c5155f5d5ad",
+      "bytes": 842
+    },
+    {
+      "path": "../native-frames/loam-10.png",
+      "sha256": "d9e8e66b6c3659f8fb6a88ef7b29b2ed2031f9e1e4cff8dc4d9a922cbd6eb556",
+      "bytes": 835
+    },
+    {
+      "path": "../native-frames/loam-11.png",
+      "sha256": "14bd6f8600ca79b46fc52f74468cbd3ac98eff3e27029b4d0f231b3d7f8b4f36",
+      "bytes": 843
+    },
+    {
+      "path": "../native-frames/radish-growing.png",
+      "sha256": "b3cc6a3dff76adcbe27c1a363f1aad96aa8b60a3498d06b16ec778b1c341922c",
+      "bytes": 1558
+    },
+    {
+      "path": "../native-frames/radish-ready-alt.png",
+      "sha256": "8fea2b3025ef5aa7b5e84e580eb81c0775c163c0dda9e14e5974bc023a601c0d",
+      "bytes": 2519
+    },
+    {
+      "path": "../native-frames/radish-ready.png",
+      "sha256": "4f34d7193b581effbbc9b9a5c0260e8d745dc9d7e7cd1f76e160218dd28528a8",
+      "bytes": 2729
+    },
+    {
+      "path": "../native-frames/radish-sown.png",
+      "sha256": "262b04ead6cf9ee20a545522e18e4dd0fbbf8705e143696f9951ed1a5fa5a4f1",
+      "bytes": 431
+    },
+    {
+      "path": "../native-frames/radish-sprout.png",
+      "sha256": "a9a967b7f8d577d00d2d8acebaa12a75197d410055bbe3b607591a100e57d3f4",
+      "bytes": 535
+    },
+    {
+      "path": "../native-frames/radish-young.png",
+      "sha256": "a44b623d92b7ff68ea2f53f6a5c042730e8f3637578227c7620ef62baced517e",
+      "bytes": 962
+    },
+    {
+      "path": "../native-frames/scallion-growing.png",
+      "sha256": "58f9bb9b579195354ae9cdd77c84e6dbf1b07722eedbfd8c376e7330fa62ad83",
+      "bytes": 1049
+    },
+    {
+      "path": "../native-frames/scallion-ready-alt.png",
+      "sha256": "a3ab6fe1b49b8288c7459cadeffd25212dd88b3d37def3f63e58d5ec1a1e9c44",
+      "bytes": 1669
+    },
+    {
+      "path": "../native-frames/scallion-ready.png",
+      "sha256": "584ff23c700feb051fccd1b437e48bb89d70c2b58f26bd12dce7b0504d34218b",
+      "bytes": 1740
+    },
+    {
+      "path": "../native-frames/scallion-sown.png",
+      "sha256": "e3d48d0ef7784fefb4efc0cfd3839a1a56e249f5db3d64a8d96ea2ebbfd608aa",
+      "bytes": 354
+    },
+    {
+      "path": "../native-frames/scallion-sprout.png",
+      "sha256": "9e3506b54c7fbc5db82b75d8cc00d5b79693176a0c562d381a42275b8a3d9be2",
+      "bytes": 392
+    },
+    {
+      "path": "../native-frames/scallion-young.png",
+      "sha256": "8fcd446c23a631575632b33ea5801d470848e2f297bc91608a4a26cf355187ea",
+      "bytes": 553
+    },
+    {
+      "path": "../native-frames/tilled-0.png",
+      "sha256": "9131951c0c06db5c1d4847acfde2285a134fdc75578553694cf46945c7127de5",
+      "bytes": 800
+    },
+    {
+      "path": "../native-frames/tilled-1.png",
+      "sha256": "b7201de16342a2516c7ee1c4ec7b5508e376bb82ca66f15ccc8e7e087210ee0e",
+      "bytes": 797
+    },
+    {
+      "path": "../native-frames/tilled-2.png",
+      "sha256": "b49ca34d7f30623d00d48e1588bd90e36eca539d43b04fe8be802852bf108863",
+      "bytes": 809
+    },
+    {
+      "path": "../native-frames/tilled-3.png",
+      "sha256": "8ed6f461c123729922efa0a0b7b6f0a3b8e392a8af56d7d954677313436b2a37",
+      "bytes": 807
+    },
+    {
+      "path": "../native-frames/tilled-4.png",
+      "sha256": "cc47493f488dc22791690325ffa204796ccb52bcaeaaed4d6241f5fa6c3d9d64",
+      "bytes": 803
+    },
+    {
+      "path": "../native-frames/tilled-5.png",
+      "sha256": "bb7a350205cb8fc10bdf411ffa4d4d7b0e73aae7748e97a23e3f4975ff0c241b",
+      "bytes": 804
+    },
+    {
+      "path": "../native-frames/tilled-6.png",
+      "sha256": "c2fd27668ec82c5d9b1c3f697eebbeae440e0d3fb5e7fc4da0aa046e54c95fb9",
+      "bytes": 811
+    },
+    {
+      "path": "../native-frames/tilled-7.png",
+      "sha256": "7c3a84f14ed69d8dadddd92f40739529b9d2939515a57454a0fdbeeda4c70169",
+      "bytes": 814
+    },
+    {
+      "path": "../native-frames/tilled-8.png",
+      "sha256": "d66e96497b3f3075822883cf2c2830540027ce367eda250607ad8d647cd7f1de",
+      "bytes": 818
+    },
+    {
+      "path": "../native-frames/tilled-9.png",
+      "sha256": "fff012c506ddb7b325e262a7a802a29ac0e90dc3c60cfe5125d3ac5bee2aae20",
+      "bytes": 807
+    },
+    {
+      "path": "../native-frames/tilled-10.png",
+      "sha256": "d24ea8746215fa05b0491ea6ffc1ddade3ac0c7e9640cae05847fd0a821c5907",
+      "bytes": 822
+    },
+    {
+      "path": "../native-frames/tilled-11.png",
+      "sha256": "c074d8b176f84b25a50e10ba968b1b5d834824c38e29b4c1f8a0ca7400ef7121",
+      "bytes": 825
+    },
+    {
+      "path": "../native-frames/wet-0.png",
+      "sha256": "0ee4c5155b077815563a8b47ab09065a9712f3d7e1e8f04511b3fce859dc6486",
+      "bytes": 859
+    },
+    {
+      "path": "../native-frames/wet-1.png",
+      "sha256": "1971a7023a88d86917a867fde32b21c02780f4a4511235cc7b60aa528e2677ef",
+      "bytes": 860
+    },
+    {
+      "path": "../native-frames/wet-2.png",
+      "sha256": "9b8d3edcb5093bab0d5b5383fbecd02a8b7662e45162e444af6040f9a02ec6bb",
+      "bytes": 873
+    },
+    {
+      "path": "../native-frames/wet-3.png",
+      "sha256": "9e4792f37f4542f4b882cbfdbfeb001d8cbaed86c4c9f440ae5f5bd7fe2adf89",
+      "bytes": 864
+    },
+    {
+      "path": "../native-frames/wet-4.png",
+      "sha256": "9ee705f46d4372b38cd2916f799df695dbc4b3a3de193dbc71f1108d4a47534d",
+      "bytes": 858
+    },
+    {
+      "path": "../native-frames/wet-5.png",
+      "sha256": "a1db43c50b09fd473f17a474a563fc5e848ea48431b2eaa639bdbee47f644d46",
+      "bytes": 860
+    },
+    {
+      "path": "../native-frames/wet-6.png",
+      "sha256": "6e07003ba2aac5330cecc12dc396046bc3b543d3ea332306f4e4fe1e697321b8",
+      "bytes": 863
+    },
+    {
+      "path": "../native-frames/wet-7.png",
+      "sha256": "01a165f1c405ae62364b7a2b3429a93acecdf7890eda6df6c3228f867b90b48a",
+      "bytes": 849
+    },
+    {
+      "path": "../native-frames/wet-8.png",
+      "sha256": "bc296e8b4d9947e8b479bf2cd3709a44b1d41a8110a45fb023b9032c9e9ad340",
+      "bytes": 861
+    },
+    {
+      "path": "../native-frames/wet-9.png",
+      "sha256": "f5574999b1542d3bb6628e5bd534534b36610c8169e123a75f59471083405eb0",
+      "bytes": 858
+    },
+    {
+      "path": "../native-frames/wet-10.png",
+      "sha256": "62bc2d8de650ef27716a04d7ebeef76555be5778028c207aa747fbb196ff35ec",
+      "bytes": 860
+    },
+    {
+      "path": "../native-frames/wet-11.png",
+      "sha256": "18c129d9c90e842fff32db94097fda8f5600747e40aaf68c2ef99b05ccc75864",
+      "bytes": 840
+    }
+  ],
+  "outputs": [
+    {
+      "path": "palette.json",
+      "sha256": "ed1457484328b3cbfec7c8332c9fb1dc60bb67e08a8648419f78a8d6117c1f27",
+      "bytes": 2535
+    },
+    {
+      "path": "palette.gpl",
+      "sha256": "d336c2d7bd21df4714a729d55d8be80297364721fe6928b5f1db39c98a9b04af",
+      "bytes": 1334
+    },
+    {
+      "path": "palette.hex",
+      "sha256": "25dde72d0fc368aabd59b06c85d26dab0c1c6fd2538b91d5a4b94ca75d62a832",
+      "bytes": 448
+    },
+    {
+      "path": "swatches.png",
+      "sha256": "c1ce9ed45c4f87e352d4e517a2872000d27140db5d22f8b69dda10ab3661e45b",
+      "bytes": 884
+    }
+  ],
+  "tool": {
+    "name": "palette_tool",
+    "version": "0.4.0"
+  },
+  "palette": {
+    "colors": 64,
+    "reserved": 0,
+    "transparent_index": 255,
+    "seed": 0
+  },
+  "fit": {
+    "../native-frames/loam-0.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 255,
+      "partial_alpha_px": 0,
+      "colors": 254,
+      "palette_colors_used": 31,
+      "mean_delta_e": 0.010034,
+      "p95_delta_e": 0.020438,
+      "max_delta_e": 0.028822
+    },
+    "../native-frames/loam-1.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 255,
+      "partial_alpha_px": 0,
+      "colors": 255,
+      "palette_colors_used": 30,
+      "mean_delta_e": 0.009957,
+      "p95_delta_e": 0.02074,
+      "max_delta_e": 0.033597
+    },
+    "../native-frames/loam-2.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 256,
+      "partial_alpha_px": 0,
+      "colors": 254,
+      "palette_colors_used": 28,
+      "mean_delta_e": 0.009596,
+      "p95_delta_e": 0.019087,
+      "max_delta_e": 0.032266
+    },
+    "../native-frames/loam-3.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 254,
+      "partial_alpha_px": 0,
+      "colors": 255,
+      "palette_colors_used": 30,
+      "mean_delta_e": 0.009445,
+      "p95_delta_e": 0.018105,
+      "max_delta_e": 0.029403
+    },
+    "../native-frames/loam-4.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 256,
+      "partial_alpha_px": 0,
+      "colors": 254,
+      "palette_colors_used": 32,
+      "mean_delta_e": 0.009881,
+      "p95_delta_e": 0.020872,
+      "max_delta_e": 0.031085
+    },
+    "../native-frames/loam-5.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 254,
+      "partial_alpha_px": 0,
+      "colors": 254,
+      "palette_colors_used": 28,
+      "mean_delta_e": 0.009752,
+      "p95_delta_e": 0.019735,
+      "max_delta_e": 0.033815
+    },
+    "../native-frames/loam-6.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 255,
+      "partial_alpha_px": 0,
+      "colors": 255,
+      "palette_colors_used": 32,
+      "mean_delta_e": 0.009125,
+      "p95_delta_e": 0.016951,
+      "max_delta_e": 0.031083
+    },
+    "../native-frames/loam-7.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 256,
+      "partial_alpha_px": 0,
+      "colors": 256,
+      "palette_colors_used": 28,
+      "mean_delta_e": 0.009226,
+      "p95_delta_e": 0.01811,
+      "max_delta_e": 0.02611
+    },
+    "../native-frames/loam-8.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 255,
+      "partial_alpha_px": 0,
+      "colors": 254,
+      "palette_colors_used": 30,
+      "mean_delta_e": 0.009591,
+      "p95_delta_e": 0.01805,
+      "max_delta_e": 0.040291
+    },
+    "../native-frames/loam-9.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 254,
+      "partial_alpha_px": 0,
+      "colors": 256,
+      "palette_colors_used": 32,
+      "mean_delta_e": 0.009412,
+      "p95_delta_e": 0.01901,
+      "max_delta_e": 0.038914
+    },
+    "../native-frames/loam-10.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 255,
+      "partial_alpha_px": 0,
+      "colors": 255,
+      "palette_colors_used": 30,
+      "mean_delta_e": 0.009038,
+      "p95_delta_e": 0.018083,
+      "max_delta_e": 0.030016
+    },
+    "../native-frames/loam-11.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 256,
+      "partial_alpha_px": 0,
+      "colors": 255,
+      "palette_colors_used": 29,
+      "mean_delta_e": 0.009109,
+      "p95_delta_e": 0.017401,
+      "max_delta_e": 0.024566
+    },
+    "../native-frames/radish-growing.png": {
+      "measured_px": 365,
+      "alpha_threshold": 128,
+      "off_palette_px": 365,
+      "partial_alpha_px": 0,
+      "colors": 365,
+      "palette_colors_used": 50,
+      "mean_delta_e": 0.016091,
+      "p95_delta_e": 0.030013,
+      "max_delta_e": 0.050521
+    },
+    "../native-frames/radish-ready-alt.png": {
+      "measured_px": 644,
+      "alpha_threshold": 128,
+      "off_palette_px": 644,
+      "partial_alpha_px": 0,
+      "colors": 644,
+      "palette_colors_used": 50,
+      "mean_delta_e": 0.019428,
+      "p95_delta_e": 0.040372,
+      "max_delta_e": 0.055497
+    },
+    "../native-frames/radish-ready.png": {
+      "measured_px": 695,
+      "alpha_threshold": 128,
+      "off_palette_px": 695,
+      "partial_alpha_px": 0,
+      "colors": 693,
+      "palette_colors_used": 51,
+      "mean_delta_e": 0.01844,
+      "p95_delta_e": 0.037624,
+      "max_delta_e": 0.06442
+    },
+    "../native-frames/radish-sown.png": {
+      "measured_px": 71,
+      "alpha_threshold": 128,
+      "off_palette_px": 71,
+      "partial_alpha_px": 0,
+      "colors": 71,
+      "palette_colors_used": 32,
+      "mean_delta_e": 0.009726,
+      "p95_delta_e": 0.024004,
+      "max_delta_e": 0.033041
+    },
+    "../native-frames/radish-sprout.png": {
+      "measured_px": 86,
+      "alpha_threshold": 128,
+      "off_palette_px": 86,
+      "partial_alpha_px": 0,
+      "colors": 86,
+      "palette_colors_used": 36,
+      "mean_delta_e": 0.013563,
+      "p95_delta_e": 0.027031,
+      "max_delta_e": 0.063695
+    },
+    "../native-frames/radish-young.png": {
+      "measured_px": 192,
+      "alpha_threshold": 128,
+      "off_palette_px": 192,
+      "partial_alpha_px": 0,
+      "colors": 192,
+      "palette_colors_used": 38,
+      "mean_delta_e": 0.015942,
+      "p95_delta_e": 0.028228,
+      "max_delta_e": 0.049391
+    },
+    "../native-frames/scallion-growing.png": {
+      "measured_px": 194,
+      "alpha_threshold": 128,
+      "off_palette_px": 194,
+      "partial_alpha_px": 0,
+      "colors": 194,
+      "palette_colors_used": 47,
+      "mean_delta_e": 0.016922,
+      "p95_delta_e": 0.02835,
+      "max_delta_e": 0.06448
+    },
+    "../native-frames/scallion-ready-alt.png": {
+      "measured_px": 361,
+      "alpha_threshold": 128,
+      "off_palette_px": 361,
+      "partial_alpha_px": 0,
+      "colors": 361,
+      "palette_colors_used": 56,
+      "mean_delta_e": 0.018197,
+      "p95_delta_e": 0.035248,
+      "max_delta_e": 0.051002
+    },
+    "../native-frames/scallion-ready.png": {
+      "measured_px": 384,
+      "alpha_threshold": 128,
+      "off_palette_px": 383,
+      "partial_alpha_px": 0,
+      "colors": 384,
+      "palette_colors_used": 60,
+      "mean_delta_e": 0.020164,
+      "p95_delta_e": 0.037738,
+      "max_delta_e": 0.052831
+    },
+    "../native-frames/scallion-sown.png": {
+      "measured_px": 51,
+      "alpha_threshold": 128,
+      "off_palette_px": 51,
+      "partial_alpha_px": 0,
+      "colors": 51,
+      "palette_colors_used": 26,
+      "mean_delta_e": 0.013984,
+      "p95_delta_e": 0.033478,
+      "max_delta_e": 0.035287
+    },
+    "../native-frames/scallion-sprout.png": {
+      "measured_px": 54,
+      "alpha_threshold": 128,
+      "off_palette_px": 54,
+      "partial_alpha_px": 0,
+      "colors": 54,
+      "palette_colors_used": 29,
+      "mean_delta_e": 0.013148,
+      "p95_delta_e": 0.035371,
+      "max_delta_e": 0.046675
+    },
+    "../native-frames/scallion-young.png": {
+      "measured_px": 88,
+      "alpha_threshold": 128,
+      "off_palette_px": 88,
+      "partial_alpha_px": 0,
+      "colors": 88,
+      "palette_colors_used": 39,
+      "mean_delta_e": 0.016365,
+      "p95_delta_e": 0.030661,
+      "max_delta_e": 0.060606
+    },
+    "../native-frames/tilled-0.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 255,
+      "partial_alpha_px": 0,
+      "colors": 252,
+      "palette_colors_used": 32,
+      "mean_delta_e": 0.007726,
+      "p95_delta_e": 0.013811,
+      "max_delta_e": 0.020482
+    },
+    "../native-frames/tilled-1.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 252,
+      "partial_alpha_px": 0,
+      "colors": 250,
+      "palette_colors_used": 29,
+      "mean_delta_e": 0.007356,
+      "p95_delta_e": 0.012964,
+      "max_delta_e": 0.017713
+    },
+    "../native-frames/tilled-2.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 256,
+      "partial_alpha_px": 0,
+      "colors": 252,
+      "palette_colors_used": 30,
+      "mean_delta_e": 0.007537,
+      "p95_delta_e": 0.012943,
+      "max_delta_e": 0.020164
+    },
+    "../native-frames/tilled-3.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 256,
+      "partial_alpha_px": 0,
+      "colors": 250,
+      "palette_colors_used": 30,
+      "mean_delta_e": 0.007502,
+      "p95_delta_e": 0.01285,
+      "max_delta_e": 0.017969
+    },
+    "../native-frames/tilled-4.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 255,
+      "partial_alpha_px": 0,
+      "colors": 256,
+      "palette_colors_used": 33,
+      "mean_delta_e": 0.007727,
+      "p95_delta_e": 0.013655,
+      "max_delta_e": 0.024877
+    },
+    "../native-frames/tilled-5.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 253,
+      "partial_alpha_px": 0,
+      "colors": 253,
+      "palette_colors_used": 29,
+      "mean_delta_e": 0.007584,
+      "p95_delta_e": 0.013112,
+      "max_delta_e": 0.021281
+    },
+    "../native-frames/tilled-6.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 256,
+      "partial_alpha_px": 0,
+      "colors": 248,
+      "palette_colors_used": 30,
+      "mean_delta_e": 0.007393,
+      "p95_delta_e": 0.012817,
+      "max_delta_e": 0.021575
+    },
+    "../native-frames/tilled-7.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 256,
+      "partial_alpha_px": 0,
+      "colors": 250,
+      "palette_colors_used": 29,
+      "mean_delta_e": 0.00773,
+      "p95_delta_e": 0.012938,
+      "max_delta_e": 0.019328
+    },
+    "../native-frames/tilled-8.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 255,
+      "partial_alpha_px": 0,
+      "colors": 253,
+      "palette_colors_used": 31,
+      "mean_delta_e": 0.007752,
+      "p95_delta_e": 0.012467,
+      "max_delta_e": 0.022951
+    },
+    "../native-frames/tilled-9.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 256,
+      "partial_alpha_px": 0,
+      "colors": 253,
+      "palette_colors_used": 31,
+      "mean_delta_e": 0.007524,
+      "p95_delta_e": 0.013418,
+      "max_delta_e": 0.01907
+    },
+    "../native-frames/tilled-10.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 254,
+      "partial_alpha_px": 0,
+      "colors": 251,
+      "palette_colors_used": 31,
+      "mean_delta_e": 0.00762,
+      "p95_delta_e": 0.012717,
+      "max_delta_e": 0.020579
+    },
+    "../native-frames/tilled-11.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 254,
+      "partial_alpha_px": 0,
+      "colors": 251,
+      "palette_colors_used": 30,
+      "mean_delta_e": 0.007447,
+      "p95_delta_e": 0.013112,
+      "max_delta_e": 0.021821
+    },
+    "../native-frames/wet-0.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 256,
+      "partial_alpha_px": 0,
+      "colors": 250,
+      "palette_colors_used": 33,
+      "mean_delta_e": 0.01066,
+      "p95_delta_e": 0.02367,
+      "max_delta_e": 0.044269
+    },
+    "../native-frames/wet-1.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 254,
+      "partial_alpha_px": 0,
+      "colors": 254,
+      "palette_colors_used": 32,
+      "mean_delta_e": 0.010223,
+      "p95_delta_e": 0.021551,
+      "max_delta_e": 0.066277
+    },
+    "../native-frames/wet-2.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 256,
+      "partial_alpha_px": 0,
+      "colors": 250,
+      "palette_colors_used": 31,
+      "mean_delta_e": 0.010508,
+      "p95_delta_e": 0.02098,
+      "max_delta_e": 0.073576
+    },
+    "../native-frames/wet-3.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 255,
+      "partial_alpha_px": 0,
+      "colors": 247,
+      "palette_colors_used": 31,
+      "mean_delta_e": 0.009782,
+      "p95_delta_e": 0.020341,
+      "max_delta_e": 0.040513
+    },
+    "../native-frames/wet-4.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 256,
+      "partial_alpha_px": 0,
+      "colors": 249,
+      "palette_colors_used": 33,
+      "mean_delta_e": 0.010976,
+      "p95_delta_e": 0.025299,
+      "max_delta_e": 0.047254
+    },
+    "../native-frames/wet-5.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 255,
+      "partial_alpha_px": 0,
+      "colors": 248,
+      "palette_colors_used": 34,
+      "mean_delta_e": 0.010276,
+      "p95_delta_e": 0.02078,
+      "max_delta_e": 0.065133
+    },
+    "../native-frames/wet-6.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 256,
+      "partial_alpha_px": 0,
+      "colors": 246,
+      "palette_colors_used": 32,
+      "mean_delta_e": 0.010036,
+      "p95_delta_e": 0.021935,
+      "max_delta_e": 0.054317
+    },
+    "../native-frames/wet-7.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 255,
+      "partial_alpha_px": 0,
+      "colors": 248,
+      "palette_colors_used": 32,
+      "mean_delta_e": 0.010193,
+      "p95_delta_e": 0.021245,
+      "max_delta_e": 0.05165
+    },
+    "../native-frames/wet-8.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 256,
+      "partial_alpha_px": 0,
+      "colors": 249,
+      "palette_colors_used": 32,
+      "mean_delta_e": 0.01067,
+      "p95_delta_e": 0.022026,
+      "max_delta_e": 0.054544
+    },
+    "../native-frames/wet-9.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 254,
+      "partial_alpha_px": 0,
+      "colors": 249,
+      "palette_colors_used": 31,
+      "mean_delta_e": 0.010085,
+      "p95_delta_e": 0.021724,
+      "max_delta_e": 0.05454
+    },
+    "../native-frames/wet-10.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 255,
+      "partial_alpha_px": 0,
+      "colors": 248,
+      "palette_colors_used": 31,
+      "mean_delta_e": 0.010465,
+      "p95_delta_e": 0.023741,
+      "max_delta_e": 0.060095
+    },
+    "../native-frames/wet-11.png": {
+      "measured_px": 256,
+      "alpha_threshold": 128,
+      "off_palette_px": 255,
+      "partial_alpha_px": 0,
+      "colors": 252,
+      "palette_colors_used": 32,
+      "mean_delta_e": 0.009899,
+      "p95_delta_e": 0.022512,
+      "max_delta_e": 0.06251
+    }
+  },
+  "totals": {
+    "max_delta_e": 0.073576,
+    "worst_p95_delta_e": 0.040372,
+    "off_palette_px": 12366
+  }
+}

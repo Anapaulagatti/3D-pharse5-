@@ -16,8 +16,11 @@ export function installPixelAudit(scene: Phaser.Scene) {
       farmSprites: scene.children.list
         .filter(
           (o): o is Phaser.GameObjects.Sprite =>
-            o instanceof Phaser.GameObjects.Sprite &&
-            ["farm-crops", "farm-soil"].includes(o.texture.key),
+            (o instanceof Phaser.GameObjects.Sprite ||
+              o instanceof Phaser.GameObjects.Image) &&
+            ["farm-crops", "farm-soil", "farm-materials"].includes(
+              o.texture.key,
+            ),
         )
         .map((o) => ({
           key: o.texture.key,

@@ -1,3 +1,4 @@
+import quality from "../../docs/phase3bd-final-quality/AUTHORIZED_AMENDMENTS.json";
 import hotfix from "../../docs/phase3bd-farm-path/AUTHORIZED_AMENDMENTS.json";
 import physical from "../../docs/phase3bd-in-world/AUTHORIZED_AMENDMENTS.json";
 import newest from "../../docs/phase3bd/AUTHORIZED_AMENDMENTS.json";
@@ -67,7 +68,16 @@ export function expectedAmendedHash(path: string, original: unknown): unknown {
   )[path];
   if (change && change.beforeSHA256 !== last)
     throw Error("Farm/path predecessor mismatch: " + path);
-  return change?.afterSHA256 ?? last;
+  const previousQuality = change?.afterSHA256 ?? last;
+  const finalChange = (
+    quality.files as Record<
+      string,
+      { beforeSHA256: string; afterSHA256: string }
+    >
+  )[path];
+  if (finalChange && finalChange.beforeSHA256 !== previousQuality)
+    throw Error("Final quality predecessor mismatch: " + path);
+  return finalChange?.afterSHA256 ?? previousQuality;
 }
 const historicalBatch = new Map<string, Buffer>();
 function loadHistoricalBatch() {

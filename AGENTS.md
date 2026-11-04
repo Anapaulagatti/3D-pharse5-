@@ -1,3 +1,7 @@
+# Current authority · final farming art and western-hanok passage 2026-11-04
+
+Read docs/phase3bd-final-quality/HUMAN_DIRECTIVE.md. Owner rejects flat6bed overlays and a specific western-hanok north/south choke. Isolated additive native component/cell art and per-cell states, exact local collision correction after actual reproduction allowed. Preserve all current economic/quest balances, camera/movement/player/NPC/cosmetic/source world art. No broad rewrite, paid service, production/mainmerge/3BE. New exact candidate needs owner manifest approval before Pages; do not deploy previous candidate as this new revision. Use original sprite art and true provenance; no geometric placeholder people or flat soil plates. No delegation.
+
 # Farm/path exact release WAITING required environment review ·2026-11-04
 
 Owner public approvald170ee18/5b5ce278 recorded. New release control11038ee/run41798184150 receiptPASS, deployWAITING github-pages reviewerAnapaulagatti. Read docs/phase3bd-farm-path-release. CurrentHTTPS still17306fc4/9fceverified; HOTFIX NOT DEPLOYED. After manual approval, inspect actualHTTPS/browser proof; never infer PASS. Rollbackcheckpoint/pages-9fce709a-before-farm-path-20261104 pushed. No payload/art changes,3BE,officialv0.5/game-mainmerge. Exact owner approval persists; do not request it again. Physicaldevices NOTTESTED. No delegation.

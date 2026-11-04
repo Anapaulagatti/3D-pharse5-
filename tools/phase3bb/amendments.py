@@ -21,6 +21,14 @@ def historical_bytes(name,expected=None):
   if expected:assert expected==row['sha256'],('Historical removed file predecessor mismatch',name)
   return old
  current=(R/name).read_bytes()
+ quality=R/'docs/phase3bd-final-quality/AUTHORIZED_AMENDMENTS.json'
+ if quality.exists():
+  q=json.loads(quality.read_text());row=q['files'].get(name)
+  if row:
+   assert hashlib.sha256(current).hexdigest()==row['afterSHA256'],('Final local quality source drift',name)
+   current=subprocess.check_output(['git','show',q['base']+':'+name],cwd=R)
+   assert hashlib.sha256(current).hexdigest()==row['beforeSHA256']
+
  hotfix=R/'docs/phase3bd-farm-path/AUTHORIZED_AMENDMENTS.json'
  if hotfix.exists():
   q=json.loads(hotfix.read_text());row=q['files'].get(name)
