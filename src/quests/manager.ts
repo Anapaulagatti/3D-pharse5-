@@ -1,5 +1,6 @@
 import {
   crops,
+  cropUnlocked,
   items,
   plots,
   freshEconomy,
@@ -58,6 +59,7 @@ export class QuestManager {
   storageWarning = "";
   migrationNotice = "";
   private lastRaw: string | null = null;
+  private migrationBackupNeeded = false;
   constructor(
     private storage?: Pick<Storage, "getItem" | "setItem">,
     readonly learning: LearningProgressAdapter = new LocalLearningProgress(),
@@ -177,9 +179,30 @@ export class QuestManager {
             !Number.isFinite(state.growMs))
         )
           throw Error("invalid plant");
+        if (
+          state.crop &&
+          state.growMs !== undefined &&
+          ![crops[state.crop].growMs, crops[state.crop].introMs].includes(
+            state.growMs as never,
+          )
+        )
+          throw Error("untrusted growth duration");
+        if (state.plantedAt !== undefined && state.plantedAt < 0)
+          throw Error("invalid planting date");
+        if (
+          state.wateredAt !== undefined &&
+          state.wateredAt < (state.plantedAt ?? 0)
+        )
+          throw Error("water before planting");
         if (state.stage === "watered" && !Number.isFinite(state.wateredAt))
           throw Error("invalid water");
       }
+      // Preserve the original pre-upgrade snapshot before the first successful write.
+      this.migrationBackupNeeded = v.economy.stock["seed-carrot"] === undefined;
+      // Add only genuinely new stock IDs; never refill an existing exhausted item.
+      for (const [id, item] of Object.entries(items))
+        if (item.stock > 0 && v.economy.stock[id] === undefined)
+          v.economy.stock[id] = item.stock;
       v.economy.farmCellSchema = 1;
       if (!Object.values(v.economy.stock).every(integer))
         throw Error("invalid stock");
@@ -188,6 +211,42 @@ export class QuestManager {
     } catch {
       this.storageWarning =
         "Dữ liệu nhiệm vụ không hợp lệ; dữ liệu gốc chưa bị ghi đè.";
+    }
+  }
+  exportRawSave() {
+    try {
+      return this.storage?.getItem(QUEST_STORAGE_KEY) ?? null;
+    } catch {
+      return null;
+    }
+  }
+  restoreMigrationBackup() {
+    try {
+      const raw = this.storage?.getItem(
+        QUEST_STORAGE_KEY + ":backup:roadmap-v2",
+      );
+      if (!raw || !this.storage) return false;
+      const parsed = new QuestManager({
+        getItem: (key) => (key === QUEST_STORAGE_KEY ? raw : null),
+        setItem: () => {},
+      });
+      if (parsed.storageWarning) return false;
+      const current = this.storage.getItem(QUEST_STORAGE_KEY);
+      if (current)
+        this.storage.setItem(
+          QUEST_STORAGE_KEY + ":corrupt-backup:roadmap-v2",
+          current,
+        );
+      const next = parsed.snapshot(),
+        serialized = JSON.stringify(next);
+      this.storage.setItem(QUEST_STORAGE_KEY, serialized);
+      this.value = next;
+      this.lastRaw = serialized;
+      this.storageWarning = "";
+      this.migrationBackupNeeded = false;
+      return true;
+    } catch {
+      return false;
     }
   }
   snapshot(): QuestSave {
@@ -221,7 +280,17 @@ export class QuestManager {
     next.economy.revision++;
     const serialized = JSON.stringify(next);
     try {
+      if (
+        this.migrationBackupNeeded &&
+        this.lastRaw &&
+        !this.storage?.getItem(QUEST_STORAGE_KEY + ":backup:roadmap-v2")
+      )
+        this.storage?.setItem(
+          QUEST_STORAGE_KEY + ":backup:roadmap-v2",
+          this.lastRaw,
+        );
       this.storage?.setItem(QUEST_STORAGE_KEY, serialized);
+      this.migrationBackupNeeded = false;
     } catch {
       this.storageWarning =
         "Không lưu được nhiệm vụ. Chưa cấp phần thưởng; hãy kiểm tra bộ nhớ trình duyệt.";
@@ -259,6 +328,11 @@ export class QuestManager {
     const def = quests.find((q) => q.id === id && q.giver === npcId);
     if (!def) return false;
     return this.commit((s) => {
+      if (
+        def.prerequisite &&
+        s.records[def.prerequisite]?.status !== "completed"
+      )
+        return false;
       if (s.records[id]) return false;
       s.records[id] = { status: "active", step: 0, attempts: 0 };
       if (def.id === "farm-radish-harvest-v1")
@@ -393,7 +467,8 @@ export class QuestManager {
         if (
           !["empty", "tilled"].includes(p.stage) ||
           !cropId ||
-          !(cropId in crops)
+          !(cropId in crops) ||
+          !cropUnlocked(cropId, s.records)
         )
           return false;
         if (p.stage === "empty")
@@ -467,6 +542,8 @@ export class QuestManager {
       if (kind === "buy") {
         if (
           item.buy <= 0 ||
+          (itemId.startsWith("seed-") &&
+            !cropUnlocked(itemId.slice(5), s.records)) ||
           s.coins < item.buy * quantity ||
           (s.economy.stock[itemId] ?? 0) < quantity
         )
@@ -487,6 +564,45 @@ export class QuestManager {
     });
   }
 
+  recoverStarter() {
+    return this.commit((s) => {
+      if (
+        s.transactions.includes("recovery:starter:v2") ||
+        Object.entries(s.inventory).some(
+          ([id, n]) => id.startsWith("seed-") && n > 0,
+        ) ||
+        Object.values(s.economy.plots).some((p) => p.crop)
+      )
+        return false;
+      s.inventory["seed-radish"] = 1;
+      s.transactions.push("recovery:starter:v2");
+      return true;
+    });
+  }
+  /** Physical room events. Caller supplies actual in-room proximity/collision context. No remote HUD completion. */
+  interiorEvent(
+    event: string,
+    item: string,
+    txId: string,
+    player: readonly [number, number],
+    target: readonly [number, number],
+    ground: (x: number, y: number) => boolean,
+  ) {
+    if (
+      !nearGround(player, target, ground, 48) ||
+      !/^[a-zA-Z0-9:_-]{3,120}$/.test(txId)
+    )
+      return false;
+    return this.commit((s) => {
+      const tx = "interior:" + txId;
+      if (s.transactions.includes(tx)) return false;
+      const before = JSON.stringify(s.records);
+      this.economyEvent(s, event, item);
+      if (JSON.stringify(s.records) === before) return false;
+      s.transactions.push(tx);
+      return true;
+    });
+  }
   question(id: string) {
     const def = quests.find((q) => q.id === id),
       r = this.value.records[id];

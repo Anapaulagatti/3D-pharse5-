@@ -274,3 +274,154 @@ body:has(#settings[open]) #quest-hud {
     padding: 2px 5px;
   }
 }
+
+/* Native icon HUD; same physical actions and accessible DOM labels. */
+#quest-hud .town-pocket button,
+#town-coins {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: #263f37f2;
+  box-shadow:
+    inset 0 0 0 1px #657458,
+    0 3px 0 #172c28;
+  border-radius: 0;
+}
+.hud-native-icon {
+  image-rendering: pixelated;
+  object-fit: contain;
+  flex: none;
+}
+.crop-native-icon {
+  width: 40px;
+  height: 44px;
+  display: inline-block;
+  image-rendering: pixelated;
+  flex: none;
+}
+.inventory-tabs {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.inventory-item {
+  border-radius: 0;
+  box-shadow: inset 0 0 0 1px #ab9e79;
+}
+#seed-picker {
+  max-height: 55svh;
+  overflow: auto;
+}
+#quest-hud button:focus-visible,
+#quest-dialogue button:focus-visible {
+  outline: 3px solid #e2ac46;
+  outline-offset: 2px;
+}
+#quest-dialogue button:disabled {
+  opacity: 0.6;
+}
+#town-shop small {
+  display: block;
+}
+.shop-row {
+  align-items: center;
+}
+@media (max-height: 450px) {
+  #quest-hud {
+    top: 48px;
+    width: min(310px, 47vw);
+  }
+  #quest-tracker {
+    max-height: 32px;
+    font-size: 11px;
+  }
+  .town-pocket button {
+    font-size: 11px !important;
+    padding: 2px !important;
+  }
+  .hud-native-icon {
+    width: 24px;
+    height: 30px;
+  }
+  .inventory-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  #quest-dialogue {
+    max-height: 70svh;
+  }
+}
+
+#interior-door {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  max-width: 60vw;
+  min-height: 44px;
+  background: #27463b;
+  color: #ffedbd;
+  border: 2px solid #c5aa70;
+}
+#interior-door[hidden] {
+  display: none;
+}
+#interior-tools {
+  position: fixed;
+  left: max(8px, env(safe-area-inset-left));
+  top: 55px;
+  z-index: 20;
+  width: min(330px, 45vw);
+  box-sizing: border-box;
+  background: #243d32ee;
+  color: #fff0c4;
+  border: 2px solid #a98d5a;
+  padding: 8px;
+  font: 13px/1.3 system-ui;
+  max-height: 60svh;
+  overflow: auto;
+}
+#interior-tools button {
+  min-height: 44px;
+  min-width: 44px;
+  background: #e5cea0;
+  color: #243b30;
+  border: 2px solid #7e6b49;
+  margin: 3px;
+  padding: 4px;
+  touch-action: manipulation;
+}
+#interior-tools p {
+  margin: 5px 0;
+}
+#interior-tools button:focus-visible {
+  outline: 3px solid #7ee4ce;
+}
+#sign-pieces[hidden] {
+  display: none;
+}
+@media (max-height: 450px) {
+  #interior-tools {
+    top: 48px;
+    font-size: 11px;
+    width: 40vw;
+  }
+}
+
+body[data-interior="true"] #interior-door,
+body[data-interior="true"] #npc-history-open,
+body[data-interior="true"] #npc-interact,
+body[data-interior="true"] #scenic,
+body[data-interior="true"] #camera-tools,
+body[data-interior="true"] #tour-controls {
+  display: none !important;
+}
+
+body[data-interior="true"] #history-art-review {
+  display: none !important;
+}
+
+body[data-interior="true"] #character-open,
+body[data-interior="true"] #pause {
+  display: none !important;
+}

@@ -22,5 +22,6 @@ def runtime_names():
    names|={npc['assets']['texture'],npc['assets']['atlas']}
  names|={'assets/farming/crops.png','assets/farming/crops.json','assets/farming/postcard.png','assets/farming/interaction-tools.png','assets/farming/interaction-tools.json'}
  names|={"assets/farming/phase3bd-final-quality/"+n for n in ["crops.png","crops.json","soil-components.png","soil-components.json"]}
+ names|={"assets/roadmap-v2/"+n for n in ["crops.png","crops.json","props.png","props.json","coin.png","bag.png","journal.png","hoe.png"]}
  return names
 if __name__=='__main__':print(json.dumps(sorted(runtime_names()),indent=2))

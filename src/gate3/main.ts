@@ -1,3 +1,5 @@
+import { InteriorScene } from "../interiors/InteriorScene";
+import { interiors, readInterior } from "../interiors/registry";
 import { moveReviewPlayer } from "./ReviewMovement";
 import collisionAmendments from "./phase3bc-collision.json";
 import { CollisionDebug } from "./CollisionDebug";
@@ -158,6 +160,25 @@ if (
   !(await checkpointGroundIsWalkable(data, reloadState.x, reloadState.y, base))
 )
   reloadState = null;
+let interiorResume =
+  production &&
+  (
+    performance.getEntriesByType("navigation")[0] as
+      PerformanceNavigationTiming | undefined
+  )?.type === "reload"
+    ? readInterior()
+    : undefined;
+if (interiorResume) {
+  if (await checkpointGroundIsWalkable(data, ...interiorResume.world, base)) {
+    data.spawn = interiorResume.world;
+    if (reloadState)
+      reloadState = {
+        ...reloadState,
+        x: interiorResume.world[0],
+        y: interiorResume.world[1],
+      };
+  } else interiorResume = undefined;
+}
 const label = "Korean Pixel Town · canonical world / local gameplay review";
 const root = document.querySelector<HTMLDivElement>("#app")!;
 root.innerHTML = `<header><b>KOREAN ARENA</b><select id="scene-picker" aria-label="Review environment">${availableCatalog.map((s) => `<option value="${s.id}" ${s.id === id ? "selected" : ""}>${s.label}</option>`).join("")}</select><span id="camera-mode">Follow · native1:1</span><button id="scenic">Scenic</button><details id="settings"><summary aria-label="Options">···</summary><div>${production ? '<button id="character-open">Character Studio</button><button id="celebrate-desktop">Ăn mừng · C</button>' : ""}<label><input type="checkbox" id="showcases"> Landmark moments</label><button id="pause">Pause</button><button id="export-session">Export test report</button></div></details></header><main id="stage"></main><div id="map-labels" aria-hidden="true"></div><div id="camera-tools"><span>Drag to look · pinch to zoom</span><button id="start-tour">Start Tour</button><span id="tour-caption" role="status" aria-live="polite"></span><button id="tour-pause">Pause</button><button id="tour-next">Skip landmark</button><button id="overview-mode">Full scene</button><button id="return-juni">Return to Juni</button></div><button id="tour-controls" aria-controls="camera-tools" aria-expanded="true">Tour controls</button><footer><span id="near">${label}</span><span>WASD / arrows · Shift run · E explore · Space greet${production ? " · C celebrate" : ""}</span></footer><div id="joystick" aria-label="Movement joystick"><span class="stick-knob"></span></div><div id="touch-actions"><button id="run">Run</button><button id="explore">Explore</button>${production ? '<button id="wave-emote">Chào</button><button id="celebrate-emote">Vui</button>' : ""}</div><aside id="dialog" hidden role="dialog" aria-label="Environment detail"><h2 id="title"></h2><p id="copy"></p><button id="close">Return</button></aside>`;
@@ -183,11 +204,18 @@ const reset = attachJoystick(
   (x, y) => {
     analog = { x, y };
   },
-  () => paused || scenicLocked,
+  () =>
+    (paused && document.body.dataset.interior !== "true") ||
+    scenicLocked ||
+    !!document.querySelector<HTMLDialogElement>("#quest-dialogue")?.open,
 );
 class Slice extends Phaser.Scene {
   // PHASE3A BEGIN field
   private npcs?: NPCManager;
+  private enteringInterior = false;
+  private interiorReturnUntil = 0;
+  private interiorRestored = false;
+  private doorHint?: HTMLButtonElement;
   private collisionDebug?: CollisionDebug;
   // PHASE3A END field
   private reviewCamera!: FoundationCamera;
@@ -215,8 +243,8 @@ class Slice extends Phaser.Scene {
   preload() {
     this.load.atlas(
       "farm-crops",
-      base + "assets/farming/phase3bd-final-quality/crops.png",
-      base + "assets/farming/phase3bd-final-quality/crops.json",
+      base + "assets/roadmap-v2/crops.png",
+      base + "assets/roadmap-v2/crops.json",
     );
     this.load.atlas(
       "world-actions",
@@ -227,6 +255,11 @@ class Slice extends Phaser.Scene {
       "farm-materials",
       base + "assets/farming/phase3bd-final-quality/soil-components.png",
       base + "assets/farming/phase3bd-final-quality/soil-components.json",
+    );
+    this.load.atlas(
+      "town-props",
+      base + "assets/roadmap-v2/props.png",
+      base + "assets/roadmap-v2/props.json",
     );
     const selected = characterSession.selected;
     if (!this.textures.exists(selected.assets!.key))
@@ -487,7 +520,15 @@ class Slice extends Phaser.Scene {
           };
         },
       });
-    this.events.once("shutdown", () => this.npcs?.dispose());
+    this.doorHint = document.createElement("button");
+    this.doorHint.id = "interior-door";
+    this.doorHint.hidden = true;
+    this.doorHint.onclick = () => void this.enterInterior();
+    document.body.append(this.doorHint);
+    this.events.once("shutdown", () => {
+      this.npcs?.dispose();
+      this.doorHint?.remove();
+    });
     // PHASE3A END create
     this.events.once("shutdown", () => {
       this.selectionBindings?.abort();
@@ -504,8 +545,76 @@ class Slice extends Phaser.Scene {
       .querySelector("#explore")!
       .addEventListener("click", () => this.inspect());
   }
+  private nearDoor() {
+    return interiors.find(
+      (r) =>
+        Math.hypot(this.x - r.door[0], this.y - r.door[1]) < 36 &&
+        this.walkable(this.x, this.y),
+    );
+  }
+  private async enterInterior() {
+    const r = this.nearDoor();
+    if (
+      !r ||
+      !this.npcs ||
+      paused ||
+      scenicLocked ||
+      this.enteringInterior ||
+      performance.now() < this.interiorReturnUntil ||
+      this.characters!.busy
+    )
+      return;
+    this.enteringInterior = true;
+    if (this.doorHint) this.doorHint.hidden = true;
+    paused = true;
+    reset();
+    heldRun = false;
+    this.input.keyboard!.resetKeys();
+    this.sys.pause();
+    try {
+      const npc = await this.npcs.borrowInteriorActor(r.npc);
+      if (!this.scene.isPaused()) throw Error("World changed");
+      this.scene.launch("town-interior", {
+        definition: r,
+        player: this.player,
+        motion: this.motion,
+        owner: this,
+        world: [this.x, this.y],
+        quest: this.npcs.questUI,
+        npc,
+        analog: () => ({ ...analog, run: heldRun }),
+        resume:
+          interiorResume?.id === r.id && !this.interiorRestored
+            ? interiorResume
+            : undefined,
+        onExit: () => {
+          this.interiorRestored = true;
+          this.interiorReturnUntil = performance.now() + 400;
+          this.sys.resume();
+          paused = false;
+          this.enteringInterior = false;
+          this.input.keyboard!.resetKeys();
+          reset();
+          heldRun = false;
+        },
+      });
+    } catch (error) {
+      console.warn("Interior load deferred", String(error));
+      this.sys.resume();
+      this.enteringInterior = false;
+      paused = false;
+      this.npcs.showHint(
+        "Chưa tải được phòng; bạn vẫn ở cửa an toàn. Thử lại nhé.",
+      );
+    }
+  }
   inspect() {
-    if (paused || scenicLocked) return;
+    if (paused || scenicLocked || performance.now() < this.interiorReturnUntil)
+      return;
+    if (this.nearDoor()) {
+      void this.enterInterior();
+      return;
+    }
     // PHASE3A BEGIN interaction
     if (this.npcs?.tryInteract()) return;
     // PHASE3A END interaction
@@ -538,6 +647,23 @@ class Slice extends Phaser.Scene {
   }
   update(_t: number, delta: number) {
     if (!this.player) return;
+    const door = this.nearDoor();
+    if (this.doorHint) {
+      this.doorHint.hidden = !door || paused || scenicLocked;
+      this.doorHint.textContent = door ? "E · Vào " + door.name : "";
+    }
+    if (
+      interiorResume &&
+      !this.interiorRestored &&
+      !this.enteringInterior &&
+      door &&
+      this.walkable(this.x, this.y) &&
+      !paused
+    ) {
+      void this.enterInterior();
+      return;
+    }
+
     const updateStarted = performance.now();
     const collisionStarted = performance.now();
     let dx =
@@ -717,7 +843,7 @@ const game = new Phaser.Game({
   roundPixels: true,
   antialias: false,
   backgroundColor: "#33494a",
-  scene: Slice,
+  scene: [Slice, InteriorScene],
   audio: { noAudio: true },
   banner: false,
   input: { activePointers: 4 },

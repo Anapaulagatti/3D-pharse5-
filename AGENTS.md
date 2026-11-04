@@ -1,3 +1,7 @@
+# Roadmap V2 autonomous LOCAL candidate authorized ·2026-11-04
+
+Read docs/roadmap-v2/HUMAN_DIRECTIVE.md. Latest owner supersedes narrow3BD/3BE scope stop for seven local workstreams, not live backend/multiplayer/ads/publication. Preserve protected artwork, prior source/current exact Pages candidate and all checkpoints. Work feature/roadmap-v2-playable-candidate; no delegation. New exact artifact needs separate owner exposure approval. No production/site/studentdata/billing/main-game merge. Prior exact1a6e5a58 deployment authorized but GitHub protected reviewer remains mandatory. No false physical-device/language/art/legal PASS.
+
 # Final farm/hanok Pages WAITING environment reviewer ·2026-11-04
 
 Exact owner approval recorded. Control3654b34; run41852211445 receipt jobPASS, deployWAITING required github-pages reviewerAnapaulagatti. See docs/phase3bd-final-quality-release/DELIVERY_STATUS.json. No bypass or renewed owner-manifest question; need only existing GitHub protected-environment approval. After approval inspect actualHTTPS and hosted gameplay proof; new candidate NOT_DEPLOYED yet. Preserve5b5ce278 rollback, sources and physicaldeviceNOTTESTED. No3BE/production/main game merge/delegation.

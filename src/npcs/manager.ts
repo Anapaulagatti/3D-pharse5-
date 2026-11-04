@@ -328,6 +328,86 @@ export class NPCManager {
       m.greet(p);
     }
   }
+  get questUI() {
+    return this.quests;
+  }
+  /** Borrow one actual actor for a paused-world interior, retaining its identity/model/schedule. */
+  async borrowInteriorActor(id: string) {
+    const m = this.models.get(id);
+    if (!m) throw Error("Unknown interior actor");
+    if (!this.actors.has(id)) {
+      // Source world is paused; evict distant render owners normally, never duplicate an actor.
+      if (this.actors.size >= 4) {
+        const other = [...this.actors.keys()].find((k) => k !== id)!;
+        const a = this.actors.get(other)!;
+        a.sprite.destroy();
+        a.shadow.destroy();
+        this.actors.delete(other);
+        this.wanted.delete(other);
+      }
+      this.wanted.add(id);
+      const pinned = new Set([...this.actors.keys(), id]);
+      this.assets.cancelUnwanted(pinned);
+      for (let wait = 0; this.assets.pending.size > 0 && wait < 40; wait++)
+        await new Promise<void>((resolve) => setTimeout(resolve, 50));
+      if (!(await this.assets.load(m.def, pinned)))
+        throw Error(
+          "Interior NPC art unavailable: " +
+            JSON.stringify(this.assets.snapshot()),
+        );
+      if (!this.actors.has(id)) this.renderActor(m);
+    }
+    const a = this.actors.get(id)!,
+      sprite = a.sprite,
+      owner = this.scene,
+      old = {
+        x: sprite.x,
+        y: sprite.y,
+        frame: sprite.frame.name,
+        visible: sprite.visible,
+        depth: sprite.depth,
+      };
+    return {
+      sprite,
+      restore: () => {
+        sprite.removeFromUpdateList();
+        sprite.scene.sys.updateList.update();
+        sprite.removeFromDisplayList();
+        sprite.scene = owner;
+        owner.add.existing(sprite);
+        sprite
+          .setPosition(old.x, old.y)
+          .setFrame(old.frame)
+          .setVisible(old.visible)
+          .setDepth(old.depth)
+          .setInteractive({ useHandCursor: true });
+      },
+    };
+  }
+  private renderActor(m: NPCActorModel) {
+    const id = m.def.id;
+    const p = m.record.position;
+    const sprite = this.scene.add
+      .sprite(Math.round(p[0]), Math.round(p[1]), m.def.assets.key, m.frame())
+      .setOrigin(0.5, 100 / 112)
+      .setDepth(Math.round(p[1]) + 0.05)
+      .setData("npcId", id)
+      .setInteractive({ useHandCursor: true });
+    sprite.on("pointerup", (pointer: Phaser.Input.Pointer) => {
+      if (pointer.getDistance() < 12) this.talkTo(id);
+    });
+    const shadow = this.scene.add
+      .ellipse(Math.round(p[0]), Math.round(p[1]) - 1, 20, 5, 0x263b37, 0.18)
+      .setDepth(Math.round(p[1]) - 0.01);
+    this.actors.set(id, {
+      model: m,
+      sprite,
+      shadow,
+      elapsed: 0,
+      lastFrame: "",
+    });
+    this.activations++;
+  }
   private populate() {
     const p = this.host.player();
     const pinned = this.dialogue.target ?? this.quests.target;
@@ -413,39 +493,7 @@ export class NPCManager {
       void this.assets.load(m.def, this.wanted).then((ok) => {
         if (!ok || this.closed || !this.wanted.has(id) || this.actors.has(id))
           return;
-        const p = m.record.position;
-        const sprite = this.scene.add
-          .sprite(
-            Math.round(p[0]),
-            Math.round(p[1]),
-            m.def.assets.key,
-            m.frame(),
-          )
-          .setOrigin(0.5, 100 / 112)
-          .setDepth(Math.round(p[1]) + 0.05)
-          .setData("npcId", id)
-          .setInteractive({ useHandCursor: true });
-        sprite.on("pointerup", (pointer: Phaser.Input.Pointer) => {
-          if (pointer.getDistance() < 12) this.talkTo(id);
-        });
-        const shadow = this.scene.add
-          .ellipse(
-            Math.round(p[0]),
-            Math.round(p[1]) - 1,
-            20,
-            5,
-            0x263b37,
-            0.18,
-          )
-          .setDepth(Math.round(p[1]) - 0.01);
-        this.actors.set(id, {
-          model: m,
-          sprite,
-          shadow,
-          elapsed: 0,
-          lastFrame: "",
-        });
-        this.activations++;
+        this.renderActor(m);
       });
     }
   }

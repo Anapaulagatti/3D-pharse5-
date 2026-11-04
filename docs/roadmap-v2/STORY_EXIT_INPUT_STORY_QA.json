@@ -1,0 +1,128 @@
+{
+  "status": "FAIL",
+  "fixtures": "Focused story: precompleted first farm quest and100coins at initial setup only, no post-start state/position/time writes; all eight story steps actual physical actions",
+  "errors": [],
+  "routes": [
+    {
+      "start": [
+        1128,
+        2690
+      ],
+      "target": [
+        1418,
+        2605
+      ],
+      "end": [
+        1401.284878679663,
+        2615.973508544117
+      ],
+      "length": 352,
+      "actualControls": true,
+      "collisionOverride": false
+    },
+    {
+      "start": [
+        1401.284878679663,
+        2615.973508544117
+      ],
+      "target": [
+        717,
+        2605
+      ],
+      "end": [
+        730.4686004711795,
+        2617.5785664161463
+      ],
+      "length": 676,
+      "actualControls": true,
+      "collisionOverride": false
+    }
+  ],
+  "roomRoutes": [
+    {
+      "from": [
+        320,
+        414
+      ],
+      "target": [
+        414,
+        300
+      ],
+      "end": [
+        413.68952718687217,
+        301.98047281312756
+      ],
+      "actualControls": true
+    },
+    {
+      "from": [
+        413.68952718687217,
+        301.98047281312756
+      ],
+      "target": [
+        320,
+        438
+      ],
+      "end": [
+        318.9220199487286,
+        435.07798005127154
+      ],
+      "actualControls": true
+    },
+    {
+      "from": [
+        320,
+        414
+      ],
+      "target": [
+        414,
+        300
+      ],
+      "end": [
+        413.10050723814334,
+        302.5664927618566
+      ],
+      "actualControls": true
+    },
+    {
+      "from": [
+        413.10050723814334,
+        302.5664927618566
+      ],
+      "target": [
+        320,
+        438
+      ],
+      "end": [
+        319.5138683245815,
+        434.48413167541844
+      ],
+      "actualControls": true
+    }
+  ],
+  "captures": [
+    "story-00-accepted",
+    "story-01-room-shop"
+  ],
+  "steps": [],
+  "shop": {
+    "records": {
+      "farm-first-seed-v1": {
+        "status": "completed",
+        "step": 3,
+        "attempts": 0
+      },
+      "town-first-delivery-v2": {
+        "status": "active",
+        "step": 1,
+        "attempts": 0
+      }
+    },
+    "coins": 92,
+    "inventory": {
+      "parcel": 1,
+      "seed-carrot": 1
+    }
+  },
+  "failure": "page.waitForFunction: Timeout 30000ms exceeded.\n    at leave (/workspace/phase3bd-in-world-recovery/tools/roadmap-v2/story.mjs:5:82)\n    at async file:///workspace/phase3bd-in-world-recovery/tools/roadmap-v2/story.mjs:8:541"
+}

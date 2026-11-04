@@ -1,11 +1,9 @@
-# Korean Pixel Town · Phase3B-D local review development
+# Korean Pixel Town · local playable roadmap candidate
 
-Current authority: [PROJECT_STATE](docs/current/PROJECT_STATE.md). Phase3B-C is an accepted development baseline; Phase3B-D adds farming, a small shop/economy and two Korean-gated quests on the same approved world. Changed public exposure is not approved automatically.
+Current authority: [MISSION](docs/current/MISSION.md), [PROJECT_STATE](docs/current/PROJECT_STATE.md) and [roadmap reconciliation](docs/PRODUCT_ROADMAP.md). The owner authorized seven local delivery workstreams; this is an extension of the accepted world and physical3BDgameplay, not a restart or production release.
 
-`npm ci`, `npm run dev`. Production `index.html` → `src/game/main.ts` → `src/gate3/main.ts` loads **only** `public/assets/gate3/palace-cleanup-world/manifest.json`, with explicit Phase3BC collision overrides. WASD/arrows, Shift run, E interact; mobile landscape joystick and touch actions. Twelve playable characters,26NPC identities and24activecosmetics are preserved.
+`npm ci`, `npm run dev`. One canonical `palace-cleanup-world`,12playablecharacters,26NPCs,24activecosmetics. WASD/arrows, Shift run, E/touch interact. Six beds/36independentcells;12cropdefinitions with two quest-based unlock chains. New real Phaser rooms at existing cafe/bookshop/learning door approaches. Original player/NPC sprites/controllers are borrowed across rooms; no second character engine.
 
-Rejected V9/V10 maps are removed from this candidate branch; [cleanup manifest](docs/cleanup/REJECTED_WORLD_CLEANUP_20261103.json) lists exact paths, hashes and approved northern/provenance exceptions. Old historical commits such as458134c still show their original files; no history rewrite, branch/tag deletion or main merge was performed. Old verifier tests are archived, while active CI tests the canonical world.
+[Current public approved review](https://anapaulagatti.github.io/3D-pharse5-review/play/) remains the earlier exact1a6e5a58farm/hanok build until a NEW exact candidate is approved. [Local V2 evidence and limits](docs/roadmap-v2/ARCHITECTURE_AND_LIMITS.md). Candidate Korean content and new native crop/interior art require human review. No live multiplayer, adSDK, authenticated account, productionwebsite/FSRS write, paidAPI, main game merge or commercial-release certification.
 
-[Gate1 source benchmark](docs/gate1/GATE1_SOURCE_AND_SKILLS.md), approved North native donors and old recovery tags remain source evidence. They are excluded from active gameplay/built asset closure. No world directory auto-selection or legacy start-page build copy is allowed.
-
-Learning uses original beginner local-demo content, PENDING_HUMAN_REVIEW; no real website account/progress integration, paid services, ads, purchases with real money or production backend. Physical Android/iPhone/GPU testing remains NOT TESTED. Public Pages/v0.5 stay unchanged until the new exact manifest is explicitly approved. No Phase3B-E.
+Rejected worlds stay out of active dependencies; historical source/checkpoints remain recoverable. Physical Android/iPhone/GPU testing NOTTESTED. Final tested ZIP/manifest/evidence will be listed in docs/roadmap-v2/START_HERE.md.

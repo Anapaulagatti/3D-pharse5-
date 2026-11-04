@@ -1,0 +1,7 @@
+# Workstreams1–6 implementation checkpoint · validation in progress
+
+Basec2240e5e; branchfeature/roadmap-v2-playable-candidate. Immutable baseline10671art/source assets preserved byte-exact. Source additions: native12cropdata +50newframes +17props/icons; two unlock predicates and locked buy/sow enforcement; native icon inventory tabs; three exact door/room data registrations; true Phaser indoor scene with borrowed original player/NPC objects; additive save backup/recovery; eight physical sign/courier milestones and carrot quest; disabled future-service contracts/tests. No live backend/multiplayer/ads, production/site/main merge or public candidate release.
+
+Preserved initial failures: wrong source amendment pin, tuple typing, negative new-crop margin, UpdateList ownership, active NPC texture eviction, outdoor population/load race, queued pause timing, exit-key fallthrough, fast-intro capture scheduling, duplicate closed-dialog selector, indoor joystick lock and reload position precedence. Exact causes/fixes and separate final validation remain in QA_RUN_HISTORY.md. No failed report is claimed PASS.
+
+Fresh complete clean-clone validation, final main farm/story recordings, route checks, package checksum/extraction and source checkpoint verification are still in progress. This commit is recoverable implementation, NOT a complete acceptance claim. New pixel/interior art and Korean language remain PENDING_HUMAN_REVIEW. Public Pages1a6e5a58 is already verified and stays unchanged by this V2 candidate.

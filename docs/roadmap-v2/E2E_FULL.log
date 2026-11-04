@@ -1,0 +1,50 @@
+
+> hangeul-pixel-town@3.1.0 test:e2e
+> playwright test
+
+
+Running 77 tests using 1 worker
+
+(node:182370) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/e2e/characters.spec.ts:16:1 › production starts in frozen world with twelve-character selection (14.1s)
+  ✓   2 tests/e2e/characters.spec.ts:54:1 › saved Juni restores and settings round-trip preserves location, emotes, progress and body ownership (28.6s)
+  ✓   3 tests/e2e/characters.spec.ts:117:3 › storage corrupt recovers to Juni without crashing (5.5s)
+  ✓   4 tests/e2e/characters.spec.ts:117:3 › storage removed recovers to Juni without crashing (5.5s)
+  ✓   5 tests/e2e/characters.spec.ts:117:3 › storage unfinished recovers to Juni without crashing (5.9s)
+  ✓   6 tests/e2e/characters.spec.ts:117:3 › storage denied recovers to Juni without crashing (6.3s)
+  ✓   7 tests/e2e/characters.spec.ts:140:1 › mobile landscape preview fits; modal isolates joystick and original touch movement returns (3.4s)
+  ✓   8 tests/e2e/characters.spec.ts:190:1 › Canvas native Juni and Scenic Tour survive the production bootstrap (1.6s)
+  ✘   9 tests/e2e/characters.spec.ts:236:3 › native pack haneul plays, switches and restores without position/state loss (6.7s)
+
+
+  1) tests/e2e/characters.spec.ts:236:3 › native pack haneul plays, switches and restores without position/state loss 
+
+    Test was interrupted.
+
+    Error: page.waitForTimeout: Test ended.
+
+      263 |     for (const key of ["a", "d", "w", "s"]) {
+      264 |       await page.keyboard.down(key);
+    > 265 |       await page.waitForTimeout(700);
+          |                  ^
+      266 |       await page.keyboard.up(key);
+      267 |       await page.waitForTimeout(220);
+      268 |     }
+        at /workspace/phase3bd-in-world-recovery/tests/e2e/characters.spec.ts:265:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/characters-native-pack-han-42ee7-without-position-state-loss/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/characters-native-pack-han-42ee7-without-position-state-loss/error-context.md
+
+  1 interrupted
+    tests/e2e/characters.spec.ts:236:3 › native pack haneul plays, switches and restores without position/state loss 
+  68 did not run
+  8 passed (1.3m)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

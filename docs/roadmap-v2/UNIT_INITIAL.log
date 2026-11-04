@@ -1,0 +1,120 @@
+
+> hangeul-pixel-town@3.1.0 test
+> vitest run
+
+
+ RUN  v5.0.4 /workspace/phase3bd-in-world-recovery
+
+Traceback (most recent call last):
+  File "/workspace/phase3bd-in-world-recovery/tools/phase3a/protected.py", line 11, in <module>
+    source=historical_bytes('src/gate3/main.ts').decode();pattern=r'^[ \t]*// PHASE3A BEGIN ([\w-]+)\n.*?^[ \t]*// PHASE3A END \1\n';blocks=list(re.finditer(pattern,source,re.M|re.S));assert[len(blocks),len(set(b.group(1)for b in blocks))]==[6,6],'Exactly6additive NPC hooks expected';stripped=re.sub(pattern,'',source,flags=re.M|re.S);original=(D/'approved-main.ts.txt').read_text();assert stripped==original,'Protected scene changed outside NPC hooks:\n'+''.join(list(difflib.unified_diff(original.splitlines(True),stripped.splitlines(True)))[:35]);result={'status':'PASS','approvedCommit':q['approvedCommit'],'frozenAssetFiles':len(q['files']),'baseAtlases':q['baseAtlases'],'changed':bad,'approvedSceneOutsideAdditiveHooks':'Historical baseline identical; exact Phase3BB amendments checked separately','additiveHooks':[{'name':b.group(1),'sha256':hashlib.sha256(b.group().encode()).hexdigest(),'lines':len(b.group().splitlines())}for b in blocks],'playerMovement':'Phase3BB explicit actual-travel facing/camera amendment; atlas unchanged','worldCollision':'UNCHANGED','StudioAnd28Cosmetics':'28 stable IDs; additive Phase3BB head-patch revisions; old assets unchanged','humanPhase3AArtApproval':'PENDING'};tmp=D/('protected-'+str(os.getpid())+'.tmp');tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(D/'protected-audit.json');print('PASS',len(q['files']),'acceptedfiles;sceneoutside6NPC hooks byte-identical')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/phase3bd-in-world-recovery/tools/phase3bb/amendments.py", line 28, in historical_bytes
+    assert hashlib.sha256(current).hexdigest()==row['afterSHA256'],('Final local quality source drift',name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('Final local quality source drift', 'src/gate3/main.ts')
+Traceback (most recent call last):
+  File "/workspace/phase3bd-in-world-recovery/tools/phase3a/protected.py", line 11, in <module>
+    source=historical_bytes('src/gate3/main.ts').decode();pattern=r'^[ \t]*// PHASE3A BEGIN ([\w-]+)\n.*?^[ \t]*// PHASE3A END \1\n';blocks=list(re.finditer(pattern,source,re.M|re.S));assert[len(blocks),len(set(b.group(1)for b in blocks))]==[6,6],'Exactly6additive NPC hooks expected';stripped=re.sub(pattern,'',source,flags=re.M|re.S);original=(D/'approved-main.ts.txt').read_text();assert stripped==original,'Protected scene changed outside NPC hooks:\n'+''.join(list(difflib.unified_diff(original.splitlines(True),stripped.splitlines(True)))[:35]);result={'status':'PASS','approvedCommit':q['approvedCommit'],'frozenAssetFiles':len(q['files']),'baseAtlases':q['baseAtlases'],'changed':bad,'approvedSceneOutsideAdditiveHooks':'Historical baseline identical; exact Phase3BB amendments checked separately','additiveHooks':[{'name':b.group(1),'sha256':hashlib.sha256(b.group().encode()).hexdigest(),'lines':len(b.group().splitlines())}for b in blocks],'playerMovement':'Phase3BB explicit actual-travel facing/camera amendment; atlas unchanged','worldCollision':'UNCHANGED','StudioAnd28Cosmetics':'28 stable IDs; additive Phase3BB head-patch revisions; old assets unchanged','humanPhase3AArtApproval':'PENDING'};tmp=D/('protected-'+str(os.getpid())+'.tmp');tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(D/'protected-audit.json');print('PASS',len(q['files']),'acceptedfiles;sceneoutside6NPC hooks byte-identical')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/phase3bd-in-world-recovery/tools/phase3bb/amendments.py", line 28, in historical_bytes
+    assert hashlib.sha256(current).hexdigest()==row['afterSHA256'],('Final local quality source drift',name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('Final local quality source drift', 'src/gate3/main.ts')
+ ❯ tests/unit/characters/walk-front-hotfix.test.ts (9 tests | 1 failed) 5580ms
+   ❯ authorized walk-front-only hotfix (9)
+     × protects every frozen file outside the64 authorized walk-front cells and8 atlas containers 5495ms
+Traceback (most recent call last):
+  File "/workspace/phase3bd-in-world-recovery/tools/phase3a/protected.py", line 11, in <module>
+    source=historical_bytes('src/gate3/main.ts').decode();pattern=r'^[ \t]*// PHASE3A BEGIN ([\w-]+)\n.*?^[ \t]*// PHASE3A END \1\n';blocks=list(re.finditer(pattern,source,re.M|re.S));assert[len(blocks),len(set(b.group(1)for b in blocks))]==[6,6],'Exactly6additive NPC hooks expected';stripped=re.sub(pattern,'',source,flags=re.M|re.S);original=(D/'approved-main.ts.txt').read_text();assert stripped==original,'Protected scene changed outside NPC hooks:\n'+''.join(list(difflib.unified_diff(original.splitlines(True),stripped.splitlines(True)))[:35]);result={'status':'PASS','approvedCommit':q['approvedCommit'],'frozenAssetFiles':len(q['files']),'baseAtlases':q['baseAtlases'],'changed':bad,'approvedSceneOutsideAdditiveHooks':'Historical baseline identical; exact Phase3BB amendments checked separately','additiveHooks':[{'name':b.group(1),'sha256':hashlib.sha256(b.group().encode()).hexdigest(),'lines':len(b.group().splitlines())}for b in blocks],'playerMovement':'Phase3BB explicit actual-travel facing/camera amendment; atlas unchanged','worldCollision':'UNCHANGED','StudioAnd28Cosmetics':'28 stable IDs; additive Phase3BB head-patch revisions; old assets unchanged','humanPhase3AArtApproval':'PENDING'};tmp=D/('protected-'+str(os.getpid())+'.tmp');tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(D/'protected-audit.json');print('PASS',len(q['files']),'acceptedfiles;sceneoutside6NPC hooks byte-identical')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/phase3bd-in-world-recovery/tools/phase3bb/amendments.py", line 28, in historical_bytes
+    assert hashlib.sha256(current).hexdigest()==row['afterSHA256'],('Final local quality source drift',name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('Final local quality source drift', 'src/gate3/main.ts')
+ ❯ tests/unit/characters/phase2b.test.ts (17 tests | 1 failed) 5777ms
+   ❯ Phase2B accepted baseline protection (3)
+     × preserves approved files outside the explicit eight-cell Ara/Doyun walk-front amendment 5628ms
+ ❯ tests/unit/characters/motion-correction.test.ts (8 tests | 1 failed) 7030ms
+   ❯ focused motion correction preservation and forward stance (8)
+     × recomputes exact atlas cell scope and protects every other frozen asset/runtime file 5422ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/characters/motion-correction.test.ts > focused motion correction preservation and forward stance > recomputes exact atlas cell scope and protects every other frozen asset/runtime file
+Error: Command failed: python3 tools/phase3a/protected.py
+Traceback (most recent call last):
+  File "/workspace/phase3bd-in-world-recovery/tools/phase3a/protected.py", line 11, in <module>
+    source=historical_bytes('src/gate3/main.ts').decode();pattern=r'^[ \t]*// PHASE3A BEGIN ([\w-]+)\n.*?^[ \t]*// PHASE3A END \1\n';blocks=list(re.finditer(pattern,source,re.M|re.S));assert[len(blocks),len(set(b.group(1)for b in blocks))]==[6,6],'Exactly6additive NPC hooks expected';stripped=re.sub(pattern,'',source,flags=re.M|re.S);original=(D/'approved-main.ts.txt').read_text();assert stripped==original,'Protected scene changed outside NPC hooks:\n'+''.join(list(difflib.unified_diff(original.splitlines(True),stripped.splitlines(True)))[:35]);result={'status':'PASS','approvedCommit':q['approvedCommit'],'frozenAssetFiles':len(q['files']),'baseAtlases':q['baseAtlases'],'changed':bad,'approvedSceneOutsideAdditiveHooks':'Historical baseline identical; exact Phase3BB amendments checked separately','additiveHooks':[{'name':b.group(1),'sha256':hashlib.sha256(b.group().encode()).hexdigest(),'lines':len(b.group().splitlines())}for b in blocks],'playerMovement':'Phase3BB explicit actual-travel facing/camera amendment; atlas unchanged','worldCollision':'UNCHANGED','StudioAnd28Cosmetics':'28 stable IDs; additive Phase3BB head-patch revisions; old assets unchanged','humanPhase3AArtApproval':'PENDING'};tmp=D/('protected-'+str(os.getpid())+'.tmp');tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(D/'protected-audit.json');print('PASS',len(q['files']),'acceptedfiles;sceneoutside6NPC hooks byte-identical')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/phase3bd-in-world-recovery/tools/phase3bb/amendments.py", line 28, in historical_bytes
+    assert hashlib.sha256(current).hexdigest()==row['afterSHA256'],('Final local quality source drift',name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('Final local quality source drift', 'src/gate3/main.ts')
+
+ ❯ tests/unit/characters/motion-correction.test.ts:14:5
+     12| describe("focused motion correction preservation and forward stance", …
+     13|   it("recomputes exact atlas cell scope and protects every other froze…
+     14|     execFileSync("python3", ["tools/phase3a/protected.py"]);
+       |     ^
+     15|     const protectedResult = json("docs/phase3a/protected-audit.json");
+     16|     expect(protectedResult.status).toBe("PASS");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/unit/characters/phase2b.test.ts > Phase2B accepted baseline protection > preserves approved files outside the explicit eight-cell Ara/Doyun walk-front amendment
+Error: Command failed: python3 tools/phase3a/protected.py
+Traceback (most recent call last):
+  File "/workspace/phase3bd-in-world-recovery/tools/phase3a/protected.py", line 11, in <module>
+    source=historical_bytes('src/gate3/main.ts').decode();pattern=r'^[ \t]*// PHASE3A BEGIN ([\w-]+)\n.*?^[ \t]*// PHASE3A END \1\n';blocks=list(re.finditer(pattern,source,re.M|re.S));assert[len(blocks),len(set(b.group(1)for b in blocks))]==[6,6],'Exactly6additive NPC hooks expected';stripped=re.sub(pattern,'',source,flags=re.M|re.S);original=(D/'approved-main.ts.txt').read_text();assert stripped==original,'Protected scene changed outside NPC hooks:\n'+''.join(list(difflib.unified_diff(original.splitlines(True),stripped.splitlines(True)))[:35]);result={'status':'PASS','approvedCommit':q['approvedCommit'],'frozenAssetFiles':len(q['files']),'baseAtlases':q['baseAtlases'],'changed':bad,'approvedSceneOutsideAdditiveHooks':'Historical baseline identical; exact Phase3BB amendments checked separately','additiveHooks':[{'name':b.group(1),'sha256':hashlib.sha256(b.group().encode()).hexdigest(),'lines':len(b.group().splitlines())}for b in blocks],'playerMovement':'Phase3BB explicit actual-travel facing/camera amendment; atlas unchanged','worldCollision':'UNCHANGED','StudioAnd28Cosmetics':'28 stable IDs; additive Phase3BB head-patch revisions; old assets unchanged','humanPhase3AArtApproval':'PENDING'};tmp=D/('protected-'+str(os.getpid())+'.tmp');tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(D/'protected-audit.json');print('PASS',len(q['files']),'acceptedfiles;sceneoutside6NPC hooks byte-identical')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/phase3bd-in-world-recovery/tools/phase3bb/amendments.py", line 28, in historical_bytes
+    assert hashlib.sha256(current).hexdigest()==row['afterSHA256'],('Final local quality source drift',name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('Final local quality source drift', 'src/gate3/main.ts')
+
+ ❯ tests/unit/characters/phase2b.test.ts:25:5
+     23| describe("Phase2B accepted baseline protection", () => {
+     24|   it("preserves approved files outside the explicit eight-cell Ara/Doy…
+     25|     execFileSync("python3", ["tools/phase3a/protected.py"]);
+       |     ^
+     26|     const protectedResult = json("docs/phase3a/protected-audit.json");
+     27|     expect(protectedResult.status).toBe("PASS");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  tests/unit/characters/walk-front-hotfix.test.ts > authorized walk-front-only hotfix > protects every frozen file outside the64 authorized walk-front cells and8 atlas containers
+Error: Command failed: python3 tools/phase3a/protected.py
+Traceback (most recent call last):
+  File "/workspace/phase3bd-in-world-recovery/tools/phase3a/protected.py", line 11, in <module>
+    source=historical_bytes('src/gate3/main.ts').decode();pattern=r'^[ \t]*// PHASE3A BEGIN ([\w-]+)\n.*?^[ \t]*// PHASE3A END \1\n';blocks=list(re.finditer(pattern,source,re.M|re.S));assert[len(blocks),len(set(b.group(1)for b in blocks))]==[6,6],'Exactly6additive NPC hooks expected';stripped=re.sub(pattern,'',source,flags=re.M|re.S);original=(D/'approved-main.ts.txt').read_text();assert stripped==original,'Protected scene changed outside NPC hooks:\n'+''.join(list(difflib.unified_diff(original.splitlines(True),stripped.splitlines(True)))[:35]);result={'status':'PASS','approvedCommit':q['approvedCommit'],'frozenAssetFiles':len(q['files']),'baseAtlases':q['baseAtlases'],'changed':bad,'approvedSceneOutsideAdditiveHooks':'Historical baseline identical; exact Phase3BB amendments checked separately','additiveHooks':[{'name':b.group(1),'sha256':hashlib.sha256(b.group().encode()).hexdigest(),'lines':len(b.group().splitlines())}for b in blocks],'playerMovement':'Phase3BB explicit actual-travel facing/camera amendment; atlas unchanged','worldCollision':'UNCHANGED','StudioAnd28Cosmetics':'28 stable IDs; additive Phase3BB head-patch revisions; old assets unchanged','humanPhase3AArtApproval':'PENDING'};tmp=D/('protected-'+str(os.getpid())+'.tmp');tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(D/'protected-audit.json');print('PASS',len(q['files']),'acceptedfiles;sceneoutside6NPC hooks byte-identical')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/phase3bd-in-world-recovery/tools/phase3bb/amendments.py", line 28, in historical_bytes
+    assert hashlib.sha256(current).hexdigest()==row['afterSHA256'],('Final local quality source drift',name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('Final local quality source drift', 'src/gate3/main.ts')
+
+ ❯ tests/unit/characters/walk-front-hotfix.test.ts:13:5
+     11| describe("authorized walk-front-only hotfix", () => {
+     12|   it("protects every frozen file outside the64 authorized walk-front c…
+     13|     execFileSync("python3", ["tools/phase3a/protected.py"]);
+       |     ^
+     14|     const protectedResult = json("docs/phase3a/protected-audit.json");
+     15|     expect(protectedResult.status).toBe("PASS");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  3 failed | 28 passed (31)
+      Tests  3 failed | 210 passed (213)
+   Start at  15:55:26
+   Duration  13.01s (tests 83%, import 12%, transform 4%, worker 1%)
+
+    Isolate  31 workers spawned · ~154ms startup each (spawn + environment, per file)
+             at least ~1.44s faster with isolate: false — reuses workers across files instead of one per file
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

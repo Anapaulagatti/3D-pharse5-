@@ -65,7 +65,132 @@ export const crops = {
     yield: 3,
     frame: 1,
   },
+  carrot: {
+    name: "Cà rốt · 당근",
+    seed: "seed-carrot",
+    produce: "carrot",
+    growMs: 120_000,
+    introMs: 12000,
+    yield: 3,
+    frame: 2,
+  },
+  cabbage: {
+    name: "Bắp cải · 양배추",
+    seed: "seed-cabbage",
+    produce: "cabbage",
+    growMs: 150_000,
+    introMs: 15000,
+    yield: 2,
+    frame: 3,
+  },
+  rice: {
+    name: "Lúa · 벼",
+    seed: "seed-rice",
+    produce: "rice",
+    growMs: 240_000,
+    introMs: 18000,
+    yield: 4,
+    frame: 4,
+  },
+  chili: {
+    name: "Ớt · 고추",
+    seed: "seed-chili",
+    produce: "chili",
+    growMs: 180_000,
+    introMs: 15000,
+    yield: 3,
+    frame: 5,
+  },
+  "sweet-potato": {
+    name: "Khoai lang · 고구마",
+    seed: "seed-sweet-potato",
+    produce: "sweet-potato",
+    growMs: 210_000,
+    introMs: 18000,
+    yield: 3,
+    frame: 6,
+  },
+  soybean: {
+    name: "Đậu nành · 콩",
+    seed: "seed-soybean",
+    produce: "soybean",
+    growMs: 180_000,
+    introMs: 15000,
+    yield: 4,
+    frame: 7,
+  },
+  pumpkin: {
+    name: "Bí ngô · 호박",
+    seed: "seed-pumpkin",
+    produce: "pumpkin",
+    growMs: 300_000,
+    introMs: 20000,
+    yield: 2,
+    frame: 8,
+  },
+  cucumber: {
+    name: "Dưa leo · 오이",
+    seed: "seed-cucumber",
+    produce: "cucumber",
+    growMs: 180_000,
+    introMs: 15000,
+    yield: 3,
+    frame: 9,
+  },
+  tomato: {
+    name: "Cà chua · 토마토",
+    seed: "seed-tomato",
+    produce: "tomato",
+    growMs: 210_000,
+    introMs: 18000,
+    yield: 3,
+    frame: 10,
+  },
+  strawberry: {
+    name: "Dâu tây · 딸기",
+    seed: "seed-strawberry",
+    produce: "strawberry",
+    growMs: 300_000,
+    introMs: 20000,
+    yield: 3,
+    frame: 11,
+  },
 } as const;
+for (const [id, crop] of Object.entries(crops))
+  if (!(id in items)) {
+    const [name, ko] = crop.name.split(" · ");
+    items[id] = {
+      name,
+      ko,
+      stack: 99,
+      buy: 0,
+      sell: Math.ceil((6 + crop.frame) / crop.yield) + 1,
+      stock: 0,
+    };
+    items[crop.seed] = {
+      name: `Hạt ${name.toLowerCase()}`,
+      ko: `${ko} 씨앗`,
+      stack: 99,
+      buy: 6 + crop.frame,
+      sell: 0,
+      stock: 50,
+    };
+  }
+export function cropUnlocked(
+  id: string,
+  records: Record<string, { status: string }>,
+) {
+  if (id === "radish" || id === "scallion") return true;
+  if (id === "carrot" || id === "cabbage")
+    return records["farm-first-seed-v1"]?.status === "completed";
+  return records["shop-garden-market-v1"]?.status === "completed";
+}
+export function cropUnlockHint(id: string) {
+  return id === "carrot" || id === "cabbage"
+    ? "Hoàn thành Hạt giống đầu tiên"
+    : "Hoàn thành Từ vườn đến quầy hàng";
+}
+
 export type CropId = keyof typeof crops;
 export type FarmAction = "till" | "plant" | "water" | "harvest";
 export interface PlotState {

@@ -128,6 +128,7 @@ const questions: Record<string, LearningQuestion[]> = {
 export interface QuestDefinition {
   id: string;
   title: string;
+  prerequisite?: string;
   ko: string;
   giver: string;
   recipient?: string;
@@ -138,7 +139,17 @@ export interface QuestDefinition {
     point: readonly [number, number];
   }[];
   economyObjectives?: readonly {
-    event: "till" | "plant" | "water" | "harvest" | "buy" | "sell";
+    event:
+      | "till"
+      | "plant"
+      | "water"
+      | "harvest"
+      | "buy"
+      | "sell"
+      | "enter"
+      | "fragment"
+      | "repair"
+      | "courier";
     crop?: string;
     item?: string;
   }[];
@@ -275,6 +286,91 @@ export const quests: readonly QuestDefinition[] = [
       { event: "sell", item: "scallion" },
     ],
     reward: { coins: 22, xp: 20, items: {} },
+  },
+  {
+    id: "town-first-delivery-v2",
+    title: "Những nét chữ thất lạc",
+    ko: "잃어버린 글자",
+    giver: "npc-eunji",
+    recipient: "npc-jiho",
+    topic: "delivery",
+    prerequisite: "farm-first-seed-v1",
+    steps: [
+      {
+        id: "visit-seeds",
+        label: "Ghé cửa hàng hạt tại cafe",
+        point: [717, 2605],
+      },
+      {
+        id: "fragment-workshop",
+        label: "Nhặt mảnh nét trong xưởng cộng đồng",
+        point: [1418, 2605],
+      },
+      {
+        id: "fragment-bookshop",
+        label: "Tìm mảnh nét bên kệ sách",
+        point: [1128, 2605],
+      },
+      {
+        id: "fragment-market",
+        label: "Tìm mảnh nét trên bàn cửa hàng hạt",
+        point: [717, 2605],
+      },
+      {
+        id: "repair",
+        label: "Ghép bảng chữ 책 tại xưởng",
+        point: [1418, 2605],
+      },
+      {
+        id: "courier-start",
+        label: "Nhận tuyến giao sách tại xưởng",
+        point: [1418, 2605],
+      },
+      {
+        id: "courier-stop",
+        label: "Xác nhận địa chỉ tại cửa hàng hạt",
+        point: [717, 2605],
+      },
+      {
+        id: "deliver",
+        label: "Giao đến quầy hiệu sách rồi gặp Jiho",
+        point: [1128, 2605],
+      },
+    ],
+    economyObjectives: [
+      { event: "enter", item: "seed-shop" },
+      { event: "fragment", item: "workshop" },
+      { event: "fragment", item: "bookshop" },
+      { event: "fragment", item: "seed-shop" },
+      { event: "repair", item: "workshop" },
+      { event: "courier", item: "workshop" },
+      { event: "courier", item: "seed-shop" },
+      { event: "courier", item: "bookshop" },
+    ],
+    reward: { coins: 36, xp: 20, items: {} },
+  },
+  {
+    id: "farm-variety-v2",
+    title: "Một vụ cà rốt mới",
+    ko: "당근 기르기",
+    giver: "npc-nayeon",
+    topic: "farm",
+    prerequisite: "farm-first-seed-v1",
+    steps: [
+      { id: "buy", label: "Mua hạt cà rốt đã mở khóa", point: [717, 2605] },
+      { id: "plant", label: "Gieo cà rốt", point: [470, 669] },
+      { id: "water", label: "Tưới cà rốt", point: [470, 669] },
+      { id: "harvest", label: "Thu hoạch cà rốt", point: [470, 669] },
+      { id: "sell", label: "Bán một cà rốt", point: [717, 2605] },
+    ],
+    economyObjectives: [
+      { event: "buy", item: "seed-carrot" },
+      { event: "plant", crop: "carrot" },
+      { event: "water", crop: "carrot" },
+      { event: "harvest", crop: "carrot" },
+      { event: "sell", item: "carrot" },
+    ],
+    reward: { coins: 24, xp: 15, items: { "seed-cabbage": 1 } },
   },
 ];
 export const itemNames: Record<string, string> = {

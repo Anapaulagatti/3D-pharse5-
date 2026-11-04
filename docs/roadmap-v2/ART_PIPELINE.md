@@ -1,0 +1,7 @@
+# Actual pipeline, no invented media calls
+
+Pinned Forge5324342 tool records read from docs/ART_SKILL_REGISTRY.md, source-records/SPRITE_FORGE_USAGE.historical.md and actual five local SKILL files. Relevant codeart2d style envelope read. Commands executed: tools/roadmap-v2/art.py; generate2dmedia/scripts/forge_doctor.py --host-tools image_gen --save docs/roadmap-v2/FORGE_DOCTOR.json; codeart2d/scripts/pixel_qa.py --input assets-src/roadmap-v2/crops/*.png --anchor20,40 --review assets-src/roadmap-v2/crop-qa.png --report docs/roadmap-v2/ART_QA.json.
+
+Original native cluster/shape drawings, no new image/video generation, API keys, paid providers or copied game assets. Own existing radish/scallion frames are extracted exactly; all new crop/prop/icon sources and deterministic builder are versioned. Generation-media/map/video workflows were inspected for fit, not falsely claimed executed as asset generation. No character art was drawn or re-exported.
+
+PixelQA partial-alpha/anchor checks PASS; palette/outline checks SKIPPED without explicit contracts. NumericQA does not establish appeal or native Gate1 artistic equivalence. New interior/crop art requires one consolidated human art review and must not be called fully approved production art. All62crop frames and17prop components have fixed native registration; zero fractional/runtime source scaling or global sharpening. No audio generated.

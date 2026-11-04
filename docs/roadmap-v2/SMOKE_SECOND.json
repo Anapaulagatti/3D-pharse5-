@@ -1,0 +1,102 @@
+{
+  "status": "FAIL",
+  "errors": [
+    "TypeError: Cannot read properties of null (reading 'scaleMode')\n    at http://127.0.0.1:4472/3D-pharse5-/assets/main-BGQ93uMr.js:157:470008\n    at Array.map (<anonymous>)\n    at jd.snapshot (http://127.0.0.1:4472/3D-pharse5-/assets/main-BGQ93uMr.js:157:469846)\n    at jd.update (http://127.0.0.1:4472/3D-pharse5-/assets/main-BGQ93uMr.js:157:468660)\n    at op.update (http://127.0.0.1:4472/3D-pharse5-/assets/main-BGQ93uMr.js:157:617676)\n    at initialize.step (http://127.0.0.1:4472/3D-pharse5-/assets/main-BGQ93uMr.js:98:6678)\n    at initialize.update (http://127.0.0.1:4472/3D-pharse5-/assets/main-BGQ93uMr.js:97:30269)\n    at initialize.step (http://127.0.0.1:4472/3D-pharse5-/assets/main-BGQ93uMr.js:1:80225)\n    at initialize.step (http://127.0.0.1:4472/3D-pharse5-/assets/main-BGQ93uMr.js:1:84534)\n    at t (http://127.0.0.1:4472/3D-pharse5-/assets/main-BGQ93uMr.js:1:146714)"
+  ],
+  "rooms": [
+    {
+      "id": "seed-shop",
+      "x": 320,
+      "y": 320.3349999999992,
+      "frame": "stop-back-0",
+      "target": "courier",
+      "locked": false,
+      "playerIdentity": "juni",
+      "npcIdentity": "npc-minseo",
+      "placements": 0,
+      "footOnFloor": true,
+      "scale": 1,
+      "sampling": 1,
+      "scene": "town-interior",
+      "world": [
+        727.0321218630083,
+        2623.0132386923624
+      ],
+      "sign": []
+    },
+    {
+      "id": "bookshop",
+      "x": 320,
+      "y": 322.3409999999989,
+      "frame": "stop-back-1",
+      "target": "courier",
+      "locked": false,
+      "playerIdentity": "juni",
+      "npcIdentity": "npc-jiho",
+      "placements": 0,
+      "footOnFloor": true,
+      "scale": 1,
+      "sampling": 1,
+      "scene": "town-interior",
+      "world": [
+        1113.6235411498756,
+        2616.7280678809075
+      ],
+      "sign": []
+    }
+  ],
+  "routes": [
+    {
+      "start": [
+        1128,
+        2690
+      ],
+      "target": [
+        717,
+        2605
+      ],
+      "end": [
+        727.0321218630083,
+        2623.0132386923624
+      ],
+      "length": 468,
+      "actualControls": true,
+      "collisionOverride": false
+    },
+    {
+      "start": [
+        727.0321218630083,
+        2623.0132386923624
+      ],
+      "target": [
+        1128,
+        2605
+      ],
+      "end": [
+        1113.6235411498756,
+        2616.7280678809075
+      ],
+      "length": 392,
+      "actualControls": true,
+      "collisionOverride": false
+    },
+    {
+      "start": [
+        1113.6235411498756,
+        2616.7280678809075
+      ],
+      "target": [
+        1418,
+        2605
+      ],
+      "end": [
+        1401.946541149879,
+        2616.7280678809075
+      ],
+      "length": 292,
+      "actualControls": true,
+      "collisionOverride": false
+    }
+  ],
+  "failure": "page.waitForFunction: Timeout 30000ms exceeded.\n    at /workspace/phase3bd-in-world-recovery/tools/roadmap-v2/smoke.mjs:4:319"
+}

@@ -1,5 +1,8 @@
+import cropAtlas from "../../public/assets/roadmap-v2/crops.json";
 import {
   crops,
+  cropUnlocked,
+  cropUnlockHint,
   items,
   plots,
   nearGround,
@@ -20,7 +23,7 @@ export type WorldFeedback =
   | "handover"
   | "report"
   | "reward";
-interface Host {
+export interface QuestHost {
   player(): readonly [number, number];
   ground(x: number, y: number): boolean;
   canInteract(): boolean;
@@ -62,7 +65,15 @@ export class QuestUI {
   };
   private followup?: ReturnType<typeof setTimeout>;
   private signal = new AbortController();
-  constructor(private host: Host) {
+  private exteriorHost: QuestHost;
+  private inventoryCategory = "all";
+  useInterior(host?: QuestHost) {
+    this.close();
+    this.host = host ?? this.exteriorHost;
+    this.update();
+  }
+  constructor(private host: QuestHost) {
+    this.exteriorHost = host;
     let storage: Storage | undefined;
     try {
       storage = localStorage;
@@ -140,6 +151,11 @@ export class QuestUI {
       },
       { signal, capture: true },
     );
+    for (const [selector, icon] of [
+      ["#quest-inventory", "bag"],
+      ["#quest-journal", "journal"],
+    ] as const)
+      this.root.querySelector(selector)!.prepend(this.icon(icon));
     this.update();
   }
   get target() {
@@ -265,6 +281,27 @@ export class QuestUI {
     return e;
   }
   private icon(id: string) {
+    if (["coin", "bag", "journal", "hoe"].includes(id)) {
+      const img = document.createElement("img");
+      img.src = import.meta.env.BASE_URL + "assets/roadmap-v2/" + id + ".png";
+      img.width = 32;
+      img.height = 40;
+      img.alt = "";
+      img.className = "hud-native-icon";
+      return img;
+    }
+    const cropId = id.startsWith("seed-") ? id.slice(5) : id;
+    if (cropId in crops) {
+      const names = Object.keys(cropAtlas.frames);
+      const index = names.indexOf(cropId + "-ready");
+      const e = document.createElement("span");
+      e.className = "crop-native-icon";
+      e.style.backgroundImage = `url(${import.meta.env.BASE_URL}assets/roadmap-v2/crops.png)`;
+      e.style.backgroundPosition = `-${(index % 12) * 40}px -${Math.floor(index / 12) * 44}px`;
+      e.setAttribute("aria-hidden", "true");
+      return e;
+    }
+
     if (id === "jeju-postcard") {
       const img = document.createElement("img");
       img.src = import.meta.env.BASE_URL + "assets/farming/postcard.png";
@@ -342,7 +379,42 @@ export class QuestUI {
     const status = this.text("p", this.manager.storageWarning || this.message);
     status.setAttribute("role", "status");
     this.dialog.append(bar, notice, status);
+    if (this.manager.storageWarning) {
+      this.dialog.append(
+        this.button("Xuất bản lưu gốc", () => {
+          const raw = this.manager.exportRawSave();
+          if (!raw) return;
+          const url = URL.createObjectURL(
+            new Blob([raw], { type: "application/json" }),
+          );
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "pixel-town-local-recovery.json";
+          a.click();
+          setTimeout(() => URL.revokeObjectURL(url), 1000);
+        }),
+        this.button("Khôi phục backup trước nâng cấp", () => {
+          this.message = this.manager.restoreMigrationBackup()
+            ? "Đã phục hồi backup cục bộ; bản lỗi được lưu riêng."
+            : "Không có backup hợp lệ; dữ liệu gốc vẫn nguyên.";
+          this.render();
+        }),
+      );
+    }
+
     const s = this.manager.snapshot();
+    if (
+      this.mode === "npc" &&
+      this.npcId === SHOPKEEPER &&
+      this.host !== this.exteriorHost
+    ) {
+      const b = this.button("Cửa hàng · 가게", () => {
+        this.close();
+        this.openShop(SHOPKEEPER);
+      });
+      b.dataset.interiorShop = SHOPKEEPER;
+      this.dialog.append(b);
+    }
     if (this.mode === "inventory") this.renderInventory();
     else if (this.mode === "shop") this.renderShop();
     else
@@ -373,6 +445,29 @@ export class QuestUI {
     q: QuestDefinition,
     r: ReturnType<QuestManager["snapshot"]>["records"][string] | undefined,
   ) {
+    if (this.npcId === "npc-cheolsu" && q.id === "farm-first-seed-v1")
+      box.append(
+        this.button("Hạt dự phòng · một lần", () => {
+          if (this.context()) {
+            this.message = this.manager.recoverStarter()
+              ? "Đã nhận một hạt dự phòng; chỉ cấp khi hết hạt và cây đang trồng."
+              : "Chưa cần hoặc đã dùng hạt dự phòng.";
+            this.render();
+          }
+        }),
+      );
+    if (
+      q.prerequisite &&
+      this.manager.snapshot().records[q.prerequisite]?.status !== "completed"
+    ) {
+      box.append(
+        this.text(
+          "p",
+          "Mở sau: " + quests.find((x) => x.id === q.prerequisite)?.title,
+        ),
+      );
+      return;
+    }
     if (!r && this.npcId === q.giver)
       box.append(
         this.button("Nhận lời · 좋아요", () => {
@@ -444,8 +539,32 @@ export class QuestUI {
       grid = document.createElement("div");
     grid.className = "inventory-grid";
     grid.id = "quest-inventory-items";
+    const tabs = document.createElement("div");
+    tabs.className = "inventory-tabs";
+    for (const [id, label] of [
+      ["all", "Tất cả"],
+      ["seeds", "Hạt"],
+      ["crops", "Nông sản"],
+      ["quest", "Nhiệm vụ"],
+    ]) {
+      const b = this.button(label, () => {
+        this.inventoryCategory = id;
+        this.render();
+      });
+      b.dataset.inventoryCategory = id;
+      b.setAttribute("aria-pressed", String(this.inventoryCategory === id));
+      tabs.append(b);
+    }
+    this.dialog.append(tabs);
     for (const [id, n] of Object.entries(s.inventory).filter(
-      ([, n]) => n > 0,
+      ([id, n]) =>
+        n > 0 &&
+        (this.inventoryCategory === "all" ||
+          (this.inventoryCategory === "seeds" && id.startsWith("seed-")) ||
+          (this.inventoryCategory === "crops" && id in crops) ||
+          (this.inventoryCategory === "quest" &&
+            !(id in crops) &&
+            !id.startsWith("seed-"))),
     )) {
       const c = document.createElement("div");
       c.className = "inventory-item";
@@ -543,6 +662,15 @@ export class QuestUI {
                 : "Kiểm tra nông sản, chỗ trống trong túi hoặc khoảng cách tới cửa hàng.";
         this.render();
       });
+      if (
+        kind === "buy" &&
+        id.startsWith("seed-") &&
+        !cropUnlocked(id.slice(5), s.records)
+      ) {
+        b.disabled = true;
+        b.textContent = "Khóa";
+        row.append(this.text("small", cropUnlockHint(id.slice(5))));
+      }
       b.dataset.trade = kind;
       b.dataset.item = id;
       row.append(b);
@@ -558,6 +686,11 @@ export class QuestUI {
       return "Hoàn thành · phần thưởng đã nhận một lần.";
     if (r.status === "challenge")
       return "Trả lời câu hỏi tiếng Hàn tại người bạn để nhận thưởng.";
+    if (q.id === "town-first-delivery-v2")
+      return (
+        q.steps[r.step]?.label ??
+        "Trở lại Jiho ở hiệu sách để giao và nhận câu hỏi."
+      );
     if (q.recipient) return "Mang gói sách đến Jiho ở hiệu sách.";
     if (q.topic === "orchard") return `Thu quýt ${r.step}/3 rồi trở lại Harin.`;
     return (
@@ -590,7 +723,10 @@ export class QuestUI {
       );
       b.dataset.seed = id;
       b.prepend(this.icon(crop.seed));
-      b.disabled = !(s.inventory[crop.seed] > 0);
+      b.disabled =
+        !(s.inventory[crop.seed] > 0) || !cropUnlocked(id, s.records);
+      if (!cropUnlocked(id, s.records))
+        b.append(this.text("small", cropUnlockHint(id)));
       this.picker.append(b);
     }
     this.picker.hidden = false;
@@ -622,7 +758,12 @@ export class QuestUI {
       ]);
     if (key !== this.lastHUD) {
       this.lastHUD = key;
-      this.root.querySelector("#town-coins")!.textContent = `${s.coins} xu`;
+      this.root
+        .querySelector("#town-coins")!
+        .replaceChildren(
+          this.icon("coin"),
+          document.createTextNode(`${s.coins} xu`),
+        );
       this.root.querySelector("#quest-tracker")!.textContent = summary;
       for (const b of this.root.querySelectorAll<HTMLButtonElement>(
         "[data-tool]",
