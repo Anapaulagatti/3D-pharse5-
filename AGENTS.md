@@ -1,3 +1,7 @@
+# Final farm/hanok candidate READY · 2026-11-04
+
+Current authority: docs/phase3bd-final-quality/README.md and HUMAN_DIRECTIVE.md. Build b865b659; artifact1a6e5a58; manifest331cd300478f879bab11e9541803dd7c47ba1caaab339263f37150ae6c0d0ce4,4975files.213unit/73E2E and actual extractedZIP/browser/video PASS. Forge FAIL/WARN retained; hardware NOTTESTED. Existing Pages5b5ce278/d170 actually deployed in run41798184150 (earlier waiting records below are historical). New candidate NOT_DEPLOYED: exact owner approval pending. Preserve rollback5b5ce278, all source assets,26NPC/12players/24cosmetics. No production/mainmerge/Phase3BE/delegation. Stop for one consolidated human review.
+
 # Current authority · final farming art and western-hanok passage 2026-11-04
 
 Read docs/phase3bd-final-quality/HUMAN_DIRECTIVE.md. Owner rejects flat6bed overlays and a specific western-hanok north/south choke. Isolated additive native component/cell art and per-cell states, exact local collision correction after actual reproduction allowed. Preserve all current economic/quest balances, camera/movement/player/NPC/cosmetic/source world art. No broad rewrite, paid service, production/mainmerge/3BE. New exact candidate needs owner manifest approval before Pages; do not deploy previous candidate as this new revision. Use original sprite art and true provenance; no geometric placeholder people or flat soil plates. No delegation.
