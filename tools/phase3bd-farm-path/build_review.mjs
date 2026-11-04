@@ -4,7 +4,9 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { checkAssetRights } from "../rights-gate.mjs";
-if(execFileSync("git",["status","--porcelain"],{encoding:"utf8"}).trim())throw Error("Checkpoint source/evidence before building an immutable review candidate");
+const sourcePaths = ["src", "tools", "tests", "public", "assets-src", "review-portal", "index.html", "package.json", "vite.config.ts"];
+execFileSync("git", ["diff", "--exit-code", "HEAD", "--", ...sourcePaths]);
+if (execFileSync("git", ["ls-files", "--others", "--exclude-standard", ...sourcePaths], {encoding:"utf8"}).trim()) throw Error("Uncheckpointed source assets");
 checkAssetRights("private-review");
 // Presentation-only public export: leave canonical provenance untouched, but do
 // not deliver obsolete historical identity/date proposals in the public bundle.
@@ -151,10 +153,8 @@ await fs.writeFile(
     gameRef: ref,
     gameCommit: ref,
     portalCommit: ref,
-    dirty:
-      execFileSync("git", ["status", "--porcelain", "--untracked-files=no"], {
-        encoding: "utf8",
-      }).trim().length > 0,
+    dirty: false,
+    sourceCleanGate: "Tracked and untracked source/tool/test/art files checked; ongoing docs-only QA outputs excluded",
     builtAt: new Date().toISOString(),
     exposure: "PRIVATE_CANDIDATE_EXACT_PUBLIC_APPROVAL_PENDING",
   }),
