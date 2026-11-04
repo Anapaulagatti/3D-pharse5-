@@ -1,3 +1,7 @@
+# Current deployment ·2026-11-04
+
+Farm/path hotfix exact public exposure APPROVED. Artifact5b5ce278/manifestd170ee18/4301files; reviewcontrol11038ee; run41798184150 WAITING requiredgithub-pages reviewerAnapaulagatti. Receipt/hash/history checksPASS. ActualHTTPS still9fce/17306fc4; new hotfixHTTPS NOTTESTED pending deployment. See docs/phase3bd-farm-path-release/README.md. Rollbacktag/receipt9fce and earlierfff preserved; no protectedsource/gameplay/art changes this deployment. Physicalhardware NOTTESTED;3BElocked.
+
 # Current review ·2026-11-04
 
 Physical farming lifecycle/path hotfix delivered as independently playable ZIP: source79f29058/artifact5b5ce278/manifestd170ee18,4301files. See docs/phase3bd-farm-path/README.md. No hotfix public deployment: exact new exposure approval PENDING. Prepared controls separate reviewbranch; existing reviewmain/productionv0.5 unchanged.209unit,71qualified broader regression,14final relevantE2E,actualcompiled/offlinePhaser and mobileemulation PASS;physicaldevices NOTTESTED. Preserve all approved source art/26NPC/12players/24cosmetics and rollback9fce/fff. Phase3BE locked.

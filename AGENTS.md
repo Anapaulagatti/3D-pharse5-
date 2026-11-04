@@ -1,3 +1,11 @@
+# Farm/path exact release WAITING required environment review ·2026-11-04
+
+Owner public approvald170ee18/5b5ce278 recorded. New release control11038ee/run41798184150 receiptPASS, deployWAITING github-pages reviewerAnapaulagatti. Read docs/phase3bd-farm-path-release. CurrentHTTPS still17306fc4/9fceverified; HOTFIX NOT DEPLOYED. After manual approval, inspect actualHTTPS/browser proof; never infer PASS. Rollbackcheckpoint/pages-9fce709a-before-farm-path-20261104 pushed. No payload/art changes,3BE,officialv0.5/game-mainmerge. Exact owner approval persists; do not request it again. Physicaldevices NOTTESTED. No delegation.
+
+# Exact farm/path hotfix Pages deployment AUTHORIZED ·2026-11-04
+
+Owner replies “cập nhật pages” to exact delivered4301file manifestd170ee18/artifact5b5ce278. See docs/phase3bd-farm-path-release/OWNER_APPROVAL.json. Supersedes prior public-release STOP only for this exact public gameplay preview. No rebuilding/changing frozen assets or payload. Preserve9fce/fff rollback, officialv0.5, original checkpoints. Existing Pages approval/hash/history gates and required GitHub environment review remain; actualHTTPS browser proof before DEPLOYED. Cancel only obsolete queued9fce release if needed; do not approve environment automatically. No game-mainmerge/production/3BE. Physicaldevices/GPU NOTTESTED; snapshot/revision warnings retained. No delegation.
+
 # Farm/path hotfix review READY ·2026-11-04
 
 Source build79f29058; artifact5b5ce278; exact manifestd170ee180c4743ab8bee4b4a952c7bf1b7f69c2c8083e1b2eb84cf6846beea58 (4301files). Read docs/phase3bd-farm-path/FINAL_DELIVERY.json,README.md,QA.md. Actual compiled and extractedZIP Phaser farming stages/reward/reload/paths/mobile/video PASS;209unit/71qualified broader/14final relevantE2E.10479originalart/source files unchanged. Receipt and controls prepared on separate review branch, pending exact owner public-manifest approval. Old approval17306fc4not applicable to changedartifact; no Pages/production/mainmerge/3BE. Preserve9fce709a andfff156b6 rollback. Physicaldevices/GPU NOTTESTED; historicalsnapshot warnings retained. Stop for consolidated humanreview, not microapprovals. No delegation.
