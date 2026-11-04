@@ -1,0 +1,103 @@
+
+Running 4 tests using 1 worker
+
+(node:194372) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 tests/e2e/roadmap-v2.spec.ts:46:3 › V2 seed-shop: same native player, repeated enter/exit, restore world and no orphan (21.8s)
+(node:194644) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 tests/e2e/roadmap-v2.spec.ts:46:3 › V2 bookshop: same native player, repeated enter/exit, restore world and no orphan (22.5s)
+(node:194962) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  3 tests/e2e/roadmap-v2.spec.ts:46:3 › V2 workshop: same native player, repeated enter/exit, restore world and no orphan (23.5s)
+(node:195467) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  4 tests/e2e/roadmap-v2.spec.ts:99:1 › V2 mobile landscape: native icon HUD, safe focus and room touch action (2.3s)
+
+
+  1) tests/e2e/roadmap-v2.spec.ts:46:3 › V2 seed-shop: same native player, repeated enter/exit, restore world and no orphan 
+
+    TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.
+
+      64 |     for (let cycle = 0; cycle < 2; cycle++) {
+      65 |       await page.locator("#interior-door").click();
+    > 66 |       await page.waitForFunction((id) => window.__INTERIOR__?.id === id, id, {
+         |                  ^
+      67 |         timeout: 15000,
+      68 |       });
+      69 |       await move(page, "room", [320, 320]);
+        at /workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts:66:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/roadmap-v2-V2-seed-shop-sa-8b824-restore-world-and-no-orphan/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/roadmap-v2-V2-seed-shop-sa-8b824-restore-world-and-no-orphan/error-context.md
+
+  2) tests/e2e/roadmap-v2.spec.ts:46:3 › V2 bookshop: same native player, repeated enter/exit, restore world and no orphan 
+
+    TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.
+
+      64 |     for (let cycle = 0; cycle < 2; cycle++) {
+      65 |       await page.locator("#interior-door").click();
+    > 66 |       await page.waitForFunction((id) => window.__INTERIOR__?.id === id, id, {
+         |                  ^
+      67 |         timeout: 15000,
+      68 |       });
+      69 |       await move(page, "room", [320, 320]);
+        at /workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts:66:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/roadmap-v2-V2-bookshop-sam-28d3a-restore-world-and-no-orphan/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/roadmap-v2-V2-bookshop-sam-28d3a-restore-world-and-no-orphan/error-context.md
+
+  3) tests/e2e/roadmap-v2.spec.ts:46:3 › V2 workshop: same native player, repeated enter/exit, restore world and no orphan 
+
+    TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.
+
+      64 |     for (let cycle = 0; cycle < 2; cycle++) {
+      65 |       await page.locator("#interior-door").click();
+    > 66 |       await page.waitForFunction((id) => window.__INTERIOR__?.id === id, id, {
+         |                  ^
+      67 |         timeout: 15000,
+      68 |       });
+      69 |       await move(page, "room", [320, 320]);
+        at /workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts:66:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/roadmap-v2-V2-workshop-sam-e26b2-restore-world-and-no-orphan/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/roadmap-v2-V2-workshop-sam-e26b2-restore-world-and-no-orphan/error-context.md
+
+  4) tests/e2e/roadmap-v2.spec.ts:99:1 › V2 mobile landscape: native icon HUD, safe focus and room touch action 
+
+    TypeError: Cannot read properties of null (reading 'x')
+
+      119 |     type: "touchStart",
+      120 |     touchPoints: [
+    > 121 |       { id: 1, x: box.x + box.width * 0.82, y: box.y + box.height * 0.5 },
+          |                       ^
+      122 |     ],
+      123 |   });
+      124 |   await page.waitForTimeout(450);
+        at /workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts:121:23
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/roadmap-v2-V2-mobile-lands-65a00-focus-and-room-touch-action/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/roadmap-v2-V2-mobile-lands-65a00-focus-and-room-touch-action/error-context.md
+
+  4 failed
+    tests/e2e/roadmap-v2.spec.ts:46:3 › V2 seed-shop: same native player, repeated enter/exit, restore world and no orphan 
+    tests/e2e/roadmap-v2.spec.ts:46:3 › V2 bookshop: same native player, repeated enter/exit, restore world and no orphan 
+    tests/e2e/roadmap-v2.spec.ts:46:3 › V2 workshop: same native player, repeated enter/exit, restore world and no orphan 
+    tests/e2e/roadmap-v2.spec.ts:99:1 › V2 mobile landscape: native icon HUD, safe focus and room touch action 
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

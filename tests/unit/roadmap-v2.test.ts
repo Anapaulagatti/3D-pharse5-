@@ -1,8 +1,14 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { crops, items, cropUnlocked, plots } from "../../src/economy/catalog";
 import { QuestManager, QUEST_STORAGE_KEY } from "../../src/quests/manager";
 import { quests } from "../../src/quests/content";
-import { interiors, roomWalkable, ROOM } from "../../src/interiors/registry";
+import {
+  interiors,
+  roomWalkable,
+  ROOM,
+  readInterior,
+  INTERIOR_SAVE,
+} from "../../src/interiors/registry";
 import {
   LIVE_FEATURES,
   noAds,
@@ -261,6 +267,34 @@ describe("Roadmap V2 local content and transaction gates", () => {
       "{broken",
     );
     expect(broken.snapshot().coins).toBe(old.coins);
+  });
+  it("does not resume a room from coercible string coordinates or corrupt local positions", () => {
+    const s = storage();
+    vi.stubGlobal("localStorage", s);
+    try {
+      s.setItem(
+        INTERIOR_SAVE,
+        JSON.stringify({
+          version: 1,
+          id: "seed-shop",
+          world: [717, 2605],
+          position: ["320", "414"],
+        }),
+      );
+      expect(readInterior()).toBeUndefined();
+      s.setItem(
+        INTERIOR_SAVE,
+        JSON.stringify({
+          version: 1,
+          id: "seed-shop",
+          world: [717, 2605],
+          position: [320, 414],
+        }),
+      );
+      expect(readInterior()?.position).toEqual([320, 414]);
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
   it("three registered canonical entrances, safe spawn and bounded solid counters", () => {
     expect(interiors).toHaveLength(3);

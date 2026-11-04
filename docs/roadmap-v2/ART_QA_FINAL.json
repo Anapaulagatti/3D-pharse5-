@@ -1,0 +1,1746 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "anchor",
+      "status": "pass",
+      "value": [
+        20.0,
+        40.0
+      ],
+      "threshold": "inside [0, width] x [0, height]"
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          40,
+          44
+        ]
+      ],
+      "threshold": "one canvas size"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../assets-src/roadmap-v2/crops/cabbage-growing.png",
+      "sha256": "6ee5ba04d6f0b73b0f826e2ff7924c666919f369f5f3eb1173fbac797222f9c1",
+      "bytes": 429
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/cabbage-ready.png",
+      "sha256": "8a60cdb2e77f1e051db8a9d7867ccf8aa9e684bedf0d80ebe807dd6916a3b0c2",
+      "bytes": 444
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/cabbage-sown.png",
+      "sha256": "c0880f664c59e82caa45b28d3fbdcad5e9f0cb49cf3f190e54c14e68e272fed3",
+      "bytes": 159
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/cabbage-sprout.png",
+      "sha256": "2e1452d0eeb3ecf45e00079c4895efdfee1c2526141d429c62a4cbd284c0b1ac",
+      "bytes": 366
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/cabbage-young.png",
+      "sha256": "c4472ef8637fcef4784b1ba03f0c9aeae1fad583503344f9399bc2ca97e96035",
+      "bytes": 404
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/carrot-growing.png",
+      "sha256": "1439b8a4df70eb277bd3a9c70c453566c12fc02cc051aa83b8858db97f35c5e4",
+      "bytes": 498
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/carrot-ready.png",
+      "sha256": "93e83c16778f38faf0f67700491245f9017cf0e93dab86acbd2fc4b4699de9d5",
+      "bytes": 528
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/carrot-sown.png",
+      "sha256": "c0880f664c59e82caa45b28d3fbdcad5e9f0cb49cf3f190e54c14e68e272fed3",
+      "bytes": 159
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/carrot-sprout.png",
+      "sha256": "155eabecba3b089afc74fad25752b2b49e9fbc1f3fc2aa8b223c955b63648639",
+      "bytes": 305
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/carrot-young.png",
+      "sha256": "882a849fb8e3662d2fece6ac28cc704858fcaeb82ace72f33917659a71fbf1b7",
+      "bytes": 365
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/chili-growing.png",
+      "sha256": "e3ded83865efbb52317f18cebd7602339e2179e3301b4e5424bf492772997b85",
+      "bytes": 497
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/chili-ready.png",
+      "sha256": "479c74508f0983eddd1c48c10635952fe4eabf2bc8e856d6be7cb1aa80643a5e",
+      "bytes": 528
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/chili-sown.png",
+      "sha256": "c0880f664c59e82caa45b28d3fbdcad5e9f0cb49cf3f190e54c14e68e272fed3",
+      "bytes": 159
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/chili-sprout.png",
+      "sha256": "155eabecba3b089afc74fad25752b2b49e9fbc1f3fc2aa8b223c955b63648639",
+      "bytes": 305
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/chili-young.png",
+      "sha256": "882a849fb8e3662d2fece6ac28cc704858fcaeb82ace72f33917659a71fbf1b7",
+      "bytes": 365
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/cucumber-growing.png",
+      "sha256": "fb979c65cecf98827cf2995ea71d6f0b2c54c2ce5fb0e1b5119bd36f51282a26",
+      "bytes": 515
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/cucumber-ready.png",
+      "sha256": "0b528873229b67726b3f0ff9bf3b314280ff6d3b8b533ca9151324b1d36f09ba",
+      "bytes": 547
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/cucumber-sown.png",
+      "sha256": "c0880f664c59e82caa45b28d3fbdcad5e9f0cb49cf3f190e54c14e68e272fed3",
+      "bytes": 159
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/cucumber-sprout.png",
+      "sha256": "155eabecba3b089afc74fad25752b2b49e9fbc1f3fc2aa8b223c955b63648639",
+      "bytes": 305
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/cucumber-young.png",
+      "sha256": "882a849fb8e3662d2fece6ac28cc704858fcaeb82ace72f33917659a71fbf1b7",
+      "bytes": 365
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/pumpkin-growing.png",
+      "sha256": "3a282e989c4d93b2dc982f1c87764c9e0fa441b2761f62171add8416f3e35b4f",
+      "bytes": 415
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/pumpkin-ready.png",
+      "sha256": "b02db74ccd44c3b673a5b554ba96589e146ddf49658f1c4332221c443903a8d3",
+      "bytes": 453
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/pumpkin-sown.png",
+      "sha256": "c0880f664c59e82caa45b28d3fbdcad5e9f0cb49cf3f190e54c14e68e272fed3",
+      "bytes": 159
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/pumpkin-sprout.png",
+      "sha256": "e7b483d280f2496b6c5fe3a622f8a42818071494f6b4f33ba22fb2760eecb8ba",
+      "bytes": 381
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/pumpkin-young.png",
+      "sha256": "3ae10a776cfdb3110e8e898a3ebe35eeecc24457a82e99b3491b6157e710b1e5",
+      "bytes": 440
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/radish-growing.png",
+      "sha256": "a5cc1aa5df837eaf805f2485bc8ea5ba2d55b0e3f5f143f7a97b82981a11771d",
+      "bytes": 1441
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/radish-ready-alt.png",
+      "sha256": "859f9dbb6e0289198ecae588e42d283f8e6493763b3934be71356c358510dfe4",
+      "bytes": 2263
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/radish-ready.png",
+      "sha256": "13c815abea0e8cfa04e0734117d1ff357ecd1115e73b4120518640eff76a489d",
+      "bytes": 2484
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/radish-sown.png",
+      "sha256": "5b44482f988a58a66ae0d59df0972e65859b17f9d503bce3bf643dd1b6b6a09c",
+      "bytes": 419
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/radish-sprout.png",
+      "sha256": "8a02d0b23c611253d6e2c21ea7c8d892030907529b834702295dcf770f1296d9",
+      "bytes": 527
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/radish-young.png",
+      "sha256": "b409127576fdb01d1b398f97205314a553c96fbc98b08451ac7242311d423e54",
+      "bytes": 884
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/rice-growing.png",
+      "sha256": "62e5931df478667d6689c3913334d981c7b1cb7fc8815f66ad262668b883efac",
+      "bytes": 351
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/rice-ready.png",
+      "sha256": "04d9d20e00026592ee765debd3ef7464462e994cba9e979484b15747f231ea1c",
+      "bytes": 371
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/rice-sown.png",
+      "sha256": "c0880f664c59e82caa45b28d3fbdcad5e9f0cb49cf3f190e54c14e68e272fed3",
+      "bytes": 159
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/rice-sprout.png",
+      "sha256": "39b58cc9760fa9b001b13887713fc4065209a80d014a1c64d3b18e8512023e0d",
+      "bytes": 304
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/rice-young.png",
+      "sha256": "a186edb1d2160c3cd55ff7280ae721558421029549691b386fe3c87005c367c5",
+      "bytes": 341
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/scallion-growing.png",
+      "sha256": "69257835c96342736ee05cf52c453df129125bd240807ab62e7118704acf0333",
+      "bytes": 1016
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/scallion-ready-alt.png",
+      "sha256": "e1d3c4067a52642b36b0bb06716caa359ff0b02d826bc9ca2d3c72a78e088d9c",
+      "bytes": 1517
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/scallion-ready.png",
+      "sha256": "30c9d4fb685f58f146b8183e9cf4ff50de8bda67dd5071d3d07fadc4056a5bfe",
+      "bytes": 1572
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/scallion-sown.png",
+      "sha256": "9a42a732d9019373e16961995da49941b0de0a58e44cc1ff112d2c485c3b79f8",
+      "bytes": 353
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/scallion-sprout.png",
+      "sha256": "cfdc8035b237fff4b2f03a977e927610fd2beeb981a78dd1f708a3ff44f9b291",
+      "bytes": 368
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/scallion-young.png",
+      "sha256": "0feffd9f01c7166569910c28d9cd5e33ec54c6ff07c6c48b60eb5ffe25e5b52a",
+      "bytes": 534
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/soybean-growing.png",
+      "sha256": "dd4aedfc9b118f432e53b59ea32f0362b55b583116c07adcf22315d53b76ed72",
+      "bytes": 500
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/soybean-ready.png",
+      "sha256": "2c3ef2c9c73a487ad4a5d0dffb645a1d1fb1d170c976c38582a665ccf12fae85",
+      "bytes": 533
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/soybean-sown.png",
+      "sha256": "c0880f664c59e82caa45b28d3fbdcad5e9f0cb49cf3f190e54c14e68e272fed3",
+      "bytes": 159
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/soybean-sprout.png",
+      "sha256": "155eabecba3b089afc74fad25752b2b49e9fbc1f3fc2aa8b223c955b63648639",
+      "bytes": 305
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/soybean-young.png",
+      "sha256": "882a849fb8e3662d2fece6ac28cc704858fcaeb82ace72f33917659a71fbf1b7",
+      "bytes": 365
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/strawberry-growing.png",
+      "sha256": "feadc6d0e58b2e6cf7ade4fb4f68b139976e384ed8885baac001450033fcc873",
+      "bytes": 505
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/strawberry-ready.png",
+      "sha256": "75289368b85eaa68e49529fa147daf33610d5c7c5f04484d7b1e203620a93d14",
+      "bytes": 541
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/strawberry-sown.png",
+      "sha256": "c0880f664c59e82caa45b28d3fbdcad5e9f0cb49cf3f190e54c14e68e272fed3",
+      "bytes": 159
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/strawberry-sprout.png",
+      "sha256": "f3382decff010e0ebc6ceac946d6b52d86eb6b5f81768d14ff89e03f7a5866e5",
+      "bytes": 298
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/strawberry-young.png",
+      "sha256": "70506d40e65c7fbe13f463d8f9a2f87512357052f1b9d610564b67b8815298f7",
+      "bytes": 350
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/sweet-potato-growing.png",
+      "sha256": "9ddd4d09edb07fe66352d0e0161a61489e617962dfacee223f771a4069197e3e",
+      "bytes": 522
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/sweet-potato-ready.png",
+      "sha256": "6b5cb6fc8af436834fd2a682213d8701d3ec40305ddd73c93775813204d2d148",
+      "bytes": 553
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/sweet-potato-sown.png",
+      "sha256": "c0880f664c59e82caa45b28d3fbdcad5e9f0cb49cf3f190e54c14e68e272fed3",
+      "bytes": 159
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/sweet-potato-sprout.png",
+      "sha256": "155eabecba3b089afc74fad25752b2b49e9fbc1f3fc2aa8b223c955b63648639",
+      "bytes": 305
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/sweet-potato-young.png",
+      "sha256": "882a849fb8e3662d2fece6ac28cc704858fcaeb82ace72f33917659a71fbf1b7",
+      "bytes": 365
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/tomato-growing.png",
+      "sha256": "c18edf5aa156d6ab0eaa16003b820111ca817ebe80962b5fb8ad18ac690a2b39",
+      "bytes": 521
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/tomato-ready.png",
+      "sha256": "ac2725cd5a5dcc96e7a1f72fb76dd1cded86414ee4f3a61c7bc4e1ffc08192a9",
+      "bytes": 557
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/tomato-sown.png",
+      "sha256": "c0880f664c59e82caa45b28d3fbdcad5e9f0cb49cf3f190e54c14e68e272fed3",
+      "bytes": 159
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/tomato-sprout.png",
+      "sha256": "155eabecba3b089afc74fad25752b2b49e9fbc1f3fc2aa8b223c955b63648639",
+      "bytes": 305
+    },
+    {
+      "path": "../../assets-src/roadmap-v2/crops/tomato-young.png",
+      "sha256": "882a849fb8e3662d2fece6ac28cc704858fcaeb82ace72f33917659a71fbf1b7",
+      "bytes": 365
+    }
+  ],
+  "outputs": [
+    {
+      "path": "../../assets-src/roadmap-v2/crop-qa-final.png",
+      "sha256": "eabd9de40cf85aafa4e9d6cdf20fec273589698e955fe4aa76cbbf0dd2cb2f02",
+      "bytes": 436196
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../assets-src/roadmap-v2/crops/cabbage-growing.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 329,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 6,
+      "orphans": 0,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        11,
+        18,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/cabbage-ready.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 461,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 6,
+      "orphans": 0,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        9,
+        14,
+        32,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/cabbage-sown.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 62,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 2,
+      "orphans": 4,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        37,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/cabbage-sprout.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 159,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 5,
+      "orphans": 2,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        26,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/cabbage-young.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 240,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 6,
+      "orphans": 2,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        22,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/carrot-growing.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 216,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 12,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        11,
+        19,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/carrot-ready.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 255,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 15,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        11,
+        12,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/carrot-sown.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 62,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 2,
+      "orphans": 4,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        37,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/carrot-sprout.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 125,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 4,
+      "orphans": 6,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        30,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/carrot-young.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 163,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 5,
+      "orphans": 9,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        26,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/chili-growing.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 242,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 6,
+      "orphans": 14,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        11,
+        19,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/chili-ready.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 281,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 6,
+      "orphans": 17,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        11,
+        12,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/chili-sown.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 62,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 2,
+      "orphans": 4,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        37,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/chili-sprout.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 125,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 4,
+      "orphans": 6,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        30,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/chili-young.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 163,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 5,
+      "orphans": 9,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        26,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/cucumber-growing.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 261,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 13,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        11,
+        19,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/cucumber-ready.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 300,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 16,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        11,
+        12,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/cucumber-sown.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 62,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 2,
+      "orphans": 4,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        37,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/cucumber-sprout.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 125,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 4,
+      "orphans": 6,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        30,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/cucumber-young.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 163,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 5,
+      "orphans": 9,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        26,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/pumpkin-growing.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 329,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 0,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        11,
+        18,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/pumpkin-ready.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 461,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 0,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        9,
+        14,
+        32,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/pumpkin-sown.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 62,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 2,
+      "orphans": 4,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        37,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/pumpkin-sprout.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 159,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 8,
+      "orphans": 4,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        26,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/pumpkin-young.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 240,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 10,
+      "orphans": 2,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        22,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/radish-growing.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 365,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 50,
+      "orphans": 245,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        6,
+        18,
+        34,
+        41
+      ],
+      "ground_gap_px": -1.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/radish-ready-alt.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 644,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 56,
+      "orphans": 378,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        4,
+        12,
+        36,
+        41
+      ],
+      "ground_gap_px": -1.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/radish-ready.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 695,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 54,
+      "orphans": 430,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        3,
+        10,
+        37,
+        41
+      ],
+      "ground_gap_px": -1.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/radish-sown.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 71,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 29,
+      "orphans": 54,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        34,
+        28,
+        41
+      ],
+      "ground_gap_px": -1.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/radish-sprout.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 86,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 34,
+      "orphans": 74,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        30,
+        27,
+        41
+      ],
+      "ground_gap_px": -1.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/radish-young.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 192,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 41,
+      "orphans": 137,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        25,
+        28,
+        41
+      ],
+      "ground_gap_px": -1.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/rice-growing.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 177,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 4,
+      "orphans": 20,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        10,
+        20,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/rice-ready.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 204,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 4,
+      "orphans": 19,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        10,
+        13,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/rice-sown.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 62,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 2,
+      "orphans": 4,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        37,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/rice-sprout.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 149,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 4,
+      "orphans": 2,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        10,
+        30,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/rice-young.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 181,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 4,
+      "orphans": 2,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        10,
+        24,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/scallion-growing.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 194,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 46,
+      "orphans": 161,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        10,
+        16,
+        28,
+        41
+      ],
+      "ground_gap_px": -1.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/scallion-ready-alt.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 361,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 58,
+      "orphans": 268,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        5,
+        12,
+        34,
+        41
+      ],
+      "ground_gap_px": -1.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/scallion-ready.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 384,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 59,
+      "orphans": 266,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        5,
+        11,
+        34,
+        41
+      ],
+      "ground_gap_px": -1.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/scallion-sown.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 51,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 23,
+      "orphans": 47,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        13,
+        35,
+        27,
+        41
+      ],
+      "ground_gap_px": -1.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/scallion-sprout.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 54,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 28,
+      "orphans": 47,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        13,
+        30,
+        27,
+        41
+      ],
+      "ground_gap_px": -1.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/scallion-young.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 88,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 38,
+      "orphans": 72,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        23,
+        27,
+        41
+      ],
+      "ground_gap_px": -1.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/soybean-growing.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 235,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 14,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        11,
+        19,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/soybean-ready.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 274,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 17,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        11,
+        12,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/soybean-sown.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 62,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 2,
+      "orphans": 4,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        37,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/soybean-sprout.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 125,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 4,
+      "orphans": 6,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        30,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/soybean-young.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 163,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 5,
+      "orphans": 9,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        26,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/strawberry-growing.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 221,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 18,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        11,
+        25,
+        31,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/strawberry-ready.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 253,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 22,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        11,
+        21,
+        31,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/strawberry-sown.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 62,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 2,
+      "orphans": 4,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        37,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/strawberry-sprout.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 121,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 4,
+      "orphans": 7,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        30,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/strawberry-young.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 155,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 5,
+      "orphans": 9,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        28,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/sweet-potato-growing.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 240,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 13,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        11,
+        19,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/sweet-potato-ready.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 279,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 16,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        11,
+        12,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/sweet-potato-sown.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 62,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 2,
+      "orphans": 4,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        37,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/sweet-potato-sprout.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 125,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 4,
+      "orphans": 6,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        30,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/sweet-potato-young.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 163,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 5,
+      "orphans": 9,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        26,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/tomato-growing.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 253,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 17,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        11,
+        19,
+        31,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/tomato-ready.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 292,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 20,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        11,
+        12,
+        31,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/tomato-sown.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 62,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 2,
+      "orphans": 4,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        37,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/tomato-sprout.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 125,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 4,
+      "orphans": 6,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        30,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    },
+    {
+      "file": "../../assets-src/roadmap-v2/crops/tomato-young.png",
+      "size": [
+        40,
+        44
+      ],
+      "source_mode": "RGBA",
+      "visible": 163,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 5,
+      "orphans": 9,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        12,
+        26,
+        30,
+        42
+      ],
+      "ground_gap_px": -2.0
+    }
+  ]
+}

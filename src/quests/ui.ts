@@ -84,7 +84,7 @@ export class QuestUI {
     this.message = this.manager.migrationNotice;
     this.root.id = "quest-hud";
     this.root.innerHTML =
-      '<div class="town-pocket"><output id="town-coins" aria-label="Town Coins"></output><button id="quest-inventory" aria-label="Mở túi đồ">Túi đồ</button><button id="quest-journal" aria-label="Xem nhiệm vụ">Nhiệm vụ</button></div><p id="quest-tracker" aria-live="polite"></p><div id="farm-toolbelt" role="toolbar" aria-label="Dụng cụ canh tác"><button data-tool="seed" aria-label="Chọn hạt giống">Hạt</button><button data-tool="water" aria-label="Trang bị bình tưới">Tưới</button><button data-tool="harvest" aria-label="Trang bị dụng cụ thu hoạch">Gặt</button></div><button id="quest-world-action" hidden></button><output id="world-feedback" role="status"></output>';
+      '<div class="town-pocket"><output id="town-coins" aria-label="Town Coins"></output><button id="quest-inventory" aria-label="Mở túi đồ">Túi đồ</button><button id="quest-journal" aria-label="Xem nhiệm vụ">Nhiệm vụ</button></div><p id="quest-tracker" aria-live="polite"></p><div id="farm-toolbelt" role="toolbar" aria-label="Dụng cụ canh tác"><button data-tool="seed" aria-label="Xới đất hoặc chọn hạt giống">Đất / Hạt</button><button data-tool="water" aria-label="Trang bị bình tưới">Tưới</button><button data-tool="harvest" aria-label="Trang bị dụng cụ thu hoạch">Gặt</button></div><button id="quest-world-action" hidden></button><output id="world-feedback" role="status"></output>';
     this.picker.id = "seed-picker";
     this.picker.hidden = true;
     this.picker.setAttribute("role", "group");
@@ -106,7 +106,7 @@ export class QuestUI {
     for (const b of this.root.querySelectorAll<HTMLButtonElement>(
       "[data-tool]",
     )) {
-      b.prepend(this.icon(b.dataset.tool!));
+      b.prepend(this.icon(b.dataset.tool === "seed" ? "hoe" : b.dataset.tool!));
       b.onclick = () => this.equip(b.dataset.tool as FarmTool);
     }
     this.dialog.addEventListener(
@@ -474,7 +474,7 @@ export class QuestUI {
           const c = this.context(),
             ok = c && this.manager.acceptInWorld(q.id, c.npcId, c);
           this.message = ok
-            ? q.topic === "farm"
+            ? ["farm-first-seed-v1", "farm-radish-harvest-v1"].includes(q.id)
               ? "Hạt giống đã ở trong túi. Đến mép luống, chọn hạt và nhấn E để gieo."
               : "Đã nhận lời. Mình cùng khám phá nhé!"
             : "Túi chưa đủ chỗ hoặc cần đứng gần hơn.";

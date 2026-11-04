@@ -1,0 +1,404 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/phase3bd-in-world-recovery/node_modules/.bin/playwright",
+      "test",
+      "tests/e2e/roadmap-v2.spec.ts"
+    ],
+    "configFile": "/workspace/phase3bd-in-world-recovery/playwright.config.ts",
+    "rootDir": "/workspace/phase3bd-in-world-recovery/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/phase3bd-in-world-recovery/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/workspace/phase3bd-in-world-recovery/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/workspace/phase3bd-in-world-recovery/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/workspace/phase3bd-in-world-recovery/tests/e2e",
+        "snapshotDir": "/workspace/phase3bd-in-world-recovery/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 120000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4472/3D-pharse5-/",
+          "headless": true,
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--disable-gpu-compositing",
+              "--use-gl=angle",
+              "--use-angle=swiftshader",
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "screenshot": "only-on-failure",
+          "video": "off"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/roadmap-v2/e2e-hud-final/e2e-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview -- --port 4472",
+      "url": "http://127.0.0.1:4472/3D-pharse5-/",
+      "reuseExistingServer": true,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "roadmap-v2.spec.ts",
+      "file": "roadmap-v2.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "V2 seed-shop: same native player, repeated enter/exit, restore world and no orphan",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 21836,
+                  "error": {
+                    "message": "TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.",
+                    "stack": "TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.\n    at /workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts:66:18",
+                    "location": {
+                      "file": "/workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts",
+                      "column": 18,
+                      "line": 66
+                    },
+                    "snippet": "  64 |     for (let cycle = 0; cycle < 2; cycle++) {\n  65 |       await page.locator(\"#interior-door\").click();\n> 66 |       await page.waitForFunction((id) => window.__INTERIOR__?.id === id, id, {\n     |                  ^\n  67 |         timeout: 15000,\n  68 |       });\n  69 |       await move(page, \"room\", [320, 320]);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts",
+                        "column": 18,
+                        "line": 66
+                      },
+                      "message": "TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.\n\n  64 |     for (let cycle = 0; cycle < 2; cycle++) {\n  65 |       await page.locator(\"#interior-door\").click();\n> 66 |       await page.waitForFunction((id) => window.__INTERIOR__?.id === id, id, {\n     |                  ^\n  67 |         timeout: 15000,\n  68 |       });\n  69 |       await move(page, \"room\", [320, 320]);\n    at /workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts:66:18"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T16:47:14.006Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/phase3bd-in-world-recovery/test-results/roadmap-v2-V2-seed-shop-sa-8b824-restore-world-and-no-orphan/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/phase3bd-in-world-recovery/test-results/roadmap-v2-V2-seed-shop-sa-8b824-restore-world-and-no-orphan/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts",
+                    "column": 18,
+                    "line": 66
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "351edfa6df5f7247004f-f2edcaa8311d62a3d71f",
+          "file": "roadmap-v2.spec.ts",
+          "line": 46,
+          "column": 3
+        },
+        {
+          "title": "V2 bookshop: same native player, repeated enter/exit, restore world and no orphan",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 22545,
+                  "error": {
+                    "message": "TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.",
+                    "stack": "TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.\n    at /workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts:66:18",
+                    "location": {
+                      "file": "/workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts",
+                      "column": 18,
+                      "line": 66
+                    },
+                    "snippet": "  64 |     for (let cycle = 0; cycle < 2; cycle++) {\n  65 |       await page.locator(\"#interior-door\").click();\n> 66 |       await page.waitForFunction((id) => window.__INTERIOR__?.id === id, id, {\n     |                  ^\n  67 |         timeout: 15000,\n  68 |       });\n  69 |       await move(page, \"room\", [320, 320]);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts",
+                        "column": 18,
+                        "line": 66
+                      },
+                      "message": "TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.\n\n  64 |     for (let cycle = 0; cycle < 2; cycle++) {\n  65 |       await page.locator(\"#interior-door\").click();\n> 66 |       await page.waitForFunction((id) => window.__INTERIOR__?.id === id, id, {\n     |                  ^\n  67 |         timeout: 15000,\n  68 |       });\n  69 |       await move(page, \"room\", [320, 320]);\n    at /workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts:66:18"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T16:47:36.672Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/phase3bd-in-world-recovery/test-results/roadmap-v2-V2-bookshop-sam-28d3a-restore-world-and-no-orphan/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/phase3bd-in-world-recovery/test-results/roadmap-v2-V2-bookshop-sam-28d3a-restore-world-and-no-orphan/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts",
+                    "column": 18,
+                    "line": 66
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "351edfa6df5f7247004f-06abcb249a44f7ab5bd5",
+          "file": "roadmap-v2.spec.ts",
+          "line": 46,
+          "column": 3
+        },
+        {
+          "title": "V2 workshop: same native player, repeated enter/exit, restore world and no orphan",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 23466,
+                  "error": {
+                    "message": "TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.",
+                    "stack": "TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.\n    at /workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts:66:18",
+                    "location": {
+                      "file": "/workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts",
+                      "column": 18,
+                      "line": 66
+                    },
+                    "snippet": "  64 |     for (let cycle = 0; cycle < 2; cycle++) {\n  65 |       await page.locator(\"#interior-door\").click();\n> 66 |       await page.waitForFunction((id) => window.__INTERIOR__?.id === id, id, {\n     |                  ^\n  67 |         timeout: 15000,\n  68 |       });\n  69 |       await move(page, \"room\", [320, 320]);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts",
+                        "column": 18,
+                        "line": 66
+                      },
+                      "message": "TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.\n\n  64 |     for (let cycle = 0; cycle < 2; cycle++) {\n  65 |       await page.locator(\"#interior-door\").click();\n> 66 |       await page.waitForFunction((id) => window.__INTERIOR__?.id === id, id, {\n     |                  ^\n  67 |         timeout: 15000,\n  68 |       });\n  69 |       await move(page, \"room\", [320, 320]);\n    at /workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts:66:18"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T16:48:00.191Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/phase3bd-in-world-recovery/test-results/roadmap-v2-V2-workshop-sam-e26b2-restore-world-and-no-orphan/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/phase3bd-in-world-recovery/test-results/roadmap-v2-V2-workshop-sam-e26b2-restore-world-and-no-orphan/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts",
+                    "column": 18,
+                    "line": 66
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "351edfa6df5f7247004f-46b300d37c90e196203a",
+          "file": "roadmap-v2.spec.ts",
+          "line": 46,
+          "column": 3
+        },
+        {
+          "title": "V2 mobile landscape: native icon HUD, safe focus and room touch action",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2297,
+                  "error": {
+                    "message": "TypeError: Cannot read properties of null (reading 'x')",
+                    "stack": "TypeError: Cannot read properties of null (reading 'x')\n    at /workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts:121:23",
+                    "location": {
+                      "file": "/workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts",
+                      "column": 23,
+                      "line": 121
+                    },
+                    "snippet": "  119 |     type: \"touchStart\",\n  120 |     touchPoints: [\n> 121 |       { id: 1, x: box.x + box.width * 0.82, y: box.y + box.height * 0.5 },\n      |                       ^\n  122 |     ],\n  123 |   });\n  124 |   await page.waitForTimeout(450);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts",
+                        "column": 23,
+                        "line": 121
+                      },
+                      "message": "TypeError: Cannot read properties of null (reading 'x')\n\n  119 |     type: \"touchStart\",\n  120 |     touchPoints: [\n> 121 |       { id: 1, x: box.x + box.width * 0.82, y: box.y + box.height * 0.5 },\n      |                       ^\n  122 |     ],\n  123 |   });\n  124 |   await page.waitForTimeout(450);\n    at /workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts:121:23"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T16:48:24.754Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/phase3bd-in-world-recovery/test-results/roadmap-v2-V2-mobile-lands-65a00-focus-and-room-touch-action/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/phase3bd-in-world-recovery/test-results/roadmap-v2-V2-mobile-lands-65a00-focus-and-room-touch-action/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/phase3bd-in-world-recovery/tests/e2e/roadmap-v2.spec.ts",
+                    "column": 23,
+                    "line": 121
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "351edfa6df5f7247004f-a5fd0def0d664c83d74c",
+          "file": "roadmap-v2.spec.ts",
+          "line": 99,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-04T16:47:13.447Z",
+    "duration": 74022.99900000001,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

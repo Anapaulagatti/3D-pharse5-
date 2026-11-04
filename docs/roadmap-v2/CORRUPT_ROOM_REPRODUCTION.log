@@ -1,0 +1,50 @@
+
+ RUN  v5.0.4 /workspace/phase3bd-in-world-recovery
+
+ ❯ tests/unit/roadmap-v2.test.ts (10 tests | 1 failed) 32ms
+   ❯ Roadmap V2 local content and transaction gates (10)
+     × does not resume a room from coercible string coordinates or corrupt local positions 10ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/roadmap-v2.test.ts > Roadmap V2 local content and transaction gates > does not resume a room from coercible string coordinates or corrupt local positions
+AssertionError: expected { version: 1, id: 'seed-shop', …(2) } to be undefined
+
+- Expected:
+undefined
+
++ Received:
+{
+  "id": "seed-shop",
+  "position": [
+    "320",
+    "414",
+  ],
+  "version": 1,
+  "world": [
+    717,
+    2605,
+  ],
+}
+
+ ❯ tests/unit/roadmap-v2.test.ts:267:138
+    265|   it('does not resume a room from coercible string coordinates or corr…
+    266|     const s=storage();vi.stubGlobal('localStorage',s);try{
+    267|       s.setItem(INTERIOR_SAVE,JSON.stringify({version:1,id:'seed-shop'…
+       |                                                                                                                                          ^
+    268|       s.setItem(INTERIOR_SAVE,JSON.stringify({version:1,id:'seed-shop'…
+    269|     }finally{vi.unstubAllGlobals();}
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 9 passed (10)
+   Start at  17:04:30
+   Duration  276ms (transform 46%, tests 26%, import 18%, worker 9%)
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

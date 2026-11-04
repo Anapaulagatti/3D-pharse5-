@@ -76,6 +76,7 @@ export function readInterior(): InteriorSave | undefined {
       ) < 55 &&
       Array.isArray(q.position) &&
       q.position.length === 2 &&
+      q.position.every(Number.isFinite) &&
       roomWalkable(...(q.position as [number, number]))
       ? q
       : undefined;

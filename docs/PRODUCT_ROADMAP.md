@@ -1,8 +1,8 @@
 # Roadmap reconciliation · owner override 2026-11-04
 
-The actual historic roadmap is seven Gates0–6, **not seven fully defined production phases**. It is available in sibling archived checkout `/workspace/3D-pharse5-` at33360ed1989e4db9fc3fc4e3686ca385e0b00908; exact copied source in source-records/PRODUCT_ROADMAP.historical.md. It was missing in active HEADc2240e5e. Older root STUDIO files are historical stubs; they do not mean the current roster is incomplete.
+The actual historic roadmap is seven Gates0–6, **not seven fully defined production phases**. It is available in sibling archived checkout `/workspace/3D-pharse5-` at33360ed1989e4db9fc3fc4e3686ca385e0b00908; exact copied source in roadmap-v2/source-records/PRODUCT_ROADMAP.historical.md. It was missing in active HEADc2240e5e. Older root STUDIO files are historical stubs; they do not mean the current roster is incomplete.
 
-Latest source of authority: HUMAN_DIRECTIVE.md (owner MASTER PROMPT V2) supersedes narrow no-further-local-phase stop. Existing exact Pages approval applies only1a6e5a58/331cd300/4975files. It does not authorize this changed candidate, production, live backend, multiplayer, ads, or learning-site writes.
+Latest source of authority: roadmap-v2/HUMAN_DIRECTIVE.md (owner MASTER PROMPT V2) supersedes narrow no-further-local-phase stop. Existing exact Pages approval applies only1a6e5a58/331cd300/4975files. It does not authorize this changed candidate, production, live backend, multiplayer, ads, or learning-site writes.
 
 |Historic gate|Current actual mapping|Status / limits|
 |---|---|---|

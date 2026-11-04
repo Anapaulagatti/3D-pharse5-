@@ -1,4 +1,6 @@
 import { test, expect, type Page } from "@playwright/test";
+test.use({ hasTouch: true });
+
 async function choose(page: Page) {
   await page.addInitScript(() =>
     localStorage.setItem(

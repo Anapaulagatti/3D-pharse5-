@@ -649,7 +649,11 @@ class Slice extends Phaser.Scene {
     if (!this.player) return;
     const door = this.nearDoor();
     if (this.doorHint) {
-      this.doorHint.hidden = !door || paused || scenicLocked;
+      this.doorHint.hidden =
+        !door ||
+        paused ||
+        scenicLocked ||
+        performance.now() < this.interiorReturnUntil;
       this.doorHint.textContent = door ? "E · Vào " + door.name : "";
     }
     if (

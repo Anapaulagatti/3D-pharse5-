@@ -10,7 +10,7 @@ def crop(kind,stage):
  if n==0:
   for x in [17,23]:d.line((x,38,x+1,37),fill='#e0bd74')
   return im
- h=[0,7,13,20,27][n];y=39-h
+ h=([0,5,9,14,18]if kind=='strawberry'else[0,7,13,20,27])[n];y=39-h
  if kind in ['carrot','sweet-potato','soybean','chili','tomato','cucumber','strawberry']:
   d.line((20,39,20,y),fill=G[1],width=2)
   for j in range(2,n+3):
@@ -24,9 +24,11 @@ def crop(kind,stage):
   for x,yy in [(15,28),(23,24),(21,31)]:d.ellipse((x,yy,x+3,yy+6),fill='#bdba62');d.point((x+1,yy+2),fill='#ebe1a1')
  elif kind in ['chili','tomato','cucumber','strawberry'] and n>=3:
   c={'chili':'#bc4e37','tomato':'#cb5542','cucumber':'#527d38','strawberry':'#d14d50'}[kind]
-  for x,yy in [(13,31),(24,27)]:
+  for x,yy in ([(12,31),(24,32)]if kind=='strawberry'else[(13,31),(24,27)]):
    if kind=='chili':d.polygon([(x,yy),(x+3,yy),(x+2,yy+7),(x-1,yy+8)],fill=c)
    elif kind=='cucumber':d.rounded_rectangle((x,yy,x+4,yy+10),radius=2,fill=c);d.line((x+1,yy+2,x+1,yy+7),fill='#91aa53')
+   elif kind=='strawberry':
+    d.polygon([(x,yy),(x+6,yy),(x+6,yy+3),(x+3,yy+7),(x,yy+3)],fill=c);d.line((x+1,yy,x+5,yy),fill=G[3]);d.point((x+2,yy+2),fill='#f6d991');d.point((x+4,yy+3),fill='#f6d991');d.point((x+3,yy+5),fill='#f6d991')
    else:d.ellipse((x,yy,x+6,yy+6),fill=c);d.point((x+2,yy+1),fill='#f1b074');d.line((x+1,yy,x+4,yy),fill=G[2])
  elif kind in ['cabbage','pumpkin']:
   r=3+n*2;d.ellipse((20-r,39-r*2,20+r,39),fill=G[1]if kind=='cabbage'else '#a66b35');
