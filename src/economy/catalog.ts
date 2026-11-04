@@ -69,6 +69,7 @@ export const crops = {
 export type CropId = keyof typeof crops;
 export type FarmAction = "till" | "plant" | "water" | "harvest";
 export interface PlotState {
+  lastHarvestedAt?: number;
   stage: "empty" | "tilled" | "planted" | "watered";
   cycle: number;
   crop?: CropId;
@@ -77,6 +78,7 @@ export interface PlotState {
   growMs?: number;
 }
 export interface EconomyState {
+  interactionSchema?: 2;
   revision: number;
   plots: Record<string, PlotState>;
   stock: Record<string, number>;
@@ -96,6 +98,7 @@ export const plots = farm.plots.map((p) => ({
 }));
 export function freshEconomy(): EconomyState {
   return {
+    interactionSchema: 2,
     revision: 0,
     plots: Object.fromEntries(
       plots.map((p) => [p.id, { stage: "empty", cycle: 0 }]),

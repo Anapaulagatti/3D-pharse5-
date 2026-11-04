@@ -2,49 +2,83 @@ import {
   crops,
   items,
   plots,
-  ready,
+  nearGround,
   SHOPKEEPER,
   ECONOMY,
   type CropId,
-  type FarmAction,
 } from "../economy/catalog";
+import { plotPresentation, type FarmTool } from "../economy/presentation";
 import { quests, itemNames, type QuestDefinition } from "./content";
-import { QuestManager } from "./manager";
+import { QuestManager, type InteractionContext } from "./manager";
 import "./style.css";
+export type WorldFeedback =
+  | "plant"
+  | "water"
+  | "harvest"
+  | "collect"
+  | "deliver"
+  | "handover"
+  | "report"
+  | "reward";
 interface Host {
   player(): readonly [number, number];
   ground(x: number, y: number): boolean;
   canInteract(): boolean;
   lock(): () => void;
-  onWorldAction?(): void;
   actor?(id: string): readonly [number, number] | undefined;
+  actorName?(id: string): string | undefined;
+  feedback?(
+    kind: WorldFeedback,
+    target: readonly [number, number],
+    label: string,
+  ): void;
   onOpen(id: string): void;
   onClose(id: string): void;
 }
+type View = "journal" | "inventory" | "npc" | "shop";
+const itemName = (id: string) => items[id]?.name ?? itemNames[id] ?? id;
 export class QuestUI {
   readonly manager: QuestManager;
   readonly root = document.createElement("section");
   private dialog = document.createElement("dialog");
+  private picker = document.createElement("div");
   private release?: () => void;
   private npcId?: string;
-  private plotId?: string;
+  private mode: View = "journal";
   private cropChoice: CropId = "radish";
+  private tool: FarmTool = "seed";
   private lastTradeAt = -1000;
-  private lastText = "";
-  private feedback = "";
-  private action?: { quest: string; step: string; label: string };
+  private lastActionAt = -1000;
+  private message = "";
+  private toastUntil = 0;
+  private lastHUD = "";
+  private shopTab: "buy" | "sell" = "buy";
+  private quantity = 1;
+  private nearest?: string;
+  private orchard?: {
+    id: string;
+    step: string;
+    point: readonly [number, number];
+  };
+  private followup?: ReturnType<typeof setTimeout>;
   private signal = new AbortController();
   constructor(private host: Host) {
     let storage: Storage | undefined;
     try {
       storage = localStorage;
     } catch {
-      /* Optional local demo persistence. */
+      /* Optional local demo. */
     }
     this.manager = new QuestManager(storage);
+    this.message = this.manager.migrationNotice;
     this.root.id = "quest-hud";
     this.root.innerHTML =
-      '<button id="quest-journal" aria-label="Nhiệm vụ và túi đồ">Nhiệm vụ · Túi đồ</button><p id="quest-tracker" aria-live="polite"></p><button id="quest-world-action" hidden></button>';
+      '<div class="town-pocket"><output id="town-coins" aria-label="Town Coins"></output><button id="quest-inventory" aria-label="Mở túi đồ">Túi đồ</button><button id="quest-journal" aria-label="Xem nhiệm vụ">Nhiệm vụ</button></div><p id="quest-tracker" aria-live="polite"></p><div id="farm-toolbelt" role="toolbar" aria-label="Dụng cụ canh tác"><button data-tool="seed" aria-label="Chọn hạt giống">Hạt</button><button data-tool="water" aria-label="Trang bị bình tưới">Tưới</button><button data-tool="harvest" aria-label="Trang bị dụng cụ thu hoạch">Gặt</button></div><button id="quest-world-action" hidden></button><output id="world-feedback" role="status"></output>';
+    this.picker.id = "seed-picker";
+    this.picker.hidden = true;
+    this.picker.setAttribute("role", "group");
+    this.picker.setAttribute("aria-label", "Chọn hạt cho luống gần bạn");
+    this.root.append(this.picker);
     this.dialog.id = "quest-dialogue";
     this.dialog.setAttribute("aria-labelledby", "quest-heading");
     document.body.append(this.root, this.dialog);
@@ -53,8 +87,17 @@ export class QuestUI {
       .querySelector("#quest-journal")!
       .addEventListener("click", () => this.open(), { signal });
     this.root
+      .querySelector("#quest-inventory")!
+      .addEventListener("click", () => this.openInventory(), { signal });
+    this.root
       .querySelector("#quest-world-action")!
       .addEventListener("click", () => this.tryWorldAction(), { signal });
+    for (const b of this.root.querySelectorAll<HTMLButtonElement>(
+      "[data-tool]",
+    )) {
+      b.prepend(this.icon(b.dataset.tool!));
+      b.onclick = () => this.equip(b.dataset.tool as FarmTool);
+    }
     this.dialog.addEventListener(
       "cancel",
       (e) => {
@@ -64,31 +107,36 @@ export class QuestUI {
       { signal },
     );
     for (const el of [this.root, this.dialog])
-      for (const event of [
-        "pointerdown",
-        "pointermove",
-        "pointerup",
-        "keydown",
-        "wheel",
-      ])
-        el.addEventListener(event, (e) => e.stopPropagation(), { signal });
+      for (const name of ["pointerdown", "pointermove", "pointerup", "wheel"])
+        el.addEventListener(name, (e) => e.stopPropagation(), { signal });
     document.addEventListener(
       "keydown",
       (e) => {
-        if (
-          this.dialog.open &&
-          !e.repeat &&
-          !(e.target instanceof HTMLInputElement) &&
-          !(e.target instanceof HTMLSelectElement) &&
-          /^[1-4]$/.test(e.key)
-        ) {
-          e.preventDefault();
-          this.dialog
-            .querySelector<HTMLButtonElement>(
-              `[data-answer="${Number(e.key) - 1}"]`,
-            )
-            ?.click();
+        if (e.repeat || e.ctrlKey || e.metaKey || e.altKey) return;
+        if (this.dialog.open) {
+          if (e.key === "Escape") {
+            e.preventDefault();
+            this.close();
+          } else if (
+            !(e.target instanceof HTMLInputElement) &&
+            /^[1-4]$/.test(e.key)
+          ) {
+            e.preventDefault();
+            this.dialog
+              .querySelector<HTMLButtonElement>(
+                `[data-answer="${Number(e.key) - 1}"]`,
+              )
+              ?.click();
+          }
+          return;
         }
+        if (!this.host.canInteract()) return;
+        const k = e.key.toLowerCase();
+        if (k === "i") this.openInventory();
+        else if (k === "j") this.open();
+        else if (/^[1-3]$/.test(k))
+          this.equip((["seed", "water", "harvest"] as const)[Number(k) - 1]);
+        else if (k === "escape") this.picker.hidden = true;
       },
       { signal, capture: true },
     );
@@ -97,16 +145,108 @@ export class QuestUI {
   get target() {
     return this.npcId;
   }
+  get selectedPlot() {
+    return this.nearest;
+  }
+  get selectedTool() {
+    return this.tool;
+  }
+  interactionNPCs() {
+    const s = this.manager.snapshot(),
+      ids = new Set([SHOPKEEPER]);
+    for (const q of quests) {
+      const r = s.records[q.id];
+      if (r?.status !== "completed") ids.add(q.giver);
+      if (q.recipient && r && r.status !== "completed") ids.add(q.recipient);
+    }
+    return ids;
+  }
   hasOffer(id: string) {
     return quests.some((q) => q.giver === id || q.recipient === id);
   }
-  open(npcId?: string, plotId?: string) {
-    if (this.dialog.open || !this.host.canInteract()) return false;
-    this.npcId = npcId;
-    this.plotId = plotId;
+  canReport(id: string) {
+    const s = this.manager.snapshot();
+    return quests.some(
+      (q) =>
+        (q.recipient ?? q.giver) === id &&
+        s.records[q.id]?.status === "active" &&
+        s.records[q.id].step === q.steps.length,
+    );
+  }
+  reportToNPC(id: string) {
+    if (!this.host.canInteract()) return false;
+    const c = this.context(id),
+      s = this.manager.snapshot(),
+      q = quests.find(
+        (q) =>
+          (q.recipient ?? q.giver) === id &&
+          s.records[q.id]?.status === "active" &&
+          s.records[q.id].step === q.steps.length,
+      );
+    return !!c && !!q && this.report(q, c);
+  }
+  private report(q: QuestDefinition, c: InteractionContext) {
+    if (!this.manager.returnInWorld(q.id, c.npcId, c)) return false;
+    this.host.feedback?.(
+      q.recipient ? "deliver" : q.topic === "orchard" ? "handover" : "report",
+      c.actor,
+      q.recipient
+        ? "Đã giao bưu kiện"
+        : q.topic === "orchard"
+          ? "Đã giao quýt"
+          : "Đã báo lại",
+    );
+    const id = c.npcId;
+    this.close();
+    if (this.followup) clearTimeout(this.followup);
+    this.followup = setTimeout(() => {
+      this.followup = undefined;
+      if (this.context(id) && this.host.canInteract()) this.open(id);
+    }, 750);
+    return true;
+  }
+  private context(id = this.npcId): InteractionContext | undefined {
+    const actor = id && this.host.actor?.(id);
+    if (
+      !id ||
+      !actor ||
+      !nearGround(
+        this.host.player(),
+        actor,
+        (x, y) => this.host.ground(x, y),
+        112,
+      )
+    )
+      return;
+    return {
+      npcId: id,
+      player: this.host.player(),
+      actor,
+      ground: (x, y) => this.host.ground(x, y),
+    };
+  }
+  open(id?: string) {
+    return this.show(id ? "npc" : "journal", id);
+  }
+  openInventory() {
+    return this.show("inventory");
+  }
+  openShop(id = SHOPKEEPER) {
+    return id === SHOPKEEPER && this.show("shop", id);
+  }
+  private show(view: View, id?: string) {
+    if (
+      this.dialog.open ||
+      !this.host.canInteract() ||
+      (id && !this.context(id))
+    )
+      return false;
+    this.mode = view;
+    this.npcId = id;
+    this.message = this.manager.migrationNotice;
     this.release = this.host.lock();
-    if (npcId) this.host.onOpen(npcId);
-    this.feedback = "";
+    if (id) this.host.onOpen(id);
+    this.picker.hidden = true;
     this.render();
     this.dialog.showModal();
     this.dialog.querySelector<HTMLButtonElement>("button")?.focus();
@@ -119,345 +259,508 @@ export class QuestUI {
     b.onclick = action;
     return b;
   }
+  private text(tag: string, value: string) {
+    const e = document.createElement(tag);
+    e.textContent = value;
+    return e;
+  }
+  private icon(id: string) {
+    const names = [
+        "seed-pouch",
+        "water-can",
+        "water-can-pour",
+        "sickle",
+        "parcel",
+        "tangerine",
+        "coin",
+        "basket",
+      ],
+      map: Record<string, string> = {
+        seed: "seed-pouch",
+        water: "water-can",
+        harvest: "sickle",
+        "seed-radish": "seed-pouch",
+        "seed-scallion": "seed-pouch",
+        radish: "sickle",
+        scallion: "sickle",
+        sprout: "seed-pouch",
+      };
+    const key = map[id] ?? id;
+    const span = document.createElement("span");
+    span.className = "native-item";
+    span.setAttribute("aria-hidden", "true");
+    span.style.backgroundImage = `url(${import.meta.env.BASE_URL}assets/farming/interaction-tools.png)`;
+    span.style.backgroundPosition = `-${Math.max(0, names.indexOf(key)) * 32}px 0`;
+    return span;
+  }
   private render() {
-    const active =
-      document.activeElement instanceof HTMLElement
-        ? document.activeElement.dataset.answer
-        : undefined;
+    const answer = (document.activeElement as HTMLElement | null)?.dataset
+      .answer;
     this.dialog.replaceChildren();
-    const heading = document.createElement("h2");
-    heading.id = "quest-heading";
-    heading.textContent = "Chuyện nhỏ trong thị trấn · 마을의 작은 일";
-    const notice = document.createElement("p");
-    notice.className = "quest-demo";
-    notice.textContent =
-      "Học tiếng Hàn: demo cục bộ, chưa đồng bộ website. Nội dung chờ duyệt giáo dục. Quảng cáo tắt.";
-    const status = document.createElement("p");
-    status.setAttribute("role", "status");
-    status.textContent = this.manager.storageWarning || this.feedback;
-    this.dialog.append(heading, notice, status);
-    const s = this.manager.snapshot();
-    const inventory = document.createElement("p");
-    inventory.id = "quest-inventory";
-    inventory.textContent = `Town Coins: ${s.coins} · XP trò chơi: ${s.xp} · ${
-      Object.entries(s.inventory)
-        .filter(([, n]) => n > 0)
-        .map(([id, n]) => `${items[id]?.name ?? itemNames[id] ?? id}: ${n}`)
-        .join(" · ") || "Túi đồ trống"
-    }`;
-    this.dialog.append(inventory);
-    if (this.plotId) this.renderFarm();
-    if (this.npcId === SHOPKEEPER) this.renderShop();
-    for (const def of quests) {
-      const section = document.createElement("section");
-      section.className = "quest-card";
-      section.dataset.quest = def.id;
-      const title = document.createElement("h3");
-      title.textContent = `${def.title} · ${def.ko}`;
-      const text = document.createElement("p");
-      const r = s.records[def.id];
-      text.textContent = this.objective(def);
-      section.append(title, text);
-      if (!r && this.npcId === def.giver)
-        section.append(
-          this.button("Nhận nhiệm vụ", () => {
-            this.manager.accept(def.id, this.npcId!);
-            this.render();
-          }),
-        );
-      if (
-        r?.status === "active" &&
-        r.step === def.steps.length &&
-        this.npcId === (def.recipient ?? def.giver)
-      )
-        section.append(
-          this.button(
-            def.recipient
-              ? "Giao sách và học tiếng Hàn"
-              : "Bàn giao và học tiếng Hàn",
-            () => {
-              this.manager.returnToNPC(def.id, this.npcId!);
-              this.render();
-            },
-          ),
-        );
-      const question = this.manager.question(def.id);
-      if (question) {
-        const prompt = document.createElement("p");
-        prompt.lang = "ko";
-        prompt.textContent = question.prompt;
-        prompt.dataset.question = question.id;
-        section.append(prompt);
-        question.options.forEach((option, i) => {
-          const b = this.button(`${i + 1}. ${option}`, () => {
-            const result = this.manager.answer(def.id, question.id, i);
-            this.feedback =
-              result.result === "correct"
-                ? `Chính xác! +${def.reward.coins} Town Coins · +${def.reward.xp} XP. ${result.explanation}`
-                : result.result === "incorrect"
-                  ? `Chưa đúng. ${result.explanation} Thử câu khác cùng mức nhé.`
-                  : this.manager.storageWarning ||
-                    (result.result === "unsaved"
-                      ? "Chưa cấp thưởng: kiểm tra chỗ trống trong túi hoặc bộ nhớ rồi thử lại; nhiệm vụ được giữ nguyên."
-                      : result.explanation);
-            this.render();
-          });
-          b.dataset.answer = String(i);
-          section.append(b);
-        });
-      }
-      this.dialog.append(section);
-    }
-    this.dialog.append(
-      this.button("Trở lại thế giới / Từ chối", () => this.close()),
+    this.dialog.dataset.view = this.mode;
+    const heading = this.text(
+      "h2",
+      this.mode === "shop"
+        ? "Cửa hàng Minseo · 민서의 가게"
+        : this.mode === "inventory"
+          ? "Túi đồ · 가방"
+          : this.mode === "journal"
+            ? "Nhật ký nhiệm vụ · 부탁"
+            : `${(this.npcId && this.host.actorName?.(this.npcId)) || "Người bạn"} · chuyện nhỏ`,
     );
-    if (this.dialog.open)
+    heading.id = "quest-heading";
+    const bar = document.createElement("div");
+    bar.className = "quest-panel-heading";
+    const close = this.button("×", () => this.close());
+    close.id = "quest-close";
+    close.setAttribute("aria-label", "Đóng và trở lại thế giới");
+    bar.append(heading, close);
+    const notice = this.text(
+      "p",
+      "Demo cục bộ · Nội dung tiếng Hàn chờ duyệt; không đồng bộ tiến độ website. Quảng cáo tắt.",
+    );
+    notice.className = "quest-demo";
+    const status = this.text("p", this.manager.storageWarning || this.message);
+    status.setAttribute("role", "status");
+    this.dialog.append(bar, notice, status);
+    const s = this.manager.snapshot();
+    if (this.mode === "inventory") this.renderInventory();
+    else if (this.mode === "shop") this.renderShop();
+    else
+      for (const q of quests.filter(
+        (q) =>
+          this.mode === "journal" ||
+          q.giver === this.npcId ||
+          q.recipient === this.npcId,
+      )) {
+        const box = document.createElement("section");
+        box.className = "quest-card";
+        box.dataset.quest = q.id;
+        box.append(
+          this.text("h3", `${q.title} · ${q.ko}`),
+          this.text("p", this.objective(q)),
+        );
+        if (this.mode === "npc") this.renderNPC(box, q, s.records[q.id]);
+        this.dialog.append(box);
+      }
+    if (this.dialog.open && answer !== undefined)
       this.dialog
-        .querySelector<HTMLButtonElement>(
-          active ? `[data-answer="${active}"]` : "button",
-        )
+        .querySelector<HTMLButtonElement>(`[data-answer="${answer}"]`)
         ?.focus();
     this.update();
   }
-
-  private renderFarm() {
-    const s = this.manager.snapshot(),
-      plot = plots.find((p) => p.id === this.plotId)!;
-    const state = s.economy.plots[plot.id];
-    const box = document.createElement("section");
-    box.className = "quest-card";
-    box.dataset.farmPlot = plot.id;
-    const title = document.createElement("h3");
-    title.textContent = `Luống ${plot.id.slice(-2)} · 내 밭`;
-    const help = document.createElement("p");
-    help.textContent =
-      "Gieo hạt, tưới nước rồi quay lại thu hoạch. Cây vẫn lớn khi bạn tiếp tục khám phá; tiến độ được lưu trên thiết bị này.";
-    box.append(title, help);
-    const select = document.createElement("select");
-    select.id = "farm-crop";
-    select.setAttribute("aria-label", "Chọn giống cây");
-    for (const [id, crop] of Object.entries(crops))
-      select.add(
-        new Option(`${crop.name} · hạt ${s.inventory[crop.seed] ?? 0}`, id),
+  private renderNPC(
+    box: HTMLElement,
+    q: QuestDefinition,
+    r: ReturnType<QuestManager["snapshot"]>["records"][string] | undefined,
+  ) {
+    if (!r && this.npcId === q.giver)
+      box.append(
+        this.button("Nhận lời · 좋아요", () => {
+          const c = this.context(),
+            ok = c && this.manager.acceptInWorld(q.id, c.npcId, c);
+          this.message = ok
+            ? q.topic === "farm"
+              ? "Hạt giống đã ở trong túi. Đến mép luống, chọn hạt và nhấn E để gieo."
+              : "Đã nhận lời. Mình cùng khám phá nhé!"
+            : "Túi chưa đủ chỗ hoặc cần đứng gần hơn.";
+          this.render();
+        }),
       );
-    select.value = this.cropChoice;
-    select.onchange = () => {
-      this.cropChoice = select.value as CropId;
-    };
-    if (state.stage === "tilled") box.append(select);
-    const action: FarmAction =
-      state.stage === "empty"
-        ? "till"
-        : state.stage === "tilled"
-          ? "plant"
-          : state.stage === "planted"
-            ? "water"
-            : "harvest";
-    const labels = {
-      till: "Xới hàng · 밭을 갈아요",
-      plant: "Gieo hạt · 씨앗을 심어요",
-      water: "Tưới cây · 물을 줘요",
-      harvest: "Thu hoạch · 수확해요",
-    };
-    const transaction = `${plot.id}:${state.cycle}:${action}:${s.economy.revision}`;
-    const b = this.button(labels[action], () => {
-      const ok = this.manager.farmAction(
-        plot.id,
-        action,
-        this.cropChoice,
-        transaction,
-        this.host.player(),
-        (x, y) => this.host.ground(x, y),
+    if (
+      r?.status === "active" &&
+      r.step === q.steps.length &&
+      this.npcId === (q.recipient ?? q.giver)
+    )
+      box.append(
+        this.button(
+          q.recipient ? "Giao bưu kiện · 전달해요" : "Báo lại · 다 했어요",
+          () => {
+            const c = this.context();
+            if (!c || !this.report(q, c)) {
+              this.message = "Chưa đủ vật phẩm hoặc chưa gần người nhận.";
+              this.render();
+            }
+          },
+        ),
       );
-      this.feedback = ok
-        ? "Đã lưu thao tác canh tác."
-        : this.manager.storageWarning ||
-          "Chưa thực hiện: kiểm tra hạt giống, vị trí, độ chín hoặc chỗ trống trong túi. Không mất vật phẩm.";
-      if (ok) this.host.onWorldAction?.();
-      this.render();
+    if (r?.status !== "challenge" || this.npcId !== (q.recipient ?? q.giver))
+      return;
+    const question = this.manager.question(q.id);
+    if (!question) return;
+    const prompt = this.text("p", question.prompt);
+    prompt.dataset.question = question.id;
+    prompt.lang = "ko";
+    prompt.className = "korean-prompt";
+    box.append(prompt);
+    const answers = document.createElement("div");
+    answers.className = "quest-answers";
+    question.options.forEach((o, i) => {
+      const b = this.button(`${i + 1}. ${o}`, () => {
+        const c = this.context();
+        if (!c) return;
+        const result = this.manager.answerInWorld(q.id, question.id, i, c);
+        this.message =
+          result.result === "correct"
+            ? `Đúng rồi! +${q.reward.coins} xu · +${q.reward.xp} XP trò chơi. ${result.explanation}`
+            : result.result === "incorrect"
+              ? `Chưa đúng. ${result.explanation} Mình thử câu khác nhé.`
+              : this.manager.storageWarning ||
+                "Chưa cấp thưởng. Kiểm tra chỗ trống trong túi hoặc vị trí.";
+        if (result.result === "correct")
+          this.host.feedback?.(
+            "reward",
+            this.host.player(),
+            `+${q.reward.coins} xu`,
+          );
+        this.render();
+      });
+      b.dataset.answer = String(i);
+      answers.append(b);
     });
-    b.dataset.farmAction = action;
-    b.disabled = action === "harvest" && !ready(state, Date.now());
-    box.append(b);
-    const note = document.createElement("p");
-    note.id = "farm-ready-note";
-    box.append(note);
-    this.dialog.append(box);
+    box.append(answers);
+  }
+  private renderInventory() {
+    const s = this.manager.snapshot(),
+      grid = document.createElement("div");
+    grid.className = "inventory-grid";
+    grid.id = "quest-inventory-items";
+    for (const [id, n] of Object.entries(s.inventory).filter(
+      ([, n]) => n > 0,
+    )) {
+      const c = document.createElement("div");
+      c.className = "inventory-item";
+      c.append(this.icon(id), this.text("span", `${itemName(id)} × ${n}`));
+      const crop = Object.entries(crops).find(([, v]) => v.seed === id);
+      if (crop)
+        c.append(
+          this.button("Cầm hạt", () => {
+            this.cropChoice = crop[0] as CropId;
+            this.tool = "seed";
+            this.close();
+            this.toast("Đến mép luống rồi nhấn E hoặc chạm luống để gieo.");
+          }),
+        );
+      grid.append(c);
+    }
+    if (!grid.children.length)
+      grid.append(
+        this.text("p", "Túi đang trống. Cheolsu có hạt hướng dẫn cho bạn."),
+      );
+    this.dialog.append(
+      grid,
+      this.text(
+        "p",
+        `${Object.values(s.inventory).filter((n) => n > 0).length}/${ECONOMY.slots} ô · ${s.coins} Town Coins`,
+      ),
+    );
   }
   private renderShop() {
-    const s = this.manager.snapshot();
-    const box = document.createElement("section");
-    box.className = "quest-card";
-    box.id = "town-shop";
-    const h = document.createElement("h3");
-    h.textContent = "Cửa hàng Minseo · 민서의 가게";
-    box.append(h);
-    const hint = document.createElement("p");
-    hint.textContent = `Túi ${Object.values(s.inventory).filter((n) => n > 0).length}/${ECONOMY.slots}ô. Giá thử nghiệm; mặc định nhân vật/cosmetics và việc học luôn miễn phí. Không mua bằng tiền thật.`;
-    box.append(hint);
-    const label = document.createElement("label");
-    label.textContent = "Số lượng ";
-    const qty = document.createElement("input");
-    qty.type = "number";
-    qty.id = "shop-quantity";
-    qty.min = "1";
-    qty.max = "99";
-    qty.value = "1";
-    qty.setAttribute("aria-label", "Số lượng mua bán");
-    label.append(qty);
-    box.append(label);
-    for (const [id, item] of Object.entries(items)) {
-      const row = document.createElement("div");
-      row.className = "shop-row";
-      const text = document.createElement("p");
-      text.textContent = `${item.name} · ${item.ko} · có ${s.inventory[id] ?? 0} · ${item.buy ? `mua ${item.buy}xu, kho ${s.economy.stock[id] ?? 0}` : `bán ${item.sell}xu`}`;
-      row.append(text);
-      if (id === "jeju-postcard") {
-        const image = document.createElement("img");
-        image.src = import.meta.env.BASE_URL + "assets/farming/postcard.png";
-        image.width = 128;
-        image.height = 96;
-        image.alt = "Bưu thiếp cảnh cầu Jeju từ artwork được duyệt";
-        image.style.imageRendering = "pixelated";
-        row.append(image);
-      }
-
-      const kind = item.buy ? "buy" : "sell";
-      const tx = `${kind}:${id}:${s.economy.revision}`;
+    const s = this.manager.snapshot(),
+      tabs = document.createElement("div");
+    tabs.className = "shop-tabs";
+    for (const tab of ["buy", "sell"] as const) {
       const b = this.button(
-        kind === "buy" ? "Mua · 사요" : "Bán · 팔아요",
+        tab === "buy" ? "Mua hạt / đồ lưu niệm" : "Bán nông sản",
         () => {
-          if (performance.now() - this.lastTradeAt < 300) return;
-          this.lastTradeAt = performance.now();
-          const actor = this.host.actor?.(SHOPKEEPER);
-          const ok =
-            !!actor &&
-            this.manager.trade(kind, id, Number(qty.value), tx, {
-              npcId: this.npcId!,
-              player: this.host.player(),
-              actor,
-              ground: (x, y) => this.host.ground(x, y),
-            });
-          this.feedback = ok
-            ? "Đã lưu giao dịch; xu và vật phẩm cập nhật cùng nhau."
-            : this.manager.storageWarning ||
-              "Giao dịch không đổi: kiểm tra số lượng nguyên dương, xu, hàng còn trong kho hoặc túi đồ.";
+          this.shopTab = tab;
           this.render();
         },
       );
+      b.dataset.shopTab = tab;
+      b.setAttribute("aria-selected", String(this.shopTab === tab));
+      tabs.append(b);
+    }
+    this.dialog.append(
+      tabs,
+      this.text(
+        "p",
+        `Ví: ${s.coins} Town Coins · Túi ${Object.values(s.inventory).filter((n) => n > 0).length}/${ECONOMY.slots} ô`,
+      ),
+    );
+    const label = this.text("label", "Số lượng "),
+      qty = document.createElement("input");
+    qty.id = "shop-quantity";
+    qty.type = "number";
+    qty.min = "1";
+    qty.max = "99";
+    qty.value = String(this.quantity);
+    qty.setAttribute("aria-label", "Số lượng mua bán");
+    qty.oninput = () => {
+      this.quantity = Number(qty.value);
+    };
+    label.append(qty);
+    this.dialog.append(label);
+    const list = document.createElement("div");
+    list.id = "town-shop";
+    for (const [id, item] of Object.entries(items).filter(([, i]) =>
+      this.shopTab === "buy" ? i.buy > 0 : i.sell > 0,
+    )) {
+      const row = document.createElement("div");
+      row.className = "shop-row";
+      row.append(
+        this.icon(id),
+        this.text(
+          "p",
+          `${item.name} · ${item.ko}\n${this.shopTab === "buy" ? `${item.buy} xu · kho ${s.economy.stock[id] ?? 0}` : `${item.sell} xu mỗi món`} · đang có ${s.inventory[id] ?? 0}`,
+        ),
+      );
+      const kind = this.shopTab,
+        tx = `${kind}:${id}:${s.economy.revision}`;
+      const b = this.button(kind === "buy" ? "Mua" : "Bán", () => {
+        if (performance.now() - this.lastTradeAt < 300) return;
+        this.lastTradeAt = performance.now();
+        const c = this.context(),
+          n = Number(qty.value),
+          ok = c && this.manager.trade(kind, id, n, tx, c);
+        this.message = ok
+          ? `Đã ${kind === "buy" ? "mua" : "bán"} ${n} ${item.name}.`
+          : !Number.isInteger(n) || n < 1 || n > 99
+            ? "Chọn số lượng nguyên từ 1 đến 99."
+            : kind === "buy" && s.coins < item.buy * n
+              ? "Bạn chưa đủ Town Coins; xu và đồ vật vẫn nguyên vẹn."
+              : kind === "buy" && (s.economy.stock[id] ?? 0) < n
+                ? "Cửa hàng không đủ số lượng."
+                : "Kiểm tra nông sản, chỗ trống trong túi hoặc khoảng cách tới cửa hàng.";
+        this.render();
+      });
       b.dataset.trade = kind;
       b.dataset.item = id;
       row.append(b);
-      box.append(row);
+      list.append(row);
     }
-    this.dialog.append(box);
+    this.dialog.append(list);
   }
-  objective(def: QuestDefinition) {
-    const r = this.manager.snapshot().records[def.id];
-    if (!r && def.giver === "npc-nayeon")
-      return "Gặp Nayeon ở nông trại. Nhận một hạt củ cải miễn phí; lứa đầu6giây, không khóa việc học.";
+  objective(q: QuestDefinition) {
+    const r = this.manager.snapshot().records[q.id];
     if (!r)
-      return `Chưa nhận · gặp ${def.giver === "npc-harin" ? "Harin tại Jeju" : def.giver === "npc-minseo" ? "Minseo tại phố thương mại" : "Cheolsu tại nông trại"}.`;
+      return `Chưa nhận · gặp ${q.giver === "npc-harin" ? "Harin tại Jeju" : q.giver === "npc-minseo" ? "Minseo tại phố thương mại" : q.giver === "npc-nayeon" ? "Nayeon tại nông trại" : "Cheolsu tại nông trại"}.`;
     if (r.status === "completed")
       return "Hoàn thành · phần thưởng đã nhận một lần.";
     if (r.status === "challenge")
-      return "Trả lời đúng câu hỏi tiếng Hàn để nhận phần thưởng.";
-    if (def.recipient) return "Mang gói sách đến Jiho ở hiệu sách.";
+      return "Trả lời câu hỏi tiếng Hàn tại người bạn để nhận thưởng.";
+    if (q.recipient) return "Mang gói sách đến Jiho ở hiệu sách.";
+    if (q.topic === "orchard") return `Thu quýt ${r.step}/3 rồi trở lại Harin.`;
     return (
-      def.steps[r.step]?.label ??
-      `Quay lại ${def.giver === "npc-harin" ? "Harin" : "Cheolsu"} để bàn giao và học tiếng Hàn.`
+      q.steps[r.step]?.label ??
+      `Trở lại ${q.giver === "npc-nayeon" ? "Nayeon" : q.giver === "npc-minseo" ? "Minseo" : "Cheolsu"} để báo lại.`
     );
   }
-  update() {
+  private equip(tool: FarmTool) {
+    if (!this.host.canInteract()) return;
+    this.tool = tool;
+    if (tool === "seed") this.seedPicker();
+    else this.picker.hidden = true;
+    this.update();
+  }
+  private seedPicker() {
+    this.picker.replaceChildren(
+      this.text("p", "Chọn hạt; E / chạm luống để gieo"),
+    );
     const s = this.manager.snapshot();
-    const text = quests
-      .filter((q) => s.records[q.id] && s.records[q.id].status !== "completed")
-      .map((q) => `${q.title}: ${this.objective(q)}`)
-      .join(" · ");
-    if (text !== this.lastText) {
-      this.root.querySelector("#quest-tracker")!.textContent = text;
-      this.lastText = text;
+    for (const [id, crop] of Object.entries(crops)) {
+      const b = this.button(
+        `${crop.name} × ${s.inventory[crop.seed] ?? 0}`,
+        () => {
+          this.cropChoice = id as CropId;
+          this.tool = "seed";
+          this.picker.hidden = true;
+          this.toast("Đã cầm hạt. E hoặc chạm luống để gieo.");
+          this.update();
+        },
+      );
+      b.dataset.seed = id;
+      b.prepend(this.icon(crop.seed));
+      b.disabled = !(s.inventory[crop.seed] > 0);
+      this.picker.append(b);
     }
-    this.action = undefined;
-    if (this.host.canInteract())
-      for (const def of quests) {
-        const r = s.records[def.id],
-          step = def.steps[r?.step ?? -1];
-        if (
-          r?.status === "active" &&
-          !def.economyObjectives &&
-          step &&
-          Math.hypot(
-            this.host.player()[0] - step.point[0],
-            this.host.player()[1] - step.point[1],
-          ) <= 30 &&
-          this.host.ground(...step.point)
-        ) {
-          this.action = { quest: def.id, step: step.id, label: step.label };
-          break;
-        }
+    this.picker.hidden = false;
+  }
+  showHint(message: string) {
+    this.toast(message);
+  }
+  private toast(message: string) {
+    this.toastUntil = Date.now() + 3200;
+    this.root.querySelector("#world-feedback")!.textContent = message;
+  }
+  update() {
+    if (Date.now() > this.toastUntil)
+      this.root.querySelector("#world-feedback")!.textContent = "";
+    const s = this.manager.snapshot(),
+      summary = quests
+        .filter(
+          (q) => s.records[q.id] && s.records[q.id].status !== "completed",
+        )
+        .slice(0, 2)
+        .map((q) => this.objective(q))
+        .join(" · "),
+      key = JSON.stringify([
+        s.coins,
+        summary,
+        this.tool,
+        this.cropChoice,
+        s.inventory,
+      ]);
+    if (key !== this.lastHUD) {
+      this.lastHUD = key;
+      this.root.querySelector("#town-coins")!.textContent = `${s.coins} xu`;
+      this.root.querySelector("#quest-tracker")!.textContent = summary;
+      for (const b of this.root.querySelectorAll<HTMLButtonElement>(
+        "[data-tool]",
+      ))
+        b.setAttribute("aria-pressed", String(b.dataset.tool === this.tool));
+    }
+    this.nearest = undefined;
+    this.orchard = undefined;
+    if (this.host.canInteract()) {
+      const player = this.host.player();
+      this.nearest = plots.find((p) =>
+        nearGround(player, p.point, (x, y) => this.host.ground(x, y), 34),
+      )?.id;
+      for (const q of quests.filter((q) => q.topic === "orchard")) {
+        const r = s.records[q.id];
+        if (r?.status !== "active") continue;
+        const collected =
+            r.collected ?? q.steps.slice(0, r.step).map((s) => s.id),
+          step = q.steps
+            .filter((p) => !collected.includes(p.id))
+            .sort(
+              (a, b) =>
+                Math.hypot(a.point[0] - player[0], a.point[1] - player[1]) -
+                Math.hypot(b.point[0] - player[0], b.point[1] - player[1]),
+            )
+            .find((p) =>
+              nearGround(player, p.point, (x, y) => this.host.ground(x, y), 30),
+            );
+        if (step) this.orchard = { id: q.id, step: step.id, point: step.point };
       }
+    }
+    this.root.querySelector<HTMLElement>("#farm-toolbelt")!.hidden =
+      !this.nearest;
+    if (!this.nearest) this.picker.hidden = true;
     const b = this.root.querySelector<HTMLButtonElement>(
       "#quest-world-action",
     )!;
-    const plot = this.host.canInteract()
-      ? plots.find(
-          (p) =>
-            Math.hypot(
-              this.host.player()[0] - p.point[0],
-              this.host.player()[1] - p.point[1],
-            ) <= 30 && this.host.ground(...p.point),
-        )
-      : undefined;
-    b.hidden = !this.action && !plot;
-    b.dataset.plotId = plot?.id ?? "";
-    if (!this.action && plot) b.textContent = `E · Canh tác ${plot.id} · 농사`;
-
-    if (this.action) b.textContent = `E · ${this.action.label}`;
-    if (this.dialog.open && this.plotId) {
-      const p = this.manager.snapshot().economy.plots[this.plotId];
-      const harvest = this.dialog.querySelector<HTMLButtonElement>(
-        '[data-farm-action="harvest"]',
-      );
-      if (harvest) harvest.disabled = !ready(p, Date.now());
-      const note = this.dialog.querySelector("#farm-ready-note");
-      if (note && p.wateredAt !== undefined)
-        note.textContent = ready(p, Date.now())
-          ? "Đã chín · 수확할 수 있어요"
-          : `Còn ${Math.max(0, Math.ceil(((p.growMs ?? 0) - (Date.now() - p.wateredAt)) / 1000))}giây; có thể đóng bảng và tiếp tục khám phá.`;
+    b.hidden = !this.nearest && !this.orchard;
+    b.dataset.plotId = this.nearest ?? "";
+    if (this.orchard) b.textContent = "E · Hái quýt · 귤 따기";
+    else if (this.nearest) {
+      const stage = plotPresentation(s.economy.plots[this.nearest], Date.now());
+      b.textContent = `E · ${stage === "EMPTY" ? "Gieo hạt" : stage === "PLANTED" ? "Tưới cây" : stage === "READY" ? "Thu hoạch" : "Cây đang lớn"} · Luống ${Number(this.nearest.slice(-2))}`;
     }
-    const journal =
-      this.root.querySelector<HTMLButtonElement>("#quest-journal")!;
-    journal.disabled = !this.dialog.open && !this.host.canInteract();
+    for (const id of ["quest-journal", "quest-inventory"])
+      this.root.querySelector<HTMLButtonElement>("#" + id)!.disabled =
+        !this.dialog.open && !this.host.canInteract();
+  }
+  tapPlot(id: string) {
+    const p = plots.find((p) => p.id === id);
+    if (!p || !this.host.canInteract()) return false;
+    if (
+      !nearGround(
+        this.host.player(),
+        p.point,
+        (x, y) => this.host.ground(x, y),
+        34,
+      )
+    ) {
+      this.toast("Đi tới mép luống để chăm cây nhé.");
+      return false;
+    }
+    return this.performPlot(id);
+  }
+  tapOrchard(step: string) {
+    if (!this.host.canInteract()) return false;
+    const q = quests.find((q) => q.topic === "orchard")!,
+      p = q.steps.find((p) => p.id === step);
+    return !!p && this.collect(q.id, p.id, p.point);
   }
   tryWorldAction() {
     if (!this.host.canInteract()) return false;
-    if (!this.action) {
-      const plot = plots.find(
-        (p) =>
-          Math.hypot(
-            this.host.player()[0] - p.point[0],
-            this.host.player()[1] - p.point[1],
-          ) <= 30 && this.host.ground(...p.point),
-      );
-      return plot ? this.open(undefined, plot.id) : false;
-    }
-    const success = this.manager.worldAction(
-      this.action.quest,
-      this.action.step,
-      this.host.player(),
-      (x, y) => this.host.ground(x, y),
-    );
-    if (success) this.host.onWorldAction?.();
     this.update();
-    return success;
+    return this.orchard
+      ? this.collect(this.orchard.id, this.orchard.step, this.orchard.point)
+      : this.nearest
+        ? this.performPlot(this.nearest)
+        : false;
+  }
+  private collect(id: string, step: string, point: readonly [number, number]) {
+    if (performance.now() - this.lastActionAt < 450) return true;
+    const ok = this.manager.worldAction(id, step, this.host.player(), (x, y) =>
+      this.host.ground(x, y),
+    );
+    if (ok) {
+      this.lastActionAt = performance.now();
+      this.host.feedback?.("collect", point, "+1 quýt");
+      this.toast("Đã cho quýt vào túi.");
+    }
+    this.update();
+    return ok;
+  }
+  private performPlot(id: string) {
+    if (performance.now() - this.lastActionAt < 450) return true;
+    const s = this.manager.snapshot(),
+      p = s.economy.plots[id],
+      def = plots.find((p) => p.id === id)!,
+      stage = plotPresentation(p, Date.now());
+    if (stage === "GROWING" || stage === "HARVESTED") {
+      this.toast("Cây vẫn đang lớn. Bạn có thể khám phá rồi quay lại.");
+      return true;
+    }
+    if (stage === "EMPTY" && !(s.inventory[crops[this.cropChoice].seed] > 0)) {
+      this.seedPicker();
+      this.toast("Cheolsu có hạt hướng dẫn miễn phí; chọn hạt trong túi.");
+      return true;
+    }
+    const required: FarmTool =
+      stage === "EMPTY" ? "seed" : stage === "PLANTED" ? "water" : "harvest";
+    if (this.tool !== required) {
+      this.tool = required;
+      if (required === "seed") this.seedPicker();
+      this.toast("Đã chọn dụng cụ phù hợp. E / chạm luống để thực hiện.");
+      this.update();
+      return true;
+    }
+    const action =
+        stage === "EMPTY" ? "plant" : stage === "PLANTED" ? "water" : "harvest",
+      tx = `world:${id}:${p.cycle}:${action}:${s.economy.revision}`,
+      ok = this.manager.farmAction(
+        id,
+        action,
+        this.cropChoice,
+        tx,
+        this.host.player(),
+        (x, y) => this.host.ground(x, y),
+      );
+    if (ok) {
+      this.lastActionAt = performance.now();
+      this.picker.hidden = true;
+      this.tool =
+        action === "plant" ? "water" : action === "water" ? "harvest" : "seed";
+      const label =
+        action === "plant"
+          ? "Đã gieo hạt"
+          : action === "water"
+            ? "Đã tưới cây"
+            : `+${p.crop ? crops[p.crop].yield : 0} ${p.crop ? crops[p.crop].name : "nông sản"}`;
+      this.host.feedback?.(
+        action,
+        [def.row[0] + def.row[2] / 2, def.row[1] + 8],
+        label,
+      );
+      this.toast(label);
+    } else
+      this.toast(
+        this.manager.storageWarning ||
+          "Chưa thể thực hiện. Kiểm tra hạt, độ chín hoặc chỗ trống trong túi; không mất đồ.",
+      );
+    this.update();
+    return true;
   }
   close() {
     if (!this.dialog.open) return;
     this.dialog.close();
     const id = this.npcId;
     this.npcId = undefined;
-    this.plotId = undefined;
     if (id) this.host.onClose(id);
     this.release?.();
     this.release = undefined;
@@ -465,6 +768,7 @@ export class QuestUI {
   }
   dispose() {
     this.close();
+    if (this.followup) clearTimeout(this.followup);
     this.signal.abort();
     this.root.remove();
     this.dialog.remove();

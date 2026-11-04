@@ -1,3 +1,4 @@
+import physical from "../../docs/phase3bd-in-world/AUTHORIZED_AMENDMENTS.json";
 import newest from "../../docs/phase3bd/AUTHORIZED_AMENDMENTS.json";
 import cleanup from "../../docs/cleanup/REJECTED_WORLD_CLEANUP_20261103.json";
 import { existsSync, readFileSync } from "node:fs";
@@ -47,7 +48,16 @@ export function expectedAmendedHash(path: string, original: unknown): unknown {
   )[path];
   if (next && next.beforeSHA256 !== prior)
     throw Error("Phase3BD predecessor mismatch: " + path);
-  return next?.afterSHA256 ?? prior;
+  const previous = next?.afterSHA256 ?? prior;
+  const row = (
+    physical.files as Record<
+      string,
+      { beforeSHA256: string; afterSHA256: string }
+    >
+  )[path];
+  if (row && row.beforeSHA256 !== previous)
+    throw Error("Physical interaction predecessor mismatch: " + path);
+  return row?.afterSHA256 ?? previous;
 }
 const historicalBatch = new Map<string, Buffer>();
 function loadHistoricalBatch() {

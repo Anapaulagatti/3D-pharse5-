@@ -1,3 +1,7 @@
+# Phase3BD physical gameplay recovery IN PROGRESS ·2026-11-04
+
+Recovered fromb5e627bb after workspace rollback. See docs/phase3bd-in-world/RECOVERY.md and HUMAN_DIRECTIVE.md. Core physical interactions restored; fresh tests/evidence/package pending. No Pages publication/main merge/Phase3BE. Existing world/NPC/player/cosmetic art frozen. Previous lost local QA is historical only.
+
 # Owner authorizes exact Phase3BD public review deployment ·2026-11-03
 
 See docs/phase3bd-release-20261103/OWNER_APPROVAL.json. Supersedes private-review STOP only for publishing exact fff156b6 /543ccd32 (2875files, not prior3BC3029). Do not rebuild/change frozen payload. Preserve oldpublic26/v0.5/main, existing gates/environment reviewer; actual HTTPS QA before DEPLOYED. Prior unexplained archive timeout remains WARN, never inferred fixed from reruns. No Phase3B-E. No delegation.

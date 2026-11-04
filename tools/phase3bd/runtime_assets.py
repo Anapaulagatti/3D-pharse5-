@@ -20,6 +20,6 @@ def runtime_names():
  for source in ['phase3a/registry.json','phase3a-npc-expansion/modern-definitions.json','phase3a-final-six/definitions.json']:
   for npc in json.loads((R/'assets-src/npcs'/source).read_text())['npcs']:
    names|={npc['assets']['texture'],npc['assets']['atlas']}
- names|={'assets/farming/crops.png','assets/farming/crops.json','assets/farming/postcard.png'}
+ names|={'assets/farming/crops.png','assets/farming/crops.json','assets/farming/postcard.png','assets/farming/interaction-tools.png','assets/farming/interaction-tools.json'}
  return names
 if __name__=='__main__':print(json.dumps(sorted(runtime_names()),indent=2))

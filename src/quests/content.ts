@@ -187,23 +187,24 @@ export const quests: readonly QuestDefinition[] = [
     giver: "npc-cheolsu",
     topic: "farm",
     steps: [
-      {
-        id: "prepare",
-        label: "Chuẩn bị khay thực hành bên luống 4 · 흙을 준비해요",
-        point: [470, 669],
-      },
-      {
-        id: "plant",
-        label: "Gieo hạt vào khay · 씨앗을 심어요",
-        point: [470, 669],
-      },
+      { id: "plant", label: "Gieo hạt vào một luống thật", point: [470, 669] },
       {
         id: "water",
-        label: "Tưới khay thực hành · 물을 줘요",
+        label: "Dùng bình tưới cho cây vừa gieo",
+        point: [470, 669],
+      },
+      {
+        id: "harvest",
+        label: "Thu hoạch cây chín rồi trở lại Cheolsu",
         point: [470, 669],
       },
     ],
-    reward: { coins: 20, xp: 20, items: { seed: 2, sprout: 1 } },
+    economyObjectives: [
+      { event: "plant", crop: "radish" },
+      { event: "water", crop: "radish" },
+      { event: "harvest", crop: "radish" },
+    ],
+    reward: { coins: 20, xp: 20, items: { "seed-radish": 2, sprout: 1 } },
   },
   {
     id: "farm-radish-harvest-v1",

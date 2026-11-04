@@ -1,3 +1,7 @@
+# Current authority — physical gameplay recovery2026-11-04
+
+Read docs/phase3bd-in-world/HUMAN_DIRECTIVE.md and RECOVERY.md. Owner ACCEPTS world art and REJECTS menu-driven core; implement physical farming,3corequests,contextual shop,NPC dialogue,compact HUD on isolated recovery branch fromb5e627bb. No original world/NPC26/player12/cosmetic24 pixels, movement/collision/camera/route edits. Extend existing QuestManager/NPCManager only, tiny additive native tools/effects allowed. Commit/push source checkpoints early after environment loss. Existing publicfff156b6 /543ccd32 stays rollback; exact NEW manifest requires owner approval BEFORE any Pages update. No subagents,main merge,paid APIs,Phase3BE. Run actual fresh QA and standalone package; previous lost-work results are historical only.
+
 # Owner authorizes exact Phase3BD public review deployment ·2026-11-03
 
 See docs/phase3bd-release-20261103/OWNER_APPROVAL.json. Supersedes private-review STOP only for publishing exact fff156b6 /543ccd32 (2875files, not prior3BC3029). Do not rebuild/change frozen payload. Preserve oldpublic26/v0.5/main, existing gates/environment reviewer; actual HTTPS QA before DEPLOYED. Prior unexplained archive timeout remains WARN, never inferred fixed from reruns. No Phase3B-E. No delegation.

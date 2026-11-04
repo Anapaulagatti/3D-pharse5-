@@ -217,6 +217,11 @@ class Slice extends Phaser.Scene {
       base + "assets/farming/crops.png",
       base + "assets/farming/crops.json",
     );
+    this.load.atlas(
+      "world-actions",
+      base + "assets/farming/interaction-tools.png",
+      base + "assets/farming/interaction-tools.json",
+    );
     const selected = characterSession.selected;
     if (!this.textures.exists(selected.assets!.key))
       this.load.atlas(
@@ -290,7 +295,9 @@ class Slice extends Phaser.Scene {
       "W,A,S,D,UP,DOWN,LEFT,RIGHT,SHIFT,E,SPACE",
     ) as typeof this.keys;
     this.input.keyboard!.addCapture(["SPACE", "UP", "DOWN", "LEFT", "RIGHT"]);
-    this.input.keyboard!.on("keydown-E", () => this.inspect());
+    this.input.keyboard!.on("keydown-E", (event: KeyboardEvent) => {
+      if (!event.repeat) this.inspect();
+    });
     this.input.keyboard!.on("keydown-SPACE", () => this.motion.gesture("wave"));
     this.input.keyboard!.on("keydown-C", () => {
       if (production && !paused) this.motion.gesture("celebrate");
@@ -449,7 +456,10 @@ class Slice extends Phaser.Scene {
     if (production && id === "palace-cleanup-world")
       this.npcs = new NPCManager(this, base, {
         player: () => [this.x, this.y],
-        onQuestAction: () => this.motion.gesture("wave"),
+        onQuestAction: (kind) => {
+          if (kind === "reward") this.motion.gesture("celebrate");
+        },
+        view: () => this.facing,
         ground: (x, y) => this.walkable(x, y),
         blocked: () => paused || scenicLocked || document.hidden,
         canInteract: () =>
@@ -500,6 +510,15 @@ class Slice extends Phaser.Scene {
     )[0];
     const close =
       nearest && Math.hypot(nearest.x - this.x, nearest.y - this.y) < 120;
+    if (production) {
+      if (close) this.visited.add(nearest.id);
+      this.npcs?.showHint(
+        close
+          ? nearest.label
+          : "Đến gần một người bạn hoặc luống cây rồi nhấn E / chạm để tương tác.",
+      );
+      return;
+    }
     document.querySelector("#title")!.textContent = close
       ? nearest.label
       : label;

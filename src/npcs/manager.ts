@@ -1,3 +1,5 @@
+import { ActionFeedback } from "../economy/ActionFeedback";
+import type { WorldFeedback } from "../quests/ui";
 import { NPCWorldClock } from "./clock";
 import { FarmWorld } from "../economy/world";
 import { QuestUI } from "../quests/ui";
@@ -30,7 +32,8 @@ interface Host {
   blocked(): boolean;
   canInteract(): boolean;
   lock(): () => void;
-  onQuestAction?(): void;
+  onQuestAction?(kind: WorldFeedback): void;
+  view?(): "front" | "back" | "left" | "right";
 }
 interface RenderActor {
   model: NPCActorModel;
@@ -79,6 +82,7 @@ export class NPCManager {
   private quests: QuestUI;
   private questWorld: QuestWorldIndicators;
   private farmWorld: FarmWorld;
+  private feedback: ActionFeedback;
   private button: HTMLButtonElement;
   private target?: string;
   private closed = false;
@@ -183,12 +187,26 @@ export class NPCManager {
         () => this.snapshot(),
         () => [...this.actors.values()].map((a) => a.sprite),
       );
-    this.questWorld = new QuestWorldIndicators(scene);
-    this.farmWorld = new FarmWorld(scene);
+    this.feedback = new ActionFeedback(
+      scene,
+      host.player,
+      () => host.view?.() ?? "front",
+    );
+    this.questWorld = new QuestWorldIndicators(scene, (step) =>
+      this.quests.tapOrchard(step),
+    );
+    this.farmWorld = new FarmWorld(scene, (id) => this.quests.tapPlot(id));
     this.quests = new QuestUI({
       ...host,
-      actor: (id) => this.actors.get(id)?.model.record.position,
-      onWorldAction: () => host.onQuestAction?.(),
+      actorName: (id) => this.models.get(id)?.def.names.vi,
+      actor: (id) => {
+        const a = this.actors.get(id);
+        return a?.sprite.visible ? a.model.record.position : undefined;
+      },
+      feedback: (kind, point, label) => {
+        this.feedback.play(kind, point, label);
+        host.onQuestAction?.(kind);
+      },
       onOpen: (id) => this.models.get(id)?.talk(host.player()),
       onClose: (id) => {
         this.models.get(id)?.finishTalk();
@@ -211,14 +229,27 @@ export class NPCManager {
       questAction: (id, container, close) => {
         if (!this.quests.hasOffer(id)) return;
         const button = document.createElement("button");
-        button.textContent =
-          id === "npc-minseo" ? "Cửa hàng · Nhiệm vụ" : "Nhiệm vụ · 부탁";
+        button.textContent = this.quests.canReport(id)
+          ? id === "npc-jiho"
+            ? "Giao bưu kiện · 전달해요"
+            : "Báo lại · 다 했어요"
+          : "Nhiệm vụ · 부탁";
         button.dataset.npcQuest = id;
         button.onclick = () => {
           close();
-          this.quests.open(id);
+          if (!this.quests.reportToNPC(id)) this.quests.open(id);
         };
         container.append(button);
+        if (id === "npc-minseo") {
+          const shop = document.createElement("button");
+          shop.textContent = "Cửa hàng · 가게";
+          shop.dataset.npcShop = id;
+          shop.onclick = () => {
+            close();
+            this.quests.openShop(id);
+          };
+          container.append(shop);
+        }
       },
     });
   }
@@ -239,6 +270,22 @@ export class NPCManager {
     this.updateTarget();
     const def = this.target && npcRegistry.get(this.target);
     return !!def && this.dialogue.open(def);
+  }
+  showHint(message: string) {
+    this.quests.showHint(message);
+  }
+  private talkTo(id: string) {
+    const a = this.actors.get(id);
+    if (!a?.sprite.visible || !this.host.canInteract()) return false;
+    const p = this.host.player(),
+      q = a.model.record.position;
+    if (
+      Math.hypot(p[0] - q[0], p[1] - q[1]) > a.model.def.interactionRadius ||
+      !clearInteractionLine(p, q, (x, y) => this.host.ground(x, y))
+    )
+      return false;
+    this.target = id;
+    return this.dialogue.open(a.model.def);
   }
   private updateTarget() {
     if (this.dialogue.target) {
@@ -272,7 +319,11 @@ export class NPCManager {
     this.button.hidden = !this.target;
     if (this.target) {
       const m = this.models.get(this.target)!;
-      this.button.textContent = `Trò chuyện · ${m.def.names.vi} · E${m.activity ? " · " + m.activity.label.vi + " / " + m.activity.label.ko : ""}`;
+      this.button.textContent = `E · ${m.def.names.vi}`;
+      this.button.setAttribute(
+        "aria-label",
+        `Trò chuyện với ${m.def.names.vi} · ${m.def.names.ko}`,
+      );
       this.button.dataset.npcId = this.target;
       m.greet(p);
     }
@@ -296,6 +347,22 @@ export class NPCManager {
     );
     const selected = this.archive?.selected;
     const eligible = applyHistorySelection(living, selected, modernVisitors);
+    if (!selected && !this.reviewId)
+      for (const id of this.quests.interactionNPCs()) {
+        const m = this.models.get(id);
+        if (
+          !m ||
+          !activeZones.has(m.def.homeZone) ||
+          Math.hypot(
+            p[0] - m.record.position[0],
+            p[1] - m.record.position[1],
+          ) >= 280
+        )
+          continue;
+        eligible.add(id);
+        for (const visitor of modernVisitors)
+          if (visitor.hostResidentId === id) eligible.delete(visitor.id);
+      }
     const wanted = [...this.models.values()]
       .filter(
         (m) =>
@@ -356,7 +423,11 @@ export class NPCManager {
           )
           .setOrigin(0.5, 100 / 112)
           .setDepth(Math.round(p[1]) + 0.05)
-          .setData("npcId", id);
+          .setData("npcId", id)
+          .setInteractive({ useHandCursor: true });
+        sprite.on("pointerup", (pointer: Phaser.Input.Pointer) => {
+          if (pointer.getDistance() < 12) this.talkTo(id);
+        });
         const shadow = this.scene.add
           .ellipse(
             Math.round(p[0]),
@@ -458,7 +529,11 @@ export class NPCManager {
     this.updateTarget();
     this.quests.update();
     this.questWorld.update(this.quests.manager.snapshot());
-    this.farmWorld.update(this.quests.manager.snapshot());
+    this.farmWorld.update(
+      this.quests.manager.snapshot(),
+      this.quests.selectedPlot,
+    );
+    this.feedback.update(dt);
     if (this.now - this.lastSave > 5000) {
       this.store.save();
       this.saveLife();
@@ -482,6 +557,11 @@ export class NPCManager {
   }
   snapshot() {
     return {
+      worldInteraction: {
+        plot: this.quests.selectedPlot ?? null,
+        tool: this.quests.selectedTool,
+        feedback: this.feedback.snapshot(),
+      },
       clock: this.clock.snapshot(),
       quests: this.quests.manager.snapshot(),
       learningMode: this.quests.manager.learning.mode,
@@ -527,6 +607,7 @@ export class NPCManager {
     this.quests.dispose();
     this.questWorld.dispose();
     this.farmWorld.dispose();
+    this.feedback.dispose();
     this.closed = true;
     this.store.save();
     this.bindings.abort();
