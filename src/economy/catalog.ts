@@ -95,6 +95,7 @@ export const plots = farm.plots.map((p) => ({
     12,
   ] as const,
   sourceRect: p.worldRect,
+  bed: p.cropDisplayRect as [number, number, number, number],
 }));
 export function freshEconomy(): EconomyState {
   return {

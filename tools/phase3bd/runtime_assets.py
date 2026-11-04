@@ -21,5 +21,6 @@ def runtime_names():
   for npc in json.loads((R/'assets-src/npcs'/source).read_text())['npcs']:
    names|={npc['assets']['texture'],npc['assets']['atlas']}
  names|={'assets/farming/crops.png','assets/farming/crops.json','assets/farming/postcard.png','assets/farming/interaction-tools.png','assets/farming/interaction-tools.json'}
+ names|={"assets/farming/phase3bd-farm-path/"+n for n in ["crops.png","crops.json","soil.png"]}
  return names
 if __name__=='__main__':print(json.dumps(sorted(runtime_names()),indent=2))

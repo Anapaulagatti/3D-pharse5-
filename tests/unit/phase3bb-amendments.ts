@@ -1,3 +1,4 @@
+import hotfix from "../../docs/phase3bd-farm-path/AUTHORIZED_AMENDMENTS.json";
 import physical from "../../docs/phase3bd-in-world/AUTHORIZED_AMENDMENTS.json";
 import newest from "../../docs/phase3bd/AUTHORIZED_AMENDMENTS.json";
 import cleanup from "../../docs/cleanup/REJECTED_WORLD_CLEANUP_20261103.json";
@@ -57,7 +58,16 @@ export function expectedAmendedHash(path: string, original: unknown): unknown {
   )[path];
   if (row && row.beforeSHA256 !== previous)
     throw Error("Physical interaction predecessor mismatch: " + path);
-  return row?.afterSHA256 ?? previous;
+  const last = row?.afterSHA256 ?? previous;
+  const change = (
+    hotfix.files as Record<
+      string,
+      { beforeSHA256: string; afterSHA256: string }
+    >
+  )[path];
+  if (change && change.beforeSHA256 !== last)
+    throw Error("Farm/path predecessor mismatch: " + path);
+  return change?.afterSHA256 ?? last;
 }
 const historicalBatch = new Map<string, Buffer>();
 function loadHistoricalBatch() {

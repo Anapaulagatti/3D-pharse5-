@@ -1,4 +1,4 @@
-import { repairedEntrance } from "./Accessibility";
+import { repairedEntrance, repairedReviewPath } from "./Accessibility";
 import Phaser from "phaser";
 import { rasterOrigin } from "./Registration";
 import { addNativeTexture } from "./NativeTexture";
@@ -290,7 +290,8 @@ export class WorldCache {
     )
       return false;
     return (
-      (this.data.id === "palace-cleanup-world" && repairedEntrance(x, y)) ||
+      (this.data.id === "palace-cleanup-world" &&
+        (repairedEntrance(x, y) || repairedReviewPath(x, y))) ||
       entry.value.mask[(y - c.y) * c.width + x - c.x] > 127
     );
   }

@@ -13,6 +13,24 @@ export function installPixelAudit(scene: Phaser.Scene) {
         matrix: Array.from(camera.matrixCombined.matrix),
         roundPixels: camera.roundPixels,
       },
+      farmSprites: scene.children.list
+        .filter(
+          (o): o is Phaser.GameObjects.Sprite =>
+            o instanceof Phaser.GameObjects.Sprite &&
+            ["farm-crops", "farm-soil"].includes(o.texture.key),
+        )
+        .map((o) => ({
+          key: o.texture.key,
+          frame: String(o.frame.name),
+          visible: o.visible,
+          position: [o.x, o.y],
+          scale: [o.scaleX, o.scaleY],
+          scaleMode: o.frame.source.scaleMode,
+          screen: [
+            camera.matrixCombined.getX(o.x, o.y),
+            camera.matrixCombined.getY(o.x, o.y),
+          ],
+        })),
       layers: scene.children.list
         .filter(
           (o): o is Phaser.GameObjects.Image =>

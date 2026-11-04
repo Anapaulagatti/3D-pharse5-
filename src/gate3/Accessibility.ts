@@ -14,3 +14,15 @@ export function repairedEntrance(x: number, y: number) {
       x >= rx && y >= ry && x < rx + w && y < ry + h,
   );
 }
+
+/** Visually inspected clear paving west of the modern district planter.
+ * Existing planter ends at x454; keep it blocked. No building/water/route relocation. */
+export const reviewPathRepairs = [
+  { id: "west-commercial-planter-clear-paving", rect: [455, 2350, 30, 130] },
+] as const;
+export function repairedReviewPath(x: number, y: number) {
+  return reviewPathRepairs.some(
+    ({ rect: [rx, ry, w, h] }) =>
+      x >= rx && y >= ry && x < rx + w && y < ry + h,
+  );
+}

@@ -1,3 +1,7 @@
+# Current authority · farm lifecycle and path hotfix 2026-11-04
+
+Owner authorizes targeted physical Phaser farming visual lifecycle and localized navigation/contact improvements on current reviewed candidate. Preserve world/26NPC/12players/24cosmetics and existing sources; additive crop-state/soil overlays and minimal collision amendments permitted. No new phase, production merge/deploy or broad map edits. New exact public manifest must pass existing exposure gates. Previous frozen-candidate restriction superseded only for this hotfix. Preserve rollback9fce709a and fff156b6. No delegation.
+
 # Physical Phase3BD release WAITING environment reviewer · 2026-11-04
 
 Exact owner-approved artifact9fce709a/manifest17306fc4 (3570files) pushed. Review controls cbe3489; run41760249901 receipt PASS, deploy WAITING github-pages reviewer Anapaulagatti. ActualHTTPS still old543ccd32 as of02:22UTC; NOT DEPLOYED/newHTTPS NOTTESTED. Resume read-only status/actual hosted QA after required manual approval. See docs/phase3bd-in-world-release/README.md and DELIVERY_STATUS.json. Preserve rollback checkpoint/pages-fff156b6-before-physical-20261104 and all historical references. No payload changes,3BE,game-main merge or official-site changes.

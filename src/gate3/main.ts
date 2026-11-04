@@ -1,3 +1,4 @@
+import { moveReviewPlayer } from "./ReviewMovement";
 import collisionAmendments from "./phase3bc-collision.json";
 import { CollisionDebug } from "./CollisionDebug";
 // PHASE3A BEGIN imports
@@ -214,13 +215,18 @@ class Slice extends Phaser.Scene {
   preload() {
     this.load.atlas(
       "farm-crops",
-      base + "assets/farming/crops.png",
-      base + "assets/farming/crops.json",
+      base + "assets/farming/phase3bd-farm-path/crops.png",
+      base + "assets/farming/phase3bd-farm-path/crops.json",
     );
     this.load.atlas(
       "world-actions",
       base + "assets/farming/interaction-tools.png",
       base + "assets/farming/interaction-tools.json",
+    );
+    this.load.spritesheet(
+      "farm-soil",
+      base + "assets/farming/phase3bd-farm-path/soil.png",
+      { frameWidth: 140, frameHeight: 88 },
     );
     const selected = characterSession.selected;
     if (!this.textures.exists(selected.assets!.key))
@@ -559,27 +565,25 @@ class Slice extends Phaser.Scene {
     const contactAllows = (x: number, y: number) =>
       !nativeContact ||
       nativeContact.allows(x, y, running ? "run" : "walk", contactFacing);
-    // Sweep in <=1px increments: no wall tunnelling after a slow frame.
-    const substeps = Math.max(1, Math.ceil(step));
-    for (let i = 0; i < substeps; i++) {
-      if (
-        this.walkable(this.x + (dx * step) / substeps, this.y) &&
-        contactAllows(this.x + (dx * step) / substeps, this.y)
-      )
-        this.x += (dx * step) / substeps;
-      if (
-        this.walkable(this.x, this.y + (dy * step) / substeps) &&
-        contactAllows(this.x, this.y + (dy * step) / substeps)
-      )
-        this.y += (dy * step) / substeps;
-    }
+    const moved = moveReviewPlayer(
+      this.x,
+      this.y,
+      dx,
+      dy,
+      step,
+      (x, y) => this.walkable(x, y) && contactAllows(x, y),
+    );
+    this.x = moved.x;
+    this.y = moved.y;
     this.diagnostics?.sample(
       "update.inputCollision",
       performance.now() - collisionStarted,
     );
     const distance = Math.hypot(this.x - oldX, this.y - oldY);
     if (distance > 0.01)
-      this.facing = movementFacing(this.x - oldX, this.y - oldY, this.facing);
+      this.facing = moved.assisted
+        ? contactFacing
+        : movementFacing(this.x - oldX, this.y - oldY, this.facing);
     const frame = this.motion.step(
       delta,
       distance,
