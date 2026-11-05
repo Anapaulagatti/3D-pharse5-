@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "Pending exact owner receipt blocks before fetch",
+      "status": "PASS",
+      "expected": "BLOCK",
+      "returncode": 1,
+      "output": "BLOCKED BEFORE ART FETCH\nOwner public exposure approval PENDING; no asset checkout/upload/deployment allowed\nNamed dated owner decision required\nworld: exposure decision pending\nplayable-characters: exposure decision pending\ncosmetics: exposure decision pending\nthird-party-code-fonts-audio: exposure decision pending\ncheckpoint-media: exposure decision pending\nportal-and-metadata: exposure decision pending\nExplicit exact immutable-history retention amendment approval required\n"
+    },
+    {
+      "name": "Pending history amendment blocks",
+      "status": "PASS",
+      "expected": "BLOCK",
+      "returncode": 1,
+      "output": "BLOCKED: exact owner history amendment absent or incomplete\n"
+    },
+    {
+      "name": "Prior approved exact receipt still accepted",
+      "status": "PASS",
+      "expected": "ALLOW",
+      "returncode": 0,
+      "output": "Owner receipt structurally complete; not a legal clearance. Exact site gate and protected environment review still required.\n"
+    },
+    {
+      "name": "Synthetic structural approval accepted, not actual owner approval",
+      "status": "PASS",
+      "expected": "ALLOW",
+      "returncode": 0,
+      "output": "Owner receipt structurally complete; not a legal clearance. Exact site gate and protected environment review still required.\n"
+    },
+    {
+      "name": "Exact candidate hashes and native atlas pins",
+      "status": "PASS",
+      "expected": "ALLOW",
+      "returncode": 0,
+      "output": "PASS exact-artifact owner exposure record; commercial release remains BLOCKED_PENDING_REVIEW. Environment reviewer must independently verify the record before promotion.\n"
+    },
+    {
+      "name": "All old historical assets and snapshot manifests retained in pinned Git",
+      "status": "PASS",
+      "expected": "ALLOW",
+      "returncode": 0,
+      "output": "PASS retained snapshot manifests; exact immutable archive verified\n"
+    },
+    {
+      "name": "Omitted historical snapshot rejected",
+      "status": "PASS",
+      "expected": "BLOCK",
+      "returncode": 1,
+      "output": "BLOCKED: exact owner history amendment absent or incomplete\n"
+    }
+  ],
+  "publicApproval": "PENDING; all positive cases synthetic only, never activated or published"
+}

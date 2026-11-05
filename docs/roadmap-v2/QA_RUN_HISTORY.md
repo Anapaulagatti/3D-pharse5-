@@ -19,3 +19,5 @@
 
 - Final corrupt-room negative test reproduced acceptance of string coordinates through JS coercion; explicit finite-number validation now rejects them. Valid numeric room saves still restore. First test draft missed imports (retained); corrected reproduction FAIL then actual guard fix PASS. Final unit count223includes this regression.
 - Native farming optional-carrot quest acceptance copy no longer claims starterseed was gifted; only the two actual starter-grant quests use that text. No transaction/economic behavior changed.
+
+- Final prepared-hosted-runner rehearsal was first invoked from repository root instead of its isolated controls fixture directory, so approved-receipt.json was absent (ENOENT). No game request/mutation occurred after that check. Log DEPLOYMENT_RUNNER_FINAL_REHEARSAL.log is retained. Correct working-directory second run tests the same exact candidate; this is a driver launch error, not an unexplained game PASS rerun.

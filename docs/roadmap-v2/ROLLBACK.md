@@ -1,0 +1,9 @@
+# Recovery — no destructive reset needed
+
+- PreV2 source: checkpoint branch `checkpoint/before-roadmap-v2-20261104` → `c2240e5e963fe277734961f8eb3ecd97efad8e04` on sourceorigin. Use `git switch -c recovery/pre-v2 checkpoint/before-roadmap-v2-20261104` in a clean checkout; do not reset a dirty working tree.
+- V2 compiled game source: `ccafc4ba21b7b1944b5f5fb45b444b04b80a43dd`; metadata/docs checkpoint is recorded in FINAL_DELIVERY.json and a new checkpoint ref. Local artifact671d267e is frozen and ZIPsha verified. NoV2publicartifactupload before ownerapproval.
+- Existing actualpublicPages: artifact `1a6e5a58a8fb515730e553a30980d2ffb7274da6`, manifest `331cd300478f879bab11e9541803dd7c47ba1caaab339263f37150ae6c0d0ce4`, immutable reviewref `checkpoint/phase3bd-final-quality-artifact-20261104`. All prior sources/tags remain untouched.
+- To roll Pages back after a FUTURE V2release: select prior exact1a approval receipt and unchanged legacy releaseprofile through existing workflow; export the pinned compiled artifact, verify4975filemanifest and historical snapshot hashes, request mandatorygithub-pagesenvironmentreview, then actualHTTPS/play verification. Do not npm-rebuild oldgame or retarget oldrefs. No rollback deployment was triggered here because live is already1a.
+- Oldv0.5/main game/productionlearning website remain untouched. Current save is localdemo. Migration makes a backup before first write; corruptsave export and validatedbackup restore exist. Rolling app versions back does not prove a new12crop save is readable by old2crop app: export localStorage first or test in separate browser profile. The legacy app is not authorized to overwrite a new save automatically.
+
+Local ZIP/launcher rollback to old checkpoints is verified at byte/hash level; live1a actualgameplay passed run41852211445. A future public V2→1a rollback run has NOT been executed.

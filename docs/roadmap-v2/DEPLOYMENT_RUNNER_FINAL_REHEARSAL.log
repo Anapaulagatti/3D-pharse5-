@@ -1,0 +1,13 @@
+file:///workspace/phase3bd-in-world-recovery/.cache/roadmap-v2-controls-test/verify_v2.mjs:10
+r.status=r.errors.length||r.externalRequests.length?'FAIL':'PASS EXACT V2 GAME / ALL HTTP HASHES / FARM / THREE ROOMS / VIDEO';if(r.status==='FAIL')throw Error('Console/network check failed');}catch(e){r.status='FAIL';r.failure=e.stack;await p.screenshot({path:D+'/PACKAGE_FAILURE.png'}).catch(()=>{});}finally{await c.close();await fs.writeFile(D+'/OFFLINE_BROWSER_PROOF.json',JSON.stringify(r,null,2));}if(r.status==='FAIL')throw Error(r.failure);return r;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                ^
+
+Error: Error: ENOENT: no such file or directory, open 'approved-receipt.json'
+    at async open (node:internal/fs/promises:697:25)
+    at async Object.readFile (node:internal/fs/promises:1348:14)
+    at async verifyV2 (file:///workspace/phase3bd-in-world-recovery/.cache/roadmap-v2-controls-test/verify_v2.mjs:7:200)
+    at async file:///workspace/phase3bd-in-world-recovery/.cache/roadmap-v2-controls-test/rehearse.mjs:1:213
+    at verifyV2 (file:///workspace/phase3bd-in-world-recovery/.cache/roadmap-v2-controls-test/verify_v2.mjs:10:433)
+    at async file:///workspace/phase3bd-in-world-recovery/.cache/roadmap-v2-controls-test/rehearse.mjs:1:213
+
+Node.js v24.19.0

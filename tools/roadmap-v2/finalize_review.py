@@ -1,0 +1,27 @@
+"""Reproduce a NEW private candidate only; preserve frozen671d267e unchanged. Do not rerun against approved artifacts."""
+from pathlib import Path
+import json,hashlib,shutil
+R=Path.cwd();D=R/'docs/roadmap-v2';O=Path(__import__('os').environ.get('V2_CANDIDATE','/workspace/roadmap-v2-clean/.cache/roadmap-v2-review-final'));h=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+assert not(O/'.git').exists(),'Never alter an existing frozen artifact'
+assert json.loads((O/'version.json').read_text())['gameCommit']=='ccafc4ba21b7b1944b5f5fb45b444b04b80a43dd'
+A=json.loads((D/'ACCEPTANCE_MATRIX.json').read_text());A['A12']={'status':'PARTIAL','detail':'Compiled isolated candidate/ZIP/integrity and extracted HTTP smoke proof are external PACKAGE_PROOF.json. Changed public exposure PENDING; existing live1a is rollback, notV2.'};(D/'ACCEPTANCE_MATRIX.json').write_text(json.dumps(A,ensure_ascii=False,indent=2)+'\n')
+qa={'status':'READY_FOR_OWNER_REVIEW_NOT_PUBLIC','sourceCommit':'ccafc4ba21b7b1944b5f5fb45b444b04b80a43dd','checks':{'protectedAssets':'PASS 10671 unchanged','unit':'PASS 223 final clean clone','fullE2E':'73/77 first clean run; 4 initial failures retained; exact correction4/4PASS on final clean source','farm':'PASS normal-start real three crops + two unlock chains; no save/clock/position fixtures','interiors':'PASS three rooms / eight physical steps / reload / sign / courier / reward-once','navigation':'PASS five groups, no new world collision edits','browserMobile':'PASS cloud Chromium DPR1/2/3, actual emulated touch; physical NOT TESTED','newArt':'PENDING HUMAN REVIEW; original deterministic native code artwork, not claimed premium-painted acceptance','Korean':'PENDING HUMAN REVIEW','physicalDevices':'NOT TESTED','liveServices':'NOT IMPLEMENTED; disabled / blocked owner gates','publicExposure':'PENDING_EXACT_OWNER_APPROVAL'},'acceptance':A}
+(D/'QA_RESULT.json').write_text(json.dumps(qa,ensure_ascii=False,indent=2)+'\n')
+shutil.copytree(D/'review-assets',O/'review',dirs_exist_ok=True)
+for n in ['QA.md','QA_RUN_HISTORY.md','QA_RESULT.json','ACCEPTANCE_MATRIX.json','ROADMAP_RECONCILIATION.md','FARM_STATE.md','INTERIORS.md','ART_PIPELINE.md','ARCHITECTURE_AND_LIMITS.md','DECISIONS_PENDING.md','ECONOMY_TABLE.json','EDUCATIONAL_CONTENT.json','PROTECTED_AUDIT.json','CORE_PRESERVATION.json','NATIVE_ART_AUDIT.json','ASSET_EXPOSURE.json']:
+ shutil.copy2(D/n,O/'review'/n)
+(O/'qa.json').write_text(json.dumps(qa,ensure_ascii=False,indent=2)+'\n')
+shutil.copy2(R/'tools/phase3bd/start-review.py',O/'start-review.py')
+(O/'LOCAL_REVIEW.txt').write_text('ROADMAP V2 PRIVATE REVIEW\nUnzip, run: python3 start-review.py\nOpen http://127.0.0.1:4483/review/ then Play. Python3 required; no npm/internet/account.\nWASD/arrows move, Shift run, E interact; mobile landscape joystick/action.\nStart normally for farm/seed quests. Interiors: Minseo cafe door, Jiho bookshop, Eunji workshop.\n12species unlock through actual farm/market quests; 36independentcells.\nOriginal public Pages1a6e5a58 stays unchanged. NEW public exposure pending exact owner approval.\nNew art and Korean content: PENDING HUMAN REVIEW. Physical Android/iPhone/GPU: NOT TESTED.\nPrevious snapshots stay in immutable Git1a6e5a58; online links only, not bundled in ZIP.\n')
+old=R/'.cache/phase3bd-final-quality-review/export-manifest.json';assert h(old)=='331cd300478f879bab11e9541803dd7c47ba1caaab339263f37150ae6c0d0ce4'
+byhash={a['sha256']:a for a in json.loads(old.read_text())['files']}
+rows=[]
+for p in sorted(O.rglob('*')):
+ if not p.is_file() or '.git' in p.relative_to(O).parts or p.name=='export-manifest.json':continue
+ n=p.relative_to(O).as_posix();digest=h(p);row={'filename':n,'sha256':digest,'bytes':p.stat().st_size,'publicPreviewDecision':'PENDING_EXACT_OWNER_APPROVAL','commercialRelease':'NOT_CERTIFIED'}
+ if digest in byhash:row.update(category='UNCHANGED_PRIOR_OWNER_PREVIEW_ASSET',evidence='Exact byte match to1a6e5a58/331cd300 previous scoped preview, no invented new clearance',priorFilename=byhash[digest]['filename'],priorManifestSHA256=h(old))
+ else:row.update(category='ORIGINAL_PROJECT_V2_CODE_CONTENT_OR_QA',evidence='Project source, original deterministic native crop/prop drawing, same-game silent recording or QA. No new thirdparty image/font/audio input. New art/Korean/public exposure pending.',specificUnresolvedThirdPartyConcern='No new specific copied work or likeness identified; not a legal guarantee')
+ rows.append(row)
+m={'schemaVersion':1,'profile':'roadmap-v2-local26','gameCommit':qa['sourceCommit'],'portalCommit':qa['sourceCommit'],'scope':'PRIVATE candidate:26fictionalNPC/12players/24activecosmetics,12crops,36cells,3Phaserinteriors,physicalsign/courier. New public approval pending. Prior snapshots retained in immutableGit, not duplicated.', 'publicExposure':'PENDING_EXACT_OWNER_APPROVAL','historyRetention':'PROPOSED_IMMUTABLE_GIT_1a6e5a58; OWNER_APPROVAL_REQUIRED','files':rows}
+(O/'export-manifest.json').write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n')
+p={'sourceCommit':qa['sourceCommit'],'candidate':str(O),'manifestSHA256':h(O/'export-manifest.json'),'files':len(rows),'payloadBytes':sum(r['bytes']for r in rows),'publicExposure':'PENDING_EXACT_OWNER_APPROVAL','historicalPagesArtifact':'1a6e5a58a8fb515730e553a30980d2ffb7274da6','rollbackManifestSHA256':h(old)};(D/'PUBLIC_CANDIDATE_PROOF.json').write_text(json.dumps(p,indent=2)+'\n');print(json.dumps(p,indent=2))

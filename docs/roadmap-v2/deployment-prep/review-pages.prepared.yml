@@ -1,0 +1,157 @@
+name: Publish approved compiled Pixel Town review
+on:
+  workflow_dispatch:
+    inputs:
+      operation:
+        type: choice
+        options: [check, deploy]
+        default: check
+        required: true
+      approval_path:
+        description: Pending candidate for check, approved receipt for deployment
+        default: review-candidates/contemporary20.json
+        required: true
+  push:
+    branches: [main]
+    paths: ['approved-releases/**/*.approved.json']
+permissions:
+  contents: read
+concurrency:
+  group: pixel-town-review-pages
+  cancel-in-progress: false
+jobs:
+  approval:
+    runs-on: ubuntu-latest
+    outputs:
+      artifact: ${{ steps.receipt.outputs.artifact }}
+      receipt: ${{ steps.path.outputs.receipt }}
+      history_artifact: ${{ steps.receipt.outputs.history_artifact }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: path
+        env:
+          REQUESTED: ${{ inputs.approval_path }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          python - <<'PYCODE'
+          import os,re
+          receipt='approved-releases/current.approved.json' if os.environ['EVENT']=='push' else os.environ['REQUESTED']
+          assert re.fullmatch(r'(review-candidates|approved-releases)(/[A-Za-z0-9_.-]+)+\.json',receipt)
+          with open(os.environ['GITHUB_OUTPUT'],'a')as f:f.write('receipt='+receipt+'\n')
+          PYCODE
+      - name: Require documented owner exposure approval before fetching any art
+        id: receipt
+        env:
+          RECEIPT: ${{ steps.path.outputs.receipt }}
+        run: python receipt.py "$RECEIPT"
+  deploy:
+    needs: approval
+    if: github.event_name == 'push' || inputs.operation == 'deploy'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.approval.outputs.artifact }}
+          path: compiled-source
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        if: needs.approval.outputs.history_artifact != ''
+        with:
+          ref: ${{ needs.approval.outputs.history_artifact }}
+          path: immutable-history
+          persist-credentials: false
+      - name: Export existing compiled files only (no npm, Vite build or source generation)
+        run: python export_site.py compiled-source site
+      - name: Exact asset hashes, individual exposure review and snapshot history
+        env:
+          RECEIPT: ${{ needs.approval.outputs.receipt }}
+        run: |
+          python gate.py site "$RECEIPT"
+          if [ -d immutable-history ]; then
+            python history_gate.py site "$RECEIPT" immutable-history
+          else
+            python history_gate.py site "$RECEIPT"
+          fi
+      - uses: actions/configure-pages@v5
+      - name: Pack exact allowlist including retained snapshot dot metadata
+        run: python package_pages.py site "$RUNNER_TEMP/artifact.tar"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: github-pages
+          overwrite: true
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
+      - uses: actions/deploy-pages@v4
+        id: deployment
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Verify actual deployed HTTPS game (test dependencies only, no game build)
+        env:
+          LIVE_URL: ${{ steps.deployment.outputs.page_url }}
+          RECEIPT: ${{ needs.approval.outputs.receipt }}
+        run: |
+          mkdir qa-runner
+          cp verify_live.mjs verify_motion.mjs verify_phase3bd.mjs verify_farm.mjs verify_legacy.mjs verify_final_quality.mjs verify_quality_hanok.mjs walk_quality.mjs qa-nav-quality.json verify_farm_path.mjs walk_hotfix.mjs qa-nav-hotfix.json verify_physical_world.mjs verify_physical_loops.mjs verify_physical_mobile.mjs walk_live.mjs qa-nav.json review-source.json verify_v2.mjs walk_v2.mjs qa-nav-v2.json.gz qa-runner/
+          cp "$RECEIPT" qa-runner/approved-receipt.json
+          npm install --prefix qa-runner --no-save --package-lock=false @playwright/test@1.64.1
+          cd qa-runner
+          npx playwright install --with-deps chromium
+          node verify_live.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-https-verification
+          overwrite: true
+          path: qa-runner/evidence/LIVE_QA.json
+  record-verification:
+    needs: [approval, deploy]
+    if: always() && needs.deploy.result != 'skipped'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: live-https-verification
+          overwrite: true
+          path: downloaded-evidence
+      - name: Summarize actual browser proof; missing evidence is never PASS
+        env:
+          RECEIPT: ${{ needs.approval.outputs.receipt }}
+        run: python record_live_qa.py downloaded-evidence/LIVE_QA.json "$RECEIPT"
+      - name: Retain selected verification evidence on isolated branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TARGET: ${{ github.repository }}
+        run: |
+          mkdir verification-output
+          git -C verification-output init
+          git -C verification-output remote add origin "https://github.com/$TARGET.git"
+          git -C verification-output config credential.helper '!gh auth git-credential'
+          if git -C verification-output ls-remote --exit-code origin refs/heads/live-verification >/dev/null; then
+            git -C verification-output fetch origin live-verification
+            git -C verification-output checkout -b live-verification FETCH_HEAD
+          else
+            git -C verification-output checkout --orphan live-verification
+          fi
+          mkdir -p verification-output/runs
+          cp live-verification.json verification-output/latest.json
+          cp live-verification.json "verification-output/runs/$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT.json"
+          git -C verification-output config user.name 'github-actions[bot]'
+          git -C verification-output config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -C verification-output add latest.json runs/
+          git -C verification-output commit -m 'Record actual hosted browser verification; no inferred PASS'
+          git -C verification-output push origin HEAD:live-verification

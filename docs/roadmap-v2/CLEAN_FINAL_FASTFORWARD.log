@@ -1,0 +1,396 @@
+Updating bab63f0d..ccafc4ba
+Fast-forward
+ assets-src/roadmap-v2/PROVENANCE.json              |      2 +-
+ assets-src/roadmap-v2/crop-qa-final.png            |    Bin 0 -> 436196 bytes
+ assets-src/roadmap-v2/crops-review-3x.png          |    Bin 29413 -> 29252 bytes
+ assets-src/roadmap-v2/crops/strawberry-growing.png |    Bin 521 -> 505 bytes
+ assets-src/roadmap-v2/crops/strawberry-ready.png   |    Bin 557 -> 541 bytes
+ assets-src/roadmap-v2/crops/strawberry-sprout.png  |    Bin 305 -> 298 bytes
+ assets-src/roadmap-v2/crops/strawberry-young.png   |    Bin 365 -> 350 bytes
+ docs/PRODUCT_ROADMAP.md                            |      4 +-
+ .../ACTUAL_LIVE_VERIFICATION.json                  | 177583 ++++++++++++
+ .../DELIVERY_STATUS.json                           |      9 +-
+ docs/phase3bd-final-quality-release/README.md      |      2 +-
+ docs/roadmap-v2/ACCEPTANCE_MATRIX.json             |     14 +
+ docs/roadmap-v2/ART_BUILD_FINAL.json               |     14 +
+ docs/roadmap-v2/ART_QA_FINAL.json                  |   1746 +
+ docs/roadmap-v2/ART_QA_FINAL.log                   |      1 +
+ docs/roadmap-v2/ASSET_EXPOSURE.json                |   6002 +
+ docs/roadmap-v2/AUTHORIZED_AMENDMENTS.json         |      9 +-
+ docs/roadmap-v2/BUILD_DOOR_FINAL.log               |     47 +
+ docs/roadmap-v2/CLEAN_ASSETS.log                   |     12 +
+ docs/roadmap-v2/CLEAN_BUILD.log                    |     47 +
+ docs/roadmap-v2/CLEAN_CLONE.log                    |      3 +
+ docs/roadmap-v2/CLEAN_E2E.log                      |    189 +
+ docs/roadmap-v2/CLEAN_FORMAT.log                   |     11 +
+ docs/roadmap-v2/CLEAN_LINT.log                     |      9 +
+ docs/roadmap-v2/CLEAN_NPM_CI.log                   |    514 +
+ docs/roadmap-v2/CLEAN_NPM_CI_SECOND.log            |      7 +
+ docs/roadmap-v2/CLEAN_TYPECHECK.log                |      9 +
+ docs/roadmap-v2/CLEAN_UNIT.log                     |     21 +
+ docs/roadmap-v2/CORE_PRESERVATION.json             |     28 +
+ docs/roadmap-v2/CORRUPT_ROOM_INITIAL.log           |     32 +
+ docs/roadmap-v2/CORRUPT_ROOM_REPRODUCTION.log      |     50 +
+ docs/roadmap-v2/DEVICE_QA.json                     |    359 +
+ docs/roadmap-v2/DEVICE_QA.log                      |      1 +
+ docs/roadmap-v2/DEVICE_QA_CORE.json                |    359 +
+ docs/roadmap-v2/DEVICE_QA_FINAL.log                |      1 +
+ docs/roadmap-v2/E2E_DOOR_FINAL.log                 |     16 +
+ docs/roadmap-v2/ECONOMY_TABLE.json                 |     86 +-
+ docs/roadmap-v2/ENCODE_FARM.log                    |     57 +
+ docs/roadmap-v2/ENCODE_FARM_BOUNDED.log            |     57 +
+ docs/roadmap-v2/ENCODE_STORY.log                   |     57 +
+ docs/roadmap-v2/FARM_FINAL.log                     |      1 +
+ docs/roadmap-v2/FARM_FINAL_QUALIFIED.log           |      1 +
+ docs/roadmap-v2/FARM_PRIMARY_FOURTH.log            |      1 +
+ docs/roadmap-v2/FARM_PRIMARY_THIRD.log             |      1 +
+ docs/roadmap-v2/FINAL_FREEZE_FORMAT.log            |     11 +
+ docs/roadmap-v2/FINAL_FREEZE_LINT.log              |      9 +
+ docs/roadmap-v2/FINAL_FREEZE_TYPECHECK.log         |      9 +
+ docs/roadmap-v2/FINAL_FREEZE_UNIT.log              |     21 +
+ docs/roadmap-v2/FINAL_NEW_ART_DIFF.json            |     13 +
+ docs/roadmap-v2/FINAL_SOURCE_FORMAT.log            |     11 +
+ docs/roadmap-v2/FINAL_SOURCE_LINT.log              |      9 +
+ docs/roadmap-v2/FINAL_SOURCE_UNIT.log              |     21 +
+ docs/roadmap-v2/FORMAT_CORRUPT_GUARD.log           |      8 +
+ docs/roadmap-v2/FORMAT_DOOR_FINAL.log              |      7 +
+ docs/roadmap-v2/FORMAT_HUD_POLISH.log              |      6 +
+ docs/roadmap-v2/FORMAT_LAST_COPY.log               |      6 +
+ docs/roadmap-v2/HUD_FINAL_BUILD.log                |     47 +
+ docs/roadmap-v2/HUD_FINAL_E2E.log                  |    103 +
+ docs/roadmap-v2/HUD_FINAL_UNIT.log                 |     21 +
+ docs/roadmap-v2/HUMAN_DIRECTIVE.md                 |    852 +-
+ docs/roadmap-v2/LAST_FORMAT.log                    |     11 +
+ docs/roadmap-v2/LAST_LINT.log                      |      9 +
+ docs/roadmap-v2/LAST_TYPECHECK.log                 |      9 +
+ docs/roadmap-v2/LAST_UNIT.log                      |     21 +
+ docs/roadmap-v2/NATIVE_ART_AUDIT.json              |     16 +
+ docs/roadmap-v2/NAVIGATION_QA.json                 |    440 +
+ docs/roadmap-v2/NAVIGATION_QA.log                  |      1 +
+ docs/roadmap-v2/NAV_GUIDE.json                     |     11 +
+ docs/roadmap-v2/QA.md                              |     36 +
+ docs/roadmap-v2/QA_RUN_HISTORY.md                  |      7 +
+ docs/roadmap-v2/REVIEW_BUILD.log                   |     18 +
+ docs/roadmap-v2/REVIEW_BUILD_SECOND.log            |     20 +
+ docs/roadmap-v2/STORY_FINAL.log                    |      1 +
+ docs/roadmap-v2/STORY_QA.json                      |    530 +
+ docs/roadmap-v2/STORY_RELOAD_FAILURE.log           |      1 +
+ docs/roadmap-v2/e2e-clean/e2e-results.json         |   3011 +
+ docs/roadmap-v2/e2e-door-final/e2e-results.json    |    264 +
+ docs/roadmap-v2/e2e-hud-final/e2e-results.json     |    404 +
+ docs/roadmap-v2/farm/FARM_QA.json                  | 273486 ++++++++++++++++++
+ .../farm/FIFTH_FINAL_BUY_TAB_FAILURE.json          | 262073 +++++++++++++++++
+ .../farm/FOURTH_SHORT_MIX_TIMING_FAILURE.json      | 156641 ++++++++++
+ docs/roadmap-v2/farm/THIRD_DRIVER_TAB_FAILURE.json | 170625 +++++++++++
+ docs/roadmap-v2/farm/farm-00-empty-native.png      |    Bin 3186707 -> 1804071 bytes
+ docs/roadmap-v2/farm/farm-01-prepared-native.png   |    Bin 3191391 -> 1808774 bytes
+ docs/roadmap-v2/farm/farm-02-seeded-native.png     |    Bin 3191473 -> 1808819 bytes
+ docs/roadmap-v2/farm/farm-03-sprout-native.png     |    Bin 3191791 -> 1809033 bytes
+ docs/roadmap-v2/farm/farm-04-young-native.png      |    Bin 3191508 -> 1808907 bytes
+ docs/roadmap-v2/farm/farm-05-growing-native.png    |    Bin 3191557 -> 1809032 bytes
+ docs/roadmap-v2/farm/farm-06-mature-native.png     |    Bin 3191588 -> 1809197 bytes
+ docs/roadmap-v2/farm/farm-07-harvested-native.png  |    Bin 3177181 -> 1808445 bytes
+ .../farm/farm-08-watered-and-dry-native.png        |    Bin 3179555 -> 1813461 bytes
+ .../farm/farm-09-mature-next-to-young-native.png   |    Bin 3196370 -> 1813634 bytes
+ docs/roadmap-v2/farm/farm-10-reloaded-native.png   |    Bin 2040716 -> 1503647 bytes
+ docs/roadmap-v2/farm/farm-failure.png              |    Bin 0 -> 1915851 bytes
+ docs/roadmap-v2/farm/three-00-sown-native.png      |    Bin 0 -> 1820129 bytes
+ docs/roadmap-v2/farm/three-01-sprout-native.png    |    Bin 0 -> 1821188 bytes
+ docs/roadmap-v2/farm/three-02-young-native.png     |    Bin 0 -> 1821394 bytes
+ docs/roadmap-v2/farm/three-03-growing-native.png   |    Bin 0 -> 1821550 bytes
+ docs/roadmap-v2/farm/three-04-mature-native.png    |    Bin 0 -> 1820919 bytes
+ docs/roadmap-v2/farm/three-05-harvested-native.png |    Bin 0 -> 1818104 bytes
+ docs/roadmap-v2/farm/three-06-unlocked-native.png  |    Bin 0 -> 1681832 bytes
+ docs/roadmap-v2/hud-667-dpr2.png                   |    Bin 0 -> 521208 bytes
+ docs/roadmap-v2/hud-844-dpr3.png                   |    Bin 0 -> 877896 bytes
+ docs/roadmap-v2/hud-960-dpr1.png                   |    Bin 0 -> 863628 bytes
+ docs/roadmap-v2/interior-667-dpr2.png              |    Bin 0 -> 105819 bytes
+ docs/roadmap-v2/interior-844-dpr3.png              |    Bin 0 -> 155077 bytes
+ docs/roadmap-v2/interior-960-dpr1.png              |    Bin 0 -> 56305 bytes
+ docs/roadmap-v2/review-assets/IMAGE_PROOF.json     |    500 +
+ docs/roadmap-v2/review-assets/QA.md                |     36 +
+ docs/roadmap-v2/review-assets/VIDEO_PROOF.json     |     23 +
+ .../review-assets/baseline-farm-native.png         |    Bin 0 -> 2824699 bytes
+ .../review-assets/baseline-farm-review.jpg         |    Bin 0 -> 458692 bytes
+ docs/roadmap-v2/review-assets/crop-atlas-3x.png    |    Bin 0 -> 29252 bytes
+ .../roadmap-v2/review-assets/crop-atlas-native.png |    Bin 0 -> 19307 bytes
+ .../farm-00-empty-bed-crop-1x-native.png           |    Bin 0 -> 23718 bytes
+ .../farm-00-empty-bed-crop-1x-review.jpg           |    Bin 0 -> 7479 bytes
+ .../review-assets/farm-00-empty-native.png         |    Bin 0 -> 1622054 bytes
+ .../review-assets/farm-00-empty-review.jpg         |    Bin 0 -> 266699 bytes
+ .../farm-01-prepared-bed-crop-1x-native.png        |    Bin 0 -> 27393 bytes
+ .../farm-01-prepared-bed-crop-1x-review.jpg        |    Bin 0 -> 7445 bytes
+ .../review-assets/farm-01-prepared-native.png      |    Bin 0 -> 1626222 bytes
+ .../review-assets/farm-01-prepared-review.jpg      |    Bin 0 -> 266604 bytes
+ .../farm-02-seeded-bed-crop-1x-native.png          |    Bin 0 -> 27614 bytes
+ .../farm-02-seeded-bed-crop-1x-review.jpg          |    Bin 0 -> 7464 bytes
+ .../review-assets/farm-02-seeded-native.png        |    Bin 0 -> 1626305 bytes
+ .../review-assets/farm-02-seeded-review.jpg        |    Bin 0 -> 266841 bytes
+ .../farm-07-harvested-bed-crop-1x-native.png       |    Bin 0 -> 29174 bytes
+ .../farm-07-harvested-bed-crop-1x-review.jpg       |    Bin 0 -> 7707 bytes
+ .../review-assets/farm-07-harvested-native.png     |    Bin 0 -> 1625865 bytes
+ .../review-assets/farm-07-harvested-review.jpg     |    Bin 0 -> 265869 bytes
+ .../review-assets/hud-667-dpr2-browser.png         |    Bin 0 -> 542051 bytes
+ .../review-assets/hud-667-dpr2-review.jpg          |    Bin 0 -> 221594 bytes
+ .../review-assets/hud-844-dpr3-browser.png         |    Bin 0 -> 901885 bytes
+ .../review-assets/hud-844-dpr3-review.jpg          |    Bin 0 -> 632323 bytes
+ .../review-assets/hud-960-dpr1-browser.png         |    Bin 0 -> 948365 bytes
+ .../review-assets/hud-960-dpr1-review.jpg          |    Bin 0 -> 184214 bytes
+ docs/roadmap-v2/review-assets/index.html           |      1 +
+ .../review-assets/interior-667-dpr2-browser.png    |    Bin 0 -> 115237 bytes
+ .../review-assets/interior-667-dpr2-review.jpg     |    Bin 0 -> 160880 bytes
+ .../review-assets/interior-844-dpr3-browser.png    |    Bin 0 -> 166272 bytes
+ .../review-assets/interior-844-dpr3-review.jpg     |    Bin 0 -> 393686 bytes
+ .../review-assets/interior-960-dpr1-browser.png    |    Bin 0 -> 61589 bytes
+ .../review-assets/interior-960-dpr1-review.jpg     |    Bin 0 -> 90947 bytes
+ .../review-assets/route-bridge-A-native.png        |    Bin 0 -> 1454879 bytes
+ .../review-assets/route-bridge-A-review.jpg        |    Bin 0 -> 230152 bytes
+ .../review-assets/route-bridge-B-native.png        |    Bin 0 -> 1453930 bytes
+ .../review-assets/route-bridge-B-review.jpg        |    Bin 0 -> 233614 bytes
+ .../route-farm-six-and-exit-native.png             |    Bin 0 -> 1479424 bytes
+ .../route-farm-six-and-exit-review.jpg             |    Bin 0 -> 243715 bytes
+ .../review-assets/route-station-plaza-native.png   |    Bin 0 -> 1405625 bytes
+ .../review-assets/route-station-plaza-review.jpg   |    Bin 0 -> 219032 bytes
+ .../route-western-hanok-mouth-native.png           |    Bin 0 -> 1614552 bytes
+ .../route-western-hanok-mouth-review.jpg           |    Bin 0 -> 256046 bytes
+ .../review-assets/story-00-accepted-native.png     |    Bin 0 -> 31113 bytes
+ .../review-assets/story-00-accepted-review.jpg     |    Bin 0 -> 72091 bytes
+ .../review-assets/story-01-room-shop-native.png    |    Bin 0 -> 30458 bytes
+ .../review-assets/story-01-room-shop-review.jpg    |    Bin 0 -> 69065 bytes
+ .../story-02-sign-restored-native.png              |    Bin 0 -> 32852 bytes
+ .../story-02-sign-restored-review.jpg              |    Bin 0 -> 72240 bytes
+ .../review-assets/story-03-complete-native.png     |    Bin 0 -> 31497 bytes
+ .../review-assets/story-03-complete-review.jpg     |    Bin 0 -> 71559 bytes
+ .../review-assets/story-04-reloaded-native.png     |    Bin 0 -> 31385 bytes
+ .../review-assets/story-04-reloaded-review.jpg     |    Bin 0 -> 71585 bytes
+ .../three-00-sown-bed-crop-1x-native.png           |    Bin 0 -> 33118 bytes
+ .../three-00-sown-bed-crop-1x-review.jpg           |    Bin 0 -> 7633 bytes
+ .../review-assets/three-00-sown-native.png         |    Bin 0 -> 1637951 bytes
+ .../review-assets/three-00-sown-review.jpg         |    Bin 0 -> 266903 bytes
+ .../three-01-sprout-bed-crop-1x-native.png         |    Bin 0 -> 32931 bytes
+ .../three-01-sprout-bed-crop-1x-review.jpg         |    Bin 0 -> 7628 bytes
+ .../review-assets/three-01-sprout-native.png       |    Bin 0 -> 1638913 bytes
+ .../review-assets/three-01-sprout-review.jpg       |    Bin 0 -> 267194 bytes
+ .../three-02-young-bed-crop-1x-native.png          |    Bin 0 -> 32935 bytes
+ .../three-02-young-bed-crop-1x-review.jpg          |    Bin 0 -> 7626 bytes
+ .../review-assets/three-02-young-native.png        |    Bin 0 -> 1639533 bytes
+ .../review-assets/three-02-young-review.jpg        |    Bin 0 -> 267286 bytes
+ .../three-03-growing-bed-crop-1x-native.png        |    Bin 0 -> 33267 bytes
+ .../three-03-growing-bed-crop-1x-review.jpg        |    Bin 0 -> 7666 bytes
+ .../review-assets/three-03-growing-native.png      |    Bin 0 -> 1639735 bytes
+ .../review-assets/three-03-growing-review.jpg      |    Bin 0 -> 267472 bytes
+ .../three-04-mature-bed-crop-1x-native.png         |    Bin 0 -> 33240 bytes
+ .../three-04-mature-bed-crop-1x-review.jpg         |    Bin 0 -> 7667 bytes
+ .../review-assets/three-04-mature-native.png       |    Bin 0 -> 1639256 bytes
+ .../review-assets/three-04-mature-review.jpg       |    Bin 0 -> 266979 bytes
+ .../three-05-harvested-bed-crop-1x-native.png      |    Bin 0 -> 33231 bytes
+ .../three-05-harvested-bed-crop-1x-review.jpg      |    Bin 0 -> 7811 bytes
+ .../review-assets/three-05-harvested-native.png    |    Bin 0 -> 1634861 bytes
+ .../review-assets/three-05-harvested-review.jpg    |    Bin 0 -> 266008 bytes
+ .../review-assets/three-06-unlocked-native.png     |    Bin 0 -> 1465841 bytes
+ .../review-assets/three-06-unlocked-review.jpg     |    Bin 0 -> 236204 bytes
+ docs/roadmap-v2/route-bridge-A-native.png          |    Bin 0 -> 1692411 bytes
+ docs/roadmap-v2/route-bridge-B-native.png          |    Bin 0 -> 1663897 bytes
+ docs/roadmap-v2/route-farm-six-and-exit-native.png |    Bin 0 -> 1645987 bytes
+ docs/roadmap-v2/route-station-plaza-native.png     |    Bin 0 -> 1687156 bytes
+ .../route-western-hanok-mouth-native.png           |    Bin 0 -> 1804653 bytes
+ docs/roadmap-v2/story-00-accepted-native.png       |    Bin 56998 -> 56058 bytes
+ docs/roadmap-v2/story-01-room-shop-native.png      |    Bin 71381 -> 68589 bytes
+ docs/roadmap-v2/story-02-sign-restored-native.png  |    Bin 58421 -> 58424 bytes
+ docs/roadmap-v2/story-03-complete-native.png       |    Bin 56490 -> 56735 bytes
+ docs/roadmap-v2/story-04-reloaded-native.png       |    Bin 0 -> 56222 bytes
+ public/assets/roadmap-v2/crops.png                 |    Bin 19311 -> 19307 bytes
+ src/gate3/main.ts                                  |      6 +-
+ src/interiors/registry.ts                          |      1 +
+ src/quests/ui.ts                                   |      6 +-
+ tests/e2e/roadmap-v2.spec.ts                       |      2 +
+ tests/unit/roadmap-v2.test.ts                      |     38 +-
+ tools/roadmap-v2/art.py                            |      6 +-
+ tools/roadmap-v2/audit.py                          |     23 +
+ tools/roadmap-v2/build_review.mjs                  |    190 +
+ tools/roadmap-v2/device.mjs                        |      7 +
+ tools/roadmap-v2/farm.mjs                          |     15 +-
+ tools/roadmap-v2/nav_path.py                       |     39 +
+ tools/roadmap-v2/navigation.mjs                    |     10 +
+ tools/roadmap-v2/navigation.py                     |     10 +
+ tools/roadmap-v2/pin_amendments.py                 |      7 +-
+ tools/roadmap-v2/review_assets.py                  |     34 +
+ tools/roadmap-v2/walk_world.mjs                    |      2 +
+ 216 files changed, 1056643 insertions(+), 464 deletions(-)
+ create mode 100644 assets-src/roadmap-v2/crop-qa-final.png
+ create mode 100644 docs/phase3bd-final-quality-release/ACTUAL_LIVE_VERIFICATION.json
+ create mode 100644 docs/roadmap-v2/ACCEPTANCE_MATRIX.json
+ create mode 100644 docs/roadmap-v2/ART_BUILD_FINAL.json
+ create mode 100644 docs/roadmap-v2/ART_QA_FINAL.json
+ create mode 100644 docs/roadmap-v2/ART_QA_FINAL.log
+ create mode 100644 docs/roadmap-v2/ASSET_EXPOSURE.json
+ create mode 100644 docs/roadmap-v2/BUILD_DOOR_FINAL.log
+ create mode 100644 docs/roadmap-v2/CLEAN_ASSETS.log
+ create mode 100644 docs/roadmap-v2/CLEAN_BUILD.log
+ create mode 100644 docs/roadmap-v2/CLEAN_CLONE.log
+ create mode 100644 docs/roadmap-v2/CLEAN_E2E.log
+ create mode 100644 docs/roadmap-v2/CLEAN_FORMAT.log
+ create mode 100644 docs/roadmap-v2/CLEAN_LINT.log
+ create mode 100644 docs/roadmap-v2/CLEAN_NPM_CI.log
+ create mode 100644 docs/roadmap-v2/CLEAN_NPM_CI_SECOND.log
+ create mode 100644 docs/roadmap-v2/CLEAN_TYPECHECK.log
+ create mode 100644 docs/roadmap-v2/CLEAN_UNIT.log
+ create mode 100644 docs/roadmap-v2/CORE_PRESERVATION.json
+ create mode 100644 docs/roadmap-v2/CORRUPT_ROOM_INITIAL.log
+ create mode 100644 docs/roadmap-v2/CORRUPT_ROOM_REPRODUCTION.log
+ create mode 100644 docs/roadmap-v2/DEVICE_QA.json
+ create mode 100644 docs/roadmap-v2/DEVICE_QA.log
+ create mode 100644 docs/roadmap-v2/DEVICE_QA_CORE.json
+ create mode 100644 docs/roadmap-v2/DEVICE_QA_FINAL.log
+ create mode 100644 docs/roadmap-v2/E2E_DOOR_FINAL.log
+ create mode 100644 docs/roadmap-v2/ENCODE_FARM.log
+ create mode 100644 docs/roadmap-v2/ENCODE_FARM_BOUNDED.log
+ create mode 100644 docs/roadmap-v2/ENCODE_STORY.log
+ create mode 100644 docs/roadmap-v2/FARM_FINAL.log
+ create mode 100644 docs/roadmap-v2/FARM_FINAL_QUALIFIED.log
+ create mode 100644 docs/roadmap-v2/FARM_PRIMARY_FOURTH.log
+ create mode 100644 docs/roadmap-v2/FINAL_FREEZE_FORMAT.log
+ create mode 100644 docs/roadmap-v2/FINAL_FREEZE_LINT.log
+ create mode 100644 docs/roadmap-v2/FINAL_FREEZE_TYPECHECK.log
+ create mode 100644 docs/roadmap-v2/FINAL_FREEZE_UNIT.log
+ create mode 100644 docs/roadmap-v2/FINAL_NEW_ART_DIFF.json
+ create mode 100644 docs/roadmap-v2/FINAL_SOURCE_FORMAT.log
+ create mode 100644 docs/roadmap-v2/FINAL_SOURCE_LINT.log
+ create mode 100644 docs/roadmap-v2/FINAL_SOURCE_UNIT.log
+ create mode 100644 docs/roadmap-v2/FORMAT_CORRUPT_GUARD.log
+ create mode 100644 docs/roadmap-v2/FORMAT_DOOR_FINAL.log
+ create mode 100644 docs/roadmap-v2/FORMAT_HUD_POLISH.log
+ create mode 100644 docs/roadmap-v2/FORMAT_LAST_COPY.log
+ create mode 100644 docs/roadmap-v2/HUD_FINAL_BUILD.log
+ create mode 100644 docs/roadmap-v2/HUD_FINAL_E2E.log
+ create mode 100644 docs/roadmap-v2/HUD_FINAL_UNIT.log
+ create mode 100644 docs/roadmap-v2/LAST_FORMAT.log
+ create mode 100644 docs/roadmap-v2/LAST_LINT.log
+ create mode 100644 docs/roadmap-v2/LAST_TYPECHECK.log
+ create mode 100644 docs/roadmap-v2/LAST_UNIT.log
+ create mode 100644 docs/roadmap-v2/NAVIGATION_QA.json
+ create mode 100644 docs/roadmap-v2/NAVIGATION_QA.log
+ create mode 100644 docs/roadmap-v2/NAV_GUIDE.json
+ create mode 100644 docs/roadmap-v2/QA.md
+ create mode 100644 docs/roadmap-v2/REVIEW_BUILD.log
+ create mode 100644 docs/roadmap-v2/REVIEW_BUILD_SECOND.log
+ create mode 100644 docs/roadmap-v2/STORY_FINAL.log
+ create mode 100644 docs/roadmap-v2/STORY_QA.json
+ create mode 100644 docs/roadmap-v2/STORY_RELOAD_FAILURE.log
+ create mode 100644 docs/roadmap-v2/e2e-clean/e2e-results.json
+ create mode 100644 docs/roadmap-v2/e2e-door-final/e2e-results.json
+ create mode 100644 docs/roadmap-v2/e2e-hud-final/e2e-results.json
+ create mode 100644 docs/roadmap-v2/farm/FARM_QA.json
+ create mode 100644 docs/roadmap-v2/farm/FIFTH_FINAL_BUY_TAB_FAILURE.json
+ create mode 100644 docs/roadmap-v2/farm/FOURTH_SHORT_MIX_TIMING_FAILURE.json
+ create mode 100644 docs/roadmap-v2/farm/THIRD_DRIVER_TAB_FAILURE.json
+ create mode 100644 docs/roadmap-v2/farm/farm-failure.png
+ create mode 100644 docs/roadmap-v2/farm/three-00-sown-native.png
+ create mode 100644 docs/roadmap-v2/farm/three-01-sprout-native.png
+ create mode 100644 docs/roadmap-v2/farm/three-02-young-native.png
+ create mode 100644 docs/roadmap-v2/farm/three-03-growing-native.png
+ create mode 100644 docs/roadmap-v2/farm/three-04-mature-native.png
+ create mode 100644 docs/roadmap-v2/farm/three-05-harvested-native.png
+ create mode 100644 docs/roadmap-v2/farm/three-06-unlocked-native.png
+ create mode 100644 docs/roadmap-v2/hud-667-dpr2.png
+ create mode 100644 docs/roadmap-v2/hud-844-dpr3.png
+ create mode 100644 docs/roadmap-v2/hud-960-dpr1.png
+ create mode 100644 docs/roadmap-v2/interior-667-dpr2.png
+ create mode 100644 docs/roadmap-v2/interior-844-dpr3.png
+ create mode 100644 docs/roadmap-v2/interior-960-dpr1.png
+ create mode 100644 docs/roadmap-v2/review-assets/IMAGE_PROOF.json
+ create mode 100644 docs/roadmap-v2/review-assets/QA.md
+ create mode 100644 docs/roadmap-v2/review-assets/VIDEO_PROOF.json
+ create mode 100644 docs/roadmap-v2/review-assets/baseline-farm-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/baseline-farm-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/crop-atlas-3x.png
+ create mode 100644 docs/roadmap-v2/review-assets/crop-atlas-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/farm-00-empty-bed-crop-1x-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/farm-00-empty-bed-crop-1x-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/farm-00-empty-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/farm-00-empty-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/farm-01-prepared-bed-crop-1x-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/farm-01-prepared-bed-crop-1x-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/farm-01-prepared-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/farm-01-prepared-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/farm-02-seeded-bed-crop-1x-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/farm-02-seeded-bed-crop-1x-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/farm-02-seeded-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/farm-02-seeded-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/farm-07-harvested-bed-crop-1x-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/farm-07-harvested-bed-crop-1x-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/farm-07-harvested-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/farm-07-harvested-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/hud-667-dpr2-browser.png
+ create mode 100644 docs/roadmap-v2/review-assets/hud-667-dpr2-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/hud-844-dpr3-browser.png
+ create mode 100644 docs/roadmap-v2/review-assets/hud-844-dpr3-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/hud-960-dpr1-browser.png
+ create mode 100644 docs/roadmap-v2/review-assets/hud-960-dpr1-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/index.html
+ create mode 100644 docs/roadmap-v2/review-assets/interior-667-dpr2-browser.png
+ create mode 100644 docs/roadmap-v2/review-assets/interior-667-dpr2-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/interior-844-dpr3-browser.png
+ create mode 100644 docs/roadmap-v2/review-assets/interior-844-dpr3-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/interior-960-dpr1-browser.png
+ create mode 100644 docs/roadmap-v2/review-assets/interior-960-dpr1-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/route-bridge-A-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/route-bridge-A-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/route-bridge-B-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/route-bridge-B-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/route-farm-six-and-exit-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/route-farm-six-and-exit-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/route-station-plaza-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/route-station-plaza-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/route-western-hanok-mouth-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/route-western-hanok-mouth-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/story-00-accepted-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/story-00-accepted-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/story-01-room-shop-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/story-01-room-shop-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/story-02-sign-restored-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/story-02-sign-restored-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/story-03-complete-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/story-03-complete-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/story-04-reloaded-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/story-04-reloaded-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/three-00-sown-bed-crop-1x-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/three-00-sown-bed-crop-1x-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/three-00-sown-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/three-00-sown-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/three-01-sprout-bed-crop-1x-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/three-01-sprout-bed-crop-1x-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/three-01-sprout-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/three-01-sprout-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/three-02-young-bed-crop-1x-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/three-02-young-bed-crop-1x-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/three-02-young-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/three-02-young-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/three-03-growing-bed-crop-1x-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/three-03-growing-bed-crop-1x-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/three-03-growing-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/three-03-growing-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/three-04-mature-bed-crop-1x-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/three-04-mature-bed-crop-1x-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/three-04-mature-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/three-04-mature-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/three-05-harvested-bed-crop-1x-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/three-05-harvested-bed-crop-1x-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/three-05-harvested-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/three-05-harvested-review.jpg
+ create mode 100644 docs/roadmap-v2/review-assets/three-06-unlocked-native.png
+ create mode 100644 docs/roadmap-v2/review-assets/three-06-unlocked-review.jpg
+ create mode 100644 docs/roadmap-v2/route-bridge-A-native.png
+ create mode 100644 docs/roadmap-v2/route-bridge-B-native.png
+ create mode 100644 docs/roadmap-v2/route-farm-six-and-exit-native.png
+ create mode 100644 docs/roadmap-v2/route-station-plaza-native.png
+ create mode 100644 docs/roadmap-v2/route-western-hanok-mouth-native.png
+ create mode 100644 docs/roadmap-v2/story-04-reloaded-native.png
+ create mode 100644 tools/roadmap-v2/audit.py
+ create mode 100644 tools/roadmap-v2/build_review.mjs
+ create mode 100644 tools/roadmap-v2/device.mjs
+ create mode 100644 tools/roadmap-v2/nav_path.py
+ create mode 100644 tools/roadmap-v2/navigation.mjs
+ create mode 100644 tools/roadmap-v2/navigation.py
+ create mode 100644 tools/roadmap-v2/review_assets.py
+ create mode 100644 tools/roadmap-v2/walk_world.mjs

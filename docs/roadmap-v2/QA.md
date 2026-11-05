@@ -23,7 +23,7 @@
 
 ## Why four full-suite tests failed
 
-Three cases immediately clicked a visible door during the valid400msreturncooldown. The product now hides the button until interaction is available; cooldown/movement/collision were not relaxed. Fourth mobile fixture lacked hasTouch:true, so CSS correctly hid its joystick; the fixture now genuinely uses a touch-capable context and CDP touch. All4 reran PASS. The full core73 tests are retained from the clean-clone bab63f0d run; subsequent app differences are the exact door-visibility condition nativehoeicon/ĐấtHạtlabel presentation, and a strict numeric interior-save guard backed by a new negative test. Final223unit and focused4Phaser checks bind those changes. No clean77singlerun claim.
+Three cases immediately clicked a visible door during the valid400msreturncooldown. The product now hides the button until interaction is available; cooldown/movement/collision were not relaxed. Fourth mobile fixture lacked hasTouch:true, so CSS correctly hid its joystick; the fixture now genuinely uses a touch-capable context and CDP touch. All4 reran PASS. The full core73 tests are retained from the clean-clone bab63f0d run; subsequent app differences are the exact door-visibility condition nativehoeicon/ĐấtHạtlabel presentation, a strict numeric interior-save guard backed by a new negative test, and the exact newly authored strawberry silhouette refinement (other58frames byte-identical). Final223unit and focused4Phaser checks bind those changes. No clean77singlerun claim.
 
 ## Main farming evidence
 
@@ -34,3 +34,9 @@ Actual Studio choosesJuni at the normal world spawn, walks toCheolsu and earns s
 Native PNG readback/crops evaluate texels; H264 videos are lossy review media with unchanged time/dimensions. New code-authored interiors/crops require art review and are not claimed equivalent to a human-approved painted Gate1 scene. All Korean drafts are PENDING_HUMAN_REVIEW; local gameXP/Town Coins never certify mastery or write production learning records. LocalStorage/wallclock are not secure server authority; malformed durations/order/receipts are checked, but real anti-cheat/accounts are out of scope. Performance samples are2.2second cloudChromiumCanvas observations, not guaranteed60FPS or mobilehardware certification. JS chunk warning remains. Original diagnostic FAIL/WARN and interrupted run are listed in QA_RUN_HISTORY.md.
 
 Final ZIP/HTTP extraction proof is recorded in PACKAGE_PROOF.json after freeze, separately from the ZIP self-hash to avoid a hash cycle. Existing public run41852211445 verified1a6e5a58/331cd300; it is a rollback baseline, not this changed V2.
+
+## Final extracted candidate and prepared controls
+
+Exact671d267e artifact,744file manifestcdf3f6d5: ZIP CRC/extraction/745entries and everyHTTP body hash PASS. Actual extracted Phaser26catalog/12players/native1×, normal Studio movement, realseed/till/plant/water/elapsedharvest,3roomphysicalentry/exit and2videoplaybacks PASS; no console/network/externalrequests. OFFLINE_BROWSER_PROOF.json is this actual run. Final clean223unit/4focusedE2E alsoPASS in CLEAN_FINAL_*.log. Seven deployment-gate checksPASS including pendingownerBLOCK and immutable all-priorassets retention; syntheticpositivefixtures are not ownerapproval. PreparedV2runner rehearsalPASS on localHTTP, not liveHTTPS. NewV2notdeployed.
+
+Eight additional extracted-game enter/exit cycles: texture count37 and decoded-RGBAestimate43,279,548bytes unchanged before/after. This is an estimate, not actualGPUresidentmemory or leak certification. Cloud Chromium AUTO renderer started asWebGL; actual hardwareGPUperformance remains NOTTESTED. PERFORMANCE.json retains raw snapshots.
