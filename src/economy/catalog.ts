@@ -19,6 +19,46 @@ export const items: Record<
     stock: number;
   }
 > = {
+  "archive-note": {
+    name: "Ghi chú sân xưa",
+    ko: "기록 쪽지",
+    stack: 99,
+    buy: 0,
+    sell: 0,
+    stock: 0,
+  },
+  "packing-seal": {
+    name: "Dấu đóng gói",
+    ko: "포장 도장",
+    stack: 99,
+    buy: 0,
+    sell: 0,
+    stock: 0,
+  },
+  "supply-parcel": {
+    name: "Gói tiếp tế Jeju",
+    ko: "제주 소포",
+    stack: 99,
+    buy: 0,
+    sell: 0,
+    stock: 0,
+  },
+  "orchard-order": {
+    name: "Đơn hàng quýt",
+    ko: "귤 주문서",
+    stack: 99,
+    buy: 0,
+    sell: 0,
+    stock: 0,
+  },
+  "town-bookmark": {
+    name: "Dấu sách thị trấn",
+    ko: "마을 책갈피",
+    stack: 99,
+    buy: 0,
+    sell: 0,
+    stock: 0,
+  },
   "seed-radish": {
     name: "Hạt củ cải",
     ko: "무 씨앗",
@@ -275,10 +315,18 @@ export function ready(p: PlotState, now: number) {
     Math.max(0, Math.min(ECONOMY.offlineCapMs, now - p.wateredAt)) >= p.growMs
   );
 }
+export const V4_QUEST_ITEMS = new Set([
+  "archive-note",
+  "packing-seal",
+  "supply-parcel",
+  "orchard-order",
+  "town-bookmark",
+]);
 export function validInventory(inv: Record<string, number>) {
   return (
     Object.values(inv).every((n) => Number.isSafeInteger(n) && n >= 0) &&
-    Object.entries(inv).filter(([, n]) => n > 0).length <= ECONOMY.slots &&
+    Object.entries(inv).filter(([id, n]) => n > 0 && !V4_QUEST_ITEMS.has(id))
+      .length <= ECONOMY.slots &&
     Object.entries(inv).every(
       ([id, n]) => n <= (items[id]?.stack ?? ECONOMY.maxStack),
     )

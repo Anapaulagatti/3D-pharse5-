@@ -23,5 +23,10 @@ def runtime_names():
  names|={'assets/farming/crops.png','assets/farming/crops.json','assets/farming/postcard.png','assets/farming/interaction-tools.png','assets/farming/interaction-tools.json'}
  names|={"assets/farming/phase3bd-final-quality/"+n for n in ["crops.png","crops.json","soil-components.png","soil-components.json"]}
  names|={"assets/roadmap-v2/"+n for n in ["crops.png","crops.json","props.png","props.json","coin.png","bag.png","journal.png","hoe.png"]}
+ a=json.loads((R/'src/gate3/v4-collision.json').read_text());names|={c['mask']for c in a['chunks']}
+ names|={"assets/roadmap-v4/rooms/"+n for n in ["kit.png","kit.json","seed-shop-ground.png","bookshop-ground.png","workshop-ground.png"]}
+ names|={"assets/roadmap-v4/farm/NW-FARM-"+str(i).zfill(2)+".png" for i in range(1,7)}
+ names|={"assets/roadmap-v4/ui/"+n+".png" for n in ["frame-dark","frame-paper","slot"]}
+ names|={"assets/roadmap-v4/farm/NW-FARM-"+str(i).zfill(2)+"-"+layer+".png"for i in range(1,7)for layer in ["rim-back","rim-front"]}
  return names
 if __name__=='__main__':print(json.dumps(sorted(runtime_names()),indent=2))

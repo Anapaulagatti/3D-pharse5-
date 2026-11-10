@@ -5,6 +5,11 @@ export interface QuestDefinition {
   id: string;
   title: string;
   prerequisite?: string;
+  requires?: readonly string[];
+  storyline?: "letters" | "farm" | "merchant" | "culture" | "jeju";
+  optional?: boolean;
+  deliveryItem?: string;
+  consumeOnReturn?: { item: string; count: number };
   ko: string;
   giver: string;
   recipient?: string;
@@ -25,7 +30,9 @@ export interface QuestDefinition {
       | "enter"
       | "fragment"
       | "repair"
-      | "courier";
+      | "courier"
+      | "visit"
+      | "service";
     crop?: string;
     item?: string;
   }[];
@@ -227,6 +234,7 @@ export const quests: readonly QuestDefinition[] = [
   },
   {
     id: "farm-variety-v2",
+    optional: true,
     title: "Một vụ cà rốt mới",
     ko: "당근 기르기",
     giver: "npc-nayeon",
@@ -248,10 +256,200 @@ export const quests: readonly QuestDefinition[] = [
     ],
     reward: { coins: 24, xp: 15, items: { "seed-cabbage": 1 } },
   },
+  {
+    id: "culture-postcard-v4",
+    title: "Dấu chữ trên sân xưa",
+    ko: "마당의 글자",
+    giver: "npc-seoyeon",
+    recipient: "npc-jiho",
+    topic: "delivery",
+    storyline: "culture",
+    requires: ["farm-first-seed-v1"],
+    deliveryItem: "archive-note",
+    steps: [
+      {
+        id: "palace-observation",
+        label: "Dừng đọc biển sân cung điện; rồi tìm sân học hanok",
+        point: [2048, 990],
+      },
+      {
+        id: "academy-observation",
+        label: "Quan sát ký hiệu tại sân học hanok; mang ghi chú tới Jiho",
+        point: [800, 1500],
+      },
+    ],
+    economyObjectives: [
+      { event: "visit", item: "culture:palace" },
+      { event: "visit", item: "culture:academy" },
+    ],
+    reward: { coins: 16, xp: 10, items: {} },
+  },
+  {
+    id: "workshop-imprint-v4",
+    title: "Dấu đóng cho người giao thư",
+    ko: "배달 도장",
+    giver: "npc-eunji",
+    topic: "delivery",
+    storyline: "letters",
+    requires: ["culture-postcard-v4"],
+    steps: [
+      {
+        id: "tool-inspection",
+        label: "Tại xưởng, kiểm tra dụng cụ trên bàn",
+        point: [1418, 2605],
+      },
+      {
+        id: "packing",
+        label: "Đóng dấu gói hàng tại bàn giao của xưởng; báo Eunji",
+        point: [1418, 2605],
+      },
+    ],
+    economyObjectives: [
+      { event: "service", item: "workshop:tools" },
+      { event: "service", item: "workshop:packing" },
+    ],
+    reward: { coins: 14, xp: 10, items: { "packing-seal": 1 } },
+  },
+  {
+    id: "jeju-supply-v4",
+    title: "Một chuyến tiếp tế qua cầu",
+    ko: "제주에 전해요",
+    giver: "npc-minseo",
+    recipient: "npc-harin",
+    topic: "delivery",
+    storyline: "jeju",
+    requires: ["shop-garden-market-v1", "workshop-imprint-v4"],
+    deliveryItem: "supply-parcel",
+    steps: [
+      {
+        id: "market-packing",
+        label: "Kiểm tra gói tiếp tế tại quầy hạt giống",
+        point: [717, 2605],
+      },
+      {
+        id: "island-junction",
+        label: "Qua cầu tới nút giao lát đá trên đảo Jeju",
+        point: [3690, 4090],
+      },
+      {
+        id: "house-approach",
+        label: "Theo đường cong phía đông hanok tới thềm cửa; gặp Harin",
+        point: [3590, 4390],
+      },
+    ],
+    economyObjectives: [
+      { event: "service", item: "seed-shop:packing" },
+      { event: "visit", item: "jeju:junction" },
+      { event: "visit", item: "jeju:threshold" },
+    ],
+    reward: { coins: 28, xp: 15, items: {} },
+  },
+  {
+    id: "island-ledger-v4",
+    title: "Một giỏ quýt, hai miền phố",
+    ko: "귤과 마을",
+    giver: "npc-harin",
+    recipient: "npc-minseo",
+    topic: "delivery",
+    storyline: "merchant",
+    requires: ["jeju-orchard-v1", "culture-postcard-v4"],
+    deliveryItem: "orchard-order",
+    consumeOnReturn: { item: "tangerine", count: 1 },
+    steps: [
+      {
+        id: "orchard-house",
+        label: "Ghi đơn quýt ở thềm hanok bằng lối cong đã khám phá",
+        point: [3590, 4390],
+      },
+      {
+        id: "shop-return",
+        label: "Mang đơn cùng một quýt tới quầy Minseo trên đất liền",
+        point: [717, 2605],
+      },
+    ],
+    economyObjectives: [
+      { event: "visit", item: "jeju:threshold" },
+      { event: "service", item: "seed-shop:packing" },
+    ],
+    reward: { coins: 24, xp: 15, items: {} },
+  },
+  {
+    id: "town-reunion-v4",
+    title: "Tấm bảng nối những người bạn",
+    ko: "다시 만난 이야기",
+    giver: "npc-jiho",
+    topic: "delivery",
+    storyline: "letters",
+    requires: ["town-first-delivery-v2", "island-ledger-v4"],
+    steps: [
+      {
+        id: "workshop-signature",
+        label: "Xin dấu xác nhận ở bàn giao xưởng Eunji",
+        point: [1418, 2605],
+      },
+      {
+        id: "market-signature",
+        label: "Ghé quầy hạt giống để nối đơn hàng với câu chuyện",
+        point: [717, 2605],
+      },
+      {
+        id: "bookshop-notice",
+        label: "Gắn bảng liên lạc tại hiệu sách rồi báo Jiho",
+        point: [1128, 2605],
+      },
+    ],
+    economyObjectives: [
+      { event: "service", item: "workshop:packing" },
+      { event: "service", item: "seed-shop:packing" },
+      { event: "service", item: "bookshop:notice" },
+    ],
+    reward: { coins: 30, xp: 20, items: { "town-bookmark": 1 } },
+  },
 ];
 export const itemNames: Record<string, string> = {
+  "archive-note": "Ghi chú sân xưa",
+  "packing-seal": "Dấu đóng gói",
+  "supply-parcel": "Gói tiếp tế Jeju",
+  "orchard-order": "Đơn hàng quýt",
+  "town-bookmark": "Dấu sách thị trấn",
   tangerine: "Quýt",
   parcel: "Gói sách",
   seed: "Hạt giống",
   sprout: "Mầm cây thực hành",
 };
+
+/** One prerequisite authority shared by model/UI. Old prerequisite remains backward compatible. */
+export function questRequirements(q: QuestDefinition) {
+  return [
+    ...new Set([
+      ...(q.prerequisite ? [q.prerequisite] : []),
+      ...(q.requires ?? []),
+    ]),
+  ];
+}
+export function questAvailable(
+  q: QuestDefinition,
+  records: Record<string, { status: string }>,
+) {
+  return questRequirements(q).every(
+    (id) => records[id]?.status === "completed",
+  );
+}
+export function questStoryline(q: QuestDefinition) {
+  return (
+    q.storyline ??
+    (q.topic === "farm"
+      ? "farm"
+      : q.topic === "orchard"
+        ? "jeju"
+        : q.id === "town-first-delivery-v2"
+          ? "letters"
+          : "merchant")
+  );
+}
+export const discoveryPoints = [
+  { id: "culture:palace", point: [2048, 990] },
+  { id: "culture:academy", point: [800, 1500] },
+  { id: "jeju:junction", point: [3690, 4090] },
+  { id: "jeju:threshold", point: [3590, 4390] },
+] as const;

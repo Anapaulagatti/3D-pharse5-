@@ -6,7 +6,9 @@ import type { RegistryMotion } from "../characters/RegistryMotion";
 import type { QuestUI } from "../quests/ui";
 import {
   interiors,
-  ROOM,
+  roomLayouts,
+  roomInteractionGround,
+  type RoomLayout,
   roomWalkable,
   INTERIOR_SAVE,
   type InteriorDefinition,
@@ -39,6 +41,10 @@ function transfer(sprite: Phaser.GameObjects.Sprite, to: Phaser.Scene) {
 /** A real Phaser room. Borrows the SAME approved player/NPC objects and motion controller. No new character engine. */
 export class InteriorScene extends Phaser.Scene {
   private inputData!: InteriorInput;
+  private layout!: RoomLayout;
+  private ground = (x: number, y: number) => roomWalkable(x, y, this.layout);
+  private interactionGround = (x: number, y: number) =>
+    roomInteractionGround(x, y, this.layout);
   private x = 320;
   private y = 414;
   private facing: JuniView = "front";
@@ -62,7 +68,8 @@ export class InteriorScene extends Phaser.Scene {
   }
   init(data: InteriorInput) {
     this.inputData = data;
-    [this.x, this.y] = data.resume?.position ?? ROOM.spawn;
+    this.layout = roomLayouts[data.definition.id];
+    [this.x, this.y] = data.resume?.position ?? this.layout.spawn;
     this.locked = false;
     this.closing = false;
     this.signSlots = [];
@@ -79,54 +86,23 @@ export class InteriorScene extends Phaser.Scene {
       r = q.definition;
     this.cameras.main.setBackgroundColor("#20352f");
     this.cameras.main.setZoom(1).setRoundPixels(true);
-    this.cameras.main.centerOn(320, 240);
+    this.cameras.main.centerOn(this.layout.width / 2, this.layout.height / 2);
     this.input.setDefaultCursor("default");
-    for (let y = 96; y < 464; y += 16)
-      for (let x = 32; x < 608; x += 16)
-        this.objects.push(
-          this.add
-            .image(
-              x,
-              y,
-              "town-props",
-              r.kind === "market" ? "floor-stone" : "floor-wood",
-            )
-            .setOrigin(0)
-            .setCrop(0, 0, 16, 16)
-            .setDepth(-5),
-        );
-    for (let x = 32; x < 608; x += 64)
-      this.objects.push(
-        this.add.image(x, 32, "town-props", "wall").setOrigin(0).setDepth(-2),
-      );
+    this.add
+      .image(0, 0, "room-" + r.id)
+      .setOrigin(0)
+      .setDepth(-10);
     const prop = (key: string, x: number, y: number) => {
-      const s = this.add
-        .image(x, y, "town-props", key)
-        .setOrigin(0.5, 0.95)
+      const sprite = this.add
+        .image(x, y, "room-kit", key)
+        .setOrigin(0.5, 1)
         .setDepth(y);
-      this.objects.push(s);
-      return s;
+      this.objects.push(sprite);
+      return sprite;
     };
-    for (const x of [80, 112, 520, 552]) {
-      prop(r.kind === "books" ? "bookshelf" : "seed-rack", x, 188);
-    }
-    prop("counter", 288, 234);
-    prop("counter", 350, 234);
-    prop("lamp", 220, 240);
-    prop("lamp", 420, 180);
-    prop("table", 114, 392);
-    prop("table", 524, 392);
-    prop("stool", 205, 365);
-    prop("stool", 433, 365);
-    this.fragmentSprite = prop("fragment", ...ROOM.fragment);
-    prop(
-      (q.quest.manager.snapshot().records["town-first-delivery-v2"]?.step ??
-        0) > 4
-        ? "restored-sign"
-        : "sign",
-      ...ROOM.sign,
-    );
-    this.parcelSprite = prop("parcel", ...ROOM.courier);
+    for (const [key, x, y] of this.layout.props) prop(key, x, y);
+    this.fragmentSprite = prop("fragment", ...this.layout.fragment);
+    this.parcelSprite = prop("parcel", ...this.layout.courier);
     const addText = (x: number, y: number, text: string) =>
       this.add
         .text(x, y, text, {
@@ -137,32 +113,49 @@ export class InteriorScene extends Phaser.Scene {
           padding: { x: 5, y: 3 },
         })
         .setOrigin(0.5)
-        .setDepth(-1);
-    addText(320, 90, r.name);
-    addText(320, 458, "↓ Ra ngoài · E / chạm");
-    addText(150, 270, "Mảnh nét");
-    addText(486, 268, "Bảng chữ");
-    addText(320, 262, "Điểm giao");
+        .setDepth(800);
+    addText(this.layout.width / 2, 28, r.name);
+    addText(this.layout.exit[0], this.layout.exit[1] + 10, "↓ E · Ra ngoài");
+    addText(
+      this.layout.sign[0],
+      this.layout.sign[1] - 116,
+      r.id === "bookshop" ? "Hangul · 한국어" : "Bảng nét chữ",
+    );
+    addText(
+      this.layout.service[0],
+      this.layout.service[1] - 20,
+      r.id === "workshop"
+        ? "Dụng cụ"
+        : r.id === "seed-shop"
+          ? "Đóng kiện"
+          : "Bảng cộng đồng",
+    );
     transfer(q.player, this);
     q.player
       .setVisible(true)
       .setPosition(this.x, this.y)
       .setDepth(this.y + 0.1);
-    const padX = Math.max(0, Math.ceil((this.scale.width - 640) / 2)),
-      padY = Math.max(0, Math.ceil((this.scale.height - 480) / 2));
+    const padX = Math.max(
+        0,
+        Math.ceil((this.scale.width - this.layout.width) / 2),
+      ),
+      padY = Math.max(
+        0,
+        Math.ceil((this.scale.height - this.layout.height) / 2),
+      );
     this.cameras.main
       .setBounds(
         -padX,
         -padY,
-        Math.max(640, this.scale.width),
-        Math.max(480, this.scale.height),
+        Math.max(this.layout.width, this.scale.width),
+        Math.max(this.layout.height, this.scale.height),
       )
       .startFollow(q.player, true, 1, 1);
     transfer(q.npc.sprite, this);
     q.npc.sprite
-      .setPosition(...ROOM.actor)
+      .setPosition(...this.layout.actor)
       .setVisible(true)
-      .setDepth(ROOM.actor[1])
+      .setDepth(this.layout.actor[1])
       .setFrame("idle-front-0");
     q.npc.sprite.disableInteractive();
     this.keys = this.input.keyboard!.addKeys(
@@ -202,11 +195,12 @@ export class InteriorScene extends Phaser.Scene {
         signal: this.bindings.signal,
       });
     for (const [k, point] of [
-      ["exit", ROOM.exit],
-      ["fragment", ROOM.fragment],
-      ["sign", ROOM.sign],
-      ["courier", ROOM.courier],
-      ["npc", ROOM.actor],
+      ["exit", this.layout.exit],
+      ["fragment", this.layout.fragment],
+      ["sign", this.layout.sign],
+      ["courier", this.layout.courier],
+      ["npc", this.layout.actor],
+      ["service", this.layout.service],
     ] as const) {
       const zone = this.add
         .zone(point[0], point[1], k === "npc" ? 90 : 50, 60)
@@ -223,9 +217,9 @@ export class InteriorScene extends Phaser.Scene {
     }
     q.quest.useInterior({
       player: () => [this.x, this.y],
-      ground: roomWalkable,
+      ground: this.interactionGround,
       canInteract: () => !this.locked && !this.closing,
-      actor: (id) => (id === r.npc ? ROOM.actor : undefined),
+      actor: (id) => (id === r.npc ? this.layout.actor : undefined),
       actorName: () => r.npc.replace("npc-", ""),
       lock: () => {
         this.locked = true;
@@ -245,7 +239,7 @@ export class InteriorScene extends Phaser.Scene {
       "enter:" + r.id + ":" + q.quest.manager.snapshot().economy.revision,
       [this.x, this.y],
       [this.x, this.y],
-      roomWalkable,
+      this.ground,
     );
     this.events.once("shutdown", () => {
       this.bindings?.abort();
@@ -258,7 +252,7 @@ export class InteriorScene extends Phaser.Scene {
   private status(text: string) {
     this.panel.querySelector("#interior-status")!.textContent = text;
   }
-  private event(event: string, item = this.inputData.definition.id) {
+  private event(event: string, item: string = this.inputData.definition.id) {
     const m = this.inputData.quest.manager,
       s = m.snapshot();
     return m.interiorEvent(
@@ -266,9 +260,20 @@ export class InteriorScene extends Phaser.Scene {
       item,
       `${event}:${item}:${s.economy.revision}`,
       [this.x, this.y],
-      [this.x, this.y],
-      roomWalkable,
+      this.eventPoint(event, item),
+      this.ground,
     );
+  }
+  private eventPoint(event: string, item: string): readonly [number, number] {
+    if (event === "fragment") return this.layout.fragment;
+    if (event === "repair") return this.layout.sign;
+    if (event === "courier") return this.layout.courier;
+    if (event === "service")
+      return item.endsWith(":packing") &&
+        this.inputData.definition.id === "workshop"
+        ? this.layout.courier
+        : this.layout.service;
+    return [this.x, this.y];
   }
   private place(index: number) {
     if (
@@ -327,9 +332,9 @@ export class InteriorScene extends Phaser.Scene {
     }
     this.event("repair");
     const s = this.add
-      .image(...ROOM.sign, "town-props", "restored-sign")
-      .setOrigin(0.5, 0.95)
-      .setDepth(ROOM.sign[1] + 1);
+      .image(...this.layout.sign, "room-kit", "notice-restored")
+      .setOrigin(0.5, 1)
+      .setDepth(this.layout.sign[1] + 1);
     this.objects.push(s);
     this.status("Bảng 책 đã sáng! Nhận tuyến giao ở giữa xưởng.");
     this.panel.querySelector<HTMLElement>("#sign-pieces")!.hidden = true;
@@ -343,6 +348,26 @@ export class InteriorScene extends Phaser.Scene {
     }
     if (target === "npc") {
       this.inputData.quest.open(this.inputData.definition.npc);
+      return;
+    }
+    if (target === "service") {
+      const id = this.inputData.definition.id;
+      this.event(
+        "service",
+        id +
+          (id === "workshop"
+            ? ":tools"
+            : id === "bookshop"
+              ? ":notice"
+              : ":packing"),
+      );
+      this.status(
+        id === "workshop"
+          ? "Đã kiểm tra bộ dụng cụ và ghi dấu công việc."
+          : id === "bookshop"
+            ? "Đã đọc bảng cộng đồng; nhật ký ghi nhận khi đúng bước."
+            : "Đã kiểm tra nhãn và đóng gói vật tư tại quầy.",
+      );
       return;
     }
     if (target === "fragment") {
@@ -361,10 +386,16 @@ export class InteriorScene extends Phaser.Scene {
       return;
     }
     if (target === "sign") {
+      if (this.inputData.definition.id === "bookshop") {
+        this.inputData.quest.openPractice();
+        return;
+      }
       this.renderSign();
       return;
     }
     if (target === "courier") {
+      if (this.inputData.definition.id === "workshop")
+        this.event("service", "workshop:packing");
       const before =
         this.inputData.quest.manager.snapshot().records[
           "town-first-delivery-v2"
@@ -385,6 +416,7 @@ export class InteriorScene extends Phaser.Scene {
         INTERIOR_SAVE,
         JSON.stringify({
           version: 1,
+          layoutVersion: 2,
           id: this.inputData.definition.id,
           world: this.inputData.world,
           position: [this.x, this.y],
@@ -439,7 +471,7 @@ export class InteriorScene extends Phaser.Scene {
         dx,
         dy,
         (Math.min(dt, 50) * (run ? 100 : 60)) / 1000,
-        roomWalkable,
+        this.ground,
       );
     this.x = m.x;
     this.y = m.y;
@@ -474,11 +506,12 @@ export class InteriorScene extends Phaser.Scene {
       !!storyState && storyState.step >= 5 && storyState.step < 8,
     );
     const targets = [
-      ["exit", ROOM.exit, 40],
-      ["fragment", ROOM.fragment, 48],
-      ["sign", ROOM.sign, 48],
-      ["courier", ROOM.courier, 48],
-      ["npc", ROOM.actor, 112],
+      ["exit", this.layout.exit, 40],
+      ["fragment", this.layout.fragment, 48],
+      ["sign", this.layout.sign, 48],
+      ["courier", this.layout.courier, 48],
+      ["service", this.layout.service, 48],
+      ["npc", this.layout.actor, 112],
     ] as const;
     this.currentTarget =
       targets
@@ -495,6 +528,7 @@ export class InteriorScene extends Phaser.Scene {
           sign: "E · Ghép bảng",
           courier: "E · Xác nhận địa chỉ",
           npc: "E · Trò chuyện / giao dịch",
+          service: "E · Kiểm tra / ghi nhận",
         } as Record<string, string>
       )[this.currentTarget] ?? "";
     if (this.currentTarget !== "sign")
@@ -508,6 +542,8 @@ export class InteriorScene extends Phaser.Scene {
     document.querySelector("#near")!.textContent =
       `${q.definition.name} · ${story ? (quests.find((x) => x.id === "town-first-delivery-v2")!.steps[story.step]?.label ?? "Trở lại Jiho") : "WASD, E, Esc để trở ra"}`;
     window.__INTERIOR__ = {
+      layoutVersion: 2,
+      layout: this.layout,
       progress: {
         records: q.quest.manager.snapshot().records,
         coins: q.quest.manager.snapshot().coins,
@@ -528,7 +564,7 @@ export class InteriorScene extends Phaser.Scene {
       playerIdentity: q.player.getData("playerCharacter"),
       npcIdentity: q.definition.npc,
       placements: this.placements,
-      footOnFloor: roomWalkable(this.x, this.y),
+      footOnFloor: this.ground(this.x, this.y),
       scale: q.player.scaleX,
       sampling: q.player.frame.source.scaleMode,
       scene: "town-interior",
@@ -540,6 +576,8 @@ export class InteriorScene extends Phaser.Scene {
 declare global {
   interface Window {
     __INTERIOR__?: {
+      layoutVersion: 2;
+      layout: RoomLayout;
       progress: {
         records: ReturnType<QuestUI["manager"]["snapshot"]>["records"];
         coins: number;

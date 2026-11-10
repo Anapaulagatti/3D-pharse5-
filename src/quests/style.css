@@ -425,3 +425,115 @@ body[data-interior="true"] #character-open,
 body[data-interior="true"] #pause {
   display: none !important;
 }
+
+/* V4 native nine-slice game skin. DOM retains semantic focus and native Korean text. */
+#quest-hud button,
+#town-coins,
+#quest-tracker,
+#world-feedback,
+#seed-picker,
+#interior-tools {
+  border: 6px solid transparent;
+  border-image: url("../../public/assets/roadmap-v4/ui/frame-dark.png") 6 fill /
+    6px / 0 stretch;
+  background: #243e36;
+  border-radius: 0;
+  box-shadow: 0 2px 0 #162a25;
+}
+#quest-dialogue {
+  border: 8px solid transparent;
+  border-image: url("../../public/assets/roadmap-v4/ui/frame-paper.png") 6
+    fill / 8px / 0 stretch;
+  background: #e5d5aa;
+}
+#quest-dialogue button,
+.inventory-item {
+  border: 5px solid transparent;
+  border-image: url("../../public/assets/roadmap-v4/ui/frame-paper.png") 6
+    fill / 5px / 0 stretch;
+  background: #e5d5aa;
+  border-radius: 0;
+}
+#quest-hud .town-pocket button {
+  border-image: url("../../public/assets/roadmap-v4/ui/frame-dark.png") 6 fill /
+    6px / 0 stretch;
+  background: #243e36;
+}
+#farm-toolbelt {
+  gap: 0;
+  padding: 3px;
+  background: #243e36;
+  border: 6px solid transparent;
+  border-image: url("../../public/assets/roadmap-v4/ui/frame-dark.png") 6 fill /
+    6px / 0 stretch;
+}
+#farm-toolbelt button {
+  min-width: 58px;
+  border-image: url("../../public/assets/roadmap-v4/ui/slot.png") 6 fill / 6px /
+    0 stretch;
+}
+#quest-hud button[aria-pressed="true"] {
+  color: #ffe8a4;
+  outline: 2px solid #dfbb6e;
+  outline-offset: -5px;
+}
+#quest-tracker {
+  line-height: 1.4;
+  max-height: 50px;
+}
+.wallet-receipts {
+  font: 12px/1.6 monospace;
+  overflow-wrap: anywhere;
+}
+.quest-typed-answer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+.quest-typed-answer input {
+  min-height: 44px;
+  width: min(240px, 60vw);
+  font: 18px system-ui;
+  background: #fff1cd;
+  border: 2px solid #8b7953;
+  color: #263c32;
+}
+#interior-tools {
+  width: min(300px, 35vw);
+  padding: 4px;
+  font-size: 12px;
+}
+#interior-tools:has(#interior-status:empty) #interior-status {
+  display: none;
+}
+@media (max-height: 450px) {
+  #quest-hud {
+    width: min(290px, 44vw);
+  }
+  #quest-tracker {
+    max-height: 32px;
+  }
+  #farm-toolbelt .native-item {
+    width: 24px;
+    height: 30px;
+  }
+  #farm-toolbelt {
+    bottom: max(4px, env(safe-area-inset-bottom));
+  }
+  #interior-tools {
+    max-height: 45svh;
+    top: 48px;
+    font-size: 11px;
+  }
+  #interior-tools strong {
+    font-size: 11px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #quest-hud *,
+  #quest-dialogue * {
+    transition: none;
+    animation: none;
+  }
+}

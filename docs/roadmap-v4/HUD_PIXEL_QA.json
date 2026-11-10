@@ -1,0 +1,141 @@
+{
+  "status": "pass",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "same_size",
+      "status": "pass",
+      "value": [
+        [
+          24,
+          24
+        ]
+      ],
+      "threshold": "one canvas size"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../public/assets/roadmap-v4/ui/frame-dark.png",
+      "sha256": "70674ffc398cbef7d4f98b6a241c368ac9fda16c48206c65f82c93d403153bdc",
+      "bytes": 219
+    },
+    {
+      "path": "../../public/assets/roadmap-v4/ui/frame-paper.png",
+      "sha256": "2540df2d09f510958c74ba95a1f039820b8eb7a1292ec883e4ed2b3d2c2b3849",
+      "bytes": 212
+    },
+    {
+      "path": "../../public/assets/roadmap-v4/ui/slot.png",
+      "sha256": "39a153fc62ed5241f9112a77fca55755e8311da6c671d5223f8187fb6b855d74",
+      "bytes": 219
+    }
+  ],
+  "outputs": [
+    {
+      "path": "HUD_NATIVE_REVIEW.png",
+      "sha256": "e9aa76337f84a25b442625d0d88a83fc87700a15cffd4ea1f096f380f5b33a6f",
+      "bytes": 7679
+    }
+  ],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../public/assets/roadmap-v4/ui/frame-dark.png",
+      "size": [
+        24,
+        24
+      ],
+      "source_mode": "RGBA",
+      "visible": 560,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 0,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        0,
+        0,
+        24,
+        24
+      ]
+    },
+    {
+      "file": "../../public/assets/roadmap-v4/ui/frame-paper.png",
+      "size": [
+        24,
+        24
+      ],
+      "source_mode": "RGBA",
+      "visible": 560,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 0,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        0,
+        0,
+        24,
+        24
+      ]
+    },
+    {
+      "file": "../../public/assets/roadmap-v4/ui/slot.png",
+      "size": [
+        24,
+        24
+      ],
+      "source_mode": "RGBA",
+      "visible": 560,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 0,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        0,
+        0,
+        24,
+        24
+      ]
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import Phaser from "phaser";
 import { cropVisual } from "./presentation";
-import { beds, plots } from "./catalog";
+import groundOwnership from "../../public/assets/roadmap-v4/farm/ownership.json";
+import { plots } from "./catalog";
 import type { QuestSave } from "../quests/manager";
 /** Small native material components and independently owned crop cells; no bed-sized image. */
 export class FarmWorld {
@@ -15,24 +16,27 @@ export class FarmWorld {
   }[];
   private last = "";
   constructor(scene: Phaser.Scene, onPick: (id: string) => void) {
-    for (const bed of beds) {
-      const [x, y, w, h] = bed.rect;
-      for (let dy = 0; dy < h; dy += 16)
-        for (let dx = 0; dx < w; dx += 16) {
-          this.grounds.push(
-            scene.add
-              .image(
-                x + dx,
-                y + dy,
-                "farm-materials",
-                `loam-${((dx / 16) * 7 + (dy / 16) * 11 + (dx / 16) * (dy / 16) * 5 + Number(bed.id.slice(-2)) * 3) % 12}`,
-              )
-              .setOrigin(0)
-              .setCrop(0, 0, Math.min(16, w - dx), Math.min(16, h - dy))
-              .setDepth(y - 1),
-          );
-        }
-    }
+    for (const bed of groundOwnership.beds)
+      this.grounds.push(
+        scene.add
+          .image(bed.x, bed.y, "farm-ground-" + bed.id)
+          .setOrigin(0)
+          .setDepth(bed.y - 1),
+      );
+    for (const bed of groundOwnership.beds)
+      for (const layer of ["rim-back", "rim-front"] as const) {
+        const rim = bed[layer];
+        this.grounds.push(
+          scene.add
+            .image(
+              rim.position[0],
+              rim.position[1],
+              "farm-" + layer + "-" + bed.id,
+            )
+            .setOrigin(0)
+            .setDepth(rim.depth),
+        );
+      }
     this.entries = plots.map((p, i) => {
       const [x, y, w, h] = p.sourceRect,
         tiles: Phaser.GameObjects.Image[] = [];

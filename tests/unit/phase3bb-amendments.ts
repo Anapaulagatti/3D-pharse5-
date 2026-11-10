@@ -1,3 +1,5 @@
+import roadmapV2 from "../../docs/roadmap-v2/AUTHORIZED_AMENDMENTS.json";
+import roadmapV4 from "../../docs/roadmap-v4/AUTHORIZED_AMENDMENTS.json";
 import quality from "../../docs/phase3bd-final-quality/AUTHORIZED_AMENDMENTS.json";
 import hotfix from "../../docs/phase3bd-farm-path/AUTHORIZED_AMENDMENTS.json";
 import physical from "../../docs/phase3bd-in-world/AUTHORIZED_AMENDMENTS.json";
@@ -77,7 +79,19 @@ export function expectedAmendedHash(path: string, original: unknown): unknown {
   )[path];
   if (finalChange && finalChange.beforeSHA256 !== previousQuality)
     throw Error("Final quality predecessor mismatch: " + path);
-  return finalChange?.afterSHA256 ?? previousQuality;
+  let hash: unknown = finalChange?.afterSHA256 ?? previousQuality;
+  for (const manifest of [roadmapV2, roadmapV4]) {
+    const row = (
+      manifest.files as Record<
+        string,
+        { beforeSHA256: string; afterSHA256: string }
+      >
+    )[path];
+    if (row && row.beforeSHA256 !== hash)
+      throw Error("Versioned roadmap predecessor mismatch: " + path);
+    hash = row?.afterSHA256 ?? hash;
+  }
+  return hash;
 }
 const historicalBatch = new Map<string, Buffer>();
 function loadHistoricalBatch() {

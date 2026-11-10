@@ -1,3 +1,6 @@
+import { hangulQuestions, type LearningGrade } from "./learning";
+import { translationQuestions } from "./translations";
+import { PracticeProgress } from "./PracticeProgress";
 import cropAtlas from "../../public/assets/roadmap-v2/crops.json";
 import {
   crops,
@@ -11,7 +14,14 @@ import {
   type CropId,
 } from "../economy/catalog";
 import { plotPresentation, type FarmTool } from "../economy/presentation";
-import { quests, itemNames, type QuestDefinition } from "./content";
+import {
+  quests,
+  itemNames,
+  questAvailable,
+  questRequirements,
+  questStoryline,
+  type QuestDefinition,
+} from "./content";
 import { QuestManager, type InteractionContext } from "./manager";
 import "./style.css";
 export type WorldFeedback =
@@ -38,7 +48,7 @@ export interface QuestHost {
   onOpen(id: string): void;
   onClose(id: string): void;
 }
-type View = "journal" | "inventory" | "npc" | "shop";
+type View = "journal" | "inventory" | "npc" | "shop" | "practice" | "wallet";
 const itemName = (id: string) => items[id]?.name ?? itemNames[id] ?? id;
 export class QuestUI {
   readonly manager: QuestManager;
@@ -67,6 +77,11 @@ export class QuestUI {
   private signal = new AbortController();
   private exteriorHost: QuestHost;
   private inventoryCategory = "all";
+  private practiceGrade: LearningGrade = "basic";
+  private practiceTopic = "delivery";
+  private practiceDirection: "vi-ko" | "ko-vi" = "vi-ko";
+  private practiceIndex = 0;
+  private practice!: PracticeProgress;
   useInterior(host?: QuestHost) {
     this.close();
     this.host = host ?? this.exteriorHost;
@@ -81,10 +96,11 @@ export class QuestUI {
       /* Optional local demo. */
     }
     this.manager = new QuestManager(storage);
+    this.practice = new PracticeProgress(storage);
     this.message = this.manager.migrationNotice;
     this.root.id = "quest-hud";
     this.root.innerHTML =
-      '<div class="town-pocket"><output id="town-coins" aria-label="Town Coins"></output><button id="quest-inventory" aria-label="Mở túi đồ">Túi đồ</button><button id="quest-journal" aria-label="Xem nhiệm vụ">Nhiệm vụ</button></div><p id="quest-tracker" aria-live="polite"></p><div id="farm-toolbelt" role="toolbar" aria-label="Dụng cụ canh tác"><button data-tool="seed" aria-label="Xới đất hoặc chọn hạt giống">Đất / Hạt</button><button data-tool="water" aria-label="Trang bị bình tưới">Tưới</button><button data-tool="harvest" aria-label="Trang bị dụng cụ thu hoạch">Gặt</button></div><button id="quest-world-action" hidden></button><output id="world-feedback" role="status"></output>';
+      '<div class="town-pocket"><button id="town-coins" aria-label="Mở ví Town Coins và biên nhận"></button><button id="quest-inventory" aria-label="Mở túi đồ">Túi đồ</button><button id="quest-journal" aria-label="Xem nhiệm vụ">Nhiệm vụ</button></div><p id="quest-tracker" aria-live="polite"></p><div id="farm-toolbelt" role="toolbar" aria-label="Dụng cụ canh tác"><button data-tool="seed" aria-label="Xới đất hoặc chọn hạt giống">Đất / Hạt</button><button data-tool="water" aria-label="Trang bị bình tưới">Tưới</button><button data-tool="harvest" aria-label="Trang bị dụng cụ thu hoạch">Gặt</button></div><button id="quest-world-action" hidden></button><output id="world-feedback" role="status"></output>';
     this.picker.id = "seed-picker";
     this.picker.hidden = true;
     this.picker.setAttribute("role", "group");
@@ -94,6 +110,9 @@ export class QuestUI {
     this.dialog.setAttribute("aria-labelledby", "quest-heading");
     document.body.append(this.root, this.dialog);
     const signal = this.signal.signal;
+    this.root
+      .querySelector("#town-coins")!
+      .addEventListener("click", () => this.show("wallet"), { signal });
     this.root
       .querySelector("#quest-journal")!
       .addEventListener("click", () => this.open(), { signal });
@@ -180,13 +199,19 @@ export class QuestUI {
       ids = new Set([SHOPKEEPER]);
     for (const q of quests) {
       const r = s.records[q.id];
-      if (r?.status !== "completed") ids.add(q.giver);
+      if (r?.status !== "completed" && (r || questAvailable(q, s.records)))
+        ids.add(q.giver);
       if (q.recipient && r && r.status !== "completed") ids.add(q.recipient);
     }
     return ids;
   }
   hasOffer(id: string) {
-    return quests.some((q) => q.giver === id || q.recipient === id);
+    const s = this.manager.snapshot();
+    return quests.some(
+      (q) =>
+        (q.giver === id || q.recipient === id) &&
+        (!!s.records[q.id] || questAvailable(q, s.records)),
+    );
   }
   canReport(id: string) {
     const s = this.manager.snapshot();
@@ -254,6 +279,10 @@ export class QuestUI {
   }
   openInventory() {
     return this.show("inventory");
+  }
+  openPractice() {
+    if (this.host === this.exteriorHost) return false;
+    return this.show("practice");
   }
   openShop(id = SHOPKEEPER) {
     return id === SHOPKEEPER && this.show("shop", id);
@@ -340,6 +369,11 @@ export class QuestUI {
         "basket",
       ],
       map: Record<string, string> = {
+        "archive-note": "parcel",
+        "packing-seal": "coin",
+        "supply-parcel": "parcel",
+        "orchard-order": "parcel",
+        "town-bookmark": "parcel",
         seed: "seed-pouch",
         water: "water-can",
         harvest: "sickle",
@@ -364,13 +398,17 @@ export class QuestUI {
     this.dialog.dataset.view = this.mode;
     const heading = this.text(
       "h2",
-      this.mode === "shop"
-        ? "Cửa hàng Minseo · 민서의 가게"
-        : this.mode === "inventory"
-          ? "Túi đồ · 가방"
-          : this.mode === "journal"
-            ? "Nhật ký nhiệm vụ · 부탁"
-            : `${(this.npcId && this.host.actorName?.(this.npcId)) || "Người bạn"} · chuyện nhỏ`,
+      this.mode === "wallet"
+        ? "Ví Town Coins · 지갑"
+        : this.mode === "shop"
+          ? "Cửa hàng Minseo · 민서의 가게"
+          : this.mode === "practice"
+            ? "Bàn học Hangul · 한글 연습"
+            : this.mode === "inventory"
+              ? "Túi đồ · 가방"
+              : this.mode === "journal"
+                ? "Nhật ký nhiệm vụ · 부탁"
+                : `${(this.npcId && this.host.actorName?.(this.npcId)) || "Người bạn"} · chuyện nhỏ`,
     );
     heading.id = "quest-heading";
     const bar = document.createElement("div");
@@ -423,7 +461,46 @@ export class QuestUI {
       b.dataset.interiorShop = SHOPKEEPER;
       this.dialog.append(b);
     }
-    if (this.mode === "inventory") this.renderInventory();
+    if (
+      this.mode === "npc" &&
+      this.npcId === "npc-jiho" &&
+      this.host !== this.exteriorHost
+    ) {
+      const b = this.button("Luyện Hangul tại bàn học · 한글 연습", () => {
+        this.close();
+        this.openPractice();
+      });
+      b.dataset.practiceOpen = "bookshop";
+      this.dialog.append(b);
+    }
+    if (this.mode === "wallet") {
+      this.dialog.append(
+        this.text("h3", `${s.coins} Town Coins`),
+        this.text(
+          "p",
+          "Xu của bản demo cục bộ. Không phải điểm học, tiền thật hay ví website.",
+        ),
+      );
+      const list = document.createElement("ol");
+      list.className = "wallet-receipts";
+      for (const receipt of s.transactions.slice(-10).reverse())
+        list.append(this.text("li", receipt));
+      if (!list.children.length)
+        list.append(
+          this.text(
+            "li",
+            "Chưa có giao dịch. Nhận nhiệm vụ và thu hoạch trong thế giới để bắt đầu.",
+          ),
+        );
+      this.dialog.append(
+        this.text(
+          "p",
+          "10 biên nhận gần nhất · lưu cùng túi đồ để ngăn nhận thưởng hai lần",
+        ),
+        list,
+      );
+    } else if (this.mode === "practice") this.renderPractice();
+    else if (this.mode === "inventory") this.renderInventory();
     else if (this.mode === "shop") this.renderShop();
     else
       for (const q of quests.filter(
@@ -435,13 +512,62 @@ export class QuestUI {
         const box = document.createElement("section");
         box.className = "quest-card";
         box.dataset.quest = q.id;
+        box.dataset.storyline = questStoryline(q);
         box.append(
           this.text("h3", `${q.title} · ${q.ko}`),
           this.text("p", this.objective(q)),
         );
         if (this.mode === "npc") this.renderNPC(box, q, s.records[q.id]);
+        if (this.mode === "journal") {
+          box.prepend(
+            this.text(
+              "small",
+              (
+                {
+                  letters: "Chuyện thư",
+                  farm: "Nông trại",
+                  merchant: "Thương nhân",
+                  culture: "Sân xưa",
+                  jeju: "Jeju",
+                } as Record<string, string>
+              )[questStoryline(q)],
+            ),
+          );
+          if (s.records[q.id] && s.records[q.id].status !== "completed") {
+            const b = this.button(
+              s.trackedQuest === q.id ? "Đang theo dõi" : "Theo dõi tuyến này",
+              () => {
+                this.manager.trackQuest(q.id);
+                this.render();
+              },
+            );
+            b.dataset.trackQuest = q.id;
+            b.setAttribute("aria-pressed", String(s.trackedQuest === q.id));
+            box.append(b);
+          } else if (!s.records[q.id] && !questAvailable(q, s.records))
+            box.append(
+              this.text(
+                "small",
+                "Chờ các tuyến hội tụ: " +
+                  questRequirements(q)
+                    .map((id) => quests.find((x) => x.id === id)?.title ?? id)
+                    .join(" + "),
+              ),
+            );
+        }
         this.dialog.append(box);
       }
+    if (this.mode === "journal") {
+      const b = this.button(
+        s.hints === false ? "Bật gợi ý điểm đến" : "Tắt gợi ý điểm đến",
+        () => {
+          this.manager.toggleHints();
+          this.render();
+        },
+      );
+      b.dataset.waypointToggle = "true";
+      this.dialog.append(b);
+    }
     if (this.dialog.open && answer !== undefined)
       this.dialog
         .querySelector<HTMLButtonElement>(`[data-answer="${answer}"]`)
@@ -464,14 +590,18 @@ export class QuestUI {
           }
         }),
       );
-    if (
-      q.prerequisite &&
-      this.manager.snapshot().records[q.prerequisite]?.status !== "completed"
-    ) {
+    if (!questAvailable(q, this.manager.snapshot().records)) {
       box.append(
         this.text(
           "p",
-          "Mở sau: " + quests.find((x) => x.id === q.prerequisite)?.title,
+          "Mở sau: " +
+            questRequirements(q)
+              .filter(
+                (id) =>
+                  this.manager.snapshot().records[id]?.status !== "completed",
+              )
+              .map((id) => quests.find((x) => x.id === id)?.title ?? id)
+              .join(" + "),
         ),
       );
       return;
@@ -582,6 +712,132 @@ export class QuestUI {
       }
     });
     box.append(label, typed);
+  }
+  private renderPractice() {
+    const controls = document.createElement("div");
+    controls.className = "practice-controls";
+    const select = (
+      name: string,
+      items: readonly (readonly [string, string])[],
+      value: string,
+      change: (v: string) => void,
+    ) => {
+      const l = this.text("label", name),
+        s = document.createElement("select");
+      s.setAttribute("aria-label", name);
+      for (const [id, text] of items) {
+        const o = document.createElement("option");
+        o.value = id;
+        o.textContent = text;
+        s.append(o);
+      }
+      s.value = value;
+      s.onchange = () => {
+        change(s.value);
+        this.practiceIndex = 0;
+        this.render();
+      };
+      l.append(s);
+      controls.append(l);
+    };
+    select(
+      "Loại luyện tập",
+      [
+        ["vi-ko", "Trả lời bằng Hangul"],
+        ["ko-vi", "Dịch nghĩa tham khảo"],
+      ],
+      this.practiceDirection,
+      (v) => (this.practiceDirection = v as "vi-ko" | "ko-vi"),
+    );
+    select(
+      "Chủ đề",
+      [
+        ["farm", "Nông trại"],
+        ["shop", "Cửa hàng"],
+        ["delivery", "Giao thư"],
+        ["orchard", "Jeju / vườn quýt"],
+      ],
+      this.practiceTopic,
+      (v) => (this.practiceTopic = v),
+    );
+    if (this.practiceDirection === "vi-ko")
+      select(
+        "Cấp độ",
+        [
+          ["alphabet", "Bảng chữ cái"],
+          ["basic", "Cơ bản"],
+          ["intermediate", "Trung cấp"],
+        ],
+        this.practiceGrade,
+        (v) => (this.practiceGrade = v as LearningGrade),
+      );
+    this.dialog.append(
+      controls,
+      this.text(
+        "p",
+        "Luyện tự do, không thưởng xu hay xác nhận trình độ. Các nhiệm vụ đánh giá luôn dùng đáp án Hangul.",
+      ),
+    );
+    const pool =
+      this.practiceDirection === "vi-ko"
+        ? hangulQuestions.filter(
+            (q) =>
+              q.topic === this.practiceTopic && q.grade === this.practiceGrade,
+          )
+        : translationQuestions[this.practiceTopic];
+    const q = pool?.[this.practiceIndex % pool.length];
+    if (!q) return;
+    const box = document.createElement("section");
+    box.id = "hangul-practice";
+    box.dataset.question = q.id;
+    box.dataset.answerLanguage = q.answerLanguage;
+    box.dataset.learningDirection = q.direction;
+    box.dataset.grade = q.grade;
+    box.append(this.text("p", q.prompt));
+    const answer = (value: number | string) => {
+      const r = this.practice.answer(q, value);
+      this.message =
+        (r.correct ? "Đúng rồi! " : "Mình thử câu cùng cấp nhé. ") +
+        r.explanation;
+      this.practiceIndex++;
+      this.render();
+    };
+    q.options.forEach((v, i) => {
+      const b = this.button(`${i + 1}. ${v}`, () => answer(i));
+      b.dataset.answer = String(i);
+      b.dataset.practiceChoice = q.choiceIds[i];
+      b.lang = q.answerLanguage;
+      box.append(b);
+    });
+    if (q.answerLanguage === "ko") {
+      const label = this.text("label", "Hoặc nhập bằng Hangul"),
+        input = document.createElement("input");
+      input.lang = "ko";
+      input.type = "text";
+      input.maxLength = 160;
+      input.autocomplete = "off";
+      input.spellcheck = false;
+      input.dataset.hangulInput = q.id;
+      input.setAttribute("aria-label", "Nhập đáp án bằng tiếng Hàn");
+      const submit = () => answer(input.value);
+      input.onkeydown = (e) => {
+        if (!e.isComposing && e.keyCode !== 229 && e.key === "Enter") {
+          e.preventDefault();
+          submit();
+        }
+      };
+      label.append(input);
+      const b = this.button("Trả lời · 답하기", submit);
+      b.dataset.hangulSubmit = q.id;
+      box.append(label, b);
+    }
+    box.append(
+      this.text(
+        "small",
+        `${this.practiceGrade} · ${this.practiceDirection} · bản thảo chờ người duyệt`,
+      ),
+    );
+    this.dialog.append(box);
   }
   private renderInventory() {
     const s = this.manager.snapshot(),
@@ -735,6 +991,11 @@ export class QuestUI {
       return "Hoàn thành · phần thưởng đã nhận một lần.";
     if (r.status === "challenge")
       return "Trả lời câu hỏi tiếng Hàn tại người bạn để nhận thưởng.";
+    if (q.requires)
+      return (
+        q.steps[r.step]?.label ??
+        `Gặp ${(q.recipient ?? q.giver).replace("npc-", "")} để trả lời bằng Hangul.`
+      );
     if (q.id === "town-first-delivery-v2")
       return (
         q.steps[r.step]?.label ??
@@ -795,7 +1056,11 @@ export class QuestUI {
         .filter(
           (q) => s.records[q.id] && s.records[q.id].status !== "completed",
         )
-        .slice(0, 2)
+        .sort(
+          (a, b) =>
+            Number(b.id === s.trackedQuest) - Number(a.id === s.trackedQuest),
+        )
+        .slice(0, 1)
         .map((q) => this.objective(q))
         .join(" · "),
       key = JSON.stringify([

@@ -1,3 +1,4 @@
+import v4Collision from "./v4-collision.json";
 import { InteriorScene } from "../interiors/InteriorScene";
 import { interiors, readInterior } from "../interiors/registry";
 import { moveReviewPlayer } from "./ReviewMovement";
@@ -107,6 +108,13 @@ if (id === "palace-cleanup-world") {
       throw Error("Collision amendment predecessor mismatch");
     chunk.mask = change.mask;
   }
+}
+// Exact owner V4 local continuation; predecessor-checked, no global noclip or source art changes.
+for (const change of v4Collision.chunks) {
+  const chunk = data.chunks.find((c) => c.id === change.id);
+  if (!chunk || chunk.mask !== change.originalMask)
+    throw Error("V4 collision predecessor mismatch");
+  chunk.mask = change.mask;
 }
 const nativeContact = await loadNativeContact(
   (data as Manifest & { contactCollision?: ContactSpec }).contactCollision,
@@ -261,6 +269,28 @@ class Slice extends Phaser.Scene {
       base + "assets/roadmap-v2/props.png",
       base + "assets/roadmap-v2/props.json",
     );
+    this.load.atlas(
+      "room-kit",
+      base + "assets/roadmap-v4/rooms/kit.png",
+      base + "assets/roadmap-v4/rooms/kit.json",
+    );
+    for (const id of ["seed-shop", "bookshop", "workshop"])
+      this.load.image(
+        "room-" + id,
+        base + "assets/roadmap-v4/rooms/" + id + "-ground.png",
+      );
+    for (let i = 1; i <= 6; i++) {
+      const id = "NW-FARM-" + String(i).padStart(2, "0");
+      this.load.image(
+        "farm-ground-" + id,
+        base + "assets/roadmap-v4/farm/" + id + ".png",
+      );
+      for (const layer of ["rim-back", "rim-front"])
+        this.load.image(
+          "farm-" + layer + "-" + id,
+          base + "assets/roadmap-v4/farm/" + id + "-" + layer + ".png",
+        );
+    }
     const selected = characterSession.selected;
     if (!this.textures.exists(selected.assets!.key))
       this.load.atlas(

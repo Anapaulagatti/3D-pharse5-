@@ -1,0 +1,15 @@
+
+> hangeul-pixel-town@3.1.0 assets:check
+> python3 tools/check_actors.py && python3 tools/check_juni_animation.py && python3 tools/check_preservation.py
+
+Traceback (most recent call last):
+  File "/workspace/roadmap-v4-work/tools/check_actors.py", line 10, in <module>
+    for r in m['files']:assert hashlib.sha256((O/actor/r['path']).read_bytes()).hexdigest()==r['sha256'];assert (S/actor/r['path']).read_bytes()==(O/actor/r['path']).read_bytes()
+                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/roadmap-v4-work/assets-src/actors/hero/body.png'

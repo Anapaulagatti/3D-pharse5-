@@ -524,6 +524,8 @@ export class NPCManager {
     }
     const p = this.host.player(),
       camera = this.scene.cameras.main.worldView;
+    if (!this.host.blocked())
+      this.quests.manager.observeWorld(p, (x, y) => this.host.ground(x, y));
     for (const a of this.actors.values()) {
       const pos = a.model.record.position;
       const visible =

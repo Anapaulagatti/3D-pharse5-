@@ -1,0 +1,240 @@
+
+> hangeul-pixel-town@3.1.0 test
+> vitest run
+
+
+ RUN  v5.0.4 /workspace/roadmap-v4
+
+ ❯ tests/unit/characters/studio.test.ts (18 tests | 1 failed) 2017ms
+   ❯ Phase2A immutable approval baseline (4)
+     × preserves frozen world pixels, collision, camera, tour, controller and Juni 947ms
+fatal: path 'assets-src/characters/phase2c/catalog.json' exists on disk, but not in 'ddd52849566fb3c1734570d6ff8562fbf7ef4026'
+Traceback (most recent call last):
+  File "/workspace/roadmap-v4/tools/phase3a/protected.py", line 9, in <module>
+    if hashlib.sha256(historical_bytes(p,h)).hexdigest()!=h:bad.append(p)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/roadmap-v4/tools/phase3bb/amendments.py", line 75, in historical_bytes
+    old=subprocess.check_output(['git','show',q['base']+':'+name],cwd=R)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', 'ddd52849566fb3c1734570d6ff8562fbf7ef4026:assets-src/characters/phase2c/catalog.json']' returned non-zero exit status 128.
+ ❯ tests/unit/characters/phase2b.test.ts (17 tests | 1 failed) 2425ms
+   ❯ Phase2B accepted baseline protection (3)
+     × preserves approved files outside the explicit eight-cell Ara/Doyun walk-front amendment 2165ms
+ ❯ tests/unit/npcs/identity.test.ts (6 tests | 1 failed) 3185ms
+   ❯ approved26NPC identity and rights separation (6)
+     × keeps all26source packs,world,players and cosmetic assets byte-identical to human-approved review 3163ms
+fatal: path 'assets-src/characters/phase2c/catalog.json' exists on disk, but not in 'ddd52849566fb3c1734570d6ff8562fbf7ef4026'
+Traceback (most recent call last):
+  File "/workspace/roadmap-v4/tools/phase3a/protected.py", line 9, in <module>
+    if hashlib.sha256(historical_bytes(p,h)).hexdigest()!=h:bad.append(p)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/roadmap-v4/tools/phase3bb/amendments.py", line 75, in historical_bytes
+    old=subprocess.check_output(['git','show',q['base']+':'+name],cwd=R)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', 'ddd52849566fb3c1734570d6ff8562fbf7ef4026:assets-src/characters/phase2c/catalog.json']' returned non-zero exit status 128.
+fatal: path 'public/assets/characters/sori/atlas.png' exists on disk, but not in 'bcdbf175ed65d9be7054573cf8790b9e2da046bc'
+Traceback (most recent call last):
+  File "/workspace/roadmap-v4/tools/phase2b-motion/pixel_gait.py", line 19, in <module>
+    stem=f'public/assets/characters/{id}/atlas';meta=json.loads((R/(stem+'.json')).read_text())['frames'];old=Image.open(io.BytesIO(subprocess.check_output(['git','show',BASE+':'+stem+'.png']))).convert('RGBA');new=Image.open(R/(stem+'.png')).convert('RGBA')
+                                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', 'bcdbf175ed65d9be7054573cf8790b9e2da046bc:public/assets/characters/sori/atlas.png']' returned non-zero exit status 128.
+ ❯ tests/unit/characters/motion-correction.test.ts (8 tests | 2 failed) 1493ms
+   ❯ focused motion correction preservation and forward stance (8)
+     × recomputes exact atlas cell scope and protects every other frozen asset/runtime file 1144ms
+     × independently tracks actual raster soles: rejects old same-direction stance and verifies corrected source quantization 272ms
+fatal: path 'docs/v9-world/V8_V9_REAL_DIFFERENCE.png' does not exist in 'd54117c0958724276b98a131dbcb90a9af24e0fc'
+ ❯ tests/unit/world-cleanup.test.ts (3 tests | 1 failed) 82ms
+   ❯ approved world allowlist and real active-tree cleanup (3)
+     × rejects reintroduced old map content even renamed and placed in a different artifact location 16ms
+fatal: path 'assets-src/characters/phase2c/catalog.json' exists on disk, but not in 'ddd52849566fb3c1734570d6ff8562fbf7ef4026'
+Traceback (most recent call last):
+  File "/workspace/roadmap-v4/tools/phase3a/protected.py", line 9, in <module>
+    if hashlib.sha256(historical_bytes(p,h)).hexdigest()!=h:bad.append(p)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/roadmap-v4/tools/phase3bb/amendments.py", line 75, in historical_bytes
+    old=subprocess.check_output(['git','show',q['base']+':'+name],cwd=R)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', 'ddd52849566fb3c1734570d6ff8562fbf7ef4026:assets-src/characters/phase2c/catalog.json']' returned non-zero exit status 128.
+ ❯ tests/unit/characters/walk-front-hotfix.test.ts (9 tests | 1 failed) 1001ms
+   ❯ authorized walk-front-only hotfix (9)
+     × protects every frozen file outside the64 authorized walk-front cells and8 atlas containers 947ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/world-cleanup.test.ts > approved world allowlist and real active-tree cleanup > rejects reintroduced old map content even renamed and placed in a different artifact location
+Error: Command failed: git show d54117c0958724276b98a131dbcb90a9af24e0fc:docs/v9-world/V8_V9_REAL_DIFFERENCE.png
+fatal: path 'docs/v9-world/V8_V9_REAL_DIFFERENCE.png' does not exist in 'd54117c0958724276b98a131dbcb90a9af24e0fc'
+
+ ❯ tests/unit/world-cleanup.test.ts:49:9
+     47|       writeFileSync(
+     48|         join(d, "renamed-old-map.png"),
+     49|         execFileSync("git", ["show", cleanup.base + ":" + image.path],…
+       |         ^
+     50|           maxBuffer: 128 * 1024 * 1024,
+     51|         }),
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  tests/unit/characters/motion-correction.test.ts > focused motion correction preservation and forward stance > recomputes exact atlas cell scope and protects every other frozen asset/runtime file
+Error: Command failed: python3 tools/phase3a/protected.py
+fatal: path 'assets-src/characters/phase2c/catalog.json' exists on disk, but not in 'ddd52849566fb3c1734570d6ff8562fbf7ef4026'
+Traceback (most recent call last):
+  File "/workspace/roadmap-v4/tools/phase3a/protected.py", line 9, in <module>
+    if hashlib.sha256(historical_bytes(p,h)).hexdigest()!=h:bad.append(p)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/roadmap-v4/tools/phase3bb/amendments.py", line 75, in historical_bytes
+    old=subprocess.check_output(['git','show',q['base']+':'+name],cwd=R)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', 'ddd52849566fb3c1734570d6ff8562fbf7ef4026:assets-src/characters/phase2c/catalog.json']' returned non-zero exit status 128.
+
+ ❯ tests/unit/characters/motion-correction.test.ts:14:5
+     12| describe("focused motion correction preservation and forward stance", …
+     13|   it("recomputes exact atlas cell scope and protects every other froze…
+     14|     execFileSync("python3", ["tools/phase3a/protected.py"]);
+       |     ^
+     15|     const protectedResult = json("docs/phase3a/protected-audit.json");
+     16|     expect(protectedResult.status).toBe("PASS");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  tests/unit/characters/motion-correction.test.ts > focused motion correction preservation and forward stance > independently tracks actual raster soles: rejects old same-direction stance and verifies corrected source quantization
+Error: Command failed: python3 tools/phase2b-motion/pixel_gait.py
+fatal: path 'public/assets/characters/sori/atlas.png' exists on disk, but not in 'bcdbf175ed65d9be7054573cf8790b9e2da046bc'
+Traceback (most recent call last):
+  File "/workspace/roadmap-v4/tools/phase2b-motion/pixel_gait.py", line 19, in <module>
+    stem=f'public/assets/characters/{id}/atlas';meta=json.loads((R/(stem+'.json')).read_text())['frames'];old=Image.open(io.BytesIO(subprocess.check_output(['git','show',BASE+':'+stem+'.png']))).convert('RGBA');new=Image.open(R/(stem+'.png')).convert('RGBA')
+                                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', 'bcdbf175ed65d9be7054573cf8790b9e2da046bc:public/assets/characters/sori/atlas.png']' returned non-zero exit status 128.
+
+ ❯ tests/unit/characters/motion-correction.test.ts:28:5
+     26|   }, 30000);
+     27|   it("independently tracks actual raster soles: rejects old same-direc…
+     28|     execFileSync("python3", ["tools/phase2b-motion/pixel_gait.py"], {
+       |     ^
+     29|       encoding: "utf8",
+     30|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  tests/unit/characters/phase2b.test.ts > Phase2B accepted baseline protection > preserves approved files outside the explicit eight-cell Ara/Doyun walk-front amendment
+Error: Command failed: python3 tools/phase3a/protected.py
+fatal: path 'assets-src/characters/phase2c/catalog.json' exists on disk, but not in 'ddd52849566fb3c1734570d6ff8562fbf7ef4026'
+Traceback (most recent call last):
+  File "/workspace/roadmap-v4/tools/phase3a/protected.py", line 9, in <module>
+    if hashlib.sha256(historical_bytes(p,h)).hexdigest()!=h:bad.append(p)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/roadmap-v4/tools/phase3bb/amendments.py", line 75, in historical_bytes
+    old=subprocess.check_output(['git','show',q['base']+':'+name],cwd=R)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', 'ddd52849566fb3c1734570d6ff8562fbf7ef4026:assets-src/characters/phase2c/catalog.json']' returned non-zero exit status 128.
+
+ ❯ tests/unit/characters/phase2b.test.ts:25:5
+     23| describe("Phase2B accepted baseline protection", () => {
+     24|   it("preserves approved files outside the explicit eight-cell Ara/Doy…
+     25|     execFileSync("python3", ["tools/phase3a/protected.py"]);
+       |     ^
+     26|     const protectedResult = json("docs/phase3a/protected-audit.json");
+     27|     expect(protectedResult.status).toBe("PASS");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  tests/unit/characters/studio.test.ts > Phase2A immutable approval baseline > preserves frozen world pixels, collision, camera, tour, controller and Juni
+Error: Missing preserved blob: public/assets/v10-city/academy-front-east.png
+ ❯ loadHistoricalBatch tests/unit/phase3bb-amendments.ts:96:13
+     94|     const header = data.subarray(offset, end).toString().split(" ");
+     95|     if (header[1] !== "blob")
+     96|       throw Error("Missing preserved blob: " + row.path);
+       |             ^
+     97|     const size = Number(header[2]);
+     98|     const bytes = data.subarray(end + 1, end + 1 + size);
+ ❯ readPreservedBytes tests/unit/phase3bb-amendments.ts:116:30
+ ❯ digest tests/unit/characters/studio.test.ts:37:31
+ ❯ tests/unit/characters/studio.test.ts:102:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+ FAIL  tests/unit/characters/walk-front-hotfix.test.ts > authorized walk-front-only hotfix > protects every frozen file outside the64 authorized walk-front cells and8 atlas containers
+Error: Command failed: python3 tools/phase3a/protected.py
+fatal: path 'assets-src/characters/phase2c/catalog.json' exists on disk, but not in 'ddd52849566fb3c1734570d6ff8562fbf7ef4026'
+Traceback (most recent call last):
+  File "/workspace/roadmap-v4/tools/phase3a/protected.py", line 9, in <module>
+    if hashlib.sha256(historical_bytes(p,h)).hexdigest()!=h:bad.append(p)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/roadmap-v4/tools/phase3bb/amendments.py", line 75, in historical_bytes
+    old=subprocess.check_output(['git','show',q['base']+':'+name],cwd=R)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', 'ddd52849566fb3c1734570d6ff8562fbf7ef4026:assets-src/characters/phase2c/catalog.json']' returned non-zero exit status 128.
+
+ ❯ tests/unit/characters/walk-front-hotfix.test.ts:13:5
+     11| describe("authorized walk-front-only hotfix", () => {
+     12|   it("protects every frozen file outside the64 authorized walk-front c…
+     13|     execFileSync("python3", ["tools/phase3a/protected.py"]);
+       |     ^
+     14|     const protectedResult = json("docs/phase3a/protected-audit.json");
+     15|     expect(protectedResult.status).toBe("PASS");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/7]⎯
+
+ FAIL  tests/unit/npcs/identity.test.ts > approved26NPC identity and rights separation > keeps all26source packs,world,players and cosmetic assets byte-identical to human-approved review
+Error: Missing preserved blob: public/assets/v10-city/academy-front-east.png
+ ❯ loadHistoricalBatch tests/unit/phase3bb-amendments.ts:96:13
+     94|     const header = data.subarray(offset, end).toString().split(" ");
+     95|     if (header[1] !== "blob")
+     96|       throw Error("Missing preserved blob: " + row.path);
+       |             ^
+     97|     const size = Number(header[2]);
+     98|     const bytes = data.subarray(end + 1, end + 1 + size);
+ ❯ readPreservedBytes tests/unit/phase3bb-amendments.ts:116:30
+ ❯ tests/unit/npcs/identity.test.ts:34:37
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/7]⎯
+
+
+ Test Files  6 failed | 27 passed (33)
+      Tests  7 failed | 222 passed (229)
+   Start at  03:51:23
+   Duration  13.30s (tests 43%, transform 30%, import 27%, worker 1%)
+
+    Isolate  33 workers spawned · ~272ms startup each (spawn + environment, per file)
+             at least ~2.72s faster with isolate: false — reuses workers across files instead of one per file
+

@@ -1,0 +1,84 @@
+
+> hangeul-pixel-town@3.1.0 test
+> vitest run
+
+
+ RUN  v5.0.4 /workspace/roadmap-v4
+
+ ❯ tests/unit/characters/studio.test.ts (0 test)
+ ❯ tests/unit/npcs/identity.test.ts (0 test)
+ ❯ tests/unit/characters/phase2b.test.ts (0 test)
+ ❯ tests/unit/characters/motion-correction.test.ts (0 test)
+ ❯ tests/unit/characters/walk-front-hotfix.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/npcs/identity.test.ts [ tests/unit/npcs/identity.test.ts ]
+Error: Cannot find module '../../docs/roadmap-v4/AUTHORIZED_AMENDMENTS.json' imported from /workspace/roadmap-v4/tests/unit/phase3bb-amendments.ts
+ ❯ tests/unit/phase3bb-amendments.ts:2:1
+      1| import roadmapV2 from "../../docs/roadmap-v2/AUTHORIZED_AMENDMENTS.jso…
+      2| import roadmapV4 from "../../docs/roadmap-v4/AUTHORIZED_AMENDMENTS.jso…
+       | ^
+      3| import quality from "../../docs/phase3bd-final-quality/AUTHORIZED_AMEN…
+      4| import hotfix from "../../docs/phase3bd-farm-path/AUTHORIZED_AMENDMENT…
+ ❯ tests/unit/npcs/identity.test.ts:1:1
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  tests/unit/characters/motion-correction.test.ts [ tests/unit/characters/motion-correction.test.ts ]
+Error: Cannot find module '../../docs/roadmap-v4/AUTHORIZED_AMENDMENTS.json' imported from /workspace/roadmap-v4/tests/unit/phase3bb-amendments.ts
+ ❯ tests/unit/phase3bb-amendments.ts:2:1
+      1| import roadmapV2 from "../../docs/roadmap-v2/AUTHORIZED_AMENDMENTS.jso…
+      2| import roadmapV4 from "../../docs/roadmap-v4/AUTHORIZED_AMENDMENTS.jso…
+       | ^
+      3| import quality from "../../docs/phase3bd-final-quality/AUTHORIZED_AMEN…
+      4| import hotfix from "../../docs/phase3bd-farm-path/AUTHORIZED_AMENDMENT…
+ ❯ tests/unit/characters/motion-correction.test.ts:1:1
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  tests/unit/characters/phase2b.test.ts [ tests/unit/characters/phase2b.test.ts ]
+Error: Cannot find module '../../docs/roadmap-v4/AUTHORIZED_AMENDMENTS.json' imported from /workspace/roadmap-v4/tests/unit/phase3bb-amendments.ts
+ ❯ tests/unit/phase3bb-amendments.ts:2:1
+      1| import roadmapV2 from "../../docs/roadmap-v2/AUTHORIZED_AMENDMENTS.jso…
+      2| import roadmapV4 from "../../docs/roadmap-v4/AUTHORIZED_AMENDMENTS.jso…
+       | ^
+      3| import quality from "../../docs/phase3bd-final-quality/AUTHORIZED_AMEN…
+      4| import hotfix from "../../docs/phase3bd-farm-path/AUTHORIZED_AMENDMENT…
+ ❯ tests/unit/characters/phase2b.test.ts:1:1
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  tests/unit/characters/studio.test.ts [ tests/unit/characters/studio.test.ts ]
+Error: Cannot find module '../../docs/roadmap-v4/AUTHORIZED_AMENDMENTS.json' imported from /workspace/roadmap-v4/tests/unit/phase3bb-amendments.ts
+ ❯ tests/unit/phase3bb-amendments.ts:2:1
+      1| import roadmapV2 from "../../docs/roadmap-v2/AUTHORIZED_AMENDMENTS.jso…
+      2| import roadmapV4 from "../../docs/roadmap-v4/AUTHORIZED_AMENDMENTS.jso…
+       | ^
+      3| import quality from "../../docs/phase3bd-final-quality/AUTHORIZED_AMEN…
+      4| import hotfix from "../../docs/phase3bd-farm-path/AUTHORIZED_AMENDMENT…
+ ❯ tests/unit/characters/studio.test.ts:1:1
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  tests/unit/characters/walk-front-hotfix.test.ts [ tests/unit/characters/walk-front-hotfix.test.ts ]
+Error: Cannot find module '../../docs/roadmap-v4/AUTHORIZED_AMENDMENTS.json' imported from /workspace/roadmap-v4/tests/unit/phase3bb-amendments.ts
+ ❯ tests/unit/phase3bb-amendments.ts:2:1
+      1| import roadmapV2 from "../../docs/roadmap-v2/AUTHORIZED_AMENDMENTS.jso…
+      2| import roadmapV4 from "../../docs/roadmap-v4/AUTHORIZED_AMENDMENTS.jso…
+       | ^
+      3| import quality from "../../docs/phase3bd-final-quality/AUTHORIZED_AMEN…
+      4| import hotfix from "../../docs/phase3bd-farm-path/AUTHORIZED_AMENDMENT…
+ ❯ tests/unit/characters/walk-front-hotfix.test.ts:1:1
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  5 failed | 28 passed (33)
+      Tests  171 passed (171)
+   Start at  03:53:28
+   Duration  6.17s (tests 44%, import 42%, transform 11%, worker 3%)
+
+    Isolate  33 workers spawned · ~244ms startup each (spawn + environment, per file)
+             at least ~2.44s faster with isolate: false — reuses workers across files instead of one per file
+

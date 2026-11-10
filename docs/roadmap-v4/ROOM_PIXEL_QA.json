@@ -1,0 +1,783 @@
+{
+  "status": "warn",
+  "method": "pixel_qa.py: every input PNG is loaded as 8-bit RGBA and measured with codeart_core.qa_pixels (alpha census, exact palette lookup, 4-neighbour outline gaps and L-corners against codeart_core.QA_PIXEL_GATES); optional codeart_core.detect_grid, an anchor bounds check and forge_core.seam_report on the frame loop; each check is valued at the worst frame",
+  "notProven": [
+    "Readability, silhouette and appeal at game scale; look at the review sheet.",
+    "Motion quality, timing and spacing; the onion row and loop seam only flag symptoms.",
+    "That the frames share a registered root; the anchor is only checked to lie inside each canvas.",
+    "Palette conformance: no --palette was given.",
+    "Outline continuity and L-corners: no --outline colour was given."
+  ],
+  "checks": [
+    {
+      "id": "partial_alpha",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "off_palette",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "outline_gaps",
+      "status": "skipped",
+      "value": null,
+      "threshold": 0
+    },
+    {
+      "id": "l_corners",
+      "status": "skipped",
+      "value": null,
+      "threshold": 10
+    },
+    {
+      "id": "same_size",
+      "status": "warn",
+      "value": [
+        [
+          40,
+          40
+        ],
+        [
+          48,
+          48
+        ],
+        [
+          48,
+          56
+        ],
+        [
+          48,
+          88
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          80,
+          144
+        ],
+        [
+          96,
+          88
+        ],
+        [
+          96,
+          136
+        ],
+        [
+          112,
+          80
+        ],
+        [
+          112,
+          112
+        ],
+        [
+          112,
+          128
+        ],
+        [
+          128,
+          88
+        ],
+        [
+          128,
+          112
+        ],
+        [
+          128,
+          144
+        ],
+        [
+          160,
+          128
+        ],
+        [
+          192,
+          88
+        ],
+        [
+          224,
+          88
+        ],
+        [
+          640,
+          544
+        ],
+        [
+          704,
+          480
+        ],
+        [
+          704,
+          512
+        ]
+      ],
+      "threshold": "one canvas size"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/book-desk.png",
+      "sha256": "82d802bfa757a0a0285ee830086a27d9b149e445defb69010fbe3be78c5231ce",
+      "bytes": 748
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/book-stack.png",
+      "sha256": "d600ff23deb28ae4e94d238abe5b93d854c01d65eacd98ece85262c8dc11186d",
+      "bytes": 405
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/bookshelf.png",
+      "sha256": "371ac53423fd486163561f5523a263ca4d852aea49d4380ea2141f2d76be4079",
+      "bytes": 1314
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/bookshop-ground.png",
+      "sha256": "9f5ee53e63f6b9f6418bd243805144afa86ee5cbd0298e57fb9e1b25156f9158",
+      "bytes": 10689
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/counter-side.png",
+      "sha256": "df9aa1deb42b236dd74657b6375efa9f632e990b0b4a39a3b4de95cb3b81f980",
+      "bytes": 683
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/counter.png",
+      "sha256": "c883ee4ed4478331f5d88fe30f9502e4d7972ba92445cb4a2cb9086d05b091c4",
+      "bytes": 794
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/fragment.png",
+      "sha256": "c8cb2d78f168d224827622fc13d14e7bc25659b4fcc6dda2d65cbf321d31599c",
+      "bytes": 253
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/lamp.png",
+      "sha256": "daa0e28789ee979736ad2ee40f6f913d5d28d8a03e7a5a73de470c5f1151295b",
+      "bytes": 530
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/library-window.png",
+      "sha256": "8479c05c6778ee2953227e47b5e05091c9eb8868a918a19294acad96a8d050c5",
+      "bytes": 943
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/market-window.png",
+      "sha256": "0ed64e44982638cf9790b3fa2ca289e179c193e96b2327be4f71888c299fb4f5",
+      "bytes": 847
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/notice-board.png",
+      "sha256": "651b060f01e40e42ae47d6b9313be150c59dde8b67c989118e162840849c3fb9",
+      "bytes": 812
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/notice-restored.png",
+      "sha256": "da838e622969f6ae4259d16290a754c674b3737c929ec6d14d41da2332e34a3e",
+      "bytes": 823
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/packing-table.png",
+      "sha256": "b09b4acfb3d07a90347a75a2cfebdaba00c11a2cac89a7abd5bd3161e7aaca07",
+      "bytes": 755
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/parcel.png",
+      "sha256": "71d3bd56572713e985613ace1e735d3587f7f757d946d0509ea4a4d53bebc8a9",
+      "bytes": 392
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/reading-table.png",
+      "sha256": "82d802bfa757a0a0285ee830086a27d9b149e445defb69010fbe3be78c5231ce",
+      "bytes": 748
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/rune-board.png",
+      "sha256": "907316039fa8c329fa00449bd388edbcdb0b737e186f0837bb772799d5fec14d",
+      "bytes": 673
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/seed-crates.png",
+      "sha256": "56056bbcd573956e67c23224733abfce03e60d3261b7c286a681d09c421df2fb",
+      "bytes": 632
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/seed-rack.png",
+      "sha256": "0cbee5ff6f9ef58a84bdef97ef9fe16456f5db5d7937b0c0c3a95101a6e274e6",
+      "bytes": 960
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/seed-shop-ground.png",
+      "sha256": "11233d183664303cc9a60cb37ecbf35095eeb2414cb3860d8fbb4cf96e77ef6d",
+      "bytes": 8918
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/stool.png",
+      "sha256": "def32c232fe0b27717515322d61a14e13604029d2fe2ffc0f224b88fb867ee65",
+      "bytes": 466
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/tool-rack.png",
+      "sha256": "126e6610660ec265cee3515171ce49364270e1b50cbd76118024c3a61d4c9d5a",
+      "bytes": 953
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/tool-stand.png",
+      "sha256": "5c18f6c31904aa9884dcdaf5aebcc9ccef05827821c2d3bb0e161dff7704bb49",
+      "bytes": 794
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/workbench.png",
+      "sha256": "d00924b0e03884376f46465732f53c2378b294a6ac6ee79424719f5531e26a25",
+      "bytes": 894
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/workshop-ground.png",
+      "sha256": "9d5b450085faab928627a7a5479bce2c7a4fa15e131d575fa7b0cafe16921d83",
+      "bytes": 8817
+    },
+    {
+      "path": "../../assets-src/roadmap-v4/rooms/workshop-vent.png",
+      "sha256": "798d48039a862e8b227cd5af690790992921c620c60954555015814ab3a7ff34",
+      "bytes": 536
+    }
+  ],
+  "outputs": [],
+  "tool": {
+    "name": "pixel_qa.py",
+    "version": "0.4.0"
+  },
+  "frames": [
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/book-desk.png",
+      "size": [
+        128,
+        88
+      ],
+      "source_mode": "RGBA",
+      "visible": 7661,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 9,
+      "orphans": 3,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        1,
+        19,
+        128,
+        88
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/book-stack.png",
+      "size": [
+        64,
+        64
+      ],
+      "source_mode": "RGBA",
+      "visible": 1775,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 6,
+      "orphans": 0,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        1,
+        21,
+        64,
+        64
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/bookshelf.png",
+      "size": [
+        128,
+        144
+      ],
+      "source_mode": "RGBA",
+      "visible": 16494,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 10,
+      "orphans": 3,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        1,
+        2,
+        128,
+        144
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/bookshop-ground.png",
+      "size": [
+        640,
+        544
+      ],
+      "source_mode": "RGBA",
+      "visible": 348160,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 15,
+      "orphans": 0,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        0,
+        0,
+        640,
+        544
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/counter-side.png",
+      "size": [
+        80,
+        144
+      ],
+      "source_mode": "RGBA",
+      "visible": 8627,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 1,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        1,
+        6,
+        80,
+        144
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/counter.png",
+      "size": [
+        192,
+        88
+      ],
+      "source_mode": "RGBA",
+      "visible": 12365,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 10,
+      "orphans": 2,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        1,
+        11,
+        192,
+        88
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/fragment.png",
+      "size": [
+        40,
+        40
+      ],
+      "source_mode": "RGBA",
+      "visible": 671,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 2,
+      "orphans": 0,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        6,
+        5,
+        35,
+        34
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/lamp.png",
+      "size": [
+        48,
+        88
+      ],
+      "source_mode": "RGBA",
+      "visible": 1525,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 5,
+      "orphans": 0,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        1,
+        9,
+        48,
+        88
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/library-window.png",
+      "size": [
+        96,
+        136
+      ],
+      "source_mode": "RGBA",
+      "visible": 11334,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 11,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        1,
+        3,
+        94,
+        131
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/market-window.png",
+      "size": [
+        112,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 10886,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 6,
+      "orphans": 9,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        1,
+        3,
+        110,
+        107
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/notice-board.png",
+      "size": [
+        128,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 12748,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 8,
+      "orphans": 0,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        1,
+        4,
+        128,
+        112
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/notice-restored.png",
+      "size": [
+        128,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 12748,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 9,
+      "orphans": 0,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        1,
+        4,
+        128,
+        112
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/packing-table.png",
+      "size": [
+        128,
+        88
+      ],
+      "source_mode": "RGBA",
+      "visible": 7949,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 10,
+      "orphans": 2,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        1,
+        11,
+        128,
+        88
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/parcel.png",
+      "size": [
+        48,
+        48
+      ],
+      "source_mode": "RGBA",
+      "visible": 1309,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 6,
+      "orphans": 0,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        1,
+        13,
+        48,
+        48
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/reading-table.png",
+      "size": [
+        128,
+        88
+      ],
+      "source_mode": "RGBA",
+      "visible": 7661,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 9,
+      "orphans": 3,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        1,
+        19,
+        128,
+        88
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/rune-board.png",
+      "size": [
+        112,
+        112
+      ],
+      "source_mode": "RGBA",
+      "visible": 11020,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 0,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        1,
+        4,
+        112,
+        112
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/seed-crates.png",
+      "size": [
+        112,
+        80
+      ],
+      "source_mode": "RGBA",
+      "visible": 5941,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 0,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        1,
+        17,
+        112,
+        80
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/seed-rack.png",
+      "size": [
+        112,
+        128
+      ],
+      "source_mode": "RGBA",
+      "visible": 12622,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 9,
+      "orphans": 3,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        1,
+        2,
+        112,
+        128
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/seed-shop-ground.png",
+      "size": [
+        704,
+        512
+      ],
+      "source_mode": "RGBA",
+      "visible": 360448,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 11,
+      "orphans": 0,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        0,
+        0,
+        704,
+        512
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/stool.png",
+      "size": [
+        48,
+        56
+      ],
+      "source_mode": "RGBA",
+      "visible": 1162,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 5,
+      "orphans": 2,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        1,
+        9,
+        48,
+        56
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/tool-rack.png",
+      "size": [
+        160,
+        128
+      ],
+      "source_mode": "RGBA",
+      "visible": 18096,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 9,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        2,
+        6,
+        158,
+        122
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/tool-stand.png",
+      "size": [
+        96,
+        88
+      ],
+      "source_mode": "RGBA",
+      "visible": 5646,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 8,
+      "orphans": 2,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        1,
+        10,
+        96,
+        88
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/workbench.png",
+      "size": [
+        224,
+        88
+      ],
+      "source_mode": "RGBA",
+      "visible": 14478,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 8,
+      "orphans": 2,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        1,
+        10,
+        224,
+        88
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/workshop-ground.png",
+      "size": [
+        704,
+        480
+      ],
+      "source_mode": "RGBA",
+      "visible": 337920,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 12,
+      "orphans": 0,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        0,
+        0,
+        704,
+        480
+      ]
+    },
+    {
+      "file": "../../assets-src/roadmap-v4/rooms/workshop-vent.png",
+      "size": [
+        128,
+        88
+      ],
+      "source_mode": "RGBA",
+      "visible": 8784,
+      "partial_alpha": 0,
+      "off_palette": null,
+      "colors": 7,
+      "orphans": 0,
+      "l_corners": null,
+      "outline_gaps": null,
+      "bbox": [
+        3,
+        8,
+        125,
+        80
+      ]
+    }
+  ]
+}

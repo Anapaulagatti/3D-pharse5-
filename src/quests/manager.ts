@@ -16,6 +16,8 @@ import {
 } from "../economy/catalog";
 import {
   LocalLearningProgress,
+  questAvailable,
+  discoveryPoints,
   quests,
   type LearningProgressAdapter,
 } from "./content";
@@ -34,23 +36,37 @@ export interface QuestRecord {
   boundPlot?: string;
   collected?: string[];
 }
+export interface QuestTrace {
+  kind: string;
+  at: number;
+  detail: Record<string, string | number>;
+}
 export interface QuestSave {
   schemaVersion: 1;
+  storySchema?: 1;
   records: Record<string, QuestRecord>;
   inventory: Record<string, number>;
   coins: number;
   xp: number;
   transactions: string[];
   economy: EconomyState;
+  discoveries?: Record<string, number>;
+  trackedQuest?: string;
+  hints?: boolean;
+  trace?: QuestTrace[];
 }
 const fresh = (): QuestSave => ({
   schemaVersion: 1,
+  storySchema: 1,
   records: {},
   inventory: {},
   coins: 0,
   xp: 0,
   transactions: [],
   economy: freshEconomy(),
+  discoveries: {},
+  hints: true,
+  trace: [],
 });
 const integer = (v: unknown): v is number =>
   Number.isSafeInteger(v) && Number(v) >= 0 && Number(v) <= 1000000;
@@ -61,6 +77,7 @@ export class QuestManager {
   migrationNotice = "";
   private lastRaw: string | null = null;
   private migrationBackupNeeded = false;
+  private storyBackupRaw?: string;
   constructor(
     private storage?: Pick<Storage, "getItem" | "setItem">,
     readonly learning: LearningProgressAdapter = new LocalLearningProgress(),
@@ -101,7 +118,7 @@ export class QuestManager {
         )
           throw Error("invalid receipt");
       }
-      for (const def of quests.filter((q) => q.topic === "orchard")) {
+      for (const def of quests.filter((q) => q.id === "jeju-orchard-v1")) {
         const r = v.records[def.id];
         if (!r) continue;
         r.collected ??= def.steps.slice(0, r.step).map((s) => s.id);
@@ -144,6 +161,28 @@ export class QuestManager {
             "Hướng dẫn cũ chuyển sang luống thật; xu và phần thưởng đã nhận vẫn giữ nguyên.";
         }
       }
+      if (v.storySchema !== undefined && v.storySchema !== 1)
+        throw Error("unknown story schema");
+      if (v.storySchema === undefined) this.storyBackupRaw = raw;
+      v.storySchema = 1;
+      v.discoveries ??= {};
+      v.hints ??= true;
+      v.trace ??= [];
+      if (
+        typeof v.hints !== "boolean" ||
+        typeof v.discoveries !== "object" ||
+        !Array.isArray(v.trace) ||
+        v.trace.length > 128 ||
+        Object.entries(v.discoveries).some(
+          ([id, t]) =>
+            !discoveryPoints.some((p) => p.id === id) ||
+            !Number.isFinite(t) ||
+            t < 0,
+        )
+      )
+        throw Error("invalid discovery state");
+      if (v.trackedQuest && !quests.some((q) => q.id === v.trackedQuest))
+        delete v.trackedQuest;
       v.economy ??= freshEconomy();
       v.economy.interactionSchema = 2;
       if (
@@ -290,7 +329,16 @@ export class QuestManager {
           QUEST_STORAGE_KEY + ":backup:roadmap-v2",
           this.lastRaw,
         );
+      if (
+        this.storyBackupRaw &&
+        !this.storage?.getItem(QUEST_STORAGE_KEY + ":backup:roadmap-v4")
+      )
+        this.storage?.setItem(
+          QUEST_STORAGE_KEY + ":backup:roadmap-v4",
+          this.storyBackupRaw,
+        );
       this.storage?.setItem(QUEST_STORAGE_KEY, serialized);
+      this.storyBackupRaw = undefined;
       this.migrationBackupNeeded = false;
     } catch {
       this.storageWarning =
@@ -329,18 +377,20 @@ export class QuestManager {
     const def = quests.find((q) => q.id === id && q.giver === npcId);
     if (!def) return false;
     return this.commit((s) => {
-      if (
-        def.prerequisite &&
-        s.records[def.prerequisite]?.status !== "completed"
-      )
-        return false;
+      if (!questAvailable(def, s.records)) return false;
       if (s.records[id]) return false;
       s.records[id] = { status: "active", step: 0, attempts: 0 };
       if (def.id === "farm-radish-harvest-v1")
         s.inventory["seed-radish"] = (s.inventory["seed-radish"] ?? 0) + 1;
       if (def.id === "farm-first-seed-v1")
         s.inventory["seed-radish"] = (s.inventory["seed-radish"] ?? 0) + 1;
-      if (def.recipient) s.inventory.parcel = (s.inventory.parcel ?? 0) + 1;
+      if (def.recipient) {
+        const item = def.deliveryItem ?? "parcel";
+        s.inventory[item] = (s.inventory[item] ?? 0) + 1;
+      }
+      s.trackedQuest ??= id;
+      this.replayDiscoveries(s);
+      this.trace(s, "quest:accept", { quest: id, npc: npcId });
       return true;
     });
   }
@@ -389,6 +439,12 @@ export class QuestManager {
         s.inventory.tangerine = (s.inventory.tangerine ?? 0) + 1;
       }
       s.records[id].step++;
+      this.trace(s, "world:collect", {
+        quest: id,
+        action,
+        x: position[0],
+        y: position[1],
+      });
       return true;
     });
   }
@@ -404,15 +460,24 @@ export class QuestManager {
     )
       return false;
     return this.commit((s) => {
+      if (
+        def.consumeOnReturn &&
+        (s.inventory[def.consumeOnReturn.item] ?? 0) < def.consumeOnReturn.count
+      )
+        return false;
       if (def.recipient) {
-        if (!(s.inventory.parcel > 0)) return false;
-        s.inventory.parcel--;
+        const item = def.deliveryItem ?? "parcel";
+        if (!(s.inventory[item] > 0)) return false;
+        s.inventory[item]--;
       }
-      if (def.topic === "orchard") {
+      if (def.consumeOnReturn)
+        s.inventory[def.consumeOnReturn.item] -= def.consumeOnReturn.count;
+      if (def.id === "jeju-orchard-v1") {
         if ((s.inventory.tangerine ?? 0) < 3) return false;
         s.inventory.tangerine -= 3;
       }
       s.records[id].status = "challenge";
+      this.trace(s, "quest:report", { quest: id, npc: npcId });
       return true;
     });
   }
@@ -423,6 +488,11 @@ export class QuestManager {
     crop?: string,
     plotId?: string,
   ) {
+    this.trace(s, "world:" + event, {
+      item: item ?? "",
+      crop: crop ?? "",
+      plot: plotId ?? "",
+    });
     for (const def of quests) {
       const r = s.records[def.id];
       const objective = def.economyObjectives?.[r?.step ?? -1];
@@ -438,6 +508,7 @@ export class QuestManager {
       if (plotId && !r.boundPlot) r.boundPlot = plotId;
       r.step++;
     }
+    this.replayDiscoveries(s);
   }
   farmAction(
     plotId: string,
@@ -604,6 +675,73 @@ export class QuestManager {
       return true;
     });
   }
+  private trace(
+    s: QuestSave,
+    kind: string,
+    detail: Record<string, string | number>,
+  ) {
+    s.trace = [...(s.trace ?? []), { kind, at: Date.now(), detail }].slice(
+      -128,
+    );
+  }
+  private replayDiscoveries(s: QuestSave) {
+    for (const def of quests) {
+      const r = s.records[def.id];
+      if (r?.status !== "active") continue;
+      while (r.step < def.steps.length) {
+        const o = def.economyObjectives?.[r.step];
+        if (
+          o?.event !== "visit" ||
+          !o.item ||
+          s.discoveries?.[o.item] === undefined
+        )
+          break;
+        r.step++;
+      }
+    }
+  }
+  observeWorld(
+    player: readonly [number, number],
+    ground: (x: number, y: number) => boolean,
+  ) {
+    const found = discoveryPoints.filter(
+      (p) =>
+        this.value.discoveries?.[p.id] === undefined &&
+        nearGround(player, p.point, ground, 44),
+    );
+    if (!found.length) return false;
+    return this.commit((s) => {
+      s.discoveries ??= {};
+      for (const p of found) {
+        s.discoveries[p.id] = Date.now();
+        this.trace(s, "world:visit", {
+          event: p.id,
+          x: player[0],
+          y: player[1],
+        });
+      }
+      this.replayDiscoveries(s);
+      return true;
+    });
+  }
+  trackQuest(id: string) {
+    if (
+      !quests.some((q) => q.id === id) ||
+      !this.value.records[id] ||
+      this.value.records[id].status === "completed"
+    )
+      return false;
+    return this.commit((s) => {
+      s.trackedQuest = id;
+      return true;
+    });
+  }
+  toggleHints() {
+    return this.commit((s) => {
+      s.hints = s.hints === false;
+      return true;
+    });
+  }
   question(id: string) {
     const def = quests.find((q) => q.id === id),
       r = this.value.records[id];
@@ -661,6 +799,11 @@ export class QuestManager {
       return { result: "invalid", explanation: "Câu hỏi đã thay đổi." };
     const correct = choice === q.correct;
     const saved = this.commit((s) => {
+      this.trace(s, "assessment:" + (correct ? "correct" : "incorrect"), {
+        quest: id,
+        item: q.id,
+        direction: q.direction,
+      });
       if (!correct) {
         s.records[id].attempts++;
         return true;
