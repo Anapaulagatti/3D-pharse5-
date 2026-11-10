@@ -123,7 +123,15 @@ export class QuestUI {
     document.addEventListener(
       "keydown",
       (e) => {
-        if (e.repeat || e.ctrlKey || e.metaKey || e.altKey) return;
+        if (
+          e.repeat ||
+          e.isComposing ||
+          e.keyCode === 229 ||
+          e.ctrlKey ||
+          e.metaKey ||
+          e.altKey
+        )
+          return;
         if (this.dialog.open) {
           if (e.key === "Escape") {
             e.preventDefault();
@@ -504,7 +512,9 @@ export class QuestUI {
     if (!question) return;
     const prompt = this.text("p", question.prompt);
     prompt.dataset.question = question.id;
-    prompt.lang = "ko";
+    prompt.lang = "vi";
+    box.dataset.answerLanguage = "ko";
+    box.dataset.learningDirection = question.direction;
     prompt.className = "korean-prompt";
     box.append(prompt);
     const answers = document.createElement("div");
@@ -530,9 +540,48 @@ export class QuestUI {
         this.render();
       });
       b.dataset.answer = String(i);
+      b.lang = "ko";
       answers.append(b);
     });
     box.append(answers);
+    const label = this.text("label", "Hoặc nhập bằng Hangul · 한글로 답하세요");
+    const input = document.createElement("input");
+    input.type = "text";
+    input.lang = "ko";
+    input.maxLength = 160;
+    input.autocomplete = "off";
+    input.spellcheck = false;
+    input.dataset.hangulInput = question.id;
+    input.setAttribute("aria-label", "Nhập đáp án bằng tiếng Hàn");
+    input.placeholder = "한글로 입력…";
+    label.append(input);
+    const submit = () => {
+      const c = this.context();
+      if (!c) return;
+      const result = this.manager.answerTextInWorld(
+        q.id,
+        question.id,
+        input.value,
+        c,
+      );
+      this.message =
+        result.result === "correct"
+          ? `Đúng rồi! +${q.reward.coins} xu. ${result.explanation}`
+          : result.result === "incorrect"
+            ? `Chưa đúng. ${result.explanation} Thử câu Hangul cùng cấp nhé.`
+            : result.explanation;
+      this.render();
+    };
+    const typed = this.button("Trả lời bằng Hangul · 답하기", submit);
+    typed.dataset.hangulSubmit = question.id;
+    input.addEventListener("keydown", (e) => {
+      if (e.isComposing || e.keyCode === 229) return;
+      if (e.key === "Enter") {
+        e.preventDefault();
+        submit();
+      }
+    });
+    box.append(label, typed);
   }
   private renderInventory() {
     const s = this.manager.snapshot(),

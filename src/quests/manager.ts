@@ -1,3 +1,4 @@
+import { isCorrectHangul } from "./learning";
 import {
   crops,
   cropUnlocked,
@@ -606,10 +607,45 @@ export class QuestManager {
   question(id: string) {
     const def = quests.find((q) => q.id === id),
       r = this.value.records[id];
-    const pool = def && this.learning.questions(def.topic);
+    const pool =
+      def &&
+      this.learning
+        .questions(def.topic)
+        .filter((q) => q.answerLanguage === "ko" && q.grade === "basic");
     return r?.status === "challenge" && pool?.length
       ? pool[r.attempts % pool.length]
       : undefined;
+  }
+  answerTextInWorld(
+    id: string,
+    questionId: string,
+    value: string,
+    c: InteractionContext,
+  ) {
+    const def = quests.find((q) => q.id === id);
+    return def && this.validContext(id, def.recipient ?? def.giver, c)
+      ? this.answerText(id, questionId, value)
+      : { result: "invalid", explanation: "Hãy trở lại người bạn để trả lời." };
+  }
+  answerText(id: string, questionId: string, value: string) {
+    const q = this.question(id);
+    if (
+      !q ||
+      q.id !== questionId ||
+      typeof value !== "string" ||
+      value.length > 160
+    )
+      return {
+        result: "invalid",
+        explanation: "Câu hỏi đã thay đổi hoặc câu trả lời quá dài.",
+      };
+    return this.answer(
+      id,
+      questionId,
+      isCorrectHangul(q, value)
+        ? q.correct
+        : (q.correct + 1) % q.options.length,
+    );
   }
   answer(id: string, questionId: string, choice: number) {
     const q = this.question(id),
